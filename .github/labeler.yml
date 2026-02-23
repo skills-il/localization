@@ -1,0 +1,7 @@
+hebrew-rtl-best-practices:
+  - changed-files:
+    - any-glob-to-any-file: 'hebrew-rtl-best-practices/**'
+
+hebrew-nlp-toolkit:
+  - changed-files:
+    - any-glob-to-any-file: 'hebrew-nlp-toolkit/**'
