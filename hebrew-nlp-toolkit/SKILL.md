@@ -4,18 +4,39 @@ description: >-
   Guide developers in using Hebrew NLP models and tools including DictaLM,
   DictaBERT, AlephBERT, and ivrit.ai. Use when user asks about Hebrew text
   processing, Hebrew NLP, "ivrit", Hebrew tokenization, Hebrew NER, Hebrew
-  sentiment analysis, Hebrew speech-to-text, or needs to process Hebrew
-  language text programmatically. Covers model selection, preprocessing,
-  and Hebrew-specific NLP challenges. Do NOT use for Arabic NLP (different
-  tools) or general English NLP tasks.
+  sentiment analysis, Hebrew speech-to-text, or needs to process Hebrew language
+  text programmatically. Covers model selection, preprocessing, and
+  Hebrew-specific NLP challenges. Do NOT use for Arabic NLP (different tools) or
+  general English NLP tasks.
 license: MIT
-allowed-tools: "Bash(python:*) Bash(pip:*)"
-compatibility: "Requires Python and transformers library for model usage. GPU recommended for large models."
+allowed-tools: 'Bash(python:*) Bash(pip:*)'
+compatibility: >-
+  Requires Python and transformers library for model usage. GPU recommended for
+  large models.
 metadata:
   author: skills-il
   version: 1.0.0
   category: localization
-  tags: [nlp, hebrew, dictalm, dictabert, ivrit-ai, machine-learning]
+  tags:
+    - nlp
+    - hebrew
+    - dictalm
+    - dictabert
+    - ivrit-ai
+    - machine-learning
+  display_name:
+    he: ערכת כלי NLP לעברית
+    en: Hebrew Nlp Toolkit
+  display_description:
+    he: 'עיבוד שפה טבעית בעברית — ניתוח מורפולוגי, זיהוי ישויות ועוד'
+    en: >-
+      Guide developers in using Hebrew NLP models and tools including DictaLM,
+      DictaBERT, AlephBERT, and ivrit.ai. Use when user asks about Hebrew text
+      processing, Hebrew NLP, "ivrit", Hebrew tokenization, Hebrew NER, Hebrew
+      sentiment analysis, Hebrew speech-to-text, or needs to process Hebrew
+      language text programmatically. Covers model selection, preprocessing, and
+      Hebrew-specific NLP challenges. Do NOT use for Arabic NLP (different
+      tools) or general English NLP tasks.
 ---
 
 # Hebrew NLP Toolkit
