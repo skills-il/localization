@@ -118,6 +118,15 @@ Result: Set up batch pipeline -- preprocess each image, OCR with Hebrew+English,
 User says: "The OCR isn't reading the Hebrew text correctly"
 Result: Diagnose preprocessing -- check image resolution (recommend 300 DPI minimum), verify deskewing, adjust binarization threshold, try different PSM modes, check Hebrew language pack installation.
 
+## Bundled Resources
+
+### Scripts
+- `scripts/preprocess_image.py` — Prepare scanned Israeli form images for OCR: grayscale conversion, deskewing rotated scans, adaptive binarization for uneven lighting, morphological noise removal, optional CLAHE contrast enhancement, and border removal. Run: `python scripts/preprocess_image.py --help`
+- `scripts/extract_form_fields.py` — Run Tesseract Hebrew OCR on preprocessed form images and extract structured fields by form type. Supports auto-detection of Tabu, Tofes 106, and other Israeli government forms. Outputs JSON with extracted fields and Israeli ID validation. Run: `python scripts/extract_form_fields.py --help`
+
+### References
+- `references/israeli-form-types.md` — Detailed catalog of Israeli government form types (Tabu/land registry, Tax Authority forms, Bituach Leumi documents) with field descriptions, regex extraction patterns, ID validation rules, date/currency formats, and OCR tips per form layout. Consult when identifying an unknown form or building field extraction logic for a specific document type.
+
 ## Troubleshooting
 
 ### Error: "Tesseract Hebrew language pack not found"

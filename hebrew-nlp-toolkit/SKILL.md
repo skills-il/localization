@@ -102,6 +102,14 @@ Result: Guide to use DictaBERT-Sentiment with fine-tuning on domain data.
 User says: "Extract company and person names from Hebrew articles"
 Result: Use DictaBERT-NER model, demonstrate with example text.
 
+## Bundled Resources
+
+### Scripts
+- `scripts/preprocess_hebrew.py` — Normalize Hebrew text before feeding it to NLP models (DictaBERT, DictaLM, AlephBERT). Handles Unicode NFC normalization, niqqud removal, whitespace cleanup, URL stripping, shekel symbol normalization, and mixed Hebrew-English text segmentation. Run: `python scripts/preprocess_hebrew.py --help`
+
+### References
+- `references/model-comparison.md` — Side-by-side comparison of Hebrew NLP models (DictaLM 3.0, DictaBERT, AlephBERT, ivrit.ai Whisper, Hebrew-Gemma) with VRAM requirements, HuggingFace IDs, and a task-to-model mapping table. Consult when choosing which model to use for a specific Hebrew NLP task.
+
 ## Troubleshooting
 
 ### Error: "Tokenization produces unexpected results"

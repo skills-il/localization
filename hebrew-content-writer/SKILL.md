@@ -125,6 +125,11 @@ Result: Research Hebrew keywords, write structured article with proper H2/H3 hie
 User says: "Make this Hebrew text gender-inclusive"
 Result: Identify gendered forms, apply Option C rewording where possible, use slash notation where rewording is awkward, maintain readability and register.
 
+## Bundled Resources
+
+### References
+- `references/hebrew-grammar-quick-ref.md` — Concise Hebrew grammar reference covering all 7 binyanim (verb patterns) with usage guidance by register, ktiv maleh vs. ktiv chaser spelling examples, common smichut (construct state) forms, and four gender-inclusive writing patterns with before/after examples. Consult when writing or editing Hebrew content and need to verify grammar rules, choose the correct register, or apply gender-neutral phrasing.
+
 ## Troubleshooting
 
 ### Error: "Text mixes formal and informal registers"

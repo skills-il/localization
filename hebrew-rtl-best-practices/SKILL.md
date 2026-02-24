@@ -137,6 +137,11 @@ Result: Replace all physical CSS properties with logical equivalents, add dir="r
 User says: "Numbers are showing backwards in my Hebrew text"
 Result: Wrap numeric content in a span with dir="ltr" and unicode-bidi: isolate.
 
+## Bundled Resources
+
+### References
+- `references/css-logical-properties.md` — Complete physical-to-logical CSS property mapping table (margin, padding, border, positioning, text alignment, sizing) plus Hebrew font stack recommendations for sans-serif, serif, and monospace. Consult when converting any LTR stylesheet to RTL-compatible logical properties or choosing Hebrew web fonts.
+
 ## Troubleshooting
 
 ### Error: "Text alignment looks wrong"

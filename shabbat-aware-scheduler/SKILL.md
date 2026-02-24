@@ -211,6 +211,14 @@ Result: Find a Tuesday or Wednesday slot (mid-week, maximum buffer from Shabbat)
 User says: "Set up a daily report that skips Shabbat and holidays"
 Result: Provide cron configuration with should_run_today() check, pre-loaded holiday cache for the year, with logging for skipped days.
 
+## Bundled Resources
+
+### Scripts
+- `scripts/check_shabbat.py` — Standalone utility to query Shabbat times, Israeli holidays, and business-day status via the HebCal API. Supports checking whether a date is Shabbat/Yom Tov, listing all holidays for a year, and finding the next available Israeli business slot with configurable duration and location. Run: `python scripts/check_shabbat.py --help`
+
+### References
+- `references/israeli-holiday-calendar.md` — Complete Israeli holiday calendar with Hebrew dates, Gregorian approximations, scheduling impact levels (high/medium/low), mourning period restrictions, seasonal Shabbat candle-lighting times by month for Jerusalem, and HebCal API endpoint reference. Consult when planning around chagim, determining seasonal Friday closing times, or checking if an event conflicts with a mourning period.
+
 ## Troubleshooting
 
 ### Error: "Meeting scheduled during Shabbat"
