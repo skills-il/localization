@@ -1,20 +1,39 @@
 ---
 name: hebrew-content-writer
 description: >-
-  Write and edit professional content in Hebrew including marketing copy, UX text,
-  articles, emails, and social media posts. Use when user asks to write in Hebrew,
-  "ktov b'ivrit", create Hebrew marketing content, edit Hebrew text, write Hebrew
-  UX copy, or optimize Hebrew content for SEO. Covers grammar rules, formal vs
-  informal register, gendered language handling, and Hebrew SEO best practices.
-  Do NOT use for Hebrew NLP/ML tasks (use hebrew-nlp-toolkit) or translation
-  (use a translation skill).
+  Write and edit professional content in Hebrew including marketing copy, UX
+  text, articles, emails, and social media posts. Use when user asks to write in
+  Hebrew, "ktov b'ivrit", create Hebrew marketing content, edit Hebrew text,
+  write Hebrew UX copy, or optimize Hebrew content for SEO. Covers grammar
+  rules, formal vs informal register, gendered language handling, and Hebrew SEO
+  best practices. Do NOT use for Hebrew NLP/ML tasks (use hebrew-nlp-toolkit) or
+  translation (use a translation skill).
 license: MIT
-compatibility: "No network required. Works with Claude Code, Claude.ai, Cursor."
+compatibility: 'No network required. Works with Claude Code, Claude.ai, Cursor.'
 metadata:
   author: skills-il
   version: 1.0.0
   category: localization
-  tags: [hebrew, content, writing, seo, copywriting, localization]
+  tags:
+    - hebrew
+    - content
+    - writing
+    - seo
+    - copywriting
+    - localization
+  display_name:
+    he: כותב תוכן בעברית
+    en: Hebrew Content Writer
+  display_description:
+    he: כתיבה ועריכה של תוכן מקצועי בעברית תקנית ושוטפת
+    en: >-
+      Write and edit professional content in Hebrew including marketing copy, UX
+      text, articles, emails, and social media posts. Use when user asks to
+      write in Hebrew, "ktov b'ivrit", create Hebrew marketing content, edit
+      Hebrew text, write Hebrew UX copy, or optimize Hebrew content for SEO.
+      Covers grammar rules, formal vs informal register, gendered language
+      handling, and Hebrew SEO best practices. Do NOT use for Hebrew NLP/ML
+      tasks (use hebrew-nlp-toolkit) or translation (use a translation skill).
 ---
 
 # Hebrew Content Writer
