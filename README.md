@@ -1,23 +1,26 @@
 # Localization Skills
 
-AI agent skills for Hebrew, RTL, translation, and cultural adaptation.
+AI agent skills for Hebrew language, RTL layout, NLP, and cultural adaptation.
 
-Part of [Skills IL](https://agentskills.co.il) — curated AI agent skills for Israeli developers.
+Part of [Skills IL](https://github.com/skills-il) — curated AI agent skills for Israeli developers.
 
 ## Skills
 
-| Skill | Description | Trust | Agents |
-|-------|-------------|-------|--------|
-| [hebrew-rtl-best-practices](./hebrew-rtl-best-practices/) | Best practices for Hebrew RTL layout and bidirectional text | Verified | Claude Code, Cursor, Copilot, Windsurf |
-| [hebrew-nlp-toolkit](./hebrew-nlp-toolkit/) | Hebrew NLP processing, tokenization, and text analysis | Trusted | Claude Code, Cursor, Copilot, Windsurf |
+| Skill | Description | Scripts | References |
+|-------|-------------|---------|------------|
+| [hebrew-rtl-best-practices](./hebrew-rtl-best-practices/) | RTL layout for Hebrew web and mobile apps. CSS logical properties, Tailwind RTL, React/Vue RTL, Hebrew typography. | -- | 1 |
+| [hebrew-nlp-toolkit](./hebrew-nlp-toolkit/) | Hebrew NLP model selection and usage: DictaLM, DictaBERT, AlephBERT, ivrit.ai. Preprocessing, tokenization, NER. | `preprocess_hebrew.py` | 1 |
+| [hebrew-content-writer](./hebrew-content-writer/) | Write professional Hebrew content. Grammar rules, formal/informal register, gendered language, Hebrew SEO. | -- | 1 |
+| [hebrew-ocr-forms](./hebrew-ocr-forms/) | OCR Israeli government forms: Tabu extracts, tax forms, Bituach Leumi documents. Image preprocessing and field extraction. | `preprocess_image.py`, `extract_form_fields.py` | 1 |
+| [shabbat-aware-scheduler](./shabbat-aware-scheduler/) | Schedule around Shabbat, Israeli holidays (chagim), and Hebrew calendar. HebCal API, Israeli business hours (Sun-Thu). | `check_shabbat.py` | 1 |
 
 ## Install
 
 ```bash
-# Claude Code
-npx skills-il add skills-il/localization --skill hebrew-rtl-best-practices
+# Claude Code - install a specific skill
+claude install github:skills-il/localization/hebrew-rtl-best-practices
 
-# Or clone and use directly
+# Or clone the full repo
 git clone https://github.com/skills-il/localization.git
 ```
 
