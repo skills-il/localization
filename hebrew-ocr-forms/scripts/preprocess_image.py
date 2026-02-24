@@ -19,8 +19,13 @@ Requirements:
 import argparse
 import sys
 
-import cv2
-import numpy as np
+try:
+    import cv2
+    import numpy as np
+except ImportError:
+    print("Missing required dependencies. Install with:", file=sys.stderr)
+    print("  pip install opencv-python numpy", file=sys.stderr)
+    sys.exit(1)
 
 
 def preprocess_for_hebrew_ocr(image_path, block_size=31, c_value=10):

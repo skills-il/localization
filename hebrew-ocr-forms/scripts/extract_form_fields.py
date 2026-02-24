@@ -21,10 +21,18 @@ import re
 import sys
 import unicodedata
 
-import cv2
-import numpy as np
-import pytesseract
-from PIL import Image
+try:
+    import cv2
+    import numpy as np
+    import pytesseract
+    from PIL import Image
+except ImportError:
+    print("Missing required dependencies. Install with:", file=sys.stderr)
+    print("  pip install pytesseract Pillow opencv-python numpy", file=sys.stderr)
+    print("Also install Tesseract OCR with Hebrew language pack:", file=sys.stderr)
+    print("  macOS: brew install tesseract tesseract-lang", file=sys.stderr)
+    print("  Ubuntu: sudo apt-get install tesseract-ocr tesseract-ocr-heb", file=sys.stderr)
+    sys.exit(1)
 
 
 def ocr_hebrew_form(image_path, form_type="general"):
