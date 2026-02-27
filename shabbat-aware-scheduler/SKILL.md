@@ -18,12 +18,20 @@ metadata:
   version: 1.0.0
   category: localization
   tags:
-    - shabbat
-    - scheduling
-    - hebrew-calendar
-    - zmanim
-    - holidays
-    - israel
+    he:
+      - שבת
+      - תזמון
+      - לוח-עברי
+      - זמנים
+      - חגים
+      - ישראל
+    en:
+      - shabbat
+      - scheduling
+      - hebrew-calendar
+      - zmanim
+      - holidays
+      - israel
   display_name:
     he: מתזמן מודע שבת
     en: Shabbat Aware Scheduler
