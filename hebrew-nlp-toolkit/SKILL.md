@@ -37,6 +37,14 @@ metadata:
       language text programmatically. Covers model selection, preprocessing, and
       Hebrew-specific NLP challenges. Do NOT use for Arabic NLP (different
       tools) or general English NLP tasks.
+  supported_agents:
+    - claude-code
+    - cursor
+    - github-copilot
+    - windsurf
+    - opencode
+    - codex
+    - openclaw
 ---
 
 # Hebrew NLP Toolkit
@@ -95,7 +103,7 @@ def preprocess_hebrew(text):
     # Normalize Unicode
     text = unicodedata.normalize('NFC', text)
     # Remove niqqud (diacritics) - range U+0591 to U+05C7
-    text = re.sub(r'[\u0591-\u05C7]', '', text)
+    text = re.sub(r'[֑-ׇ]', '', text)
     # Normalize whitespace
     text = re.sub(r'\s+', ' ', text).strip()
     return text
