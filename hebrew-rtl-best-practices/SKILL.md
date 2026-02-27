@@ -40,7 +40,6 @@ metadata:
     - windsurf
     - opencode
     - codex
-    - openclaw
 ---
 
 # Hebrew RTL Best Practices
