@@ -38,6 +38,14 @@ metadata:
       Israeli holiday calendar, and Israeli business hour conventions. Do NOT
       use for religious halachic rulings (consult a rabbi) or diaspora 2-day
       holiday scheduling.
+  supported_agents:
+    - claude-code
+    - cursor
+    - github-copilot
+    - windsurf
+    - opencode
+    - codex
+    - openclaw
 ---
 
 # Shabbat-Aware Scheduler
