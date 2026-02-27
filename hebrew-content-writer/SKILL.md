@@ -15,12 +15,20 @@ metadata:
   version: 1.0.0
   category: localization
   tags:
-    - hebrew
-    - content
-    - writing
-    - seo
-    - copywriting
-    - localization
+    he:
+      - עברית
+      - תוכן
+      - כתיבה
+      - קידום-אתרים
+      - קופירייטינג
+      - לוקליזציה
+    en:
+      - hebrew
+      - content
+      - writing
+      - seo
+      - copywriting
+      - localization
   display_name:
     he: כותב תוכן בעברית
     en: Hebrew Content Writer
