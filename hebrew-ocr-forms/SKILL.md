@@ -40,6 +40,14 @@ metadata:
       documents. Includes Hebrew OCR configuration, field extraction patterns,
       and RTL text handling. Do NOT use for handwritten Hebrew recognition
       (requires specialized models) or non-Israeli form processing.
+  supported_agents:
+    - claude-code
+    - cursor
+    - github-copilot
+    - windsurf
+    - opencode
+    - codex
+    - openclaw
 ---
 
 # Hebrew OCR Forms
@@ -104,7 +112,8 @@ import unicodedata
 
 def normalize_bidi_text(text):
     """Normalize bidirectional text from Hebrew OCR output."""
-    lines = text.split('\n')
+    lines = text.split('
+')
     normalized = []
     for line in lines:
         # Strip bidi control characters
@@ -115,7 +124,8 @@ def normalize_bidi_text(text):
         clean = ' '.join(clean.split())
         if clean:
             normalized.append(clean)
-    return '\n'.join(normalized)
+    return '
+'.join(normalized)
 ```
 
 ### Step 6: Validate Extracted Data
