@@ -34,6 +34,14 @@ metadata:
       Covers grammar rules, formal vs informal register, gendered language
       handling, and Hebrew SEO best practices. Do NOT use for Hebrew NLP/ML
       tasks (use hebrew-nlp-toolkit) or translation (use a translation skill).
+  supported_agents:
+    - claude-code
+    - cursor
+    - github-copilot
+    - windsurf
+    - opencode
+    - codex
+    - openclaw
 ---
 
 # Hebrew Content Writer
