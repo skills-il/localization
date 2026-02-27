@@ -44,7 +44,6 @@ metadata:
     - windsurf
     - opencode
     - codex
-    - openclaw
 ---
 
 # Hebrew NLP Toolkit
