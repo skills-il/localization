@@ -18,12 +18,20 @@ metadata:
   version: 1.0.0
   category: localization
   tags:
-    - nlp
-    - hebrew
-    - dictalm
-    - dictabert
-    - ivrit-ai
-    - machine-learning
+    he:
+      - עיבוד-שפה-טבעית
+      - עברית
+      - DictaLM
+      - DictaBERT
+      - עברית-AI
+      - למידת-מכונה
+    en:
+      - nlp
+      - hebrew
+      - dictalm
+      - dictabert
+      - ivrit-ai
+      - machine-learning
   display_name:
     he: ערכת כלי NLP לעברית
     en: Hebrew Nlp Toolkit
