@@ -33,6 +33,14 @@ metadata:
       Hebrew typography, and font selection. Do NOT use for Arabic RTL (similar
       but different typography) unless user explicitly asks for shared RTL
       patterns.
+  supported_agents:
+    - claude-code
+    - cursor
+    - github-copilot
+    - windsurf
+    - opencode
+    - codex
+    - openclaw
 ---
 
 # Hebrew RTL Best Practices
