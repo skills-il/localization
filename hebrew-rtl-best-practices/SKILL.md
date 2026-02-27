@@ -14,12 +14,20 @@ metadata:
   version: 1.0.0
   category: localization
   tags:
-    - rtl
-    - hebrew
-    - css
-    - layout
-    - typography
-    - bidi
+    he:
+      - ימין-לשמאל
+      - עברית
+      - CSS
+      - פריסה
+      - טיפוגרפיה
+      - דו-כיווני
+    en:
+      - rtl
+      - hebrew
+      - css
+      - layout
+      - typography
+      - bidi
   display_name:
     he: שיטות עבודה מומלצות ל-RTL
     en: Hebrew Rtl Best Practices
