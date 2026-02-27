@@ -19,13 +19,22 @@ metadata:
   version: 1.0.0
   category: localization
   tags:
-    - ocr
-    - hebrew
-    - forms
-    - government
-    - tabu
-    - tax
-    - bituach-leumi
+    he:
+      - זיהוי-תווים
+      - עברית
+      - טפסים
+      - ממשל
+      - טאבו
+      - מיסים
+      - ביטוח-לאומי
+    en:
+      - ocr
+      - hebrew
+      - forms
+      - government
+      - tabu
+      - tax
+      - bituach-leumi
   display_name:
     he: OCR לטפסים בעברית
     en: Hebrew Ocr Forms
