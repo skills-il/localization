@@ -87,3 +87,42 @@ Check keyword optimization, morphological variations, title tags (50-60 chars), 
 ### Step 8: Deliver with Change Log
 
 Provide: summary of changes, corrected text, change log table (original | corrected | category | rule), style recommendations.
+
+## Examples
+
+### Example 1: Proofread a Hebrew Marketing Email
+User says: "Check this Hebrew email for grammar and spelling errors"
+Actions:
+1. Check ktiv maleh compliance (e.g., fix "חנות" to "חנות" with correct vav usage)
+2. Verify gender agreement across sentences
+3. Fix punctuation: gershayim for acronyms (צה"ל), geresh for abbreviations
+4. Check for common calques from English (literal translations)
+5. Suggest gender-inclusive alternatives where appropriate
+Result: Corrected Hebrew text with tracked changes and explanation for each fix
+
+### Example 2: Edit Hebrew UI Strings for Consistency
+User says: "Review these Hebrew UI labels for our app"
+Actions:
+1. Verify consistent register (formal vs informal) across all strings
+2. Check button text follows Hebrew UX conventions (imperative form)
+3. Ensure consistent terminology (same Hebrew term for same concept)
+4. Validate string length for UI constraints
+Result: Consistent Hebrew UI copy with style guide recommendations
+
+## Bundled Resources
+
+### Scripts
+- `scripts/check_hebrew.py` -- Scans Hebrew text for common spelling errors, inconsistent ktiv, and punctuation issues. Run: `python scripts/check_hebrew.py --help`
+
+### References
+- `references/ktiv-maleh-rules.md` -- Complete ktiv maleh (plene spelling) rules with exception lists, gershayim/geresh usage guide, and Academy of the Hebrew Language guidelines. Consult when verifying specific spelling rules or handling edge cases in ktiv maleh.
+
+## Troubleshooting
+
+### Error: "Text contains nikkud (vowel marks)"
+Cause: Source text has nikkud which conflicts with ktiv maleh corrections
+Solution: Strip nikkud first using Unicode normalization (remove characters in range U+0591-U+05C7), then apply ktiv maleh rules. Preserve nikkud only in liturgical or educational text.
+
+### Error: "Cannot determine gender for inclusive language"
+Cause: Hebrew requires grammatical gender but the target audience is mixed
+Solution: Use slash notation (שולח/ת) for short forms, or restructure to avoid gendered verbs where possible. For UI: prefer infinitive forms ("לשלוח" instead of "שלח/שלחי").

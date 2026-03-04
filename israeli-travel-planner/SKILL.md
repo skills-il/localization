@@ -89,3 +89,43 @@ Kartisiya (6-site pass): 110 NIS adult. Annual pass: ~195 NIS.
 - Galilee/Golan: Banias, Tel Dan, wineries, Tzfat
 - Jerusalem: Old City, Yad Vashem, Mahane Yehuda
 - Tel Aviv: Beaches, Jaffa, Carmel Market, Neve Tzedek
+
+## Examples
+
+### Example 1: Plan a Weekend Trip to the Dead Sea
+User says: "Plan a weekend trip from Tel Aviv to the Dead Sea"
+Actions:
+1. Transport: Egged bus 421 from Tel Aviv Central Station (2.5 hours, ~42 NIS) or rental car via Route 90
+2. Accommodation: Ein Bokek hotel strip (300-800 NIS/night) or Ein Gedi hostel (150-250 NIS/night)
+3. Activities: Ein Gedi Nature Reserve (29 NIS entry), Masada sunrise hike (29 NIS), Dead Sea beach (free public beaches at Ein Bokek)
+4. Food: Hotel restaurants, Arad for budget dining (20 min drive)
+5. Tips: Bring water shoes, sunscreen SPF 50+, arrive early for Masada
+Result: Complete itinerary with transport, accommodation, costs, and practical tips
+
+### Example 2: Family Day Trip to the Galilee
+User says: "Suggest a day trip for a family with kids in northern Israel"
+Actions:
+1. Route: Drive to Tiberias area via Route 6 + Route 77
+2. Morning: Kfar Kedem biblical experience (79 NIS/adult, 59 NIS/child)
+3. Lunch: Decks restaurant on the Kinneret, or falafel in Tiberias (budget option)
+4. Afternoon: Hamat Gader hot springs (99 NIS/adult, 79 NIS/child) or Kinneret beach
+5. Evening: Return via Route 6 (toll ~22 NIS)
+Result: Family-friendly Galilee itinerary with kid activities and budget options
+
+## Bundled Resources
+
+### Scripts
+- `scripts/plan_route.py` -- Calculates distances and suggests transport options between Israeli cities. Run: `python scripts/plan_route.py --help`
+
+### References
+- `references/israeli-transport-guide.md` -- Comprehensive guide to Israeli public transport (Egged, Dan, Israel Railways, Rav-Kav), national parks pricing, hotel chains, and regional highlights. Consult when planning detailed itineraries or comparing transport options.
+
+## Troubleshooting
+
+### Error: "Bus route information may be outdated"
+Cause: Israeli bus routes and schedules change frequently, especially after Egged/Dan restructuring
+Solution: Always note that schedules should be verified on Moovit or the bus company website. Provide the Moovit/Google Maps link for real-time data.
+
+### Error: "National park is closed on requested date"
+Cause: Parks may close for holidays, weather, or security
+Solution: Check the Israel Nature and Parks Authority website (parks.org.il) for closures. Note that parks close early on Fridays and eves of holidays. Suggest alternative nearby attractions.
