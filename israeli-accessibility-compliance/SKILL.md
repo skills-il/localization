@@ -70,7 +70,7 @@ Israeli web accessibility (negishot) is legally mandatory under the **Equal Righ
 
 | Regulation | Requirement | Deadline | Penalty |
 |------------|-------------|----------|---------|
-| IS 5568 | Israeli accessibility standard based on WCAG 2.1 AA | Mandatory since 2017 | Up to 75,000 NIS per violation |
+| IS 5568 | Israeli accessibility standard based on WCAG 2.1 AA | Mandatory since 2017 | Up to 50,000 NIS per violation |
 | Takanat Negishot 2013 | Public websites must comply | In effect | Lawsuits + fines |
 | Amendment 19 (2022) | Mobile apps included | In effect | Same as above |
 | Government sites | Must meet IS 5568 Level AA | In effect | Government oversight |

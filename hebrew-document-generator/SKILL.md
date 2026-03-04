@@ -284,7 +284,7 @@ See `references/templates.md` for complete field specifications per document typ
 
 | Template | Hebrew Name | Required Fields |
 |----------|-------------|-----------------|
-| Tax Invoice | חשבונית מס | Business name, Osek Murshe number, date, line items, VAT (17%), total |
+| Tax Invoice | חשבונית מס | Business name, Osek Murshe number, date, line items, VAT (18%), total |
 | Contract | חוזה | Parties, TZ/company numbers, terms, signatures, date |
 | Price Proposal | הצעת מחיר | Business details, itemized pricing, validity period, terms |
 | Meeting Minutes | פרוטוקול | Date, attendees, agenda, decisions, action items |
@@ -297,13 +297,13 @@ See `references/templates.md` for complete field specifications per document typ
 - Date of issue
 - Customer name and TZ/company number
 - Line items with description, quantity, unit price
-- Subtotal, VAT at 17%, and total in NIS
+- Subtotal, VAT at 18%, and total in NIS
 
 ## Examples
 
 ### Example 1: Generate Tax Invoice PDF
 User says: "Create a Hebrew tax invoice PDF for my business"
-Result: Use reportlab or WeasyPrint to generate A4 PDF with RTL layout, business header, sequential invoice number, itemized table, VAT calculation at 17%, totals in NIS with shekel symbol, and Hebrew font throughout.
+Result: Use reportlab or WeasyPrint to generate A4 PDF with RTL layout, business header, sequential invoice number, itemized table, VAT calculation at 18%, totals in NIS with shekel symbol, and Hebrew font throughout.
 
 ### Example 2: Create Hebrew Contract DOCX
 User says: "Draft a Hebrew service contract as a Word document"
