@@ -8,8 +8,16 @@ body:
     attributes:
       label: Which skill?
       options:
-        - hebrew-rtl-best-practices
+        - hebrew-content-writer
+        - hebrew-document-generator
+        - hebrew-i18n
         - hebrew-nlp-toolkit
+        - hebrew-ocr-forms
+        - hebrew-rtl-best-practices
+        - hebrew-tailwind-preset
+        - israeli-accessibility-compliance
+        - israeli-ui-design-system
+        - shabbat-aware-scheduler
         - Other
     validations:
       required: true

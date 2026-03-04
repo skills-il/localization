@@ -1,7 +1,39 @@
-hebrew-rtl-best-practices:
+hebrew-content-writer:
   - changed-files:
-    - any-glob-to-any-file: 'hebrew-rtl-best-practices/**'
+    - any-glob-to-any-file: 'hebrew-content-writer/**'
+
+hebrew-document-generator:
+  - changed-files:
+    - any-glob-to-any-file: 'hebrew-document-generator/**'
+
+hebrew-i18n:
+  - changed-files:
+    - any-glob-to-any-file: 'hebrew-i18n/**'
 
 hebrew-nlp-toolkit:
   - changed-files:
     - any-glob-to-any-file: 'hebrew-nlp-toolkit/**'
+
+hebrew-ocr-forms:
+  - changed-files:
+    - any-glob-to-any-file: 'hebrew-ocr-forms/**'
+
+hebrew-rtl-best-practices:
+  - changed-files:
+    - any-glob-to-any-file: 'hebrew-rtl-best-practices/**'
+
+hebrew-tailwind-preset:
+  - changed-files:
+    - any-glob-to-any-file: 'hebrew-tailwind-preset/**'
+
+israeli-accessibility-compliance:
+  - changed-files:
+    - any-glob-to-any-file: 'israeli-accessibility-compliance/**'
+
+israeli-ui-design-system:
+  - changed-files:
+    - any-glob-to-any-file: 'israeli-ui-design-system/**'
+
+shabbat-aware-scheduler:
+  - changed-files:
+    - any-glob-to-any-file: 'shabbat-aware-scheduler/**'
