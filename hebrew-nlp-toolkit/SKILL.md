@@ -52,6 +52,7 @@ metadata:
     - windsurf
     - opencode
     - codex
+    - antigravity
 ---
 
 # Hebrew NLP Toolkit

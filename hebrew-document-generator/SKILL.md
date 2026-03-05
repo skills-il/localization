@@ -59,6 +59,7 @@ metadata:
     - windsurf
     - opencode
     - codex
+    - antigravity
 ---
 
 # Hebrew Document Generator

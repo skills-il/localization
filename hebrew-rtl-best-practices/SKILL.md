@@ -48,6 +48,7 @@ metadata:
     - windsurf
     - opencode
     - codex
+    - antigravity
 ---
 
 # Hebrew RTL Best Practices

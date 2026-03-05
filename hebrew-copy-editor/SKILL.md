@@ -43,6 +43,7 @@ metadata:
     - windsurf
     - opencode
     - codex
+    - antigravity
 ---
 
 # Hebrew Copy Editor
