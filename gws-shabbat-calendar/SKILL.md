@@ -16,7 +16,7 @@ compatibility: >-
   required for Google Calendar API and HebCal holiday lookups. Works with any
   Google Workspace or personal Gmail account.
 metadata:
-  author: choroshin
+  author: skills-il
   version: 1.0.0
   category: localization
   tags:
