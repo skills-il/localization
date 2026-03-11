@@ -1,50 +1,52 @@
 ---
 name: hebrew-copy-editor
 description: >-
-  Proofread and copy-edit Hebrew text for grammar, spelling, punctuation, style
-  consistency, and Academy of Hebrew Language compliance. Use when user asks
-  about Hebrew proofreading, grammar checking, ktiv maleh rules, Academy of
-  Hebrew Language standards, or Hebrew SEO text review. Covers ktiv maleh
-  correction, construct state rules, gershayim punctuation, and gender-inclusive
-  language options.
+  Proofread and copy-edit Hebrew text for grammar, spelling, punctuation, style consistency,
+  and Academy of Hebrew Language compliance. Use when user asks about Hebrew proofreading,
+  grammar checking, ktiv maleh rules, Academy of Hebrew Language standards, or Hebrew
+  SEO text review. Covers ktiv maleh correction, construct state rules, gershayim
+  punctuation, and gender-inclusive language options.
 license: MIT
-compatibility: >-
-  Works with Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCode, Codex.
+compatibility: Works with Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCode,
+  Codex.
 metadata:
   author: skills-il
   version: 1.0.0
   category: localization
   tags:
     he:
-      - עריכה
-      - עברית
-      - דקדוק
-      - הגהה
-      - כתיב
+    - עריכה
+    - עברית
+    - דקדוק
+    - הגהה
+    - כתיב
     en:
-      - editing
-      - hebrew
-      - grammar
-      - proofreading
-      - spelling
+    - editing
+    - hebrew
+    - grammar
+    - proofreading
+    - spelling
   display_name:
-    he: "עורך עברית"
-    en: "Hebrew Copy Editor"
+    he: עורך עברית
+    en: Hebrew Copy Editor
   display_description:
-    he: >-
-      הגהה ועריכה לשונית של טקסטים בעברית בהתאם לכללי האקדמיה ללשון העברית
+    he: הגהה ועריכה לשונית של טקסטים בעברית בהתאם לכללי האקדמיה ללשון העברית
     en: >-
-      Proofread and copy-edit Hebrew text for grammar, spelling, punctuation,
-      style consistency, and Academy of Hebrew Language compliance
+      Proofread and copy-edit Hebrew text for grammar, spelling, punctuation, style
+      consistency, and Academy of Hebrew Language compliance. Use when user asks about
+      Hebrew proofreading, grammar checking, ktiv maleh rules, Academy of Hebrew Language
+      standards, or Hebrew SEO text review. Covers ktiv maleh correction, construct
+      state rules, gershayim punctuation, and gender-inclusive language options.
   supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
-    - antigravity
+  - claude-code
+  - cursor
+  - github-copilot
+  - windsurf
+  - opencode
+  - codex
+  - antigravity
 ---
+
 
 # Hebrew Copy Editor
 
