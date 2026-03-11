@@ -1,58 +1,64 @@
 ---
 name: gws-shabbat-calendar
 description: >-
-  Automate Google Calendar scheduling with Shabbat and Jewish holiday awareness
-  using the Google Workspace CLI (gws). Use when user asks to create events that
-  respect Shabbat boundaries, view Israeli workweek agenda (Sun-Thu), block
-  focus time with Erev Shabbat cutoff, find free slots excluding Jewish
-  holidays, or manage recurring events on Israeli workweek patterns. Uses gws
-  calendar insert, gws calendar agenda, and related recipes. Do NOT use for
-  non-Google calendar systems (Outlook, Apple Calendar) or religious halachic
-  rulings about exact Shabbat times (consult a rabbi for those).
+  Automate Google Calendar scheduling with Shabbat and Jewish holiday awareness using
+  the Google Workspace CLI (gws). Use when user asks to create events that respect
+  Shabbat boundaries, view Israeli workweek agenda (Sun-Thu), block focus time with
+  Erev Shabbat cutoff, find free slots excluding Jewish holidays, or manage recurring
+  events on Israeli workweek patterns. Uses gws calendar insert, gws calendar agenda,
+  and related recipes. Do NOT use for non-Google calendar systems (Outlook, Apple
+  Calendar) or religious halachic rulings about exact Shabbat times (consult a rabbi
+  for those).
 license: MIT
-allowed-tools: 'Bash(npx:*) Bash(gws:*) Bash(node:*) Bash(curl:*) Bash(python:*)'
+allowed-tools: Bash(npx:*) Bash(gws:*) Bash(node:*) Bash(curl:*) Bash(python:*)
 compatibility: >-
-  Requires Node.js 18+ and the Google Workspace CLI (@google/gws). Network
-  required for Google Calendar API and HebCal holiday lookups. Works with any
-  Google Workspace or personal Gmail account.
+  Requires Node.js 18+ and the Google Workspace CLI (@google/gws). Network required
+  for Google Calendar API and HebCal holiday lookups. Works with any Google Workspace
+  or personal Gmail account.
 metadata:
   author: skills-il
   version: 1.0.0
   category: localization
   tags:
     he:
-      - גוגל-וורקספייס
-      - גוגל-קלנדר
-      - שבת
-      - חגים
-      - תזמון
-      - ישראל
+    - גוגל-וורקספייס
+    - גוגל-קלנדר
+    - שבת
+    - חגים
+    - תזמון
+    - ישראל
     en:
-      - google-workspace
-      - google-calendar
-      - shabbat
-      - jewish-holidays
-      - scheduling
-      - israel
+    - google-workspace
+    - google-calendar
+    - shabbat
+    - jewish-holidays
+    - scheduling
+    - israel
   display_name:
     he: יומן שבת עם GWS
     en: GWS Shabbat Calendar
   display_description:
     he: >-
-      אוטומציית תזמון יומן גוגל עם מודעות לשבת וחגים באמצעות Google Workspace
-      CLI -- בדיקת גבולות, תבניות שבוע עבודה ישראלי ותזמון בטוח מחגים.
+      אוטומציית תזמון יומן גוגל עם מודעות לשבת וחגים באמצעות Google Workspace CLI
+      -- בדיקת גבולות, תבניות שבוע עבודה ישראלי ותזמון בטוח מחגים.
     en: >-
-      Automate Google Calendar scheduling with Shabbat and Jewish holiday
-      awareness using the Google Workspace CLI -- boundary checks, Israeli
-      workweek patterns, and holiday-safe scheduling.
+      Automate Google Calendar scheduling with Shabbat and Jewish holiday awareness
+      using the Google Workspace CLI (gws). Use when user asks to create events that
+      respect Shabbat boundaries, view Israeli workweek agenda (Sun-Thu), block focus
+      time with Erev Shabbat cutoff, find free slots excluding Jewish holidays, or
+      manage recurring events on Israeli workweek patterns. Uses gws calendar insert,
+      gws calendar agenda, and related recipes. Do NOT use for non-Google calendar
+      systems (Outlook, Apple Calendar) or religious halachic rulings about exact
+      Shabbat times (consult a rabbi for those).
   supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
+  - claude-code
+  - cursor
+  - github-copilot
+  - windsurf
+  - opencode
+  - codex
 ---
+
 
 # GWS Shabbat Calendar
 
