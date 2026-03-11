@@ -1,54 +1,59 @@
 ---
 name: israeli-travel-planner
 description: >-
-  Plan domestic travel in Israel with local transportation, accommodations,
-  national parks, and cultural considerations. Use when user asks about
-  traveling in Israel, Israeli hotel chains, bus routes, Israel Railways,
-  Rav-Kav card, national parks, tiyul b'aretz, Dead Sea, Eilat, or trip
-  planning within Israel. Covers Egged/Dan/Kavim buses, train schedules,
-  Rashut HaTeva sites, Shabbat travel restrictions, and seasonal advice.
+  Plan domestic travel in Israel with local transportation, accommodations, national
+  parks, and cultural considerations. Use when user asks about traveling in Israel,
+  Israeli hotel chains, bus routes, Israel Railways, Rav-Kav card, national parks,
+  tiyul b'aretz, Dead Sea, Eilat, or trip planning within Israel. Covers Egged/Dan/Kavim
+  buses, train schedules, Rashut HaTeva sites, Shabbat travel restrictions, and seasonal
+  advice.
 license: MIT
-compatibility: >-
-  Works with Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCode, Codex.
+compatibility: Works with Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCode,
+  Codex.
 metadata:
   author: skills-il
   version: 1.0.0
   category: localization
   tags:
     he:
-      - תיירות
-      - תחבורה
-      - טיולים
-      - מלונות
-      - גנים-לאומיים
-      - ישראל
+    - תיירות
+    - תחבורה
+    - טיולים
+    - מלונות
+    - גנים-לאומיים
+    - ישראל
     en:
-      - tourism
-      - transportation
-      - travel
-      - hotels
-      - national-parks
-      - israel
+    - tourism
+    - transportation
+    - travel
+    - hotels
+    - national-parks
+    - israel
   display_name:
-    he: "מתכנן טיולים בישראל"
-    en: "Israeli Travel Planner"
+    he: מתכנן טיולים בישראל
+    en: Israeli Travel Planner
   display_description:
     he: >-
-      תכנון טיולים בארץ עם תחבורה מקומית, לינה, אתרי טבע ושיקולים תרבותיים.
-      שימוש כשצריך מידע על אוטובוסים, רכבת ישראל, רב-קו, גנים לאומיים,
-      מלונות, או תכנון נסיעות בהתחשב בשבת וחגים.
+      תכנון טיולים בארץ עם תחבורה מקומית, לינה, אתרי טבע ושיקולים תרבותיים. שימוש
+      כשצריך מידע על אוטובוסים, רכבת ישראל, רב-קו, גנים לאומיים, מלונות, או תכנון
+      נסיעות בהתחשב בשבת וחגים.
     en: >-
-      Plan domestic travel in Israel with local transportation, accommodations,
-      national parks, and cultural considerations
+      Plan domestic travel in Israel with local transportation, accommodations, national
+      parks, and cultural considerations. Use when user asks about traveling in Israel,
+      Israeli hotel chains, bus routes, Israel Railways, Rav-Kav card, national parks,
+      tiyul b'aretz, Dead Sea, Eilat, or trip planning within Israel. Covers Egged/Dan/Kavim
+      buses, train schedules, Rashut HaTeva sites, Shabbat travel restrictions, and
+      seasonal advice.
   supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
-    - antigravity
+  - claude-code
+  - cursor
+  - github-copilot
+  - windsurf
+  - opencode
+  - codex
+  - antigravity
 ---
+
 
 # Israeli Travel Planner
 
