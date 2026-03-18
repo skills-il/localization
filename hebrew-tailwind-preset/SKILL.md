@@ -17,7 +17,7 @@ compatibility: >-
   Works with React, Vue, Angular, Next.js, Nuxt. No network required.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -309,6 +309,12 @@ Result: Build grid layout with RTL sidebar (border-e, pe-6), navigation with Heb
 
 ### References
 - `references/rtl-config.md` -- Complete Tailwind CSS RTL configuration reference: v4 CSS-first and v3 JavaScript config examples, full physical-to-logical utility mapping table, dir variant usage patterns, Hebrew font stack presets, typography token definitions, and migration guide from physical to logical utilities.
+
+## Gotchas
+- Tailwind CSS v3+ supports RTL variants (`rtl:` prefix), but agents often do not use them, instead hardcoding `mr-4` when they should use `ms-4` (margin-start) for RTL compatibility.
+- The `space-x-4` utility in Tailwind does not respect RTL direction. Agents must use `gap-4` with flex or grid, or manually add `rtl:space-x-reverse` to flip spacing direction.
+- Custom font declarations for Hebrew must include `font-display: swap` to prevent FOIT (Flash of Invisible Text). Agents may omit this, causing Hebrew text to disappear during font loading.
+- Tailwind's `text-left` and `text-right` are physical properties. Use `text-start` and `text-end` classes for RTL-aware alignment. Agents default to physical direction classes.
 
 ## Troubleshooting
 

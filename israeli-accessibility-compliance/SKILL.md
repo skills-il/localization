@@ -18,7 +18,7 @@ compatibility: >-
   required for core patterns. axe-core for automated testing.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -318,6 +318,12 @@ Result: Add `dir="rtl"` to the table element, include a Hebrew `caption`, use `s
 
 ### References
 - `references/is-5568.md` -- Complete IS 5568 standard reference: clause-by-clause requirements mapped to WCAG 2.1 AA, Israeli-specific additions, legal penalty schedule under the Equal Rights for Persons with Disabilities Act, mandatory accessibility statement template, and checklist for compliance audits.
+
+## Gotchas
+- Israeli accessibility law (IS 5568) is based on WCAG 2.0 AA, but has additional Israeli-specific requirements for bilingual (Hebrew + Arabic) government sites. Agents may apply only WCAG without the Israeli additions.
+- Screen readers for Hebrew (NVDA, JAWS) read RTL text differently than LTR. Agents may generate ARIA labels assuming LTR reading order, which confuses Hebrew screen reader users.
+- Israeli law requires accessibility statements (hatzaharat negishut) to be published on every website. Agents may generate WCAG-compliant sites without this mandatory statement page.
+- Color contrast requirements in IS 5568 match WCAG 2.0 AA (4.5:1 for text), but agents may not account for Hebrew font rendering, which can appear thinner than Latin fonts at the same size, requiring slightly higher contrast.
 
 ## Troubleshooting
 

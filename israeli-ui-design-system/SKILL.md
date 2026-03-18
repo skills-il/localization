@@ -16,7 +16,7 @@ compatibility: >-
   for core patterns. Recommended with Storybook for component development.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -361,6 +361,12 @@ Result: Apply gov.il header pattern with institutional blue, Hebrew navigation w
 
 ### References
 - `references/hebrew-typography.md` -- Hebrew font catalog with Google Fonts metrics, recommended pairings for different use cases (SaaS, editorial, government), font loading performance strategies, Hebrew-specific CSS properties (line-height, word-spacing, letter-spacing rules), and type scale recommendations for bilingual Hebrew/English interfaces.
+
+## Gotchas
+- Hebrew text is typically 15-30% shorter than its English equivalent. Agents may design UI layouts with fixed widths based on English text length, causing Hebrew text to have too much whitespace or breaking the layout when switching to English.
+- The standard Hebrew web font stack should prioritize system fonts: "Segoe UI", "Rubik", "Heebo", Arial, sans-serif. Agents may use Google Fonts Hebrew fonts without including a fallback, causing FOUT on slow connections.
+- Form labels in Hebrew should be right-aligned and placed to the right of inputs (or above them). Agents often place labels to the left of inputs, which is the English convention and feels unnatural in RTL.
+- Phone number input fields for Israeli numbers should accept formats with and without country code: 054-1234567, +972-54-1234567, and 0541234567. Agents may only validate the international format.
 
 ## Troubleshooting
 

@@ -15,7 +15,7 @@ compatibility: >-
   large models.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -146,6 +146,12 @@ Result: Use DictaBERT-NER model, demonstrate with example text.
 
 ### References
 - `references/model-comparison.md` — Side-by-side comparison of Hebrew NLP models (DictaLM 3.0, DictaBERT, AlephBERT, ivrit.ai Whisper, Hebrew-Gemma) with VRAM requirements, HuggingFace IDs, and a task-to-model mapping table. Consult when choosing which model to use for a specific Hebrew NLP task.
+
+## Gotchas
+- Hebrew has no capital letters, so agents cannot use capitalization-based NER (Named Entity Recognition) heuristics that work for English. Hebrew NER requires morphological analysis or trained models.
+- Hebrew words can be prefixed with multiple particles (prepositions, conjunctions, articles) that are written as part of the word. The string "ובבית" (u-va-bayit) is "and in the house" as a single token. Agents may treat it as one word.
+- The Hebrew letter system has five final forms (sofit): kaf, mem, nun, pe, tsadi. Agents may normalize these to their non-final forms, breaking word matching and search.
+- Nikud (vowel diacritics) is almost never present in modern Hebrew text. Agents trained on nikud-annotated text may fail on standard unvocalized Hebrew. Always design for nikud-less input.
 
 ## Troubleshooting
 

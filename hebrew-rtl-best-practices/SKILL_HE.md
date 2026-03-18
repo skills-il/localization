@@ -124,6 +124,12 @@ const theme = createTheme({ direction: 'rtl' });
 ### קובצי עזר
 - `references/css-logical-properties.md` — טבלת מיפוי מלאה מתכונות CSS פיזיות ללוגיות (margin, padding, border, מיקום, יישור טקסט, גדלים) בתוספת המלצות למחסניות גופנים עבריים ל-sans-serif, serif ו-monospace. יש לעיין בו בעת המרת גיליון סגנונות LTR לתכונות לוגיות תואמות RTL או בחירת גופני ווב עבריים.
 
+## מלכודות נפוצות
+- CSS text-align: left הוא שגוי לעברית. יש להשתמש ב-text-align: start שמכבד את כיוון המסמך. סוכנים מקודדים לעתים יישור left ב-CSS.
+- margin-left ו-padding-right לא מתהפכים במצב RTL. יש להשתמש בתכונות CSS לוגיות: margin-inline-start ו-padding-inline-end במקום. סוכנים שאומנו על CSS של LTR ייצרו תכונות פיזיות.
+- כיוון row ב-Flexbox מתהפך אוטומטית ב-RTL, אבל row-reverse גם מתהפך, מה שגורם להיפוך כפול בחזרה לסדר LTR. סוכנים עלולים להוסיף row-reverse בחושבם שזה יוצר RTL, אבל בפועל זה יוצר LTR בתוך הקשר RTL.
+- מספרי טלפון, מספרי כרטיסי אשראי וקטעי קוד חייבים להישאר LTR גם בתוך מיכלים RTL. יש לעטוף אותם ב-bdo dir="ltr" או להשתמש ב-direction: ltr על האלמנט המכיל. סוכנים לעתים נותנים להם לרשת RTL.
+
 ## פתרון בעיות
 
 ### שגיאה: "יישור הטקסט נראה שגוי"

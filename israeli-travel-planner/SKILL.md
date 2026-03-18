@@ -12,7 +12,7 @@ compatibility: Works with Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCod
   Codex.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -125,6 +125,12 @@ Result: Family-friendly Galilee itinerary with kid activities and budget options
 
 ### References
 - `references/israeli-transport-guide.md` -- Comprehensive guide to Israeli public transport (Egged, Dan, Israel Railways, Rav-Kav), national parks pricing, hotel chains, and regional highlights. Consult when planning detailed itineraries or comparing transport options.
+
+## Gotchas
+- Public transportation in Israel does not operate on Shabbat (Friday afternoon to Saturday evening) in most cities. Agents may plan Saturday itineraries that rely on buses or trains. Exceptions: Haifa has limited Shabbat service; shared taxis (sherut) run on some routes.
+- Israeli bus numbers and route names use Hebrew characters. Agents may not recognize that route 17-aleph is a different route from 17. Always include the Hebrew letter suffix.
+- The Rav-Kav card (Israel's transit smart card) cannot be purchased or loaded remotely via API. Agents may suggest digital loading when only physical kiosk or driver loading is available.
+- Google Maps transit directions in Israel are often inaccurate for bus arrival times. The official source is the Moovit app or the Ministry of Transport GTFS feed. Agents should not rely solely on Google Maps.
 
 ## Troubleshooting
 

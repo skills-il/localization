@@ -11,7 +11,7 @@ license: MIT
 compatibility: Requires Claude Code or compatible AI coding agent
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -325,6 +325,12 @@ Result: Remote worker makes an informed city choice based on total cost and life
 
 ### Scripts
 - `scripts/rental-budget-calculator.py` -- Calculates total monthly housing costs including rent, arnona, vaad bayit, utilities, and insurance. Supports oleh arnona discount. Run: `python scripts/rental-budget-calculator.py --rent 6000 --city tel-aviv --rooms 3`
+
+## Gotchas
+- Israeli apartment sizes are quoted in gross square meters (bruto), which includes shared spaces like stairwells and walls. Net area (neto) is typically 20-25% less. Agents may compare Israeli and US listings without accounting for this difference.
+- The "rooms" count in Israeli listings (e.g., "3 rooms") counts the salon (living room) as one room. A "3-room apartment" is typically a 2-bedroom. Agents may interpret "3 rooms" as 3 bedrooms.
+- Israeli lease contracts (chozeh sechirut) are typically for 12 months with an option to extend. Agents may suggest US-style month-to-month arrangements, which are uncommon in Israel.
+- Va'ad bayit (building committee fees) and arnona (property tax) are paid separately from rent and can add 500-2,000 NIS/month. Agents may calculate total housing cost based on rent alone.
 
 ## Troubleshooting
 

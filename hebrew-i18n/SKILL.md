@@ -15,7 +15,7 @@ compatibility: >-
   core patterns. ICU and Intl API used for date/number formatting.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -312,6 +312,12 @@ Result: Implement ICU MessageFormat with three categories (one/two/other), handl
 ### References
 - `references/pluralization.md` — Complete Hebrew pluralization rules with singular, dual, and plural forms for common word categories (time, quantities, objects), ICU MessageFormat patterns, and edge cases for Hebrew number agreement.
 - `references/bidi.md` — Bidirectional text handling patterns for Hebrew applications: Unicode bidi algorithm overview, HTML dir attribute usage, CSS unicode-bidi properties, framework-specific bidi solutions, and common pitfalls with mixed Hebrew/English/number content.
+
+## Gotchas
+- Agents may set `dir="rtl"` only on the body element, but RTL direction must be set at the `<html>` level to properly affect scroll bars, default text alignment, and CSS logical properties.
+- Hebrew plural forms are complex: there are singular, dual (for some nouns), and plural forms. Agents may implement simple English-style singular/plural (1 vs. many) and miss the dual form (e.g., yomayim = 2 days).
+- i18n keys for Hebrew should not use the English text as the key (e.g., `t('Submit')`) because Hebrew translations can be much shorter or longer, breaking layouts. Use semantic keys (e.g., `t('form.submit')`).
+- Agents often forget to reverse icon positions in RTL: arrows, chevrons, and progress indicators should mirror horizontally. A "next" arrow should point left in Hebrew UI, not right.
 
 ## Troubleshooting
 

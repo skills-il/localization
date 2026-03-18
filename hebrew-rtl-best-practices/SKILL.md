@@ -11,7 +11,7 @@ license: MIT
 compatibility: 'Works with Claude Code, Claude.ai, Cursor. No network required.'
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -176,6 +176,12 @@ Result: Wrap numeric content in a span with dir="ltr" and unicode-bidi: isolate.
 
 ### References
 - `references/css-logical-properties.md` — Complete physical-to-logical CSS property mapping table (margin, padding, border, positioning, text alignment, sizing) plus Hebrew font stack recommendations for sans-serif, serif, and monospace. Consult when converting any LTR stylesheet to RTL-compatible logical properties or choosing Hebrew web fonts.
+
+## Gotchas
+- CSS `text-align: left` is wrong for Hebrew. Use `text-align: start` which respects the document direction. Agents frequently hardcode `left` alignment in CSS.
+- `margin-left` and `padding-right` do not flip in RTL mode. Use CSS logical properties: `margin-inline-start` and `padding-inline-end` instead. Agents trained on LTR CSS will generate physical properties.
+- Flexbox `row` direction auto-reverses in RTL, but `row-reverse` also reverses, causing a double-flip back to LTR order. Agents may add `row-reverse` thinking it creates RTL, but it actually creates LTR within an RTL context.
+- Phone numbers, credit card numbers, and code snippets must remain LTR even inside RTL containers. Wrap them in `<bdo dir="ltr">` or use `direction: ltr` on the containing element. Agents often let these inherit RTL.
 
 ## Troubleshooting
 

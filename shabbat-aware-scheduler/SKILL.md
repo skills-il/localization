@@ -15,7 +15,7 @@ compatibility: >-
   data. Python recommended.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -256,6 +256,12 @@ Result: Provide cron configuration with should_run_today() check, pre-loaded hol
 
 ### References
 - `references/israeli-holiday-calendar.md` — Complete Israeli holiday calendar with Hebrew dates, Gregorian approximations, scheduling impact levels (high/medium/low), mourning period restrictions, seasonal Shabbat candle-lighting times by month for Jerusalem, and HebCal API endpoint reference. Consult when planning around chagim, determining seasonal Friday closing times, or checking if an event conflicts with a mourning period.
+
+## Gotchas
+- Shabbat times vary by city in Israel. Jerusalem candle lighting is 40 minutes before sunset, while most other cities use 20-30 minutes. Agents may use a single time for all of Israel.
+- Israeli holidays (chagim) have different work restrictions than Shabbat. Some holidays are one day in Israel but two days in the diaspora. Agents may use diaspora holiday calendars for Israeli scheduling.
+- The Hebrew calendar has leap years with an extra month (Adar II), occurring 7 times in a 19-year cycle. Agents may calculate dates using the Gregorian calendar and miss this month entirely.
+- Business hours in Israel typically run Sunday-Thursday, with Friday being a half-day (until early afternoon). Agents may schedule Friday afternoon meetings or Monday morning deadlines (Saturday is the weekly rest day, not Sunday).
 
 ## Troubleshooting
 

@@ -18,7 +18,7 @@ compatibility: >-
   the system.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -326,6 +326,12 @@ Result: Read CSV data, iterate rows, use `scripts/generate_doc.py` to produce in
 ### References
 - `references/hebrew-fonts.md` — Hebrew font catalog with recommended fonts for different document types (sans-serif, serif, monospace), Google Fonts download links, system font availability matrix, font pairing suggestions, and installation instructions for macOS, Linux, and Windows.
 - `references/templates.md` — Israeli business document templates with required fields per document type (tax invoice, contract, proposal, receipt, meeting minutes), Israeli legal requirements for invoices, VAT rules, and standard Hebrew business phrasing.
+
+## Gotchas
+- PDF generators often default to left-to-right text flow. Hebrew documents MUST use RTL paragraph direction, and mixed Hebrew-English text requires proper BiDi (bidirectional) algorithm support.
+- Agents may pick fonts that lack Hebrew character support (e.g., Arial works, but many decorative Latin fonts do not). Always verify the font includes the Hebrew Unicode range (U+0590-U+05FF).
+- Hebrew date formatting uses DD/MM/YYYY in secular context and Hebrew calendar dates (e.g., 15 Adar 5786) for religious/traditional documents. Agents may default to MM/DD/YYYY.
+- Legal documents in Israel require specific formatting: nikud (vowel marks) is NOT used in standard business/legal Hebrew. Agents may add nikud thinking it improves clarity, but it actually looks unprofessional in formal documents.
 
 ## Troubleshooting
 

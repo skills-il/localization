@@ -12,7 +12,7 @@ license: MIT
 compatibility: 'No network required. Works with Claude Code, Claude.ai, Cursor.'
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -164,6 +164,12 @@ Result: Identify gendered forms, apply Option C rewording where possible, use sl
 
 ### References
 - `references/hebrew-grammar-quick-ref.md` — Concise Hebrew grammar reference covering all 7 binyanim (verb patterns) with usage guidance by register, ktiv maleh vs. ktiv chaser spelling examples, common smichut (construct state) forms, and four gender-inclusive writing patterns with before/after examples. Consult when writing or editing Hebrew content and need to verify grammar rules, choose the correct register, or apply gender-neutral phrasing.
+
+## Gotchas
+- Agents default to formal/literary Hebrew (safa gvoha) when writing marketing or UI text. Israeli users expect casual, conversational Hebrew. Use colloquial phrasing, not textbook Hebrew.
+- Hebrew punctuation differs from English: the geresh (') and gershayim (") are used for abbreviations (e.g., tsahal) and acronyms, not for quotation. Agents may strip these or replace them with standard ASCII quotes.
+- Agents tend to transliterate English idioms literally into Hebrew, producing unnatural text. "Think outside the box" does not translate directly; use native Hebrew expressions instead.
+- Hebrew has grammatical gender that must agree between nouns, verbs, and adjectives. Agents often use masculine defaults even when addressing a female user or a feminine noun.
 
 ## Troubleshooting
 

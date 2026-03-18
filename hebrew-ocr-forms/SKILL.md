@@ -16,7 +16,7 @@ compatibility: >-
   Pillow, and opencv-python.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: localization
   tags:
     he:
@@ -168,6 +168,12 @@ Result: Diagnose preprocessing -- check image resolution (recommend 300 DPI mini
 
 ### References
 - `references/israeli-form-types.md` — Detailed catalog of Israeli government form types (Tabu/land registry, Tax Authority forms, Bituach Leumi documents) with field descriptions, regex extraction patterns, ID validation rules, date/currency formats, and OCR tips per form layout. Consult when identifying an unknown form or building field extraction logic for a specific document type.
+
+## Gotchas
+- Hebrew OCR accuracy drops significantly for handwritten text, especially for the letters vav, zayin, and yod which look similar. Always include confidence scores and flag low-confidence characters.
+- Scanned Israeli government forms often have mixed Hebrew and Arabic text. Agents may OCR the Arabic sections as Hebrew or skip them entirely. Both languages use RTL but different Unicode ranges.
+- Israeli ID numbers (mispar zehut) and phone numbers extracted via OCR should be validated with check-digit algorithms after extraction, as single-digit OCR errors are common.
+- Many Israeli forms use dot-matrix printed Hebrew, which has lower OCR accuracy than laser-printed text. Agents may report higher confidence than warranted for older government documents.
 
 ## Troubleshooting
 
