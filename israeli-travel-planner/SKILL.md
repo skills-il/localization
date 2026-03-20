@@ -64,7 +64,7 @@ metadata:
 | Dan | Tel Aviv metro (Gush Dan) |
 | Kavim | Central Israel, Modi'in |
 | Metropoline | Sharon region |
-| Superbus | Modi'in-Jerusalem |
+| Superbus | Jerusalem city, Haifa Metronit, north valleys |
 | Nateev Express | Beer Sheva, Negev |
 
 ## Israel Railways Key Routes
@@ -87,7 +87,7 @@ Public transit stops Friday afternoon through Saturday night. Alternatives: sher
 
 ## Top National Parks (Rashut HaTeva)
 Masada, Ein Gedi, Banias, Caesarea, Tel Dan, Rosh HaNikra, Timna Park, Ein Avdat.
-Kartisiya (6-site pass): 110 NIS adult. Annual pass: ~195 NIS.
+Kartisiya (6-site pass): 130 NIS adult. Annual pass: check parks.org.il for current rates.
 
 ## Regional Highlights
 - Dead Sea: Ein Gedi + Masada sunrise + floating

@@ -197,7 +197,7 @@ Real estate brokers (metavech, מתווך) are common in the Israeli market. Und
 
 | Aspect | Details |
 |--------|---------|
-| Typical broker fee | One month's rent + VAT (17%), paid by tenant |
+| Typical broker fee | One month's rent + VAT (18%), paid by tenant |
 | Who pays | Usually the tenant (unless listing states otherwise) |
 | When fee is due | Upon signing the lease |
 | Fee negotiability | Sometimes negotiable, especially for expensive apartments |
