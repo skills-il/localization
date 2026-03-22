@@ -12,7 +12,7 @@ compatibility: Works with Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCod
   Codex.
 metadata:
   author: skills-il
-  version: 1.0.1
+  version: 1.1.0
   category: localization
   tags:
     he:
@@ -80,14 +80,16 @@ Rechargeable smart card for all public transport. Types: Personal (with photo) a
 Public transit stops Friday afternoon through Saturday night. Alternatives: sherut (shared taxi), private taxis (Gett/Yango), driving. Haifa has limited Shabbat bus service. Yom Kippur: ALL roads closed.
 
 ## Hotel Chains
-- Dan Hotels: Luxury (800-2,500 NIS/night)
-- Isrotel: Resort/Family (600-2,000 NIS)
-- Fattal/Leonardo: Mid-range (500-1,500 NIS)
-- Zimmerim: Country lodges in Galilee/Golan (400-1,500 NIS)
+- Dan Hotels: Luxury (1,200-3,500 NIS/night)
+- Isrotel: Resort/Family (900-2,800 NIS)
+- Fattal/Leonardo: Mid-range (700-2,200 NIS)
+- Zimmerim: Country lodges in Galilee/Golan (600-2,200 NIS)
+
+Note: Prices are approximate and should be verified before booking as rates fluctuate seasonally.
 
 ## Top National Parks (Rashut HaTeva)
 Masada, Ein Gedi, Banias, Caesarea, Tel Dan, Rosh HaNikra, Timna Park, Ein Avdat.
-Kartisiya (6-site pass): 130 NIS adult. Annual pass: check parks.org.il for current rates.
+For current pricing on individual park entries and multi-site passes, visit parks.org.il or contact parks directly.
 
 ## Regional Highlights
 - Dead Sea: Ein Gedi + Masada sunrise + floating
@@ -102,8 +104,8 @@ Kartisiya (6-site pass): 130 NIS adult. Annual pass: check parks.org.il for curr
 User says: "Plan a weekend trip from Tel Aviv to the Dead Sea"
 Actions:
 1. Transport: Egged bus 421 from Tel Aviv Central Station (2.5 hours, ~42 NIS) or rental car via Route 90
-2. Accommodation: Ein Bokek hotel strip (300-800 NIS/night) or Ein Gedi hostel (150-250 NIS/night)
-3. Activities: Ein Gedi Nature Reserve (29 NIS entry), Masada sunrise hike (29 NIS), Dead Sea beach (free public beaches at Ein Bokek)
+2. Accommodation: Ein Bokek hotel strip (450-1,200 NIS/night) or Ein Gedi hostel (220-350 NIS/night)
+3. Activities: Ein Gedi Nature Reserve (entry fees at parks.org.il), Masada sunrise hike, Dead Sea beach (free public beaches at Ein Bokek)
 4. Food: Hotel restaurants, Arad for budget dining (20 min drive)
 5. Tips: Bring water shoes, sunscreen SPF 50+, arrive early for Masada
 Result: Complete itinerary with transport, accommodation, costs, and practical tips
@@ -112,10 +114,10 @@ Result: Complete itinerary with transport, accommodation, costs, and practical t
 User says: "Suggest a day trip for a family with kids in northern Israel"
 Actions:
 1. Route: Drive to Tiberias area via Route 6 + Route 77
-2. Morning: Kfar Kedem biblical experience (79 NIS/adult, 59 NIS/child)
+2. Morning: Kfar Kedem biblical experience (verify current rates before visiting)
 3. Lunch: Decks restaurant on the Kinneret, or falafel in Tiberias (budget option)
-4. Afternoon: Hamat Gader hot springs (99 NIS/adult, 79 NIS/child) or Kinneret beach
-5. Evening: Return via Route 6 (toll ~22 NIS)
+4. Afternoon: Hamat Gader hot springs or Kinneret beach (check current pricing)
+5. Evening: Return via Route 6 (current toll rates available on toll road website)
 Result: Family-friendly Galilee itinerary with kid activities and budget options
 
 ## Bundled Resources
