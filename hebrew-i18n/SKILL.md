@@ -15,7 +15,7 @@ compatibility: >-
   core patterns. ICU and Intl API used for date/number formatting.
 metadata:
   author: skills-il
-  version: 1.0.1
+  version: 1.1.0
   category: localization
   tags:
     he:
@@ -50,8 +50,6 @@ metadata:
     - github-copilot
     - windsurf
     - opencode
-    - codex
-    - antigravity
 ---
 
 # Hebrew I18n
