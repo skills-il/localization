@@ -15,7 +15,7 @@ compatibility: >-
   data. Python recommended.
 metadata:
   author: skills-il
-  version: 1.0.1
+  version: 1.1.0
   category: localization
   tags:
     he:
@@ -156,8 +156,8 @@ def get_holidays(year):
 | Tuesday | 08:00-18:00 | Regular business day |
 | Wednesday | 08:00-18:00 | Regular business day |
 | Thursday | 08:00-18:00 | Regular business day |
-| Friday | 08:00-13:00 | Half day -- closes before Shabbat |
-| Saturday | Closed | Shabbat -- no business |
+| Friday | 08:00-13:00 | Half day (closes before Shabbat) |
+| Saturday | Closed | Shabbat (no business) |
 
 **Core scheduling function:**
 ```python
@@ -232,8 +232,8 @@ def should_run_today(holidays_cache=None, skip_friday=False, skip_erev_chag=Fals
 | Pre-Pesach week | Before Nisan 15 | Extremely busy, cleaning/shopping |
 | Pesach week | Nisan 15-22 | Many on vacation, chol ha-moed |
 | Summer (Jul-Aug) | July-August | School vacation, reduced business |
-| Winter Shabbat | Nov-Feb | Early Shabbat -- Friday closes earlier |
-| Summer Shabbat | May-Aug | Late Shabbat -- more Friday availability |
+| Winter Shabbat | Nov-Feb | Early Shabbat (Friday closes earlier) |
+| Summer Shabbat | May-Aug | Late Shabbat (more Friday availability) |
 
 ## Examples
 
@@ -266,7 +266,7 @@ Result: Provide cron configuration with should_run_today() check, pre-loaded hol
 ## Troubleshooting
 
 ### Error: "Meeting scheduled during Shabbat"
-Cause: Timezone mismatch -- server in UTC, Shabbat times in local
+Cause: Timezone mismatch, server in UTC, Shabbat times in local
 Solution: Always convert to Asia/Jerusalem timezone before checking. Shabbat times vary by season and location.
 
 ### Error: "Holiday not detected"
