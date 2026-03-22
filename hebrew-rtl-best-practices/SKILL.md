@@ -11,7 +11,7 @@ license: MIT
 compatibility: 'Works with Claude Code, Claude.ai, Cursor. No network required.'
 metadata:
   author: skills-il
-  version: 1.0.1
+  version: 1.1.0
   category: localization
   tags:
     he:
@@ -124,8 +124,7 @@ body[dir="rtl"] {
 ```js
 // tailwind.config.js
 module.exports = {
-  // Tailwind v3.1+ has built-in RTL support
-  // Use rtl: and ltr: variants
+  // Tailwind v2.2+ has built-in RTL support with rtl: and ltr: variants
 }
 ```
 ```html

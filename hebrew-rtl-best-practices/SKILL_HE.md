@@ -1,3 +1,56 @@
+---
+name: hebrew-rtl-best-practices
+description: >-
+  Implement right-to-left (RTL) layouts for Hebrew web and mobile applications.
+  Use when user asks about RTL layout, Hebrew text direction, bidirectional
+  (bidi) text, Hebrew CSS, "right to left", or needs to build Hebrew UI. Covers
+  CSS logical properties, Tailwind RTL, React/Vue RTL, Hebrew typography, and
+  font selection. Do NOT use for Arabic RTL (similar but different typography)
+  unless user explicitly asks for shared RTL patterns.
+license: MIT
+compatibility: 'Works with Claude Code, Claude.ai, Cursor. No network required.'
+metadata:
+  author: skills-il
+  version: 1.1.0
+  category: localization
+  tags:
+    he:
+      - ימין-לשמאל
+      - עברית
+      - CSS
+      - פריסה
+      - טיפוגרפיה
+      - דו-כיווני
+    en:
+      - rtl
+      - hebrew
+      - css
+      - layout
+      - typography
+      - bidi
+  display_name:
+    he: שיטות עבודה מומלצות ל-RTL
+    en: Hebrew Rtl Best Practices
+  display_description:
+    he: הנחיות ותבניות ליצירת ממשקים עבריים עם תמיכה מלאה בכתיבה מימין לשמאל
+    en: >-
+      Implement right-to-left (RTL) layouts for Hebrew web and mobile
+      applications. Use when user asks about RTL layout, Hebrew text direction,
+      bidirectional (bidi) text, Hebrew CSS, "right to left", or needs to build
+      Hebrew UI. Covers CSS logical properties, Tailwind RTL, React/Vue RTL,
+      Hebrew typography, and font selection. Do NOT use for Arabic RTL (similar
+      but different typography) unless user explicitly asks for shared RTL
+      patterns.
+  supported_agents:
+    - claude-code
+    - cursor
+    - github-copilot
+    - windsurf
+    - opencode
+    - codex
+    - antigravity
+---
+
 # שיטות עבודה מומלצות ל-RTL בעברית
 
 ## הנחיות
@@ -71,8 +124,7 @@ body[dir="rtl"] {
 ```js
 // tailwind.config.js
 module.exports = {
-  // Tailwind v3.1+ has built-in RTL support
-  // Use rtl: and ltr: variants
+  // Tailwind v2.2+ has built-in RTL support with rtl: and ltr: variants
 }
 ```
 ```html
