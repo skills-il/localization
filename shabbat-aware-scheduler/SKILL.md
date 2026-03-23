@@ -1,59 +1,9 @@
 ---
 name: shabbat-aware-scheduler
-description: >-
-  Schedule meetings, deployments, and events respecting Shabbat, Israeli
-  holidays (chagim), and Hebrew calendar constraints. Use when user asks to
-  schedule around Shabbat, "zmanim", check Israeli holidays, plan around chagim,
-  set Israeli business hours, or needs Hebrew calendar-aware scheduling logic.
-  Includes halachic times (zmanim) via HebCal API, full Israeli holiday
-  calendar, and Israeli business hour conventions. Do NOT use for religious
-  halachic rulings (consult a rabbi) or diaspora 2-day holiday scheduling.
+description: Schedule meetings, deployments, and events respecting Shabbat, Israeli holidays (chagim), and Hebrew calendar constraints. Use when user asks to schedule around Shabbat, "zmanim", check Israeli holidays, plan around chagim, set Israeli business hours, or needs Hebrew calendar-aware scheduling logic. Includes halachic times (zmanim) via HebCal API, full Israeli holiday calendar, and Israeli business hour conventions. Do NOT use for religious halachic rulings (consult a rabbi) or diaspora 2-day holiday scheduling.
 license: MIT
-allowed-tools: 'Bash(python:*) Bash(pip:*) Bash(curl:*)'
-compatibility: >-
-  Network required for HebCal API calls. Works offline with pre-cached holiday
-  data. Python recommended.
-metadata:
-  author: skills-il
-  version: 1.1.0
-  category: localization
-  tags:
-    he:
-      - שבת
-      - תזמון
-      - לוח-עברי
-      - זמנים
-      - חגים
-      - ישראל
-    en:
-      - shabbat
-      - scheduling
-      - hebrew-calendar
-      - zmanim
-      - holidays
-      - israel
-  display_name:
-    he: מתזמן מודע שבת
-    en: Shabbat Aware Scheduler
-  display_description:
-    he: 'תזמון משימות תוך התחשבות בשבתות, חגים ולוח השנה העברי'
-    en: >-
-      Schedule meetings, deployments, and events respecting Shabbat, Israeli
-      holidays (chagim), and Hebrew calendar constraints. Use when user asks to
-      schedule around Shabbat, "zmanim", check Israeli holidays, plan around
-      chagim, set Israeli business hours, or needs Hebrew calendar-aware
-      scheduling logic. Includes halachic times (zmanim) via HebCal API, full
-      Israeli holiday calendar, and Israeli business hour conventions. Do NOT
-      use for religious halachic rulings (consult a rabbi) or diaspora 2-day
-      holiday scheduling.
-  supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
-    - antigravity
+allowed-tools: Bash(python:*) Bash(pip:*) Bash(curl:*)
+compatibility: Network required for HebCal API calls. Works offline with pre-cached holiday data. Python recommended.
 ---
 
 # Shabbat-Aware Scheduler

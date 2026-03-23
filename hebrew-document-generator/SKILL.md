@@ -1,65 +1,9 @@
 ---
 name: hebrew-document-generator
-description: >-
-  Generate professional Hebrew documents including PDF, DOCX, and PPTX with
-  full RTL support and proper Hebrew typography. Use when user asks to create
-  Hebrew PDF, generate Israeli business documents, "lehafik heshbonit",
-  "litstor hozeh", build Hebrew Word document, create Hebrew PowerPoint, or
-  produce Israeli templates such as Heshbonit Mas (tax invoice), Hozeh
-  (contract), Hatza'at Mechir (proposal), or Protokol (meeting minutes).
-  Covers reportlab, WeasyPrint, python-docx, and pptxgenjs with bidi
-  paragraph support. Do NOT use for OCR or reading existing documents (use
-  hebrew-ocr-forms instead).
+description: Generate professional Hebrew documents including PDF, DOCX, and PPTX with full RTL support and proper Hebrew typography. Use when user asks to create Hebrew PDF, generate Israeli business documents, "lehafik heshbonit", "litstor hozeh", build Hebrew Word document, create Hebrew PowerPoint, or produce Israeli templates such as Heshbonit Mas (tax invoice), Hozeh (contract), Hatza'at Mechir (proposal), or Protokol (meeting minutes). Covers reportlab, WeasyPrint, python-docx, and pptxgenjs with bidi paragraph support. Do NOT use for OCR or reading existing documents (use hebrew-ocr-forms instead).
 license: MIT
-allowed-tools: 'Bash(python:*) Bash(pip:*) Bash(node:*) Bash(npm:*)'
-compatibility: >-
-  Requires Python 3.9+ with reportlab or WeasyPrint for PDF, python-docx for
-  DOCX. Node.js with pptxgenjs for PPTX. Hebrew fonts must be available on
-  the system.
-metadata:
-  author: skills-il
-  version: 1.0.1
-  category: localization
-  tags:
-    he:
-      - מסמכים
-      - עברית
-      - PDF
-      - RTL
-      - חשבונית
-      - חוזה
-      - ישראל
-    en:
-      - documents
-      - hebrew
-      - pdf
-      - rtl
-      - invoice
-      - contract
-      - israel
-  display_name:
-    he: מחולל מסמכים בעברית
-    en: Hebrew Document Generator
-  display_description:
-    he: יצירת מסמכים עסקיים בעברית בפורמטים PDF, DOCX ו-PPTX עם תמיכה מלאה ב-RTL
-    en: >-
-      Generate professional Hebrew documents including PDF, DOCX, and PPTX
-      with full RTL support and proper Hebrew typography. Use when user asks
-      to create Hebrew PDF, generate Israeli business documents, "lehafik
-      heshbonit", "litstor hozeh", build Hebrew Word document, create Hebrew
-      PowerPoint, or produce Israeli templates such as Heshbonit Mas (tax
-      invoice), Hozeh (contract), Hatza'at Mechir (proposal), or Protokol
-      (meeting minutes). Covers reportlab, WeasyPrint, python-docx, and
-      pptxgenjs with bidi paragraph support. Do NOT use for OCR or reading
-      existing documents (use hebrew-ocr-forms instead).
-  supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
-    - antigravity
+allowed-tools: Bash(python:*) Bash(pip:*) Bash(node:*) Bash(npm:*)
+compatibility: Requires Python 3.9+ with reportlab or WeasyPrint for PDF, python-docx for DOCX. Node.js with pptxgenjs for PPTX. Hebrew fonts must be available on the system.
 ---
 
 # Hebrew Document Generator

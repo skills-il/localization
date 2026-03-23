@@ -1,61 +1,8 @@
 ---
 name: israeli-wedding-planner
-description: >-
-  Plan an Israeli wedding from engagement to chuppah, covering venue selection
-  (ulmot, ganot aruim), vendor comparison via Israeli platforms (Celebrate,
-  Engaged, Save A Date, Walla Wedding), budget planning (~100-140K NIS average),
-  Rabbinate registration (tik nisuin, teudat ravakut), halachic requirements
-  (mikveh, ketuba), guest management, per-plate cost optimization, seasonal
-  pricing, and timeline creation. Use when user asks about "chatuna b'yisrael",
-  Israeli wedding planning, wedding budget, "ulam aruim", "ulmot", "ganim",
-  wedding vendors, Rabbinate requirements, "tik nisuin", ketuba, or wedding
-  timeline. Prevents common mistakes like missing Rabbinate deadlines, overpaying
-  on Thursday weddings, or forgetting AKUM fees. Do NOT use for destination
-  weddings abroad, non-Jewish religious ceremonies, or divorce proceedings.
+description: Plan an Israeli wedding from engagement to chuppah, covering venue selection (ulmot, ganot aruim), vendor comparison via Israeli platforms (Celebrate, Engaged, Save A Date, Walla Wedding), budget planning (~100-140K NIS average), Rabbinate registration (tik nisuin, teudat ravakut), halachic requirements (mikveh, ketuba), guest management, per-plate cost optimization, seasonal pricing, and timeline creation. Use when user asks about "chatuna b'yisrael", Israeli wedding planning, wedding budget, "ulam aruim", "ulmot", "ganim", wedding vendors, Rabbinate requirements, "tik nisuin", ketuba, or wedding timeline. Prevents common mistakes like missing Rabbinate deadlines, overpaying on Thursday weddings, or forgetting AKUM fees. Do NOT use for destination weddings abroad, non-Jewish religious ceremonies, or divorce proceedings.
 license: MIT
 compatibility: Works with Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCode, Codex.
-metadata:
-  author: skills-il
-  version: 1.0.0
-  category: localization
-  tags:
-    he:
-      - חתונה
-      - אולם-אירועים
-      - רבנות
-      - תקציב
-      - ספקים
-      - ישראל
-    en:
-      - wedding
-      - event-venue
-      - rabbinate
-      - budget
-      - vendors
-      - israel
-  display_name:
-    he: מתכנן חתונות בישראל
-    en: Israeli Wedding Planner
-  display_description:
-    he: >-
-      תכנון חתונה ישראלית מאירוסין ועד חופה: בחירת אולם או גן אירועים, השוואת
-      ספקים דרך פלטפורמות ישראליות (Celebrate, מאורסים, Save A Date, וואלה חתונות),
-      תכנון תקציב (ממוצע 100-140 אלף שקל), רישום ברבנות (תיק נישואין, תעודת
-      רווקות), דרישות הלכתיות (מקווה, כתובה), ניהול מוזמנים, אופטימיזציה של
-      מחיר למנה, תמחור עונתי ובניית לוח זמנים.
-    en: >-
-      Plan an Israeli wedding from engagement to chuppah: venue selection, vendor
-      comparison via Israeli platforms, budget planning (~100-140K NIS average),
-      Rabbinate registration, halachic requirements, guest management, per-plate
-      cost optimization, seasonal pricing, and timeline creation. Prevents common
-      mistakes like missing Rabbinate deadlines or overpaying on popular weekdays.
-  supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
 ---
 
 # Israeli Wedding Planner

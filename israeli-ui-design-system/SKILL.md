@@ -1,61 +1,8 @@
 ---
 name: israeli-ui-design-system
-description: >-
-  Build RTL-first UI component libraries and design systems for Israeli
-  applications with Hebrew typography. Use when user asks about Hebrew UI
-  components, "itzuv" (design), Israeli design system, Hebrew font pairing,
-  RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il
-  design patterns. Covers RTL-first component architecture, Hebrew font
-  pairings (Heebo+Inter, Rubik+Source Sans Pro), gov.il design system
-  patterns, and culturally appropriate UI for Israeli users. Do NOT use for
-  general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits
-  (use israeli-accessibility-compliance instead).
+description: Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, "itzuv" (design), Israeli design system, Hebrew font pairing, RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans Pro), gov.il design system patterns, and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead).
 license: MIT
-compatibility: >-
-  Works with React, Vue, Angular, and vanilla HTML/CSS. No network required
-  for core patterns. Recommended with Storybook for component development.
-metadata:
-  author: skills-il
-  version: 1.0.1
-  category: localization
-  tags:
-    he:
-      - עיצוב
-      - UI
-      - RTL
-      - טיפוגרפיה
-      - ישראל
-    en:
-      - design
-      - ui
-      - rtl
-      - typography
-      - israel
-  display_name:
-    he: מערכת עיצוב ישראלית
-    en: Israeli UI Design System
-  display_description:
-    he: >-
-      בניית מערכות עיצוב ורכיבי UI מותאמים ל-RTL עם טיפוגרפיה עברית, זיווגי
-      גופנים ותבניות עיצוב ישראליות
-    en: >-
-      Build RTL-first UI component libraries and design systems for Israeli
-      applications with Hebrew typography. Use when user asks about Hebrew UI
-      components, "itzuv" (design), Israeli design system, Hebrew font pairing,
-      RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il
-      design patterns. Covers RTL-first component architecture, Hebrew font
-      pairings, gov.il design system patterns, and culturally appropriate UI
-      for Israeli users. Do NOT use for general RTL CSS (use
-      hebrew-rtl-best-practices) or accessibility audits (use
-      israeli-accessibility-compliance instead).
-  supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
-    - antigravity
+compatibility: Works with React, Vue, Angular, and vanilla HTML/CSS. No network required for core patterns. Recommended with Storybook for component development.
 ---
 
 # Israeli UI Design System

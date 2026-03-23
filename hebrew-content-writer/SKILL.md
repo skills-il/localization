@@ -1,55 +1,8 @@
 ---
 name: hebrew-content-writer
-description: >-
-  Write and edit professional content in Hebrew including marketing copy, UX
-  text, articles, emails, and social media posts. Use when user asks to write in
-  Hebrew, "ktov b'ivrit", create Hebrew marketing content, edit Hebrew text,
-  write Hebrew UX copy, or optimize Hebrew content for SEO. Covers grammar
-  rules, formal vs informal register, gendered language handling, and Hebrew SEO
-  best practices. Do NOT use for Hebrew NLP/ML tasks (use hebrew-nlp-toolkit) or
-  translation (use a translation skill).
+description: Write and edit professional content in Hebrew including marketing copy, UX text, articles, emails, and social media posts. Use when user asks to write in Hebrew, "ktov b'ivrit", create Hebrew marketing content, edit Hebrew text, write Hebrew UX copy, or optimize Hebrew content for SEO. Covers grammar rules, formal vs informal register, gendered language handling, and Hebrew SEO best practices. Do NOT use for Hebrew NLP/ML tasks (use hebrew-nlp-toolkit) or translation (use a translation skill).
 license: MIT
-compatibility: 'No network required. Works with Claude Code, Claude.ai, Cursor.'
-metadata:
-  author: skills-il
-  version: 1.0.1
-  category: localization
-  tags:
-    he:
-      - עברית
-      - תוכן
-      - כתיבה
-      - קידום-אתרים
-      - קופירייטינג
-      - לוקליזציה
-    en:
-      - hebrew
-      - content
-      - writing
-      - seo
-      - copywriting
-      - localization
-  display_name:
-    he: כותב תוכן בעברית
-    en: Hebrew Content Writer
-  display_description:
-    he: כתיבה ועריכה של תוכן מקצועי בעברית תקנית ושוטפת
-    en: >-
-      Write and edit professional content in Hebrew including marketing copy, UX
-      text, articles, emails, and social media posts. Use when user asks to
-      write in Hebrew, "ktov b'ivrit", create Hebrew marketing content, edit
-      Hebrew text, write Hebrew UX copy, or optimize Hebrew content for SEO.
-      Covers grammar rules, formal vs informal register, gendered language
-      handling, and Hebrew SEO best practices. Do NOT use for Hebrew NLP/ML
-      tasks (use hebrew-nlp-toolkit) or translation (use a translation skill).
-  supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
-    - antigravity
+compatibility: No network required. Works with Claude Code, Claude.ai, Cursor.
 ---
 
 # Hebrew Content Writer

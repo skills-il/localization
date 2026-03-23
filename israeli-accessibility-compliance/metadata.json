@@ -1,0 +1,38 @@
+{
+  "author": "skills-il",
+  "version": "1.0.1",
+  "category": "localization",
+  "tags": {
+    "he": [
+      "נגישות",
+      "תקן-5568",
+      "נכים",
+      "RTL",
+      "ישראל"
+    ],
+    "en": [
+      "accessibility",
+      "is-5568",
+      "wcag",
+      "rtl",
+      "israel"
+    ]
+  },
+  "display_name": {
+    "he": "נגישות אתרים ישראלית",
+    "en": "Israeli Accessibility Compliance"
+  },
+  "display_description": {
+    "he": "יישום תקן הנגישות הישראלי IS 5568 ודרישות WCAG 2.1 AA לאפליקציות עבריות עם תמיכת RTL, קוראי מסך ותבניות ARIA",
+    "en": "Implement Israeli web accessibility compliance per IS 5568 standard and WCAG 2.1 AA for Hebrew RTL applications. Use when user asks about Israeli accessibility law, \"negishot\" (accessibility), IS 5568, \"teken negishot\" (accessibility standard), \"nachim\" (disabilities), Hebrew screen reader support, RTL ARIA patterns, or accessibility audit for Israeli websites. Covers mandatory legal requirements under the Equal Rights for Persons with Disabilities Act, Hebrew screen reader compatibility, RTL-specific ARIA patterns, and penalties for non-compliance. Do NOT use for general WCAG guidance without Israeli context (use standard a11y resources instead)."
+  },
+  "supported_agents": [
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "windsurf",
+    "opencode",
+    "codex",
+    "antigravity"
+  ]
+}

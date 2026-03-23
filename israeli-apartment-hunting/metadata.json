@@ -1,0 +1,40 @@
+{
+  "author": "skills-il",
+  "version": "1.0.1",
+  "category": "localization",
+  "tags": {
+    "he": [
+      "דירה",
+      "שכירות",
+      "יד2",
+      "דיור",
+      "מעבר-דירה",
+      "ישראל"
+    ],
+    "en": [
+      "apartment",
+      "rental",
+      "yad2",
+      "housing",
+      "relocation",
+      "israel"
+    ]
+  },
+  "display_name": {
+    "he": "חיפוש דירה בישראל",
+    "en": "Israeli Apartment Hunting"
+  },
+  "display_description": {
+    "he": "מדריך לחיפוש דירה להשכרה בישראל דרך יד2, מדלן ופלטפורמות נוספות",
+    "en": "Comprehensive guide to finding rental apartments in Israel through Yad2, Madlan, Facebook groups, and real estate agents. Use when relocating to Israel, searching for a rental apartment, negotiating with landlords, or navigating broker fees and lease agreements. Covers 2026 market prices by city, Hebrew listing terminology, viewing checklists, required documents, and neighborhood evaluation criteria. Do NOT use for purchasing property or commercial real estate."
+  },
+  "supported_agents": [
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "windsurf",
+    "opencode",
+    "codex",
+    "antigravity"
+  ]
+}

@@ -1,62 +1,8 @@
 ---
 name: hebrew-tailwind-preset
-description: >-
-  Configure Tailwind CSS v4 for Hebrew RTL applications with dir variants,
-  Hebrew font stacks, and logical property utilities. Use when user asks about
-  Tailwind RTL setup, Hebrew Tailwind config, "Tailwind ivrit" (Hebrew
-  Tailwind), RTL utility classes, logical properties in Tailwind, ms-/me-
-  utilities, or Tailwind Hebrew font configuration. Covers Tailwind v4 dir
-  variants, Hebrew font stack presets, logical property utilities
-  (ms-/me-/ps-/pe- instead of ml-/mr-/pl-/pr-), RTL-first component
-  patterns, and Hebrew typography tokens. Do NOT use for general CSS RTL
-  patterns (use hebrew-rtl-best-practices) or full design systems (use
-  israeli-ui-design-system instead).
+description: Configure Tailwind CSS v4 for Hebrew RTL applications with dir variants, Hebrew font stacks, and logical property utilities. Use when user asks about Tailwind RTL setup, Hebrew Tailwind config, "Tailwind ivrit" (Hebrew Tailwind), RTL utility classes, logical properties in Tailwind, ms-/me- utilities, or Tailwind Hebrew font configuration. Covers Tailwind v4 dir variants, Hebrew font stack presets, logical property utilities (ms-/me-/ps-/pe- instead of ml-/mr-/pl-/pr-), RTL-first component patterns, and Hebrew typography tokens. Do NOT use for general CSS RTL patterns (use hebrew-rtl-best-practices) or full design systems (use israeli-ui-design-system instead).
 license: MIT
-compatibility: >-
-  Tailwind CSS v4.0+ recommended. Compatible with v3.1+ for dir variants.
-  Works with React, Vue, Angular, Next.js, Nuxt. No network required.
-metadata:
-  author: skills-il
-  version: 1.0.1
-  category: localization
-  tags:
-    he:
-      - Tailwind
-      - RTL
-      - עברית
-      - CSS
-      - עיצוב
-    en:
-      - tailwind
-      - rtl
-      - hebrew
-      - css
-      - design
-  display_name:
-    he: תצורת Tailwind לעברית
-    en: Hebrew Tailwind Preset
-  display_description:
-    he: >-
-      הגדרת Tailwind CSS לאפליקציות עבריות עם וריאנטים כיווניים, מחסניות
-      גופנים עבריות ותכונות לוגיות
-    en: >-
-      Configure Tailwind CSS v4 for Hebrew RTL applications with dir variants,
-      Hebrew font stacks, and logical property utilities. Use when user asks
-      about Tailwind RTL setup, Hebrew Tailwind config, "Tailwind ivrit",
-      RTL utility classes, logical properties in Tailwind, ms-/me- utilities,
-      or Tailwind Hebrew font configuration. Covers Tailwind v4 dir variants,
-      Hebrew font stack presets, logical property utilities, RTL-first
-      component patterns, and Hebrew typography tokens. Do NOT use for general
-      CSS RTL patterns (use hebrew-rtl-best-practices) or full design systems
-      (use israeli-ui-design-system instead).
-  supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
-    - antigravity
+compatibility: Tailwind CSS v4.0+ recommended. Compatible with v3.1+ for dir variants. Works with React, Vue, Angular, Next.js, Nuxt. No network required.
 ---
 
 # Hebrew Tailwind Preset

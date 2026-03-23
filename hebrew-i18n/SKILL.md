@@ -1,55 +1,8 @@
 ---
 name: hebrew-i18n
-description: >-
-  Implement comprehensive Hebrew internationalization (i18n) patterns for web
-  and mobile applications. Use when user asks about Hebrew localization,
-  "beinle'umiyut", i18n for Israeli apps, Hebrew plural forms, Hebrew date
-  formatting, RTL CSS logical properties, bidirectional text handling, or
-  React/Vue/Angular RTL integration. Covers Hebrew pluralization rules, date
-  and number formatting for Israel, RTL-first CSS, and bidi text algorithms.
-  Do NOT use for NLP or content writing (use hebrew-nlp-toolkit or
-  hebrew-content-writer instead).
+description: Implement comprehensive Hebrew internationalization (i18n) patterns for web and mobile applications. Use when user asks about Hebrew localization, "beinle'umiyut", i18n for Israeli apps, Hebrew plural forms, Hebrew date formatting, RTL CSS logical properties, bidirectional text handling, or React/Vue/Angular RTL integration. Covers Hebrew pluralization rules, date and number formatting for Israel, RTL-first CSS, and bidi text algorithms. Do NOT use for NLP or content writing (use hebrew-nlp-toolkit or hebrew-content-writer instead).
 license: MIT
-compatibility: >-
-  Works with any JavaScript/TypeScript framework. No network required for
-  core patterns. ICU and Intl API used for date/number formatting.
-metadata:
-  author: skills-il
-  version: 1.1.0
-  category: localization
-  tags:
-    he:
-      - בינלאומיות
-      - RTL
-      - עברית
-      - תרגום
-      - לוקליזציה
-    en:
-      - i18n
-      - rtl
-      - hebrew
-      - localization
-      - translation
-  display_name:
-    he: בינלאומיות עברית
-    en: Hebrew i18n
-  display_description:
-    he: תבניות בינלאומיות מקיפות לעברית כולל ריבוי, תאריכים, מספרים ו-RTL
-    en: >-
-      Implement comprehensive Hebrew internationalization (i18n) patterns for
-      web and mobile applications. Use when user asks about Hebrew
-      localization, "beinle'umiyut", i18n for Israeli apps, Hebrew plural
-      forms, Hebrew date formatting, RTL CSS logical properties, bidirectional
-      text handling, or React/Vue/Angular RTL integration. Covers Hebrew
-      pluralization rules, date and number formatting for Israel, RTL-first
-      CSS, and bidi text algorithms. Do NOT use for NLP or content writing
-      (use hebrew-nlp-toolkit or hebrew-content-writer instead).
-  supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
+compatibility: Works with any JavaScript/TypeScript framework. No network required for core patterns. ICU and Intl API used for date/number formatting.
 ---
 
 # Hebrew I18n

@@ -1,62 +1,9 @@
 ---
 name: hebrew-ocr-forms
-description: >-
-  Process and extract data from scanned Israeli government forms using OCR.
-  Supports Tabu (land registry), Tax Authority forms, Bituach Leumi documents,
-  and other official Israeli paperwork. Use when user asks to OCR Hebrew
-  documents, extract data from Israeli forms, "lesarek tofes", parse Tabu
-  extract, read scanned tax form, or process Israeli government documents.
-  Includes Hebrew OCR configuration, field extraction patterns, and RTL text
-  handling. Do NOT use for handwritten Hebrew recognition (requires specialized
-  models) or non-Israeli form processing.
+description: Process and extract data from scanned Israeli government forms using OCR. Supports Tabu (land registry), Tax Authority forms, Bituach Leumi documents, and other official Israeli paperwork. Use when user asks to OCR Hebrew documents, extract data from Israeli forms, "lesarek tofes", parse Tabu extract, read scanned tax form, or process Israeli government documents. Includes Hebrew OCR configuration, field extraction patterns, and RTL text handling. Do NOT use for handwritten Hebrew recognition (requires specialized models) or non-Israeli form processing.
 license: MIT
-allowed-tools: 'Bash(python:*) Bash(pip:*) Bash(tesseract:*)'
-compatibility: >-
-  Requires Tesseract OCR with Hebrew language pack. Python with pytesseract,
-  Pillow, and opencv-python.
-metadata:
-  author: skills-il
-  version: 1.0.1
-  category: localization
-  tags:
-    he:
-      - זיהוי-תווים
-      - עברית
-      - טפסים
-      - ממשל
-      - טאבו
-      - מיסים
-      - ביטוח-לאומי
-    en:
-      - ocr
-      - hebrew
-      - forms
-      - government
-      - tabu
-      - tax
-      - bituach-leumi
-  display_name:
-    he: OCR לטפסים בעברית
-    en: Hebrew Ocr Forms
-  display_description:
-    he: 'זיהוי תווים אופטי לטפסי ממשלה בעברית — טאבו, רשות המסים ועוד'
-    en: >-
-      Process and extract data from scanned Israeli government forms using OCR.
-      Supports Tabu (land registry), Tax Authority forms, Bituach Leumi
-      documents, and other official Israeli paperwork. Use when user asks to OCR
-      Hebrew documents, extract data from Israeli forms, "lesarek tofes", parse
-      Tabu extract, read scanned tax form, or process Israeli government
-      documents. Includes Hebrew OCR configuration, field extraction patterns,
-      and RTL text handling. Do NOT use for handwritten Hebrew recognition
-      (requires specialized models) or non-Israeli form processing.
-  supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
-    - antigravity
+allowed-tools: Bash(python:*) Bash(pip:*) Bash(tesseract:*)
+compatibility: Requires Tesseract OCR with Hebrew language pack. Python with pytesseract, Pillow, and opencv-python.
 ---
 
 # Hebrew OCR Forms
