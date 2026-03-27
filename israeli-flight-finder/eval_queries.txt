@@ -1,0 +1,19 @@
+# Eval Queries for israeli-flight-finder
+
+## Positive (should trigger) - 6 queries
++ "Find me the cheapest flight from TLV to Rome"
++ "טיסות זולות מישראל ליוון"
++ "Compare El Al vs Arkia baggage fees"
++ "When is the cheapest time to fly from Israel?"
++ "I need a flight from Ben Gurion to London, what's the best platform to compare prices?"
++ "How much does checked luggage cost on Israir?"
+
+## Negative (should NOT trigger) - 3 queries
+- "Plan a road trip from Tel Aviv to Eilat" (should trigger israeli-travel-planner)
+- "What time is the train from Tel Aviv to Haifa?" (should trigger railil)
+- "Find me a hotel in Eilat" (hotel-only, not flights)
+
+## Edge cases - 3 queries
+? "I want to travel to Greece, help me plan everything" (partial match -- flight part yes, hotel/activities no)
+? "Compare Issta and Lametayel packages to Cyprus" (package deals -- yes if flight included)
+? "What airlines fly from Israel?" (informational, should trigger)
