@@ -35,7 +35,7 @@
 ### Lametayel
 - **URL**: lametayel.co.il
 - **Hebrew**: Native Hebrew platform
-- **Strengths**: Israel's 2nd most visited travel site, aggregates prices from Israeli tour operators and airlines, strong comparison engine for flights departing Israel
+- **Strengths**: One of Israel's most popular travel content sites, aggregates prices from Israeli tour operators and airlines, strong comparison engine for flights departing Israel
 - **Best for**: Comparing Israeli operator prices, finding deals from Israeli travel companies
 
 ## Platform Selection Quick Reference

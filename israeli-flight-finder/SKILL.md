@@ -49,32 +49,38 @@ Google Flights offers an AI-powered "Flight Deals" feature available in Israel i
 | Economy Classic | 1 x 8 kg + 1 personal item | 1 x 23 kg |
 | Economy Flex | 1 x 8 kg + 1 personal item | 1 x 23 kg |
 | Premium | 1 x 8 kg + 1 personal item | 2 x 23 kg |
-| Business | 2 x 8 kg (12 kg total) + 1 personal item | 2 x 32 kg |
+| Business | 1 x 16 kg (56x45x25 cm) + 1 personal item | 2 x 32 kg |
 
-**Matmid members**: Gold, Platinum, and Top Platinum get 2 carry-on items (12 kg total).
+**Economy Lite restriction (Europe/UAE)**: Since May 2025, Lite fare passengers on flights to/from Europe or the UAE must check their carry-on at the gate (free of charge). Only a personal item (max 38x30x18 cm) is allowed in the cabin. This does NOT apply to US routes or Classic/Flex fares. Matmid elite members (Gold+) are exempt.
+
+**Matmid members**: Gold, Platinum, and Top Platinum get enhanced carry-on privileges.
 
 ### Israir (6H)
 
-- **Hub**: Ben Gurion (TLV)
-- **Network**: European and domestic routes
+- **Hub**: Ben Gurion (TLV), Ramon Airport (Eilat)
+- **Network**: ~49 international destinations (Europe, New York, India, Central Asia) + domestic (Eilat, Haifa)
 - **Website**: israir.co.il
+- **Fleet**: Transitioning to all-Airbus (A320/A330); A330s for long-haul (New York, Asia)
 
-**Baggage policy:**
+**Baggage policy (updated March 2026):**
 
 | Item | Weight | Cost (advance) | Cost (airport) |
 |------|--------|----------------|----------------|
-| Carry-on (Airbus) | 8 kg | Free | Free |
-| Carry-on (ATR, Eilat) | 5 kg | Free | Free |
-| 1st checked bag | 23 kg | Included in some fares | $80 / EUR 77 |
-| 2nd checked bag | 23 kg | Varies | $90 / EUR 87 |
+| Personal item | Small bag (under seat) | Free | Free |
+| Carry-on | 10 kg | $30 per direction | $40 |
+| 1st checked bag | 23 kg | $60 per direction | $100 |
+| Overweight (24-32 kg) | -- | +$20 per direction | +$70 |
+
+Standard fares do not include checked baggage. Some vacation packages may bundle bags.
 
 ### Arkia (IZ)
 
 - **Hub**: Ben Gurion (TLV), Ramon Airport (Eilat)
 - **Network**: ~40 international destinations including New York, Bangkok, European cities, Greek islands
-- **Website**: arkia.com
+- **Website**: arkia.co.il
+- **New for 2026**: Business class on select European routes (Paris first), plus Phuket, Malaga, Ibiza, Vilnius, Hanoi
 
-**Baggage policy (effective July 2025):**
+**Baggage policy (international flights, verify on arkia.co.il):**
 
 | Item | Weight | Cost (advance) | Cost (airport) |
 |------|--------|----------------|----------------|
@@ -85,9 +91,9 @@ Google Flights offers an AI-powered "Flight Deals" feature available in Israel i
 
 ### Low-Cost Carriers
 
-**Wizz Air (W6)**: Hungarian low-cost carrier with growing Israel presence. Operating 20+ routes from TLV to European destinations. Planning TLV and Ramon airport bases. Check wizz.air.com for current routes and baggage add-on pricing.
+**Wizz Air (W6)**: Hungarian low-cost carrier planning to establish bases at Ben Gurion and Ramon airports. Route availability fluctuates due to security-related suspensions. When operating, offers ~11 routes from TLV to European destinations. Check wizzair.com for current route status and baggage add-on pricing. Only a small personal item (40x30x20 cm) is free on base fares; cabin bags and checked bags are paid add-ons.
 
-**Ryanair**: Does not currently operate routes to/from Israel.
+**Ryanair**: Has officially removed Tel Aviv from its route map. Cancelled 22 planned routes and ~1 million seats for the 2025-2026 season due to disputes with Ben Gurion Airport over slot allocation and Terminal 1 availability. No confirmed return date.
 
 ## Seasonal Pricing Guide
 
@@ -163,15 +169,17 @@ Israeli travel agencies (Issta, Lametayel) specialize in package deals that bund
 
 ## Gotchas
 
-1. **Baggage pricing varies wildly between Israeli airlines**: Arkia charges for checked bags on all fares; El Al includes bags on Classic and above; Israir varies by route. Always check the specific fare's baggage inclusion before comparing base prices.
+1. **El Al Lite fares to Europe/UAE have no cabin carry-on**: Since May 2025, Lite fare passengers must check their carry-on at the gate (free). Only a small personal item fits in the cabin. This catches many budget travelers off guard. Does not apply to US routes.
 
-2. **Israeli holiday pricing is front-loaded**: Prices spike 2-4 weeks BEFORE the holiday, not on the holiday itself. By the time Rosh Hashana starts, the peak pricing window has passed for most routes.
+2. **Baggage pricing varies wildly between Israeli airlines**: Arkia charges for checked bags on all fares; El Al includes bags on Classic and above; Israir charges for everything except a personal item (as of March 2026). Always check the specific fare's baggage inclusion before comparing base prices.
 
-3. **"Direct" does not mean "nonstop" on some platforms**: Skyscanner and some OTAs list flights with a technical stop (same plane, brief stop) as "direct." Verify on the airline's own site if nonstop matters to you.
+3. **Israeli holiday pricing is front-loaded**: Prices spike 2-4 weeks BEFORE the holiday, not on the holiday itself. By the time Rosh Hashana starts, the peak pricing window has passed for most routes.
 
-4. **Issta and Lametayel prices include different things**: Issta package prices often include hotel+transfers; Lametayel shows flight-only comparison. Comparing a Lametayel flight price to an Issta package price is not apples-to-apples.
+4. **"Direct" does not mean "nonstop" on some platforms**: Skyscanner and some OTAs list flights with a technical stop (same plane, brief stop) as "direct." Verify on the airline's own site if nonstop matters to you.
 
-5. **Currency mismatches**: Google Flights shows prices in NIS by default for Israeli users, but Skyscanner may show USD or EUR depending on settings. Ensure you're comparing in the same currency.
+5. **Issta and Lametayel prices include different things**: Issta package prices often include hotel+transfers; Lametayel shows flight-only comparison. Comparing a Lametayel flight price to an Issta package price is not apples-to-apples.
+
+6. **Currency mismatches**: Google Flights shows prices in NIS by default for Israeli users, but Skyscanner may show USD or EUR depending on settings. Ensure you're comparing in the same currency.
 
 ## Bundled Resources
 

@@ -12,7 +12,7 @@
     "en": ["flights", "price-comparison", "tlv", "el-al", "israir", "arkia", "travel", "cheap-flights"]
   },
   "author": "skills-il",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "localization",
   "supported_agents": ["claude-code", "openclaw", "cursor", "windsurf"],
   "openclaw": {
