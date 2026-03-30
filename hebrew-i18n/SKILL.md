@@ -1,6 +1,6 @@
 ---
 name: hebrew-i18n
-description: Implement comprehensive Hebrew internationalization (i18n) patterns for web and mobile applications. Use when user asks about Hebrew localization, "beinle'umiyut", i18n for Israeli apps, Hebrew plural forms, Hebrew date formatting, RTL CSS logical properties, bidirectional text handling, or React/Vue/Angular RTL integration. Covers Hebrew pluralization rules, date and number formatting for Israel, RTL-first CSS, and bidi text algorithms. Do NOT use for NLP or content writing (use hebrew-nlp-toolkit or hebrew-content-writer instead).
+description: Implement comprehensive Hebrew internationalization (i18n) patterns for web and mobile applications. Use when user asks about Hebrew localization, "beinle'umiyut", i18n for Israeli apps, Hebrew plural forms, Hebrew date formatting, RTL CSS logical properties, bidirectional text handling, React/Vue/Angular/Next.js RTL integration, Tailwind CSS RTL, or next-intl setup. Covers Hebrew pluralization rules, date and number formatting for Israel, RTL-first CSS, Tailwind RTL utilities, and bidi text algorithms. Do NOT use for NLP or content writing (use hebrew-nlp-toolkit or hebrew-content-writer instead).
 license: MIT
 compatibility: Works with any JavaScript/TypeScript framework. No network required for core patterns. ICU and Intl API used for date/number formatting.
 ---
@@ -34,6 +34,43 @@ const i18n = createI18n({
   locale: 'he',
   fallbackLocale: 'en',
   messages: { he: heMessages, en: enMessages },
+});
+```
+
+**Next.js App Router (next-intl):**
+```tsx
+// app/[locale]/layout.tsx
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+
+export default async function LocaleLayout({ children, params }) {
+  const { locale } = await params;
+  const messages = await getMessages();
+  return (
+    <html lang={locale} dir={locale === 'he' ? 'rtl' : 'ltr'}>
+      <body>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+```ts
+// middleware.ts
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
+export default createMiddleware(routing);
+```
+
+```ts
+// i18n/routing.ts
+import { defineRouting } from 'next-intl/routing';
+export const routing = defineRouting({
+  locales: ['he', 'en'],
+  defaultLocale: 'he',
 });
 ```
 
@@ -168,6 +205,34 @@ html[lang="he"] {
 }
 ```
 
+**Tailwind CSS RTL (v3.3+):**
+
+Tailwind provides logical property utilities and RTL variants:
+
+```html
+<!-- Logical property utilities (auto-flip for RTL) -->
+<div class="ms-4 me-2 ps-3 pe-1 text-start">
+  <!-- ms = margin-inline-start, me = margin-inline-end -->
+  <!-- ps = padding-inline-start, pe = padding-inline-end -->
+</div>
+
+<!-- RTL/LTR variants for direction-specific overrides -->
+<div class="ltr:ml-4 rtl:mr-4 ltr:text-left rtl:text-right">
+  <!-- Explicit per-direction when logical properties are not enough -->
+</div>
+```
+
+| Physical (avoid) | Logical (prefer) | RTL behavior |
+|-------------------|-------------------|-------------|
+| `ml-4` | `ms-4` | Right margin in RTL |
+| `mr-4` | `me-4` | Left margin in RTL |
+| `pl-4` | `ps-4` | Right padding in RTL |
+| `pr-4` | `pe-4` | Left padding in RTL |
+| `text-left` | `text-start` | Right-aligned in RTL |
+| `text-right` | `text-end` | Left-aligned in RTL |
+| `rounded-l-lg` | `rounded-s-lg` | Right corners in RTL |
+| `border-r-2` | `border-e-2` | Left border in RTL |
+
 ### Step 6: Bidirectional Text Handling
 
 See `references/bidi.md` for detailed patterns and edge cases.
@@ -197,19 +262,33 @@ See `references/bidi.md` for detailed patterns and edge cases.
 
 ### Step 7: Framework-Specific RTL Integration
 
-**React with styled-components:**
-```jsx
-import { ThemeProvider } from 'styled-components';
+**Next.js App Router with Tailwind:**
+```tsx
+// app/[locale]/layout.tsx
+export default async function LocaleLayout({ children, params }) {
+  const { locale } = await params;
+  return (
+    <html lang={locale} dir={locale === 'he' ? 'rtl' : 'ltr'}>
+      <body className="font-sans">
+        {/* Tailwind logical utilities auto-flip based on dir attribute */}
+        <main className="ms-4 me-4 text-start">{children}</main>
+      </body>
+    </html>
+  );
+}
+```
 
-const theme = {
-  dir: 'rtl',
-  isRTL: true,
-};
-
-const Container = styled.div`
-  direction: ${({ theme }) => theme.dir};
-  margin-inline-start: 1rem;
-`;
+```tsx
+// components/NavBar.tsx -- uses rtl: variant for icon flipping
+export function NavBar() {
+  return (
+    <nav className="flex items-center gap-4">
+      <button className="ltr:rotate-0 rtl:rotate-180">
+        <ChevronRight /> {/* Flips to point left in RTL */}
+      </button>
+    </nav>
+  );
+}
 ```
 
 **Vue with Vuetify:**
@@ -255,10 +334,14 @@ Result: Wrap phone numbers in `dir="ltr"` spans, isolate English content with `u
 User says: "My Hebrew translations show wrong plural forms"
 Result: Implement ICU MessageFormat with three categories (one/two/other), handle dual forms for time units, and configure i18n framework plural rules for Hebrew locale.
 
+### Example 5: Add Hebrew to Next.js App Router
+User says: "I want to add Hebrew and English support to my Next.js App Router project"
+Result: Install next-intl, create `[locale]` route segment, configure middleware for locale detection, set `dir="rtl"` on `<html>` for Hebrew locale, create he.json and en.json message files with ICU plural syntax, and use Tailwind logical utilities (`ms-*`, `me-*`, `text-start`) for RTL-ready styles.
+
 ## Bundled Resources
 
 ### Scripts
-- `scripts/generate_i18n.py` — Generate Hebrew i18n message files: scaffold translation JSON/XLIFF structure, extract Hebrew plural form templates, produce locale files for react-intl, vue-i18n, and angular i18n. Run: `python scripts/generate_i18n.py --help`
+- `scripts/generate_i18n.py` — Generate Hebrew i18n message files: scaffold translation JSON structure, extract Hebrew plural form templates, produce locale files for react-intl, vue-i18n, and next-intl. Run: `python scripts/generate_i18n.py --help`
 
 ### References
 - `references/pluralization.md` — Complete Hebrew pluralization rules with singular, dual, and plural forms for common word categories (time, quantities, objects), ICU MessageFormat patterns, and edge cases for Hebrew number agreement.
@@ -269,6 +352,7 @@ Result: Implement ICU MessageFormat with three categories (one/two/other), handl
 - Hebrew plural forms are complex: there are singular, dual (for some nouns), and plural forms. Agents may implement simple English-style singular/plural (1 vs. many) and miss the dual form (e.g., yomayim = 2 days).
 - i18n keys for Hebrew should not use the English text as the key (e.g., `t('Submit')`) because Hebrew translations can be much shorter or longer, breaking layouts. Use semantic keys (e.g., `t('form.submit')`).
 - Agents often forget to reverse icon positions in RTL: arrows, chevrons, and progress indicators should mirror horizontally. A "next" arrow should point left in Hebrew UI, not right.
+- In Tailwind CSS, `space-x-*` utilities do not auto-reverse in RTL. Use `gap-*` with flex/grid instead, or add `space-x-reverse` when RTL is active. Similarly, prefer logical utilities (`ms-*`, `me-*`, `ps-*`, `pe-*`) over physical ones (`ml-*`, `mr-*`, `pl-*`, `pr-*`).
 
 ## Troubleshooting
 

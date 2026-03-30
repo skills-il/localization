@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "category": "localization",
   "tags": {
     "he": [
@@ -8,14 +8,16 @@
       "RTL",
       "עברית",
       "תרגום",
-      "לוקליזציה"
+      "לוקליזציה",
+      "Tailwind"
     ],
     "en": [
       "i18n",
       "rtl",
       "hebrew",
       "localization",
-      "translation"
+      "translation",
+      "tailwind"
     ]
   },
   "display_name": {
@@ -23,8 +25,8 @@
     "en": "Hebrew i18n"
   },
   "display_description": {
-    "he": "הטמעת תבניות בינלאומיות (i18n) מקיפות לעברית באפליקציות ווב ומובייל. לשימוש כשמבקשים תמיכה בעברית, לוקליזציה לישראל, צורות ריבוי בעברית, עיצוב תאריכים ומספרים, תכונות CSS לוגיות ל-RTL, טיפול בטקסט דו-כיווני, או אינטגרציית RTL ב-React/Vue/Angular. כולל כללי ריבוי עבריים, פורמט תאריכים ומטבע לישראל, CSS מבוסס RTL, ואלגוריתמי bidi. לא מיועד ל-NLP או כתיבת תוכן (להשתמש ב-hebrew-nlp-toolkit או hebrew-content-writer).",
-    "en": "Implement comprehensive Hebrew internationalization (i18n) patterns for web and mobile applications. Use when user asks about Hebrew localization, \"beinle'umiyut\", i18n for Israeli apps, Hebrew plural forms, Hebrew date formatting, RTL CSS logical properties, bidirectional text handling, or React/Vue/Angular RTL integration. Covers Hebrew pluralization rules, date and number formatting for Israel, RTL-first CSS, and bidi text algorithms. Do NOT use for NLP or content writing (use hebrew-nlp-toolkit or hebrew-content-writer instead)."
+    "he": "הטמעת תבניות בינלאומיות (i18n) מקיפות לעברית באפליקציות ווב ומובייל. לשימוש כשמבקשים תמיכה בעברית, לוקליזציה לישראל, צורות ריבוי בעברית, עיצוב תאריכים ומספרים, תכונות CSS לוגיות ל-RTL, טיפול בטקסט דו-כיווני, אינטגרציית RTL ב-React/Vue/Angular/Next.js, Tailwind CSS RTL, או הגדרת next-intl. כולל כללי ריבוי עבריים, פורמט תאריכים ומטבע לישראל, CSS מבוסס RTL, כלי Tailwind לוגיים, ואלגוריתמי bidi. לא מיועד ל-NLP או כתיבת תוכן (להשתמש ב-hebrew-nlp-toolkit או hebrew-content-writer).",
+    "en": "Implement comprehensive Hebrew internationalization (i18n) patterns for web and mobile applications. Use when user asks about Hebrew localization, \"beinle'umiyut\", i18n for Israeli apps, Hebrew plural forms, Hebrew date formatting, RTL CSS logical properties, bidirectional text handling, React/Vue/Angular/Next.js RTL integration, Tailwind CSS RTL, or next-intl setup. Covers Hebrew pluralization rules, date and number formatting for Israel, RTL-first CSS, Tailwind RTL utilities, and bidi text algorithms. Do NOT use for NLP or content writing (use hebrew-nlp-toolkit or hebrew-content-writer instead)."
   },
   "supported_agents": [
     "claude-code",

@@ -30,6 +30,43 @@ const i18n = createI18n({
 });
 ```
 
+**Next.js App Router (next-intl):**
+```tsx
+// app/[locale]/layout.tsx
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+
+export default async function LocaleLayout({ children, params }) {
+  const { locale } = await params;
+  const messages = await getMessages();
+  return (
+    <html lang={locale} dir={locale === 'he' ? 'rtl' : 'ltr'}>
+      <body>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+```ts
+// middleware.ts
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
+export default createMiddleware(routing);
+```
+
+```ts
+// i18n/routing.ts
+import { defineRouting } from 'next-intl/routing';
+export const routing = defineRouting({
+  locales: ['he', 'en'],
+  defaultLocale: 'he',
+});
+```
+
 **Angular:**
 ```typescript
 // angular.json -- הוספת לוקאל עברי
@@ -161,6 +198,34 @@ html[lang="he"] {
 }
 ```
 
+**Tailwind CSS RTL (v3.3+):**
+
+ל-Tailwind יש כלי עזר לתכונות לוגיות ו-variants ל-RTL:
+
+```html
+<!-- כלי עזר לתכונות לוגיות (מתהפכים אוטומטית ב-RTL) -->
+<div class="ms-4 me-2 ps-3 pe-1 text-start">
+  <!-- ms = margin-inline-start, me = margin-inline-end -->
+  <!-- ps = padding-inline-start, pe = padding-inline-end -->
+</div>
+
+<!-- RTL/LTR variants לשליטה ספציפית לכיוון -->
+<div class="ltr:ml-4 rtl:mr-4 ltr:text-left rtl:text-right">
+  <!-- שליטה מפורשת לכל כיוון כשתכונות לוגיות לא מספיקות -->
+</div>
+```
+
+| פיזי (להימנע) | לוגי (מומלץ) | התנהגות ב-RTL |
+|----------------|--------------|---------------|
+| `ml-4` | `ms-4` | שוליים ימניים ב-RTL |
+| `mr-4` | `me-4` | שוליים שמאליים ב-RTL |
+| `pl-4` | `ps-4` | ריפוד ימני ב-RTL |
+| `pr-4` | `pe-4` | ריפוד שמאלי ב-RTL |
+| `text-left` | `text-start` | יישור לימין ב-RTL |
+| `text-right` | `text-end` | יישור לשמאל ב-RTL |
+| `rounded-l-lg` | `rounded-s-lg` | עיגול פינות ימניות ב-RTL |
+| `border-r-2` | `border-e-2` | גבול שמאלי ב-RTL |
+
 ### שלב 6: טיפול בטקסט דו-כיווני
 
 ראו `references/bidi.md` לתבניות מפורטות ומקרי קצה.
@@ -190,19 +255,33 @@ html[lang="he"] {
 
 ### שלב 7: אינטגרציית RTL ספציפית לפריימוורק
 
-**React עם styled-components:**
-```jsx
-import { ThemeProvider } from 'styled-components';
+**Next.js App Router עם Tailwind:**
+```tsx
+// app/[locale]/layout.tsx
+export default async function LocaleLayout({ children, params }) {
+  const { locale } = await params;
+  return (
+    <html lang={locale} dir={locale === 'he' ? 'rtl' : 'ltr'}>
+      <body className="font-sans">
+        {/* כלי Tailwind לוגיים מתהפכים אוטומטית לפי תכונת dir */}
+        <main className="ms-4 me-4 text-start">{children}</main>
+      </body>
+    </html>
+  );
+}
+```
 
-const theme = {
-  dir: 'rtl',
-  isRTL: true,
-};
-
-const Container = styled.div`
-  direction: ${({ theme }) => theme.dir};
-  margin-inline-start: 1rem;
-`;
+```tsx
+// components/NavBar.tsx -- שימוש ב-rtl: variant להיפוך אייקונים
+export function NavBar() {
+  return (
+    <nav className="flex items-center gap-4">
+      <button className="ltr:rotate-0 rtl:rotate-180">
+        <ChevronRight /> {/* מתהפך להצביע שמאלה ב-RTL */}
+      </button>
+    </nav>
+  );
+}
 ```
 
 **Vue עם Vuetify:**
@@ -248,10 +327,14 @@ export class AppModule {}
 המשתמש אומר: "התרגומים בעברית מציגים צורות ריבוי שגויות"
 תוצאה: מימוש ICU MessageFormat עם שלוש קטגוריות (one/two/other), טיפול בצורות זוגי עבור יחידות זמן, והגדרת כללי ריבוי של מסגרת ה-i18n ללוקאל עברי.
 
+### דוגמה 5: הוספת עברית לפרויקט Next.js App Router
+המשתמש אומר: "אני רוצה להוסיף תמיכה בעברית ואנגלית לפרויקט Next.js App Router שלי"
+תוצאה: התקנת next-intl, יצירת סגמנט נתיב `[locale]`, הגדרת middleware לזיהוי שפה, הגדרת `dir="rtl"` על `<html>` ללוקאל עברי, יצירת קובצי הודעות he.json ו-en.json עם תחביר ריבוי ICU, ושימוש בכלי Tailwind לוגיים (`ms-*`, `me-*`, `text-start`) לעיצוב מותאם RTL.
+
 ## משאבים מצורפים
 
 ### סקריפטים
-- `scripts/generate_i18n.py` — יצירת קובצי הודעות i18n בעברית: פיגום מבנה תרגום JSON/XLIFF, חילוץ תבניות ריבוי עבריות, הפקת קובצי לוקאל ל-react-intl, vue-i18n ו-angular i18n. הרצה: `python scripts/generate_i18n.py --help`
+- `scripts/generate_i18n.py` — יצירת קובצי הודעות i18n בעברית: פיגום מבנה תרגום JSON, חילוץ תבניות ריבוי עבריות, הפקת קובצי לוקאל ל-react-intl, vue-i18n ו-next-intl. הרצה: `python scripts/generate_i18n.py --help`
 
 ### קובצי עזר
 - `references/pluralization.md` — כללי ריבוי מלאים בעברית עם צורות יחיד, זוגי ורבים לקטגוריות מילים נפוצות (זמן, כמויות, אובייקטים), תבניות ICU MessageFormat, ומקרי קצה להסכמת מספרים בעברית.
@@ -262,6 +345,7 @@ export class AppModule {}
 - צורות רבים בעברית מורכבות: יש יחיד, זוגי (לחלק מהשמות), ורבים. סוכנים עלולים לממש יחיד/רבים בסגנון אנגלית (1 מול הרבה) ולפספס את צורת הזוגי (למשל יומיים = 2 ימים).
 - מפתחות i18n לעברית לא צריכים להשתמש בטקסט אנגלי כמפתח (למשל t('Submit')) כי תרגומים עבריים יכולים להיות הרבה יותר קצרים או ארוכים, מה ששובר layouts. יש להשתמש במפתחות סמנטיים (למשל t('form.submit')).
 - סוכנים שוכחים לעתים להפוך מיקומי אייקונים ב-RTL: חיצים, שברונים ומחוונים צריכים להשתקף אופקית. חץ "הבא" צריך להצביע שמאלה בממשק עברי, לא ימינה.
+- ב-Tailwind CSS, הכלי `space-x-*` לא מתהפך אוטומטית ב-RTL. עדיף להשתמש ב-`gap-*` עם flex/grid, או להוסיף `space-x-reverse` כש-RTL פעיל. באופן דומה, העדיפו כלים לוגיים (`ms-*`, `me-*`, `ps-*`, `pe-*`) על פני פיזיים (`ml-*`, `mr-*`, `pl-*`, `pr-*`).
 
 ## פתרון בעיות
 

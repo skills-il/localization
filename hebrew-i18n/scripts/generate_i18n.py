@@ -7,6 +7,7 @@ date/number format patterns, and common UI strings for Israeli apps.
 Usage:
     python generate_i18n.py --format react-intl --output src/locales/he.json
     python generate_i18n.py --format vue-i18n --output src/i18n/he.json
+    python generate_i18n.py --format next-intl --output messages/he.json
     python generate_i18n.py --help
 
 Requirements:
@@ -129,12 +130,49 @@ def generate_vue_i18n(output_path):
     print(f"  {total} translation keys in {len(messages)} sections")
 
 
+def generate_next_intl(output_path):
+    """Generate next-intl compatible nested JSON message file.
+
+    next-intl uses nested namespaces and supports ICU MessageFormat
+    for plurals. Structure: { namespace: { key: value } }
+    """
+    messages = {
+        "common": {},
+        "date": {},
+        "validation": {},
+        "plural": {},
+    }
+
+    for key, value in COMMON_STRINGS.items():
+        section, name = key.split(".", 1)
+        messages[section][name] = value
+
+    for key, value in DATE_STRINGS.items():
+        section, name = key.split(".", 1)
+        messages[section][name] = value
+
+    for key, value in VALIDATION_STRINGS.items():
+        section, name = key.split(".", 1)
+        messages[section][name] = value
+
+    for key, template in PLURAL_TEMPLATES.items():
+        messages["plural"][key] = template
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(messages, f, ensure_ascii=False, indent=2)
+
+    print(f"Generated next-intl messages: {output_path}")
+    total = sum(len(v) for v in messages.values())
+    print(f"  {total} translation keys in {len(messages)} namespaces")
+    print("  Use with: const t = useTranslations('common');")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Generate Hebrew i18n message files"
     )
     parser.add_argument(
-        "--format", choices=["react-intl", "vue-i18n"],
+        "--format", choices=["react-intl", "vue-i18n", "next-intl"],
         default="react-intl",
         help="Output format (default: react-intl)"
     )
@@ -148,6 +186,8 @@ def main():
         generate_react_intl(args.output)
     elif args.format == "vue-i18n":
         generate_vue_i18n(args.output)
+    elif args.format == "next-intl":
+        generate_next_intl(args.output)
 
 
 if __name__ == "__main__":
