@@ -38,7 +38,7 @@ except ImportError:
 
 
 # Israeli VAT rate
-VAT_RATE = 0.17
+VAT_RATE = 0.18
 
 
 def register_hebrew_font(font_path, font_name="HebrewFont"):
@@ -173,7 +173,7 @@ def generate_invoice(filename, font_name, business_info=None):
                      font_name, 11)
     y -= 7 * mm
     draw_hebrew_line(c, left_margin + 60 * mm, y,
-                     f"מע\"מ (17%): {vat:,.2f} ש\"ח",
+                     f"מע\"מ (18%): {vat:,.2f} ש\"ח",
                      font_name, 11)
     y -= 7 * mm
     draw_hebrew_line(c, left_margin + 60 * mm, y,

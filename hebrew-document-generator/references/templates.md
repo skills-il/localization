@@ -18,11 +18,11 @@ A tax invoice must include the following fields to be legally valid:
 | Quantity | כמות | Yes | Numeric |
 | Unit price | מחיר ליחידה | Yes | Before VAT |
 | Subtotal | סכום ביניים | Yes | Sum of all items |
-| VAT amount | סכום מע"מ | Yes | Currently 17% |
+| VAT amount | סכום מע"מ | Yes | Currently 18% |
 | Total | סה"כ לתשלום | Yes | Subtotal + VAT |
 
 ### VAT Rules
-- Standard rate: 17% (as of 2025)
+- Standard rate: 18% (since January 2025)
 - VAT-exempt transactions: exports, certain financial services, fruits and vegetables
 - Eilat zone: VAT-exempt for most goods and services
 - Invoice must clearly separate the pre-VAT amount from the VAT amount
@@ -63,7 +63,7 @@ A tax invoice must include the following fields to be legally valid:
 | Recipient | נמען | Customer name and details |
 | Item list | רשימת פריטים | Description, quantity, unit price |
 | Subtotal | סכום ביניים | Before VAT |
-| VAT | מע"מ | 17% |
+| VAT | מע"מ | 18% |
 | Total | סה"כ | Including VAT |
 | Validity period | תוקף ההצעה | Typically 30 days |
 | Payment terms | תנאי תשלום | Net 30, installments, etc. |
