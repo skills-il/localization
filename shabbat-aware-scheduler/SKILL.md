@@ -207,6 +207,16 @@ Result: Provide cron configuration with should_run_today() check, pre-loaded hol
 ### References
 - `references/israeli-holiday-calendar.md` — Complete Israeli holiday calendar with Hebrew dates, Gregorian approximations, scheduling impact levels (high/medium/low), mourning period restrictions, seasonal Shabbat candle-lighting times by month for Jerusalem, and HebCal API endpoint reference. Consult when planning around chagim, determining seasonal Friday closing times, or checking if an event conflicts with a mourning period.
 
+## Recommended MCP Servers
+
+For live Hebrew calendar data, pair this skill with:
+
+| MCP Server | What it provides | Install |
+|------------|-----------------|---------|
+| **hebcal** | Jewish holidays, Shabbat candle lighting times, Havdalah times, Torah readings, and Hebrew-Gregorian date conversion via the official Hebcal API | [Install hebcal](https://agentskills.co.il/en/mcps/hebcal) |
+
+When the `hebcal` MCP is available, use its tools for accurate Shabbat times and holiday dates instead of hardcoded values. The MCP provides location-aware candle lighting times for any Israeli city.
+
 ## Gotchas
 - Shabbat times vary by city in Israel. Jerusalem candle lighting is 40 minutes before sunset, while most other cities use 20-30 minutes. Agents may use a single time for all of Israel.
 - Israeli holidays (chagim) have different work restrictions than Shabbat. Some holidays are one day in Israel but two days in the diaspora. Agents may use diaspora holiday calendars for Israeli scheduling.

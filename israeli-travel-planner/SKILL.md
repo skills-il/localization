@@ -79,6 +79,21 @@ Result: Family-friendly Galilee itinerary with kid activities and budget options
 ### References
 - `references/israeli-transport-guide.md` -- Comprehensive guide to Israeli public transport (Egged, Dan, Israel Railways, Rav-Kav), national parks pricing, hotel chains, and regional highlights. Consult when planning detailed itineraries or comparing transport options.
 
+## Recommended MCP Servers
+
+For live transit and travel data, pair this skill with:
+
+| MCP Server | What it provides | Install |
+|------------|-----------------|---------|
+| **israel-railways** | Real-time Israel Railways schedules, platform numbers, occupancy predictions, and service disruption alerts for 68 stations | [Install](https://agentskills.co.il/en/mcps/israel-railways) |
+| **openbus** | Real-time bus arrival data from the Ministry of Transport for all Israeli transit operators | [Install](https://agentskills.co.il/en/mcps/openbus) |
+| **routes-israel** | Multi-modal transit routing combining Google Routes, GTFS data, and live arrival times | [Install](https://agentskills.co.il/en/mcps/routes-israel) |
+| **ben-gurion-flights** | Real-time flight arrivals and departures at Ben Gurion Airport (TLV) from official data | [Install](https://agentskills.co.il/en/mcps/ben-gurion-flights) |
+| **israel-hiking** | Hiking trail search, route planning with elevation profiles, water sources, and points of interest | [Install](https://agentskills.co.il/en/mcps/israel-hiking) |
+| **ims-weather** | Weather forecasts and alerts from the Israeli Meteorological Service for trip planning | [Install](https://agentskills.co.il/en/mcps/ims-weather) |
+
+When these MCPs are available, use them for real-time transit schedules and travel data instead of the static reference tables above.
+
 ## Gotchas
 - Public transportation in Israel does not operate on Shabbat (Friday afternoon to Saturday evening) in most cities. Agents may plan Saturday itineraries that rely on buses or trains. Exceptions: Haifa has limited Shabbat service; shared taxis (sherut) run on some routes.
 - Israeli bus numbers and route names use Hebrew characters. Agents may not recognize that route 17-aleph is a different route from 17. Always include the Hebrew letter suffix.
