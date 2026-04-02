@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "localization",
   "tags": {
     "he": [
@@ -21,12 +21,12 @@
     ]
   },
   "display_name": {
-    "he": "מתכנן חתונות בישראל",
-    "en": "Israeli Wedding Planner"
+    "he": "מדריך תכנון חתונה בישראל",
+    "en": "Israeli Wedding Planning Guide"
   },
   "display_description": {
-    "he": "תכנון חתונה ישראלית מאירוסין ועד חופה: בחירת אולם או גן אירועים, השוואת ספקים דרך פלטפורמות ישראליות (Celebrate, מאורסים, Save A Date, וואלה חתונות), תכנון תקציב (ממוצע 100-140 אלף שקל), רישום ברבנות (תיק נישואין, תעודת רווקות), דרישות הלכתיות (מקווה, כתובה), ניהול מוזמנים, אופטימיזציה של מחיר למנה, תמחור עונתי ובניית לוח זמנים.",
-    "en": "Plan an Israeli wedding from engagement to chuppah: venue selection, vendor comparison via Israeli platforms, budget planning (~100-140K NIS average), Rabbinate registration, halachic requirements, guest management, per-plate cost optimization, seasonal pricing, and timeline creation. Prevents common mistakes like missing Rabbinate deadlines or overpaying on popular weekdays."
+    "he": "מדריך עזר לתכנון חתונה ישראלית מאירוסין ועד חופה: מידע על בחירת אולם או גן אירועים, השוואת ספקים דרך פלטפורמות ישראליות, תכנון תקציב (ממוצע 100-140 אלף שקל), רישום ברבנות (תיק נישואין, תעודת רווקות), דרישות הלכתיות, ניהול מוזמנים, תמחור עונתי ובניית לוח זמנים.",
+    "en": "Reference guide for planning an Israeli wedding from engagement to chuppah: venue selection information, vendor comparison via Israeli platforms, budget planning (~100-140K NIS average), Rabbinate registration process, halachic requirements, guest management tips, per-plate cost benchmarks, seasonal pricing, and timeline templates. Helps avoid common mistakes like missing Rabbinate deadlines or overpaying on popular weekdays."
   },
   "supported_agents": [
     "claude-code",
