@@ -281,6 +281,12 @@ Result: Remote worker makes an informed city choice based on total cost and life
 ### Scripts
 - `scripts/rental-budget-calculator.py` -- Calculates total monthly housing costs including rent, arnona, vaad bayit, utilities, and insurance. Supports oleh arnona discount. Run: `python scripts/rental-budget-calculator.py --rent 6000 --city tel-aviv --rooms 3`
 
+## Recommended MCP Servers
+
+| MCP | What It Adds |
+|-----|-------------|
+| [Nadlan MCP](https://agentskills.co.il/he/mcps/real-estate/nadlan) | Real estate transaction data from the Israeli government (Govmap API): recent deal prices by address or neighborhood, market trend analysis, and multi-address price comparison to validate asking rents against actual sale prices in the area. |
+
 ## Gotchas
 - Israeli apartment sizes are quoted in gross square meters (bruto), which includes shared spaces like stairwells and walls. Net area (neto) is typically 20-25% less. Agents may compare Israeli and US listings without accounting for this difference.
 - The "rooms" count in Israeli listings (e.g., "3 rooms") counts the salon (living room) as one room. A "3-room apartment" is typically a 2-bedroom. Agents may interpret "3 rooms" as 3 bedrooms.
