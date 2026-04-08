@@ -4,51 +4,11 @@ description: >-
   Implement right-to-left (RTL) layouts for Hebrew web and mobile applications.
   Use when user asks about RTL layout, Hebrew text direction, bidirectional
   (bidi) text, Hebrew CSS, "right to left", or needs to build Hebrew UI. Covers
-  CSS logical properties, Tailwind RTL, React/Vue RTL, Hebrew typography, and
+  CSS logical properties, Tailwind RTL, React/Next.js RTL setup, Hebrew typography, and
   font selection. Do NOT use for Arabic RTL (similar but different typography)
   unless user explicitly asks for shared RTL patterns.
 license: MIT
 compatibility: 'Works with Claude Code, Claude.ai, Cursor. No network required.'
-metadata:
-  author: skills-il
-  version: 1.1.0
-  category: localization
-  tags:
-    he:
-      - ימין-לשמאל
-      - עברית
-      - CSS
-      - פריסה
-      - טיפוגרפיה
-      - דו-כיווני
-    en:
-      - rtl
-      - hebrew
-      - css
-      - layout
-      - typography
-      - bidi
-  display_name:
-    he: שיטות עבודה מומלצות ל-RTL
-    en: Hebrew Rtl Best Practices
-  display_description:
-    he: הנחיות ותבניות ליצירת ממשקים עבריים עם תמיכה מלאה בכתיבה מימין לשמאל
-    en: >-
-      Implement right-to-left (RTL) layouts for Hebrew web and mobile
-      applications. Use when user asks about RTL layout, Hebrew text direction,
-      bidirectional (bidi) text, Hebrew CSS, "right to left", or needs to build
-      Hebrew UI. Covers CSS logical properties, Tailwind RTL, React/Vue RTL,
-      Hebrew typography, and font selection. Do NOT use for Arabic RTL (similar
-      but different typography) unless user explicitly asks for shared RTL
-      patterns.
-  supported_agents:
-    - claude-code
-    - cursor
-    - github-copilot
-    - windsurf
-    - opencode
-    - codex
-    - antigravity
 ---
 
 # שיטות עבודה מומלצות ל-RTL בעברית
@@ -120,18 +80,62 @@ body[dir="rtl"] {
 
 ### שלב 5: הגדרה לפי פריימוורק
 
-**Tailwind CSS RTL:**
-```js
-// tailwind.config.js
-module.exports = {
-  // Tailwind v2.2+ has built-in RTL support with rtl: and ltr: variants
+**Tailwind CSS RTL (v3.3+ / v4):**
+
+עדיף להשתמש בכלי תכונות לוגיות במקום variants של `rtl:`/`ltr:`:
+
+| קלאס פיזי | קלאס לוגי | תכונת CSS |
+|-----------|-----------|-----------|
+| `ml-4` | `ms-4` | `margin-inline-start` |
+| `mr-4` | `me-4` | `margin-inline-end` |
+| `pl-4` | `ps-4` | `padding-inline-start` |
+| `pr-4` | `pe-4` | `padding-inline-end` |
+| `left-4` | `start-4` | `inset-inline-start` |
+| `right-4` | `end-4` | `inset-inline-end` |
+| `rounded-l-lg` | `rounded-s-lg` | `border-start-start-radius` + `border-end-start-radius` |
+| `rounded-r-lg` | `rounded-e-lg` | `border-start-end-radius` + `border-end-end-radius` |
+
+```html
+<!-- רע: דורש שני קלאסים, נשבר בלי תכונת dir -->
+<div class="ltr:ml-4 rtl:mr-4">...</div>
+
+<!-- טוב: קלאס אחד, משתקף אוטומטית לפי dir -->
+<div class="ms-4">...</div>
+```
+
+יש לשמור את variants של `rtl:` / `ltr:` רק למקרים שתכונות לוגיות לא מכסות (למשל אייקונים כיווניים, transforms).
+
+**הערה ל-Tailwind v4:** גרסה 4 משתמשת בקונפיגורציה מבוססת CSS (`@import "tailwindcss"` ב-CSS) במקום `tailwind.config.js`. התכונות הלוגיות עובדות זהה בגרסאות 3 ו-4.
+
+**Next.js App Router:**
+```tsx
+// app/layout.tsx
+import { Heebo } from 'next/font/google';
+
+const heebo = Heebo({
+  subsets: ['hebrew', 'latin'],
+  weight: ['400', '500', '700'],
+});
+
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const isRTL = locale === 'he';
+
+  return (
+    <html lang={locale} dir={isRTL ? 'rtl' : 'ltr'}>
+      <body className={heebo.className}>{children}</body>
+    </html>
+  );
 }
 ```
-```html
-<div class="ltr:ml-4 rtl:mr-4">
-  <!-- Or better: use logical utilities if available -->
-</div>
-```
+
+`next/font` מאחסן את הגופן מקומית (ללא בקשות חיצוניות ל-Google Fonts, אפס הזזת פריסה).
 
 **React עם MUI:**
 ```jsx
@@ -149,9 +153,6 @@ const cacheRtl = createCache({
 const theme = createTheme({ direction: 'rtl' });
 ```
 
-**Next.js:**
-הוספת `dir="rtl"` לפריסת השורש והגדרת טעינת גופנים עבריים.
-
 ### שלב 6: מלכודות נפוצות לבדיקה
 1. אייקונים עם משמעות כיוונית (חצים, כפתורי חזרה) — יש לשקפם
 2. פסי התקדמות — צריכים להתמלא מימין לשמאל
@@ -165,11 +166,57 @@ const theme = createTheme({ direction: 'rtl' });
 
 ### דוגמה 1: המרת רכיב LTR ל-RTL
 המשתמש אומר: "התאם את רכיב הכרטיס הזה לעבודה בעברית"
-תוצאה: החלפת כל תכונות ה-CSS הפיזיות במקבילות לוגיות, הוספת dir="rtl", התאמת מחסנית גופנים.
+
+לפני (LTR בלבד):
+```css
+.card {
+  margin-left: 16px;
+  padding-right: 12px;
+  text-align: left;
+  border-left: 3px solid blue;
+}
+```
+
+אחרי (תואם RTL):
+```css
+.card {
+  margin-inline-start: 16px;
+  padding-inline-end: 12px;
+  text-align: start;
+  border-inline-start: 3px solid blue;
+}
+```
+
+ב-Tailwind, מחליפים `ml-4 pr-3 text-left border-l-4` ב-`ms-4 pe-3 text-start border-s-4`.
 
 ### דוגמה 2: בעיית טקסט דו-כיווני
 המשתמש אומר: "מספרים מוצגים הפוך בטקסט העברי שלי"
-תוצאה: עטיפת תוכן מספרי ב-span עם dir="ltr" ו-unicode-bidi: isolate.
+
+```html
+<!-- שגוי: מספר הטלפון מוצג כ-0544-123-050 -->
+<p>התקשרו אלינו: 050-321-4450</p>
+
+<!-- נכון: בידוד התוכן ה-LTR -->
+<p>התקשרו אלינו: <span dir="ltr">050-321-4450</span></p>
+```
+
+ניתן להשתמש ב-`unicode-bidi: isolate` על ה-span המכיל לפתרון מבוסס CSS בלבד.
+
+### דוגמה 3: ניווט RTL ב-Tailwind
+המשתמש אומר: "הסיידבר שלי בצד הלא נכון בעברית"
+
+```html
+<!-- רע: סיידבר תקוע בשמאל -->
+<aside class="fixed left-0 w-64">...</aside>
+
+<!-- טוב: סיידבר משתקף אוטומטית -->
+<aside class="fixed start-0 w-64">...</aside>
+
+<!-- אייקון חץ חזרה עדיין דורש variant של rtl: -->
+<button class="rtl:rotate-180">
+  <ArrowLeftIcon />
+</button>
+```
 
 ## משאבים מצורפים
 
@@ -181,6 +228,16 @@ const theme = createTheme({ direction: 'rtl' });
 - margin-left ו-padding-right לא מתהפכים במצב RTL. יש להשתמש בתכונות CSS לוגיות: margin-inline-start ו-padding-inline-end במקום. סוכנים שאומנו על CSS של LTR ייצרו תכונות פיזיות.
 - כיוון row ב-Flexbox מתהפך אוטומטית ב-RTL, אבל row-reverse גם מתהפך, מה שגורם להיפוך כפול בחזרה לסדר LTR. סוכנים עלולים להוסיף row-reverse בחושבם שזה יוצר RTL, אבל בפועל זה יוצר LTR בתוך הקשר RTL.
 - מספרי טלפון, מספרי כרטיסי אשראי וקטעי קוד חייבים להישאר LTR גם בתוך מיכלים RTL. יש לעטוף אותם ב-bdo dir="ltr" או להשתמש ב-direction: ltr על האלמנט המכיל. סוכנים לעתים נותנים להם לרשת RTL.
+
+## קישורי עזר
+
+| מקור | כתובת | מה לבדוק |
+|------|-------|----------|
+| MDN תכונות CSS לוגיות | https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values | רשימת תכונות מלאה, טבלאות תמיכת דפדפנים |
+| תמיכת RTL ב-Tailwind CSS | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | תחביר variants של `rtl:` / `ltr:` |
+| תכונות לוגיות ב-Tailwind | https://tailwindcss.com/docs/margin#logical-properties | כלי `ms-*`, `me-*`, `ps-*`, `pe-*` |
+| Google Fonts עברית | https://fonts.google.com/?subset=hebrew | משפחות גופנים עבריים זמינות |
+| W3C בינלאומיות | https://www.w3.org/International/articles/inline-bidi-markup/ | אלגוריתם bidi של Unicode, שיטות עבודה מומלצות |
 
 ## פתרון בעיות
 
