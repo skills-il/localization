@@ -8,13 +8,37 @@
     "en": "Compare flight prices from Ben Gurion Airport (TLV) across Google Flights, Skyscanner, KAYAK, and Israeli platforms like Issta and Lametayel. Use when searching for cheap flights from Israel, comparing Israeli airline fares (El Al, Israir, Arkia), or planning around peak and off-peak travel seasons. Covers baggage policies, seasonal pricing, booking strategies, and package deals. Do NOT use for domestic travel within Israel (use israeli-travel-planner) or train schedules (use railil)."
   },
   "tags": {
-    "he": ["טיסות", "השוואת מחירים", "נתבג", "אל על", "ישראייר", "ארקיע", "חופשה", "טיסות זולות"],
-    "en": ["flights", "price-comparison", "tlv", "el-al", "israir", "arkia", "travel", "cheap-flights"]
+    "he": [
+      "טיסות",
+      "השוואת מחירים",
+      "נתבג",
+      "אל על",
+      "ישראייר",
+      "ארקיע",
+      "חופשה",
+      "טיסות זולות"
+    ],
+    "en": [
+      "flights",
+      "price-comparison",
+      "tlv",
+      "el-al",
+      "israir",
+      "arkia",
+      "travel",
+      "cheap-flights"
+    ]
   },
   "author": "skills-il",
   "version": "1.1.0",
   "category": "localization",
-  "supported_agents": ["claude-code", "openclaw", "cursor", "windsurf"],
+  "supported_agents": [
+    "claude-code",
+    "openclaw",
+    "cursor",
+    "windsurf",
+    "gemini-cli"
+  ],
   "openclaw": {
     "install_command": "openclaw install @skills-il/israeli-flight-finder"
   }
