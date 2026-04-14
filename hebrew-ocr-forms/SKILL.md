@@ -116,11 +116,36 @@ Result: Diagnose preprocessing -- check image resolution (recommend 300 DPI mini
 ### References
 - `references/israeli-form-types.md` — Detailed catalog of Israeli government form types (Tabu/land registry, Tax Authority forms, Bituach Leumi documents) with field descriptions, regex extraction patterns, ID validation rules, date/currency formats, and OCR tips per form layout. Consult when identifying an unknown form or building field extraction logic for a specific document type.
 
+## OCR Engine Options
+
+Tesseract is a strong free baseline for Hebrew print, but modern cloud vision APIs often match or beat it on noisy scans and stamped forms. Pick per use case:
+
+| Engine | Hebrew print | Handwriting | Cost model | When to use |
+|--------|--------------|-------------|------------|-------------|
+| Tesseract (heb+eng, LSTM) | Good for clean scans at 300 DPI+ | Weak | Free, self-hosted | Default for batch local pipelines, privacy-sensitive data |
+| Google Cloud Vision – Document Text Detection | Very good, robust to noise | Partial (printed-looking handwriting only) | Per-request | Mixed-quality scans, large batches, PDF forms |
+| AWS Textract (AnalyzeDocument) | Good; stronger on forms/tables | Partial | Per-page | Forms with structured fields, key-value extraction |
+| Azure AI Vision – Read API | Very good, layout-aware | Partial | Per-transaction | Enterprise Azure environments, signed PDFs |
+| Claude Vision (claude-sonnet-4-6 / opus-4-6) | Very good, context-aware | Good (with prompt guidance) | Token-based | Unusual form layouts, cross-field validation, when you want the model to also reason about the data |
+
+Notes: none of these engines is reliable for cursive handwritten Hebrew on forms like old Tabu extracts. For those, flag for human review instead of auto-extraction.
+
 ## Gotchas
 - Hebrew OCR accuracy drops significantly for handwritten text, especially for the letters vav, zayin, and yod which look similar. Always include confidence scores and flag low-confidence characters.
 - Scanned Israeli government forms often have mixed Hebrew and Arabic text. Agents may OCR the Arabic sections as Hebrew or skip them entirely. Both languages use RTL but different Unicode ranges.
 - Israeli ID numbers (mispar zehut) and phone numbers extracted via OCR should be validated with check-digit algorithms after extraction, as single-digit OCR errors are common.
 - Many Israeli forms use dot-matrix printed Hebrew, which has lower OCR accuracy than laser-printed text. Agents may report higher confidence than warranted for older government documents.
+
+## Reference Links
+
+| Source | URL | What to Check |
+|--------|-----|---------------|
+| Tesseract documentation | https://tesseract-ocr.github.io/tessdoc/ | Installation, language packs, LSTM mode, PSM values |
+| Tesseract Hebrew traineddata | https://github.com/tesseract-ocr/tessdata | Hebrew model for tesseract |
+| Google Cloud Vision – Documents | https://cloud.google.com/vision/docs/fulltext-annotations | Document Text Detection API reference |
+| AWS Textract – AnalyzeDocument | https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html | Forms and tables extraction |
+| Azure AI Vision – Read API | https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-ocr | Multi-language OCR including Hebrew |
+| Israeli ID check-digit spec | https://he.wikipedia.org/wiki/מספר_זהות_(ישראל) | Algorithm for validating a 9-digit Israeli ID |
 
 ## Troubleshooting
 

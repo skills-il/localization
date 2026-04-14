@@ -255,6 +255,16 @@ module.exports = {
 - הצהרות גופנים מותאמים לעברית חייבות לכלול font-display: swap כדי למנוע FOIT (הבזק של טקסט בלתי נראה). סוכנים עלולים להשמיט זאת, מה שגורם לטקסט עברי להיעלם בזמן טעינת הגופן.
 - text-left ו-text-right ב-Tailwind הן תכונות פיזיות. יש להשתמש בקלאסים text-start ו-text-end ליישור מודע RTL. סוכנים ברירת מחדל לקלאסי כיוון פיזיים.
 
+## קישורי עזר
+
+| מקור | כתובת | מה לבדוק |
+|------|-------|----------|
+| תיעוד Tailwind CSS | https://tailwindcss.com/docs | תחביר תצורה עדכני, הערות מעבר ל-v4 |
+| תמיכת RTL ותכונות לוגיות ב-Tailwind | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | וריאנטי `rtl:` ו-`ltr:` |
+| Google Fonts – Heebo | https://fonts.google.com/specimen/Heebo | גופן ממשק עברי, משקלים, קוד טעינה |
+| Google Fonts – Assistant | https://fonts.google.com/specimen/Assistant | גופן גוף טקסט עברי |
+| MDN font-display | https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display | ערך swap והתמודדות עם FOIT |
+
 ## פתרון בעיות
 
 ### שגיאה: "תכונות שירות לוגיות של Tailwind לא עובדות"

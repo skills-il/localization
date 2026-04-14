@@ -13,6 +13,8 @@ compatibility: Tailwind CSS v4.0+ recommended. Compatible with v3.1+ for dir var
 
 See `references/rtl-config.md` for complete configuration reference.
 
+Load Hebrew fonts with `font-display: swap` (via a Google Fonts `<link>` in `index.html` or an `@font-face` rule) to avoid a Flash of Invisible Text while the Hebrew font file loads.
+
 **Tailwind v4 (CSS-first configuration):**
 ```css
 /* app.css */
@@ -261,6 +263,16 @@ Result: Build grid layout with RTL sidebar (border-e, pe-6), navigation with Heb
 - The `space-x-4` utility in Tailwind does not respect RTL direction. Agents must use `gap-4` with flex or grid, or manually add `rtl:space-x-reverse` to flip spacing direction.
 - Custom font declarations for Hebrew must include `font-display: swap` to prevent FOIT (Flash of Invisible Text). Agents may omit this, causing Hebrew text to disappear during font loading.
 - Tailwind's `text-left` and `text-right` are physical properties. Use `text-start` and `text-end` classes for RTL-aware alignment. Agents default to physical direction classes.
+
+## Reference Links
+
+| Source | URL | What to Check |
+|--------|-----|---------------|
+| Tailwind CSS docs | https://tailwindcss.com/docs | Current configuration syntax, v4 migration notes |
+| Tailwind RTL / logical properties | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | `rtl:` and `ltr:` variants |
+| Google Fonts – Heebo | https://fonts.google.com/specimen/Heebo | Hebrew UI font, weights, loading snippet |
+| Google Fonts – Assistant | https://fonts.google.com/specimen/Assistant | Hebrew body font |
+| MDN font-display | https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display | `swap` value and FOIT mitigation |
 
 ## Troubleshooting
 

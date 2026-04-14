@@ -124,6 +124,16 @@ Result: Identify gendered forms, apply Option C rewording where possible, use sl
 - Agents tend to transliterate English idioms literally into Hebrew, producing unnatural text. "Think outside the box" does not translate directly; use native Hebrew expressions instead.
 - Hebrew has grammatical gender that must agree between nouns, verbs, and adjectives. Agents often use masculine defaults even when addressing a female user or a feminine noun.
 
+## Reference Links
+
+| Source | URL | What to Check |
+|--------|-----|---------------|
+| Academy of the Hebrew Language | https://hebrew-academy.org.il | Official spelling rules, loanword decisions, new terms |
+| Milog online dictionary | https://milog.co.il | Modern Hebrew usage, register, common phrasing |
+| Ravmilim online dictionary | https://www.ravmilim.co.il | Synonyms, collocations, grammatical info |
+| Kotar HaKeshet | https://hebrew-academy.org.il/topic/hahlatot/ | Academy decisions on grammar and terminology |
+| Hebrew style guide (Wikipedia) | https://he.wikipedia.org/wiki/ויקיפדיה:מדריך_הסגנון | Community-maintained modern Hebrew style conventions |
+
 ## Troubleshooting
 
 ### Error: "Text mixes formal and informal registers"
