@@ -11,16 +11,21 @@ compatibility: Requires Python and transformers library for model usage. GPU rec
 ## Instructions
 
 ### Step 1: Identify the NLP Task
-| Task | Recommended Model | Size | Notes |
-|------|-------------------|------|-------|
-| Text generation | DictaLM 3.0 (14B) | 14B | Best Hebrew generation |
-| Classification | DictaBERT | 110M | Fast, good accuracy |
-| NER | DictaBERT-NER | 110M | Trained on Hebrew NER dataset |
-| Sentiment | DictaBERT-Sentiment | 110M | Hebrew sentiment classification |
-| Embedding/Search | AlephBERT | 110M | Good for similarity tasks |
-| Speech-to-text | ivrit.ai Whisper | Various | 22K+ hours training data |
-| Translation | DictaLM 3.0 (7B) | 7B | Hebrew to/from English |
-| Tool calling | DictaLM 3.0 Chat | 7B/14B | Supports function calling |
+| Task | Recommended Model | HuggingFace ID | Size | Notes |
+|------|-------------------|---------------|------|-------|
+| Text generation (large) | DictaLM 3.0 24B Base | `dicta-il/DictaLM-3.0-24B-Base` | 24B | Best Hebrew generation, built on Mistral-Small-3.1-24B |
+| Text generation (small) | DictaLM 3.0 Nemotron Instruct | `dicta-il/DictaLM-3.0-Nemotron-12B-Instruct` | 12B | Instruction-tuned, smaller footprint |
+| Reasoning / chain-of-thought | DictaLM 3.0 24B Thinking | `dicta-il/DictaLM-3.0-24B-Thinking` | 24B | Emits explicit thinking blocks before answering |
+| Lightweight / edge | DictaLM 3.0 1.7B Thinking (GGUF) | `dicta-il/DictaLM-3.0-1.7B-Thinking-GGUF` | 1.7B | Runs on laptop / CPU via llama.cpp |
+| Classification / fill-mask | DictaBERT | `dicta-il/dictabert` | 184M | Fast, good accuracy |
+| NER | DictaBERT NER | `dicta-il/dictabert-ner` | 184M | Recognizes PER, GPE, TIMEX, TTL |
+| Sentiment | DictaBERT Sentiment | `dicta-il/dictabert-sentiment` | 184M | Hebrew sentiment classification |
+| Morphology | DictaBERT Morph | `dicta-il/dictabert-morph` | 184M | Prefix segmentation and POS |
+| Hebrew QA | DictaBERT HeQ | `dicta-il/dictabert-heq` | 184M | Extractive question answering |
+| Embeddings (modern) | NeoDictaBERT Bilingual Embed | `dicta-il/neodictabert-bilingual-embed` | 400M | Hebrew-English sentence embeddings |
+| Embeddings (legacy) | AlephBERT | `onlplab/alephbert-base` | 110M | Older baseline for similarity |
+| Speech-to-text | ivrit.ai Whisper v3 | `ivrit-ai/whisper-large-v3` | 1.55B | Fine-tuned on 22K+ hours of Hebrew audio |
+| Speech-to-text (fast) | ivrit.ai Whisper v3 Turbo CT2 | `ivrit-ai/whisper-large-v3-turbo-ct2` | 809M | CTranslate2, ~3x faster inference |
 
 ### Step 2: Install and Load Model
 
@@ -32,20 +37,24 @@ tokenizer = AutoTokenizer.from_pretrained("dicta-il/dictabert")
 model = AutoModelForSequenceClassification.from_pretrained("dicta-il/dictabert")
 ```
 
-**DictaLM 3.0 (generation):**
+**DictaLM 3.0 (generation, 12B instruct):**
 ```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-tokenizer = AutoTokenizer.from_pretrained("dicta-il/dictalm-3.0-7b-chat")
-model = AutoModelForCausalLM.from_pretrained("dicta-il/dictalm-3.0-7b-chat")
+tokenizer = AutoTokenizer.from_pretrained("dicta-il/DictaLM-3.0-Nemotron-12B-Instruct")
+model = AutoModelForCausalLM.from_pretrained("dicta-il/DictaLM-3.0-Nemotron-12B-Instruct")
 ```
+
+For the strongest quality, swap to `dicta-il/DictaLM-3.0-24B-Base`. For reasoning tasks (math, multi-step logic), use `dicta-il/DictaLM-3.0-24B-Thinking`, which writes its chain of thought inside an explicit thinking block before the final answer.
 
 **ivrit.ai Whisper (speech-to-text):**
 ```python
-import whisper
-# Use ivrit.ai fine-tuned model
-model = whisper.load_model("ivrit-ai/whisper-large-v3-he")
+from transformers import pipeline
+# ivrit.ai fine-tuned Hebrew ASR, based on openai/whisper-large-v3
+pipe = pipeline("automatic-speech-recognition", model="ivrit-ai/whisper-large-v3")
+result = pipe("audio.wav", generate_kwargs={"language": "he"})
 ```
+For lower latency, use `ivrit-ai/whisper-large-v3-turbo-ct2` via `faster-whisper` (CTranslate2 backend, roughly 3x faster on GPU).
 
 ### Step 3: Hebrew Text Preprocessing
 Before feeding text to models:
@@ -74,12 +83,6 @@ def preprocess_hebrew(text):
 - **Right-to-left in code:** Ensure proper bidi handling in string operations
 - **Mixed Hebrew-English:** Common in tech text, may need separate processing
 
-## Resources
-- Dicta models: `https://huggingface.co/dicta-il`
-- ivrit.ai: `https://huggingface.co/ivrit-ai`
-- AlephBERT: `https://huggingface.co/onlplab/alephbert-base`
-- NNLP-IL resources: Hebrew NLP community resources
-
 ## Examples
 
 ### Example 1: Hebrew Text Classification
@@ -93,10 +96,21 @@ Result: Use DictaBERT-NER model, demonstrate with example text.
 ## Bundled Resources
 
 ### Scripts
-- `scripts/preprocess_hebrew.py` — Normalize Hebrew text before feeding it to NLP models (DictaBERT, DictaLM, AlephBERT). Handles Unicode NFC normalization, niqqud removal, whitespace cleanup, URL stripping, shekel symbol normalization, and mixed Hebrew-English text segmentation. Run: `python scripts/preprocess_hebrew.py --help`
+- `scripts/preprocess_hebrew.py`: Normalize Hebrew text before feeding it to NLP models (DictaBERT, DictaLM, AlephBERT). Handles Unicode NFC normalization, niqqud removal, whitespace cleanup, URL stripping, shekel symbol normalization, and mixed Hebrew-English text segmentation. Run: `python scripts/preprocess_hebrew.py --help`
 
 ### References
-- `references/model-comparison.md` — Side-by-side comparison of Hebrew NLP models (DictaLM 3.0, DictaBERT, AlephBERT, ivrit.ai Whisper, Hebrew-Gemma) with VRAM requirements, HuggingFace IDs, and a task-to-model mapping table. Consult when choosing which model to use for a specific Hebrew NLP task.
+- `references/model-comparison.md`: Side-by-side comparison of Hebrew NLP models (DictaLM 3.0, DictaBERT, AlephBERT, NeoDictaBERT, ivrit.ai Whisper) with VRAM requirements, HuggingFace IDs, and a task-to-model mapping table. Consult when choosing which model to use for a specific Hebrew NLP task.
+
+## Reference Links
+
+| Source | URL | What to Check |
+|--------|-----|---------------|
+| DICTA Israel Center for Text Analysis (HuggingFace) | https://huggingface.co/dicta-il | Latest DictaLM and DictaBERT model variants, IDs, release notes |
+| ivrit.ai (HuggingFace) | https://huggingface.co/ivrit-ai | Current Whisper fine-tunes for Hebrew ASR, dataset versions |
+| AlephBERT on HuggingFace | https://huggingface.co/onlplab/alephbert-base | AlephBERT model card and usage |
+| ivrit.ai project site | https://www.ivrit.ai/en/ | Dataset size, license, research papers |
+| NNLP-IL (Israeli NLP community) | https://github.com/NNLP-IL | Curated list of Hebrew NLP resources and benchmarks |
+| DictaLM 3.0 paper (Dicta) | https://arxiv.org/pdf/2309.14568 | Architecture, training data, eval results |
 
 ## Gotchas
 - Hebrew has no capital letters, so agents cannot use capitalization-based NER (Named Entity Recognition) heuristics that work for English. Hebrew NER requires morphological analysis or trained models.
@@ -111,5 +125,5 @@ Cause: Hebrew morphology splitting prefixes (b-, k-, l-, m-, sh-, v-)
 Solution: This is expected behavior. Hebrew words like "bveit" (in the house) are split into morphemes.
 
 ### Error: "GPU out of memory"
-Cause: DictaLM 14B requires ~28GB VRAM
-Solution: Use the 7B or 1.7B variant, or quantize with bitsandbytes (4-bit).
+Cause: DictaLM 3.0 24B needs roughly 48GB VRAM in BF16, and the Nemotron-12B variant needs roughly 24GB.
+Solution: Drop to `dicta-il/DictaLM-3.0-Nemotron-12B-Instruct` (12B), the 1.7B Thinking GGUF variant, or use the FP8 / W4A16 quantized checkpoints published under the same org (e.g., `DictaLM-3.0-24B-Base-FP8`). For laptop-class hardware, run the 1.7B GGUF via llama.cpp.
