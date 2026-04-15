@@ -315,6 +315,16 @@ Result: Apply gov.il header pattern with institutional blue, Hebrew navigation w
 - Form labels in Hebrew should be right-aligned and placed to the right of inputs (or above them). Agents often place labels to the left of inputs, which is the English convention and feels unnatural in RTL.
 - Phone number input fields for Israeli numbers should accept formats with and without country code: 054-1234567, +972-54-1234567, and 0541234567. Agents may only validate the international format.
 
+## Reference Links
+
+| Source | URL | What to Check |
+|--------|-----|---------------|
+| Google Fonts – Hebrew | https://fonts.google.com/?subset=hebrew | Heebo, Assistant, Rubik, Frank Ruhl Libre, loading snippets |
+| CSS logical properties (MDN) | https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values | padding-inline, margin-block, logical positioning |
+| Tailwind RTL support | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | `rtl:` and `ltr:` variants for component libraries |
+| shadcn/ui | https://ui.shadcn.com | RTL-friendly component recipes and primitives |
+| WCAG 2.1 quick reference | https://www.w3.org/WAI/WCAG21/quickref/ | Contrast and reading-order requirements that apply to RTL |
+
 ## Troubleshooting
 
 ### Error: "Hebrew text looks cramped or too small"

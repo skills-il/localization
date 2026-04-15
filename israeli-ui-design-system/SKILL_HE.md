@@ -308,6 +308,16 @@ body[dir="rtl"] {
 - תוויות טפסים בעברית צריכות להיות מיושרות לימין וממוקמות מימין לשדות (או מעליהם). סוכנים ממקמים לעתים תוויות משמאל לשדות, מה שזו מוסכמה אנגלית שמרגישה לא טבעית ב-RTL.
 - שדות קלט מספר טלפון למספרים ישראליים צריכים לקבל פורמטים עם ובלי קידומת מדינה: 054-1234567, 972-54-1234567+, ו-0541234567. סוכנים עלולים לאמת רק את הפורמט הבינלאומי.
 
+## קישורי עזר
+
+| מקור | כתובת | מה לבדוק |
+|------|-------|----------|
+| Google Fonts – עברית | https://fonts.google.com/?subset=hebrew | Heebo, Assistant, Rubik, Frank Ruhl Libre, קטעי טעינה |
+| תכונות CSS לוגיות (MDN) | https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values | padding-inline, margin-block, מיקום לוגי |
+| תמיכת RTL ב-Tailwind | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | וריאנטי `rtl:` ו-`ltr:` לספריות רכיבים |
+| shadcn/ui | https://ui.shadcn.com | רכיבים תואמי RTL ופרימיטיבים |
+| WCAG 2.1 Quick Reference | https://www.w3.org/WAI/WCAG21/quickref/ | דרישות ניגודיות וסדר קריאה החלות על RTL |
+
 ## פתרון בעיות
 
 ### שגיאה: "טקסט עברי נראה צפוף או קטן מדי"
