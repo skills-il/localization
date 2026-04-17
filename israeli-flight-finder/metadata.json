@@ -4,7 +4,7 @@
     "en": "Israeli Flight Finder"
   },
   "display_description": {
-    "he": "השוואת מחירי טיסות מנתב\"ג (TLV) בין Google Flights, Skyscanner, KAYAK, איסתא ולמטייל. השתמשו כשמחפשים טיסות זולות מישראל, רוצים להשוות מחירים בין חברות תעופה ישראליות (אל על, ישראייר, ארקיע), או צריכים לדעת מתי הכי זול לטוס. הסקיל מכסה מדיניות כבודה, עונות שיא ושפל, טיפים לחיסכון, וחבילות נופש. אל תשתמשו לטיולים בארץ (יש israeli-travel-planner) או רכבות (יש railil).",
+    "he": "משווים מחירי טיסות מנתב\"ג (TLV) בין Google Flights, Skyscanner, KAYAK, איסתא ולמטייל. השתמשו כשמחפשים טיסות זולות מישראל, רוצים להשוות מחירים בין חברות תעופה ישראליות (אל על, ישראייר, ארקיע), או צריכים לדעת מתי הכי זול לטוס. הכלי מכסה מדיניות כבודה, עונות שיא ושפל, טיפים לחיסכון וחבילות נופש. אל תשתמשו לטיולים בארץ (יש israeli-travel-planner) או לרכבות (יש railil).",
     "en": "Compare flight prices from Ben Gurion Airport (TLV) across Google Flights, Skyscanner, KAYAK, and Israeli platforms like Issta and Lametayel. Use when searching for cheap flights from Israel, comparing Israeli airline fares (El Al, Israir, Arkia), or planning around peak and off-peak travel seasons. Covers baggage policies, seasonal pricing, booking strategies, and package deals. Do NOT use for domestic travel within Israel (use israeli-travel-planner) or train schedules (use railil)."
   },
   "tags": {

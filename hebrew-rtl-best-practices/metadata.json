@@ -25,7 +25,7 @@
     "en": "Hebrew RTL Best Practices"
   },
   "display_description": {
-    "he": "הטמעת פריסות RTL (ימין לשמאל) לאפליקציות ווב ומובייל בעברית. יש להשתמש כשהמשתמש שואל על פריסת RTL, כיוון טקסט עברי, טקסט דו-כיווני (bidi), CSS עברי, או צריך לבנות ממשק בעברית. מכסה תכונות CSS לוגיות, Tailwind RTL, הגדרת React/Next.js ל-RTL, טיפוגרפיה עברית ובחירת גופנים. אין להשתמש עבור RTL בערבית (טיפוגרפיה שונה) אלא אם המשתמש מבקש במפורש דפוסי RTL משותפים.",
+    "he": "בניית פריסות RTL (ימין לשמאל) לאפליקציות ווב ומובייל בעברית. השתמשו כשהמשתמש שואל על פריסת RTL, כיוון טקסט עברי, טקסט דו-כיווני (bidi), CSS עברי, או כשצריך לבנות ממשק בעברית. מכסה תכונות CSS לוגיות, Tailwind RTL, הגדרת React/Next.js ל-RTL, טיפוגרפיה עברית ובחירת גופנים. אל תשתמשו ל-RTL בערבית (טיפוגרפיה שונה) אלא אם המשתמש מבקש במפורש דפוסי RTL משותפים.",
     "en": "Implement right-to-left (RTL) layouts for Hebrew web and mobile applications. Use when user asks about RTL layout, Hebrew text direction, bidirectional (bidi) text, Hebrew CSS, \"right to left\", or needs to build Hebrew UI. Covers CSS logical properties, Tailwind RTL, React/Next.js RTL setup, Hebrew typography, and font selection. Do NOT use for Arabic RTL (similar but different typography) unless user explicitly asks for shared RTL patterns."
   },
   "supported_agents": [

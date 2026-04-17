@@ -25,7 +25,7 @@
     "en": "Hebrew Nlp Toolkit"
   },
   "display_description": {
-    "he": "מדריך לשימוש במודלי NLP לעברית כולל DictaLM 3.0, DictaBERT, NeoDictaBERT, AlephBERT ו-ivrit.ai. השתמש כשהמשתמש שואל על עיבוד טקסט בעברית, טוקניזציה, זיהוי ישויות (NER), ניתוח סנטימנט, דיבור-לטקסט בעברית או צריך לעבד טקסט עברי באופן תכנותי. מכסה בחירת מודל, עיבוד מקדים ואתגרים ייחודיים לעברית (ניקוד, מורפולוגיה עשירה, אותיות סופיות, היעדר אותיות גדולות). אל תשתמש עבור NLP בערבית (כלים אחרים) או משימות NLP כלליות באנגלית.",
+    "he": "מדריך לשימוש במודלי NLP לעברית כולל DictaLM 3.0, DictaBERT, NeoDictaBERT, AlephBERT ו-ivrit.ai. השתמשו כשהמשתמש שואל על עיבוד טקסט בעברית, טוקניזציה, זיהוי ישויות (NER), ניתוח סנטימנט, דיבור-לטקסט בעברית, או כשצריך לעבד טקסט עברי בקוד. מכסה בחירת מודל, עיבוד מקדים ואתגרים ייחודיים לעברית (ניקוד, מורפולוגיה עשירה, אותיות סופיות, חוסר באותיות גדולות). אל תשתמשו ל-NLP בערבית (כלים אחרים) או למשימות NLP כלליות באנגלית.",
     "en": "Guide developers in using Hebrew NLP models and tools including DictaLM, DictaBERT, AlephBERT, and ivrit.ai. Use when user asks about Hebrew text processing, Hebrew NLP, \"ivrit\", Hebrew tokenization, Hebrew NER, Hebrew sentiment analysis, Hebrew speech-to-text, or needs to process Hebrew language text programmatically. Covers model selection, preprocessing, and Hebrew-specific NLP challenges. Do NOT use for Arabic NLP (different tools) or general English NLP tasks."
   },
   "supported_agents": [

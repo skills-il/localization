@@ -25,7 +25,7 @@
     "en": "Hebrew i18n"
   },
   "display_description": {
-    "he": "הטמעת תבניות בינלאומיות (i18n) מקיפות לעברית באפליקציות ווב ומובייל. לשימוש כשמבקשים תמיכה בעברית, לוקליזציה לישראל, צורות ריבוי בעברית, עיצוב תאריכים ומספרים, תכונות CSS לוגיות ל-RTL, טיפול בטקסט דו-כיווני, אינטגרציית RTL ב-React/Vue/Angular/Next.js, Tailwind CSS RTL, או הגדרת next-intl. כולל כללי ריבוי עבריים, פורמט תאריכים ומטבע לישראל, CSS מבוסס RTL, כלי Tailwind לוגיים, ואלגוריתמי bidi. לא מיועד ל-NLP או כתיבת תוכן (להשתמש ב-hebrew-nlp-toolkit או hebrew-content-writer).",
+    "he": "מטמיעים תבניות בינלאומיות (i18n) מקיפות לעברית באפליקציות ווב ומובייל. השתמשו כשצריך תמיכה בעברית, לוקליזציה לישראל, צורות ריבוי בעברית, פורמט תאריכים ומספרים, תכונות CSS לוגיות ל-RTL, טקסט דו-כיווני, אינטגרציית RTL ב-React/Vue/Angular/Next.js, Tailwind CSS RTL, או הגדרת next-intl. כולל כללי ריבוי בעברית, פורמט תאריכים ומטבע לישראל, CSS מבוסס RTL, כלי Tailwind לוגיים ואלגוריתמי bidi. לא מיועד ל-NLP או לכתיבת תוכן (השתמשו ב-hebrew-nlp-toolkit או ב-hebrew-content-writer).",
     "en": "Implement comprehensive Hebrew internationalization (i18n) patterns for web and mobile applications. Use when user asks about Hebrew localization, \"beinle'umiyut\", i18n for Israeli apps, Hebrew plural forms, Hebrew date formatting, RTL CSS logical properties, bidirectional text handling, React/Vue/Angular/Next.js RTL integration, Tailwind CSS RTL, or next-intl setup. Covers Hebrew pluralization rules, date and number formatting for Israel, RTL-first CSS, Tailwind RTL utilities, and bidi text algorithms. Do NOT use for NLP or content writing (use hebrew-nlp-toolkit or hebrew-content-writer instead)."
   },
   "supported_agents": [

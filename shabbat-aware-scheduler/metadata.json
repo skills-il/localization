@@ -25,7 +25,7 @@
     "en": "Shabbat Aware Scheduler"
   },
   "display_description": {
-    "he": "תזמון משימות תוך התחשבות בשבתות, חגים ולוח השנה העברי",
+    "he": "מתזמנים משימות עם התחשבות בשבתות, בחגים ובלוח השנה העברי",
     "en": "Schedule meetings, deployments, and events respecting Shabbat, Israeli holidays (chagim), and Hebrew calendar constraints. Use when user asks to schedule around Shabbat, \"zmanim\", check Israeli holidays, plan around chagim, set Israeli business hours, or needs Hebrew calendar-aware scheduling logic. Includes halachic times (zmanim) via HebCal API, full Israeli holiday calendar, and Israeli business hour conventions. Do NOT use for religious halachic rulings (consult a rabbi) or diaspora 2-day holiday scheduling."
   },
   "supported_agents": [

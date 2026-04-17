@@ -27,7 +27,7 @@
     "en": "Hebrew Document Generator"
   },
   "display_description": {
-    "he": "יצירת מסמכים עסקיים מקצועיים בעברית בפורמטים PDF, DOCX ו-PPTX עם תמיכה מלאה ב-RTL וטיפוגרפיה עברית תקינה. לשימוש כשמבקשים ליצור PDF בעברית, להפיק חשבונית מס, לכתוב חוזה, לבנות הצעת מחיר, או להכין מצגת בעברית. מכסה reportlab, WeasyPrint, python-docx ו-pptxgenjs עם תמיכת BiDi. לא מיועד לקריאת מסמכים קיימים או OCR (יש להשתמש ב-hebrew-ocr-forms).",
+    "he": "מייצרים מסמכים עסקיים מקצועיים בעברית בפורמטים PDF, DOCX ו-PPTX עם תמיכה מלאה ב-RTL וטיפוגרפיה עברית תקינה. השתמשו כשצריך להפיק PDF בעברית, להוציא חשבונית מס, לנסח חוזה, לבנות הצעת מחיר, או להכין מצגת בעברית. מכסה reportlab, WeasyPrint, python-docx ו-pptxgenjs עם תמיכת BiDi. לא מיועד לקריאת מסמכים קיימים או OCR (תשתמשו ב-hebrew-ocr-forms).",
     "en": "Generate professional Hebrew documents including PDF, DOCX, and PPTX with full RTL support and proper Hebrew typography. Use when user asks to create Hebrew PDF, generate Israeli business documents, \"lehafik heshbonit\", \"litstor hozeh\", build Hebrew Word document, create Hebrew PowerPoint, or produce Israeli templates such as Heshbonit Mas (tax invoice), Hozeh (contract), Hatza'at Mechir (proposal), or Protokol (meeting minutes). Covers reportlab, WeasyPrint, python-docx, and pptxgenjs with bidi paragraph support. Do NOT use for OCR or reading existing documents (use hebrew-ocr-forms instead)."
   },
   "supported_agents": [

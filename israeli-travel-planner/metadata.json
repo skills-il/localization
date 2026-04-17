@@ -25,7 +25,7 @@
     "en": "Israeli Travel Planner"
   },
   "display_description": {
-    "he": "תכנון טיולים בארץ עם תחבורה מקומית, לינה, אתרי טבע ושיקולים תרבותיים. שימוש כשצריך מידע על אוטובוסים, רכבת ישראל, רב-קו, גנים לאומיים, מלונות, או תכנון נסיעות בהתחשב בשבת וחגים.",
+    "he": "מתכננים טיולים בארץ עם תחבורה מקומית, לינה, אתרי טבע ושיקולים תרבותיים. השתמשו כשצריך מידע על אוטובוסים, רכבת ישראל, רב-קו, גנים לאומיים, מלונות, או תכנון נסיעות בהתחשב בשבת ובחגים.",
     "en": "Plan domestic travel in Israel with local transportation, accommodations, national parks, and cultural considerations. Use when user asks about traveling in Israel, Israeli hotel chains, bus routes, Israel Railways, Rav-Kav card, national parks, tiyul b'aretz, Dead Sea, Eilat, or trip planning within Israel. Covers Egged/Dan/Kavim buses, train schedules, Rashut HaTeva sites, Shabbat travel restrictions, and seasonal advice."
   },
   "supported_agents": [

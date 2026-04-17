@@ -25,7 +25,7 @@
     "en": "Hebrew Content Writer"
   },
   "display_description": {
-    "he": "כתיבה ועריכה של תוכן מקצועי בעברית תקנית ושוטפת",
+    "he": "כותבים ועורכים תוכן מקצועי בעברית טבעית ושוטפת",
     "en": "Write and edit professional content in Hebrew including marketing copy, UX text, articles, emails, and social media posts. Use when user asks to write in Hebrew, \"ktov b'ivrit\", create Hebrew marketing content, edit Hebrew text, write Hebrew UX copy, or optimize Hebrew content for SEO. Covers grammar rules, formal vs informal register, gendered language handling, and Hebrew SEO best practices. Do NOT use for Hebrew NLP/ML tasks (use hebrew-nlp-toolkit) or translation (use a translation skill)."
   },
   "supported_agents": [
