@@ -1,6 +1,6 @@
 ---
 name: israeli-ui-design-system
-description: Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, "itzuv" (design), Israeli design system, Hebrew font pairing, RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans Pro), gov.il design system patterns, and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead).
+description: Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, "itzuv" (design), Israeli design system, Hebrew font pairing, RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans Pro), gov.il design system patterns, Israeli formatting conventions (shekel sign, DD/MM/YYYY dates, 24-hour clock), and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead).
 license: MIT
 compatibility: Works with React, Vue, Angular, and vanilla HTML/CSS. No network required for core patterns. Recommended with Storybook for component development.
 ---
@@ -289,6 +289,63 @@ For government and institutional Israeli websites, follow the gov.il design syst
   </fieldset>
 </form>
 ```
+
+### Step 7: Israeli Formatting Conventions (Currency, Numbers, Dates)
+
+Design tokens and components must encode Israel-specific formatting, not mirror Latin/US defaults.
+
+**Currency: shekel sign (₪)**
+
+The shekel sign `₪` (U+20AA) is typically placed after the amount in Israeli financial contexts (e.g., `1,234.50 ₪`), though `₪ 1,234.50` is also common in retail. Whichever convention you pick, apply it consistently. Because numbers are inherently LTR, any amount inline inside Hebrew RTL text needs explicit bidi isolation or the surrounding punctuation may reorder.
+
+```html
+<!-- Correct: isolate the amount so the currency symbol stays put -->
+<p>המחיר הוא <bdi>1,234.50 ₪</bdi> בלבד.</p>
+```
+
+```js
+// Prefer Intl.NumberFormat over hand-formatting -- it handles symbol placement,
+// grouping separators, and invisible RTL marks correctly across browsers.
+new Intl.NumberFormat('he-IL', {
+  style: 'currency',
+  currency: 'ILS',
+}).format(1234.5);
+// => "1,234.50 ₪"
+```
+
+**Numbers in Hebrew body text**
+
+Numbers (phone numbers, ID numbers, prices, dates) do not reverse under RTL. But when a long number sits inside Hebrew text, browsers may reflow surrounding punctuation. Use `<bdi>` or `dir="ltr"` on the number element to lock it.
+
+```html
+<p>מספר הזהות הוא <bdi>012345678</bdi>, בתוקף עד 2030.</p>
+```
+
+**Dates and time**
+
+Default to the Israeli convention: `DD/MM/YYYY` (e.g., `20/04/2026`), not US `MM/DD/YYYY` or ISO `YYYY-MM-DD` in user-facing copy. Use 24-hour time (`14:30`); AM/PM is rare in Israeli UIs.
+
+```js
+new Intl.DateTimeFormat('he-IL', {
+  day: '2-digit', month: '2-digit', year: 'numeric',
+}).format(new Date());
+// => "20.4.2026" or "20/04/2026" depending on browser locale data
+```
+
+Define design tokens so downstream components stay consistent:
+
+```css
+:root {
+  --date-format-short: 'dd/MM/yyyy';
+  --time-format: 'HH:mm';
+  --currency-locale: 'he-IL';
+  --currency-code: 'ILS';
+}
+```
+
+**Number separators**
+
+Thousands separator is comma (`1,234,567`), decimal is period (`1,234.50`). Do not switch to European `1.234,50` style; Israeli finance uses the US convention.
 
 ## Examples
 

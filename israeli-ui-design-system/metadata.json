@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "category": "localization",
   "tags": {
     "he": [
@@ -23,8 +23,8 @@
     "en": "Israeli UI Design System"
   },
   "display_description": {
-    "he": "בונים מערכות עיצוב ורכיבי UI מותאמים ל-RTL עם טיפוגרפיה עברית, זיווגי גופנים ותבניות עיצוב ישראליות",
-    "en": "Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, \"itzuv\" (design), Israeli design system, Hebrew font pairing, RTL component library, \"tipografia ivrit\" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings, gov.il design system patterns, and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead)."
+    "he": "בונים ספריות רכיבי UI ומערכות עיצוב RTL-first לאפליקציות ישראליות עם טיפוגרפיה עברית. השתמשו כשהמשתמש שואל על רכיבי UI בעברית, \"עיצוב\", \"itzuv\", מערכת עיצוב ישראלית, זיווג גופנים בעברית, ספריית רכיבים RTL, \"tipografia ivrit\", או תבניות עיצוב gov.il. מכסה ארכיטקטורת רכיבים RTL-first, זיווגי גופנים עבריים (Heebo+Inter, Rubik+Source Sans Pro), תבניות עיצוב gov.il, מוסכמות פורמט ישראליות (שקל, תאריכים DD/MM/YYYY, שעון 24 שעות) ו-UI מתאים תרבותית למשתמשים ישראלים. לא להשתמש לסוגיות CSS RTL כלליות (השתמשו ב-hebrew-rtl-best-practices) או לבדיקות נגישות (השתמשו ב-israeli-accessibility-compliance במקום).",
+    "en": "Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, \"itzuv\" (design), Israeli design system, Hebrew font pairing, RTL component library, \"tipografia ivrit\" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans Pro), gov.il design system patterns, Israeli formatting conventions (shekel sign, DD/MM/YYYY dates, 24-hour clock), and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead)."
   },
   "supported_agents": [
     "claude-code",
