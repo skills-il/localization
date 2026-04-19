@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "category": "localization",
   "tags": {
     "he": [
@@ -23,7 +23,7 @@
     "en": "Hebrew Tailwind Preset"
   },
   "display_description": {
-    "he": "קונפיגורציה של Tailwind CSS לאפליקציות בעברית עם וריאנטים כיווניים, מחסניות גופנים עבריות וכלי שירות לוגיים",
+    "he": "הגדרות Tailwind CSS v4 לאפליקציות RTL בעברית: וריאנטי dir, מחסניות גופנים עבריות וכלי שירות לוגיים. השתמשו כשהמשתמש שואל על הגדרת Tailwind RTL, תצורת Tailwind עברי, מחלקות שירות ל-RTL, תכונות לוגיות ב-Tailwind, שימוש ב-ms-/me- או הגדרת גופנים עבריים ב-Tailwind. מכסה וריאנטי dir ב-v4, מחסניות גופנים (Heebo, Assistant, Noto Sans Hebrew), כלי שירות לוגיים, תבניות רכיבים RTL-first וטוקני טיפוגרפיה לעברית. אל תשתמשו בשביל תבניות CSS RTL כלליות (מעבר ל-hebrew-rtl-best-practices) או למערכות עיצוב מלאות (מעבר ל-israeli-ui-design-system).",
     "en": "Configure Tailwind CSS v4 for Hebrew RTL applications with dir variants, Hebrew font stacks, and logical property utilities. Use when user asks about Tailwind RTL setup, Hebrew Tailwind config, \"Tailwind ivrit\", RTL utility classes, logical properties in Tailwind, ms-/me- utilities, or Tailwind Hebrew font configuration. Covers Tailwind v4 dir variants, Hebrew font stack presets, logical property utilities, RTL-first component patterns, and Hebrew typography tokens. Do NOT use for general CSS RTL patterns (use hebrew-rtl-best-practices) or full design systems (use israeli-ui-design-system instead)."
   },
   "supported_agents": [
