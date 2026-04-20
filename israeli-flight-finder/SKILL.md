@@ -39,7 +39,7 @@ Google Flights offers an AI-powered "Flight Deals" feature available in Israel i
 - **Hub**: Ben Gurion (TLV)
 - **Network**: 51+ direct destinations worldwide
 - **Website**: elal.com
-- **Frequent flyer**: Matmid program
+- **Frequent flyer**: Matmid, with five tiers (Matmid base, Silver, Gold, Platinum, Top Platinum). Since April 2025, status is earned via a revenue-linked "Diamonds" currency and re-qualified every 12 months; the old soft-landing grace tier was eliminated, so under-qualifying members drop straight to the matching tier.
 
 **Baggage policy:**
 
@@ -91,9 +91,16 @@ Standard fares do not include checked baggage. Some vacation packages may bundle
 
 ### Low-Cost Carriers
 
-**Wizz Air (W6)**: Hungarian low-cost carrier planning to establish bases at Ben Gurion and Ramon airports. Route availability fluctuates due to security-related suspensions. When operating, offers ~11 routes from TLV to European destinations. Check wizzair.com for current route status and baggage add-on pricing. Only a small personal item (40x30x20 cm) is free on base fares; cabin bags and checked bags are paid add-ons.
+**Wizz Air (W6)**: Hungarian low-cost carrier, now establishing a major base at Ben Gurion (and a secondary base at Ramon). First flight from the new base (Tel Aviv–Budapest) launched March 2026. The airline currently operates about 21 routes from Israel and plans to grow to roughly 50 routes, offering 1.7 million seats in 2026, making it the second-largest airline at TLV after El Al. Total investment: around $1 billion, dozens of new routes, A320-family aircraft. Only a small personal item (40x30x20 cm) is free on base fares; cabin bags and checked bags are paid add-ons. Check wizzair.com for current route status and baggage add-on pricing.
 
-**Ryanair**: Has officially removed Tel Aviv from its route map. Cancelled 22 planned routes and ~1 million seats for the 2025-2026 season due to disputes with Ben Gurion Airport over slot allocation and Terminal 1 availability. No confirmed return date.
+**Ryanair**: Has officially removed Tel Aviv from its route map. Cancelled 22 planned routes and roughly 1 million seats for the 2025-2026 season due to disputes with Ben Gurion Airport over slot allocation and Terminal 1 availability. As of early 2026, Ryanair has stated it will not resume TLV operations until at least summer 2026, conditional on the airport confirming S26 slots and Terminal 1 access.
+
+### Foreign Carriers
+
+- **flydubai**: Operates one of the densest schedules to TLV: about 10 daily Dubai–Tel Aviv flights as of late 2025, a >50% increase vs 2023. Often a strong option for connections to the Gulf, Asia, and East Africa via Dubai.
+- **Emirates**: Has fully withdrawn all Tel Aviv flights. No planned return as of early 2026.
+- **Turkish Airlines, American Airlines, Virgin Atlantic, Korean Air, Cathay Pacific**: Have not resumed TLV service since the October 2023 suspensions. Verify current status on each airline's site before relying on them.
+- **European carriers** (Lufthansa Group, Air France-KLM, ITA, Iberia, Aegean, LOT, Wizz, easyJet, Pegasus, SunExpress, etc.): Most have resumed and expanded TLV service through 2025-2026. Availability by route fluctuates with security conditions, so always verify.
 
 ## Seasonal Pricing Guide
 
@@ -119,10 +126,10 @@ Standard fares do not include checked baggage. Some vacation packages may bundle
 
 ### Timing
 
-- Book **28+ days before departure** for ~24% savings vs last-minute
-- Best days to search for deals: **Wednesday and Tuesday**
-- Avoid booking on Fridays (historically higher prices)
-- Set price alerts on Google Flights or KAYAK for routes you're watching
+- **Book 15-30 days ahead for domestic, 31-45 days ahead for international**. Expedia's 2026 Air Hacks Report found these windows beat booking 6+ months in advance by about $130 (domestic) and $190 (international).
+- **Friday is the cheapest day to BOOK** (Expedia 2026): up to 3% cheaper than Sunday, which is the most expensive day to book. This reverses the old "book on Tuesday" advice.
+- **Friday is also a cheap day to FLY**: save roughly 14% on domestic and 8% on international vs flying on Sunday. Tuesday remains the least crowded flying day.
+- Set price alerts on Google Flights or KAYAK for routes you're watching, then pounce when the fare dips below the "typical" band on the fare-history graph.
 
 ### Money-Saving Tips
 
@@ -167,6 +174,12 @@ Israeli travel agencies (Issta, Lametayel) specialize in package deals that bund
 2. **Google Flights**: Click "Explore" to see a map with prices to all destinations
 3. Filter by: direct flights only, max price, specific regions
 
+## Recommended MCP Servers
+
+| MCP | What It Adds |
+|-----|-------------|
+| [Ben Gurion Flights](https://agentskills.co.il/en/mcp/ben-gurion-flights) | Real-time TLV arrivals and departures from the Israel Airports Authority. Complement the price-comparison workflow with live flight status on travel day. |
+
 ## Gotchas
 
 1. **El Al Lite fares to Europe/UAE have no cabin carry-on**: Since May 2025, Lite fare passengers must check their carry-on at the gate (free). Only a small personal item fits in the cabin. This catches many budget travelers off guard. Does not apply to US routes.
@@ -185,6 +198,17 @@ Israeli travel agencies (Issta, Lametayel) specialize in package deals that bund
 
 - `references/comparison-platforms.md` -- Detailed platform comparison with URLs and features
 - `references/airline-baggage-quick-ref.md` -- Quick-reference baggage table for all Israeli airlines
+
+## Reference Links
+
+| Source | URL | What to Check |
+|--------|-----|---------------|
+| El Al baggage policy | https://www.elal.com/eng/baggage | Current carry-on weight/size, Lite fare restrictions, Matmid tier exemptions |
+| Israir baggage policy | https://www.israir.co.il | Advance vs airport carry-on and checked-bag pricing, personal item rules |
+| Arkia baggage policy | https://www.arkia.co.il/en/luggage-information | Trolley and checked-bag fees, weight limits, excess/kg charges |
+| Wizz Air baggage & routes | https://www.wizzair.com | Base fare inclusions, WIZZ Priority add-on, current Israel route list |
+| Google Flights (Israel) | https://www.google.com/travel/flights?gl=IL&hl=he | Flight Deals AI availability, fare-history bands, tracked-price alerts |
+| Expedia 2026 Air Hacks (AFAR coverage) | https://www.afar.com/magazine/expedia-data-shows-new-best-day-to-book-cheaper-flights | Cheapest booking day, best day to fly, optimal booking window |
 
 ## Troubleshooting
 
