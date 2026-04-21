@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "category": "localization",
   "tags": {
     "he": [
@@ -8,14 +8,18 @@
       "תקן-5568",
       "נכים",
       "RTL",
-      "ישראל"
+      "ישראל",
+      "ווידג'ט",
+      "יישום"
     ],
     "en": [
       "accessibility",
       "is-5568",
       "wcag",
       "rtl",
-      "israel"
+      "israel",
+      "widget",
+      "implementation"
     ]
   },
   "display_name": {

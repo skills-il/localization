@@ -263,6 +263,152 @@ Result: Add `dir="rtl"` to the table element, include a Hebrew `caption`, use `s
 
 ### References
 - `references/is-5568.md` -- Complete IS 5568 standard reference: clause-by-clause requirements mapped to WCAG 2.1 AA, Israeli-specific additions, legal penalty schedule under the Equal Rights for Persons with Disabilities Act, mandatory accessibility statement template, and checklist for compliance audits.
+- `references/widget-implementation.md` -- Copy-pasteable TypeScript/React code for a Regulation 35 accessibility preferences widget: pub-sub prefs store with `useSyncExternalStore`, class-based CSS toggles, FOUC bootstrap script, `Alt+A` keyboard shortcut (layout-independent via `e.code`), framer-motion `MotionConfig` wiring, and counter-invert rules. Consult when the user wants to ship the widget surface itself, not just audit compliance.
+
+## Building a Compliant Accessibility Preferences Widget
+
+Regulation 35 and IS 5568 require Israeli consumer-facing sites to expose an accessibility control surface that users can operate with the keyboard, typically a floating widget with toggles for contrast, text size, line spacing, cursor, and motion. This widget is a **user-preference comfort tool**, not an automation overlay. The difference is legally and financially significant: the FTC fined accessiBe $1M in April 2025 for misleading claims that its overlay auto-remediated sites (it didn't). The widget you ship must do only what the user asks it to do.
+
+### Feature Set
+
+A minimum-viable Regulation 35 widget exposes these toggles:
+
+| Toggle | Type | Values |
+|--------|------|--------|
+| Highlight links | Binary | on / off |
+| Contrast mode | Cycle | off / high / invert / monochrome |
+| Text size | Cycle | 100% / 115% / 130% / 150% |
+| Line spacing | Cycle | normal / 1.6 / 2.0 |
+| Readable font | Binary | on / off (OS stack only, no webfont) |
+| Highlight headings | Binary | on / off |
+| Black cursor | Binary | on / off |
+| Large cursor | Binary | on / off |
+| Stop animations | Binary | on / off |
+| Reset | Action | clears all preferences |
+
+### Architecture
+
+Three parts: a preferences store, a UI panel, and a CSS layer.
+
+1. **Preferences store.** A pub-sub store (`subscribe` / `getSnapshot` / `getServerSnapshot` / `set` / `reset`) consumed by React via `useSyncExternalStore`. State is persisted to `localStorage` under a versioned key (e.g., `site_a11y_prefs_v1`). Version mismatches invalidate stored state so schema bumps do not leave stale fields around. Pre-populate the in-memory cache on `notify()` so subscriber fan-out does not trigger redundant `localStorage` reads.
+
+2. **UI panel.** A floating trigger button (`fixed bottom-6 start-6 z-40`, RTL-aware via CSS logical properties) opens a Radix Sheet containing a 3-column grid of toggle cards plus a Reset action. The trigger carries `aria-expanded`, `aria-controls`, and `aria-keyshortcuts="Alt+A"`.
+
+3. **CSS layer.** Every visual change is driven by CSS classes on `<html>` (for example `a11y-contrast-high`, `a11y-text-150`, `a11y-lines-20`, `a11y-reduce-motion`). **The widget never mutates content DOM.** It does not inject `alt` text, reorder nodes, or rewrite ARIA. That is the line that separates a compliant user-preference tool from a banned overlay.
+
+### Single-Source Class Rules
+
+The class list applied at runtime must be identical to the one applied by the FOUC bootstrap script (below), or users see a flash of unstyled preferences on every page load. Define the mapping once and generate both the runtime `applyPrefsToElement()` function and the bootstrap `<script>` body from the same table:
+
+```ts
+const CLASS_RULES = [
+  ['a11y-links',           (p) => p.links,                 '!!p.links'],
+  ['a11y-contrast-high',   (p) => p.contrast === 'high',   "p.contrast==='high'"],
+  ['a11y-contrast-invert', (p) => p.contrast === 'invert', "p.contrast==='invert'"],
+  ['a11y-contrast-mono',   (p) => p.contrast === 'mono',   "p.contrast==='mono'"],
+  ['a11y-text-115',        (p) => p.textSize === 115,      'p.textSize===115'],
+  ['a11y-text-130',        (p) => p.textSize === 130,      'p.textSize===130'],
+  ['a11y-text-150',        (p) => p.textSize === 150,      'p.textSize===150'],
+] as const;
+```
+
+### FOUC Prevention
+
+Preferences live in `localStorage`, which means the first paint happens at default styling and only after React hydrates does the widget re-apply the user's settings. That flash is unacceptable for users who rely on high contrast or 150% text. Fix it with an inline `<script>` in `<head>` that runs synchronously before React hydrates:
+
+```ts
+// Generated from CLASS_RULES so runtime and bootstrap can't drift
+export const A11Y_BOOTSTRAP_SCRIPT =
+  `(function(){try{var raw=localStorage.getItem('site_a11y_prefs_v1');` +
+  `if(!raw)return;var p=JSON.parse(raw);if(p.version!==1)return;` +
+  `var c=document.documentElement.classList;` +
+  CLASS_RULES.map(([cls,,js]) => `c.toggle(${JSON.stringify(cls)},${js})`).join(';') +
+  `}catch(e){}})()`;
+```
+
+In your root layout:
+
+```tsx
+<head>
+  <script dangerouslySetInnerHTML={{ __html: A11Y_BOOTSTRAP_SCRIPT }} />
+</head>
+```
+
+Keep a `useEffect` safety net in the widget component that re-applies classes after mount. If `localStorage` is blocked (private browsing, quota exceeded), the bootstrap silently returns and the safety net covers the case.
+
+### Keyboard Shortcut: Use `e.code`, Not `e.key`
+
+Regulation 35 requires the widget to be reachable from any focus context. `Alt+A` is the industry default. Detect it via `e.code`, not `e.key`:
+
+```ts
+if (e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey && e.code === 'KeyA') {
+  e.preventDefault();
+  togglePanel();
+}
+```
+
+On macOS, `Alt+A` produces the dead-key `å` for `e.key`, which fails the intuitive `e.key === 'a'` check. `e.code` is the physical key position and is layout-independent across macOS, Windows, and Linux.
+
+### ARIA Correctness
+
+- **Binary toggles** (links highlight, readable font, cursor, motion, headings): use `aria-pressed={active}`.
+- **Cycling toggles** (contrast, text size, line spacing): **omit `aria-pressed`**. Reading "pressed" aloud is misleading when the control has more than two states. The accessible name itself should carry the current value: `aria-label={`"${label}: ${valueLabel}"`}`.
+- **Live region** announcing state changes: use `role="status" aria-live="polite"` and render it **outside** the Sheet portal. Portals unmount when the Sheet closes; a live region inside the portal loses late-arriving announcements.
+
+### framer-motion / Reduced Motion
+
+If the app uses framer-motion, wrap the tree in a `<MotionConfig>` that mirrors the Stop Animations toggle:
+
+```tsx
+<MotionConfig reducedMotion={prefs.reduceMotion ? 'always' : 'user'}>
+```
+
+`'always'` forces reduced motion when the widget toggle is on. `'user'` falls back to the OS `prefers-reduced-motion` media query when the toggle is off, so system-level requests are still honored.
+
+### Counter-Invert the Widget
+
+If the user enables invert or monochrome contrast, the whole page is filtered. The widget itself must be counter-inverted so the user can still read it to turn the setting off:
+
+```css
+html.a11y-contrast-invert #a11y-widget-panel,
+html.a11y-contrast-invert #a11y-widget-trigger {
+  filter: invert(1) hue-rotate(180deg);
+}
+```
+
+Forget this and users end up with an unreadable widget they cannot deactivate.
+
+### Print Rule
+
+Reset every `a11y-*` class in print context so high-contrast filters and inverted colors do not follow the user to paper:
+
+```css
+@media print {
+  html[class*="a11y-"] { filter: none !important; }
+  html[class*="a11y-text-"] { font-size: 100% !important; }
+  html[class*="a11y-lines-"] { line-height: normal !important; }
+}
+```
+
+See `references/widget-implementation.md` for complete copy-pasteable code covering the pub-sub store, the FOUC bootstrap, the React component with the ToggleCard grid, the `MotionA11yProvider`, and the CSS class reference table.
+
+## Avoiding Overlay Anti-Patterns
+
+Accessibility overlay products (accessiBe, UserWay, AudioEye) claim to make sites compliant by injecting JavaScript that auto-generates alt text, rewrites ARIA, and fixes inaccessible markup at runtime. Disability advocates and US regulators have documented that overlay-protected sites still fail screen-reader testing. **In April 2025 the FTC fined accessiBe $1M** and ordered ongoing compliance monitoring for misleading advertising about its overlay's capabilities.
+
+The Israeli Commission for Equal Rights of Persons with Disabilities has not endorsed any overlay product. IS 5568 compliance is evaluated against the site's actual rendered HTML, not against claims made by a plug-in.
+
+When building the widget above, enforce these scope fences:
+
+| Do | Do NOT |
+|----|--------|
+| Toggle CSS classes on `<html>` | Mutate content DOM, rewrite `alt` attributes, or inject ARIA |
+| Provide user-controlled preferences (contrast, text size, motion) | Claim the widget alone makes the site "IS 5568 compliant" or "WCAG compliant" |
+| Document scope as a comfort tool in the accessibility statement | Display a certification badge or "audited by" claim sourced from a vendor plug-in |
+| Use OS font stacks for the readable-font toggle | Inject a webfont that changes rendered text width and re-flows past critical content |
+| Persist preferences to `localStorage` and a cookie you control | Use third-party overlay SDKs that fingerprint users or apply tracking cookies as a side effect |
+
+The widget is one layer of compliance. The other layers, semantic HTML, correct `dir` and `lang`, keyboard operability, real screen-reader testing, proper form labels, working focus management, the accessibility statement page (Hatzaharat Negishot), and a named accessibility coordinator, all have to be built into the site itself. No widget substitutes for that work.
 
 ## Gotchas
 - Israeli accessibility law (IS 5568) is based on WCAG 2.1 AA, but has additional Israeli-specific requirements for bilingual (Hebrew + Arabic) government sites. Agents may apply only WCAG without the Israeli additions.
@@ -276,7 +422,7 @@ Result: Add `dir="rtl"` to the table element, include a Hebrew `caption`, use `s
 |--------|-----|---------------|
 | Commission for Equal Rights of Persons with Disabilities | https://www.gov.il/he/departments/mugbaluyot | Israeli accessibility law, enforcement, complaints |
 | IS 5568 / Tav Negishut | https://www.sii.org.il/en/ | Israeli Standards Institute source for the IS 5568 standard |
-| Equal Rights Act (Nevo) | https://www.nevo.co.il/law_html/law01/076_001.htm | Legal text of the Equal Rights for Persons with Disabilities Act |
+| Equal Rights Act (Nevo) | https://www.nevo.co.il/law_html/law01/p214m2_001.htm | Legal text of the Equal Rights for Persons with Disabilities Act |
 | WCAG 2.1 quick reference | https://www.w3.org/WAI/WCAG21/quickref/ | Success criteria and techniques for AA compliance |
 | NVDA Hebrew support | https://www.nvaccess.org/ | Free screen reader widely used for Hebrew a11y testing |
 
