@@ -12,20 +12,22 @@ compatibility: Works with any web framework. Python 3.9+ for audit script. No ne
 
 ### Step 1: Understand the Legal Framework
 
-Israeli web accessibility (negishot) is legally mandatory under the **Equal Rights for Persons with Disabilities Act (Chok Shivyon Zechuyot Le'Anashim Im Mugbaluyot), 1998** and its 2013 accessibility regulations.
+Israeli web accessibility (negishot) is legally mandatory under the **Equal Rights for Persons with Disabilities Act (Chok Shivyon Zechuyot Le'Anashim Im Mugbaluyot), 1998** and the **Equal Rights for Persons with Disabilities (Service Accessibility Accommodations) Regulations, 2013** (Takanot Negishut LeSherut).
 
-| Regulation | Requirement | Deadline | Penalty |
-|------------|-------------|----------|---------|
-| IS 5568 | Israeli accessibility standard based on WCAG 2.1 AA | Mandatory since 2017 | Up to 50,000 NIS per violation |
-| Takanat Negishot 2013 | Public websites must comply | In effect | Lawsuits + fines |
-| Amendment 19 (2022) | Mobile apps included | In effect | Same as above |
-| Government sites | Must meet IS 5568 Level AA | In effect | Government oversight |
+| Regulation | Requirement | Status | Penalty |
+|------------|-------------|--------|---------|
+| IS 5568 (2017, updated 2020 and 2023) | Israeli accessibility standard. Current IS 5568:2020 aligns with WCAG 2.1 AA | Mandatory since October 2017; compliance deadline extended to October 2020 for pre-2017 businesses | Up to 50,000 NIS statutory damages per violation, without proof of harm |
+| Takanat Negishut LeSherut (2013) | Public websites and apps must comply | In effect; covers services provided to the public | Lawsuits + statutory damages |
+| Mobile applications | Included in scope per the 2013 regulations; explicitly reaffirmed in later updates | In effect | Same statutory damages |
+| Government sites | Must meet IS 5568 Level AA | In effect | Commission oversight + administrative action |
 
-**Who must comply:** All public-facing Israeli websites and mobile applications, including businesses with 25+ employees, government agencies, educational institutions, healthcare providers, and any service provider open to the public.
+**Note on WCAG version.** The statute and regulations reference IS 5568. The current published edition is **IS 5568:2020**, which aligns with WCAG 2.1 AA, and IS 5568 Part 1 received a further technical update in September 2023. Some legacy sources still say "WCAG 2.0 AA" because that was the alignment when the regulation first took effect. Comply with IS 5568:2020 (WCAG 2.1 AA) as the working target. WCAG 2.2 is not yet required by Israeli law, but meeting its additional criteria is a useful future-proofing exercise.
+
+**Who must comply:** All public-facing Israeli websites and mobile applications, including businesses with 25+ employees (or annual revenue of 300,000 NIS+), government agencies, educational institutions, healthcare providers, and any service provider open to the public.
 
 ### Step 2: IS 5568 vs WCAG 2.1 -- Key Differences
 
-IS 5568 is based on WCAG 2.1 AA but adds Israeli-specific requirements:
+IS 5568:2020 is based on WCAG 2.1 AA but adds Israeli-specific requirements:
 
 | Area | WCAG 2.1 AA | IS 5568 Addition |
 |------|-------------|------------------|
@@ -420,7 +422,7 @@ The widget is one layer of compliance. The other layers, semantic HTML, correct 
 
 | Source | URL | What to Check |
 |--------|-----|---------------|
-| Commission for Equal Rights of Persons with Disabilities | https://www.gov.il/he/departments/mugbaluyot | Israeli accessibility law, enforcement, complaints |
+| Commission for Equal Rights of Persons with Disabilities | https://www.gov.il/he/departments/moj_disability_rights/govil-landing-page | Israeli accessibility law, enforcement, complaints |
 | IS 5568 / Tav Negishut | https://www.sii.org.il/en/ | Israeli Standards Institute source for the IS 5568 standard |
 | Equal Rights Act (Nevo) | https://www.nevo.co.il/law_html/law01/p214m2_001.htm | Legal text of the Equal Rights for Persons with Disabilities Act |
 | WCAG 2.1 quick reference | https://www.w3.org/WAI/WCAG21/quickref/ | Success criteria and techniques for AA compliance |
