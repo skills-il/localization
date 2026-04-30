@@ -285,7 +285,7 @@ Result: Remote worker makes an informed city choice based on total cost and life
 
 | MCP | What It Adds |
 |-----|-------------|
-| [Nadlan MCP](https://agentskills.co.il/he/mcps/real-estate/nadlan) | Real estate transaction data from the Israeli government (Govmap API): recent deal prices by address or neighborhood, market trend analysis, and multi-address price comparison to validate asking rents against actual sale prices in the area. |
+| [Nadlan MCP](https://agentskills.co.il/he/mcp/nadlan) | Real estate transaction data from the Israeli government (Govmap API): recent deal prices by address or neighborhood, market trend analysis, and multi-address price comparison to validate asking rents against actual sale prices in the area. |
 
 ## Gotchas
 - Israeli apartment sizes are quoted in gross square meters (bruto), which includes shared spaces like stairwells and walls. Net area (neto) is typically 20-25% less. Agents may compare Israeli and US listings without accounting for this difference.

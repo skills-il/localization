@@ -213,7 +213,7 @@ For live Hebrew calendar data, pair this skill with:
 
 | MCP Server | What it provides | Install |
 |------------|-----------------|---------|
-| **hebcal** | Jewish holidays, Shabbat candle lighting times, Havdalah times, Torah readings, and Hebrew-Gregorian date conversion via the official Hebcal API | [Install hebcal](https://agentskills.co.il/en/mcps/hebcal) |
+| **hebcal** | Jewish holidays, Shabbat candle lighting times, Havdalah times, Torah readings, and Hebrew-Gregorian date conversion via the official Hebcal API | [Install hebcal](https://agentskills.co.il/en/mcp/hebcal) |
 
 When the `hebcal` MCP is available, use its tools for accurate Shabbat times and holiday dates instead of hardcoded values. The MCP provides location-aware candle lighting times for any Israeli city.
 

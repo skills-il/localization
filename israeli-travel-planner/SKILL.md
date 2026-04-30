@@ -85,12 +85,12 @@ For live transit and travel data, pair this skill with:
 
 | MCP Server | What it provides | Install |
 |------------|-----------------|---------|
-| **israel-railways** | Real-time Israel Railways schedules, platform numbers, occupancy predictions, and service disruption alerts for 68 stations | [Install](https://agentskills.co.il/en/mcps/israel-railways) |
-| **openbus** | Real-time bus arrival data from the Ministry of Transport for all Israeli transit operators | [Install](https://agentskills.co.il/en/mcps/openbus) |
-| **routes-israel** | Multi-modal transit routing combining Google Routes, GTFS data, and live arrival times | [Install](https://agentskills.co.il/en/mcps/routes-israel) |
-| **ben-gurion-flights** | Real-time flight arrivals and departures at Ben Gurion Airport (TLV) from official data | [Install](https://agentskills.co.il/en/mcps/ben-gurion-flights) |
-| **israel-hiking** | Hiking trail search, route planning with elevation profiles, water sources, and points of interest | [Install](https://agentskills.co.il/en/mcps/israel-hiking) |
-| **ims-weather** | Weather forecasts and alerts from the Israeli Meteorological Service for trip planning | [Install](https://agentskills.co.il/en/mcps/ims-weather) |
+| **israel-railways** | Real-time Israel Railways schedules, platform numbers, occupancy predictions, and service disruption alerts for 68 stations | [Install](https://agentskills.co.il/en/mcp/israel-railways) |
+| **openbus** | Real-time bus arrival data from the Ministry of Transport for all Israeli transit operators | [Install](https://agentskills.co.il/en/mcp/openbus) |
+| **routes-israel** | Multi-modal transit routing combining Google Routes, GTFS data, and live arrival times | [Install](https://agentskills.co.il/en/mcp/routes-israel) |
+| **ben-gurion-flights** | Real-time flight arrivals and departures at Ben Gurion Airport (TLV) from official data | [Install](https://agentskills.co.il/en/mcp/ben-gurion-flights) |
+| **israel-hiking** | Hiking trail search, route planning with elevation profiles, water sources, and points of interest | [Install](https://agentskills.co.il/en/mcp/israel-hiking) |
+| **ims-weather** | Weather forecasts and alerts from the Israeli Meteorological Service for trip planning | [Install](https://agentskills.co.il/en/mcp/ims-weather) |
 
 When these MCPs are available, use them for real-time transit schedules and travel data instead of the static reference tables above.
 
