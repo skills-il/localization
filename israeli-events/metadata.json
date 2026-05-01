@@ -1,0 +1,46 @@
+{
+  "author": "venues-israel.com",
+  "version": "1.0.3",
+  "category": "localization",
+  "tags": {
+    "he": [
+      "ישראל",
+      "הופעות",
+      "אירועים",
+      "אולמות",
+      "כרטיסים",
+      "תיירות",
+      "תרבות",
+      "קונצרטים",
+      "תיאטרון"
+    ],
+    "en": [
+      "israel",
+      "events",
+      "venues",
+      "tickets",
+      "tourism",
+      "culture",
+      "concerts",
+      "theater",
+      "outing"
+    ]
+  },
+  "display_name": {
+    "he": "אירועים חיים בישראל",
+    "en": "Israeli Live Events"
+  },
+  "display_description": {
+    "he": "חיפוש הופעות חיות, לוגיסטיקת אולמות (חניה, תחבורה, מסעדות סמוכות) ותכנון יציאה ברחבי ישראל. דו-לשוני עברית ורוסית. קישורי רכישה ישירים דרך kassa.co.il ו-kartisim.co.il של Bravo. השתמשו כשמבקשים למצוא הופעה, לקבל מידע על אולם, או לתכנן ערב.",
+    "en": "Find live events, venue logistics (parking, transport, nearby restaurants), and outing plans across Israel. Bilingual Hebrew + Russian. Direct ticket-purchase links via Bravo's kassa.co.il and kartisim.co.il. Use when asking to find an event, get venue info, or plan an outing in Israel."
+  },
+  "supported_agents": [
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "windsurf",
+    "opencode",
+    "codex",
+    "gemini-cli"
+  ]
+}
