@@ -2,10 +2,11 @@
 name: israeli-ui-design-system
 description: Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, "itzuv" (design), Israeli design system, Hebrew font pairing, RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans Pro), gov.il design system patterns, Israeli formatting conventions (shekel sign, DD/MM/YYYY dates, 24-hour clock), and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead).
 license: MIT
-compatibility: Works with React, Vue, Angular, and vanilla HTML/CSS. No network required for core patterns. Recommended with Storybook for component development.
 ---
 
 # Israeli UI Design System
+
+Works with React, Vue, Angular, and vanilla HTML/CSS. No network required for core patterns. Recommended with Storybook for component development.
 
 ## Instructions
 
@@ -133,6 +134,33 @@ Design components with RTL as the default, not an afterthought:
 }
 ```
 
+**RTL behavior for the rest of the component set.** Buttons, cards, and the sidebar are not the whole story - mirror every directional component:
+
+| Component | RTL behavior |
+|-----------|--------------|
+| Breadcrumbs | Flow right-to-left; the separator (`/`, `>`, chevron) points left (toward the next crumb). Use a logical separator or mirror a chevron with `transform: scaleX(-1)`. |
+| Modals / dialogs | Centered modals need no change. Close (X) button sits at the inline-end (top-left in RTL). Footer action buttons: primary at the inline-start, so the primary lands on the right in RTL. |
+| Dropdowns / menus | Open aligned to the inline-start edge of the trigger; submenu flyouts expand toward the inline-start (to the left in RTL). Caret/chevron mirrors. |
+| Sliders / range inputs | The track fills from the inline-start - in RTL the minimum is on the right, maximum on the left. Native `<input type="range">` with `dir="rtl"` handles this; custom sliders must flip the fill direction. |
+| Progress bars | Fill grows from the inline-start, so progress advances right-to-left in RTL. Use `transform-origin` / logical properties, not a hardcoded `left: 0` origin. |
+| Toasts / snackbars | Slide in from the inline-end edge of the viewport - top-left or bottom-left in RTL (mirrored from the LTR top-right convention). Anchor with `inset-inline-end`, not `right`. |
+
+```css
+/* Toast anchored to the inline-end edge -- flips sides automatically in RTL */
+.toast {
+  position: fixed;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
+}
+
+/* Progress bar fill grows from the inline-start */
+.progress-fill {
+  block-size: 100%;
+  inline-size: var(--progress, 0%);
+  /* fill starts at the inline-start edge: right in RTL, left in LTR */
+}
+```
+
 ### Step 4: Israeli Color Palette and Design Tokens
 
 ```css
@@ -175,12 +203,36 @@ Design components with RTL as the default, not an afterthought:
 }
 ```
 
-### Step 5: Gov.il Design Patterns
-
-For government and institutional Israeli websites, follow the gov.il design system:
+**Dark mode (`colors-dark` token tier).** Define a parallel dark token set rather than hardcoding dark values into components. Keep the same token names so components reference `var(--color-bg)` / `var(--color-text)` and never branch on theme. Direction is orthogonal to theme - RTL and dark mode are independent axes, so a `[data-theme="dark"][dir="rtl"]` combination must just work.
 
 ```css
-/* Gov.il inspired header */
+:root {
+  /* light (default) */
+  --color-bg: #ffffff;
+  --color-surface: #f9fafb;
+  --color-text: #111827;
+  --color-border: #e5e7eb;
+}
+
+:root[data-theme="dark"] {
+  /* colors-dark tier -- same token names, dark values */
+  --color-bg: #0b0f19;
+  --color-surface: #151b2b;
+  --color-text: #e5e7eb;
+  --color-border: #2a3346;
+}
+```
+
+Note: Hebrew text on dark backgrounds can look thinner because of Hebrew letterforms - verify contrast still meets WCAG AA and consider a slightly heavier font weight for dark-mode body text.
+
+### Step 5: Gov.il Design Patterns
+
+For government and institutional Israeli websites, the authoritative reference is the **Israeli Government Design System (IGDS)** - the formal atomic-design system used to unify the user experience across gov.il sites. It is published as a Figma Community file ("IGDS Design System File 2.0", https://www.figma.com/community/file/1426262348206342909/igds-design-system-file-2-0), with companion illustration libraries. If you are building a real gov.il-adjacent product, pull tokens, components, and the RTL Hebrew illustration style directly from the IGDS Figma file rather than approximating them - IGDS defines its own color ramps, spacing, and component anatomy, and approximations will visibly diverge from live gov.il pages.
+
+The CSS below is a **generic institutional pattern, NOT the official IGDS**. Use it as a starting scaffold for an institutional look when you do not have IGDS access; replace the values with IGDS tokens once you do.
+
+```css
+/* Generic institutional header pattern (NOT official IGDS tokens) */
 .gov-header {
   background-color: #1a3a5c;
   color: #ffffff;
@@ -371,6 +423,7 @@ Result: Apply gov.il header pattern with institutional blue, Hebrew navigation w
 - The standard Hebrew web font stack should prioritize system fonts: "Segoe UI", "Rubik", "Heebo", Arial, sans-serif. Agents may use Google Fonts Hebrew fonts without including a fallback, causing FOUT on slow connections.
 - Form labels in Hebrew should be right-aligned and placed to the right of inputs (or above them). Agents often place labels to the left of inputs, which is the English convention and feels unnatural in RTL.
 - Phone number input fields for Israeli numbers should accept formats with and without country code: 054-1234567, +972-54-1234567, and 0541234567. Agents may only validate the international format.
+- The shekel sign (₪) is not a directional character, so an inline price like `1,234.50 ₪` inside a Hebrew paragraph can shift unpredictably between browsers. Agents usually trust the browser bidi algorithm and skip `<bdi>` or `Intl.NumberFormat('he-IL', { style: 'currency' })`, causing inconsistent price rendering between Chrome and Safari.
 
 ## Reference Links
 

@@ -6,13 +6,13 @@ Hebrew has 7 verb patterns (binyanim), each with a different semantic role:
 
 | Binyan | Pattern | Meaning | Example |
 |--------|---------|---------|---------|
-| Pa'al (Kal) | פָּעַל | Simple active | כתב (wrote) |
-| Nif'al | נִפְעַל | Simple passive / reflexive | נכתב (was written) |
-| Pi'el | פִּעֵל | Intensive active | כיתב (inscribed) |
-| Pu'al | פֻּעַל | Intensive passive | כותב (was inscribed) |
-| Hif'il | הִפְעִיל | Causative active | הכתיב (dictated) |
-| Huf'al | הֻפְעַל | Causative passive | הוכתב (was dictated) |
-| Hitpa'el | הִתְפַּעֵל | Reflexive / reciprocal | התכתב (corresponded) |
+| Pa'al (Kal) | פָּעַל | Simple active | כָּתַב (wrote) |
+| Nif'al | נִפְעַל | Simple passive / reflexive | נִכְתַּב (was written) |
+| Pi'el | פִּעֵל | Intensive active | דִּבֵּר (spoke), סִפֵּר (told) |
+| Pu'al | פֻּעַל | Intensive passive | דֻּבַּר (was spoken), סֻפַּר (was counted/told) |
+| Hif'il | הִפְעִיל | Causative active | הִכְתִּיב (dictated) |
+| Huf'al | הֻפְעַל | Causative passive | הֻכְתַּב (was dictated) |
+| Hitpa'el | הִתְפַּעֵל | Reflexive / reciprocal | הִתְכַּתֵּב (corresponded) |
 
 **For formal writing:** Use passive binyanim (Nif'al, Pu'al, Huf'al) more frequently.
 **For casual writing:** Prefer active binyanim (Pa'al, Pi'el, Hif'il).

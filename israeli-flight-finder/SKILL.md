@@ -8,6 +8,8 @@ license: MIT
 
 Find the cheapest flights from Ben Gurion Airport (TLV) by comparing prices across multiple platforms and understanding Israeli airline pricing patterns.
 
+> **TLV carrier status is highly volatile (verified May 2026).** The brief Iran war that began at the end of February 2026 closed Israeli airspace and forced nearly every foreign carrier to suspend TLV service again. Carriers are resuming on a rolling schedule through mid-2026, but dates slip constantly and depend on EASA conflict-zone advisories. Treat every "resumes on date X" claim below as a plan, not a guarantee - always verify the current route and the specific airline's status on its own site before relying on it.
+
 ## Comparison Platforms
 
 Use multiple platforms -- each has different strengths. Never rely on a single source.
@@ -37,8 +39,9 @@ Google Flights offers an AI-powered "Flight Deals" feature available in Israel i
 ### El Al (LY) -- Flag Carrier
 
 - **Hub**: Ben Gurion (TLV)
-- **Network**: 51+ direct destinations worldwide
+- **Network**: As of May 2026, El Al is rebuilding toward roughly 40 international destinations after the February 2026 war disruption, with summer 2026 North American frequencies at an all-time high. It kept flying through the war (and ran rescue flights) while foreign carriers suspended, so it currently has an outsized share of TLV traffic.
 - **Website**: elal.com
+- **Does not fly Shabbat**: El Al does not operate on Shabbat or Jewish holidays - see the "Shabbat-Aware Scheduling" section below before planning return flights.
 - **Frequent flyer**: Matmid, with five tiers (Matmid base, Silver, Gold, Platinum, Top Platinum). Since April 2025, status is earned via a revenue-linked "Diamonds" currency and re-qualified every 12 months; the old soft-landing grace tier was eliminated, so under-qualifying members drop straight to the matching tier.
 
 **Baggage policy:**
@@ -91,16 +94,19 @@ Standard fares do not include checked baggage. Some vacation packages may bundle
 
 ### Low-Cost Carriers
 
-**Wizz Air (W6)**: Hungarian low-cost carrier, now establishing a major base at Ben Gurion (and a secondary base at Ramon). First flight from the new base (Tel Aviv–Budapest) launched March 2026. The airline currently operates about 21 routes from Israel and plans to grow to roughly 50 routes, offering 1.7 million seats in 2026, making it the second-largest airline at TLV after El Al. Total investment: around $1 billion, dozens of new routes, A320-family aircraft. Only a small personal item (40x30x20 cm) is free on base fares; cabin bags and checked bags are paid add-ons. Check wizzair.com for current route status and baggage add-on pricing.
+**Wizz Air (W6)**: Hungarian low-cost carrier. Wizz had been expanding aggressively at TLV, but the February 2026 war forced it to suspend all Israel operations along with everyone else, and its earlier hub-base plans were frozen. Wizz has confirmed it resumes full TLV operations on **May 28, 2026**, reconnecting Tel Aviv with hubs such as London, Budapest, Rome, and Bucharest, with frequencies ramping up over the following months. Until routes are actually flying again, treat Wizz TLV availability as in flux. Only a small personal item (40x30x20 cm) is free on base fares; cabin bags and checked bags are paid add-ons. Check wizzair.com for current route status and baggage add-on pricing.
 
-**Ryanair**: Has officially removed Tel Aviv from its route map. Cancelled 22 planned routes and roughly 1 million seats for the 2025-2026 season due to disputes with Ben Gurion Airport over slot allocation and Terminal 1 availability. As of early 2026, Ryanair has stated it will not resume TLV operations until at least summer 2026, conditional on the airport confirming S26 slots and Terminal 1 access.
+**Ryanair**: Has officially removed Tel Aviv from its route map. Cancelled 22 planned routes and roughly 1 million seats for the 2025-2026 season due to disputes with Ben Gurion Airport over slot allocation and Terminal 1 availability. As of May 2026, Ryanair still has no confirmed TLV return; any resumption is conditional on the airport resolving the slot and Terminal 1 dispute.
 
 ### Foreign Carriers
 
-- **flydubai**: Operates one of the densest schedules to TLV: about 10 daily Dubai–Tel Aviv flights as of late 2025, a >50% increase vs 2023. Often a strong option for connections to the Gulf, Asia, and East Africa via Dubai.
-- **Emirates**: Has fully withdrawn all Tel Aviv flights. No planned return as of early 2026.
-- **Turkish Airlines, American Airlines, Virgin Atlantic, Korean Air, Cathay Pacific**: Have not resumed TLV service since the October 2023 suspensions. Verify current status on each airline's site before relying on them.
-- **European carriers** (Lufthansa Group, Air France-KLM, ITA, Iberia, Aegean, LOT, Wizz, easyJet, Pegasus, SunExpress, etc.): Most have resumed and expanded TLV service through 2025-2026. Availability by route fluctuates with security conditions, so always verify.
+The February 2026 war reset this landscape. Most foreign carriers suspended TLV again and are resuming on a rolling schedule through mid-2026; the dates below are the latest plans as of May 2026 and slip frequently.
+
+- **flydubai**: Before the war it ran one of the densest TLV schedules (about 10 daily Dubai–Tel Aviv flights). It suspended during the war and is among the carriers resuming service; verify the current Dubai–TLV frequency on flydubai.com. Still a strong option for connections to the Gulf, Asia, and East Africa via Dubai once flying.
+- **Emirates**: Had fully withdrawn from Tel Aviv even before the 2026 war and has no confirmed return as of May 2026.
+- **Turkish Airlines**: Off the TLV schedule since the late-2023 suspension. As of May 2026 it is tentatively planned to resume Tel Aviv from **July 1, 2026** (alongside other regional restarts), but this is dependent on EASA advisories and has slipped before. Verify on turkishairlines.com.
+- **Lufthansa Group** (Lufthansa, Swiss, Austrian, Brussels, ITA): Suspended during the war; resuming TLV through mid-2026 in parallel with Wizz Air. Verify per route.
+- **Other European carriers** (Air France-KLM, Iberia, Aegean, LOT, easyJet, Pegasus, SunExpress, etc.) and **other long-haul carriers** (American, Virgin Atlantic, Korean Air, Cathay Pacific): availability is in flux post-war. Some are resuming, some have not committed. Always verify current status on each airline's own site before relying on it.
 
 ## Seasonal Pricing Guide
 
@@ -121,6 +127,16 @@ Standard fares do not include checked baggage. Some vacation packages may bundle
 - **January**: Cheapest month to fly from TLV
 - **February** (excluding Purim): Low demand
 - **November-December** (excluding Hanukkah): Winter low season
+
+## Shabbat-Aware Scheduling
+
+Hebrew-calendar timing constrains flight options in a way generic search tools ignore.
+
+- **El Al does not fly on Shabbat or Jewish holidays.** Its scheduled operations stop from Friday afternoon (before sundown) until Saturday after sundown. For observant travelers this is a feature; for everyone it means El Al has **no** Friday-evening or Saturday-daytime departures or arrivals. A Friday-night or Saturday return on El Al simply does not exist - you must fly Thursday, early Friday, or Saturday night onward.
+- **Israir** has, under its current ownership, also cancelled flights departing on Saturday and on Friday nights, observing Shabbat. So for Saturday departures, do not count on Israir either - verify on israir.co.il.
+- **Arkia** is the Israeli carrier most likely to operate on Shabbat. If a Friday-night or Saturday flight is essential and you want an Israeli airline, Arkia is usually the option to check first.
+- **Foreign carriers** fly seven days a week, so a Friday-night or Saturday departure from TLV generally means a foreign airline (or Arkia).
+- **Planning rule**: when building a return itinerary, fix the Shabbat window first. If the traveler is observant or wants an Israeli carrier, plan returns for Thursday, Friday before midday, or Saturday night. Around Jewish holidays the same no-fly window applies to El Al on the holiday itself, on top of the pre-holiday price spike.
 
 ## Booking Strategies
 
@@ -144,6 +160,16 @@ Standard fares do not include checked baggage. Some vacation packages may bundle
 ### Flight+Hotel Packages
 
 Israeli travel agencies (Issta, Lametayel) specialize in package deals that bundle flights and hotels. These can be significantly cheaper than booking separately, especially for popular destinations like Greece, Cyprus, Turkey, and European cities.
+
+### Departure Airport: TLV vs Ramon (Eilat)
+
+Most international flights leave from Ben Gurion (TLV), but Ramon Airport (ETM) near Eilat also handles some international and charter routes, and Israir and Arkia base operations there. For travelers in the south, departing from Ramon can save the long drive to TLV; for everyone else, TLV almost always has more routes, more frequencies, and more price competition. When comparing, factor the ground cost and time to reach each airport - a cheaper Ramon fare can be eaten up by getting to Eilat. Check both when your destination is one Ramon actually serves (mostly European leisure routes and charters).
+
+### Kosher and Special Meals
+
+- **El Al** serves kosher meals by default on all flights - no special request needed (its kitchen is certified kosher).
+- **Israir and Arkia** also cater to the Israeli market and offer kosher options; confirm when booking.
+- **Foreign carriers** do not serve kosher by default. If you keep kosher, request a kosher meal (special meal code KSML) at booking or at least 24-48 hours before departure - it cannot be arranged at the gate. The same applies to other special meals (vegetarian, vegan, gluten-free). On very short flights some carriers serve no meal at all, so a special-meal request may simply not apply.
 
 ## How to Search
 

@@ -2,22 +2,54 @@
 name: hebrew-tailwind-preset
 description: Configure Tailwind CSS v4 for Hebrew RTL applications with dir variants, Hebrew font stacks, and logical property utilities. Use when user asks about Tailwind RTL setup, Hebrew Tailwind config, "Tailwind ivrit" (Hebrew Tailwind), RTL utility classes, logical properties in Tailwind, ms-/me- utilities, or Tailwind Hebrew font configuration. Covers Tailwind v4 dir variants, Hebrew font stack presets, logical property utilities (ms-/me-/ps-/pe- instead of ml-/mr-/pl-/pr-), RTL-first component patterns, and Hebrew typography tokens. Do NOT use for general CSS RTL patterns (use hebrew-rtl-best-practices) or full design systems (use israeli-ui-design-system instead).
 license: MIT
-compatibility: Tailwind CSS v4.0+ recommended. Compatible with v3.1+ for dir variants. Works with React, Vue, Angular, Next.js, Nuxt. No network required.
 ---
 
 # Hebrew Tailwind Preset
 
+Tailwind CSS v4.0+ recommended; v3.1+ is compatible for `dir` variants. Works with React, Vue, Angular, Next.js, and Nuxt. No network required.
+
 ## Instructions
 
-### Step 1: Configure Tailwind v4 for RTL
+### Step 1: Install and Configure Tailwind v4 for RTL
 
 See `references/rtl-config.md` for complete configuration reference.
 
-Load Hebrew fonts with `font-display: swap` (via a Google Fonts `<link>` in `index.html` or an `@font-face` rule) to avoid a Flash of Invisible Text while the Hebrew font file loads.
+**Install the Tailwind v4 build plugin first.** Tailwind v4 dropped the automatic `tailwind.config.js` loading, so `@import "tailwindcss"` alone will not build until a build plugin is wired. Pick the one matching your toolchain:
+
+```bash
+# Vite (recommended): install the first-party Vite plugin
+npm install tailwindcss @tailwindcss/vite
+```
+
+```js
+// vite.config.js -- add the plugin
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
+```
+
+```bash
+# PostCSS-based toolchains (Next.js, Webpack, etc.)
+npm install tailwindcss @tailwindcss/postcss postcss
+```
+
+```js
+// postcss.config.mjs
+export default {
+  plugins: { '@tailwindcss/postcss': {} },
+};
+```
+
+In v4 the `@tailwindcss/postcss` plugin handles `@import` inlining and vendor prefixing, so `postcss-import` and `autoprefixer` are no longer needed.
+
+Then load Hebrew fonts with `font-display: swap` (via a Google Fonts `<link>` or an `@font-face` rule) to avoid a Flash of Invisible Text while the Hebrew font file loads. See Step 2 for the snippet.
 
 **Tailwind v4 (CSS-first configuration):**
 ```css
-/* app.css */
+/* app.css -- imported by your build entry */
 @import "tailwindcss";
 
 @theme {
@@ -34,6 +66,7 @@ Load Hebrew fonts with `font-display: swap` (via a Google Fonts `<link>` in `ind
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
 
   /* Hebrew line heights (taller than Latin defaults) */
   --leading-tight: 1.4;
@@ -64,6 +97,27 @@ module.exports = {
 };
 ```
 
+**Load the Hebrew fonts with `font-display: swap`.** Either add a Google Fonts `<link>` in your HTML head:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&display=swap" rel="stylesheet">
+```
+
+Or self-host with an `@font-face` rule inside the same CSS file as your `@theme` block:
+
+```css
+@font-face {
+  font-family: 'Heebo';
+  src: url('/fonts/heebo-variable.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+```
+
+The `&display=swap` query param (link) and the `font-display: swap` descriptor (`@font-face`) both make the browser render fallback text immediately instead of hiding text until the Hebrew font loads.
+
 ### Step 2: Use Logical Property Utilities
 
 Always prefer logical utilities over physical directional ones:
@@ -86,10 +140,12 @@ Always prefer logical utilities over physical directional ones:
 
 ### Step 3: Use Dir Variants for RTL-Specific Styles
 
+**Prerequisite:** the `rtl:` and `ltr:` variants (built into Tailwind v4) match on an ancestor's `dir` attribute. They do nothing unless an ancestor element actually carries `dir="rtl"` (or `dir="ltr"`) - normally the `<html>` element. Set `dir="rtl"` on the root before relying on any `rtl:` utility below.
+
 When you need direction-specific overrides:
 
 ```html
-<!-- Root setup -->
+<!-- Root setup -- dir="rtl" here is what activates every rtl: variant -->
 <html lang="he" dir="rtl">
 
 <!-- Dir variant usage -->
@@ -286,4 +342,4 @@ Solution: Add the Hebrew font stack to your Tailwind theme under fontFamily.hebr
 
 ### Error: "Sidebar appears on wrong side in RTL"
 Cause: Grid or flex layout not respecting dir attribute
-Solution: CSS Grid and Flexbox automatically respect `dir="rtl"`. Ensure `dir="rtl"` is set on the `html` element. Use logical properties for borders (border-e instead of border-r) and padding (pe- instead of pr-). Do not use `direction: rtl` in CSS; use the HTML attribute instead.
+Solution: CSS Grid and Flexbox automatically respect `dir="rtl"`. Ensure `dir="rtl"` is set on the `html` element. Use logical properties for borders (border-e instead of border-r) and padding (pe- instead of pr-). Keep the CSS `direction` value consistent with the HTML `dir` attribute - prefer setting direction via the `dir` attribute so the cascade and the `rtl:`/`ltr:` variants stay in sync; if you do set `direction` in CSS, make sure it matches `dir`.

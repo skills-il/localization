@@ -1,14 +1,49 @@
 # תצורת Tailwind לעברית
 
+מומלץ Tailwind CSS v4.0+; גרסה v3.1+ תואמת עבור וריאנטי `dir`. עובד עם React, Vue, Angular, Next.js ו-Nuxt. לא דורש רשת.
+
 ## הנחיות
 
-### שלב 1: הגדרת Tailwind v4 ל-RTL
+### שלב 1: התקנה והגדרה של Tailwind v4 ל-RTL
 
 תסתכלו על `references/rtl-config.md` למדריך תצורה מלא.
 
+**קודם כל תתקינו את תוסף ה-build של Tailwind v4.** ב-v4 בוטלה הטעינה האוטומטית של `tailwind.config.js`, ולכן `@import "tailwindcss"` לבדו לא יבנה עד שמחברים תוסף build. תבחרו את זה שמתאים לכלי שלכם:
+
+```bash
+# Vite (מומלץ): התקנת תוסף ה-Vite הרשמי
+npm install tailwindcss @tailwindcss/vite
+```
+
+```js
+// vite.config.js -- הוספת התוסף
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
+```
+
+```bash
+# כלים מבוססי PostCSS (Next.js, Webpack וכו')
+npm install tailwindcss @tailwindcss/postcss postcss
+```
+
+```js
+// postcss.config.mjs
+export default {
+  plugins: { '@tailwindcss/postcss': {} },
+};
+```
+
+ב-v4 התוסף `@tailwindcss/postcss` מטפל בהטמעת `@import` ובהוספת קידומות יצרן, ולכן `postcss-import` ו-`autoprefixer` כבר לא נחוצים.
+
+אחר כך תטענו את הגופנים העבריים עם `font-display: swap` (דרך `<link>` של Google Fonts או כלל `@font-face`) כדי למנוע הבזק של טקסט בלתי נראה בזמן טעינת קובץ הגופן העברי. תראו את שלב 2 לקטע הקוד.
+
 **Tailwind v4 (תצורה מבוססת CSS):**
 ```css
-/* app.css */
+/* app.css -- מיובא על ידי נקודת הכניסה של ה-build */
 @import "tailwindcss";
 
 @theme {
@@ -25,6 +60,7 @@
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
 
   /* גובהי שורה לעברית (גבוהים מברירת המחדל הלטינית) */
   --leading-tight: 1.4;
@@ -55,6 +91,27 @@ module.exports = {
 };
 ```
 
+**תטענו את הגופנים העבריים עם `font-display: swap`.** אפשר להוסיף `<link>` של Google Fonts ל-head של ה-HTML:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&display=swap" rel="stylesheet">
+```
+
+או לארח את הגופן עצמכם עם כלל `@font-face` באותו קובץ CSS שבו נמצא בלוק ה-`@theme`:
+
+```css
+@font-face {
+  font-family: 'Heebo';
+  src: url('/fonts/heebo-variable.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+```
+
+גם פרמטר השאילתה `&display=swap` (בקישור) וגם המאפיין `font-display: swap` (ב-`@font-face`) גורמים לדפדפן להציג טקסט חלופי מיד במקום להסתיר טקסט עד שהגופן העברי נטען.
+
 ### שלב 2: כלי שירות לוגיים
 
 תמיד תעדיפו כלי שירות לוגיים על פני כיווניים פיזיים:
@@ -77,10 +134,12 @@ module.exports = {
 
 ### שלב 3: וריאנטים כיווניים לסגנונות ייחודיים ל-RTL
 
+**תנאי מקדים:** הוריאנטים `rtl:` ו-`ltr:` (מובנים ב-Tailwind v4) מתאימים לפי מאפיין ה-`dir` של אלמנט אב. הם לא עושים כלום אלא אם אלמנט אב באמת נושא `dir="rtl"` (או `dir="ltr"`) - בדרך כלל אלמנט ה-`<html>`. תקבעו `dir="rtl"` על השורש לפני שאתם מסתמכים על וריאנט `rtl:` כלשהו למטה.
+
 כשצריך דריסות ייחודיות לכיוון:
 
 ```html
-<!-- הגדרת שורש -->
+<!-- הגדרת שורש -- ה-dir="rtl" כאן הוא מה שמפעיל כל וריאנט rtl: -->
 <html lang="he" dir="rtl">
 
 <!-- שימוש בוריאנט כיווני -->
@@ -277,4 +336,4 @@ module.exports = {
 
 ### שגיאה: "הסרגל הצד מופיע בצד הלא נכון ב-RTL"
 סיבה: פריסת Grid או Flex לא מכבדת את תכונת dir
-פתרון: CSS Grid ו-Flexbox מכבדים אוטומטית `dir="rtl"`. תוודאו ש-`dir="rtl"` מוגדר על אלמנט ה-`html`. תשתמשו בתכונות לוגיות לגבולות (border-e במקום border-r) ולריפוד (pe- במקום pr-). אל תשתמשו ב-`direction: rtl` ב-CSS; תשתמשו בתכונת ה-HTML במקום.
+פתרון: CSS Grid ו-Flexbox מכבדים אוטומטית `dir="rtl"`. תוודאו ש-`dir="rtl"` מוגדר על אלמנט ה-`html`. תשתמשו בתכונות לוגיות לגבולות (border-e במקום border-r) ולריפוד (pe- במקום pr-). תשמרו על ערך ה-`direction` ב-CSS עקבי עם מאפיין ה-`dir` של ה-HTML - עדיף לקבוע כיוון דרך מאפיין ה-`dir` כדי שהמפל וריאנטי ה-`rtl:`/`ltr:` יישארו מסונכרנים; אם בכל זאת קובעים `direction` ב-CSS, תוודאו שהוא תואם ל-`dir`.
