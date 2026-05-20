@@ -47,8 +47,28 @@ BUSINESS_HOURS = {
 }
 
 
+# Candle-lighting minutes before sunset by city minhag.
+# Jerusalem uses 40 min, Haifa and Zikhron Ya'akov use 30 min, elsewhere 18 min.
+CANDLE_LIGHTING_MIN = {
+    "jerusalem": 40,
+    "haifa": 30,
+    "zikhron_yaakov": 30,
+    "default": 18,
+}
+
+
+def candle_lighting_minutes(city=None, latitude=None):
+    """Return the appropriate candle-lighting offset in minutes."""
+    if city and city.lower() in CANDLE_LIGHTING_MIN:
+        return CANDLE_LIGHTING_MIN[city.lower()]
+    # Heuristic: Jerusalem coords roughly latitude 31.76, longitude 35.21.
+    if latitude is not None and 31.70 <= latitude <= 31.85:
+        return CANDLE_LIGHTING_MIN["jerusalem"]
+    return CANDLE_LIGHTING_MIN["default"]
+
+
 def get_shabbat_times(date=None, latitude=31.7683, longitude=35.2137,
-                      tzid="Asia/Jerusalem"):
+                      tzid="Asia/Jerusalem", city="jerusalem"):
     """Get Shabbat candle lighting and havdalah times from HebCal API.
 
     Args:
@@ -56,6 +76,7 @@ def get_shabbat_times(date=None, latitude=31.7683, longitude=35.2137,
         latitude: Location latitude (default: Jerusalem).
         longitude: Location longitude (default: Jerusalem).
         tzid: Timezone ID (default: Asia/Jerusalem).
+        city: City key for candle-lighting minhag (jerusalem/haifa/zikhron_yaakov/None).
 
     Returns:
         Dictionary with 'candle_lighting' and 'havdalah' ISO datetime strings.
@@ -69,6 +90,8 @@ def get_shabbat_times(date=None, latitude=31.7683, longitude=35.2137,
         days_until_friday = 7
     friday = date + timedelta(days=days_until_friday)
 
+    b = candle_lighting_minutes(city=city, latitude=latitude)
+
     response = requests.get("https://www.hebcal.com/shabbat", params={
         "cfg": "json",
         "gy": friday.year,
@@ -77,8 +100,8 @@ def get_shabbat_times(date=None, latitude=31.7683, longitude=35.2137,
         "latitude": latitude,
         "longitude": longitude,
         "tzid": tzid,
-        "b": 18,   # Candle lighting 18 min before sunset (Israel standard)
-        "M": "on"  # Include havdalah
+        "b": b,    # Candle lighting min before sunset (city-aware: 40/30/18)
+        "M": "on"  # Havdalah at Tzeit HaKochavim (sun 8.5 deg below horizon)
     })
     response.raise_for_status()
 
@@ -286,6 +309,11 @@ def main():
         "--lon", type=float, default=35.2137,
         help="Longitude (default: Jerusalem 35.2137)"
     )
+    parser.add_argument(
+        "--city", default="jerusalem",
+        choices=["jerusalem", "haifa", "zikhron_yaakov", "default"],
+        help="City minhag for candle-lighting (default: jerusalem = 40 min)"
+    )
     args = parser.parse_args()
 
     # Parse date
@@ -305,7 +333,8 @@ def main():
     if args.shabbat_times:
         try:
             times = get_shabbat_times(
-                check_date, latitude=args.lat, longitude=args.lon
+                check_date, latitude=args.lat, longitude=args.lon,
+                city=args.city
             )
             results["shabbat_times"] = times
         except Exception as e:

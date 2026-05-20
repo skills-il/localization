@@ -29,9 +29,19 @@ See `scripts/check_shabbat.py` for a ready-to-use utility.
 import requests
 from datetime import datetime, timedelta
 
-def get_shabbat_times(date=None, latitude=31.7683, longitude=35.2137, tzid="Asia/Jerusalem"):
+# Candle-lighting minutes before sunset by city minhag.
+# Jerusalem uses 40 min, Haifa and Zikhron Ya'akov use 30 min, elsewhere 18 min.
+CANDLE_LIGHTING_MIN = {
+    "jerusalem": 40,
+    "haifa": 30,
+    "zikhron_yaakov": 30,
+    "default": 18,
+}
+
+def get_shabbat_times(date=None, latitude=31.7683, longitude=35.2137,
+                      tzid="Asia/Jerusalem", city="jerusalem"):
     """Get Shabbat candle lighting and havdalah times.
-    Default location: Jerusalem.
+    Default location: Jerusalem (40 min candle-lighting custom).
     """
     if date is None:
         date = datetime.now()
@@ -39,6 +49,8 @@ def get_shabbat_times(date=None, latitude=31.7683, longitude=35.2137, tzid="Asia
     # Find next Friday
     days_until_friday = (4 - date.weekday()) % 7
     friday = date + timedelta(days=days_until_friday)
+
+    b = CANDLE_LIGHTING_MIN.get(city, CANDLE_LIGHTING_MIN["default"])
 
     response = requests.get("https://www.hebcal.com/shabbat", params={
         "cfg": "json",
@@ -48,8 +60,9 @@ def get_shabbat_times(date=None, latitude=31.7683, longitude=35.2137, tzid="Asia
         "latitude": latitude,
         "longitude": longitude,
         "tzid": tzid,
-        "b": 18,  # Candle lighting minutes before sunset (18 for Israel)
-        "M": "on"  # Include havdalah
+        "b": b,       # Candle lighting min before sunset (city-aware)
+        "M": "on",    # Havdalah at Tzeit HaKochavim (sun 8.5 deg below horizon)
+        # Alternative: use m=42 / m=50 / m=72 for fixed minutes after sunset
     })
 
     data = response.json()
@@ -181,9 +194,28 @@ def should_run_today(holidays_cache=None, skip_friday=False, skip_erev_chag=Fals
 | Sukkot week | Tishrei 15-22 | Many on vacation, chol ha-moed |
 | Pre-Pesach week | Before Nisan 15 | Extremely busy, cleaning/shopping |
 | Pesach week | Nisan 15-22 | Many on vacation, chol ha-moed |
+| Three Weeks (Bein HaMetzarim) | 17 Tammuz to 9 Av (around Jul-early Aug) | No weddings or celebratory events; corporate parties typically deferred |
+| Tisha B'Av | 9 Av (around late Jul / early Aug) | Fast day; many treat as half-day or off |
 | Summer (Jul-Aug) | July-August | School vacation, reduced business |
 | Winter Shabbat | Nov-Feb | Early Shabbat (Friday closes earlier) |
 | Summer Shabbat | May-Aug | Late Shabbat (more Friday availability) |
+
+**Key 2026 holiday dates to plan around (Israel observance):**
+
+| Holiday | Gregorian (around) | Workdays lost |
+|---------|---------------------|---------------|
+| Pesach | April 1 to April 8, 2026 | First and seventh days are Yom Tov; middle is chol ha-moed |
+| Yom HaShoah | April 13 to April 14, 2026 (evening to evening) | Memorial; entertainment closed |
+| Yom HaZikaron | April 20 to April 21, 2026 | Memorial; restricted commerce |
+| Yom HaAtzmaut | April 21 to April 22, 2026 | Independence Day; most businesses closed |
+| Shavuot | May 21 to May 22, 2026 (evening to evening) | One day Yom Tov in Israel |
+| Tisha B'Av | July 22 to July 23, 2026 (evening to evening) | Fast day |
+| Rosh Hashana | September 11 to September 13, 2026 | Two-day Yom Tov + Shabbat = three-day no-work span |
+| Yom Kippur | September 20 to September 21, 2026 (evening to evening) | Country shuts down |
+| Sukkot | September 25 to October 2, 2026 | First and last days Yom Tov; middle is chol ha-moed |
+| Shemini Atzeret / Simchat Torah | October 2 to October 3, 2026 | One day in Israel, falls on Friday-Shabbat |
+
+Dates verified against Hebcal 2026 (Israeli observance). Always re-check the calendar each year; the Hebrew calendar slides against the Gregorian by 11 to 19 days. In 2026, Yom HaAtzmaut is postponed by one day (nidcheh) because the natural date would have triggered Yom HaZikaron on a problematic day.
 
 ## Examples
 
@@ -202,10 +234,10 @@ Result: Provide cron configuration with should_run_today() check, pre-loaded hol
 ## Bundled Resources
 
 ### Scripts
-- `scripts/check_shabbat.py` — Standalone utility to query Shabbat times, Israeli holidays, and business-day status via the HebCal API. Supports checking whether a date is Shabbat/Yom Tov, listing all holidays for a year, and finding the next available Israeli business slot with configurable duration and location. Run: `python scripts/check_shabbat.py --help`
+- `scripts/check_shabbat.py`: standalone utility to query Shabbat times, Israeli holidays, and business-day status via the HebCal API. Supports checking whether a date is Shabbat/Yom Tov, listing all holidays for a year, and finding the next available Israeli business slot with configurable duration, location, and city minhag. Run: `python scripts/check_shabbat.py --help`
 
 ### References
-- `references/israeli-holiday-calendar.md` — Complete Israeli holiday calendar with Hebrew dates, Gregorian approximations, scheduling impact levels (high/medium/low), mourning period restrictions, seasonal Shabbat candle-lighting times by month for Jerusalem, and HebCal API endpoint reference. Consult when planning around chagim, determining seasonal Friday closing times, or checking if an event conflicts with a mourning period.
+- `references/israeli-holiday-calendar.md`: complete Israeli holiday calendar with Hebrew dates, Gregorian approximations, scheduling impact levels (high/medium/low), mourning period restrictions, seasonal Shabbat candle-lighting times by month for Jerusalem, 2026 key dates, and HebCal API endpoint reference. Consult when planning around chagim, determining seasonal Friday closing times, or checking if an event conflicts with a mourning period.
 
 ## Recommended MCP Servers
 
@@ -217,11 +249,27 @@ For live Hebrew calendar data, pair this skill with:
 
 When the `hebcal` MCP is available, use its tools for accurate Shabbat times and holiday dates instead of hardcoded values. The MCP provides location-aware candle lighting times for any Israeli city.
 
+## Offline Libraries
+
+If you cannot reach the Hebcal API at runtime (CI, airgapped, rate-limited at 90 req/10s), use a local library and skip the HTTP call:
+
+| Library | Language | Notes |
+|---------|----------|-------|
+| `@hebcal/core` | JavaScript / TypeScript | Actively maintained (v6.x as of May 2026). Pure JS, no network. Install: `npm i @hebcal/core` |
+| `pyluach` | Python | Hebrew calendar arithmetic and Hebrew/Gregorian conversion. Stable but low-activity (v2.3.0); fine for date conversion but no built-in candle-lighting times. Pair with a sunset/zmanim library or cache pre-computed times |
+| `hebcal-go` | Go | Maintained by the Hebcal team |
+
+The deprecated `hebcal-js` package (NPM `hebcal`) is the predecessor of `@hebcal/core`; do not start new work on it.
+
 ## Gotchas
-- Shabbat times vary by city in Israel. Jerusalem candle lighting is 40 minutes before sunset, while most other cities use 20-30 minutes. Agents may use a single time for all of Israel.
-- Israeli holidays (chagim) have different work restrictions than Shabbat. Some holidays are one day in Israel but two days in the diaspora. Agents may use diaspora holiday calendars for Israeli scheduling.
+- Shabbat candle-lighting differs by city in Israel. Jerusalem uses 40 minutes before sunset, Haifa and Zikhron Ya'akov use 30 minutes, and most other cities use 18 minutes. Using one `b=` value for all of Israel will under- or over-shoot Friday cutoffs by 10 to 22 minutes. Pass the city-specific offset to the Hebcal API.
+- Israeli holidays (chagim) have different work restrictions than Shabbat. Most holidays are one day in Israel but two days in the diaspora (Rosh Hashana is two days in both). Using a diaspora holiday calendar for Israeli scheduling will block extra workdays that are actually chol ha-moed in Israel.
 - The Hebrew calendar has leap years with an extra month (Adar II), occurring 7 times in a 19-year cycle. Agents may calculate dates using the Gregorian calendar and miss this month entirely.
-- Business hours in Israel typically run Sunday-Thursday, with Friday being a half-day (until early afternoon). Agents may schedule Friday afternoon meetings or Monday morning deadlines (Saturday is the weekly rest day, not Sunday).
+- Business hours in Israel run Sunday to Thursday, with Friday a half-day (until early afternoon). Saturday is the weekly rest day, not Sunday. Agents may schedule Friday afternoon meetings or Monday-morning deadlines.
+- Yom HaAtzmaut and Yom HaZikaron can be postponed (nidcheh) when their natural date would conflict with Shabbat. In 2026 the dates shift accordingly. Always trust the Hebcal `i=on` flag rather than computing Iyar 5 directly.
+- Havdalah default in Hebcal is now Tzeit HaKochavim (sun 8.5 degrees below the horizon, around 40 to 50 minutes after sunset in Israel). Stricter Rabbeinu Tam observers use 72 minutes. Pick the right `m=` value if your audience is not the default.
+- Yom Kippur is treated as Shabbat for scheduling purposes (full shutdown, including secular businesses, transit, and broadcast media in Israel). Do not deploy or schedule anything inside the 25-hour window.
+- The Three Weeks (17 Tammuz to 9 Av) is a mourning period; weddings, concerts, and corporate celebration events are typically deferred. The Nine Days (1 to 9 Av) is stricter. Treat as a "no launch parties" window even though it is not a Yom Tov.
 
 ## Troubleshooting
 
@@ -236,3 +284,11 @@ Solution: Use HebCal API which handles Hebrew-Gregorian conversion. Cache holida
 ### Error: "Friday meeting too late"
 Cause: Fixed 17:00 Friday cutoff regardless of season
 Solution: In winter, Shabbat can start as early as 16:00. Always check actual candle lighting time for the specific Friday.
+
+### Error: "Wrong candle-lighting time for Jerusalem"
+Cause: Passing `b=18` (the Hebcal default) with Jerusalem coordinates instead of the Jerusalem custom of 40 minutes.
+Solution: Always pass `b=40` when the user is in Jerusalem, `b=30` for Haifa and Zikhron Ya'akov, `b=18` everywhere else. Hebcal exposes the same convention.
+
+### Error: "Havdalah time looks off by 8-30 minutes"
+Cause: Mixing `M=on` (Tzeit HaKochavim, sun 8.5 degrees below horizon, around 42 to 50 min after sunset) with a hardcoded "42 minutes" or "72 minutes" assumption.
+Solution: Pick one method explicitly. Use `M=on` for the Hebcal default, `m=42` for medium stars, `m=50` for small stars, or `m=72` for the stricter Rabbeinu Tam custom. Document which one your scheduler uses so downstream agents do not double-shift.

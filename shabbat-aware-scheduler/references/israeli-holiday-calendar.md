@@ -64,21 +64,67 @@
 | November | 16:10 | 17:20 | 13:00-14:00 |
 | December | 16:05 | 17:20 | 13:00-14:00 |
 
-**Jerusalem exception:** Candle lighting 40 minutes before sunset (vs. 18 minutes elsewhere in Israel).
+**City-specific candle-lighting minutes before sunset:**
+
+| City | `b=` value | Notes |
+|------|-----------|-------|
+| Jerusalem | 40 | Ancient Jerusalem custom |
+| Haifa, Zikhron Ya'akov | 30 | Local minhag |
+| Tel Aviv, Beer Sheva, Eilat, Netanya, most other Israeli cities | 18 | Standard Hebcal default |
+
+## 2026 Key Dates (Israel observance, verified May 2026)
+
+| Holiday | Gregorian | Day of week |
+|---------|-----------|-------------|
+| Pesach (first day) | April 2, 2026 (eve April 1) | Thursday |
+| Pesach (last day) | April 8, 2026 | Wednesday |
+| Yom HaShoah | April 14, 2026 | Tuesday |
+| Yom HaZikaron | April 21, 2026 | Tuesday |
+| Yom HaAtzmaut | April 22, 2026 | Wednesday (nidcheh, postponed one day) |
+| Shavuot | May 22, 2026 (eve May 21) | Friday |
+| 17 Tammuz fast | early July 2026 | start of the Three Weeks |
+| Tisha B'Av | July 23, 2026 (eve July 22) | Thursday |
+| Rosh Hashana | September 12 to 13, 2026 (eve September 11) | Saturday and Sunday; combined with the Shabbat that precedes it, creates a three-day no-work span |
+| Yom Kippur | September 21, 2026 (eve September 20) | Monday |
+| Sukkot (first day) | September 26, 2026 (eve September 25) | Saturday (Friday eve) |
+| Sukkot (last day, chol ha-moed boundary) | October 2, 2026 | Friday |
+| Shemini Atzeret / Simchat Torah | October 3, 2026 (eve October 2) | Saturday |
+
+In 2026, Sukkot starts Friday evening and runs into Shabbat, and Shemini Atzeret falls on Friday-Saturday. These create extended no-work spans for Israeli businesses.
+
+## Havdalah Calculation
+
+Hebcal default with `M=on` is Tzeit HaKochavim (sun 8.5 degrees below horizon, around 42 to 50 minutes after sunset in Israel). Fixed-minute alternatives via `m=N`:
+
+| `m=` value | Minhag |
+|-----------|--------|
+| `m=42` | Three medium-sized stars |
+| `m=50` | Three small stars |
+| `m=72` | Rabbeinu Tam (stricter) |
+| `m=0` | Suppress havdalah times |
 
 ## HebCal API Quick Reference
 
+Endpoints documented at `https://www.hebcal.com/home/developer-apis`. Rate limit: 90 requests per 10-second window (HTTP 429 on overflow).
+
 **Shabbat times:**
 ```
-GET https://www.hebcal.com/shabbat?cfg=json&gy=YEAR&gm=MONTH&gd=DAY&latitude=LAT&longitude=LON&tzid=Asia/Jerusalem&b=18&M=on
+GET https://www.hebcal.com/shabbat?cfg=json&gy=YEAR&gm=MONTH&gd=DAY&latitude=LAT&longitude=LON&tzid=Asia/Jerusalem&b=40&M=on
 ```
+Use `b=40` for Jerusalem, `b=30` for Haifa, `b=18` elsewhere. `M=on` enables Tzeit HaKochavim havdalah; replace with `m=42` / `m=50` / `m=72` for fixed minutes.
 
-**Holiday list:**
+**Holiday list (Israeli observance):**
 ```
 GET https://www.hebcal.com/hebcal?v=1&cfg=json&year=YEAR&month=x&maj=on&min=on&mod=on&i=on
 ```
+The `i=on` flag is critical; without it you get diaspora 2-day Yom Tov.
 
 **Hebrew date converter:**
 ```
 GET https://www.hebcal.com/converter?cfg=json&gy=YEAR&gm=MONTH&gd=DAY&g2h=1
+```
+
+**Zmanim (halachic times like sunrise, midday, alot hashachar):**
+```
+GET https://www.hebcal.com/zmanim?cfg=json&latitude=LAT&longitude=LON&tzid=Asia/Jerusalem&date=YYYY-MM-DD
 ```

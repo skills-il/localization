@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "shabbat-aware-scheduler",
+  "generated_at": "2026-05-20",
+  "claims": [
+    {
+      "claim_id": "candle-lighting-minutes",
+      "claim": "Hebcal default candle lighting is 18 minutes before sunset; Jerusalem uses 40 minutes, Haifa and Zikhron Ya'akov use 30 minutes.",
+      "source_url": "https://www.hebcal.com/home/197/shabbat-times-rest-api",
+      "raw_snippet": "b=18 - Candle-lighting time minutes before sunset. By default, candle lighting time is 18 minutes before sundown ... variations for specific locations like Jerusalem (40 min) and Haifa (30 min).",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md", "scripts/check_shabbat.py"]
+    },
+    {
+      "claim_id": "havdalah-default-tzeit-hakochavim",
+      "claim": "Hebcal default Havdalah with M=on is Tzeit HaKochavim, sun 8.5 degrees below horizon. Fixed-minute alternatives: m=42 medium stars, m=50 small stars, m=72 Rabbeinu Tam.",
+      "source_url": "https://www.hebcal.com/home/4463/candle-lighting-havdalah-fast-times",
+      "raw_snippet": "tzeit hakochavim (when 3 small stars are visible, sun 8.5 below horizon) ... 42 minutes for three medium-sized stars, 50 minutes for three small stars, 72 minutes for Rabbeinu Tam, 0 to suppress.",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md"]
+    },
+    {
+      "claim_id": "hebcal-api-rate-limit",
+      "claim": "Hebcal API rate-limits at 90 requests per 10-second window, returning HTTP 429.",
+      "source_url": "https://www.hebcal.com/home/developer-apis",
+      "raw_snippet": "Rate-limiting is used to throttle clients ... You may receive a 429 'Too Many Requests' error if your client makes more than 90 requests in a 10-second window.",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["references/israeli-holiday-calendar.md"]
+    },
+    {
+      "claim_id": "pesach-2026",
+      "claim": "Pesach 2026 runs April 1 to April 8 (first day April 2, last day April 8) in Israeli observance.",
+      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
+      "raw_snippet": "Pesach - Wed, Apr 1 - Wed, Apr 8",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md"]
+    },
+    {
+      "claim_id": "shavuot-2026",
+      "claim": "Shavuot 2026 begins evening Thursday May 21 and ends evening Friday May 22, one-day Yom Tov in Israel.",
+      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
+      "raw_snippet": "Shavuot - Thu, May 21 - Fri, May 22",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md"]
+    },
+    {
+      "claim_id": "rosh-hashana-2026",
+      "claim": "Rosh Hashana 2026: Friday September 11 (eve) through Sunday September 13. Combined with adjacent Shabbat this creates a three-day no-work span.",
+      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
+      "raw_snippet": "Rosh Hashana - Fri, Sept 11 - Sun, Sept 13 (multi-day span)",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md"]
+    },
+    {
+      "claim_id": "yom-kippur-2026",
+      "claim": "Yom Kippur 2026: evening Sunday September 20 through evening Monday September 21.",
+      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
+      "raw_snippet": "Yom Kippur - Sun, Sept 20 - Mon, Sept 21",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md"]
+    },
+    {
+      "claim_id": "sukkot-2026",
+      "claim": "Sukkot 2026 in Israel: Friday September 25 (eve) through Friday October 2. Shemini Atzeret/Simchat Torah on October 2-3 (combined in Israel).",
+      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
+      "raw_snippet": "Sukkot - Fri, Sept 25 - Fri, Oct 2 ... Shemini Atzeret & Simchat Torah - Fri, Oct 2 - Sat, Oct 3",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md"]
+    },
+    {
+      "claim_id": "tisha-bav-2026",
+      "claim": "Tisha B'Av 2026: eve Wednesday July 22 through Thursday July 23. Three Weeks period (17 Tammuz to 9 Av) runs early July to late July 2026.",
+      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
+      "raw_snippet": "Tisha B'Av - Wed, July 22 - Thu, July 23",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md"]
+    },
+    {
+      "claim_id": "yom-haatzmaut-2026-nidcheh",
+      "claim": "Yom HaAtzmaut 2026 falls April 21-22 (postponed/nidcheh from the natural 5 Iyar to avoid Shabbat conflict).",
+      "source_url": "https://www.hebcal.com/holidays/yom-haatzmaut-2026",
+      "raw_snippet": "Yom HaAtzma'ut for Hebrew Year 5786 began on Tuesday, 21 April 2026 and ended on Wednesday, 22 April 2026. ... if the 5th of Iyar is on a Monday, the festival is postponed.",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md"]
+    },
+    {
+      "claim_id": "yom-hashoah-2026",
+      "claim": "Yom HaShoah 2026: April 13-14.",
+      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
+      "raw_snippet": "Yom HaShoah - Mon, Apr 13 - Tue, Apr 14",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "yom-hazikaron-2026",
+      "claim": "Yom HaZikaron 2026: April 20-21.",
+      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
+      "raw_snippet": "Yom HaZikaron - Mon, Apr 20 - Tue, Apr 21",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "hebcal-core-npm-version",
+      "claim": "@hebcal/core JavaScript library is actively maintained, latest version 6.5.1 as of May 2026.",
+      "source_url": "https://www.npmjs.com/package/@hebcal/core",
+      "raw_snippet": "The latest version of @hebcal/core is 6.5.1, last published 2 days ago. ... perpetual Jewish Calendar API.",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md"]
+    },
+    {
+      "claim_id": "pyluach-version",
+      "claim": "pyluach Python library is at version 2.3.0, low maintenance activity, but stable for Hebrew/Gregorian conversion.",
+      "source_url": "https://pypi.org/project/pyluach/",
+      "raw_snippet": "The current version available on PyPI is 2.3.0 ... pyluach hasn't seen any new versions released to PyPI in the past 12 months, and could be considered as a discontinued project or one that receives low attention from its maintainers. However, the package receives a total of 306,840 weekly downloads and is classified as popular.",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md"]
+    },
+    {
+      "claim_id": "hebcal-js-deprecated",
+      "claim": "Legacy 'hebcal' npm package (hebcal-js) is deprecated, succeeded by @hebcal/core.",
+      "source_url": "https://github.com/hebcal/hebcal-js",
+      "raw_snippet": "hebcal-js: DEPRECATED - a perpetual Jewish Calendar (JavaScript)",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md"]
+    },
+    {
+      "claim_id": "hebcal-shabbat-endpoint",
+      "claim": "HebCal Shabbat times REST endpoint: https://www.hebcal.com/shabbat with b= (candle-lighting minutes) and M=on or m=N (havdalah) parameters.",
+      "source_url": "https://www.hebcal.com/home/197/shabbat-times-rest-api",
+      "raw_snippet": "Endpoint URL: https://www.hebcal.com/shabbat ... b=18 candle-lighting minutes ... M=on for Tzeit HaKochavim ... m=N for fixed minutes.",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-holiday-calendar.md", "scripts/check_shabbat.py"]
+    },
+    {
+      "claim_id": "hebcal-holidays-i-flag",
+      "claim": "HebCal holiday list endpoint uses i=on flag to return Israeli (one-day Yom Tov) observance instead of diaspora two-day.",
+      "source_url": "https://www.hebcal.com/home/195/jewish-calendar-rest-api",
+      "raw_snippet": "i=on - Israeli holiday schedule (1-day Yom Tov instead of diaspora 2-day).",
+      "fetched_at": "2026-05-20",
+      "appears_in": ["SKILL.md", "references/israeli-holiday-calendar.md", "scripts/check_shabbat.py"]
+    }
+  ]
+}
