@@ -1,0 +1,52 @@
+{
+  "skill": "israeli-travel-planner",
+  "cycles": [
+    {
+      "date": "2026-06-04",
+      "version_from": "1.2.1",
+      "version_to": "1.3.0",
+      "trigger": "Editor update cycle: 2025 Derech Shava fare reform + 2026 EMV/app ticketing shift + stale fees and dead links.",
+      "changes": [
+        "Added a Public Transport Fares section (Derech Shava): single urban ride with a 90-minute transfer, distance bands (15/40/75/120/225 km), a daily cap, a nationwide monthly, and seniors free at 67-plus. Added to SKILL.md, SKILL_HE.md, and references.",
+        "Documented EMV contactless plus remote app loading (Rav-Kav Online / HopOn / Rav-Pass) and softened the Rav-Kav gotcha which previously implied kiosk-or-driver-only loading.",
+        "Corrected the Egged 421 Tel Aviv to Dead Sea fare downward to the distance-capped reform band.",
+        "Updated national park fees: single entry band, tourist cards (Blue/Green/Orange), and the Matmon annual subscription; re-labeled the references pricing header to verify current year.",
+        "Fixed dead links: afikim.co.il to electra-afikim.co.il (Electra rebrand) and rav-kav.co.il to ravkavonline.co.il plus ravpass.co.il.",
+        "Added Acre-Karmiel and Haifa-Beit She'an rail lines to the Israel Railways routes (D1).",
+        "Deepened metadata.json display_description.he with EN anchors (Dead Sea, Eilat, Egged/Dan/Kavim, Derech Shava, seasonal tips) (D2).",
+        "Re-dated the references gas price to the May 2026 regulated 95-octane self-service maximum (D3).",
+        "Created evidence.json (cited claims) and this optimization-log.json."
+      ],
+      "deviations": [
+        "Task suggested a nationwide monthly around the 225 distance band figure; the authoritative current price (ravkavonline.co.il + pti.org.il) for the Chofshi Artzi up-to-225-km unlimited monthly is higher. Wrote the verified price. The lower figure appears to come from an earlier reform phase or a band label rather than the current monthly price.",
+        "Task suggested the Dead Sea 421 fare near the upper end of the up-to-120-km band; the verified band cap is one shekel lower. Wrote the verified band cap to stay within evidence.",
+        "Task suggested a single park entry band; verified Ein Gedi at the low end and a spread across sites. Wrote the verified spread."
+      ],
+      "deferred": []
+    },
+    {
+      "date": "2026-06-04",
+      "version_from": "1.3.0",
+      "version_to": "1.3.0",
+      "trigger": "Panel review: headline updates correct but several figures mis-cited or stale. Re-verified each via WebFetch/Playwright against authoritative current sources.",
+      "changes": [
+        "CORRECTED the distance-band single-ride fares to the current post-25-April-2025 pti.org.il tariff (bus only): replaced the stale pre-reform set with the verified per-band single fares and per-band daily caps in SKILL.md, SKILL_HE.md, references, and domain-checklist.",
+        "SOFTENED the EMV rollout to early-2026 pilot in Eilat, Jerusalem and Haifa (removed the uncorroborated exact Jan 11 / Jan 18 dates).",
+        "BROADENED the EMV section: added Israel Railways tap-at-gates and Dan central-Israel contactless since October 2022, so it is no longer presented as Egged-bus-only (expert MAJOR 9).",
+        "CORRECTED the national-park single-entry range to the real 2025 INPA spread for the main tourist sites, sourced to parks.org.il/article/price (Ein Gedi, Masada, Caesarea verified via Playwright).",
+        "RE-SOURCED the Matmon annual to the confirmed individual tier only; couple/family hedged as costing more (could not confirm those tiers on the official page).",
+        "RE-SOURCED Eilat VAT-free to the Israeli Tax Authority 18% rate (raised from 17% on 1 Jan 2025).",
+        "REMOVED the fabricated per-chain hotel shekel ranges and the example nightly figures; replaced with qualitative budget/mid-range/luxury tiers plus a check-booking-sites note. Dropped the unsourced hotel-ranges evidence row.",
+        "CORRECTED the 421 duration to about 133 minutes (Moovit) and re-sourced the fare to the distance band; removed the unsourced pre-reform aside.",
+        "ADDED the Masada cable-car surcharge (expert MAJOR 8): official entry without versus with the cable car, and that tourist cards do not cover it.",
+        "Rewrote domain-checklist.md to verified figures and evidence-backed sources; moved the percent-encoded Hebrew Moovit URL out of the checklist so encoded Hebrew URLs live only in evidence.json."
+      ],
+      "deviations": [
+        "pti.org.il (official Ministry of Transport tariff) and guberman differ on the up-to-225 km single ride; used the official pti.org.il figure.",
+        "Masada cable-car figures use the official INPA combined-ticket prices rather than third-party operator round-trip quotes.",
+        "Matmon couple/family tiers were not confirmable on the official page, so only the individual tier is stated as a number."
+      ],
+      "deferred": []
+    }
+  ]
+}

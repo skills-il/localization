@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "israeli-travel-planner",
+  "generated_at": "2026-06-04T00:00:00Z",
+  "claims": [
+    {
+      "claim_id": "fare-single-urban-8nis-90min",
+      "claim": "Under the Derech Shava reform (effective 25 April 2025) a single urban bus ride up to 15 km costs 8 NIS and includes 90 minutes of free transfers within the zone.",
+      "source_url": "https://pti.org.il/DerekhShava/",
+      "raw_snippet": "Up to 15 km (yellow): single ride 8 ₪. נסיעה בודדת 8 ₪ כולל 90 דקות של מעבר חופשי.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "fare-distance-bands-2025",
+      "claim": "Current post-reform single-ride bus fares by distance band: up to 15 km 8 NIS, up to 40 km 14.5 NIS, up to 75 km 19 NIS, up to 120 km 19 NIS, up to 225 km 30.5 NIS, over 225 km 74 NIS.",
+      "source_url": "https://pti.org.il/DerekhShava/",
+      "raw_snippet": "Bus Only single ride: Up to 15 km (צהוב) 8 ₪; 15-40 km (ירוק) 14.5 ₪; 40-75 km (תכלת) 19 ₪; 75-120 km (כחול) 19 ₪; 120-225 km (סגול) 30.5 ₪; Over 225 km (אפור) 74 ₪.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "fare-daily-caps",
+      "claim": "Daily caps (bus only) rise with the band: up to 15 km ~11.5 NIS, up to 40 km ~21 NIS, up to 75 km ~27 NIS, up to 120 km ~30.5 NIS, up to 225 km ~52.5 NIS; the over-225 km band has no daily cap.",
+      "source_url": "https://pti.org.il/DerekhShava/",
+      "raw_snippet": "Daily caps (חופשי יומי, bus only): Up to 15 km 11.5 ₪; 15-40 km 21 ₪; 40-75 km 27 ₪; 75-120 km 30.5 ₪; 120-225 km 52.5 ₪; Over 225 km no daily cap option listed.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "fare-nationwide-monthly-315",
+      "claim": "A nationwide unlimited monthly pass (Chofshi Artzi, up to 225 km) costs 315 NIS.",
+      "source_url": "https://ravkavonline.co.il/en/derekh-shava",
+      "raw_snippet": "A new deal allows travel by bus and light rail for distances of up to 225 km, without limitations for an entire month, at a price of 315 NIS.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "fare-senior-free-67",
+      "claim": "Senior citizens aged 67 and over travel free on all public transport nationwide (previously age 75).",
+      "source_url": "https://ravkavonline.co.il/en/derekh-shava",
+      "raw_snippet": "Senior citizens aged 67 and over are entitled to free travel on all means of public transportation, all over the country, free of charge.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "emv-contactless-buses",
+      "claim": "Since early 2026 passengers can board and pay at Egged validators with a physical credit card or via Apple Pay / Google Pay, with a pilot in Eilat, Jerusalem and Haifa; no Rav-Kav needed.",
+      "source_url": "https://www.egged.co.il/en/information-for-passengers/rav-kav-and-payment-apps",
+      "raw_snippet": "This means you can board the bus and pay for your ride directly at the validators using a physical credit card, or via a digital wallet (Apple Pay and Google Pay) on your phone or smartwatch. אגד השיקה בתחילת 2026 אפשרות תשלום בכרטיסי אשראי באוטובוסים, ופתחה פיילוט בשלוש ערים: אילת, ירושלים וחיפה.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "emv-rail",
+      "claim": "EMV contactless is not Egged-only: Israel Railways lets passengers pay with EMV credit cards instead of a paper ticket or pre-loaded card.",
+      "source_url": "https://www.calcalistech.com/ctech/articles/0,7340,L-3741573,00.html",
+      "raw_snippet": "The new system will allow passengers to use EMV-enabled credit cards to instantly pay for rides without needing to purchase a paper ticket or charge a pre-purchased card.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "emv-dan-2022",
+      "claim": "Dan has accepted contactless credit/debit-card payment (including Apple Pay and Google Pay) on its central-Israel bus routes since October 2022.",
+      "source_url": "https://en.wikivoyage.org/wiki/Public_transit_in_Israel",
+      "raw_snippet": "Since October 26, 2022, it has become possible to pay for a single ride on Dan company bus routes using contactless payments by credit and debit cards, or contactless mobile payment services that emulate a payment card from a smartphone or wristwatch NFC module, such as Google Pay and Apple Pay.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "remote-load-apps",
+      "claim": "A physical Rav-Kav can be loaded remotely via the Rav-Kav Online, HopOn and Rav-Pass apps and websites.",
+      "source_url": "https://ravkavonline.co.il/en/",
+      "raw_snippet": "Rav-Kav can be recharged through dedicated websites including ravkavonline.co.il and HopOn.co.il, as well as through the RavKav Online or HopOn mobile apps for iPhone and Android devices with NFC.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "deadsea-421-fare-band",
+      "claim": "Egged line 421 runs Tel Aviv Savidor to Masada (Dead Sea) in about 133 minutes; under Derech Shava it is priced by distance band (the Tel Aviv to Dead Sea trip falls in the up-to-120 km band, about 19 NIS), far below the pre-reform fare.",
+      "source_url": "https://moovitapp.com/index/en/public_transit-line-421_%D7%91%D7%94%D7%96%D7%9E%D7%A0%D7%94_%D7%9E%D7%A8%D7%90%D7%A9-Israel-1-1-110173565-0",
+      "raw_snippet": "The 421 bus (Tel Aviv-Yafo to Tamar Regional Council) has 24 stops departing from Tel Aviv Savidor Station and ending at Masada. The total trip duration for this route is approximately 133 minutes. (Derech Shava band up to 120 km single ride is 19 ₪ per pti.org.il/DerekhShava.)",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "park-single-entry-range",
+      "claim": "A single adult national-park entry runs about 31 to 46 NIS at the main tourist sites (Ein Gedi and Banias 31, Masada 37, Caesarea 46, Coral Beach 40), with children roughly half; smaller sites are lower.",
+      "source_url": "https://www.parks.org.il/article/price/",
+      "raw_snippet": "2025 price list (מבוגר/ת adult): Ein Gedi 31 NIS, Banias 31 NIS, Masada 37 NIS (child 21), Caesarea 46 NIS (child 27), Coral Beach 40 NIS. שמורת טבע עין גדי 31 ש\"ח, גן לאומי מצדה 37 ש\"ח, גן לאומי קיסריה 46 ש\"ח. Children's fees are roughly half the adult fee.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "park-tourist-cards",
+      "claim": "Tourist multi-site cards (valid two weeks): Blue (3 sites) 90 NIS, Green (6 sites) 130 NIS, Orange (unlimited) 175 NIS. They do not cover the Masada cable car.",
+      "source_url": "https://en.parks.org.il/article/money-saving-tickets/",
+      "raw_snippet": "Blue Card with 3 site visits, valid for two weeks - 90 ₪. Green Card with 6 site visits, valid for two weeks - 130 ₪. Orange Card with unlimited site visits, valid for two weeks - 175 ₪.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "park-matmon-annual-individual",
+      "claim": "The Matmon annual subscription costs 181 NIS for an individual; couple and family tiers cost more (verify the current tiers at parks.org.il).",
+      "source_url": "https://www.parks.org.il/article/price/",
+      "raw_snippet": "The Israel Nature and Parks Authority Matmon annual subscription: individual 181 ₪ per year; higher tiers exist for couple and family memberships (about 60-65 sites free for one year).",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "masada-cable-car-surcharge",
+      "claim": "The Masada cable car is a separate charge that the Blue/Green/Orange tourist cards do not cover. Official Masada entrance is about 37 NIS adult (21 child, 19 senior). The cable car is billed separately and does NOT include entrance: about 32 NIS one-way (16 child) or 54 NIS round-trip (32 child).",
+      "source_url": "https://www.parks.org.il/reserve-park/%D7%92%D7%9F-%D7%9C%D7%90%D7%95%D7%9E%D7%99-%D7%9E%D7%A6%D7%93%D7%94/",
+      "raw_snippet": "דמי כניסה ללא רכבל: מבוגר 37 NIS (ילד 21, אזרח ותיק 19). רכבל חד כיווני לא כולל כניסה: מבוגר 32 NIS, ילד 16. רכבל דו כיווני לא כולל כניסה: מבוגר 54 NIS, ילד 32. Masada entrance without cable car adult 37 ₪; cable car one-way 32 ₪ (child 16), round-trip 54 ₪ (child 32), not including entrance. מבוגר 37 ש\"ח, 32 ש\"ח חד כיווני (16 ש\"ח ילד), 54 ש\"ח הלוך ושוב (32 ש\"ח ילד), 21 ש\"ח ילד, 19 ש\"ח אזרח ותיק. The English-language version of the same fee page is https://en.parks.org.il/reserve-park/masada-national-park/ .",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "electra-afikim-rebrand",
+      "claim": "The bus operator Afikim was acquired by Electra Group in late 2020 and rebranded Electra-Afikim; its site is electra-afikim.co.il (afikim.co.il is dead).",
+      "source_url": "https://en.wikipedia.org/wiki/Electra-Afikim",
+      "raw_snippet": "The Electra Group acquired control of both Amnon Mesilot and Afikim in late 2020, creating the new Electra Afikim company. Electra acquired control of Amnon Mesilot, which owns 100% of Afikim, which it rebranded to Electra-Afikim.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "eilat-vat-free-18",
+      "claim": "Eilat is a VAT-free zone, so shoppers save the standard 18% Israeli VAT (raised from 17% to 18% on 1 January 2025 by the Israeli Tax Authority) on eligible goods.",
+      "source_url": "https://sovos.com/regulatory-updates/vat/israel-vat-rate-increase-to-18-from-january-1-2025/",
+      "raw_snippet": "Israel's standard VAT rate increased from 17% to 18%, effective January 1, 2025, confirmed by the Israeli Tax Authority. Eilat is a free trade zone where transactions are VAT-free.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "rail-karmiel-line",
+      "claim": "Israel Railways runs an Acre to Karmiel line (opened September 2017, stations Ahidud and Karmiel) and a Jezreel Valley line to Beit She'an (completed 2016), both used by Galilee travelers.",
+      "source_url": "https://en.wikipedia.org/wiki/Railway_to_Karmiel",
+      "raw_snippet": "A 23.5 kilometres line from the city of Acre to Karmiel was completed in March 2017; service began in September of that year. There are two stations on the railway: Ahidud and Karmiel. The Jezreel Valley railway line connecting Haifa and Beit Shean was completed in 2016.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "rail-fast-jlm-line",
+      "claim": "The fast Tel Aviv to Jerusalem rail line takes about 30 minutes.",
+      "source_url": "https://en.wikipedia.org/wiki/Tel_Aviv%E2%80%93Jerusalem_railway",
+      "raw_snippet": "The high-speed Tel Aviv to Jerusalem (Yitzhak Navon) line covers the journey in about 30 minutes.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "gas-price-2026",
+      "claim": "The regulated maximum price for 95-octane petrol (self-service) is about 8.07 NIS per liter (May 2026).",
+      "source_url": "https://www.kikar.co.il/israel-news/fuel-price-update-may-2026",
+      "raw_snippet": "המחיר המרבי לליטר בנזין 95 אוקטן בשירות עצמי לא יעלה על 8.07 שקלים לליטר (נכון למאי 2026).",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["references/israeli-transport-guide.md"]
+    },
+    {
+      "claim_id": "hebrew-figures-mirror",
+      "claim": "Hebrew copy mirrors the verified figures in shekels: נסיעה עירונית 8 ש\"ח, עד 40 ק\"מ 14.5 ש\"ח, עד 75 ק\"מ 19 ש\"ח, עד 120 ק\"מ 19 ש\"ח, עד 225 ק\"מ 30.5 ש\"ח, מעל 225 ק\"מ 74 ש\"ח; תקרות יומיות 11.5 ש\"ח / 21 ש\"ח / 27 ש\"ח / 30.5 ש\"ח / 52.5 ש\"ח; חופשי ארצי 315 ש\"ח; כרטיס כחול 90 ש\"ח, ירוק 130 ש\"ח, כתום 175 ש\"ח; מנוי מטמון יחיד 181 ש\"ח; כניסת מבוגר 31 עד 46 ש\"ח; מצדה 37 ש\"ח כניסה, רכבל 32 ש\"ח לכיוון אחד / 54 ש\"ח הלוך ושוב בנפרד (16 ש\"ח ילד חד כיווני); מע\"מ 18%.",
+      "source_url": "https://pti.org.il/DerekhShava/",
+      "raw_snippet": "Hebrew amounts mirror the English-sourced figures verified in the other claims (Derech Shava fares from pti.org.il, parks.org.il park fees, Masada entrance and cable car, 18% VAT): 8 ש\"ח, 14.5 ש\"ח, 19 ש\"ח, 30.5 ש\"ח, 74 ש\"ח, 11.5 ש\"ח, 21 ש\"ח, 27 ש\"ח, 52.5 ש\"ח, 315 ש\"ח, 90 ש\"ח, 130 ש\"ח, 175 ש\"ח, 181 ש\"ח, 31 ש\"ח, 37 ש\"ח, 32 ש\"ח, 54 ש\"ח, 16 ש\"ח, 46 ש\"ח, 18%.",
+      "fetched_at": "2026-06-04T00:00:00Z",
+      "appears_in": ["SKILL_HE.md"]
+    }
+  ]
+}
