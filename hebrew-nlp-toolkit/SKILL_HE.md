@@ -9,25 +9,26 @@
 | יצירת טקסט (קל יותר) | DictaLM 3.0 Nemotron Instruct | `dicta-il/DictaLM-3.0-Nemotron-12B-Instruct` | 12B | מכוון להוראות, טביעת רגל קטנה יותר |
 | היסק / שרשרת מחשבה | DictaLM 3.0 24B Thinking | `dicta-il/DictaLM-3.0-24B-Thinking` | 24B | מייצר בלוק חשיבה מפורש לפני התשובה |
 | קצה / לפטופ | DictaLM 3.0 1.7B Thinking (GGUF) | `dicta-il/DictaLM-3.0-1.7B-Thinking-GGUF` | 1.7B | רץ על CPU דרך llama.cpp |
-| סיווג / מילוי מסכה | DictaBERT | `dicta-il/dictabert` | 184M | מהיר, דיוק טוב |
+| מילוי מסכה (בסיס) | DictaBERT | `dicta-il/dictabert` | 184M | מודל בסיס מהיר; לסיווג יש לכוונן או להשתמש במודל ייעודי |
 | זיהוי ישויות (NER) | DictaBERT NER | `dicta-il/dictabert-ner` | 184M | מזהה PER, GPE, TIMEX, TTL |
 | ניתוח סנטימנט | DictaBERT Sentiment | `dicta-il/dictabert-sentiment` | 184M | סיווג סנטימנט בעברית |
 | מורפולוגיה | DictaBERT Morph | `dicta-il/dictabert-morph` | 184M | פיצול תחיליות וחלקי דיבר |
 | שאלות ותשובות | DictaBERT HeQ | `dicta-il/dictabert-heq` | 184M | QA חילוצי בעברית |
 | הטמעות (מודרני) | NeoDictaBERT Bilingual Embed | `dicta-il/neodictabert-bilingual-embed` | 400M | הטמעות משפטים דו-לשוניות עברית-אנגלית |
 | הטמעות (ישן יותר) | AlephBERT | `onlplab/alephbert-base` | 110M | בסיס ותיק יותר לדמיון |
-| דיבור-לטקסט | ivrit.ai Whisper v3 | `ivrit-ai/whisper-large-v3` | 1.55B | כוונון עדין על 22K+ שעות אודיו בעברית |
+| דיבור-לטקסט | ivrit.ai Whisper v3 | `ivrit-ai/whisper-large-v3` | 1.55B | כוונון עדין על קורפוס הדיבור העברי של ivrit.ai (מאגר של 22K+ שעות) |
 | דיבור-לטקסט (מהיר) | ivrit.ai Whisper v3 Turbo CT2 | `ivrit-ai/whisper-large-v3-turbo-ct2` | 809M | מנוע CTranslate2, בערך פי 3 מהיר |
 
 ### שלב 2: התקנה וטעינת המודל
 
-**DictaBERT (משימות סיווג):**
+**DictaBERT (מודל בסיס, מילוי מסכה):**
 ```python
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import AutoTokenizer, AutoModelForMaskedLM
 
 tokenizer = AutoTokenizer.from_pretrained("dicta-il/dictabert")
-model = AutoModelForSequenceClassification.from_pretrained("dicta-il/dictabert")
+model = AutoModelForMaskedLM.from_pretrained("dicta-il/dictabert")
 ```
+`dicta-il/dictabert` הוא מודל בסיס מסוג masked-LM, ללא ראש סיווג. אל תטענו אותו עם `AutoModelForSequenceClassification` ותריצו חיזוי, זה יוצר ראש סיווג מאותחל אקראית ומחזיר תוצאות חסרות משמעות. לסיווג, או כווננו אותו על נתונים מתויגים תחילה, או השתמשו במודל ייעודי מוכן כמו `dicta-il/dictabert-sentiment` (סנטימנט) או `dicta-il/dictabert-ner` (NER).
 
 **DictaLM 3.0 (יצירת טקסט, 12B Instruct):**
 ```python

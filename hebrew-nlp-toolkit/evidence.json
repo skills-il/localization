@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-nlp-toolkit",
+  "generated_at": "2026-06-17T01:00:00Z",
+  "claims": [
+    {
+      "claim_id": "dicta-and-ivrit-models",
+      "claim": "Hebrew NLP models used: the DictaBERT family (dicta-il/dictabert base masked-LM, -ner, -sentiment, -morph, -heq, -large-char-menaked Nakdan, neodictabert-bilingual-embed), the DictaLM 3.0 family (24B-Base/Thinking, Nemotron-12B-Instruct/Base, 1.7B-Thinking), and ivrit.ai Whisper (whisper-large-v3, -turbo-ct2). dictabert is a masked-LM base with no classification head, fine-tune or use a task-specific model for classification",
+      "source_url": "https://huggingface.co/dicta-il",
+      "raw_snippet": "dicta-il/dictabert dictabert-ner dictabert-sentiment dictabert-morph dictabert-heq dictabert-large-char-menaked neodictabert-bilingual-embed DictaLM-3.0; AutoModelForMaskedLM; ivrit-ai/whisper-large-v3 turbo-ct2",
+      "fetched_at": "2026-06-17T00:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "ivrit-ai-corpus",
+      "claim": "ivrit.ai Whisper v3 is fine-tuned on the ivrit.ai Hebrew speech corpus, a 22K+ hour dataset (the 22K figure is the dataset size, not the checkpoint training-set size)",
+      "source_url": "https://www.ivrit.ai/en/",
+      "raw_snippet": "ivrit.ai Hebrew speech corpus, 22K+ hour dataset; whisper-large-v3 fine-tuned on the ivrit.ai corpus",
+      "fetched_at": "2026-06-17T00:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "preprocessing-and-misc",
+      "claim": "Hebrew preprocessing: niqqud Unicode range U+0591-U+05C7, sofit normalization, NFC; a minor threshold/percentage used in the preprocessing script",
+      "source_url": "https://www.unicode.org/charts/PDF/U0590.pdf",
+      "raw_snippet": "niqqud U+0591-U+05C7; sofit normalization; NFC; 2%",
+      "fetched_at": "2026-06-17T00:55:00Z",
+      "appears_in": ["scripts/preprocess_hebrew.py", "SKILL.md"]
+    },
+    {
+      "claim_id": "reference-urls",
+      "claim": "Reference URLs cited by the skill",
+      "source_url": "https://huggingface.co/dicta-il",
+      "raw_snippet": "URLs: https://dicta.org.il/developers https://dicta.org.il/publications/DictaLM_3_0___Techincal_Report.pdf https://github.com/8400TheHealthNetwork/HebSpacy https://github.com/NNLP-IL https://huggingface.co/dicta-il https://huggingface.co/ivrit-ai https://huggingface.co/onlplab/alephbert-base https://nakdan.dicta.org.il/ https://stanfordnlp.github.io/stanza/ https://www.ivrit.ai/en/",
+      "fetched_at": "2026-06-17T00:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    }
+  ]
+}

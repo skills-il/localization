@@ -24,18 +24,19 @@ compatibility: Requires Python and transformers library for model usage. GPU rec
 | Hebrew QA | DictaBERT HeQ | `dicta-il/dictabert-heq` | 184M | Extractive question answering |
 | Embeddings (modern) | NeoDictaBERT Bilingual Embed | `dicta-il/neodictabert-bilingual-embed` | 400M | Hebrew-English sentence embeddings |
 | Embeddings (legacy) | AlephBERT | `onlplab/alephbert-base` | 110M | Older baseline for similarity |
-| Speech-to-text | ivrit.ai Whisper v3 | `ivrit-ai/whisper-large-v3` | 1.55B | Fine-tuned on 22K+ hours of Hebrew audio |
+| Speech-to-text | ivrit.ai Whisper v3 | `ivrit-ai/whisper-large-v3` | 1.55B | Fine-tuned on the ivrit.ai Hebrew speech corpus (a 22K+ hour dataset) |
 | Speech-to-text (fast) | ivrit.ai Whisper v3 Turbo CT2 | `ivrit-ai/whisper-large-v3-turbo-ct2` | 809M | CTranslate2, ~3x faster inference |
 
 ### Step 2: Install and Load Model
 
-**DictaBERT (classification tasks):**
+**DictaBERT (base model, fill-mask):**
 ```python
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import AutoTokenizer, AutoModelForMaskedLM
 
 tokenizer = AutoTokenizer.from_pretrained("dicta-il/dictabert")
-model = AutoModelForSequenceClassification.from_pretrained("dicta-il/dictabert")
+model = AutoModelForMaskedLM.from_pretrained("dicta-il/dictabert")
 ```
+`dicta-il/dictabert` is a masked-LM base with NO classification head. Do not load it with `AutoModelForSequenceClassification` and run inference, that instantiates a randomly-initialised head and returns meaningless predictions. For classification, either fine-tune it on labeled data first, or use a ready task-specific model such as `dicta-il/dictabert-sentiment` (sentiment) or `dicta-il/dictabert-ner` (NER).
 
 **DictaLM 3.0 (generation, 12B instruct):**
 ```python
