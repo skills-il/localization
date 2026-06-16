@@ -13,7 +13,8 @@ A tax invoice must include the following fields to be legally valid:
 | Invoice number | מספר חשבונית | Yes | Sequential, unique |
 | Date of issue | תאריך הנפקה | Yes | DD/MM/YYYY format |
 | Customer name | שם הלקוח | Yes | Individual or company |
-| Customer ID | ת.ז. / ח.פ. | Yes* | Required for invoices over 5,000 NIS |
+| Customer ID | ת.ז. / ח.פ. | Yes | Customer name and TZ/company number, per current ITA invoicing rules |
+| Allocation number | מספר הקצאה | Yes, at/above threshold | Israel Invoices model: required on a tax invoice at/above the threshold (20,000 NIS in 2025, 10,000 NIS from Jan 2026, 5,000 NIS from 1 June 2026, pre-VAT). Without it the buyer cannot deduct input VAT. Verify the current threshold. |
 | Item description | תיאור הפריט | Yes | Clear description of goods/services |
 | Quantity | כמות | Yes | Numeric |
 | Unit price | מחיר ליחידה | Yes | Before VAT |

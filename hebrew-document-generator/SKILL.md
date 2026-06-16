@@ -90,7 +90,7 @@ Key points for reportlab Hebrew:
 - Use `drawRightString()` for right-aligned RTL text
 - Register TTF Hebrew fonts explicitly -- reportlab has no built-in Hebrew support
 - Set line height to at least 1.5x font size for Hebrew readability
-- **python-bidi import:** since python-bidi 0.5.0 the canonical import is `from bidi import get_display` (the old `from bidi.algorithm import get_display` path was removed). Current python-bidi is 0.6.x, which restored a parallel algorithm module but kept the top-level import as the recommended one. python-bidi 0.6.x also dropped support for Python below 3.9.
+- **python-bidi import:** the canonical, recommended import is `from bidi import get_display` (top-level). The older `from bidi.algorithm import get_display` path still imports in current 0.6.x as a back-compat parallel module, but prefer the top-level one. python-bidi 0.6.x also dropped support for Python below 3.9.
 - **Multi-line text:** `drawRightString()` draws a single line and does NOT wrap. For any body text longer than one line, use reportlab's `Paragraph` flowable (from `reportlab.platypus`) with a right-aligned, RTL `ParagraphStyle` instead. The bundled `scripts/generate_doc.py` uses per-line `drawRightString` for compact fixed-layout documents (invoices, receipts); it will clip long Hebrew strings. Reach for `Paragraph` / platypus flowables for contracts or any wrapping body copy.
 
 ### Mixed Hebrew / Latin / Digit Lines
@@ -260,6 +260,7 @@ See `references/templates.md` for complete field specifications per document typ
 - Customer name and TZ/company number
 - Line items with description, quantity, unit price
 - Subtotal, VAT at 18%, and total in NIS
+- **Allocation number (Mispar Haktzaa / מספר הקצאה) under the Israel Invoices model** for a tax invoice at or above the current threshold. The threshold is being phased down (20,000 NIS in 2025, 10,000 NIS from Jan 2026, **5,000 NIS from 1 June 2026**, pre-VAT). At/above the threshold the BUYER cannot deduct the input VAT unless the seller obtained a Tax Authority allocation number and printed it on the invoice. Add an allocation-number field to any invoice template and treat the threshold as time-sensitive (verify the current figure against Rashut HaMisim).
 
 ## Examples
 
@@ -296,7 +297,7 @@ Result: Read CSV data, iterate rows, use `scripts/generate_doc.py` to produce in
 | WeasyPrint documentation | https://doc.courtbouillon.org/weasyprint/stable/ | HTML/CSS to PDF, RTL support, @font-face |
 | python-docx documentation | https://python-docx.readthedocs.io/ | Document model, runs, paragraph properties |
 | python-bidi (PyPI) | https://pypi.org/project/python-bidi/ | Current version, import path, changelog |
-| Israeli tax invoice requirements | https://he.wikipedia.org/wiki/%D7%97%D7%A9%D7%91%D7%95%D7%A0%D7%99%D7%AA_%D7%9E%D7%A1 | Mandatory fields for a Heshbonit Mas; cross-check against current Israel Tax Authority rules |
+| Israeli tax invoice requirements | https://he.wikipedia.org/wiki/חשבונית_מס | Mandatory fields for a Heshbonit Mas; cross-check against current Israel Tax Authority rules |
 
 For binding legal requirements always confirm against the current Israel Tax Authority (Rashut HaMisim) guidance, the Wikipedia entry is a starting orientation, not the authority.
 
