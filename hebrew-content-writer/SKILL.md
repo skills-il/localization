@@ -196,7 +196,7 @@ Result: Identify gendered forms, apply Option C rewording where possible, use sl
 | Milog online dictionary | https://milog.co.il | Modern Hebrew usage, register, common phrasing |
 | Ravmilim online dictionary | https://www.ravmilim.co.il | Synonyms, collocations, grammatical info |
 | Kotar HaKeshet | https://hebrew-academy.org.il/topic/hahlatot/ | Academy decisions on grammar and terminology |
-| Hebrew style guide (Wikipedia) | https://he.wikipedia.org/wiki/ויקיפדיה:מדריך_הסגנון | Community-maintained modern Hebrew style conventions |
+| Hebrew style guide (Wikipedia) | https://he.wikipedia.org/wiki/ויקיפדיה:לשון | Community-maintained modern Hebrew language and style conventions |
 
 ## Troubleshooting
 

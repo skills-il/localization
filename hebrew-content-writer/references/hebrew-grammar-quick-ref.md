@@ -46,8 +46,8 @@ Ktiv Maleh (full spelling) adds vav and yod to indicate vowels. Always use Ktiv 
 | תכנה | תוכנה | software (tochnah) |
 | שרות | שירות | service (sherut) |
 | קדם | קודם | before (kodem) |
-| חדש | חידוש | innovation (chidush) |
-| ברור | בירור | clarification (berur) |
+| תכנית | תוכנית | plan / program (tochnit) |
+| פרוט | פירוט | itemization (perut) |
 
 ## Common Smichut (Construct State) Forms
 

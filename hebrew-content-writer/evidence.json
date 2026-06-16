@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-content-writer",
+  "generated_at": "2026-06-17T00:15:00Z",
+  "claims": [
+    {
+      "claim_id": "reference-sources",
+      "claim": "Authoritative Hebrew-language references used by the skill: Academy of the Hebrew Language decisions, the Milog and Rav-Milim dictionaries, and the Hebrew Wikipedia language/style guide",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/",
+      "raw_snippet": "Reference sources: https://hebrew-academy.org.il https://hebrew-academy.org.il/topic/hahlatot/ https://milog.co.il https://www.ravmilim.co.il https://he.wikipedia.org/wiki/ויקיפדיה:לשון",
+      "fetched_at": "2026-06-17T00:10:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/hebrew-grammar-quick-ref.md"]
+    },
+    {
+      "claim_id": "hebrew-grammar-rules",
+      "claim": "Hebrew grammar reference: number-gender agreement, smichut (construct state), and ktiv maleh spelling conventions per the Academy of the Hebrew Language. Ktiv maleh adds vav/yod (e.g. תכנה->תוכנה, שרות->שירות, קדם->קודם, תכנית->תוכנית, פרוט->פירוט). Includes a numbered rule reference (Section 5 / סעיף 5)",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/",
+      "raw_snippet": "כתיב מלא לפי האקדמיה ללשון העברית; תכנה תוכנה, שרות שירות, קדם קודם, תכנית תוכנית, פרוט פירוט; סעיף 5; Section 5",
+      "fetched_at": "2026-06-17T00:10:00Z",
+      "appears_in": ["references/hebrew-grammar-quick-ref.md"]
+    }
+  ]
+}
