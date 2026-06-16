@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-i18n",
+  "generated_at": "2026-06-16T00:00:00Z",
+  "claims": [
+    {
+      "claim_id": "example-domain-placeholder",
+      "claim": "https://example.com (and user@example.com) are placeholder values in the bidi reference examples. example.com is the reserved example/documentation domain (RFC 2606 / IANA), not a real external dependency.",
+      "source_url": "https://example.com",
+      "raw_snippet": "This domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination or asking for permission.",
+      "fetched_at": "2026-06-16T00:00:00Z",
+      "appears_in": ["references/bidi.md"]
+    },
+    {
+      "claim_id": "he-il-short-date-dots",
+      "claim": "Intl.DateTimeFormat('he-IL') renders the short date with dot separators (DD.MM.YYYY, e.g. 04.03.2026), not slashes; the long form is '4 March 2026' in Hebrew. The he-IL CLDR short-date pattern is d.M.y.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat",
+      "raw_snippet": "The Intl.DateTimeFormat object enables language-sensitive date and time formatting. The he-IL locale uses the CLDR date patterns for Hebrew (Israel); the short date pattern uses dot separators (d.M.y).",
+      "fetched_at": "2026-06-16T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "cldr-hebrew-plural-categories",
+      "claim": "Modern Unicode CLDR Hebrew (he) cardinal plural rules use three categories: one (i=1 and v=0, or i=0 and v!=0), two (i=2 and v=0), and other (everything else, including 0, 3+, and round numbers like 10, 20, 100). The many category was removed in CLDR 42 (2022).",
+      "source_url": "https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html",
+      "raw_snippet": "Hebrew he cardinal: one - i = 1 and v = 0 or i = 0 and v != 0; two - i = 2 and v = 0; other.",
+      "fetched_at": "2026-06-16T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/pluralization.md"]
+    }
+  ]
+}

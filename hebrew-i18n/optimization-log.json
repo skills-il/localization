@@ -1,0 +1,15 @@
+{
+  "cycles": [
+    {
+      "version": "1.2.2",
+      "date": "2026-06-16",
+      "lessons": [
+        "Resolved this cycle: the skill claimed Intl.DateTimeFormat('he-IL') short date outputs slash-separated DD/MM/YYYY; it actually emits DOT separators (DD.MM.YYYY, e.g. 04.03.2026, CLDR pattern d.M.y). Fixed the body, the code comment, and the Example 2 result lines in EN+HE. The Troubleshooting heading keeps DD/MM/YYYY because it describes day-before-month ORDER vs American MM/DD, not the separator.",
+        "Verified-and-kept (do NOT regress): Hebrew CLDR plural rules use ONLY one/two/other. The 'many' category was removed in CLDR 42 (2022); adding a 'many' branch would be dead code on any modern ICU/CLDR runtime (20/100/1000 resolve to 'other'). Added an explicit note so a future maintainer does not re-introduce it.",
+        "Resolved this cycle: labeled the Tailwind RTL utilities as v3.3+ AND v4 (logical utilities, rtl:/ltr: variants, and the space-x non-reversal caveat all still hold in v4).",
+        "Expert MINOR deferred: the next-intl setup omits the i18n/request.ts (getRequestConfig) file that actually feeds getMessages(); a one-line pointer would make the next-intl path runnable end to end. Next cycle: add it.",
+        "Expert MINOR deferred: references/bidi.md line ~120 has an unescaped double-quote inside a double-quoted example string; cosmetic, illustrative test data, not runnable. Next cycle: escape or reword."
+      ]
+    }
+  ]
+}

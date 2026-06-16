@@ -95,6 +95,8 @@ Hebrew has three plural categories that i18n frameworks must handle:
 | two (dual) | זוגי | 2 | שני פריטים (two items) -- uses special dual form |
 | other (plural) | רבים | 0, 3+ | 5 פריטים (5 items) |
 
+Note: an older `many` category (for round numbers like 20 or 100) was removed from Unicode CLDR in version 42 (2022). Modern Hebrew plural rules use only `one`, `two`, and `other`, and round numbers resolve to `other`. Do not add a `many` branch; it would be dead code on any current ICU/CLDR runtime.
+
 See `references/pluralization.md` for complete rules and edge cases.
 
 **ICU MessageFormat pattern:**
@@ -118,7 +120,7 @@ See `references/pluralization.md` for complete rules and edge cases.
 
 ### Step 3: Date and Time Formatting
 
-**Israeli date format:** DD/MM/YYYY (not MM/DD/YYYY)
+**Israeli date format:** day before month, never MM/DD/YYYY. Note that `Intl.DateTimeFormat('he-IL')` renders the short date with dot separators (DD.MM.YYYY), e.g. `04.03.2026`; if you specifically need slashes, format the parts manually.
 
 ```javascript
 // Using Intl.DateTimeFormat
@@ -135,7 +137,7 @@ const shortFormatter = new Intl.DateTimeFormat('he-IL', {
   month: '2-digit',
   day: '2-digit',
 });
-// Output: "04/03/2026" (DD/MM/YYYY)
+// Output: "04.03.2026" (he-IL uses dot separators, DD.MM.YYYY, not slashes)
 ```
 
 **Hebrew day and month names:**
@@ -205,7 +207,7 @@ html[lang="he"] {
 }
 ```
 
-**Tailwind CSS RTL (v3.3+):**
+**Tailwind CSS RTL (v3.3+, including v4):**
 
 Tailwind provides logical property utilities and RTL variants:
 
@@ -324,7 +326,7 @@ Result: Set up react-i18next with Hebrew locale, create he.json message file, co
 
 ### Example 2: Format Israeli Dates and Currency
 User says: "How do I format dates and prices for Israeli users?"
-Result: Use Intl.DateTimeFormat with he-IL locale for DD/MM/YYYY dates, Intl.NumberFormat with ILS currency for shekel formatting, and ensure numbers display correctly in RTL context.
+Result: Use Intl.DateTimeFormat with he-IL locale for Israeli-format dates (day before month; the short form renders dot-separated, DD.MM.YYYY), Intl.NumberFormat with ILS currency for shekel formatting, and ensure numbers display correctly in RTL context.
 
 ### Example 3: Fix Bidirectional Text Issues
 User says: "Phone numbers and English text look wrong in my Hebrew UI"
