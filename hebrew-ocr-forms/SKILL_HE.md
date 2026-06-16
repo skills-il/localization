@@ -138,11 +138,11 @@ def normalize_sofit(text):
 |------|-----------|-------|-----------|-------------|
 | Tesseract (heb+eng, LSTM) | טוב לסריקות נקיות ב-300 DPI+ | חלש | חינם, ריצה מקומית | ברירת מחדל לצינורות מקומיים, לנתונים רגישים לפרטיות |
 | Google Cloud Vision – Document Text Detection | טוב מאוד, עמיד לרעש | חלקי (כתב יד דמוי דפוס בלבד) | תשלום לפי בקשה | סריקות באיכות מעורבת, אצווה גדולה, טפסי PDF |
-| AWS Textract (AnalyzeDocument) | טוב; חזק יותר בטפסים וטבלאות | חלקי | תשלום לפי עמוד | טפסים עם שדות מובנים, חילוץ מפתח-ערך |
-| Azure AI Vision – Read API | טוב מאוד, מודע לפריסה | חלקי | תשלום לפי טרנזקציה | סביבות Azure ארגוניות, PDF חתום |
-| Claude Vision (claude-sonnet-4-6 / claude-opus-4-7) | טוב מאוד, מודע להקשר | טוב (עם הנחיה בפרומפט) | לפי טוקנים | פריסות טפסים חריגות, אימות צולב של שדות, כשרוצים שהמודל גם ינתח את הנתונים |
+| AWS Textract (AnalyzeDocument) | לא נתמך (שפות בכתב לטיני בלבד: EN/ES/DE/IT/FR/PT) | לא לעברית | תשלום לפי עמוד | אל תשתמשו בו לטפסים בעברית; חילוץ הטקסט/הטפסים מחזיר ג'יבריש על עברית |
+| Azure AI Vision – Read API | לא ברשימת השפות הרשמית ל-OCR דפוס; בדקו על המסמכים שלכם (דיווחים על ג'יבריש בעברית) | לא אמין לעברית | תשלום לפי טרנזקציה | בדקו לפני הסתמכות לעברית; חזק ללטינית ול-PDF ארגוני |
+| Claude Vision (claude-sonnet-4-6 / claude-opus-4-8) | טוב מאוד, מודע להקשר | טוב (עם הנחיה בפרומפט) | לפי טוקנים | פריסות טפסים חריגות, אימות צולב של שדות, כשרוצים שהמודל גם ינתח את הנתונים |
 
-הערה: אף אחד מהמנועים אינו אמין לכתב יד קורסיבי על טפסים כמו נסחי טאבו ישנים. לאלה תסמנו לבדיקה ידנית במקום לנסות חילוץ אוטומטי.
+הערה: אף אחד מהמנועים אינו אמין לכתב יד קורסיבי על טפסים כמו נסחי טאבו ישנים. לאלה תסמנו לבדיקה ידנית במקום לנסות חילוץ אוטומטי. כשקוראים ל-Google Cloud Vision לעברית, העבירו `languageHints: ['iw']` (Vision משתמש בקוד ה-ISO הישן `iw` לעברית, לא `he`); Tesseract משתמש ב-`heb`. AWS Textract ו-Azure Read אינם אמינים לעברית, העדיפו Tesseract (`heb`), Google Cloud Vision (`iw`), או Claude Vision.
 
 ## מלכודות נפוצות
 - דיוק OCR בעברית יורד משמעותית בטקסט בכתב יד, במיוחד באותיות ו', ז' ו-י' שנראות דומות. תמיד תכללו ציוני ביטחון ותסמנו תווים עם ביטחון נמוך.
@@ -160,7 +160,7 @@ def normalize_sofit(text):
 | נתוני אימון עברית ל-Tesseract | https://github.com/tesseract-ocr/tessdata | מודל עברית ל-tesseract |
 | Google Cloud Vision – Documents | https://cloud.google.com/vision/docs/fulltext-annotations | תיעוד API לזיהוי טקסט במסמכים |
 | AWS Textract – AnalyzeDocument | https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html | חילוץ טפסים וטבלאות |
-| Azure AI Vision – Read API | https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-ocr | OCR רב-שפתי כולל עברית |
+| Azure AI Vision – Read API | https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support | OCR רב-שפתי; בדקו את רשימת השפות הנתמכות (עברית אינה ברשימת ה-OCR הרשמית לדפוס, ודאו לפני הסתמכות) |
 | מפרט ספרת ביקורת של ת.ז. | https://he.wikipedia.org/wiki/מספר_זהות_(ישראל) | אלגוריתם לאימות מספר זהות ישראלי בן 9 ספרות |
 
 ## פתרון בעיות

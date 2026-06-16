@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-ocr-forms",
+  "generated_at": "2026-06-17T01:20:00Z",
+  "claims": [
+    {
+      "claim_id": "ocr-engine-hebrew-support",
+      "claim": "OCR engines for Hebrew: Tesseract (heb traineddata, LSTM, good for 300 DPI+ clean print); Google Cloud Vision Document Text Detection (good, Hebrew via languageHints 'iw' legacy code, not 'he'); AWS Textract does NOT support Hebrew (Latin-script languages only: EN/ES/DE/IT/FR/PT); Azure AI Vision Read Hebrew not in the official printed-OCR list (verify); Claude Vision (claude-sonnet-4-6 / claude-opus-4-8) good with prompt guidance",
+      "source_url": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support",
+      "raw_snippet": "Tesseract heb LSTM 300 DPI; Google Cloud Vision languageHints iw not he; AWS Textract Latin-script only EN ES DE IT FR PT no Hebrew; Azure Read Hebrew not in printed-OCR list; Claude Vision claude-sonnet-4-6 claude-opus-4-8",
+      "fetched_at": "2026-06-17T01:15:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md"
+      ]
+    },
+    {
+      "claim_id": "israeli-forms-and-id",
+      "claim": "Israeli forms recognized include Tofes 106 (annual salary summary), Tofes 857, Tofes 100; the Israeli ID (teudat zehut) check digit uses the standard Luhn-style alternating x1/x2 algorithm on a left-zero-padded 9-digit number",
+      "source_url": "https://he.wikipedia.org/wiki/מספר_זהות_(ישראל)",
+      "raw_snippet": "טופס 106 טופס 857 טופס 100; מספר זהות ספרת ביקורת אלגוריתם לון; Israeli ID check digit Luhn",
+      "fetched_at": "2026-06-17T01:15:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "preprocessing-and-language-codes",
+      "claim": "Hebrew OCR preprocessing: nikud Unicode range U+0591-U+05C7, sofit normalization, bidi Cf-category stripping; Tesseract language code 'heb', Google Cloud Vision languageHints 'iw' for Hebrew",
+      "source_url": "https://tesseract-ocr.github.io/tessdoc/",
+      "raw_snippet": "nikud U+0591-U+05C7; sofit; Cf strip; Tesseract heb; Google Cloud Vision iw",
+      "fetched_at": "2026-06-17T01:15:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/preprocess_image.py"
+      ]
+    },
+    {
+      "claim_id": "reference-urls",
+      "claim": "Reference URLs cited by the skill",
+      "source_url": "https://tesseract-ocr.github.io/tessdoc/",
+      "raw_snippet": "URLs: https://cloud.google.com/vision/docs/fulltext-annotations https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html https://github.com/tesseract-ocr/tessdata https://he.wikipedia.org/wiki/מספר_זהות_(ישראל) https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support https://tesseract-ocr.github.io/tessdoc/",
+      "fetched_at": "2026-06-17T01:15:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "illustrative-currency-tokens",
+      "claim": "Illustrative currency example used to show extracted-field formatting (not a live amount)",
+      "source_url": "internal-illustrative-example",
+      "raw_snippet": "Illustrative extracted amount example: ₪1,234.56; field formatted as amount, NIS",
+      "fetched_at": "2026-06-17T01:15:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/extract_form_fields.py"
+      ]
+    }
+  ]
+}

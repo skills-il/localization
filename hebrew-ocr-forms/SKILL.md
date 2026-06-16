@@ -146,11 +146,11 @@ Tesseract is a strong free baseline for Hebrew print, but modern cloud vision AP
 |--------|--------------|-------------|------------|-------------|
 | Tesseract (heb+eng, LSTM) | Good for clean scans at 300 DPI+ | Weak | Free, self-hosted | Default for batch local pipelines, privacy-sensitive data |
 | Google Cloud Vision – Document Text Detection | Very good, robust to noise | Partial (printed-looking handwriting only) | Per-request | Mixed-quality scans, large batches, PDF forms |
-| AWS Textract (AnalyzeDocument) | Good; stronger on forms/tables | Partial | Per-page | Forms with structured fields, key-value extraction |
-| Azure AI Vision – Read API | Very good, layout-aware | Partial | Per-transaction | Enterprise Azure environments, signed PDFs |
-| Claude Vision (claude-sonnet-4-6 / claude-opus-4-7) | Very good, context-aware | Good (with prompt guidance) | Token-based | Unusual form layouts, cross-field validation, when you want the model to also reason about the data |
+| AWS Textract (AnalyzeDocument) | NOT supported (Latin-script languages only: EN/ES/DE/IT/FR/PT) | Not for Hebrew | Per-page | Do NOT use for Hebrew forms; its text/forms extraction returns garbage on Hebrew |
+| Azure AI Vision – Read API | Not in the officially-listed printed-OCR set; verify on your own documents (community reports of gibberish on Hebrew) | Not reliable for Hebrew | Per-transaction | Test before relying on it for Hebrew; strong for Latin/enterprise PDFs |
+| Claude Vision (claude-sonnet-4-6 / claude-opus-4-8) | Very good, context-aware | Good (with prompt guidance) | Token-based | Unusual form layouts, cross-field validation, when you want the model to also reason about the data |
 
-Notes: none of these engines is reliable for cursive handwritten Hebrew on forms like old Tabu extracts. For those, flag for human review instead of auto-extraction.
+Notes: none of these engines is reliable for cursive handwritten Hebrew on forms like old Tabu extracts. For those, flag for human review instead of auto-extraction. When you do call Google Cloud Vision for Hebrew, pass `languageHints: ['iw']` (Vision uses the legacy ISO code `iw` for Hebrew, not `he`); Tesseract uses `heb`. AWS Textract and Azure Read are not dependable for Hebrew, prefer Tesseract (`heb`), Google Cloud Vision (`iw`), or Claude Vision.
 
 ## Gotchas
 - Hebrew OCR accuracy drops significantly for handwritten text, especially for the letters vav, zayin, and yod which look similar. Always include confidence scores and flag low-confidence characters.
@@ -168,7 +168,7 @@ Notes: none of these engines is reliable for cursive handwritten Hebrew on forms
 | Tesseract Hebrew traineddata | https://github.com/tesseract-ocr/tessdata | Hebrew model for tesseract |
 | Google Cloud Vision – Documents | https://cloud.google.com/vision/docs/fulltext-annotations | Document Text Detection API reference |
 | AWS Textract – AnalyzeDocument | https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html | Forms and tables extraction |
-| Azure AI Vision – Read API | https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-ocr | Multi-language OCR including Hebrew |
+| Azure AI Vision – Read API | https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support | Multi-language OCR; check the language-support list (Hebrew is not in the official printed-OCR set, verify before relying on it) |
 | Israeli ID check-digit spec | https://he.wikipedia.org/wiki/מספר_זהות_(ישראל) | Algorithm for validating a 9-digit Israeli ID |
 
 ## Troubleshooting
