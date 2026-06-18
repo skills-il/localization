@@ -1,0 +1,26 @@
+{
+  "cycles": [
+    {
+      "version": "1.3.0",
+      "date": "2026-06-18",
+      "holdout_before": 1.0,
+      "holdout_after": 1.0,
+      "buckets": {
+        "improved": [],
+        "regressed": [],
+        "persistent_fail": [],
+        "stable_success": [
+          "create a Hebrew Word document for this contract",
+          "I need a .docx in Hebrew that mixes Hebrew and English without breaking",
+          "create a Word document summarizing Q3 sales (English only, should NOT trigger)"
+        ]
+      },
+      "lessons": [
+        "DOCX root cause was never a missing <w:rtl/> (it was already emitted); the real defects were (a) the whole mixed line in one rtl-flagged run incl. Latin, and (b) no complex-script w:cs font / w:szCs size. Verified empirically by building the doc and inspecting word/document.xml.",
+        "Complex-script rule generalizes: bold/italic on Hebrew need w:bCs/w:iCs, not just w:b/w:i. Added bold+italic params.",
+        "Description broadened to win selection over the generic /mnt/skills/public/docx skill; kept the 'prefer' clause conditional on a Hebrew/RTL signal to avoid mis-routing English-only docx requests.",
+        "Coverage deferred (non-blocking MINOR): helper covers body paragraphs only; tables, headers/footers, numbered lists, and sectPr RTL flow are documented as a note but not implemented as helpers. Revisit if a user reports broken Hebrew tables."
+      ]
+    }
+  ]
+}

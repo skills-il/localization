@@ -8,7 +8,7 @@
 |--------|---------|----------|-------------|
 | PDF | reportlab | חשבוניות, מסמכי מס, טפסים להדפסה | רושמים גופן עברי, משתמשים ב-`canvas.drawRightString()` |
 | PDF | WeasyPrint | מסמכים מעוצבים מ-HTML/CSS | מובנה דרך `dir="rtl"` ב-HTML |
-| DOCX | python-docx | חוזים, הצעות מחיר, פרוטוקולים | מגדירים `bidi` בפסקה ותכונות RTL |
+| DOCX | python-docx | חוזים, הצעות מחיר, פרוטוקולים | מגדירים `bidi` בפסקה; מפצלים runs מעורבים, מגדירים גופן `w:cs` ו-`w:rtl` רק על ה-runs העבריים |
 | PPTX | pptxgenjs (Node) | מצגות, שקפים | תיבות טקסט RTL עם `rtlMode: true` |
 
 ### שלב 2: התקינו תלויות וגופנים עבריים
@@ -151,45 +151,104 @@ HTML(string=html_content).write_pdf('invoice.pdf')
 
 ### שלב 5: DOCX בעברית עם python-docx
 
+ב-DOCX טקסט מעורב עברית/אנגלית נשבר הכי הרבה. Word מריץ את אלגוריתם ה-bidi בעצמו בזמן הרינדור, אז הסוד הוא לפלוט את דגלי ה-XML הנכונים, ולא לסדר את התווים בעצמכם. שלושה דברים חייבים להתקיים יחד:
+
+1. כל פסקה עברית נושאת `<w:bidi/>` (כיוון בסיס RTL). זה מה ששומר על סדר השורה מימין לשמאל ומאפשר ל-Word למקם נכון אנגלית ומספרים מוטבעים.
+2. שורה שמערבת שפות מפוצלת ל-runs לפי סקריפט כדי שנוכל לסמן `<w:rtl/>` רק על ה-runs העבריים ולהשאיר את הלטיניים LTR. ה-`<w:bidi/>` של הפסקה הוא מה שמסדר את השורה; הפיצול קיים כדי להימנע מהבאג עצמו (סימון run לטיני כ-`<w:rtl/>`, שכופה RTL על האנגלית וגורם לה לקפוץ לצד) וכדי לחבר את עיצוב הסקריפט המורכב במקום הנכון.
+3. כל run מגדיר את גופן הסקריפט המורכב (`w:cs`) ואת הגודל (`w:szCs`). עברית היא "סקריפט מורכב" במודל של Word, אז `w:ascii`/`w:sz` לבדם לעולם לא חלים על התווים העבריים. השמטת `w:cs`/`w:szCs` היא הסיבה הנפוצה ביותר ל"הגופן והגודל שהגדרתי לא עשו כלום והעברית נראית שבורה". אותו כלל חל על **מודגש ונטוי**: `w:b`/`w:i` משפיעים רק על לטינית, צריך גם `w:bCs`/`w:iCs` אחרת העברית המודגשת מרונדרת בלי הדגשה.
+
 ```python
+import re
 from docx import Document
-from docx.shared import Pt, Inches
+from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 
-def set_paragraph_rtl(paragraph):
-    """מגדיר כיוון פסקה ל-RTL עבור טקסט עברי."""
-    pPr = paragraph._p.get_or_add_pPr()
-    bidi = pPr.makeelement(qn('w:bidi'), {})
-    pPr.append(bidi)
-    paragraph.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+# בלוק עברי + צורות הצגה עבריות. משמש לבחירת כיוון של כל run.
+_HEB = re.compile(r'[֐-׿יִ-ﭏ]')
 
-def set_run_rtl(run):
-    """מגדיר כיוון run ל-RTL."""
-    rPr = run._r.get_or_add_rPr()
-    rtl = rPr.makeelement(qn('w:rtl'), {})
-    rPr.append(rtl)
+def _strong(ch):
+    """True לאות עברית, False לאות חזקה מסוג LTR, None לתו ניטרלי."""
+    if _HEB.match(ch):
+        return True
+    if ch.isalpha():
+        return False
+    return None
+
+def _split_by_script(text):
+    """מפצל מחרוזת מעורבת ל-runs בצורת (segment, is_rtl).
+
+    כיוון כל run נקבע לפי התווים החזקים שבו; תווים ניטרליים (רווחים, ספרות,
+    פיסוק) נצמדים ל-run הנוכחי. ניטרלים בתחילת המחרוזת יורשים את כיוון התו
+    החזק הראשון בכל המחרוזת (ברירת מחדל RTL למחרוזת ניטרלית לגמרי במסמך עברי),
+    כך ששורה לטינית בעיקרה שמתחילה בספרה או בסוגר לא מסומנת בטעות RTL. אלגוריתם
+    ה-bidi של Word מתקן את הסדר החזותי הסופי, אז הפיצול רק צריך להכניס את
+    התווים החזקים ל-runs עם הדגל הנכון.
+    """
+    default_rtl = next((s for s in (_strong(c) for c in text) if s is not None), True)
+    segments, buf, buf_rtl = [], '', None
+    for ch in text:
+        s = _strong(ch)
+        kind = s if s is not None else (buf_rtl if buf_rtl is not None else default_rtl)
+        if buf_rtl is None or kind == buf_rtl:
+            buf, buf_rtl = buf + ch, kind
+        else:
+            segments.append((buf, buf_rtl))
+            buf, buf_rtl = ch, kind
+    if buf:
+        segments.append((buf, buf_rtl))
+    return segments
+
+def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False,
+                      heading_level=None):
+    """מוסיף פסקת RTL שמרנדרת נכון טקסט מעורב עברית/לטינית/ספרות.
+
+    מכסה פסקאות גוף בלבד. תאי טבלה, כותרות עליונות/תחתונות ורשימות ממוספרות הם
+    "סיפורים" נפרדים במסמך: החילו את אותה לוגיקה על כל אחת מהפסקאות שלהם, והוסיפו
+    `<w:bidi/>` ל-`sectPr` של המקטע עבור עמוד RTL מלא.
+    """
+    p = doc.add_heading(level=heading_level) if heading_level else doc.add_paragraph()
+
+    # (1) כיוון בסיס של הפסקה = RTL
+    pPr = p._p.get_or_add_pPr()
+    pPr.append(pPr.makeelement(qn('w:bidi'), {}))
+    p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+
+    for segment, is_rtl in _split_by_script(text):
+        run = p.add_run(segment)
+        rPr = run._r.get_or_add_rPr()
+        # ילדי rPr חייבים להישאר בסדר הסכמה של OOXML: rFonts, b, bCs, i, iCs, sz, szCs, rtl
+        rPr.append(rPr.makeelement(qn('w:rFonts'), {
+            qn('w:ascii'): font, qn('w:hAnsi'): font, qn('w:cs'): font}))
+        if bold:
+            # הדגשה דורשת גם w:b (לטינית) וגם w:bCs (סקריפט מורכב / עברית)
+            rPr.append(rPr.makeelement(qn('w:b'), {}))
+            rPr.append(rPr.makeelement(qn('w:bCs'), {}))
+        if italic:
+            # נטוי דורש באותו אופן גם w:i וגם w:iCs עבור עברית
+            rPr.append(rPr.makeelement(qn('w:i'), {}))
+            rPr.append(rPr.makeelement(qn('w:iCs'), {}))
+        # (3) גודל סקריפט מורכב, כדי שהגודל יחול על העברית
+        rPr.append(rPr.makeelement(qn('w:sz'),   {qn('w:val'): str(size * 2)}))
+        rPr.append(rPr.makeelement(qn('w:szCs'), {qn('w:val'): str(size * 2)}))
+        # (2) מסמנים rtl רק על ה-runs העבריים; הלטיניים נשארים LTR
+        if is_rtl:
+            rPr.append(rPr.makeelement(qn('w:rtl'), {}))
+    return p
 
 doc = Document()
-style = doc.styles['Normal']
-font = style.font
-font.name = 'David'
-font.size = Pt(12)
+doc.styles['Normal'].font.name = 'David'
+doc.styles['Normal'].font.size = Pt(12)
 
-heading = doc.add_heading(level=1)
-run = heading.add_run('חוזה שירותים')
-set_run_rtl(run)
-set_paragraph_rtl(heading)
-
-para = doc.add_paragraph()
-run = para.add_run('הסכם זה נערך ונחתם ביום...')
-run.font.name = 'David'
-run.font.size = Pt(12)
-set_run_rtl(run)
-set_paragraph_rtl(para)
+add_rtl_paragraph(doc, 'חוזה שירותים', size=18, bold=True, heading_level=1)
+add_rtl_paragraph(doc, 'ההסכם נחתם בין חברת Acme בע"מ לבין הלקוח (גרסה 2).')
 
 doc.save('contract.docx')
 ```
+
+**אל תקראו ל-`get_display()` על טקסט של DOCX.** בניגוד ל-reportlab (שמצייר גליפים במיקום קבוע ולכן זקוק ל-python-bidi כדי לסדר אותם), Word מפעיל את אלגוריתם ה-bidi בעצמו. עיבוד מקדים של מחרוזת עם `get_display()` והעברתה ל-python-docx מפעילים את האלגוריתם פעמיים ומשבשים את התוצאה. `get_display()` שייך לנתיב ה-PDF בלבד.
+
+העוזר הזה מכסה פסקאות גוף. **טבלאות, כותרות עליונות/תחתונות ורשימות ממוספרות/תבליטים** הם "סיפורים" נפרדים במסמך שהעוזר לא מגיע אליהם: החילו את אותה לוגיקה של `<w:bidi/>` + פיצול runs לפי סקריפט על כל אחת מהפסקאות שלהם, והוסיפו `<w:bidi/>` ל-`sectPr` של המקטע עבור זרימת עמוד RTL מלאה.
 
 ### שלב 6: PPTX בעברית עם pptxgenjs
 
@@ -259,7 +318,7 @@ pptx.writeFile({ fileName: 'quarterly-review.pptx' });
 
 ### דוגמה 2: חוזה DOCX בעברית
 המשתמש אומר: "נסח חוזה שירותים בעברית כמסמך Word"
-תוצאה: משתמשים ב-python-docx עם תמיכה בפסקה דו-כיוונית, גופן David, יישור RTL, סעיפים מובנים (צדדים, היקף, תנאי תשלום, ביטול, חתימות), וניסוח משפטי עברי תקני.
+תוצאה: משתמשים ב-python-docx עם העוזר `add_rtl_paragraph` (שלב 5): פסקאות `<w:bidi/>`, פיצול runs לפי סקריפט כך שאנגלית/מספרים מוטבעים נשארים במקומם, גופן `w:cs` וגודל `w:szCs`, גופן David, יישור RTL, סעיפים מובנים (צדדים, היקף, תנאי תשלום, ביטול, חתימות), וניסוח משפטי עברי תקני.
 
 ### דוגמה 3: מצגת בעברית
 המשתמש אומר: "הכן מצגת בעברית לסקירה הרבעונית שלנו"
@@ -297,6 +356,8 @@ pptx.writeFile({ fileName: 'quarterly-review.pptx' });
 ## מלכודות נפוצות
 - צריך להפעיל את `get_display()` שורה-שורה בזמן הציור, מיד לפני `drawRightString()`, ולא פעם אחת על מסמך או בלוק רב-שורתי שלם. האלגוריתם הדו-כיווני אינו אידמפוטנטי: הרצה שלו על טקסט שכבר סודר מחדש הופכת את התווים פעמיים ומפיקה פלט משובש. טעות נפוצה של סוכנים היא "לעבד מראש" רשימה שלמה של שורות דרך `get_display()` ואז לקרוא לו שוב בתוך לולאת הציור.
 - מחוללי PDF נוטים לכיוון טקסט LTR כברירת מחדל. מסמכים בעברית חייבים כיוון פסקה RTL, וטקסט מעורב עברית-אנגלית צריך תמיכה תקינה באלגוריתם BiDi.
+- ל-DOCX (python-docx) יש מלכודת הפוכה מ-PDF: אל תריצו `get_display()` על הטקסט, Word מפעיל את אלגוריתם ה-bidi בעצמו ועיבוד מקדים הופך אותו פעמיים. שני הכשלים שמפיקים קובץ Word עברי "שבור" הם (א) הכנסת שורה שלמה מעורבת עברית/אנגלית ל-run אחד המסומן `<w:rtl/>` (האנגלית קופצת לצד הלא נכון והפיסוק זז) ו-(ב) הגדרת `w:ascii`/`w:sz` בלבד בלי גופן הסקריפט המורכב `w:cs` / גודל `w:szCs` (הגופן והגודל פשוט לא חלים על העברית). מפצלים שורות מעורבות לפי סקריפט, מסמנים rtl רק על ה-runs העבריים, ומגדירים `w:cs` ו-`w:szCs` על כל run.
+- run בלי כיוון מפורש יורש את כיוון הבסיס של הפסקה. אחרי ש-`add_rtl_paragraph` מוסיף פסקה עברית, הוספת run נוסף בהמשך (למשל שורת חתימה) בלי להריץ שוב את הפיצול לפי סקריפט עלולה להשאיר את ה-run בלי סימון, הגדירו את כיוונו במפורש במקום להניח שהוא יורש נכון.
 - סוכנים עלולים לבחור גופנים בלי תמיכה בתווים עבריים (Arial עובד, אבל הרבה גופנים דקורטיביים לטיניים לא). תמיד תוודאו שהגופן כולל את טווח ה-Unicode העברי (U+0590-U+05FF).
 - פורמט התאריך בעברית הוא DD/MM/YYYY בהקשר חילוני, ותאריכים עבריים (ט"ו באדר תשפ"ו למשל) למסמכים דתיים/מסורתיים. סוכנים עלולים ללכת ל-MM/DD/YYYY כברירת מחדל.
 - מסמכים משפטיים בישראל דורשים עיצוב מסוים: לא משתמשים בניקוד בעברית עסקית/משפטית רגילה. סוכנים עלולים להוסיף ניקוד כי הם חושבים שזה משפר את הבהירות, אבל בפועל זה נראה לא מקצועי במסמכים רשמיים.
@@ -309,8 +370,12 @@ pptx.writeFile({ fileName: 'quarterly-review.pptx' });
 
 ### שגיאה: "הטקסט מוצג משמאל לימין במקום מימין לשמאל"
 סיבה: חסר סידור bidi או הגדרת כיוון RTL
-פתרון: ב-reportlab, תפעילו `get_display()` מ-python-bidi. ב-python-docx, תקראו ל-`set_paragraph_rtl()` ול-`set_run_rtl()`. ב-WeasyPrint, תוודאו `dir="rtl"` על אלמנט ה-HTML.
+פתרון: ב-reportlab, תפעילו `get_display()` מ-python-bidi. ב-python-docx, תבנו פסקאות עם העוזר `add_rtl_paragraph` משלב 5 (מגדיר `<w:bidi/>` על הפסקה ו-`<w:rtl/>` על ה-runs העבריים). ב-WeasyPrint, תוודאו `dir="rtl"` על אלמנט ה-HTML.
 
 ### שגיאה: "מספרים וסימני פיסוק במיקום שגוי"
 סיבה: אלגוריתם הטקסט הדו-כיווני לא מטפל נכון בתוכן מעורב עברית/מספרים
-פתרון: עוטפים רצפי מספרים בסימוני LTR. ב-reportlab, משתמשים ב-`get_display()` עם `base_dir='R'`. בכלים מבוססי HTML, תוודאו `unicode-bidi: isolate` על רכיבי span מוטבעים ב-LTR.
+פתרון: ב-reportlab, מעבירים את כל המחרוזת הלוגית דרך `get_display()` בקריאה אחת (ראו "שורות מעורבות עברית / לטינית / ספרות"). בכלים מבוססי HTML (WeasyPrint), תוודאו `unicode-bidi: isolate` על רכיבי span מוטבעים ב-LTR. ב-DOCX/python-docx עושים את ההפך מתיקון ה-PDF: לעולם לא קוראים ל-`get_display()` (Word מסדר בעצמו). מגדירים `<w:bidi/>` על הפסקה, מפצלים את השורה ל-runs לפי סקריפט, מסמנים rtl רק על ה-runs העבריים, ומגדירים גופן `w:cs` וגודל `w:szCs` על כל run (ראו `add_rtl_paragraph` בשלב 5).
+
+### שגיאה: "קובץ Word עברי מציג אנגלית בצד הלא נכון, או שהגופן/הגודל מתעלמים"
+סיבה: כל השורה המעורבת ב-run אחד המסומן `<w:rtl/>` (האנגלית קופצת), או שה-runs מגדירים רק `w:ascii`/`w:sz` ולא את `w:cs`/`w:szCs` של הסקריפט המורכב (העברית מתעלמת מהגופן/הגודל). בדיקת נוכחות פשוטה של `<w:rtl/>` עוברת גם על קובץ שעדיין מרונדר שבור, אז תבדקו את מבנה ה-runs ולא רק את הדגל.
+פתרון: השתמשו בעוזר `add_rtl_paragraph` משלב 5: פיצול runs לפי סקריפט, rtl רק על ה-runs העבריים, ו-`w:cs` + `w:szCs` על כל run.

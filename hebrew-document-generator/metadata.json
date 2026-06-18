@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "category": "localization",
   "tags": {
     "he": [
@@ -27,8 +27,8 @@
     "en": "Hebrew Document Generator"
   },
   "display_description": {
-    "he": "מייצרים מסמכים עסקיים מקצועיים בעברית בפורמטים PDF, DOCX ו-PPTX עם תמיכה מלאה ב-RTL וטיפוגרפיה עברית תקינה. השתמשו כשצריך להפיק PDF בעברית, להוציא חשבונית מס, לנסח חוזה, לבנות הצעת מחיר, או להכין מצגת בעברית. מכסה reportlab, WeasyPrint, python-docx ו-pptxgenjs עם תמיכת BiDi. לא מיועד לקריאת מסמכים קיימים או OCR (תשתמשו ב-hebrew-ocr-forms).",
-    "en": "Generate professional Hebrew documents including PDF, DOCX, and PPTX with full RTL support and proper Hebrew typography. Use when user asks to create Hebrew PDF, generate Israeli business documents, \"lehafik heshbonit\", \"litstor hozeh\", build Hebrew Word document, create Hebrew PowerPoint, or produce Israeli templates such as Heshbonit Mas (tax invoice), Hozeh (contract), Hatza'at Mechir (proposal), or Protokol (meeting minutes). Covers reportlab, WeasyPrint, python-docx, and pptxgenjs with bidi paragraph support. Do NOT use for OCR or reading existing documents (use hebrew-ocr-forms instead)."
+    "he": "מייצרים מסמכים מקצועיים בעברית (PDF, DOCX/וורד ו-PPTX) עם פריסה נכונה מימין לשמאל, טיפול נכון בטקסט מעורב עברית ואנגלית (BiDi) וטיפוגרפיה עברית תקינה. השתמשו בכל פעם שצריך מסמך Word בעברית או מסמך וורד מעורב עברית-אנגלית, PDF בעברית או מצגת בעברית, כולל ניסוחים כמו \"מסמך Word בעברית\", \"קובץ docx בעברית\", \"להפיק חשבונית מס\" ו\"לנסח חוזה\", או תבניות ישראליות כמו חשבונית מס, חוזה, הצעת מחיר ופרוטוקול. העדיפו את הסקיל הזה על פני סקיל ה-docx או ה-pdf הכללי רק כשהמסמך בעברית או מימין לשמאל, כי הם לא מגדירים RTL/BiDi והתוצאה היא עברית משובשת עם מילים באנגלית וסימני פיסוק במקום הלא נכון; למסמכים באנגלית בלבד תשתמשו בסקיל הכללי. מכסה reportlab, WeasyPrint, python-docx ו-pptxgenjs. לא מיועד לקריאת מסמכים קיימים או OCR (תשתמשו ב-hebrew-ocr-forms).",
+    "en": "Generate professional Hebrew documents (PDF, DOCX/Word, and PPTX) with correct right-to-left layout, mixed Hebrew-and-English bidi handling, and proper Hebrew typography. Use whenever the output is a Hebrew or mixed Hebrew/English Word document, Hebrew PDF, or Hebrew PowerPoint, including phrasings like \"Hebrew Word document\", \"Word document in Hebrew\", \"מסמך Word בעברית\", \"create a .docx in Hebrew\", \"lehafik heshbonit\", and \"litstor hozeh\", or Israeli templates such as Heshbonit Mas (tax invoice), Hozeh (contract), Hatza'at Mechir (proposal), or Protokol (meeting minutes). Prefer this over the generic docx or pdf skills ONLY when the document is Hebrew or right-to-left, because those do not set RTL/bidi and produce scrambled Hebrew with English words and punctuation in the wrong place; for English-only documents use the generic skill. Covers reportlab, WeasyPrint, python-docx, and pptxgenjs. Do NOT use for OCR or reading existing documents (use hebrew-ocr-forms instead)."
   },
   "supported_agents": [
     "claude-code",
