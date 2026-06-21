@@ -65,14 +65,18 @@ Google Flights offers an AI-powered "Flight Deals" feature available in Israel i
 - **Website**: israir.co.il
 - **Fleet**: Transitioning to all-Airbus (A320/A330); A330s for long-haul (New York, Asia)
 
-**Baggage policy (updated March 2026):**
+**Baggage policy (updated May 2026, verify on israir.co.il):**
 
 | Item | Weight | Cost (advance) | Cost (airport) |
 |------|--------|----------------|----------------|
 | Personal item | Small bag (under seat) | Free | Free |
 | Carry-on | 10 kg | $30 per direction | $40 |
-| 1st checked bag | 23 kg | $60 per direction | $100 |
+| 1st checked bag | 23 kg | $65 per direction | $100 |
+| 2nd checked bag | 23 kg | $80 per direction | -- |
+| Bags 3-5 (each) | 23 kg | $120 per direction | -- |
 | Overweight (24-32 kg) | -- | +$20 per direction | +$70 |
+
+Israir raised the advance first-bag fee to $65 per direction effective 1 May 2026; the airport fee stays $100. Always confirm the live figure before booking.
 
 Standard fares do not include checked baggage. Some vacation packages may bundle bags.
 
@@ -94,7 +98,7 @@ Standard fares do not include checked baggage. Some vacation packages may bundle
 
 ### Low-Cost Carriers
 
-**Wizz Air (W6)**: Hungarian low-cost carrier. Wizz had been expanding aggressively at TLV, but the February 2026 war forced it to suspend all Israel operations along with everyone else, and its earlier hub-base plans were frozen. Wizz has confirmed it resumes full TLV operations on **May 28, 2026**, reconnecting Tel Aviv with hubs such as London, Budapest, Rome, and Bucharest, with frequencies ramping up over the following months. Until routes are actually flying again, treat Wizz TLV availability as in flux. Only a small personal item (40x30x20 cm) is free on base fares; cabin bags and checked bags are paid add-ons. Check wizzair.com for current route status and baggage add-on pricing.
+**Wizz Air (W6)**: Hungarian low-cost carrier. Wizz had been expanding aggressively at TLV, but the February 2026 war forced it to suspend all Israel operations along with everyone else, and its earlier hub-base plans were frozen. Wizz resumed TLV operations on **May 28, 2026**, reconnecting Tel Aviv with hubs such as London, Budapest, Rome, Bucharest, Larnaca, Milan, and Athens, with frequencies still ramping up over summer 2026. Verify the specific route on wizzair.com. Only a small personal item (40x30x20 cm) is free on base fares; cabin bags and checked bags are paid add-ons.
 
 **Ryanair**: Has officially removed Tel Aviv from its route map. Cancelled 22 planned routes and roughly 1 million seats for the 2025-2026 season due to disputes with Ben Gurion Airport over slot allocation and Terminal 1 availability. As of May 2026, Ryanair still has no confirmed TLV return; any resumption is conditional on the airport resolving the slot and Terminal 1 dispute.
 
@@ -132,30 +136,55 @@ The February 2026 war reset this landscape. Most foreign carriers suspended TLV 
 
 Hebrew-calendar timing constrains flight options in a way generic search tools ignore.
 
-- **El Al does not fly on Shabbat or Jewish holidays.** Its scheduled operations stop from Friday afternoon (before sundown) until Saturday after sundown. For observant travelers this is a feature; for everyone it means El Al has **no** Friday-evening or Saturday-daytime departures or arrivals. A Friday-night or Saturday return on El Al simply does not exist - you must fly Thursday, early Friday, or Saturday night onward.
+- **El Al does not fly on Shabbat or Jewish holidays.** Its scheduled operations stop from Friday afternoon (before sundown) until Saturday after sundown. For observant travelers this is a feature; for everyone it means El Al has **no** Friday-evening or Saturday-daytime departures or arrivals. A Friday-night or Saturday return on El Al simply does not exist - you must fly Thursday, early Friday, or Saturday night onward. The same no-fly window blocks **outbound** Friday-evening and Saturday departures, not just returns.
 - **Israir** has, under its current ownership, also cancelled flights departing on Saturday and on Friday nights, observing Shabbat. So for Saturday departures, do not count on Israir either - verify on israir.co.il.
 - **Arkia** is the Israeli carrier most likely to operate on Shabbat. If a Friday-night or Saturday flight is essential and you want an Israeli airline, Arkia is usually the option to check first.
 - **Foreign carriers** fly seven days a week, so a Friday-night or Saturday departure from TLV generally means a foreign airline (or Arkia).
 - **Planning rule**: when building a return itinerary, fix the Shabbat window first. If the traveler is observant or wants an Israeli carrier, plan returns for Thursday, Friday before midday, or Saturday night. Around Jewish holidays the same no-fly window applies to El Al on the holiday itself, on top of the pre-holiday price spike.
 
+## Entry Requirements (Europe: EES and ETIAS)
+
+A cheap fare is worthless if the traveler cannot board or enter, so check entry rules and passport validity before recommending any route.
+
+- **Passport validity:** confirm the passport is valid for at least 6 months beyond the return date. This gates boarding for many destinations, not just Europe, and Israeli passport renewals can run into backlogs.
+- **EES (Entry-Exit System) is live.** Since 10 April 2026 the EU records non-EU travelers' biometrics (facial image and fingerprints) at Schengen external borders instead of stamping passports. Expect this at the border; no advance action is needed.
+- **ETIAS is not required yet.** ETIAS travel authorization is expected to become operational in Q4 2026 and only mandatory around April 2027 after a transitional period. As of mid-2026 an Israeli traveler does NOT need ETIAS to fly to Europe, so do not apply early through unofficial sites. Check the official EU travel page for the current rollout before a late-2026 or 2027 trip.
+
 ## Booking Strategies
 
 ### Timing
 
-- **Book 15-30 days ahead for domestic, 31-45 days ahead for international**. Expedia's 2026 Air Hacks Report found these windows beat booking 6+ months in advance by about $130 (domestic) and $190 (international).
-- **Friday is the cheapest day to BOOK** (Expedia 2026): up to 3% cheaper than Sunday, which is the most expensive day to book. This reverses the old "book on Tuesday" advice.
-- **Friday is also a cheap day to FLY**: save roughly 14% on domestic and 8% on international vs flying on Sunday. Tuesday remains the least crowded flying day.
+- **Book several weeks out, not months.** Hard day/dollar "optimal window" claims date fast and rarely beat active price tracking. For European leisure routes from TLV, roughly 6-8 weeks out is a reasonable target; expect a 2-4 week pre-holiday spike around the chagim.
+- **Day-of-week effects are small and shift yearly.** Recent Expedia data put the cheapest day to *fly* mid-week (Tuesday, around 14% below the peak day domestically) with weekend departures at a premium; the cheapest day to *book* moves year to year. Do not over-optimize the day, set a price alert instead.
 - Set price alerts on Google Flights or KAYAK for routes you're watching, then pounce when the fare dips below the "typical" band on the fare-history graph.
 
 ### Money-Saving Tips
 
 1. **Compare across 3+ platforms**: Prices differ significantly between platforms for the same route
-2. **Check package deals on Issta**: Flight+hotel bundles often beat booking separately by hundreds of NIS
+2. **Check package deals on Issta**: Flight+hotel bundles often beat booking separately by hundreds of shekels
 3. **Use "Everywhere" search on Skyscanner**: Find the cheapest destination for your dates instead of picking a destination first
 4. **Consider nearby airports**: For European destinations, flying to a nearby city and taking a train can be cheaper (e.g., fly to Bergamo instead of Milan)
 5. **Book baggage in advance**: All Israeli airlines charge significantly more for baggage purchased at the airport vs online in advance
 6. **Check Wizz Air for European routes**: Low-cost fares start very low but add-ons (bags, seats) add up -- compare total cost including bags
 7. **Flexible dates**: Shifting departure by 1-2 days can save 30%+ on the same route
+8. **Try multi-city / open-jaw**: For multi-stop Europe trips, flying into one city and out of another (e.g. into Rome, out of Milan) often beats a round-trip. Google Flights and Skyscanner both support multi-city search.
+9. **Protect against disruption**: TLV routes still get suspended on short notice (EASA conflict-zone advisories). For non-refundable foreign-carrier fares, prefer a refundable/flexible fare or travel insurance that covers airspace closure and conflict disruption, and check the airline's rebooking policy before booking. This is the most likely way to lose money on a 2026 TLV booking.
+
+### Deal Sources (Israeli)
+
+Error fares and flash deals vanish fast and rarely appear on the big aggregators. Israeli travelers track them through dedicated channels:
+
+- **Secret-flights sites** (e.g. secretflights.co.il, "טיסות סודיות") that surface mispriced fares.
+- **Telegram deal channels and Facebook groups** focused on TLV departures.
+
+Treat these as a complement to the aggregators, not a replacement, and book fast because error fares get pulled quickly.
+
+### Points and Miles
+
+For frequent flyers the cash price is not the only lever:
+
+- **El Al Matmid** points can be redeemed for award flights, and tier status adds baggage and lounge value.
+- **Israeli cards** (Isracard, American Express Israel, Max) often earn Matmid points or airline miles, and some dollar-linked cards add travel perks. Compare the points cost against the cash fare before booking.
 
 ### Flight+Hotel Packages
 
@@ -172,6 +201,8 @@ Most international flights leave from Ben Gurion (TLV), but Ramon Airport (ETM) 
 - **Foreign carriers** do not serve kosher by default. If you keep kosher, request a kosher meal (special meal code KSML) at booking or at least 24-48 hours before departure - it cannot be arranged at the gate. The same applies to other special meals (vegetarian, vegan, gluten-free). On very short flights some carriers serve no meal at all, so a special-meal request may simply not apply.
 
 ## How to Search
+
+> **Plan for TLV security.** The Israel Airports Authority advises arriving **3 hours before international departures** (more at peak times) because of Israel's layered security screening. Factor this in when a cheap early-morning fare would require a pre-dawn arrival.
 
 ### Step-by-Step: Finding the Cheapest Flight
 
@@ -210,7 +241,7 @@ Most international flights leave from Ben Gurion (TLV), but Ramon Airport (ETM) 
 
 1. **El Al Lite fares to Europe/UAE have no cabin carry-on**: Since May 2025, Lite fare passengers must check their carry-on at the gate (free). Only a small personal item fits in the cabin. This catches many budget travelers off guard. Does not apply to US routes.
 
-2. **Baggage pricing varies wildly between Israeli airlines**: Arkia charges for checked bags on all fares; El Al includes bags on Classic and above; Israir charges for everything except a personal item (as of March 2026). Always check the specific fare's baggage inclusion before comparing base prices.
+2. **Baggage pricing varies wildly between Israeli airlines**: Arkia charges for checked bags on all fares; El Al includes bags on Classic and above; Israir charges for everything except a personal item (as of May 2026). Always check the specific fare's baggage inclusion before comparing base prices.
 
 3. **Israeli holiday pricing is front-loaded**: Prices spike 2-4 weeks BEFORE the holiday, not on the holiday itself. By the time Rosh Hashana starts, the peak pricing window has passed for most routes.
 
@@ -235,6 +266,7 @@ Most international flights leave from Ben Gurion (TLV), but Ramon Airport (ETM) 
 | Wizz Air baggage & routes | https://www.wizzair.com | Base fare inclusions, WIZZ Priority add-on, current Israel route list |
 | Google Flights (Israel) | https://www.google.com/travel/flights?gl=IL&hl=he | Flight Deals AI availability, fare-history bands, tracked-price alerts |
 | Expedia 2026 Air Hacks (AFAR coverage) | https://www.afar.com/magazine/expedia-data-shows-new-best-day-to-book-cheaper-flights | Cheapest booking day, best day to fly, optimal booking window |
+| ETIAS (official EU) | https://travel-europe.europa.eu/etias_en | Whether ETIAS is required now for Israeli citizens, how to apply, EES rollout |
 
 ## Troubleshooting
 

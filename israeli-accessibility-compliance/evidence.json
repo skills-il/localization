@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "israeli-accessibility-compliance",
+  "generated_at": "2026-06-21T00:00:00Z",
+  "claims": [
+    {
+      "claim_id": "legal-framework",
+      "claim": "Israeli web accessibility is mandated by the Equal Rights for Persons with Disabilities Act 1998 and the Equal Rights for Persons with Disabilities (Service Accessibility Accommodations) Regulations 2013, which incorporate Israeli Standard IS 5568 Part 1.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "חוק שוויון זכויות לאנשים עם מוגבלות, התשנ\"ח-1998.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+    },
+    {
+      "claim_id": "exemption-thresholds",
+      "claim": "Website-accessibility exemptions are based on revenue, not employee count (there is no 25-employee or 300,000 NIS trigger). The small-business threshold figure is contested between sources: Kol Zchut states 120,000 NIS for the renewable 3-year temporary exemption, while some accessibility sources (Nagishut Israel) cite 100,000 NIS, so the skill presents it as 'sources differ, confirm against the regulation'. The next tier runs from that threshold up to 1,000,000 NIS (3-year exemption for pre-26-Oct-2017 existing sites); above 1,000,000 NIS no automatic exemption (must apply for a heavy-burden exemption). Full exemption for osek patur.",
+      "source_url": "https://www.kolzchut.org.il/he/פטור_מחובת_הנגשה_לאתרי_אינטרנט_ואפליקציות",
+      "raw_snippet": "פטור זמני לבעל מחזור כספי שנתי ממוצע של עד 120,000 ש\"ח; פטור לאתר קיים של בעל מחזור שבין 120,000 ל-1,000,000 ש\"ח שהוקם לפני 26.10.2017. הפטור מבוסס על מחזור ולא על מספר עובדים, ואין סף של 25 עובדים או 300,000 ש\"ח. מקורות אחרים (נגישות ישראל) מציינים 100,000 ש\"ח כסף, ולכן המקורות חלוקים והסכום המדויק טעון אימות מול נוסח התקנות.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+    },
+    {
+      "claim_id": "statutory-damages-50000",
+      "claim": "A claimant can sue for up to 50,000 NIS in statutory damages without proof of harm for an inaccessible site, subject to a 60-day cure-notice period.",
+      "source_url": "https://www.kolzchut.org.il/he/פטור_מחובת_הנגשה_לאתרי_אינטרנט_ואפליקציות",
+      "raw_snippet": "פיצוי ללא הוכחת נזק בסך של עד 50,000 ש\"ח.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+    },
+    {
+      "claim_id": "amendment-23-izum",
+      "claim": "Amendment 23 to the Equal Rights Act gave the Commission an administrative-enforcement track with monetary penalties (izum kaspi), scaled by operator size: micro business up to 2,000,000 NIS turnover, small business up to 20,000,000 NIS, regular business above that or a public authority.",
+      "source_url": "https://www.gov.il/he/pages/equality_law_23_amendment_explanation",
+      "raw_snippet": "תיקון 23 לחוק שוויון זכויות לאנשים עם מוגבלות מסמיך את הנציבות להטיל עיצומים כספיים. גובה העיצום נקבע לפי גודל העוסק: עסק זעיר עד מחזור 2,000,000 ש\"ח, עסק קטן עד 20,000,000 ש\"ח, ועסק רגיל מעל זה.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+    },
+    {
+      "claim_id": "regulation-35-morshe",
+      "claim": "Regulation 35 of the Service Accessibility Regulations governs website/app accessibility and its technological-difficulty exemption requires a written opinion from a certified service-accessibility expert (morshe negishut hasherut) in consultation with an internet-accessibility professional.",
+      "source_url": "https://aisrael.org/אתרי-אינטרנט-נגישים-סקירה-דרישות-וס/",
+      "raw_snippet": "תקנה 35 לתקנות נגישות השירות עוסקת בהנגשת אתרי אינטרנט; פטור בשל קושי טכנולוגי מותנה בחוות דעת של מורשה נגישות השירות.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "widget-text-size-steps",
+      "claim": "The accessibility preferences widget cycles text size through 100%, 115%, 130%, and 150% steps. These are the widget's own UI scale steps (a comfort-tool design choice), supporting the WCAG resize-text guidance; they are not an external regulatory figure.",
+      "source_url": "https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0",
+      "raw_snippet": "Success Criterion 1.4.4 Resize text: text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "example-placeholder-domain",
+      "claim": "example.co.il is used only as an illustrative placeholder domain in code examples and the accessibility-statement template; it is not a real operational URL.",
+      "source_url": "https://example.co.il",
+      "raw_snippet": "example.co.il is a placeholder domain used in documentation examples, analogous to the reserved example.com domain.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "coordinator-25-employees",
+      "claim": "The Service Accessibility Regulations require a public body or a service provider with 25 or more employees to appoint an accessibility coordinator (rakaz negishut). This triggers the coordinator appointment, not the website-accessibility duty.",
+      "source_url": "https://www.kolzchut.org.il/he/רכז_נגישות",
+      "raw_snippet": "גוף ציבורי או מי שמעסיק 25 עובדים או יותר חייב למנות רכז נגישות מבין עובדיו.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+    },
+    {
+      "claim_id": "is5568-wcag20-anchor",
+      "claim": "IS 5568 is legally anchored to WCAG 2.0 AA (the September 2023 Part 1 edition stays anchored to 2.0 in the dominant reading); some sources describe the current edition as WCAG 2.1 AA, so sources differ.",
+      "source_url": "https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0",
+      "raw_snippet": "How to Meet WCAG (Quick Reference) filtered to show only the WCAG 2.0 Level A and AA success criteria.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+    },
+    {
+      "claim_id": "is5568-part2",
+      "claim": "IS 5568 is split into Part 1 (web content) and Part 2 (accessibility of digital documents such as PDFs and Office files), published 2020. The standard is maintained by the Standards Institution of Israel (SII).",
+      "source_url": "https://www.sii.org.il/en/",
+      "raw_snippet": "The Standards Institution of Israel develops and publishes Israeli standards, including IS 5568 on web and digital-document accessibility.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+    },
+    {
+      "claim_id": "accessibe-ftc-fine",
+      "claim": "In April 2025 the FTC approved a final order requiring accessibility-overlay vendor accessiBe to pay $1,000,000, supporting the skill's warning against automatic accessibility overlays/widgets.",
+      "source_url": "https://www.ftc.gov/news-events/news/press-releases/2025/04/ftc-approves-final-order-requiring-accessibe-pay-1-million",
+      "raw_snippet": "FTC Approves Final Order Requiring accessiBe to Pay $1 Million over deceptive claims that its automated overlay product could make any website compliant.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "nvda-screen-reader",
+      "claim": "NVDA is a free open-source Windows screen reader used to test Hebrew screen-reader compatibility.",
+      "source_url": "https://www.nvaccess.org/",
+      "raw_snippet": "NVDA (NonVisual Desktop Access) is a free screen reader for Windows from NV Access.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "commission-enforcement",
+      "claim": "The Commission for Equal Rights of Persons with Disabilities at the Ministry of Justice enforces accessibility law and handles complaints.",
+      "source_url": "https://www.gov.il/he/departments/moj_disability_rights/govil-landing-page",
+      "raw_snippet": "נציבות שוויון זכויות לאנשים עם מוגבלות במשרד המשפטים אחראית על אכיפת חוק הנגישות וטיפול בתלונות.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    }
+  ]
+}

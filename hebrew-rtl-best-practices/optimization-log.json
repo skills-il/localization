@@ -1,0 +1,15 @@
+{
+  "cycles": [
+    {
+      "version": "1.4.0",
+      "date": "2026-06-21",
+      "lessons": [
+        "Applied: Tailwind framing -> v4 current (v4.3); flagged v4.3 start-*/end- inset deprecation -> inset-s-*/inset-e-*; MUI version label v6/v7 -> v9 (mechanism @mui/stylis-plugin-rtl unchanged).",
+        "Applied coverage: Intl produce-vs-display framing, form dir=auto as first-class rule, portalled-UI dir (Radix DirectionProvider / MUI direction), fixed/sticky inset pitfall, mixed-direction tables technique, transform-origin/background-position/animation note, new Step 8 verification checklist.",
+        "Deferred (MINOR): explicit writing-mode vs direction distinction; clarify lang=he (not dir) drives screen-reader pronunciation; deeper SVG/charting RTL recipe beyond the one-line pitfall. Revisit next cycle.",
+        "persistent: description unchanged this cycle so Phase 5.7 eval skipped; revisit description trigger phrases if AI-mode routing data shows misroutes.",
+        "Expert MAJORs deferred to next cycle (non-blocking, gate PASSed): (1) RTL scrollLeft / JS-scroller cross-browser inconsistency for custom carousels; (2) CSS Grid track/line-based placement does NOT follow logical direction like flex row (reference file over-claims 'Grid just works'); (3) add general 'keep code/pre/kbd/file-paths LTR' rule beyond the table-cell case; (4) positive order + :dir(rtl) reorder pattern to complement the row-reverse gotcha; (5) lang+dir pairing on embedded spans for shaping/a11y; (6) typography section is partly folkloric -- word-spacing:0.05em and '16px because Hebrew' are weak; the real wins (Hebrew has no uppercase so text-transform:uppercase is a no-op; Latin webfonts silently lack Hebrew glyphs) are missing. Fixed this cycle: Example 3 rtl:rotate-180 -> rtl:-scale-x-100."
+      ]
+    }
+  ]
+}

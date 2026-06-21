@@ -1,0 +1,15 @@
+{
+  "cycles": [
+    {
+      "version": "1.4.0",
+      "date": "2026-06-21",
+      "lessons": [
+        "STALE fixes: Israir 1st checked bag $60 -> $65 advance (effective 1 May 2026) + added 2nd ($80) and 3-5 ($120) bag tiers across SKILL + baggage ref; corrected misattributed booking stat (the ~14% cheap-to-fly day is Tuesday, not Friday) and removed the unsupported Expedia booking-window $130/$190 claims in favor of method-based guidance; Wizz Air reframed to past tense (resumed 28 May 2026).",
+        "CRITICAL coverage added: ETIAS/EES entry-requirements section for Israeli travelers to Europe (buy-fare-then-denied-boarding trap); Israeli deal-source channels (secretflights.co.il, Telegram/Facebook).",
+        "MAJOR added: TLV 3-hour security arrival note; points/miles (El Al Matmid + Israeli cards); multi-city/open-jaw tip.",
+        "Expert round 2 CRITICAL fixed: the ETIAS/EES section wrongly implied ETIAS is 'becoming mandatory, apply in advance'. Verified via official EU + WebSearch: EES is LIVE since 10 Apr 2026 (no advance action); ETIAS is NOT required yet (operational Q4 2026, mandatory ~Apr 2027). Reworded both languages; added passport-6-month-validity as its own line, a war-disruption refundable-fare/insurance note (highest money-loss risk per Expert), and noted the El Al Shabbat no-fly window blocks outbound Fri-eve/Sat departures too.",
+        "Deferred (MINOR, next cycle): error-fare may-not-be-honored caveat; Turkish July-1-2026 date already slipping (soften to mid-to-late 2026); ETIAS fee/process specifics (~EUR 7, ~10-min form) once it is required."
+      ]
+    }
+  ]
+}

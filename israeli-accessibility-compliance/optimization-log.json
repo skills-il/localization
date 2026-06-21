@@ -1,0 +1,18 @@
+{
+  "cycles": [
+    {
+      "version": "1.3.0",
+      "date": "2026-06-21",
+      "lessons": [
+        "CORRECTNESS: fixed exemption threshold 100,000 -> 120,000 NIS in SKILL.md, SKILL_HE.md, references/is-5568.md (table was internally inconsistent: 'under 100,000' but 'renewable up to 120,000'). Authoritative: Kol Zchut + Nagishut Israel.",
+        "Refined deadline history: new sites accessible from 25 Oct 2015, existing by 26 Oct 2017; the Oct 2020 date extended lower-revenue exemption tiers, not the universal deadline.",
+        "CRITICAL coverage added: standard-conformance != legal-compliance framing; certified expert (morshe negishut hasherut) opinion under Reg 35; IS 5568 Part 2 (digital documents / PDF accessibility, 2020).",
+        "MAJOR added: Step 9 accessibility statement now includes known-limitations section + audit date (aligns to the 7-point list in references/is-5568.md). Script: added User-Agent header (gov.il/Cloudflare 403 default python UA) + static-HTML-only note (contrast/JS need the axe-core path).",
+        "Deferred (MAJOR, next cycle): operationalize native mobile-app accessibility (iOS UIAccessibility / Android APIs) beyond TalkBack/VoiceOver naming; user-side complaint/enforcement path to the Commission. Deferred (MINOR): negishut hasherut vs negishut hamivne distinction; over-hedged WCAG-2.0 note appears 6+ times, could be stated once.",
+        "Kept gov.il moj_disability_rights URL (403 to bots but valid for humans; gov.il restructures, monitor).",
+        "CONTESTED FACT (Expert round 2): the small-business exemption threshold is disputed -- Kol Zchut (Judge-verified live) says 120,000 NIS, Nagishut Israel/iAccessibility say 100,000 NIS. Resolved by HEDGING in all 3 files ('sources differ: 100,000 or 120,000; confirm against the regulation') rather than flat-asserting either, mirroring the skill's WCAG-version hedge. Added negishut-hamivne scoping line and user-side complaint path (Step 3).",
+        "Deferred (MAJOR, next cycle): operationalize native mobile-app accessibility (iOS UIAccessibility / Android APIs) since apps are in-scope but only static HTML is covered; add feedback-mechanism as an explicit element in the inline Step 9 statement template (currently only in the reference's 7-point list); collapse the WCAG-2.0 'sources differ' hedge from ~9 repetitions to one authoritative statement so it stops diluting the load-bearing warnings; note that the bundled audit_a11y.py is static-only and won't audit React/SPA contrast (soften the 'primary audit path' framing in Step 10)."
+      ]
+    }
+  ]
+}

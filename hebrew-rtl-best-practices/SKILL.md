@@ -45,7 +45,7 @@ When you genuinely need a direction-specific rule that logical properties cannot
 [dir="rtl"] .chevron { transform: scaleX(-1); }
 ```
 
-`:dir()` is part of Selectors Level 4 and resolves the *computed* direction, so it also works for elements whose direction comes from `dir="auto"` or from an ancestor, where an attribute selector would miss them. Browser support: Chrome and Edge shipped it in version 120 (late 2023), Firefox has supported it for years, and Safari added it in 16.4. For older-browser support, keep an `[dir="rtl"]` fallback rule or use a logical property instead. Check current support at https://caniuse.com/css-dir-pseudo.
+`:dir()` is part of Selectors Level 4 and resolves the *computed* direction, so it also works for elements whose direction comes from `dir="auto"` or from an ancestor, where an attribute selector would miss them. Browser support: Chrome and Edge shipped it in version 120 (late 2023), Firefox has supported it for years, and Safari added it in 16.4, so it is now Baseline (widely available). For older-browser support, keep an `[dir="rtl"]` fallback rule or use a logical property instead. Check current support at https://caniuse.com/css-dir-pseudo.
 
 ### Step 3: Handle Bidirectional Text
 When mixing Hebrew and English/numbers:
@@ -70,6 +70,10 @@ Common bidi issues:
 
 **Numbers and dates:** Standalone numbers and DD/MM/YYYY dates inside Hebrew text usually render fine because digits are weak-LTR, but a number that is immediately followed by a sign, currency, or a second number can flip. When a value must keep a fixed visual order, isolate it with `<span dir="ltr">` or `unicode-bidi: isolate` rather than trusting the default bidi resolution.
 
+**Format the value, then isolate it.** Bidi isolation only stops a *correct* string from flipping; it does not produce the right string. Use `Intl` to format, then isolate: `Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' })` for shekel amounts and `Intl.DateTimeFormat('he-IL')` for dates, and wrap the output in `<span dir="ltr">` (or `unicode-bidi: isolate`) if it sits inline in Hebrew prose. Devs commonly conflate the two and apply bidi fixes to a formatting bug (or vice versa).
+
+**Form inputs need `dir="auto"`.** Put `dir="auto"` on every `<input>` and `<textarea>` so each value resolves its own base direction. This is the most visible end-user RTL bug: an email or an English word typed into a Hebrew form jumps to the wrong side without it. Note that the placeholder does not trigger auto-detection, so set the resting direction with CSS if the empty-field look matters.
+
 **`<bdi>` vs `<bdo>`:** use `<bdo dir="ltr">` only when you want to *force* a direction (it overrides the bidi algorithm). For user-generated or unknown-direction content, prefer `<bdi>`, which *isolates* the content so its direction is auto-detected and cannot leak into the surrounding text:
 
 ```html
@@ -79,7 +83,7 @@ Common bidi issues:
 
 For free-text fields, `dir="auto"` (or `unicode-bidi: plaintext` in CSS) lets the browser pick the base direction per value, which is the correct default for comments, names, and search queries where you do not know the language in advance.
 
-**Shadows and gradients do not auto-flip.** CSS logical properties mirror layout, but `box-shadow`, `text-shadow`, and `linear-gradient` offsets/angles are physical and stay fixed when direction flips. A shadow offset of `4px 4px` that looks correct in LTR will point the "wrong" way relative to an RTL layout. Flip these explicitly with a `:dir(rtl)` (or `[dir="rtl"]`) override when their direction is meaningful.
+**Shadows and gradients do not auto-flip.** CSS logical properties mirror layout, but `box-shadow`, `text-shadow`, and `linear-gradient` offsets/angles are physical and stay fixed when direction flips. A shadow offset of `4px 4px` that looks correct in LTR will point the "wrong" way relative to an RTL layout. The same physical-not-logical trap applies to `transform-origin`, `background-position`, and `translateX`-based keyframe animations (slide-in drawers, carousels, progress shimmer). Flip each explicitly with a `:dir(rtl)` (or `[dir="rtl"]`) override when its direction is meaningful.
 
 ### Step 4: Mirror Directional Icons
 
@@ -132,7 +136,7 @@ body[dir="rtl"] {
 
 ### Step 6: Framework-Specific Setup
 
-**Tailwind CSS RTL (v3.3+ / v4):**
+**Tailwind CSS RTL (v4, current; logical utilities since v3.3):**
 
 Prefer logical property utilities over `rtl:`/`ltr:` variants:
 
@@ -142,8 +146,8 @@ Prefer logical property utilities over `rtl:`/`ltr:` variants:
 | `mr-4` | `me-4` | `margin-inline-end` |
 | `pl-4` | `ps-4` | `padding-inline-start` |
 | `pr-4` | `pe-4` | `padding-inline-end` |
-| `left-4` | `start-4` | `inset-inline-start` |
-| `right-4` | `end-4` | `inset-inline-end` |
+| `left-4` | `inset-s-4` (was `start-4`) | `inset-inline-start` |
+| `right-4` | `inset-e-4` (was `end-4`) | `inset-inline-end` |
 | `rounded-l-lg` | `rounded-s-lg` | `border-start-start-radius` + `border-end-start-radius` |
 | `rounded-r-lg` | `rounded-e-lg` | `border-start-end-radius` + `border-end-end-radius` |
 
@@ -157,7 +161,7 @@ Prefer logical property utilities over `rtl:`/`ltr:` variants:
 
 Reserve `rtl:` / `ltr:` variants only for cases logical properties cannot handle (e.g., directional icons, transforms).
 
-**Tailwind v4 note:** v4 uses CSS-first configuration (`@import "tailwindcss"` in CSS) instead of `tailwind.config.js`. Logical utilities work identically in both v3 and v4.
+**Tailwind v4 note:** v4 (GA since early 2025, currently v4.3) uses CSS-first configuration (`@import "tailwindcss"` in CSS) instead of `tailwind.config.js`. Logical utilities work identically in both v3 and v4. As of v4.3 (May 2026) the logical *inset* utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` (the old names still work); the margin/padding utilities `ms-*`/`me-*`/`ps-*`/`pe-*` are unaffected.
 
 **Next.js App Router:**
 ```tsx
@@ -191,7 +195,7 @@ export default async function RootLayout({
 
 **React with MUI:**
 
-MUI v6 and v7 use the official fork `@mui/stylis-plugin-rtl`, not the older community `stylis-plugin-rtl` package. The official fork fixes CSS-layers issues and supports current Stylis versions.
+Current MUI (v9 as of 2026) uses the official fork `@mui/stylis-plugin-rtl`, not the older community `stylis-plugin-rtl` package. The official fork fixes CSS-layers issues and supports current Stylis versions; this has been the recommended setup since MUI v6.
 
 ```jsx
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -210,15 +214,26 @@ const theme = createTheme({ direction: 'rtl' });
 
 Confirm the exact import name and setup against the current MUI RTL guide (https://mui.com/material-ui/customization/right-to-left/) for your MUI version.
 
+**Portalled UI (modals, dropdowns, tooltips, toasts).** Components rendered through a portal (React `createPortal`, Radix, MUI Menu, Floating UI) mount at `document.body` and inherit direction from there, but many libraries assume LTR. Set `dir` on `<html>` AND pass the library's own direction setting: Radix needs a `<DirectionProvider dir="rtl">` wrapper, MUI needs `direction: 'rtl'` in the theme. Otherwise popovers open on the wrong side even when the rest of the page is correct.
+
 ### Step 7: Common Pitfalls to Check
 1. Directional icons -- mirror them (see Step 4 for which icons to flip and which to leave)
 2. Progress bars -- should fill from right to left
 3. Sliders/carousels -- swipe direction should reverse
 4. Form labels -- should be right-aligned
 5. Breadcrumbs -- separator direction should reverse
-6. Tables -- header alignment and cell alignment
-7. Charts -- x-axis may need to reverse for Hebrew readers
+6. Tables -- columns reorder automatically, but force numeric, code, and date cells back to LTR with `<td dir="ltr">` or `text-align: end`
+7. Charts -- x-axis may need to reverse for Hebrew readers (SVG has no logical properties, so use the charting library's `reversed`/`rtl` option, not CSS)
 8. Shadows and gradients -- physical offsets/angles do not auto-flip (see Step 3)
+9. Fixed and sticky chrome (headers, toasts, FABs, drawers) -- hardcoded `left: 0` / `right: 0` does not flip; use `inset-inline-start` / `inset-inline-end`
+10. Scrollbars sit on the left in RTL -- reserve space with `scrollbar-gutter: stable` to avoid reflow; `text-wrap: balance` improves Hebrew headings
+
+### Step 8: Verify the RTL Layout
+Authoring rules are not enough, verify before shipping:
+- Flip the whole app to `dir="rtl"` and scan for anything that did not move (it is still using a physical property).
+- Test one canonical mixed string in every text surface: `שלום John 050-1234567 ₪1,234` exercises Hebrew, Latin, a phone number, and a currency amount at once.
+- Open every modal, dropdown, tooltip, and toast (portalled UI is the most common RTL miss).
+- Check fixed/sticky chrome, charts/SVG, and form fields with `dir="auto"`.
 
 ## Examples
 
@@ -267,11 +282,11 @@ User says: "My sidebar is on the wrong side in Hebrew"
 <!-- Bad: sidebar stuck on left -->
 <aside class="fixed left-0 w-64">...</aside>
 
-<!-- Good: sidebar auto-mirrors -->
-<aside class="fixed start-0 w-64">...</aside>
+<!-- Good: sidebar auto-mirrors (inset-s-0; start-0 is the deprecated alias) -->
+<aside class="fixed inset-s-0 w-64">...</aside>
 
-<!-- Back arrow icon still needs rtl: variant -->
-<button class="rtl:rotate-180">
+<!-- Back arrow icon still needs rtl: variant (horizontal flip, not rotate-180 which also flips vertically) -->
+<button class="rtl:-scale-x-100">
   <ArrowLeftIcon />
 </button>
 ```
@@ -296,7 +311,7 @@ User says: "My sidebar is on the wrong side in Hebrew"
 | Can I use: `:dir()` | https://caniuse.com/css-dir-pseudo | Current browser support table |
 | MDN `<bdi>` element | https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/bdi | Isolating user-generated bidi content |
 | Tailwind CSS RTL Support | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | `rtl:` / `ltr:` variant syntax |
-| Tailwind Logical Properties | https://tailwindcss.com/docs/margin#logical-properties | `ms-*`, `me-*`, `ps-*`, `pe-*` utilities |
+| Tailwind Logical Properties | https://tailwindcss.com/docs/margin | `ms-*`, `me-*`, `ps-*`, `pe-*` utilities |
 | MUI Right-to-left | https://mui.com/material-ui/customization/right-to-left/ | `@mui/stylis-plugin-rtl` setup for current MUI |
 | Google Fonts Hebrew | https://fonts.google.com/?subset=hebrew | Available Hebrew font families |
 | W3C Internationalization | https://www.w3.org/International/articles/inline-bidi-markup/ | Unicode bidi algorithm, markup best practices |

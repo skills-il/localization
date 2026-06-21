@@ -1,6 +1,6 @@
 ---
 name: israeli-ui-design-system
-description: Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, "itzuv" (design), Israeli design system, Hebrew font pairing, RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans Pro), gov.il design system patterns, Israeli formatting conventions (shekel sign, DD/MM/YYYY dates, 24-hour clock), and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead).
+description: Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, "itzuv" (design), Israeli design system, Hebrew font pairing, RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans 3), gov.il design system patterns, Israeli formatting conventions (shekel sign, DD/MM/YYYY dates, 24-hour clock), and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead).
 license: MIT
 ---
 
@@ -17,7 +17,7 @@ Select font combinations optimized for Hebrew readability and Latin compatibilit
 | Pairing | Hebrew Font | Latin Font | Best For | Style |
 |---------|-------------|------------|----------|-------|
 | Modern Business | Heebo | Inter | SaaS, dashboards, admin panels | Clean, neutral |
-| Friendly Startup | Rubik | Source Sans Pro | Consumer apps, marketing sites | Rounded, approachable |
+| Friendly Startup | Rubik | Source Sans 3 | Consumer apps, marketing sites | Rounded, approachable |
 | Government/Formal | Assistant | Roboto | Gov sites, institutional pages | Professional, clear |
 | Editorial | Frank Ruhl Libre | Merriweather | Blogs, news, content sites | Serif, literary |
 | Minimal | Secular One | Montserrat | Landing pages, portfolios | Bold headlines |
@@ -225,6 +225,12 @@ Design components with RTL as the default, not an afterthought:
 
 Note: Hebrew text on dark backgrounds can look thinner because of Hebrew letterforms - verify contrast still meets WCAG AA and consider a slightly heavier font weight for dark-mode body text.
 
+**Encode contrast into the tokens.** A design system's token layer should guarantee WCAG contrast, not leave it to component authors. Pair every text token against its surface and check the ratio: body text on `--color-bg` / `--color-surface` must be at least 4.5:1, and large text, icons, and UI borders at least 3:1. Audit the status tokens specifically: `--color-warning: #d97706` and `--color-primary-500: #3b82f6` on white sit around 3.6:1. That passes the 3:1 bar for large text, icons, and UI borders (so they are fine as a focus outline or a fill), but fails the 4.5:1 bar for normal-size body text. Do not put small text in these colors on a light background; introduce a darker step (a 600/700 shade) when you need the color as text.
+
+**Prefer oklch for ramps.** Define color ramps in `oklch()` (Baseline since 2023) with hex fallbacks. Perceptually-uniform lightness makes accessible ramps and dark-mode variants far easier to generate than hand-tuned hex values.
+
+**Author tokens once.** Do not hand-maintain tokens in two places. Author them in a tool that exports to both CSS variables and Figma, e.g. Style Dictionary or the W3C DTCG (`$value` / `$type`) token format, so design and code never drift.
+
 ### Step 5: Gov.il Design Patterns
 
 For government and institutional Israeli websites, the authoritative reference is the **Israeli Government Design System (IGDS)** - the formal atomic-design system used to unify the user experience across gov.il sites. It is published as a Figma Community file ("IGDS Design System File 2.0", https://www.figma.com/community/file/1426262348206342909/igds-design-system-file-2-0), with companion illustration libraries. If you are building a real gov.il-adjacent product, pull tokens, components, and the RTL Hebrew illustration style directly from the IGDS Figma file rather than approximating them - IGDS defines its own color ramps, spacing, and component anatomy, and approximations will visibly diverge from live gov.il pages.
@@ -419,7 +425,7 @@ Result: Apply gov.il header pattern with institutional blue, Hebrew navigation w
 - `references/hebrew-typography.md` -- Hebrew font catalog with Google Fonts metrics, recommended pairings for different use cases (SaaS, editorial, government), font loading performance strategies, Hebrew-specific CSS properties (line-height, word-spacing, letter-spacing rules), and type scale recommendations for bilingual Hebrew/English interfaces.
 
 ## Gotchas
-- Hebrew text is typically 15-30% shorter than its English equivalent. Agents may design UI layouts with fixed widths based on English text length, causing Hebrew text to have too much whitespace or breaking the layout when switching to English.
+- Hebrew text is typically noticeably shorter than its English equivalent (often by around a quarter to a third). Agents may design UI layouts with fixed widths based on English text length, causing Hebrew text to have too much whitespace or breaking the layout when switching to English.
 - The standard Hebrew web font stack should prioritize system fonts: "Segoe UI", "Rubik", "Heebo", Arial, sans-serif. Agents may use Google Fonts Hebrew fonts without including a fallback, causing FOUT on slow connections.
 - Form labels in Hebrew should be right-aligned and placed to the right of inputs (or above them). Agents often place labels to the left of inputs, which is the English convention and feels unnatural in RTL.
 - Phone number input fields for Israeli numbers should accept formats with and without country code: 054-1234567, +972-54-1234567, and 0541234567. Agents may only validate the international format.
@@ -433,7 +439,7 @@ Result: Apply gov.il header pattern with institutional blue, Hebrew navigation w
 | CSS logical properties (MDN) | https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values | padding-inline, margin-block, logical positioning |
 | Tailwind RTL support | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | `rtl:` and `ltr:` variants for component libraries |
 | shadcn/ui | https://ui.shadcn.com | RTL-friendly component recipes and primitives |
-| WCAG 2.1 quick reference | https://www.w3.org/WAI/WCAG21/quickref/ | Contrast and reading-order requirements that apply to RTL |
+| WCAG quick reference | https://www.w3.org/WAI/standards-guidelines/wcag/ | Contrast and reading-order requirements that apply to RTL |
 
 ## Troubleshooting
 

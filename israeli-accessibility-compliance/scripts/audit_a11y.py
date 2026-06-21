@@ -7,6 +7,11 @@ IS 5568 standard, which is anchored to WCAG 2.0 AA (IS 5568 adds some
 declaration, RTL direction, ARIA labels, and the mandatory
 accessibility statement page.
 
+This is a STATIC-HTML auditor: it fetches the raw HTML and cannot
+evaluate color contrast or JavaScript-rendered (SPA) content. For
+contrast and JS-rendered checks, use the axe-core + Selenium path
+shown in SKILL.md Step 10.
+
 Usage:
     python audit_a11y.py --url https://example.co.il
     python audit_a11y.py --url https://example.co.il --output report.json
@@ -177,7 +182,13 @@ def run_audit(url):
     print(f"Auditing: {url}\n")
 
     try:
-        response = requests.get(url, timeout=30)
+        response = requests.get(
+            url,
+            timeout=30,
+            headers={
+                "User-Agent": "Mozilla/5.0 (compatible; a11y-audit/1.0; +https://agentskills.co.il)"
+            },
+        )
         response.raise_for_status()
     except requests.RequestException as e:
         print(f"Error fetching URL: {e}", file=sys.stderr)

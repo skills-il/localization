@@ -73,8 +73,10 @@ module.exports = {
 
 | Physical | Logical | Description |
 |----------|---------|-------------|
-| `left-*` | `start-*` | Inset inline start |
-| `right-*` | `end-*` | Inset inline end |
+| `left-*` | `inset-s-*` | Inset inline start (was `start-*`) |
+| `right-*` | `inset-e-*` | Inset inline end (was `end-*`) |
+
+As of Tailwind v4.3 (May 2026) the inset utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` so the API lines up with `inset-bs-*`/`inset-be-*`. The old `start-*`/`end-*` names still work. This rename affects only inset/positioning; `ms-*`/`me-*`/`ps-*`/`pe-*`/`border-s`/`border-e` are unchanged.
 
 ### Border
 
@@ -145,8 +147,8 @@ Search and replace in your templates:
 4. `pr-` -> `pe-`
 5. `text-left` -> `text-start`
 6. `text-right` -> `text-end`
-7. `left-` -> `start-`
-8. `right-` -> `end-`
+7. `left-` -> `inset-s-` (v4.3+; `start-` still works but is deprecated)
+8. `right-` -> `inset-e-` (v4.3+; `end-` still works but is deprecated)
 9. `border-l` -> `border-s`
 10. `border-r` -> `border-e`
 11. `rounded-l-` -> `rounded-s-`

@@ -16,7 +16,7 @@ Israeli web accessibility (negishot) is legally mandatory under the **Equal Righ
 
 | Regulation | Requirement | Status | Penalty |
 |------------|-------------|--------|---------|
-| IS 5568 (2017, updated 2020 and 2023) | Israeli accessibility standard, anchored to WCAG 2.0 AA | Mandatory since October 2017; compliance deadline extended to October 2020 for pre-2017 businesses | Up to 50,000 NIS statutory civil damages per violation, without proof of harm |
+| IS 5568 (2017, updated 2020 and 2023) | Israeli accessibility standard, anchored to WCAG 2.0 AA | New websites accessible from 25 October 2015; existing websites by 26 October 2017; the October 2020 date extended the lower-revenue exemption tiers, not the universal deadline | Up to 50,000 NIS statutory civil damages per violation, without proof of harm |
 | Takanat Negishut LeSherut (2013) | Public websites and apps must comply | In effect; covers services provided to the public | Lawsuits + statutory damages |
 | Mobile applications | Included in scope per the 2013 regulations; explicitly reaffirmed in later updates | In effect | Same statutory damages |
 | Government sites | Must meet IS 5568 Level AA | In effect | Commission oversight + administrative penalty |
@@ -25,6 +25,12 @@ Israeli web accessibility (negishot) is legally mandatory under the **Equal Righ
 
 **Who must comply:** All public-facing Israeli websites and mobile applications of service providers open to the public, including government agencies, educational institutions, healthcare providers, businesses, and non-profits.
 
+**Standard conformance is necessary but not sufficient.** The legal duty is the *regulation* (Service Accessibility Regulations 2013), which *incorporates IS 5568 Part 1 by reference at level AA*. You can pass an automated WCAG / IS 5568 audit and still be non-compliant if you lack the accessibility statement, the coordinator (where required), a feedback channel, or the certified-expert opinion described below, and vice versa. Treat "meets IS 5568" and "legally compliant" as two separate checklists.
+
+**Certified accessibility expert (Morshe Negishut Hasherut).** Where an operator claims an exemption for "technological difficulty" under Regulation 35, the regulation requires a **written opinion from a certified service-accessibility expert (morshe negishut hasherut)** prepared in consultation with an internet-accessibility professional. In practice the accessibility statement and the audit behind it are also expected to be backed by a morshe negishut; compliance is not a pure developer/automated-audit exercise.
+
+**Digital documents (IS 5568 Part 2).** IS 5568 is split into Part 1 (web content) and **Part 2 (accessibility of digital documents, e.g. PDFs and Office files), published 2020**. PDFs and downloadable documents on a public-facing Israeli site fall under the accessibility duty and are one of the most common real-world audit failures, so do not stop at the HTML.
+
 ### Step 2: Who Is Exempt
 
 The Service Accessibility Regulations base website-accessibility exemptions on **revenue**, not on employee count. There is no "25 employees" or "300,000 NIS" trigger in the regulations. The exemption tiers are:
@@ -32,11 +38,11 @@ The Service Accessibility Regulations base website-accessibility exemptions on *
 | Operator | Exemption |
 |----------|-----------|
 | Osek patur (VAT-exempt dealer) | Full exemption from website accessibility |
-| Average annual revenue under 100,000 NIS | Temporary 3-year exemption, renewable every 3 years as long as average revenue stays at or below 120,000 NIS |
-| Average annual revenue 100,000 NIS to 1,000,000 NIS | 3-year exemption for an existing site whose operation began before 26 October 2017; a site built after that date must be accessible |
+| Average annual revenue under the small-business threshold (sources differ: some cite 100,000 NIS, others 120,000 NIS; confirm against the current regulation before relying on it) | Temporary 3-year exemption, renewable every 3 years while average revenue stays at or below that threshold |
+| Average annual revenue from that threshold up to 1,000,000 NIS | 3-year exemption for an existing site whose operation began before 26 October 2017; a new site built after that date must be accessible |
 | Average annual revenue above 1,000,000 NIS | No automatic exemption. The operator must apply to the Commission for Equal Rights of Persons with Disabilities to claim a heavy-burden exemption |
 
-These exemptions (except the heavy-burden application) are automatic and need no approval, but the operator must re-check their revenue every 3 years. Exemption from website accessibility does not exempt the operator from other service-accessibility duties.
+These exemptions (except the heavy-burden application) are automatic and need no approval, but the operator must re-check their revenue every 3 years. The exact small-business threshold figure is contested between sources, so a borderline operator should verify against the regulation text or the Commission rather than self-certify as exempt. Exemption from website accessibility does not exempt the operator from other service-accessibility duties, nor from the separate **physical-premises accessibility** duty (negishut hamivne), which is governed by its own regulations.
 
 ### Step 3: Enforcement and Penalties
 
@@ -44,6 +50,8 @@ Two enforcement tracks run in parallel:
 
 - **Civil lawsuit.** A claimant can sue for up to **50,000 NIS in statutory damages without proof of harm**, only needing to show the site is non-compliant. **60-day cure period:** a deviation is not treated as a violation unless the operator was first sent a notice demanding a fix and failed to fix it within a reasonable time, no later than 60 days from receiving the notice. A class-action request for an inaccessible site has no cause of action if no prior fix notice was sent. This is a real defense for operators.
 - **Administrative enforcement by the Commission.** Amendment 23 to the Equal Rights Act gave the Commission for Equal Rights of Persons with Disabilities an administrative track: warnings, commitments, accessibility orders, and an **administrative monetary penalty** (izum kaspi). The penalty amount is scaled by the operator's size (micro business up to 2,000,000 NIS turnover, small business up to 20,000,000 NIS, regular business above that or a public authority) and by the cost of the specific accommodation, with a per-day charge while a violation continues. Reductions apply for a clean prior record and for corrective action. This penalty is separate from and on top of the 50,000 NIS civil damages.
+
+**Filing a complaint (user side).** A user who hits an inaccessible site sends the operator a fix notice (which starts the 60-day clock); if it is not fixed in time, the user can complain to the Commission for Equal Rights of Persons with Disabilities or sue for the statutory damages. The operator's accessibility coordinator (Step 4) is the first point of contact for such complaints, so an operator should route incoming accessibility complaints through the coordinator and act within the cure window.
 
 ### Step 4: The Accessibility Coordinator (Rakaz Negishut)
 
@@ -207,14 +215,22 @@ IS 5568 requires a published accessibility statement. Required content:
     <li>ניגודיות צבעים עומדת ביחס 4.5:1 לפחות</li>
   </ul>
 
+  <h2>מגבלות נגישות ידועות</h2>
+  <ul>
+    <li>[פרטו כאן רכיבים, דפים או מסמכים שטרם הונגשו במלואם, אם יש, ואת מועד התיקון הצפוי. אם אין מגבלות ידועות, ציינו זאת במפורש]</li>
+  </ul>
+
   <h2>פנייה בנושא נגישות</h2>
   <p>רכז/ת נגישות: [שם]</p>
   <p>טלפון: <a href="tel:+97212345678" dir="ltr">+972-1-234-5678</a></p>
   <p>דוא"ל: <a href="mailto:negishot@example.co.il">negishot@example.co.il</a></p>
 
-  <p>תאריך עדכון אחרון: [תאריך]</p>
+  <p>תאריך ביקורת הנגישות האחרונה: [תאריך]</p>
+  <p>תאריך עדכון ההצהרה: [תאריך]</p>
 </article>
 ```
+
+The full required-content list (7 items, including known limitations and the audit date) is in `references/is-5568.md`. A statement that omits known limitations or the audit date is a common audit finding.
 
 ### Step 10: Automated Accessibility Testing
 

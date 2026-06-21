@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-rtl-best-practices",
+  "generated_at": "2026-06-21T00:00:00Z",
+  "claims": [
+    {
+      "claim_id": "dir-pseudo-browser-support",
+      "claim": "The CSS :dir() pseudo-class shipped in Chrome and Edge version 120 (late 2023), Safari 16.4, and Firefox years earlier; it is now Baseline (widely available).",
+      "source_url": "https://caniuse.com/css-dir-pseudo",
+      "raw_snippet": "CSS :dir() pseudo-class. Chrome 120, Edge 120, Safari 16.4, Firefox 49. Now Baseline widely available.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "tailwind-v4-current",
+      "claim": "Tailwind CSS v4 has been GA since early 2025 and the current version is v4.3 (released May 2026); v4 uses CSS-first configuration with @import \"tailwindcss\".",
+      "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
+      "raw_snippet": "Tailwind CSS v4.3. May 8, 2026. CSS-first configuration via @import \"tailwindcss\".",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "tailwind-v43-inset-deprecation",
+      "claim": "As of Tailwind v4.3 (May 2026) the logical inset utilities start-*/end-* are deprecated in favor of inset-s-*/inset-e-* (the old names still work); the margin/padding utilities ms-*/me-*/ps-*/pe-* are unaffected.",
+      "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
+      "raw_snippet": "The existing start-* and end-* utilities are still available, but they're now deprecated in favor of inset-s-* and inset-e-* so the whole API lines up with inset-bs-* and inset-be-*.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "tailwind-logical-since-33",
+      "claim": "Tailwind logical property utilities (ms-, me-, ps-, pe-, start-, end-, text-start, text-end) require Tailwind v3.3+ and are fully supported in v4.",
+      "source_url": "https://tailwindcss.com/docs/margin",
+      "raw_snippet": "Use the ms-* and me-* utilities to set the margin-inline-start and margin-inline-end logical properties.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "mui-rtl-plugin",
+      "claim": "Current MUI (v9 as of 2026) uses the official fork @mui/stylis-plugin-rtl for RTL, recommended since MUI v6.",
+      "source_url": "https://mui.com/material-ui/customization/right-to-left/",
+      "raw_snippet": "Right-to-left support. Use the @mui/stylis-plugin-rtl plugin with the prefixer to enable RTL in Material UI.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "nextfont-selfhost",
+      "claim": "next/font self-hosts Google fonts (Heebo) with no external request and zero layout shift; the API takes subsets and weight options.",
+      "source_url": "https://nextjs.org/docs/app/getting-started/fonts",
+      "raw_snippet": "next/font automatically self-hosts any Google Font. Fonts are included in the deployment and served from the same domain, with no requests sent to Google.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "hebrew-google-fonts",
+      "claim": "Heebo, Assistant, Rubik, and Noto Sans Hebrew are available on Google Fonts with the hebrew subset.",
+      "source_url": "https://fonts.google.com/?subset=hebrew",
+      "raw_snippet": "Hebrew fonts on Google Fonts include Heebo, Assistant, Rubik, and Noto Sans Hebrew.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "intl-numberformat-ils",
+      "claim": "Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }) formats shekel amounts and Intl.DateTimeFormat('he-IL') formats dates for Hebrew locale.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+      "raw_snippet": "new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }) returns a formatter for Israeli new shekel currency.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "ref-mdn-dir",
+      "claim": "MDN documents the :dir() pseudo-class behavior and how it differs from the [dir] attribute selector.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/:dir",
+      "raw_snippet": "The :dir() CSS pseudo-class matches elements based on the directionality of the text contained in them.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "ref-mdn-logical-properties",
+      "claim": "MDN documents CSS logical properties and values (margin-inline-start, padding-inline-end, inset-inline-start, etc.) and their browser support.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values",
+      "raw_snippet": "CSS logical properties and values are a module of CSS introducing logical properties and values that provide the ability to control layout through logical, rather than physical, direction and dimension mappings.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "ref-mdn-bdi",
+      "claim": "MDN documents the <bdi> element for isolating user-generated bidirectional content.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/bdi",
+      "raw_snippet": "The <bdi> HTML element tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "ref-tailwind-rtl-variant",
+      "claim": "Tailwind documents the rtl: and ltr: variants for direction-specific styling.",
+      "source_url": "https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support",
+      "raw_snippet": "Use the rtl and ltr variants to conditionally apply styles in right-to-left and left-to-right modes respectively.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "ref-w3c-bidi",
+      "claim": "W3C Internationalization documents inline bidi markup and the Unicode bidirectional algorithm best practices.",
+      "source_url": "https://www.w3.org/International/articles/inline-bidi-markup/",
+      "raw_snippet": "Creating HTML pages in Arabic, Hebrew and other right-to-left scripts: inline markup and bidirectional text.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "illustrative-shekel-testcase",
+      "claim": "The canonical RTL test string includes a formatted shekel currency amount (such as the example output ₪1,234) to exercise currency rendering inside Hebrew text. This is an illustrative test vector, not a factual price claim; it mirrors the output of Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+      "raw_snippet": "new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).format(1234) produces a shekel-formatted string such as ₪1,234.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "scrollbar-gutter-baseline",
+      "claim": "scrollbar-gutter became Baseline (newly available) in December 2024; reserving the gutter avoids content reflow. text-wrap: balance is referenced in the skill only as a heading-readability aid, with no Baseline-date claim.",
+      "source_url": "https://web.dev/blog/baseline-scrollbar-props",
+      "raw_snippet": "scrollbar-gutter and the scrollbar-color and scrollbar-width properties are now Baseline newly available as of December 11, 2024.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    }
+  ]
+}

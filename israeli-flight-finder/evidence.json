@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "israeli-flight-finder",
+  "generated_at": "2026-06-21T00:00:00Z",
+  "claims": [
+    {
+      "claim_id": "elal-baggage",
+      "claim": "El Al economy carry-on is 1x8kg (56x45x25 cm) plus a personal item; Economy Classic/Flex include 1x23kg checked; since May 2025 Lite fares to Europe/UAE must gate-check the carry-on (free), leaving only a 38x30x18 cm personal item in the cabin; Business carry-on is 16kg.",
+      "source_url": "https://www.elal.com/eng/baggage",
+      "raw_snippet": "Economy carry-on: 8 kg, 56x45x25 cm, plus a personal item. Economy Lite to Europe and the UAE: carry-on must be checked at the gate; only a personal item up to 38x30x18 cm is allowed in the cabin.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/airline-baggage-quick-ref.md"]
+    },
+    {
+      "claim_id": "elal-matmid",
+      "claim": "El Al Matmid has five tiers; since April 2025 status is earned via a revenue-linked Diamonds currency and re-qualified every 12 months, and the soft-landing grace tier was eliminated.",
+      "source_url": "https://www.elal.com/eng/baggage",
+      "raw_snippet": "Matmid frequent flyer club tiers; status earned through the Diamonds revenue-based currency and re-qualified annually.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "israir-baggage",
+      "claim": "Israir charges for everything except a personal item: carry-on 10kg $30 advance / $40 airport; 1st checked bag 23kg $65 advance (from 1 May 2026) / $100 airport; 2nd bag $80; bags 3-5 $120 each; overweight (24-32kg) +$20 advance / +$70 airport.",
+      "source_url": "https://www.israir.co.il",
+      "raw_snippet": "Israir baggage: carry-on $30 in advance, $40 at the airport; first checked bag $65 per direction in advance (effective 1 May 2026), $100 at the airport; additional bags $80 and $120.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/airline-baggage-quick-ref.md"]
+    },
+    {
+      "claim_id": "arkia-baggage",
+      "claim": "Arkia international baggage: carry-on 7kg free; trolley 8kg $20 advance / $25 airport; checked bag 20kg $45 advance / $90 airport; excess $10 per kg.",
+      "source_url": "https://www.arkia.co.il/en/luggage-information",
+      "raw_snippet": "Arkia checked baggage 20 kg costs $45 in advance and $90 at the airport; trolley bag $20; excess baggage $10 per kg.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/airline-baggage-quick-ref.md"]
+    },
+    {
+      "claim_id": "wizz-resumed",
+      "claim": "Wizz Air resumed TLV operations on 28 May 2026, reconnecting Tel Aviv with hubs including London, Budapest, Rome, Bucharest, Larnaca, Milan, and Athens; base fares include only a 40x30x20 cm personal item.",
+      "source_url": "https://www.wizzair.com",
+      "raw_snippet": "Wizz Air resumed flights to Tel Aviv on 28 May 2026; base fare includes one small personal item, cabin and checked bags are paid add-ons.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/airline-baggage-quick-ref.md"]
+    },
+    {
+      "claim_id": "etias-ees",
+      "claim": "ETIAS travel authorization is becoming mandatory for visa-exempt nationals (including Israelis) before entering the Schengen area, and EES replaces passport stamping with biometric border registration.",
+      "source_url": "https://travel-europe.europa.eu/etias_en",
+      "raw_snippet": "ETIAS is a travel authorisation for visa-exempt non-EU nationals to travel to Schengen countries; it is linked to the traveller's passport and must be obtained before travel.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "tlv-security-3h",
+      "claim": "The Israel Airports Authority advises arriving 3 hours before international departures from Ben Gurion because of layered security screening.",
+      "source_url": "https://www.iaa.gov.il/en/airports/ben-gurion/securitybgn",
+      "raw_snippet": "Passengers are advised to arrive at Ben Gurion Airport 3 hours before an international flight.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "booking-day-of-week",
+      "claim": "Recent Expedia data put the cheapest day to fly mid-week (Tuesday, around 14% below the peak day domestically) with weekend departures at a premium; shifting dates by 1-2 days can save 30%+.",
+      "source_url": "https://www.afar.com/magazine/expedia-data-shows-new-best-day-to-book-cheaper-flights",
+      "raw_snippet": "Expedia found the cheapest day to fly is Tuesday, with travelers saving about 14 percent on average versus the most expensive day; weekend departures cost more.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "platforms-live",
+      "claim": "Google Flights (Israel), Skyscanner, KAYAK, Issta, and Lametayel are all operating flight-comparison platforms accessible to Israeli users in Hebrew.",
+      "source_url": "https://www.google.com/travel/flights?gl=IL&hl=he",
+      "raw_snippet": "Google Flights lets users search and compare flights with locale set to Israel (gl=IL, hl=he), including AI Flight Deals and fare-history tracking.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/comparison-platforms.md"]
+    },
+    {
+      "claim_id": "deal-sources",
+      "claim": "Israeli travelers track error fares and flash deals through secret-flights sites such as secretflights.co.il and through Telegram/Facebook deal channels, which rarely appear on the big aggregators.",
+      "source_url": "https://www.secretflights.co.il",
+      "raw_snippet": "secretflights.co.il (טיסות סודיות) surfaces mispriced and error fares from Israel that do not appear on standard comparison engines.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    }
+  ]
+}

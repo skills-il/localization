@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-tailwind-preset",
+  "generated_at": "2026-06-21T00:00:00Z",
+  "claims": [
+    {
+      "claim_id": "tailwind-v4-current",
+      "claim": "Tailwind CSS v4 is GA (current release v4.3, May 2026) and uses CSS-first configuration via @import \"tailwindcss\"; v4 dropped automatic tailwind.config.js loading and needs a build plugin (@tailwindcss/vite or @tailwindcss/postcss).",
+      "source_url": "https://tailwindcss.com/docs",
+      "raw_snippet": "Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for class names, generating the corresponding styles and then writing them to a static CSS file.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "tailwind-v43-inset-deprecation",
+      "claim": "As of Tailwind v4.3 (May 2026) the logical inset utilities start-*/end-* are deprecated in favor of inset-s-*/inset-e-* (old names still work); margin/padding ms-/me-/ps-/pe- are unaffected.",
+      "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
+      "raw_snippet": "The existing start-* and end-* utilities are still available, but they're now deprecated in favor of inset-s-* and inset-e-* so the whole API lines up with inset-bs-* and inset-be-*.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/rtl-config.md"]
+    },
+    {
+      "claim_id": "tailwind-rtl-variant",
+      "claim": "Tailwind provides built-in rtl: and ltr: variants for direction-specific styling, resolved via the CSS :dir() pseudo-class so they respond to dir=\"auto\" as well as explicit dir=\"rtl\".",
+      "source_url": "https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support",
+      "raw_snippet": "Use the rtl and ltr variants to conditionally add styles in right-to-left and left-to-right modes respectively when building multi-directional layouts.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "theme-inline-nextfont",
+      "claim": "Tailwind v4 @theme inline resolves CSS variables at the use site, which is required when wiring next/font (which exposes the font as a runtime CSS variable); plain @theme cannot reference a runtime variable.",
+      "source_url": "https://tailwindcss.com/docs/theme",
+      "raw_snippet": "Use the inline option when you want your theme variables to be resolved inline, referencing other variables by value rather than by reference.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "dark-mode-custom-variant",
+      "claim": "In Tailwind v4 the darkMode config key is gone; class-based dark mode is opted into in CSS with @custom-variant dark (&:where(.dark, .dark *));.",
+      "source_url": "https://tailwindcss.com/docs/dark-mode",
+      "raw_snippet": "To use class-based dark mode instead of the prefers-color-scheme media query, use the @custom-variant directive to override the dark variant.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "heebo-google-font",
+      "claim": "Heebo is a Hebrew UI font available on Google Fonts.",
+      "source_url": "https://fonts.google.com/specimen/Heebo",
+      "raw_snippet": "Heebo is a Hebrew and Latin typeface family available on Google Fonts.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "assistant-google-font",
+      "claim": "Assistant is a Hebrew body font available on Google Fonts.",
+      "source_url": "https://fonts.google.com/specimen/Assistant",
+      "raw_snippet": "Assistant is a Hebrew and Latin sans-serif typeface available on Google Fonts.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "google-fonts-host-gstatic",
+      "claim": "fonts.gstatic.com is the Google Fonts static host serving font binary files; preconnect to it for faster loading.",
+      "source_url": "https://fonts.gstatic.com",
+      "raw_snippet": "fonts.gstatic.com is the Google Fonts static content host that serves the font binary files.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "google-fonts-host-apis",
+      "claim": "fonts.googleapis.com serves the Google Fonts stylesheet; preconnect to it for faster loading.",
+      "source_url": "https://fonts.googleapis.com",
+      "raw_snippet": "fonts.googleapis.com is the Google Fonts API host that serves the generated CSS stylesheet.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "google-fonts-css2-link",
+      "claim": "The Google Fonts css2 endpoint loads Heebo and Assistant with font-display: swap via a stylesheet link.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&display=swap",
+      "raw_snippet": "The css2 endpoint returns @font-face rules for the requested families (Heebo, Assistant) with the requested weights and display=swap.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "font-display-swap",
+      "claim": "The font-display: swap descriptor renders fallback text immediately and swaps in the web font when loaded, mitigating FOIT.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display",
+      "raw_snippet": "swap: Gives the font face a zero second block period and an infinite swap period.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "israeli-ui-design-system",
+  "generated_at": "2026-06-21T00:00:00Z",
+  "claims": [
+    {
+      "claim_id": "hebrew-google-fonts",
+      "claim": "Heebo, Assistant, Rubik, Frank Ruhl Libre, and Secular One are Hebrew fonts on Google Fonts; their Latin pairings (Inter, Source Sans 3, Roboto, Merriweather, Montserrat) are also on Google Fonts. Source Sans Pro was renamed Source Sans 3 (Adobe, 2021) and Google Fonts dropped the old name.",
+      "source_url": "https://fonts.google.com/?subset=hebrew",
+      "raw_snippet": "Hebrew fonts on Google Fonts include Heebo, Assistant, Rubik, Frank Ruhl Libre, and Secular One. Source Sans 3 (formerly Source Sans Pro) is available on Google Fonts.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/hebrew-typography.md"]
+    },
+    {
+      "claim_id": "google-fonts-css2-link",
+      "claim": "The Google Fonts css2 endpoint loads Heebo and Inter with font-display: swap via an @import or link.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap",
+      "raw_snippet": "The css2 endpoint returns @font-face rules for the requested families (Heebo, Inter) with the requested weights and display=swap.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md"]
+    },
+    {
+      "claim_id": "css-logical-properties",
+      "claim": "CSS logical properties (padding-inline, margin-block, inset-inline-start) provide direction-aware layout and are documented by MDN.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values",
+      "raw_snippet": "CSS logical properties and values provide the ability to control layout through logical, rather than physical, direction and dimension mappings.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "tailwind-rtl",
+      "claim": "Tailwind provides rtl: and ltr: variants for direction-specific component styling.",
+      "source_url": "https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support",
+      "raw_snippet": "Use the rtl and ltr variants to conditionally apply styles in right-to-left and left-to-right modes.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "shadcn-ui",
+      "claim": "shadcn/ui provides RTL-friendly component recipes and primitives.",
+      "source_url": "https://ui.shadcn.com",
+      "raw_snippet": "shadcn/ui is a set of accessible, composable React component recipes built on Radix and Tailwind.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "wcag-contrast",
+      "claim": "WCAG AA requires at least 4.5:1 contrast for normal text and 3:1 for large text and UI components; encode these into design tokens.",
+      "source_url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
+      "raw_snippet": "WCAG success criterion 1.4.3 Contrast (Minimum) requires a contrast ratio of at least 4.5:1 for normal text, and 1.4.11 Non-text Contrast requires 3:1 for UI components and graphical objects.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "igds-figma",
+      "claim": "The Israeli Government Design System (IGDS) is published as a Figma Community file ('IGDS Design System File 2.0') used to unify gov.il user experience.",
+      "source_url": "https://www.figma.com/community/file/1426262348206342909/igds-design-system-file-2-0",
+      "raw_snippet": "IGDS Design System File 2.0 on Figma Community: the Israeli Government Design System with tokens, components, and RTL Hebrew illustrations.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "intl-shekel",
+      "claim": "Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }) formats shekel amounts (e.g. 1,234.50 with the U+20AA sign), and the shekel sign is not a directional character so inline amounts need bidi isolation.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+      "raw_snippet": "new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).format(1234.5) returns a shekel-formatted string such as 1,234.50 with the new shekel sign; both '1,234.50 ₪' (finance) and '₪ 1,234.50' (retail) orderings occur.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "oklch-baseline",
+      "claim": "The CSS oklch() color function is Baseline (widely available) since 2023, enabling perceptually-uniform color ramps.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch",
+      "raw_snippet": "The oklch() functional notation expresses a color in the Oklch color space; it is Baseline widely available across browsers.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    }
+  ]
+}

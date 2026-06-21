@@ -10,7 +10,7 @@
 
 ### Friendly Startup (Consumer Apps)
 - **Hebrew:** Rubik (300, 400, 500, 700)
-- **Latin:** Source Sans Pro (300, 400, 600, 700)
+- **Latin:** Source Sans 3 (300, 400, 600, 700)
 - **Monospace:** Source Code Pro
 - **Notes:** Rubik's rounded corners give a friendly feel. Good for mobile-first designs.
 

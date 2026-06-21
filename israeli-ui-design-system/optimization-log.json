@@ -1,0 +1,15 @@
+{
+  "cycles": [
+    {
+      "version": "1.3.0",
+      "date": "2026-06-21",
+      "lessons": [
+        "STALE fix: Source Sans Pro -> Source Sans 3 (renamed by Adobe 2021; old Google Fonts family 404s) in SKILL.md table + frontmatter description, SKILL_HE.md table, references/hebrew-typography.md, and metadata display_description (he+en). Description change is a semantically-null font rename (no trigger-routing change), so Phase 5.7 holdout is trivially non-regressing.",
+        "CRITICAL coverage added: encode WCAG contrast into the token layer (text-on-surface >= 4.5:1, large/UI >= 3:1; flagged warning/primary-500 as borderline-on-white). MAJOR added: prefer oklch ramps with hex fallback; author tokens once via Style Dictionary / W3C DTCG format. Relabeled WCAG 2.1 quickref link to the version-neutral standards-guidelines page.",
+        "Expert round 2: reworded the contrast note so it no longer prescribes a 600/700 ramp that the flat token set lacks (the prose was contradicting the shipped CSS). Now states the borderline colors ~3.6:1 pass 3:1 for UI/large but fail 4.5:1 for body text.",
+        "Deferred (MAJOR, next cycle): MODEL the token taxonomy the prose now preaches -- a 2-3 tier primitive->semantic->component example (--blue-600 -> --color-action-primary -> --button-bg) plus real success/warning/error 600-700 steps so components stop referencing --color-primary-500 directly; one concrete DTCG $value/$type snippet + a line on how Style Dictionary consumes it and emits the CSS vars (Figma Variables / Tokens Studio round-trip); Hebrew measure/line-length token (~45-75ch via max-inline-size).",
+        "Deferred (MINOR): prefers-color-scheme + color-scheme: light dark wiring for the dark tier; clamp() fluid type + @container queries; RTL directional-motion note (toast slide / drawer transform-origin must flip sign) + prefers-reduced-motion; express one ramp in oklch with a hex fallback; tighten sibling-boundary vs israeli-accessibility-compliance now that contrast guidance overlaps."
+      ]
+    }
+  ]
+}

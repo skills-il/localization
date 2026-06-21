@@ -1,0 +1,14 @@
+{
+  "cycles": [
+    {
+      "version": "1.1.0",
+      "date": "2026-06-21",
+      "lessons": [
+        "Applied freshness: framing -> v4 current (v4.3); v4.3 start-*/end- inset deprecation -> inset-s-*/inset-e-* (SKILL + rtl-config.md table + migration list); native v4 logical utilities make tailwindcss-rtl plugin unnecessary.",
+        "Applied coverage (CRITICAL): Next.js next/font wired via @theme inline (plain @theme breaks on runtime var); v4 dark mode via @custom-variant (darkMode config key gone); dir=auto interaction with rtl: variants; gradient/shadow direction gotcha.",
+        "Deferred (MAJOR, next cycle): @variant/@custom-variant deeper coverage; @tailwindcss/typography prose RTL handling; @plugin directive form for v4. Deferred (MINOR): more arbitrary-logical-value examples.",
+        "Description unchanged this cycle -> Phase 5.7 eval skipped."
+      ]
+    }
+  ]
+}

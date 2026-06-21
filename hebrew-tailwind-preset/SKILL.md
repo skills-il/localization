@@ -6,7 +6,7 @@ license: MIT
 
 # Hebrew Tailwind Preset
 
-Tailwind CSS v4.0+ recommended; v3.1+ is compatible for `dir` variants. Works with React, Vue, Angular, Next.js, and Nuxt. No network required.
+Tailwind CSS v4 recommended (current release v4.3, May 2026); v3.1+ is compatible for `dir` variants. Works with React, Vue, Angular, Next.js, and Nuxt. No network required.
 
 ## Instructions
 
@@ -118,9 +118,28 @@ Or self-host with an `@font-face` rule inside the same CSS file as your `@theme`
 
 The `&display=swap` query param (link) and the `font-display: swap` descriptor (`@font-face`) both make the browser render fallback text immediately instead of hiding text until the Hebrew font loads.
 
+**Next.js: wire `next/font` through `@theme inline`.** When you self-host with `next/font` (recommended for Next.js: no external request, no layout shift), the font is exposed as a CSS variable, and `@theme` cannot reference a runtime variable directly. Use `@theme inline` so the variable resolves at the use site:
+
+```css
+/* app.css */
+@import "tailwindcss";
+@theme inline {
+  --font-hebrew: var(--font-heebo); /* --font-heebo comes from next/font */
+}
+```
+
+```tsx
+// layout.tsx
+import { Heebo } from 'next/font/google';
+const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
+// <html lang="he" dir="rtl" className={heebo.variable}> ... </html>
+```
+
+Plain `@theme { --font-hebrew: var(--font-heebo); }` (without `inline`) breaks, because Tailwind tries to resolve the variable at build time when it does not yet exist.
+
 ### Step 2: Use Logical Property Utilities
 
-Always prefer logical utilities over physical directional ones:
+Tailwind v4's native logical utilities and `rtl:`/`ltr:` variants cover RTL on their own, so the old community `tailwindcss-rtl` plugin is no longer needed. Always prefer logical utilities over physical directional ones:
 
 | Physical (avoid) | Logical (use) | RTL Behavior |
 |-------------------|--------------|--------------|
@@ -128,8 +147,8 @@ Always prefer logical utilities over physical directional ones:
 | `mr-4` | `me-4` | Left margin in RTL |
 | `pl-4` | `ps-4` | Right padding in RTL |
 | `pr-4` | `pe-4` | Left padding in RTL |
-| `left-0` | `start-0` | Right: 0 in RTL |
-| `right-0` | `end-0` | Left: 0 in RTL |
+| `left-0` | `inset-s-0` | Right: 0 in RTL (v4.3+; `start-0` is the deprecated alias) |
+| `right-0` | `inset-e-0` | Left: 0 in RTL (v4.3+; `end-0` is the deprecated alias) |
 | `border-l` | `border-s` | Right border in RTL |
 | `border-r` | `border-e` | Left border in RTL |
 | `rounded-l-lg` | `rounded-s-lg` | Right rounded in RTL |
@@ -138,9 +157,13 @@ Always prefer logical utilities over physical directional ones:
 | `text-right` | `text-end` | Left-aligned in RTL |
 | `scroll-ml-4` | `scroll-ms-4` | Right scroll margin in RTL |
 
+**Tailwind v4.3 inset rename.** As of v4.3 (May 2026) the logical *positioning* utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` (so they line up with `inset-bs-*`/`inset-be-*`). The old names still work, but prefer `inset-s-0`/`inset-e-0` in new code. This rename affects only inset/positioning; the margin/padding/border utilities `ms-*`/`me-*`/`ps-*`/`pe-*`/`border-s`/`border-e` are unchanged. Arbitrary values compose with logical utilities too (e.g. `ms-[3px]`, `inset-s-[10px]`).
+
 ### Step 3: Use Dir Variants for RTL-Specific Styles
 
-**Prerequisite:** the `rtl:` and `ltr:` variants (built into Tailwind v4) match on an ancestor's `dir` attribute. They do nothing unless an ancestor element actually carries `dir="rtl"` (or `dir="ltr"`) - normally the `<html>` element. Set `dir="rtl"` on the root before relying on any `rtl:` utility below.
+**Prerequisite:** the `rtl:` and `ltr:` variants (built into Tailwind v4) match on an ancestor's `dir` attribute. They do nothing unless an ancestor element actually carries `dir="rtl"` (or `dir="ltr"`) - normally the `<html>` element. Set `dir="rtl"` on the root before relying on any `rtl:` utility below. Because these variants resolve via the CSS `:dir()` pseudo-class, they also respond correctly to `dir="auto"` on mixed Hebrew/English user content, not only an explicit `dir="rtl"`.
+
+**Dark mode in v4.** The v3 `darkMode` config key is gone. In v4 you opt into class-based dark mode in CSS with `@custom-variant dark (&:where(.dark, .dark *));`, then combine freely with direction, e.g. `class="dark:bg-gray-900 rtl:text-right"`. Set `dir="rtl"` on `<html>` and toggle `.dark` on the same element.
 
 When you need direction-specific overrides:
 
@@ -319,6 +342,7 @@ Result: Build grid layout with RTL sidebar (border-e, pe-6), navigation with Heb
 - The `space-x-4` utility in Tailwind does not respect RTL direction. Agents must use `gap-4` with flex or grid, or manually add `rtl:space-x-reverse` to flip spacing direction.
 - Custom font declarations for Hebrew must include `font-display: swap` to prevent FOIT (Flash of Invisible Text). Agents may omit this, causing Hebrew text to disappear during font loading.
 - Tailwind's `text-left` and `text-right` are physical properties. Use `text-start` and `text-end` classes for RTL-aware alignment. Agents default to physical direction classes.
+- Gradient and shadow direction is physical, not logical: `bg-gradient-to-r` and offset shadows do not flip in RTL. Add a `rtl:` override (e.g. `rtl:bg-gradient-to-l`) when the direction is meaningful.
 
 ## Reference Links
 
@@ -334,7 +358,7 @@ Result: Build grid layout with RTL sidebar (border-e, pe-6), navigation with Heb
 
 ### Error: "Tailwind logical utilities not working"
 Cause: Using older Tailwind version without logical property support
-Solution: Logical utilities (ms-, me-, ps-, pe-, start-, end-) require Tailwind v3.3+. For v3.0-3.2, use rtl:/ltr: variants instead (e.g., `rtl:mr-4 ltr:ml-4`). Tailwind v4 has full logical property support built in.
+Solution: Logical utilities (ms-, me-, ps-, pe-, and inset `inset-s-`/`inset-e-`, formerly `start-`/`end-`) require Tailwind v3.3+. For v3.0-3.2, use rtl:/ltr: variants instead (e.g., `rtl:mr-4 ltr:ml-4`). Tailwind v4 has full logical property support built in; the `inset-s-*`/`inset-e-*` names landed in v4.3 (the older `start-*`/`end-*` still resolve).
 
 ### Error: "Font not applying with font-hebrew class"
 Cause: Hebrew font family not defined in Tailwind configuration
