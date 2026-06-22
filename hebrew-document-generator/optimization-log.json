@@ -55,6 +55,19 @@
         "Latent regex footgun fixed: the _HEB character class used a precomposed Hebrew presentation-form char (U+FB1D) that is invisible in source and can decompose to U+05D9+U+05B4, silently widening the class to U+05B4..U+FB4F and matching en-dash/CJK/etc. Replaced with explicit unicode-escape codepoints so neutral chars (the en-dash in 'Lobectomy - 9/2023') stay neutral and pure-English lines with dashes are detected LTR. Verified by extracting and executing the REAL SKILL.md code block against the user 8-line sample: all 8 base directions correct.",
         "Still deferred (documented, not implemented): tables, headers/footers, numbered/bulleted lists, sectPr RTL flow. Per-script run split + base-direction are now both correct for body paragraphs only."
       ]
+    },
+    {
+      "version": "1.5.0",
+      "date": "2026-06-22",
+      "lessons": [
+        "MAJOR Word-bidi fix, proven against real Microsoft Word (the v1.4.0 helper's whole premise was wrong for Word). Word's bidi engine is STRICTER than Unicode/UBA: LibreOffice AND macOS CoreText/Quick Look both render the broken files CORRECTLY, hiding the bug, so they are useless as Word proxies. Only Word reveals it. Verified by round-tripping generated .docx through the user's Word.",
+        "Root cause: explicit per-run <w:rtl/> flags on the runs of a MIXED Hebrew+English paragraph. Word force-reverses any Latin/number caught in (or beside) an rtl-flagged run (7/2023 -> 2023/7, KI-67 25% flips) and mis-pairs parens. Fix: in a paragraph that contains any Latin letter, flag NO run rtl; the paragraph <w:bidi/> alone orders mixed lines correctly.",
+        "Pure-Hebrew paragraphs (labels/headings, no Latin letters, digits allowed) DO need <w:rtl/> on their Hebrew runs, or Word drifts a trailing colon (מחלות רקע:) and a leading section number (2. כותרת) to the wrong edge. So the rule is conditional on para_has_latin.",
+        "Unicode directional isolates (U+2066-2069) are NOT a usable fix: Word renders them as visible .notdef boxes in the David font (other viewers draw them zero-width, hiding it). Never insert directional control chars.",
+        "Digits treated as LTR-strong in _strong so a number forms its own LTR run (never rides in a Hebrew rtl run). Plus _shift_boundary_spaces: move a space at the end of an LTR run before an RTL run to the start of the RTL run, because Word trims a run's trailing whitespace at a direction boundary (gluing '2.' to the heading word); a leading space on the RTL run survives.",
+        "Carried from v1.4.0 (still true): base direction is per-paragraph (any Hebrew -> RTL+right; pure-English line -> LTR+left). Still deferred: tables, headers/footers, numbered/bulleted lists, sectPr RTL flow.",
+        "Process lesson: verify DOCX RTL ONLY in Microsoft Word. LibreOffice/CoreText/pdfplumber-vs-python-bidi all agreed the broken output was 'correct' and would have shipped the bug twice. Drive Word via the user (its AppleScript save-as is broken in current Mac builds and do-Visual-Basic was removed)."
+      ]
     }
   ]
 }

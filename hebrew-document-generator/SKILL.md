@@ -159,11 +159,12 @@ WeasyPrint advantages for Hebrew:
 
 ### Step 5: Generate Hebrew DOCX with python-docx
 
-DOCX is where mixed Hebrew/English breaks most often. Word runs the Unicode bidi algorithm itself at render time, so getting it right is about emitting the correct XML flags, NOT about reordering characters yourself. Three things must all be true:
+DOCX is where mixed Hebrew/English breaks most often, and Microsoft Word's bidi engine is stricter than the Unicode standard. LibreOffice, macOS Preview/Quick Look, and most viewers render forgiving output that HIDES Word-only bugs, so always verify in Word itself, not a substitute renderer. Four rules, each learned against real Word:
 
-1. Every Hebrew paragraph carries `<w:bidi/>` (RTL base direction). This is what keeps the whole line ordered right-to-left and lets Word place embedded English and numbers correctly. The helper picks this per paragraph from whether the line contains any Hebrew: a pure-English line (a lab value, a drug name, an English-only row) gets LTR base and left alignment instead, so it does not render right-aligned in an otherwise Hebrew document.
-2. A line that mixes scripts is split into per-script runs so we can flag ONLY the Hebrew runs `<w:rtl/>` and leave the Latin runs LTR. The paragraph `<w:bidi/>` is what orders the line; the split exists to avoid the actual bug (flagging a Latin run `<w:rtl/>`, which forces RTL onto the English and makes it jump sides) and to attach complex-script styling where it belongs.
-3. Every run sets the complex-script font (`w:cs`) and size (`w:szCs`). Hebrew is a "complex script" in Word's model, so `w:ascii`/`w:sz` alone never govern the Hebrew glyphs. Omitting `w:cs`/`w:szCs` is the single most common cause of "the font/size I set did nothing and the Hebrew looks broken". The same rule applies to **bold and italic**: `w:b`/`w:i` only affect Latin, you also need `w:bCs`/`w:iCs` or your bold Hebrew renders un-bolded.
+1. Every Hebrew paragraph carries `<w:bidi/>` (RTL base direction); a pure-English line (a lab value, a drug name, an English-only row) gets LTR base + left alignment instead. The helper picks this per paragraph from whether the line contains any Hebrew, so English-only rows do not hang off the right margin in an otherwise Hebrew document.
+2. **Do NOT put `<w:rtl/>` on the runs of a MIXED Hebrew+English paragraph.** This is the single biggest Word trap. Word honors `<w:rtl/>` strictly: any Latin or number that lands in (or beside) an rtl-flagged run gets force-reversed, so `7/2023` prints as `2023/7`, an embedded `KI-67` code flips, and the parentheses around a mixed group like `(גסטרית, KI-67)` mis-pair. In a mixed paragraph the paragraph's own `<w:bidi/>` already orders the line correctly, leave every run unflagged.
+3. **Flag `<w:rtl/>` ONLY on Hebrew runs of a paragraph that has no Latin letters** (a pure-Hebrew label or heading, digits allowed). There the flag is what anchors a trailing colon (`מחלות רקע:`) to the left end and a leading section number (`2. כותרת`) to the right, without it Word drifts that punctuation or number to the wrong edge. The split stays by script so each run still gets the right complex-script font.
+4. Every run sets the complex-script font (`w:cs`) and size (`w:szCs`). Hebrew is a "complex script" in Word's model, so `w:ascii`/`w:sz` alone never govern the Hebrew glyphs. Omitting `w:cs`/`w:szCs` is the most common cause of "the font/size I set did nothing and the Hebrew looks broken". Bold and italic are the same: `w:b`/`w:i` only affect Latin, you also need `w:bCs`/`w:iCs`. **Never insert Unicode directional isolates (U+2066-2069) or marks to force order, Word renders them as visible `.notdef` boxes in the David font even though other viewers hide them.**
 
 ```python
 import re
@@ -176,10 +177,12 @@ from docx.oxml.ns import qn
 _HEB = re.compile(r'[\u0590-\u05FF\uFB1D-\uFB4F]')  # Hebrew block + presentation forms
 
 def _strong(ch):
-    """True for a Hebrew letter, False for a strong-LTR letter, None for neutral."""
+    """True for a Hebrew letter, False for a strong-LTR char (Latin OR ASCII
+    digit), None for neutral. Digits count as LTR so a number never rides inside
+    a Hebrew run (Word force-reverses numbers caught in an rtl-flagged run)."""
     if _HEB.match(ch):
         return True
-    if ch.isalpha():
+    if ch.isascii() and ch.isalnum():
         return False
     return None
 
@@ -191,8 +194,9 @@ def _split_by_script(text):
     inherit the direction of the first strong character in the WHOLE string
     (falling back to RTL for an all-neutral string in a Hebrew document), so a
     Latin-dominant line that starts with a digit or bracket is not mis-flagged
-    RTL. Word's bidi algorithm fixes the final visual order, so this split only
-    has to get the strong characters into correctly-flagged runs.
+    RTL. The split groups characters so each run can carry the correct
+    complex-script font; in Word, run DIRECTION is governed by the rtl rules
+    in add_rtl_paragraph, not by this split alone.
     """
     default_rtl = next((s for s in (_strong(c) for c in text) if s is not None), True)
     segments, buf, buf_rtl = [], '', None
@@ -208,6 +212,23 @@ def _split_by_script(text):
         segments.append((buf, buf_rtl))
     return segments
 
+def _shift_boundary_spaces(segments):
+    """Move a space at the END of an LTR run that directly precedes an RTL run to
+    the START of that RTL run. Word trims a run's trailing whitespace at a
+    direction boundary, which glues a leading number to its heading
+    ("2.\u05db\u05d5\u05ea\u05e8\u05ea"); a leading space on the RTL run survives and restores
+    the gap. Without this, numbered Hebrew headings lose the space after "N.".
+    """
+    out = [[seg, rtl] for seg, rtl in segments]
+    for i in range(len(out) - 1):
+        seg, rtl = out[i]
+        nseg, nrtl = out[i + 1]
+        if rtl is False and nrtl is True and seg.endswith(' '):
+            stripped = seg.rstrip(' ')
+            out[i][0] = stripped
+            out[i + 1][0] = seg[len(stripped):] + nseg
+    return [(s, r) for s, r in out if s]
+
 def _para_is_rtl(text):
     """Choose the paragraph base direction for a Hebrew document.
 
@@ -221,7 +242,7 @@ def _para_is_rtl(text):
     """
     if _HEB.search(text):
         return True
-    if any(ch.isalpha() for ch in text):
+    if any(ch.isascii() and ch.isalnum() for ch in text):
         return False
     return True
 
@@ -246,7 +267,12 @@ def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False
         pPr.append(pPr.makeelement(qn('w:bidi'), {}))
     p.alignment = WD_ALIGN_PARAGRAPH.RIGHT if base_rtl else WD_ALIGN_PARAGRAPH.LEFT
 
-    for segment, is_rtl in _split_by_script(text):
+    # A paragraph with ANY Latin letter is "mixed": never rtl-flag its runs
+    # (rule 2 above). A paragraph with only Hebrew (+digits/punct) is "pure":
+    # its Hebrew runs DO get rtl, to anchor trailing colons and leading numbers.
+    para_has_latin = any(ch.isascii() and ch.isalpha() for ch in text)
+
+    for segment, is_rtl in _shift_boundary_spaces(_split_by_script(text)):
         run = p.add_run(segment)
         rPr = run._r.get_or_add_rPr()
         # rPr children must stay in OOXML schema order: rFonts, b, bCs, i, iCs, sz, szCs, rtl
@@ -263,8 +289,11 @@ def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False
         # (3) complex-script font size, so the size applies to Hebrew
         rPr.append(rPr.makeelement(qn('w:sz'),   {qn('w:val'): str(size * 2)}))
         rPr.append(rPr.makeelement(qn('w:szCs'), {qn('w:val'): str(size * 2)}))
-        # (2) mark ONLY Hebrew runs rtl; Latin runs stay LTR
-        if is_rtl:
+        # (2) Flag rtl ONLY on Hebrew runs of a paragraph with no Latin letters.
+        #     In a mixed Hebrew+English paragraph, NO run is flagged, or Word
+        #     force-reverses the embedded numbers/Latin and mis-pairs parens.
+        #     The paragraph <w:bidi/> alone orders mixed lines correctly.
+        if is_rtl and not para_has_latin:
             rPr.append(rPr.makeelement(qn('w:rtl'), {}))
     return p
 
