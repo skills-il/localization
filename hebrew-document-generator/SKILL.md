@@ -163,7 +163,7 @@ DOCX is where mixed Hebrew/English breaks most often, and Microsoft Word's bidi 
 
 1. Every Hebrew paragraph carries `<w:bidi/>` (RTL base direction); a pure-English line (a lab value, a drug name, an English-only row) gets LTR base + left alignment instead. The helper picks this per paragraph from whether the line contains any Hebrew, so English-only rows do not hang off the right margin in an otherwise Hebrew document.
 2. **Do NOT put `<w:rtl/>` on the runs of a MIXED Hebrew+English paragraph.** This is the single biggest Word trap. Word honors `<w:rtl/>` strictly: any Latin or number that lands in (or beside) an rtl-flagged run gets force-reversed, so `7/2023` prints as `2023/7`, an embedded `KI-67` code flips, and the parentheses around a mixed group like `(גסטרית, KI-67)` mis-pair. In a mixed paragraph the paragraph's own `<w:bidi/>` already orders the line correctly, leave every run unflagged.
-3. **Flag `<w:rtl/>` ONLY on Hebrew runs of a paragraph that has no Latin letters** (a pure-Hebrew label or heading, digits allowed). There the flag is what anchors a trailing colon (`מחלות רקע:`) to the left end and a leading section number (`2. כותרת`) to the right, without it Word drifts that punctuation or number to the wrong edge. The split stays by script so each run still gets the right complex-script font.
+3. **Flag `<w:rtl/>` ONLY on Hebrew runs of a paragraph that has no Latin letters** (a pure-Hebrew label or heading, digits allowed). There the flag is what anchors a trailing colon (`מחלות רקע:`) to the left end. A leading section-number marker (`2.`, `10.`) is additionally merged into the Hebrew run (`_merge_list_marker`) so its period does not flip to `.2`; a date like `13/01/2026` is left as its own LTR run so Word does not reverse it. The split stays by script so each run still gets the right complex-script font.
 4. Every run sets the complex-script font (`w:cs`) and size (`w:szCs`). Hebrew is a "complex script" in Word's model, so `w:ascii`/`w:sz` alone never govern the Hebrew glyphs. Omitting `w:cs`/`w:szCs` is the most common cause of "the font/size I set did nothing and the Hebrew looks broken". Bold and italic are the same: `w:b`/`w:i` only affect Latin, you also need `w:bCs`/`w:iCs`. **Never insert Unicode directional isolates (U+2066-2069) or marks to force order, Word renders them as visible `.notdef` boxes in the David font even though other viewers hide them.**
 
 ```python
@@ -175,6 +175,7 @@ from docx.oxml.ns import qn
 
 # Hebrew block + Hebrew presentation forms. Used to pick each run's direction.
 _HEB = re.compile(r'[\u0590-\u05FF\uFB1D-\uFB4F]')  # Hebrew block + presentation forms
+_LIST_MARKER = re.compile(r'^\d{1,2}\.$')  # 1-2 digit list marker, e.g. "2."
 
 def _strong(ch):
     """True for a Hebrew letter, False for a strong-LTR char (Latin OR ASCII
@@ -229,6 +230,18 @@ def _shift_boundary_spaces(segments):
             out[i + 1][0] = seg[len(stripped):] + nseg
     return [(s, r) for s, r in out if s]
 
+def _merge_list_marker(segments):
+    """A leading short list-number marker ("2.", "10.") on an RTL line must be part
+    of the Hebrew RTL run, or Word floats its period to the wrong side (".2").
+    Merge a leading LTR marker run into the Hebrew run that follows it. Matches
+    only 1-2 digits + period, never a date like 13/01/2026 (which must stay an
+    LTR run so Word does not reverse it)."""
+    if (len(segments) >= 2 and segments[0][1] is False
+            and _LIST_MARKER.match(segments[0][0].strip())
+            and segments[1][1] is True):
+        return [(segments[0][0] + segments[1][0], True)] + list(segments[2:])
+    return list(segments)
+
 def _para_is_rtl(text):
     """Choose the paragraph base direction for a Hebrew document.
 
@@ -272,7 +285,7 @@ def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False
     # its Hebrew runs DO get rtl, to anchor trailing colons and leading numbers.
     para_has_latin = any(ch.isascii() and ch.isalpha() for ch in text)
 
-    for segment, is_rtl in _shift_boundary_spaces(_split_by_script(text)):
+    for segment, is_rtl in _shift_boundary_spaces(_merge_list_marker(_split_by_script(text))):
         run = p.add_run(segment)
         rPr = run._r.get_or_add_rPr()
         # rPr children must stay in OOXML schema order: rFonts, b, bCs, i, iCs, sz, szCs, rtl

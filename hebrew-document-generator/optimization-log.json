@@ -61,12 +61,21 @@
       "date": "2026-06-22",
       "lessons": [
         "MAJOR Word-bidi fix, proven against real Microsoft Word (the v1.4.0 helper's whole premise was wrong for Word). Word's bidi engine is STRICTER than Unicode/UBA: LibreOffice AND macOS CoreText/Quick Look both render the broken files CORRECTLY, hiding the bug, so they are useless as Word proxies. Only Word reveals it. Verified by round-tripping generated .docx through the user's Word.",
-        "Root cause: explicit per-run <w:rtl/> flags on the runs of a MIXED Hebrew+English paragraph. Word force-reverses any Latin/number caught in (or beside) an rtl-flagged run (7/2023 -> 2023/7, KI-67 25% flips) and mis-pairs parens. Fix: in a paragraph that contains any Latin letter, flag NO run rtl; the paragraph <w:bidi/> alone orders mixed lines correctly.",
+        "Root cause: explicit per-run <w:rtl/> flags on the runs of a MIXED Hebrew+English paragraph. Word force-reverses any Latin/number caught in (or beside) an rtl-flagged run (7/2023 -> 2023/7, KI-67 flips) and mis-pairs parens. Fix: in a paragraph that contains any Latin letter, flag NO run rtl; the paragraph <w:bidi/> alone orders mixed lines correctly.",
         "Pure-Hebrew paragraphs (labels/headings, no Latin letters, digits allowed) DO need <w:rtl/> on their Hebrew runs, or Word drifts a trailing colon (מחלות רקע:) and a leading section number (2. כותרת) to the wrong edge. So the rule is conditional on para_has_latin.",
         "Unicode directional isolates (U+2066-2069) are NOT a usable fix: Word renders them as visible .notdef boxes in the David font (other viewers draw them zero-width, hiding it). Never insert directional control chars.",
         "Digits treated as LTR-strong in _strong so a number forms its own LTR run (never rides in a Hebrew rtl run). Plus _shift_boundary_spaces: move a space at the end of an LTR run before an RTL run to the start of the RTL run, because Word trims a run's trailing whitespace at a direction boundary (gluing '2.' to the heading word); a leading space on the RTL run survives.",
         "Carried from v1.4.0 (still true): base direction is per-paragraph (any Hebrew -> RTL+right; pure-English line -> LTR+left). Still deferred: tables, headers/footers, numbered/bulleted lists, sectPr RTL flow.",
         "Process lesson: verify DOCX RTL ONLY in Microsoft Word. LibreOffice/CoreText/pdfplumber-vs-python-bidi all agreed the broken output was 'correct' and would have shipped the bug twice. Drive Word via the user (its AppleScript save-as is broken in current Mac builds and do-Visual-Basic was removed)."
+      ]
+    },
+    {
+      "version": "1.6.0",
+      "date": "2026-06-23",
+      "lessons": [
+        "Leading section-number marker (2. / 10.) on an RTL line: Word floats its trailing period to the wrong side (renders as dot-then-number) because the marker is a separate LTR run. Fix _merge_list_marker: merge a leading 1-2-digit+period LTR run into the following Hebrew RTL run so the marker rides in RTL and the period stays after the number. Regex is strict (1-2 digits + period only) so a date like 13/01/2026 stays its own LTR run and is not reversed. Confirmed in real Word (N4 of the marker A/B test).",
+        "KNOWN LIMITATION (accepted, not a skill bug): a sentence ending in a Latin word + period in an RTL paragraph places the period at the visual left edge. This is native Word RTL behavior (identical to typing it by hand) and resists docx-level fixes: LRM (U+200E) after the period had no effect in Word, and isolates render as boxes. Left as-is; meaning and reading order are correct.",
+        "evidence verify-evidence.py DOES scan optimization-log.json. Keep bare percentages/NIS amounts out of lesson text (an illustrative KI-67 25% tripped the gate on the next cycle clone). Describe examples without a literal percent/amount."
       ]
     }
   ]
