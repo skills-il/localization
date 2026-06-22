@@ -161,7 +161,7 @@ WeasyPrint advantages for Hebrew:
 
 DOCX is where mixed Hebrew/English breaks most often. Word runs the Unicode bidi algorithm itself at render time, so getting it right is about emitting the correct XML flags, NOT about reordering characters yourself. Three things must all be true:
 
-1. Every Hebrew paragraph carries `<w:bidi/>` (RTL base direction). This is what keeps the whole line ordered right-to-left and lets Word place embedded English and numbers correctly.
+1. Every Hebrew paragraph carries `<w:bidi/>` (RTL base direction). This is what keeps the whole line ordered right-to-left and lets Word place embedded English and numbers correctly. The helper picks this per paragraph from whether the line contains any Hebrew: a pure-English line (a lab value, a drug name, an English-only row) gets LTR base and left alignment instead, so it does not render right-aligned in an otherwise Hebrew document.
 2. A line that mixes scripts is split into per-script runs so we can flag ONLY the Hebrew runs `<w:rtl/>` and leave the Latin runs LTR. The paragraph `<w:bidi/>` is what orders the line; the split exists to avoid the actual bug (flagging a Latin run `<w:rtl/>`, which forces RTL onto the English and makes it jump sides) and to attach complex-script styling where it belongs.
 3. Every run sets the complex-script font (`w:cs`) and size (`w:szCs`). Hebrew is a "complex script" in Word's model, so `w:ascii`/`w:sz` alone never govern the Hebrew glyphs. Omitting `w:cs`/`w:szCs` is the single most common cause of "the font/size I set did nothing and the Hebrew looks broken". The same rule applies to **bold and italic**: `w:b`/`w:i` only affect Latin, you also need `w:bCs`/`w:iCs` or your bold Hebrew renders un-bolded.
 
@@ -173,7 +173,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 
 # Hebrew block + Hebrew presentation forms. Used to pick each run's direction.
-_HEB = re.compile(r'[֐-׿יִ-ﭏ]')
+_HEB = re.compile(r'[\u0590-\u05FF\uFB1D-\uFB4F]')  # Hebrew block + presentation forms
 
 def _strong(ch):
     """True for a Hebrew letter, False for a strong-LTR letter, None for neutral."""
@@ -208,9 +208,27 @@ def _split_by_script(text):
         segments.append((buf, buf_rtl))
     return segments
 
+def _para_is_rtl(text):
+    """Choose the paragraph base direction for a Hebrew document.
+
+    Any Hebrew letter -> RTL base: a Hebrew sentence routinely embeds English
+    terms, drug names, or numbers and must still flow right-to-left. No Hebrew
+    but Latin present -> LTR base, so a pure-English line (a lab value, an
+    English-only clinical row) renders left-aligned instead of hugging the right
+    margin. All-neutral (digits/punctuation only) -> RTL, the document default.
+    This is the fix for "English-only lines come out right-aligned and the
+    document still looks RTL-broken".
+    """
+    if _HEB.search(text):
+        return True
+    if any(ch.isalpha() for ch in text):
+        return False
+    return True
+
 def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False,
                       heading_level=None):
-    """Add an RTL paragraph that renders mixed Hebrew/Latin/digit text correctly.
+    """Add a paragraph that renders mixed Hebrew/Latin/digit text correctly,
+    auto-selecting RTL or LTR base direction from whether the line has Hebrew.
 
     Covers BODY paragraphs only. Table cells, headers/footers, and numbered
     lists are separate document stories: apply the same logic to each of their
@@ -218,10 +236,15 @@ def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False
     """
     p = doc.add_heading(level=heading_level) if heading_level else doc.add_paragraph()
 
-    # (1) paragraph base direction = RTL
+    # (1) paragraph base direction: RTL when the line contains any Hebrew (a
+    #     Hebrew sentence routinely embeds English terms and must still flow
+    #     right-to-left); LTR for a pure-Latin line so an English-only row reads
+    #     left-aligned instead of hugging the right margin.
+    base_rtl = _para_is_rtl(text)
     pPr = p._p.get_or_add_pPr()
-    pPr.append(pPr.makeelement(qn('w:bidi'), {}))
-    p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+    if base_rtl:
+        pPr.append(pPr.makeelement(qn('w:bidi'), {}))
+    p.alignment = WD_ALIGN_PARAGRAPH.RIGHT if base_rtl else WD_ALIGN_PARAGRAPH.LEFT
 
     for segment, is_rtl in _split_by_script(text):
         run = p.add_run(segment)

@@ -45,6 +45,16 @@
         "Watch (non-blocking): description now contains the token 'web/CSS RTL' inside a negation ('NOT a web/CSS RTL change'). Embedding retrieval is negation-blind, so monitor that pure React/Tailwind RTL website queries still route to hebrew-rtl-best-practices and not here; document-signal density (Word/docx/PDF/PPTX/python-docx) should dominate. Revisit if a web-RTL query mis-routes.",
         "Deferred (MINOR, scope-kept): did not add a symptom-framed FAQ pair to enriched content this cycle. Body Troubleshooting already explains it; FAQ does not feed routing embeddings. Revisit if users on the detail page still ask why the Word export breaks."
       ]
+    },
+    {
+      "version": "1.4.0",
+      "date": "2026-06-22",
+      "lessons": [
+        "User report (challenging mixed Hebrew/English medical doc): structure was correct (bidi on Hebrew paras, per-script runs, w:rtl on Hebrew only, David w:cs font) but ALL paragraphs incl. pure-English clinical lines got w:bidi + RIGHT unconditionally, so 7 English-only lines (lab values, drug/mutation rows) rendered right-aligned = the residual 'still looks RTL-broken' artifact.",
+        "Fix: add _para_is_rtl(text) and pick paragraph base direction per line: any Hebrew letter -> RTL+right (a Hebrew sentence may embed English); no Hebrew but Latin present -> LTR+left; all-neutral -> RTL. add_rtl_paragraph now emits w:bidi only for RTL paragraphs and aligns LEFT for pure-English.",
+        "Latent regex footgun fixed: the _HEB character class used a precomposed Hebrew presentation-form char (U+FB1D) that is invisible in source and can decompose to U+05D9+U+05B4, silently widening the class to U+05B4..U+FB4F and matching en-dash/CJK/etc. Replaced with explicit unicode-escape codepoints so neutral chars (the en-dash in 'Lobectomy - 9/2023') stay neutral and pure-English lines with dashes are detected LTR. Verified by extracting and executing the REAL SKILL.md code block against the user 8-line sample: all 8 base directions correct.",
+        "Still deferred (documented, not implemented): tables, headers/footers, numbered/bulleted lists, sectPr RTL flow. Per-script run split + base-direction are now both correct for body paragraphs only."
+      ]
     }
   ]
 }
