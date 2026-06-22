@@ -21,6 +21,30 @@
         "Description broadened to win selection over the generic /mnt/skills/public/docx skill; kept the 'prefer' clause conditional on a Hebrew/RTL signal to avoid mis-routing English-only docx requests.",
         "Coverage deferred (non-blocking MINOR): helper covers body paragraphs only; tables, headers/footers, numbered lists, and sectPr RTL flow are documented as a note but not implemented as helpers. Revisit if a user reports broken Hebrew tables."
       ]
+    },
+    {
+      "version": "1.3.1",
+      "date": "2026-06-22",
+      "holdout_before": 0.5,
+      "holdout_after": 1.0,
+      "buckets": {
+        "improved": [
+          "Hebrew doc looks fine in Claude but scrambled when opened in Word",
+          "fix Hebrew formatting in Word"
+        ],
+        "regressed": [],
+        "persistent_fail": [],
+        "stable_success": [
+          "create a Hebrew Word document for this contract",
+          "set up RTL layout in my React/Tailwind Hebrew website (must NOT trigger)"
+        ]
+      },
+      "lessons": [
+        "Routing gap was discovery-side, not content: body Troubleshooting already covered the scrambled-in-Word symptom thoroughly, but the description was goal-framed ('create a Hebrew Word doc') so symptom queries ('my Word doc is broken/reversed') mis-routed to the web-only hebrew-rtl-best-practices skill. Fix = add symptom/troubleshooting trigger phrasing to description (frontmatter EN + metadata display_description he/en).",
+        "SKILL.md frontmatter description is hard-capped at 1024 chars by validate-skill.sh; metadata.json display_description has no cap. Kept the fuller symptom phrasing in display_description (drives the site embedding/routing the user actually hits) and a trimmed 1015-char version in frontmatter.",
+        "Watch (non-blocking): description now contains the token 'web/CSS RTL' inside a negation ('NOT a web/CSS RTL change'). Embedding retrieval is negation-blind, so monitor that pure React/Tailwind RTL website queries still route to hebrew-rtl-best-practices and not here; document-signal density (Word/docx/PDF/PPTX/python-docx) should dominate. Revisit if a web-RTL query mis-routes.",
+        "Deferred (MINOR, scope-kept): did not add a symptom-framed FAQ pair to enriched content this cycle. Body Troubleshooting already explains it; FAQ does not feed routing embeddings. Revisit if users on the detail page still ask why the Word export breaks."
+      ]
     }
   ]
 }
