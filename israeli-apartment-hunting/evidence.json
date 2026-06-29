@@ -4,6 +4,22 @@
   "generated_at": "2026-05-18T01:50:00Z",
   "claims": [
     {
+      "claim_id": "security-cap-section-25yod",
+      "claim": "Section 25י (25yod) of the Rental and Loan Law caps securities that involve a tenant monetary outlay (a bank guarantee or cash deposit) at the LOWER of three months' rent or one-third of the lease period (~3 months for a standard 12-month lease). The cap does NOT apply to a regular security check or a promissory note (shtar chov), which are not cashed unless the tenant defaults.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%98%D7%95%D7%97%D7%95%D7%AA_%D7%91%D7%97%D7%95%D7%96%D7%94_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%9C%D7%9E%D7%92%D7%95%D7%A8%D7%99%D7%9D",
+      "raw_snippet": "סעיף 25י לחוק השכירות והשאילה: ערובה שכרוכה בהוצאה כספית (ערבות בנקאית או מזומן) מוגבלת לנמוך מבין שלושה חודשי שכירות או שליש מתקופת השכירות; Section 25",
+      "fetched_at": "2026-06-29T01:20:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "broker-fee-section-25tet",
+      "claim": "Under Section 25ט (25tet) of the Rental and Loan Law (Fair Rental Law, 2017 amendment), a residential tenant may NOT be required to pay a broker fee when the broker acted on the landlord's behalf; this protection is non-waivable (a contrary lease clause is void). A tenant who independently engaged a broker for a specific apartment does pay, and only half if both parties used the same broker.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%93%D7%9E%D7%99_%D7%AA%D7%99%D7%95%D7%95%D7%9A_%D7%91%D7%A2%D7%A1%D7%A7%D7%AA_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA",
+      "raw_snippet": "סעיף 25ט לחוק השכירות והשאילה: אסור למשכיר לדרוש משוכר לשלם דמי תיווך למתווך שפעל מטעם המשכיר; הוראה קוגנטית שאי אפשר להתנות עליה",
+      "fetched_at": "2026-06-29T01:10:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
       "claim_id": "small-claims-ceiling-2026",
       "claim": "Israeli Small Claims Court (beit mishpat letvi'ot ktanot) ceiling is 39,900 NIS / 39,900 שקל / 39,900 ש\"ח effective January 1, 2026 (raised from 35,800 NIS)",
       "source_url": "https://pelleg-law.co.il/%D7%AA%D7%A7%D7%A8%D7%AA-%D7%AA%D7%91%D7%99%D7%A2%D7%95%D7%AA-%D7%A7%D7%98%D7%A0%D7%95%D7%AA-2026/",

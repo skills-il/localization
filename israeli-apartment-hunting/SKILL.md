@@ -15,7 +15,7 @@ compatibility: Requires Claude Code or compatible AI coding agent
 The Israeli rental market is competitive and fast-moving. Understanding current pricing helps set realistic expectations and budgets.
 
 **National averages (2026):**
-- National average rent: NIS 4,952/month (based on Q3 2025 data, trending upward)
+- National average rent: NIS 4,952/month (based on Q3 2025 data). Early-2026 data shows supply tightened and new-lease asking rents rose further, so treat these figures as a floor and budget above them.
 - National average gross rental yield: 3.1%
 - Yad2 active rental listings: approximately 30,000 as of early 2026
 
@@ -152,9 +152,9 @@ Real estate brokers (metavech, מתווך) are common in the Israeli market. Und
 
 | Aspect | Details |
 |--------|---------|
-| Typical broker fee | One month's rent + VAT (18%), paid by tenant |
-| Who pays | Usually the tenant (unless listing states otherwise) |
-| When fee is due | Upon signing the lease |
+| Typical broker fee | One month's rent + VAT (18%) |
+| Who pays | The party that hired the broker. Under Section 25ט of the Fair Rental Law (a non-waivable rule), a residential tenant CANNOT be required to pay a fee to a broker who acted on the landlord's behalf, even if the lease says otherwise. A tenant who independently engaged the broker to find a specific apartment does pay (and by common practice, often only half when both sides used the same broker, this split is a negotiated norm, not a statutory entitlement). The pre-2017 "tenant always pays" habit is no longer the law. |
+| When fee is due | Upon signing the lease (only when the tenant is the one who legally owes it, see "Who pays") |
 | Fee negotiability | Sometimes negotiable, especially for expensive apartments |
 | Legal requirement | Broker must have a valid license from the Ministry of Justice Registrar of Real Estate Brokers |
 | 2024 ethics regulations | Real Estate Brokers Regulations (Ethics and Professional Duties) 2024 took effect March 9, 2025. Mandatory disclosure, prohibition on extra fees beyond agreed brokerage, multi-representation disclosure required, written heskem tivuch signed by client BEFORE any fee is owed. A broker who didn't get you to sign a heskem tivuch is not entitled to a fee, even if they showed you the apartment. |
@@ -195,11 +195,11 @@ Landlords and brokers typically require specific documents. Having these ready a
 - Guarantors are legally responsible if tenant defaults on rent
 - Guarantors must be Israeli residents with stable income
 - New olim without local guarantors can sometimes use a bank guarantee (arevut bankit, ערבות בנקאית) instead
-- Bank guarantee typically equals 3-6 months rent, held by the bank
+- A bank guarantee is a security that involves a real monetary outlay by the tenant, so it is subject to the statutory security cap below (Section 25י): for a standard 12-month lease that means a maximum of about 3 months' rent, NOT the "3-6 months" landlords sometimes ask for
 
 **Security deposits (Chok Schirut Hogenet caps):**
-- Statutory ceiling: the LOWER of (3 months rent) or (1/3 of total lease period). Anything beyond that is unenforceable.
-- Can be in the form of a bank guarantee (arevut bankit), post-dated checks, or promissory note (shtarat chov, שטר חוב)
+- Statutory ceiling for securities that involve a tenant monetary outlay (a bank guarantee or cash): the LOWER of (3 months rent) or (1/3 of total lease period), per Section 25י. A demand above that is unenforceable.
+- This cap applies to monetary-outlay securities (bank guarantee, cash). It does NOT cap a regular security check (check bitachon) or a promissory note (shtar chov, שטר חוב), which are not cashed unless the tenant defaults and may lawfully be set higher.
 - Must be returned within 60 days of lease end if no damages; any deductions should be itemized for the tenant in writing
 
 ### Step 7.5: Tenant Rights Under Chok Schirut Hogenet (Fair Rental Law)
@@ -214,7 +214,7 @@ Chok Schirut Hogenet (2017, חוק שכירות הוגנת) is the baseline tena
 | Itemized return | Deposit deductions at lease end should be itemized for the tenant; landlord may not withhold without justification |
 | Standard Lease (chozeh matzui) | Ministry of Justice has been working on a default-clause "standard lease" that would fill in gaps when parties have no written contract or omit terms. Treat as a default safety net, not as mandatory clauses that override what the parties agreed in writing |
 
-If a landlord's template contradicts Chok Schirut Hogenet, the statute wins — non-compliant clauses are unenforceable, not the entire lease.
+If a landlord's template contradicts Chok Schirut Hogenet, the statute wins, non-compliant clauses are unenforceable, not the entire lease.
 
 ### Step 8: Neighborhood Guide Considerations
 
@@ -246,7 +246,7 @@ Arnona rates vary significantly between cities and even between neighborhoods. T
 | Netanya | NIS 3,000-4,500 |
 
 **New olim arnona discount:**
-New immigrants (olim chadashim, עולים חדשים) may be eligible for an arnona discount of up to 90% — but only for the first 100 sqm of the apartment, and only for 12 chosen months out of the first 24 months from population-registry registration. Continuation rates after the discounted period are set by each municipality individually (no universal "year-2 rate"). Apply through the local municipality with your oleh certificate (teudat oleh, תעודת עולה).
+New immigrants (olim chadashim, עולים חדשים) may be eligible for an arnona discount of up to 90%, but only for the first 100 sqm of the apartment, and only for 12 chosen months out of the first 24 months from population-registry registration. Continuation rates after the discounted period are set by each municipality individually (no universal "year-2 rate"). Apply through the local municipality with your oleh certificate (teudat oleh, תעודת עולה).
 
 ## Examples
 
