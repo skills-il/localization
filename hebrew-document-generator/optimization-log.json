@@ -75,7 +75,21 @@
       "lessons": [
         "Leading section-number marker (2. / 10.) on an RTL line: Word floats its trailing period to the wrong side (renders as dot-then-number) because the marker is a separate LTR run. Fix _merge_list_marker: merge a leading 1-2-digit+period LTR run into the following Hebrew RTL run so the marker rides in RTL and the period stays after the number. Regex is strict (1-2 digits + period only) so a date like 13/01/2026 stays its own LTR run and is not reversed. Confirmed in real Word (N4 of the marker A/B test).",
         "KNOWN LIMITATION (accepted, not a skill bug): a sentence ending in a Latin word + period in an RTL paragraph places the period at the visual left edge. This is native Word RTL behavior (identical to typing it by hand) and resists docx-level fixes: LRM (U+200E) after the period had no effect in Word, and isolates render as boxes. Left as-is; meaning and reading order are correct.",
-        "evidence verify-evidence.py DOES scan optimization-log.json. Keep bare percentages/NIS amounts out of lesson text (an illustrative KI-67 25% tripped the gate on the next cycle clone). Describe examples without a literal percent/amount."
+        "evidence verify-evidence.py DOES scan optimization-log.json. Keep bare percentages/NIS amounts out of lesson text (an illustrative KI-67 percentage written as a literal once tripped the gate on the next cycle clone). Describe examples without a literal percent/amount."
+      ]
+    },
+    {
+      "version": "1.7.0",
+      "date": "2026-06-29",
+      "lessons": [
+        "User-reported bug: Hebrew DOCX tables came out mirror-reversed (first logical column on the left). Root cause is COLUMN ORDER, not cell text direction: python-docx tables ship with no w:bidiVisual on w:tblPr, so Word lays columns LTR. Prior skill only had a one-line caveat telling the reader to apply per-cell bidi, which never moves the columns. Fix added as a dedicated 'Hebrew Tables in DOCX' step + Troubleshooting + Gotcha: table.table_direction = WD_TABLE_DIRECTION.RTL (emits w:bidiVisual) for column order PLUS per-cell bidi for in-cell text; both required. Verified the helper emits w:bidiVisual via python-docx 1.2.0 reproduction; not yet visually confirmed in Word itself (per the docx-RTL-Word-only rule, a real-Word screenshot would strengthen this next cycle).",
+        "PPTX (pptxgenjs) tables have the OPPOSITE convention from DOCX: no bidiVisual flag exists, so the column list must be reversed per-row in the data, with rtlMode+align:right on each cell. Documented alongside the DOCX fix so the two are not conflated.",
+        "CARRY (from 1.6.0, resolved-as-reworded): the KI-67 percentage literal in lesson text re-tripped verify-evidence.py on this cycle's clone. Reworded to drop the literal; future lessons must never embed a bare percent/NIS figure.",
+        "Expert CRITICAL fixed this cycle: numeric cells (qty/price/total) auto-classify LTR under _para_is_rtl, so they left-aligned while Hebrew headers right-aligned, giving a ragged invoice amount column. Added an `align` param to set_cell_rtl_text + a `col_align` (default all-right) to add_rtl_table + table.alignment=RIGHT. Verified all cells align RIGHT and jc(right) emitted.",
+        "Expert MAJOR deferred (CARRY): the bundled scripts/generate_doc.py sample invoice (its line items total above the current allocation-number threshold) omits the מספר הקצאה (allocation number) field, now mandatory at/above the mid-2026 threshold. The SKILL.md text documents the requirement but the helper script does not emit the field. Next cycle: add an allocation-number field to generate_doc.py's invoice and to the DOCX table example.",
+        "Expert MAJOR deferred (CARRY): no full code snippet shows adding section sectPr <w:bidi/> for a fully RTL page (told only in prose, lines ~269/~325). Add a tiny add_section-bidi snippet next cycle.",
+        "Expert MINOR deferred: header-row shading (<w:shd>), explicit column widths, and <w:tblHeader/> header-row-repeat are standard invoice-table expectations not yet covered. Low priority, log for a future polish cycle.",
+        "Process: a real-Word visual confirmation (screenshot of the generated table) is the missing final gate for every DOCX-RTL fix in this skill (per the docx-RTL-Word-only rule). Reproductions only prove the XML elements are emitted, not the Word render."
       ]
     }
   ]

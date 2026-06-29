@@ -322,7 +322,77 @@ doc.save('contract.docx')
 
 **Do NOT call `get_display()` on DOCX text.** Unlike reportlab (which draws pre-positioned glyphs and therefore needs python-bidi to reorder them), Word applies the bidi algorithm itself. Pre-shaping a string with `get_display()` and then handing it to python-docx double-applies the algorithm and scrambles the result. `get_display()` belongs to the PDF path only.
 
-This helper covers body paragraphs. **Tables, headers/footers, and numbered/bulleted lists** are separate document stories the helper does not reach: apply the same `<w:bidi/>` + per-script-run logic to each of their paragraphs, and add `<w:bidi/>` to the section `sectPr` for full RTL page flow.
+This helper covers body paragraphs. **Headers/footers and numbered/bulleted lists** are separate document stories the helper does not reach: apply the same `<w:bidi/>` + per-script-run logic to each of their paragraphs, and add `<w:bidi/>` to the section `sectPr` for full RTL page flow. **Tables need one extra step beyond per-cell text direction**, covered next.
+
+### Hebrew Tables in DOCX (the "table comes out reversed" fix)
+
+The single most-reported Hebrew DOCX table bug is **the whole table coming out mirror-reversed**: the first logical column (e.g. `תיאור`) lands on the LEFT instead of the right, so the table reads backwards. This is NOT a per-cell text-direction problem, it is a **column-order** problem, and it has a separate cause and fix.
+
+python-docx creates a table with NO `<w:bidiVisual/>` on its `<w:tblPr>`. In an RTL Hebrew document Word still lays the columns out left-to-right, so column 0 sits on the left. Fixing the text inside each cell does nothing about this, the columns are still in LTR visual order. There are therefore **two independent fixes, and a Hebrew table needs BOTH**:
+
+1. **Column order, set once per table:** `table.table_direction = WD_TABLE_DIRECTION.RTL`. This emits `<w:bidiVisual/>` on `<w:tblPr>`, which mirrors the visual column order so the first logical column renders on the right. This is the actual fix for "the table is reversed". Also set `table.alignment = WD_TABLE_ALIGNMENT.RIGHT` so the table block hugs the right margin instead of floating left.
+2. **Text AND alignment inside each cell:** every cell holds its own paragraph (a separate story `add_rtl_paragraph` does not reach), so run each cell's text through the same `<w:bidi/>` + per-script-run logic from Step 5. **Watch the cell alignment**, a numeric-only cell (`1,500.00`, `2`) has no Hebrew letter, so the auto base-direction is LTR and it would left-align while its Hebrew header right-aligns, giving a ragged, mismatched amount column in an invoice. Pass an explicit `align` so the whole table aligns consistently (right is the RTL-table convention for both headers and amounts).
+
+```python
+from docx.enum.table import WD_TABLE_DIRECTION, WD_TABLE_ALIGNMENT
+
+_ALIGN = {'right': WD_ALIGN_PARAGRAPH.RIGHT, 'left': WD_ALIGN_PARAGRAPH.LEFT,
+          'center': WD_ALIGN_PARAGRAPH.CENTER}
+
+def set_cell_rtl_text(cell, text, font='David', size=11, bold=False, align=None):
+    """Fill a cell with bidi-correct text. Reuses _split_by_script / _para_is_rtl /
+    _merge_list_marker / _shift_boundary_spaces from Step 5. Fixes the TEXT inside the
+    cell only; column ORDER is handled by table.table_direction = RTL on the table.
+    `align` overrides the auto (base-direction) alignment, pass it so numeric cells
+    don't left-align against right-aligned Hebrew headers."""
+    p = cell.paragraphs[0]
+    p.text = ''  # clear the empty default run
+    base_rtl = _para_is_rtl(text)
+    pPr = p._p.get_or_add_pPr()
+    if base_rtl:
+        pPr.append(pPr.makeelement(qn('w:bidi'), {}))
+    # base direction still drives digit/word ORDER inside the cell; `align` only moves
+    # the whole block to a chosen edge so columns line up.
+    p.alignment = _ALIGN[align] if align else (
+        WD_ALIGN_PARAGRAPH.RIGHT if base_rtl else WD_ALIGN_PARAGRAPH.LEFT)
+    para_has_latin = any(ch.isascii() and ch.isalpha() for ch in text)
+    for segment, is_rtl in _shift_boundary_spaces(_merge_list_marker(_split_by_script(text))):
+        run = p.add_run(segment)
+        rPr = run._r.get_or_add_rPr()
+        rPr.append(rPr.makeelement(qn('w:rFonts'), {
+            qn('w:ascii'): font, qn('w:hAnsi'): font, qn('w:cs'): font}))
+        if bold:
+            rPr.append(rPr.makeelement(qn('w:b'), {}))
+            rPr.append(rPr.makeelement(qn('w:bCs'), {}))
+        rPr.append(rPr.makeelement(qn('w:sz'),   {qn('w:val'): str(size * 2)}))
+        rPr.append(rPr.makeelement(qn('w:szCs'), {qn('w:val'): str(size * 2)}))
+        if is_rtl and not para_has_latin:
+            rPr.append(rPr.makeelement(qn('w:rtl'), {}))
+
+def add_rtl_table(doc, headers, rows, font='David', size=11, col_align=None):
+    """Add a Hebrew table whose COLUMNS read right-to-left (first column on the right).
+    col_align: optional per-column alignment list (e.g. ['right','center','right','right']);
+    defaults to all-right so numeric columns line up under their headers."""
+    table = doc.add_table(rows=1 + len(rows), cols=len(headers))
+    table.style = 'Table Grid'
+    table.table_direction = WD_TABLE_DIRECTION.RTL   # <-- emits <w:bidiVisual/>, the column-order fix
+    table.alignment = WD_TABLE_ALIGNMENT.RIGHT       # table block hugs the right margin
+    col_align = col_align or ['right'] * len(headers)
+    for j, h in enumerate(headers):
+        set_cell_rtl_text(table.rows[0].cells[j], h, font=font, size=size, bold=True, align=col_align[j])
+    for i, row in enumerate(rows, start=1):
+        for j, val in enumerate(row):
+            set_cell_rtl_text(table.rows[i].cells[j], str(val), font=font, size=size, align=col_align[j])
+    return table
+
+# Logical column order is left-to-right in your data; bidiVisual flips the VISUAL order to RTL.
+add_rtl_table(doc,
+    ['תיאור', 'כמות', 'מחיר', 'סה"כ'],
+    [['ייעוץ טכני (3 שעות)', 1, '1,500.00', '1,500.00'],
+     ['פיתוח Acme', 2, '600.00', '1,200.00']])
+```
+
+You still write headers/rows in natural left-to-right logical order in your Python list; `bidiVisual` only changes how Word *displays* them. **Do NOT try to "fix" a reversed table by reversing your column list in Python**, that double-reverses once `bidiVisual` is set and scrambles mixed LTR cells. Set `table_direction = RTL` and keep your data in logical order. For an **invoice totals block** (סכום ביניים / מע"מ / סה"כ לתשלום) the label cell usually spans the description columns via a horizontal merge (`row.cells[a].merge(row.cells[b])`); a merged span can mirror to the wrong side under `bidiVisual`, so verify the merged totals row in Word specifically. As with all DOCX work, verify in Word itself, not LibreOffice or Preview, which mirror tables more forgivingly and hide the bug.
 
 ### Step 6: Generate Hebrew PPTX with pptxgenjs
 
@@ -361,6 +431,21 @@ slide.addText([
 
 pptx.writeFile({ fileName: 'quarterly-review.pptx' });
 ```
+
+**PPTX tables** have the same RTL column-order concern as DOCX. pptxgenjs renders table columns in the order of your `rows` array, it does not auto-mirror for RTL. So that the first logical column reads on the right, reverse the cell order per row in your data, and set `rtlMode: true` (plus `align: 'right'`) on every cell's `options` so the text inside each cell is right-aligned and bidi-handled:
+
+```javascript
+// Logical columns: תיאור | כמות | מחיר. Reverse per row so col 1 displays on the right
+const headers = ['תיאור', 'כמות', 'מחיר'];
+const dataRows = [['ייעוץ', '1', '1,500.00']];
+const opt = { rtlMode: true, align: 'right', fontFace: 'Heebo' };
+const tableRows = [headers, ...dataRows].map(
+  row => [...row].reverse().map(text => ({ text, options: opt }))
+);
+slide.addTable(tableRows, { x: 0.5, y: 1.5, w: 9, rtlMode: true });
+```
+
+Note the opposite convention from DOCX: python-docx exposes a real `bidiVisual` column-flip (`table_direction = RTL`) so you keep data in logical order, whereas pptxgenjs has no such flag, so you reverse the columns in the data yourself. Verify the rendered slide.
 
 ### Step 7: Israeli Business Document Templates
 
@@ -432,6 +517,7 @@ No MCP server applies to this skill. Hebrew document generation runs entirely th
 - PDF generators often default to left-to-right text flow. Hebrew documents MUST use RTL paragraph direction, and mixed Hebrew-English text requires proper BiDi (bidirectional) algorithm support.
 - DOCX (python-docx) has the opposite trap from PDF: do NOT run `get_display()` on the text, Word applies the bidi algorithm itself and pre-shaping double-reverses it. The two failure modes that produce "broken" Hebrew Word files are (a) putting a whole mixed Hebrew/English line in ONE run flagged `<w:rtl/>` (the English jumps sides and punctuation reflows) and (b) setting only `w:ascii`/`w:sz` and never the complex-script `w:cs` font / `w:szCs` size (your font and size silently never apply to the Hebrew). Split mixed lines per script, flag only Hebrew runs rtl, and set `w:cs` + `w:szCs` on every run.
 - A run with no explicit direction inherits the paragraph base direction. After `add_rtl_paragraph` adds a Hebrew paragraph, appending another run later (e.g. a signature line) without re-running the per-script split can leave that run unmarked, set its direction explicitly rather than assuming it inherits correctly.
+- A reversed Hebrew DOCX *table* (first column on the left) is a COLUMN-ORDER bug, not a text-direction one. `add_rtl_paragraph` and per-cell bidi do nothing about it: python-docx tables have no `<w:bidiVisual/>`, so Word lays columns out LTR. Set `table.table_direction = WD_TABLE_DIRECTION.RTL` on the table AND run each cell through the per-cell bidi helper, you need both (see "Hebrew Tables in DOCX"). Keep your column data in logical order, reversing it yourself double-reverses once `bidiVisual` is set.
 - Agents may pick fonts that lack Hebrew character support (e.g., Arial works, but many decorative Latin fonts do not). Always verify the font includes the Hebrew Unicode range (U+0590-U+05FF).
 - Hebrew date formatting uses DD/MM/YYYY in secular context and Hebrew calendar dates (e.g., 15 Adar 5786) for religious/traditional documents. Agents may default to MM/DD/YYYY.
 - Legal documents in Israel require specific formatting: nikud (vowel marks) is NOT used in standard business/legal Hebrew. Agents may add nikud thinking it improves clarity, but it actually looks unprofessional in formal documents.
@@ -453,3 +539,7 @@ Solution: For reportlab, pass the whole logical string through `get_display()` i
 ### Error: "Hebrew Word (.docx) renders with English on the wrong side, or my font/size is ignored"
 Cause: The whole mixed line is in one run marked `<w:rtl/>` (English jumps), or the runs set only `w:ascii`/`w:sz` and never the complex-script `w:cs`/`w:szCs` (Hebrew ignores the font/size). A bare presence check for `<w:rtl/>` passes on a file that still renders broken, so verify the run structure, not just the flag.
 Solution: Use the `add_rtl_paragraph` helper in Step 5: per-script run splitting, rtl on Hebrew runs only, `w:cs` + `w:szCs` on every run.
+
+### Error: "Hebrew table (.docx) comes out reversed, the first column is on the left"
+Cause: This is a COLUMN-ORDER bug, not a text-direction one. python-docx tables ship with no `<w:bidiVisual/>` on `<w:tblPr>`, so Word lays the columns out left-to-right and the first logical column lands on the left, making the whole table read backwards. Fixing the text inside each cell does not move the columns.
+Solution: Set `table.table_direction = WD_TABLE_DIRECTION.RTL` once per table (emits `<w:bidiVisual/>`, which mirrors the visual column order to RTL), AND run each cell's text through the per-cell bidi helper. Both are needed, see "Hebrew Tables in DOCX". Keep your header/row data in natural logical order, do NOT reverse the column list yourself, that double-reverses once `bidiVisual` is set. Verify in Word, not LibreOffice/Preview (they mirror tables more forgivingly and hide this).
