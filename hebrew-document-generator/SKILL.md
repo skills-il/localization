@@ -331,30 +331,24 @@ The single most-reported Hebrew DOCX table bug is **the whole table coming out m
 python-docx creates a table with NO `<w:bidiVisual/>` on its `<w:tblPr>`. In an RTL Hebrew document Word still lays the columns out left-to-right, so column 0 sits on the left. Fixing the text inside each cell does nothing about this, the columns are still in LTR visual order. There are therefore **two independent fixes, and a Hebrew table needs BOTH**:
 
 1. **Column order, set once per table:** `table.table_direction = WD_TABLE_DIRECTION.RTL`. This emits `<w:bidiVisual/>` on `<w:tblPr>`, which mirrors the visual column order so the first logical column renders on the right. This is the actual fix for "the table is reversed". Also set `table.alignment = WD_TABLE_ALIGNMENT.RIGHT` so the table block hugs the right margin instead of floating left.
-2. **Text AND alignment inside each cell:** every cell holds its own paragraph (a separate story `add_rtl_paragraph` does not reach), so run each cell's text through the same `<w:bidi/>` + per-script-run logic from Step 5. **Watch the cell alignment**, a numeric-only cell (`1,500.00`, `2`) has no Hebrew letter, so the auto base-direction is LTR and it would left-align while its Hebrew header right-aligns, giving a ragged, mismatched amount column in an invoice. Pass an explicit `align` so the whole table aligns consistently (right is the RTL-table convention for both headers and amounts).
+2. **Text inside each cell:** every cell holds its own paragraph (a separate story `add_rtl_paragraph` does not reach), so give each cell paragraph `<w:bidi/>` (RTL base) and run its text through the same per-script-run logic from Step 5.
+
+**Cell alignment, the one trap to get right:** do NOT set a physical "right" alignment on the cell paragraphs. In OOXML `w:jc` is **logical, not physical**: `right` means "the END of the line". In a Hebrew (`<w:bidi/>`) paragraph the line ends on the LEFT, so a `RIGHT` alignment actually pushes Hebrew text to the visual **left** (numbers, being LTR runs, would still go right, so you get the headers on the left and the numbers on the right, a mismatched mess, this was the v1.7.0 bug). The fix is to set NO explicit alignment: a cell paragraph carrying `<w:bidi/>` defaults to its START edge, which is the visual RIGHT. Give every cell `<w:bidi/>` and leave alignment unset, and headers, Hebrew text, and numbers all line up flush right. Verified in Microsoft Word.
 
 ```python
 from docx.enum.table import WD_TABLE_DIRECTION, WD_TABLE_ALIGNMENT
 
-_ALIGN = {'right': WD_ALIGN_PARAGRAPH.RIGHT, 'left': WD_ALIGN_PARAGRAPH.LEFT,
-          'center': WD_ALIGN_PARAGRAPH.CENTER}
-
-def set_cell_rtl_text(cell, text, font='David', size=11, bold=False, align=None):
-    """Fill a cell with bidi-correct text. Reuses _split_by_script / _para_is_rtl /
-    _merge_list_marker / _shift_boundary_spaces from Step 5. Fixes the TEXT inside the
-    cell only; column ORDER is handled by table.table_direction = RTL on the table.
-    `align` overrides the auto (base-direction) alignment, pass it so numeric cells
-    don't left-align against right-aligned Hebrew headers."""
+def set_cell_rtl_text(cell, text, font='David', size=11, bold=False):
+    """Fill an RTL table cell. Reuses _split_by_script / _merge_list_marker /
+    _shift_boundary_spaces from Step 5. Gives the cell paragraph <w:bidi/> (RTL base)
+    and sets NO explicit alignment: an RTL paragraph defaults to its START edge =
+    visual RIGHT, so headers, Hebrew, and numbers all align flush right. Do NOT add a
+    physical RIGHT alignment here, w:jc is logical (right = line END = visual LEFT in
+    RTL), which is exactly what left-aligns Hebrew cells against right-aligned numbers."""
     p = cell.paragraphs[0]
     p.text = ''  # clear the empty default run
-    base_rtl = _para_is_rtl(text)
     pPr = p._p.get_or_add_pPr()
-    if base_rtl:
-        pPr.append(pPr.makeelement(qn('w:bidi'), {}))
-    # base direction still drives digit/word ORDER inside the cell; `align` only moves
-    # the whole block to a chosen edge so columns line up.
-    p.alignment = _ALIGN[align] if align else (
-        WD_ALIGN_PARAGRAPH.RIGHT if base_rtl else WD_ALIGN_PARAGRAPH.LEFT)
+    pPr.append(pPr.makeelement(qn('w:bidi'), {}))  # RTL base -> start edge = visual right; no w:jc
     para_has_latin = any(ch.isascii() and ch.isalpha() for ch in text)
     for segment, is_rtl in _shift_boundary_spaces(_merge_list_marker(_split_by_script(text))):
         run = p.add_run(segment)
@@ -369,20 +363,18 @@ def set_cell_rtl_text(cell, text, font='David', size=11, bold=False, align=None)
         if is_rtl and not para_has_latin:
             rPr.append(rPr.makeelement(qn('w:rtl'), {}))
 
-def add_rtl_table(doc, headers, rows, font='David', size=11, col_align=None):
-    """Add a Hebrew table whose COLUMNS read right-to-left (first column on the right).
-    col_align: optional per-column alignment list (e.g. ['right','center','right','right']);
-    defaults to all-right so numeric columns line up under their headers."""
+def add_rtl_table(doc, headers, rows, font='David', size=11):
+    """Add a Hebrew table whose COLUMNS read right-to-left (first column on the right)
+    and whose cells (headers, Hebrew, numbers) all align flush right."""
     table = doc.add_table(rows=1 + len(rows), cols=len(headers))
     table.style = 'Table Grid'
     table.table_direction = WD_TABLE_DIRECTION.RTL   # <-- emits <w:bidiVisual/>, the column-order fix
     table.alignment = WD_TABLE_ALIGNMENT.RIGHT       # table block hugs the right margin
-    col_align = col_align or ['right'] * len(headers)
     for j, h in enumerate(headers):
-        set_cell_rtl_text(table.rows[0].cells[j], h, font=font, size=size, bold=True, align=col_align[j])
+        set_cell_rtl_text(table.rows[0].cells[j], h, font=font, size=size, bold=True)
     for i, row in enumerate(rows, start=1):
         for j, val in enumerate(row):
-            set_cell_rtl_text(table.rows[i].cells[j], str(val), font=font, size=size, align=col_align[j])
+            set_cell_rtl_text(table.rows[i].cells[j], str(val), font=font, size=size)
     return table
 
 # Logical column order is left-to-right in your data; bidiVisual flips the VISUAL order to RTL.
@@ -543,3 +535,7 @@ Solution: Use the `add_rtl_paragraph` helper in Step 5: per-script run splitting
 ### Error: "Hebrew table (.docx) comes out reversed, the first column is on the left"
 Cause: This is a COLUMN-ORDER bug, not a text-direction one. python-docx tables ship with no `<w:bidiVisual/>` on `<w:tblPr>`, so Word lays the columns out left-to-right and the first logical column lands on the left, making the whole table read backwards. Fixing the text inside each cell does not move the columns.
 Solution: Set `table.table_direction = WD_TABLE_DIRECTION.RTL` once per table (emits `<w:bidiVisual/>`, which mirrors the visual column order to RTL), AND run each cell's text through the per-cell bidi helper. Both are needed, see "Hebrew Tables in DOCX". Keep your header/row data in natural logical order, do NOT reverse the column list yourself, that double-reverses once `bidiVisual` is set. Verify in Word, not LibreOffice/Preview (they mirror tables more forgivingly and hide this).
+
+### Error: "Hebrew table cells are aligned to the left (headers/text on the left, numbers on the right)"
+Cause: A physical `RIGHT` alignment was set on the cell paragraphs. `w:jc` in OOXML is LOGICAL, not physical: `right` means "line END", and in a Hebrew `<w:bidi/>` paragraph the line ends on the LEFT, so a RIGHT alignment pushes Hebrew to the visual left while LTR number cells still go right, leaving the table ragged and mismatched.
+Solution: Do NOT set any explicit alignment on RTL table cells. Give each cell paragraph `<w:bidi/>` and leave alignment unset, an RTL paragraph defaults to its START edge (the visual right), so headers, Hebrew text, and numbers all line up flush right. See `set_cell_rtl_text` in "Hebrew Tables in DOCX".

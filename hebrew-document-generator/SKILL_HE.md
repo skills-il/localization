@@ -317,30 +317,23 @@ doc.save('contract.docx')
 python-docx יוצר טבלה ללא `<w:bidiVisual/>` על `<w:tblPr>` שלה. במסמך עברי RTL, Word עדיין מסדר את העמודות משמאל לימין, ולכן עמודה 0 יושבת בצד שמאל. תיקון הטקסט בתוך כל תא לא משנה זאת, העמודות עדיין בסדר ויזואלי LTR. לכן יש **שני תיקונים בלתי-תלויים, וטבלה עברית זקוקה לשניהם**:
 
 1. **סדר העמודות, נקבע פעם אחת לכל טבלה:** `table.table_direction = WD_TABLE_DIRECTION.RTL`. זה פולט `<w:bidiVisual/>` על `<w:tblPr>`, שמשקף את סדר העמודות הוויזואלי כך שהעמודה הלוגית הראשונה מוצגת מימין. זהו התיקון האמיתי ל"הטבלה הפוכה". הגדירו גם `table.alignment = WD_TABLE_ALIGNMENT.RIGHT` כדי שגוש הטבלה ייצמד לשוליים הימניים במקום לצוף שמאלה.
-2. **הטקסט וגם היישור בתוך כל תא:** כל תא מחזיק פסקה משלו ("סיפור" נפרד ש-`add_rtl_paragraph` לא מגיע אליו), לכן העבירו את הטקסט של כל תא דרך אותה לוגיקת `<w:bidi/>` + פיצול runs לפי סקריפט משלב 5. **שימו לב ליישור התא**, תא מספרי בלבד (`1,500.00`, `2`) הוא ללא אות עברית, ולכן כיוון הבסיס האוטומטי הוא LTR והוא ייושר לשמאל בעוד הכותרת העברית שלו מיושרת לימין, מה שיוצר עמודת סכומים משוננת ולא מיושרת בחשבונית. העבירו `align` מפורש כדי שכל הטבלה תיושר באופן עקבי (ימין הוא הקונבנציה לטבלת RTL, גם לכותרות וגם לסכומים).
+2. **הטקסט בתוך כל תא:** כל תא מחזיק פסקה משלו ("סיפור" נפרד ש-`add_rtl_paragraph` לא מגיע אליו), לכן תנו לכל פסקת תא `<w:bidi/>` (בסיס RTL) והעבירו את הטקסט שלה דרך אותה לוגיקת פיצול runs לפי סקריפט משלב 5.
+
+**יישור התא, המלכודת היחידה שצריך לדייק בה:** אל תגדירו יישור "ימין" פיזי על פסקאות התא. ב-OOXML, `w:jc` הוא **לוגי, לא פיזי**: `right` פירושו "סוף השורה". בפסקה עברית (`<w:bidi/>`) השורה מסתיימת בצד שמאל, ולכן יישור `RIGHT` דוחף את הטקסט העברי לשמאל הוויזואלי (מספרים, בהיותם runs בכיוון LTR, עדיין ילכו ימינה, אז מקבלים כותרות בשמאל ומספרים בימין, בלגן לא מיושר, זה היה הבאג ב-v1.7.0). התיקון הוא לא להגדיר יישור כלל: פסקת תא הנושאת `<w:bidi/>` מתיישרת כברירת מחדל לקצה ה-START שלה, שהוא הימין הוויזואלי. תנו לכל תא `<w:bidi/>` והשאירו את היישור לא מוגדר, וכותרות, טקסט עברי ומספרים כולם יתיישרו צמוד לימין. נבדק ב-Microsoft Word.
 
 ```python
 from docx.enum.table import WD_TABLE_DIRECTION, WD_TABLE_ALIGNMENT
 
-_ALIGN = {'right': WD_ALIGN_PARAGRAPH.RIGHT, 'left': WD_ALIGN_PARAGRAPH.LEFT,
-          'center': WD_ALIGN_PARAGRAPH.CENTER}
-
-def set_cell_rtl_text(cell, text, font='David', size=11, bold=False, align=None):
-    """ממלא תא בטקסט תקין מבחינת bidi. עושה שימוש חוזר ב-_split_by_script / _para_is_rtl /
-    _merge_list_marker / _shift_boundary_spaces משלב 5. מתקן רק את הטקסט בתוך התא; סדר
-    העמודות מטופל על-ידי table.table_direction = RTL על הטבלה. `align` עוקף את היישור
-    האוטומטי (לפי כיוון הבסיס), העבירו אותו כדי שתאים מספריים לא ייושרו לשמאל מול כותרות
-    עבריות מיושרות לימין."""
+def set_cell_rtl_text(cell, text, font='David', size=11, bold=False):
+    """ממלא תא בטבלת RTL. עושה שימוש חוזר ב-_split_by_script / _merge_list_marker /
+    _shift_boundary_spaces משלב 5. נותן לפסקת התא `<w:bidi/>` (בסיס RTL) ולא מגדיר יישור
+    כלל: פסקת RTL מתיישרת כברירת מחדל לקצה ה-START שלה = ימין ויזואלי, כך שכותרות, עברית
+    ומספרים מתיישרים צמוד לימין. אל תוסיפו כאן יישור RIGHT פיזי, w:jc הוא לוגי (right = סוף
+    השורה = שמאל ויזואלי ב-RTL), וזה בדיוק מה שמיישר תאים עבריים לשמאל מול מספרים בימין."""
     p = cell.paragraphs[0]
     p.text = ''  # ניקוי ה-run הריק שנוצר כברירת מחדל
-    base_rtl = _para_is_rtl(text)
     pPr = p._p.get_or_add_pPr()
-    if base_rtl:
-        pPr.append(pPr.makeelement(qn('w:bidi'), {}))
-    # כיוון הבסיס עדיין קובע את סדר הספרות/המילים בתוך התא; `align` רק מזיז את
-    # כל הגוש לקצה הנבחר כדי שהעמודות יתיישרו.
-    p.alignment = _ALIGN[align] if align else (
-        WD_ALIGN_PARAGRAPH.RIGHT if base_rtl else WD_ALIGN_PARAGRAPH.LEFT)
+    pPr.append(pPr.makeelement(qn('w:bidi'), {}))  # בסיס RTL -> קצה START = ימין ויזואלי; ללא w:jc
     para_has_latin = any(ch.isascii() and ch.isalpha() for ch in text)
     for segment, is_rtl in _shift_boundary_spaces(_merge_list_marker(_split_by_script(text))):
         run = p.add_run(segment)
@@ -355,20 +348,18 @@ def set_cell_rtl_text(cell, text, font='David', size=11, bold=False, align=None)
         if is_rtl and not para_has_latin:
             rPr.append(rPr.makeelement(qn('w:rtl'), {}))
 
-def add_rtl_table(doc, headers, rows, font='David', size=11, col_align=None):
-    """מוסיף טבלה עברית שהעמודות שלה נקראות מימין לשמאל (העמודה הראשונה מימין).
-    col_align: רשימת יישור אופציונלית לכל עמודה (למשל ['right','center','right','right']);
-    ברירת המחדל היא ימין לכולן כדי שעמודות מספריות יתיישרו מתחת לכותרות שלהן."""
+def add_rtl_table(doc, headers, rows, font='David', size=11):
+    """מוסיף טבלה עברית שהעמודות שלה נקראות מימין לשמאל (העמודה הראשונה מימין)
+    ושכל התאים שלה (כותרות, עברית, מספרים) מתיישרים צמוד לימין."""
     table = doc.add_table(rows=1 + len(rows), cols=len(headers))
     table.style = 'Table Grid'
     table.table_direction = WD_TABLE_DIRECTION.RTL   # <-- פולט <w:bidiVisual/>, תיקון סדר העמודות
     table.alignment = WD_TABLE_ALIGNMENT.RIGHT       # גוש הטבלה נצמד לשוליים הימניים
-    col_align = col_align or ['right'] * len(headers)
     for j, h in enumerate(headers):
-        set_cell_rtl_text(table.rows[0].cells[j], h, font=font, size=size, bold=True, align=col_align[j])
+        set_cell_rtl_text(table.rows[0].cells[j], h, font=font, size=size, bold=True)
     for i, row in enumerate(rows, start=1):
         for j, val in enumerate(row):
-            set_cell_rtl_text(table.rows[i].cells[j], str(val), font=font, size=size, align=col_align[j])
+            set_cell_rtl_text(table.rows[i].cells[j], str(val), font=font, size=size)
     return table
 
 # סדר העמודות הלוגי בנתונים שלכם הוא משמאל לימין; bidiVisual הופך את הסדר הוויזואלי ל-RTL.
@@ -529,3 +520,7 @@ slide.addTable(tableRows, { x: 0.5, y: 1.5, w: 9, rtlMode: true });
 ### שגיאה: "טבלה ב-Word (.docx) יוצאת הפוכה, העמודה הראשונה בצד שמאל"
 סיבה: זהו באג של סדר עמודות, לא של כיוון הטקסט. טבלאות python-docx נוצרות ללא `<w:bidiVisual/>` על `<w:tblPr>`, ולכן Word מסדר את העמודות משמאל לימין והעמודה הלוגית הראשונה נוחתת בצד שמאל, מה שגורם לכל הטבלה להיקרא לאחור. תיקון הטקסט בתוך כל תא אינו מזיז את העמודות.
 פתרון: הגדירו `table.table_direction = WD_TABLE_DIRECTION.RTL` פעם אחת לכל טבלה (פולט `<w:bidiVisual/>`, שמשקף את סדר העמודות הוויזואלי ל-RTL), וגם העבירו את הטקסט של כל תא דרך עוזר ה-bidi לתאים. שניהם נחוצים, ראו "טבלאות בעברית ב-DOCX". שמרו את נתוני הכותרות/השורות בסדר לוגי טבעי, אל תהפכו את רשימת העמודות בעצמכם, זה הופך פעמיים ברגע ש-`bidiVisual` מוגדר. אמתו ב-Word, לא ב-LibreOffice/Preview (הם משקפים טבלאות בסלחנות רבה יותר ומסתירים זאת).
+
+### שגיאה: "תאי טבלה עברית מיושרים לשמאל (כותרות/טקסט בשמאל, מספרים בימין)"
+סיבה: הוגדר יישור `RIGHT` פיזי על פסקאות התא. `w:jc` ב-OOXML הוא לוגי, לא פיזי: `right` פירושו "סוף השורה", ובפסקה עברית (`<w:bidi/>`) השורה מסתיימת בשמאל, ולכן יישור RIGHT דוחף את העברית לשמאל הוויזואלי בעוד תאי מספרים (LTR) עדיין הולכים ימינה, ומשאיר טבלה משוננת ולא מיושרת.
+פתרון: אל תגדירו שום יישור מפורש על תאי טבלת RTL. תנו לכל פסקת תא `<w:bidi/>` והשאירו את היישור לא מוגדר, פסקת RTL מתיישרת כברירת מחדל לקצה ה-START שלה (הימין הוויזואלי), כך שכותרות, טקסט עברי ומספרים מתיישרים צמוד לימין. ראו `set_cell_rtl_text` ב"טבלאות בעברית ב-DOCX".
