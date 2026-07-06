@@ -52,14 +52,29 @@ config = (
 **Tabu Extract (Nesach Tabu) key fields:**
 - Gush (block) number: look for "גוש" followed by digits
 - Chelka (parcel) number: look for "חלקה" followed by digits
+- Sub-parcel (tat-chelka): mandatory for an apartment in a shared building; note it is NOT necessarily the apartment number
 - Owner name: follows "בעלים" or "שם הבעלים"
 - ID number (TZ): follows "ת.ז." or "מספר זהות", 9 digits
+- Ownership share (chelek): a fraction of the whole, e.g. "1/2", "125/1000", or "בשלמות" (in full). Keep it verbatim, do NOT convert to a decimal
+- Right type: "בעלות" (ownership), "חכירה" (lease), "חכירה לדורות" (generational lease)
+
+A Nesach is not flat: one property can list several owners (each with a share), several mortgages, and several cautions (he'arat azhara). Extract each repeating section into its own rows rather than one field per label. See Step 4b to turn the whole extract into a spreadsheet.
 
 **Tax Form (Tofes 106) key fields:**
 - Tax year: follows "שנת מס"
 - Employer number: follows "מספר מעביד" or "מס׳ עוסק", 9 digits
 - Gross salary: follows "שכר ברוטו" or "הכנסה חייבת"
 - Tax deducted: follows "מס שנוכה" or "ניכוי מס"
+
+### Step 4b: Turn a Full Tabu Extract into a Spreadsheet
+
+For the common request "parse a Nesach Tabu into Excel" (פירוק נסח טאבו לאקסל), the challenge is the repeating sections: a lawyer wants one row per owner (with the share), one row per mortgage, one row per caution, not a single merged field. `scripts/tabu_to_spreadsheet.py` takes the OCR text (or the JSON from `extract_form_fields.py`) and writes a normalized CSV where a `section` column marks each row as property / owner / lease / mortgage / caution, with the gush / helka / tat_helka key repeated on every row so several extracts concatenate cleanly.
+
+```bash
+python scripts/tabu_to_spreadsheet.py --file nesach_ocr.txt --out nesach.csv
+```
+
+Two things it does deliberately: it writes UTF-8 with a BOM so Excel opens the Hebrew columns RTL without a manual encoding step, and it keeps the share as a verbatim string (`125/1000`, not `0.125`) because rounding a long denominator loses legal precision. It also warns when the owner shares do not sum to 1 (בשלמות), which usually means OCR dropped an owner row and the extract needs human review. See `references/nesach-tabu-structure.md` for the full section-to-column mapping.
 
 ### Step 5: Handle RTL and Bidirectional Text
 
@@ -117,9 +132,9 @@ After extraction, validate key fields:
 
 ## Examples
 
-### Example 1: Process Tabu Extract
-User says: "Extract data from this scanned Tabu document"
-Result: Preprocess image, run Hebrew OCR, identify as Nesach Tabu, extract gush/chelka/owner/rights fields, validate TZ, return structured JSON.
+### Example 1: Process a Tabu Extract into a Spreadsheet
+User says: "Parse this scanned Tabu document into Excel" (פירוק נסח טאבו לאקסל)
+Result: Preprocess image, run Hebrew OCR, identify as Nesach Tabu, then run `tabu_to_spreadsheet.py` to normalize the repeating sections into rows (one per owner with their share, one per mortgage, one per caution), validate each TZ, and write an Excel-ready UTF-8-BOM CSV. Flag for human review if the owner shares do not sum to בשלמות.
 
 ### Example 2: Batch Process Tax Forms
 User says: "I have 50 scanned Tofes 106 forms -- extract salary and tax data"
@@ -134,9 +149,11 @@ Result: Diagnose preprocessing -- check image resolution (recommend 300 DPI mini
 ### Scripts
 - `scripts/preprocess_image.py` - Prepare scanned Israeli form images for OCR: grayscale conversion, deskewing rotated scans, adaptive binarization for uneven lighting, morphological noise removal, optional CLAHE contrast enhancement, and border removal. Run: `python scripts/preprocess_image.py --help`
 - `scripts/extract_form_fields.py` - Run Tesseract Hebrew OCR on preprocessed form images and extract structured fields by form type. Supports auto-detection of Tabu, Tofes 106, and other Israeli government forms. Outputs JSON with extracted fields and Israeli ID validation. Run: `python scripts/extract_form_fields.py --help`
+- `scripts/tabu_to_spreadsheet.py` - Turn the OCR text of a full Nesach Tabu into a normalized, Excel-ready CSV: one row per owner (with share), mortgage, and caution, keyed by gush/helka/tat_helka. Keeps shares verbatim and warns when owner shares do not sum to בשלמות. Run: `python scripts/tabu_to_spreadsheet.py --example`
 
 ### References
 - `references/israeli-form-types.md` - Detailed catalog of Israeli government form types (Tabu/land registry, Tax Authority forms, Bituach Leumi documents) with field descriptions, regex extraction patterns, ID validation rules, date/currency formats, and OCR tips per form layout. Consult when identifying an unknown form or building field extraction logic for a specific document type.
+- `references/nesach-tabu-structure.md` - The section-by-section layout of a Nesach Tabu (property / owners with shares / leases / mortgages / cautions) and how each section maps to spreadsheet columns. Consult when parsing a land-registry extract into a table.
 
 ## OCR Engine Options
 
@@ -145,9 +162,9 @@ Tesseract is a strong free baseline for Hebrew print, but modern cloud vision AP
 | Engine | Hebrew print | Handwriting | Cost model | When to use |
 |--------|--------------|-------------|------------|-------------|
 | Tesseract (heb+eng, LSTM) | Good for clean scans at 300 DPI+ | Weak | Free, self-hosted | Default for batch local pipelines, privacy-sensitive data |
-| Google Cloud Vision – Document Text Detection | Very good, robust to noise | Partial (printed-looking handwriting only) | Per-request | Mixed-quality scans, large batches, PDF forms |
+| Google Cloud Vision - Document Text Detection | Very good, robust to noise | Partial (printed-looking handwriting only) | Per-request | Mixed-quality scans, large batches, PDF forms |
 | AWS Textract (AnalyzeDocument) | NOT supported (Latin-script languages only: EN/ES/DE/IT/FR/PT) | Not for Hebrew | Per-page | Do NOT use for Hebrew forms; its text/forms extraction returns garbage on Hebrew |
-| Azure AI Vision – Read API | Not in the officially-listed printed-OCR set; verify on your own documents (community reports of gibberish on Hebrew) | Not reliable for Hebrew | Per-transaction | Test before relying on it for Hebrew; strong for Latin/enterprise PDFs |
+| Azure AI Vision - Read API | Not in the officially-listed printed-OCR set; verify on your own documents (community reports of gibberish on Hebrew) | Not reliable for Hebrew | Per-transaction | Test before relying on it for Hebrew; strong for Latin/enterprise PDFs |
 | Claude Vision (claude-sonnet-4-6 / claude-opus-4-8) | Very good, context-aware | Good (with prompt guidance) | Token-based | Unusual form layouts, cross-field validation, when you want the model to also reason about the data |
 
 Notes: none of these engines is reliable for cursive handwritten Hebrew on forms like old Tabu extracts. For those, flag for human review instead of auto-extraction. When you do call Google Cloud Vision for Hebrew, pass `languageHints: ['iw']` (Vision uses the legacy ISO code `iw` for Hebrew, not `he`); Tesseract uses `heb`. AWS Textract and Azure Read are not dependable for Hebrew, prefer Tesseract (`heb`), Google Cloud Vision (`iw`), or Claude Vision.
@@ -166,10 +183,11 @@ Notes: none of these engines is reliable for cursive handwritten Hebrew on forms
 |--------|-----|---------------|
 | Tesseract documentation | https://tesseract-ocr.github.io/tessdoc/ | Installation, language packs, LSTM mode, PSM values |
 | Tesseract Hebrew traineddata | https://github.com/tesseract-ocr/tessdata | Hebrew model for tesseract |
-| Google Cloud Vision – Documents | https://cloud.google.com/vision/docs/fulltext-annotations | Document Text Detection API reference |
-| AWS Textract – AnalyzeDocument | https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html | Forms and tables extraction |
-| Azure AI Vision – Read API | https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support | Multi-language OCR; check the language-support list (Hebrew is not in the official printed-OCR set, verify before relying on it) |
+| Google Cloud Vision - Documents | https://cloud.google.com/vision/docs/fulltext-annotations | Document Text Detection API reference |
+| AWS Textract - AnalyzeDocument | https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html | Forms and tables extraction |
+| Azure AI Vision - Read API | https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support | Multi-language OCR; check the language-support list (Hebrew is not in the official printed-OCR set, verify before relying on it) |
 | Israeli ID check-digit spec | https://he.wikipedia.org/wiki/מספר_זהות_(ישראל) | Algorithm for validating a 9-digit Israeli ID |
+| Land-registry extract (Nesach Tabu) service | https://www.gov.il/he/service/land_registration_extract | What a Nesach contains (owners, mortgages, liens, orders), gush/helka/tat-helka keys. Bot-protected, renders in a browser |
 
 ## Troubleshooting
 

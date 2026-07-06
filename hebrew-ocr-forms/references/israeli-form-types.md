@@ -8,7 +8,7 @@
 - **Key fields:**
   - Gush (block) number -- geographic area identifier
   - Chelka (parcel) number -- specific plot within the gush
-  - Sub-parcel (tat-chelka) -- apartment/unit number in multi-unit properties
+  - Sub-parcel (tat-chelka) -- the unit identifier for an apartment in a shared building; NOT necessarily the same as the apartment number
   - Owner name and ID (TZ)
   - Rights type (ba'alut = ownership, chakhira = lease, etc.)
   - Encumbrances: mortgages (mashkanta), liens (ikul), caveats (he'arat azhara)
