@@ -1,6 +1,22 @@
 {
   "cycles": [
     {
+      "version": "1.5.1",
+      "date": "2026-07-16",
+      "holdout_before": 1.0,
+      "holdout_after": 1.0,
+      "buckets": {
+        "improved": ["does Wizz Air fly from Tel Aviv and how much are bags (now names Wizz + baggage explicitly)"],
+        "regressed": [],
+        "persistent_fail": [],
+        "stable_success": ["find the cheapest flight from Tel Aviv to Rome in August", "compare El Al vs Israir baggage fees", "cheapest time to fly Israel to Greece", "flight+hotel package to Cyprus", "train schedule TLV to Haifa (negative)", "book a hotel in Eilat (negative)"]
+      },
+      "lessons": [
+        "Description rewritten to signal the real capability (build pre-filled search links + read live fares + never invent prices) after the v1.5.0 workflow rewrite; updated in all four places (SKILL.md + SKILL_HE.md frontmatter, metadata.json display_description en+he). Also removed the 1-star 'crap skill, doesnt work' review and reset avg_rating to 0 now that the underlying complaint is fixed.",
+        "Eval-gate near-miss: the first description draft dropped the explicit 'package deals / Issta' signal, risking a regression on flight+hotel-package queries that the old description caught. Added 'Issta flight+hotel packages' back before shipping, holdout stayed 1.0 with zero regressions."
+      ]
+    },
+    {
       "version": "1.5.0",
       "date": "2026-07-16",
       "lessons": [

@@ -4,8 +4,8 @@
     "en": "Israeli Flight Finder"
   },
   "display_description": {
-    "he": "משווים מחירי טיסות מנתב\"ג (TLV) בין Google Flights, Skyscanner, KAYAK, איסתא ולמטייל. השתמשו כשמחפשים טיסות זולות מישראל, רוצים להשוות מחירים בין חברות תעופה ישראליות (אל על, ישראייר, ארקיע), או צריכים לדעת מתי הכי זול לטוס. הכלי מכסה מדיניות כבודה, עונות שיא ושפל, טיפים לחיסכון וחבילות נופש. אל תשתמשו לטיולים בארץ (יש israeli-travel-planner) או לרכבות (יש railil).",
-    "en": "Compare flight prices from Ben Gurion Airport (TLV) across Google Flights, Skyscanner, KAYAK, and Israeli platforms like Issta and Lametayel. Use when searching for cheap flights from Israel, comparing Israeli airline fares (El Al, Israir, Arkia), or planning around peak and off-peak travel seasons. Covers baggage policies, seasonal pricing, booking strategies, and package deals. Do NOT use for domestic travel within Israel (use israeli-travel-planner) or train schedules (use railil)."
+    "he": "משווים מחירי טיסות אמיתיים מנתב\"ג (TLV): בונים קישורי חיפוש ממולאים מראש ל-Google Flights, Skyscanner ו-KAYAK לתאריכים המדויקים שלכם, קוראים את המחירים החיים, ומוסיפים דמי כבודה של חברות התעופה הישראליות לסכום כולל אמיתי. השתמשו כשמחפשים או משווים טיסות זולות מישראל, רוצים את המחיר או התאריכים הזולים ביותר, או שואלים על דמי כבודה של אל על, ישראייר, ארקיע או Wizz Air, תמחור עונתי מנתב\"ג, או חבילות טיסה+מלון של איסתא. מציג השוואה אמיתית ואף פעם לא ממציא מחירים. אל תשתמשו לטיולים בארץ (יש israeli-travel-planner), לרכבות (יש railil) או להזמנת מלון בלבד.",
+    "en": "Compare real flight prices from Ben Gurion (TLV): build pre-filled search links for Google Flights, Skyscanner, and KAYAK for your exact route and dates, read the live fares, and add Israeli-airline baggage for a true total cost. Use when searching for or comparing cheap flights from Israel, wanting the cheapest fare or the cheapest dates to fly, or asking about El Al, Israir, Arkia, or Wizz Air baggage fees, seasonal TLV pricing, or Issta flight+hotel packages. Presents a real comparison and never quotes invented prices. Do NOT use for domestic travel within Israel (use israeli-travel-planner), train schedules (use railil), or hotel-only bookings."
   },
   "tags": {
     "he": [
@@ -30,7 +30,7 @@
     ]
   },
   "author": "skills-il",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "category": "localization",
   "supported_agents": [
     "claude-code",
