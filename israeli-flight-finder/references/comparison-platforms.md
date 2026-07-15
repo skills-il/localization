@@ -1,5 +1,20 @@
 # Flight Comparison Platforms for Israeli Travelers
 
+## Pre-Filled Deep-Link Search URLs
+
+Build a click-ready search for the traveler's exact route and dates, then open it to read the live fares (or hand it to the traveler). Verified URL patterns:
+
+| Platform | Round-trip template | Notes |
+|----------|---------------------|-------|
+| Google Flights | `https://www.google.com/travel/flights?q=Flights+from+TLV+to+{CITY}+on+{YYYY-MM-DD}+returning+{YYYY-MM-DD}&curr=ILS&gl=IL&hl=he` | Natural-language query; plain city name; `curr=ILS` forces shekel prices |
+| Skyscanner | `https://www.skyscanner.co.il/transport/flights/tlv/{dest}/{YYMMDD}/{YYMMDD}/` | Lowercase city name or IATA; dates as `YYMMDD`; whole month = `{YYMM}00`; "anywhere cheap" = `tlv/anywhere/{YYMMDD}/` |
+| KAYAK | `https://il.kayak.com/flights/TLV-{DEST}/{YYYY-MM-DD}/{YYYY-MM-DD}?sort=price_a` | IATA codes; `sort=price_a` = cheapest first; use `il.kayak.com` for a Hebrew/ILS view |
+
+- One-way: drop the second date segment on Skyscanner and KAYAK.
+- Nonstop and max-price filters: apply them on the results page (sidebar), do not fabricate filter query parameters.
+- Google Flights and Skyscanner render fares with JavaScript, so read them with a real browser/rendering tool; KAYAK and the Google Flights natural-language query are the most fetch-friendly.
+- Worked example (TLV→Rome, 3-10 Aug 2026): Skyscanner `.../tlv/rome/260803/260810/`; KAYAK `.../TLV-ROM/2026-08-03/2026-08-10?sort=price_a`.
+
 ## Global Platforms with Hebrew Support
 
 ### Google Flights

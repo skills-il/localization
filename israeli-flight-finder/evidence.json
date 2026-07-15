@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "israeli-flight-finder",
-  "generated_at": "2026-06-21T00:00:00Z",
+  "generated_at": "2026-07-15T00:00:00Z",
   "claims": [
     {
       "claim_id": "elal-baggage",
@@ -13,11 +13,19 @@
     },
     {
       "claim_id": "elal-matmid",
-      "claim": "El Al Matmid has five tiers; since April 2025 status is earned via a revenue-linked Diamonds currency and re-qualified every 12 months, and the soft-landing grace tier was eliminated.",
-      "source_url": "https://www.elal.com/eng/baggage",
-      "raw_snippet": "Matmid frequent flyer club tiers; status earned through the Diamonds revenue-based currency and re-qualified annually.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "The El Al Matmid Frequent Flyer Program has four tier statuses above base membership (Silver, Gold, Platinum, Top Platinum); members advance by earning a Diamonds currency, the more Diamonds the faster the climb.",
+      "source_url": "https://www.elal.com/eng/frequentflyer/club/tier_lobby",
+      "raw_snippet": "The Matmid Frequent Flyer Program has four tier statuses: Silver, Gold, Platinum, and Top Platinum. The more Diamonds you earn, the faster you can advance to a higher tier status.",
+      "fetched_at": "2026-07-16T00:00:00Z",
       "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "elal-lite-gatecheck",
+      "claim": "On El Al flights to/from Europe, the UAE, and Eilat, Economy Lite passengers must send their carry-on to the hold at the gate (free), except Matmid Frequent Flyer members with Silver status or higher, who may keep the carry-on in the cabin subject to overhead space.",
+      "source_url": "https://www.elal.com/eng/baggage/hand-baggage",
+      "raw_snippet": "send their carry-on to the aircraft hold at the gate at no cost, except for Matmid program Frequent Flyer members with Silver status or higher on the day of the flight, who will be permitted to bring their carry-on, subject to available space in the overhead storage compartments",
+      "fetched_at": "2026-07-16T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/airline-baggage-quick-ref.md"]
     },
     {
       "claim_id": "israir-baggage",
@@ -29,9 +37,9 @@
     },
     {
       "claim_id": "arkia-baggage",
-      "claim": "Arkia international baggage: carry-on 7kg free; trolley 8kg $20 advance / $25 airport; checked bag 20kg $45 advance / $90 airport; excess $10 per kg.",
+      "claim": "Arkia international baggage: free under-seat hand bag 20x30x40 cm (no weight limit); trolley 8kg $25 advance / $30 airport (25 EUR at EU counters); checked bag 20kg $50 advance / $90 airport (85 EUR EU); 2nd checked bag $70 advance / $100 airport; excess $10 per kg.",
       "source_url": "https://www.arkia.co.il/en/luggage-information",
-      "raw_snippet": "Arkia checked baggage 20 kg costs $45 in advance and $90 at the airport; trolley bag $20; excess baggage $10 per kg.",
+      "raw_snippet": "hand bag / backpack whose size does not exceed 20x30x40 cm ... baggage weighing up to 20 kg ... for an additional fee of $50 per passenger per direction ... the cost of purchasing baggage at the check-in counters is $90 per passenger per direction ... trolley suitcase weighing up to 8 kg ... in advance booking ... is $25 per passenger per direction ... at the counters is $30 per passenger per direction ... Second suitcase ... $70 per direction",
       "fetched_at": "2026-06-21T00:00:00Z",
       "appears_in": ["SKILL.md", "SKILL_HE.md", "references/airline-baggage-quick-ref.md"]
     },
@@ -82,6 +90,86 @@
       "raw_snippet": "secretflights.co.il (טיסות סודיות) surfaces mispriced and error fares from Israel that do not appear on standard comparison engines.",
       "fetched_at": "2026-06-21T00:00:00Z",
       "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "tlv-war-reopening-2026",
+      "claim": "The February 2026 Iran war closed Israeli airspace and shut Ben Gurion for roughly 40 days; the airport fully reopened on 9 April 2026 and operates normally, with an uneven foreign-carrier recovery.",
+      "source_url": "https://www.timesofisrael.com/ben-gurion-airport-set-to-reopen-as-israel-eases-flight-restrictions-after-ceasefire/",
+      "raw_snippet": "Ben Gurion Airport reopened in April 2026 after the ceasefire ended the February 2026 war; the airport had been closed and foreign carriers had suspended service, resuming on a rolling basis afterward.",
+      "fetched_at": "2026-07-15T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "elal-network-2026",
+      "claim": "As of summer 2026 El Al runs roughly 900 weekly flights to 50+ international destinations, its largest-ever schedule, including a record North American program of about 55 weekly flights.",
+      "source_url": "https://www.ynetnews.com/travel/article/ryuco7enzg",
+      "raw_snippet": "about 900 weekly flights to more than 50 destinations worldwide ... 55 weekly flights to its destinations in North America, the most extensive activity ever on the continent",
+      "fetched_at": "2026-07-15T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "lufthansa-group-tlv-2026",
+      "claim": "The Lufthansa Group resumed Tel Aviv on a staggered 2026 schedule: Austrian from 1 June 2026, Lufthansa and SWISS from 1 July 2026, while Brussels Airlines stayed suspended through 24 October 2026; Wizz Air resumed on 28 May 2026.",
+      "source_url": "https://www.mtm.travel/news/wizz-air-and-the-lufthansa-group-resume-flights-to-tel-aviv/",
+      "raw_snippet": "Austrian Airlines starting 1 June 2026 ... Lufthansa ... resume flights as early as 1 July 2026 ... SWISS ... 1 July 2026 ... Brussels Airlines has suspended operations to Tel Aviv through 24 October 2026 ... Wizz Air resumes May 28 with 22 routes.",
+      "fetched_at": "2026-07-15T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "turkish-tlv-not-resumed-2026",
+      "claim": "As of July 2026 Turkish Airlines resumed several Middle East routes (Abu Dhabi 1 July, Dammam 10 July, Kuwait 11 July, Bahrain 16 July) but did NOT resume Tel Aviv.",
+      "source_url": "https://openjaw.com/classified/2026/07/03/turkish-airlines-middle-east-flight-resumptions/",
+      "raw_snippet": "resuming flights to Abu Dhabi starting July 1, 2026, Dammam starting July 10, 2026 and Kuwait starting July 11, 2026 and Bahrain starting July 16, 2026",
+      "fetched_at": "2026-07-15T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "etias-delay-2026",
+      "claim": "As of July 2026 ETIAS is not yet required; the EU targets a launch in late 2026 with mandatory use around 2027, but the rollout has slipped and EU agencies have signalled the late-2026 date may move into 2027.",
+      "source_url": "https://travel-europe.europa.eu/en/etias/about-etias/news-corner/revised-timeline-ees-and-etias",
+      "raw_snippet": "The revised timeline foresees ETIAS starting in the last quarter of 2026 with a transitional period before it becomes mandatory; the date is subject to change and may be pushed further.",
+      "fetched_at": "2026-07-15T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "ees-live-2026",
+      "claim": "The EU Entry-Exit System (EES) became fully operational across the Schengen area on 10 April 2026, recording non-EU travelers' facial images, fingerprints, and travel-document data instead of stamping passports (phased rollout began October 2025).",
+      "source_url": "https://home-affairs.ec.europa.eu/news/entryexit-system-ees-fully-operational-2026-04-10_en",
+      "raw_snippet": "Travellers' facial images, fingerprints and personal data from the travel document are also recorded ... Since its October 2025 rollout, it registered over 52 million entries and exits.",
+      "fetched_at": "2026-07-16T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/domain-checklist.md"]
+    },
+    {
+      "claim_id": "ryanair-tlv-2026",
+      "claim": "Ryanair will not restart Tel Aviv, cancelling 22 low-fare routes and roughly 1 million seats, citing Ben Gurion's refusal to confirm its summer-2026 (S26) slots and to keep the low-cost Terminal 1 open.",
+      "source_url": "https://corporate.ryanair.com/news/ryanair-will-not-restart-tel-aviv-flights-as-ben-gurion-airport-refuses-to-confirm-s26-slots-or-availability-of-low-cost-terminal-1/",
+      "raw_snippet": "Ryanair is cancelling 22 low-fare routes and losing approximately 1 million seats by not restarting winter flights to Tel Aviv; it will only return once Ben Gurion confirms its historic S26 slots and keeps Terminal 1 open.",
+      "fetched_at": "2026-07-16T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "google-flights-deeplink",
+      "claim": "A pre-filled Google Flights round-trip search for TLV is built from the natural-language q parameter with curr=ILS and the Israel locale; verified to return HTTP 200 (live results page).",
+      "source_url": "https://www.google.com/travel/flights?gl=IL&hl=he",
+      "raw_snippet": "Deep-link template, verified HTTP 200 by direct request on 2026-07-15: https://www.google.com/travel/flights?q=Flights+from+TLV+to+{CITY}+on+{YYYY-MM-DD}+returning+{YYYY-MM-DD}&curr=ILS&gl=IL&hl=he",
+      "fetched_at": "2026-07-15T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/comparison-platforms.md", "scripts/compare-flights.md"]
+    },
+    {
+      "claim_id": "kayak-deeplink",
+      "claim": "A pre-filled KAYAK round-trip search for TLV is built from the /flights/TLV-{DEST}/{date}/{date} path with sort=price_a for cheapest-first; verified to return HTTP 200.",
+      "source_url": "https://il.kayak.com/flights",
+      "raw_snippet": "Deep-link template, verified HTTP 200 by direct request on 2026-07-15: https://il.kayak.com/flights/TLV-{DEST}/{YYYY-MM-DD}/{YYYY-MM-DD}?sort=price_a",
+      "fetched_at": "2026-07-15T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/comparison-platforms.md", "scripts/compare-flights.md"]
+    },
+    {
+      "claim_id": "skyscanner-deeplink",
+      "claim": "A pre-filled Skyscanner search for TLV is built from the /transport/flights/tlv/{dest}/{YYMMDD}/{YYMMDD}/ path (round trip), {YYMM}00 for whole-month, or anywhere for flexible-destination; verified the URL scheme resolves (bot-captcha redirect decodes back to the same path).",
+      "source_url": "https://www.skyscanner.co.il",
+      "raw_snippet": "Deep-link templates, verified resolving on 2026-07-15: https://www.skyscanner.co.il/transport/flights/tlv/{dest}/{YYMMDD}/{YYMMDD}/ ; whole month https://www.skyscanner.co.il/transport/flights/tlv/{dest}/{YYMM}00/ ; flexible https://www.skyscanner.co.il/transport/flights/tlv/anywhere/{YYMMDD}/",
+      "fetched_at": "2026-07-15T00:00:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/comparison-platforms.md", "scripts/compare-flights.md"]
     }
   ]
 }
