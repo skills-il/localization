@@ -1,6 +1,6 @@
 ---
 name: israeli-accessibility-compliance
-description: Implement Israeli web accessibility compliance per IS 5568 standard, anchored to WCAG 2.0 AA (IS 5568 adds some 2.1-aligned criteria; sources differ), for Hebrew RTL applications. Use when user asks about Israeli accessibility law, "negishot" (accessibility), IS 5568, "teken negishot" (accessibility standard), "nachim" (disabilities), Hebrew screen reader support, RTL ARIA patterns, or accessibility audit for Israeli websites. Covers mandatory legal requirements under the Equal Rights for Persons with Disabilities Act, who is exempt, enforcement and penalties, the accessibility coordinator role, Hebrew screen reader compatibility (NVDA, JAWS, VoiceOver), and RTL-specific ARIA patterns. Do NOT use for general WCAG guidance without Israeli context (use standard a11y resources instead).
+description: Implement Israeli web accessibility compliance per IS 5568 standard, anchored to WCAG 2.0 AA (IS 5568 adds some 2.1-aligned criteria; sources differ), for Hebrew RTL applications. Use when user asks about Israeli accessibility law, "negishot" (accessibility), IS 5568, "teken negishot" (accessibility standard), "nachim" (disabilities), Hebrew screen reader support, RTL ARIA patterns, accessibility audit for Israeli websites, or remediating a professional auditor's findings report (דוח פערי נגישות) item by item against a live site. Covers mandatory legal requirements under the Equal Rights for Persons with Disabilities Act, who is exempt, enforcement and penalties, the accessibility coordinator role, Hebrew screen reader compatibility (NVDA, JAWS, VoiceOver), and RTL-specific ARIA patterns. Do NOT use for general WCAG guidance without Israeli context (use standard a11y resources instead).
 license: MIT
 allowed-tools: Bash(python:*) Bash(pip:*)
 compatibility: Works with any web framework. Python 3.9+ for audit script. No network required for core patterns. axe-core for automated testing.
@@ -287,6 +287,42 @@ def run_accessibility_audit(url):
 
 See `references/is-5568.md` for the complete checklist mapped to IS 5568 clauses.
 
+### Step 11: Remediating an Auditor's Findings Report (דוח פערי נגישות)
+
+Israeli sites routinely receive a findings spreadsheet from a certified auditor
+(columns typically: סעיף · מיקום הבעיה · מה הבעיה · תיאור · איך לתקן · דרגת
+חומרה · הסעיף בתקן · צילום מסך · סטטוס; severity vocabulary runs
+קריטי-חמור / חמור / בינוני / המלצה לתיקון). Treat the report itself as the
+statutory fix notice — receiving it plausibly starts the 60-day cure clock
+(Step 3), so remediation is time-bound, not advisory.
+
+Hard-won rules for working one of these:
+
+1. **Recover the screenshots BEFORE diagnosing anything.** The xlsx almost
+   never embeds them — each row links an external screenshot service
+   (prnt.sc / lightshot are common). Those pages expose the image via the
+   `og:image` meta tag; fetch with a browser User-Agent and download every
+   one. This is not optional polish: a row's text can be too vague to act on
+   ("ראו צילום מסך" may be the entire description), and a screenshot can
+   overturn your reading of *which element* a finding targets. In one real
+   remediation, a contrast finding read as "article links fail" until the
+   screenshot showed the auditor had circled the category filter chips — a
+   different component, styled from a different token layer; the planned fix
+   would have missed the flagged elements entirely.
+2. **Diagnose root cause per finding against the live code**, not from the
+   auditor's suggested fix. Auditors describe symptoms from the outside;
+   the same symptom (e.g. "focus order is backwards") can come from CSS
+   `order` reordering, DOM order, or a focus-scope library's quirks — each
+   needs a different fix, and only the code says which.
+3. **The auditor tests states you did not design**: 200% browser zoom,
+   keyboard-only, screen-reader forms mode. Reproduce the finding in the
+   reported state before fixing, and re-verify in that state after.
+4. **Answer every row.** A finding you decide not to fix (e.g. inaccessible
+   PDFs pending a paid remediation service) is not silently dropped — it
+   moves into the accessibility statement's known-limitations section with a
+   planned remediation. Deferred-and-disclosed is a legitimate status;
+   undocumented is not.
+
 ## Recommended MCP Servers
 
 No relevant MCP server applies to Israeli accessibility compliance. The skills-il MCP directory has no accessibility, IS 5568, or WCAG-auditing MCP at this time. The audit in this skill runs as a local Python script (`scripts/audit_a11y.py`), not through an MCP. If an accessibility-audit MCP is added to the directory later, prefer it for live-site scanning and keep the script for offline checks.
@@ -337,7 +373,108 @@ A minimum-viable Regulation 35 widget exposes these toggles:
 | Black cursor | Binary | on / off |
 | Large cursor | Binary | on / off |
 | Stop animations | Binary | on / off |
+| Hide images | Binary | on / off (auditors expect this on image-heavy sites — see below) |
 | Reset | Action | clears all preferences |
+
+### High Contrast Must Remap Tokens, Not Filter
+
+A CSS filter (`filter: contrast(1.3)`) cannot repair a failing contrast
+ratio — it shifts all colors together, so a 2.6:1 pair stays roughly a
+2.6:1 pair. A certified auditor will toggle your widget's contrast mode,
+re-measure, and fail the finding with exactly that observation ("שום מצב
+בתוך הרכיב לא מספק קונטרסט תקין" — from a real report). High-contrast mode
+must instead **remap the actual color custom properties** to measured
+passing values, scoped under the mode class:
+
+```css
+html.a11y-contrast-high {
+  --brand-blue: #0972b3;  /* was #2ca7f4 — 2.64:1 on white → 5.16:1 */
+  --brand-green: #567500; /* was #75a000 — 3.10:1 on white → 5.33:1 */
+}
+```
+
+Three rules that make the remap actually land:
+
+- **Override the most primitive layer of the token chain.** Components
+  rarely all read the same variable: some consume a semantic alias
+  (`--semantic-primary`), some a framework bridge (`--primary`), and some
+  the raw brand primitive directly. Overriding an alias fixes only the
+  alias's consumers; overriding the primitive flows through every `var()`
+  chain built on it, including the direct consumers an alias-level fix
+  silently misses.
+- **Dark-theme surfaces need the OPPOSITE direction.** Darkening a color
+  that fails on white makes it fail harder on a dark surface. A dark theme
+  island needs its own scoped override with a *lighter* on-hue value —
+  and inside an opt-in high-contrast mode, legibility outranks brand
+  fidelity, so a visibly brighter shade is the correct call, not a design
+  regression.
+- **Verify on a production build, in the live DOM.** CSS build pipelines
+  (Tailwind v4 / Lightning CSS) special-case custom properties that are
+  linked to theme systems (e.g. Tailwind's `@theme inline` names): a
+  redeclaration of such a name outside its original declaration site can be
+  silently dropped at build time, while raw custom properties override
+  fine. Dev servers do not reproduce this, and stale dev caches can serve
+  the previous version of your CSS on top. Trust only
+  `getComputedStyle` on a fresh production build — both with the mode ON
+  (values changed) and OFF (values byte-identical to before).
+
+### Stop Animations Must Cover JS-Driven Motion
+
+The `a11y-reduce-motion` CSS class zeroes `animation-duration` and
+`transition-duration` — which stops **CSS** animations only. Anything
+driven by JavaScript (`setInterval` slide autoplay, `requestAnimationFrame`
+count-up tweens, JS carousels) ignores it completely, and WCAG 2.2.2's
+requirement is categorical: when the user says stop, everything stops.
+Auditors check the hero slider first.
+
+Ship one shared, SSR-safe hook that ORs the OS media query with the widget
+preference, and subscribe every JS-driven animation to it:
+
+```ts
+// lib/use-reduced-motion.ts — OS request OR widget toggle, reactive to both
+export function useReducedMotion(): boolean {
+  const osPref = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const { reduceMotion } = useA11yPrefs();
+  return osPref || reduceMotion;
+}
+```
+
+Then `grep -rn "setInterval\|requestAnimationFrame" src/` and wire every
+hit that drives *visible decorative motion*. Two boundaries to respect:
+purely functional timers (an OTP resend countdown, fetch-retry backoff)
+represent real state and must keep running; and a count-up animation
+should **snap to its final value** when the pref flips mid-flight, not
+freeze at a partial number — cancel the in-flight rAF and render the end
+state.
+
+### Hide Images Without Breaking the Page
+
+The auditor's own spec for this feature (real report): images become a
+solid dark surface in place, and text that sat on a photo becomes white.
+`filter: brightness(0)` on `<img>` does the first half with zero layout
+shift. The traps are all in the second half:
+
+- **Find every text-over-image site by searching, not by memory.** Grep for
+  absolutely-positioned images and `mix-blend-*` near headings. In a real
+  remediation, a code comment asserting the hero was "the only place text
+  sits over a photo" was simply false — a second page pinned a
+  `mix-blend-darken` decorative image behind its h1, and blackening it put
+  dark text on solid black (1.98:1), *reintroducing the exact failure class
+  the toggle exists to fix*. For a blend-composited decorative image, hide
+  it (`visibility: hidden`) instead of blackening it, so the text falls
+  back onto the page background.
+- **Force white text only where it truly sits on a photo**, scoped by a
+  `data-slot` hook and the exact breakpoints where the overlap exists. At
+  tiers where the same heading sits on the page background, forced white
+  text becomes invisible — check each tier.
+- **Do NOT hide meaningful `<svg>` icons** (close buttons, chevrons, menu
+  glyphs) — that breaks navigation instead of fixing contrast.
+- **Transparent images do not become black rectangles.** A transparent SVG
+  logo under `brightness(0)` becomes a black silhouette; a white logo on a
+  dark card effectively disappears. Under a preference literally named
+  "hide images" that is usually acceptable (alt text remains) — but decide
+  it and write the decision down, don't discover it in the next audit.
+- **Reset the filter in print** alongside the other print resets.
 
 ### Architecture
 
@@ -410,7 +547,9 @@ On macOS, `Alt+A` produces the dead-key `å` for `e.key`, which fails the intuit
 
 ### framer-motion / Reduced Motion
 
-If the app uses framer-motion, wrap the tree in a `<MotionConfig>` that mirrors the Stop Animations toggle:
+This is the framer-motion instance of the general "Stop Animations Must
+Cover JS-Driven Motion" rule above — `MotionConfig` is framer's built-in
+subscription point, so framer apps get it in one wrapper. If the app uses framer-motion, wrap the tree in a `<MotionConfig>` that mirrors the Stop Animations toggle:
 
 ```tsx
 <MotionConfig reducedMotion={prefs.reduceMotion ? 'always' : 'user'}>
@@ -470,6 +609,9 @@ The widget is one layer of compliance. The other layers, semantic HTML, correct 
 - Screen readers for Hebrew (NVDA, JAWS) read RTL text differently than LTR. Agents may generate ARIA labels assuming LTR reading order, which confuses Hebrew screen reader users.
 - Israeli law requires accessibility statements (hatzaharat negishut) to be published on every website. Agents may generate WCAG-compliant sites without this mandatory statement page.
 - Color contrast requirements in IS 5568 match WCAG (4.5:1 for normal text, 3:1 for large text), but agents may not account for Hebrew font rendering, which can appear thinner than Latin fonts at the same size, requiring slightly higher contrast.
+- A widget "high contrast" mode implemented as a CSS filter looks like a fix and repairs nothing — a real auditor toggles it, re-measures, and fails the finding. High contrast must remap color tokens to measured passing values (see "High Contrast Must Remap Tokens, Not Filter").
+- An auditor's findings xlsx usually links its screenshots externally (prnt.sc etc.) rather than embedding them. Agents that skip fetching them will mis-target findings — the row text alone can point at the wrong component (see Step 11).
+- The widget's "stop animations" class stops CSS animations only. JS-driven motion (`setInterval` sliders, rAF counters) keeps moving and fails WCAG 2.2.2 — wire it to a shared reduced-motion hook (see "Stop Animations Must Cover JS-Driven Motion").
 
 ## Reference Links
 
