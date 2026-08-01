@@ -2,7 +2,7 @@
 name: hebrew-document-translation
 description: Translate documents (PDF, Word, plain text) from English into professional, publication-quality Hebrew, preserving structure, formatting, tables, and terminology, with correct RTL layout. Works for any document type or subject matter (reports, contracts, manuals, marketing materials, legal or financial documents, correspondence, exams, or anything else) and for any organization or field, nothing about this skill is specific to one industry. Use this whenever the user asks to translate any document into Hebrew; whenever they want a Hebrew translation delivered as a proper Word/PDF file rather than plain chat text; and whenever they ask a new translation to "match", "align to", or "look like" the style/template of a previous or reference Hebrew document (cover page, headers/footers, table of contents, table styling, terminology). Also use when the user asks to build a reusable template/skill for this kind of translation work.
 license: MIT
-allowed-tools: Bash(python:*) Bash(pip:*) Bash(node:*) Bash(npm:*) Bash(pdfimages:*) Bash(pdftotext:*) Bash(pdfinfo:*)
+allowed-tools: Bash(python:*) Bash(pip:*) Bash(node:*) Bash(npm:*) Bash(pdfimages:*) Bash(pdftotext:*) Bash(pdfinfo:*) Bash(grep:*) Bash(mkdir:*)
 compatibility: Requires Node.js with the docx package for document generation, Python 3 with Pillow (PIL) for logo/color extraction, and poppler-utils (pdfimages, pdftotext, pdfinfo) plus LibreOffice for PDF rendering and verification.
 ---
 

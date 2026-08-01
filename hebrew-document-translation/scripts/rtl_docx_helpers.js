@@ -79,7 +79,7 @@ function heading2(text) {
 function cell(text, opts = {}) {
   const { bold = false, width, shade = null, align = AlignmentType.RIGHT, size = 19 } = opts;
   return new TableCell({
-    width: { size: width, type: WidthType.DXA },
+    width: width != null ? { size: width, type: WidthType.DXA } : undefined,
     shading: shade ? { type: ShadingType.CLEAR, fill: shade } : undefined,
     verticalAlign: VerticalAlign.CENTER,
     children: [p(text, { bold, size, align, spacingAfter: 0 })]

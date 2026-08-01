@@ -9,7 +9,13 @@ PDF rather than recreating it - it'll be pixel-identical and saves a lot of gues
 ```bash
 mkdir -p assets
 pdfimages -all -f 1 -l 1 "/path/to/reference.pdf" assets/page1
-identify assets/page1-*.png
+```
+```python
+from PIL import Image
+import glob
+for path in sorted(glob.glob('assets/page1-*.png')):
+    with Image.open(path) as im:
+        print(path, im.mode, im.size)
 ```
 
 `-all` preserves native format (usually gives you real `.png` files directly). If you only get
@@ -19,9 +25,9 @@ raw dump.
 ## 2. Recover transparency, if the logo looks wrong (solid black background, wrong colors)
 
 PDFs often store a transparent logo as **two separate images**: a plain RGB color image, and a
-separate grayscale image that's actually the alpha/soft mask. If `identify` shows two same-sized
-images where one is `RGB` and the other is `L` (grayscale), they're very likely the base image +
-its mask. Recombine them:
+separate grayscale image that's actually the alpha/soft mask. If the Pillow inspection above shows
+two same-sized images where one is mode `RGB` and the other is `L` (grayscale), they're very likely
+the base image + its mask. Recombine them:
 
 ```python
 from PIL import Image
@@ -82,4 +88,4 @@ heading and title colors in the new document, rather than eyeballing a similar s
 
 Reference the final PNG path from `ImageRun` in the docx build script (see `logoImage()` in
 `../scripts/rtl_docx_helpers.js`), sized smaller for the running header and larger for the cover
-page, using the same aspect ratio (`width/height` from `identify`).
+page, using the same aspect ratio (the `im.size` values printed by Pillow in step 1).
