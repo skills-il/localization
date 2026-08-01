@@ -11,7 +11,7 @@
  */
 
 const {
-  Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
+  Document, Paragraph, TextRun, HeadingLevel, AlignmentType,
   Table, TableRow, TableCell, WidthType, BorderStyle, ShadingType,
   PageBreak, Header, Footer, PageNumber, ImageRun, VerticalAlign, TableLayoutType
 } = require('docx');
@@ -32,9 +32,29 @@ function logoImage(scale) {
   });
 }
 
+// ================= SCRIPT-AWARE RUN SPLITTING =================
+// Hebrew Unicode block (letters, punctuation, points).
+const HEBREW_CHAR = /[\u0590-\u05FF]/;
+
+// A single TextRun that mixes Hebrew and Latin/digits and is flagged rightToLeft as one unit is a
+// known Word rendering bug: the Latin/digit portion can jump sides and punctuation can reflow
+// (the same failure mode documented for python-docx in the hebrew-document-generator skill).
+// Splitting the text into one run per script segment, and flagging rightToLeft only on the
+// Hebrew segments, avoids it. Paragraph-level bidirectional:true is still correct for any
+// paragraph containing Hebrew, mixed or not.
+function scriptRuns(text, runOpts = {}) {
+  const segments = String(text).match(/[\u0590-\u05FF]+|[^\u0590-\u05FF]+/g) || [String(text)];
+  return segments.map(segment => new TextRun({
+    ...runOpts,
+    text: segment,
+    rightToLeft: HEBREW_CHAR.test(segment)
+  }));
+}
+
 // ================= BASIC RTL PARAGRAPH HELPERS =================
 
-// Every Hebrew paragraph needs bidirectional:true + RIGHT alignment; every run needs rightToLeft:true.
+// Every paragraph containing Hebrew needs bidirectional:true + RIGHT alignment at the paragraph
+// level; run-level rightToLeft is applied per script segment via scriptRuns, not to the whole run.
 function p(text, opts = {}) {
   const {
     bold = false, size = 21, align = AlignmentType.RIGHT, italics = false,
@@ -46,7 +66,7 @@ function p(text, opts = {}) {
     spacing: { after: spacingAfter, before: spacingBefore },
     indent: indent || undefined,
     border: border || undefined,
-    children: [new TextRun({ text, bold, italics, size, rightToLeft: true, color: color || undefined, font: FONT })]
+    children: scriptRuns(text, { bold, italics, size, color: color || undefined, font: FONT })
   });
 }
 
@@ -57,7 +77,7 @@ function heading1(text, opts = {}) {
     alignment: AlignmentType.RIGHT,
     bidirectional: true,
     spacing: { before: spacingBefore, after: 200 },
-    children: [new TextRun({ text, bold: true, size: 30, color: BRAND_BLUE, rightToLeft: true, font: FONT })]
+    children: scriptRuns(text, { bold: true, size: 30, color: BRAND_BLUE, font: FONT })
   });
 }
 
@@ -69,7 +89,7 @@ function heading2(text) {
     spacing: { before: 260, after: 140 },
     // thin top rule = cheap visual separator between repeated blocks (questions, entries, etc.)
     border: { top: { style: BorderStyle.SINGLE, size: 4, color: GRAY_LINE, space: 8 } },
-    children: [new TextRun({ text, bold: true, size: 24, color: BRAND_BLUE, rightToLeft: true, font: FONT })]
+    children: scriptRuns(text, { bold: true, size: 24, color: BRAND_BLUE, font: FONT })
   });
 }
 
@@ -86,7 +106,9 @@ function cell(text, opts = {}) {
   });
 }
 
-// ================= RUNNING HEADER (matches: text block physically left, logo physically right) =================
+// ================= RUNNING HEADER (two physically-LTR columns: text column defined first so it
+// sits on the physical left, logo column physical right; text inside the left column is itself
+// right-aligned so Hebrew reads naturally) =================
 function buildHeader({ productLine, subtitleLine, noteLine }) {
   const table = new Table({
     width: { size: 9350, type: WidthType.DXA },
@@ -107,11 +129,11 @@ function buildHeader({ productLine, subtitleLine, noteLine }) {
           verticalAlign: VerticalAlign.CENTER,
           children: [
             new Paragraph({ alignment: AlignmentType.RIGHT, bidirectional: true, spacing: { after: 20 },
-              children: [new TextRun({ text: productLine, bold: true, size: 18, rightToLeft: true, font: FONT })] }),
+              children: scriptRuns(productLine, { bold: true, size: 18, font: FONT }) }),
             new Paragraph({ alignment: AlignmentType.RIGHT, bidirectional: true, spacing: { after: 20 },
-              children: [new TextRun({ text: subtitleLine, bold: true, size: 18, rightToLeft: true, font: FONT })] }),
+              children: scriptRuns(subtitleLine, { bold: true, size: 18, font: FONT }) }),
             new Paragraph({ alignment: AlignmentType.RIGHT, bidirectional: true,
-              children: [new TextRun({ text: noteLine, italics: true, size: 15, rightToLeft: true, font: FONT })] })
+              children: scriptRuns(noteLine, { italics: true, size: 15, font: FONT }) })
           ]
         }),
         new TableCell({
@@ -141,7 +163,7 @@ function buildFooter({ versionLabel, dateLabel }) {
           new TextRun({ children: [PageNumber.CURRENT], size: 17, font: FONT }),      // live field - works in Word + LibreOffice
           new TextRun({ text: " מתוך ", size: 17, rightToLeft: true, font: FONT }),
           new TextRun({ children: [PageNumber.TOTAL_PAGES], size: 17, font: FONT }),  // live field
-          new TextRun({ text: `    |    ${versionLabel}    |    ${dateLabel}`, size: 17, rightToLeft: true, font: FONT })
+          ...scriptRuns(`    |    ${versionLabel}    |    ${dateLabel}`, { size: 17, font: FONT })
         ]
       }),
       new Paragraph({
@@ -213,7 +235,7 @@ function buildDocumentSkeleton({ coverChildren, bodyChildren, header, footer, co
 
 module.exports = {
   FONT, BRAND_BLUE, GRAY_LINE, logoImage,
-  p, heading1, heading2, cell,
+  scriptRuns, p, heading1, heading2, cell,
   buildHeader, buildEmptyHeader, buildFooter,
   tocRow, buildTocTable, buildDocumentSkeleton
 };

@@ -102,7 +102,11 @@ Hebrew documents need explicit RTL handling, Word does not infer it automaticall
 output. See `scripts/rtl_docx_helpers.js` for ready-to-use helpers, and the rules behind them:
 
 - Every `Paragraph` containing Hebrew needs `bidirectional: true` and `alignment: AlignmentType.RIGHT`.
-- Every `TextRun` containing Hebrew needs `rightToLeft: true`.
+- Every `TextRun` whose content is Hebrew needs `rightToLeft: true`. **Do not** flag a run
+  `rightToLeft: true` if it mixes Hebrew with Latin letters or digits in one string, Word reorders
+  and reflows a mixed run incorrectly (the Latin/digit portion can jump sides and punctuation can
+  reflow), even though the paragraph itself is correctly `bidirectional`. This is the same failure
+  mode documented for python-docx in the `hebrew-document-generator` skill; it applies equally here.
 - Use a font with solid Hebrew glyph coverage, `Arial` renders cleanly and matches most
   corporate/professional templates; `David` is a reasonable serif alternative if the source uses one.
 - **Tables**: set `visuallyRightToLeft: true` on any `Table` that should read right-to-left, this
@@ -112,9 +116,11 @@ output. See `scripts/rtl_docx_helpers.js` for ready-to-use helpers, and the rule
   fixed to the physical right, text block fixed to the physical left, regardless of document
   language) should stay plain LTR (don't set `visuallyRightToLeft`), check the reference document
   for which convention it uses; don't assume.
-- Mixed English/Hebrew inline (e.g. `NDA (Non-Disclosure Agreement)`) renders correctly on
-  its own as long as the surrounding paragraph/run RTL properties above are set, no manual
-  reordering needed.
+- Mixed English/Hebrew inline (e.g. `NDA (Non-Disclosure Agreement)`) needs to be split into one
+  `TextRun` per script segment, with `rightToLeft: true` only on the Hebrew segments, not one run
+  covering the whole mixed string. Use the `scriptRuns()` helper in `scripts/rtl_docx_helpers.js`
+  (used internally by `p()`, `heading1()`, `heading2()`, `buildHeader()`, and `buildFooter()`)
+  instead of building a `TextRun` by hand for any text that might mix scripts.
 
 ### Step 5: Real, verified page numbers in the Table of Contents
 
