@@ -12,7 +12,7 @@
 - [ ] **Teudat Ravakut** (Certificate of Bachelorhood) -- only needed if registering outside your city of residence
   - Obtained from your local Rabbinate with: Teudat Zehut, passport photos, parents' ketuba, 2 witnesses
 - [ ] **Venue kashrut certificate** -- must be from the local Religious Council (Rabbinate kashrut), NOT private kashrut (Badatz, Mehadrin, etc.)
-- [ ] **Registration fee** -- 730-844 NIS depending on city (typically ~824 NIS in 2026); 40% discount available (430-506 NIS) for olim within 2 years, IDF/national service, students under 30, persons with disabilities
+- [ ] **Registration fee** -- set in the schedule to the Jewish Religious Services (Fees and Services) Regulations; 40% discount for olim within 2 years, IDF/national service, students under 30, persons with disabilities
 
 ### Additional Documents (if applicable)
 
@@ -65,5 +65,5 @@ Before visiting the Rabbinate, confirm:
 ## Important Phone Numbers
 
 - **Chief Rabbinate of Israel:** 02-531-3131
-- **Itim (religious services advocacy):** *3330 or 02-620-2066
+- **Itim (religious services advocacy):** itim.org.il
 - **Local Religious Councils:** Search "moatza datit" + your city name

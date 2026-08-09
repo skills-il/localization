@@ -15,14 +15,14 @@ Average Israeli wedding cost in 2026: **120,000-180,000 NIS** for a standard mid
 |----------|-------------------|-------------|-------|
 | Venue + catering | 70,000-130,000 | 55-65% | Per-plate x guests. Biggest variable |
 | Photography + video | 7,000-18,000 | 8-12% | Still + video package (basic from ~5K, full premium 10-15K) |
-| Music (DJ or band) | 4,000-15,000 | 4-8% | Plus ACUM license fee (~395 NIS, see below) |
+| Music (DJ or band) | 4,000-15,000 | 4-8% | Plus the ACUM license fee (see below) |
 | Wedding dress | 3,000-15,000 | 3-8% | Purchase, rental, or custom |
 | Groom's suit | 1,500-5,000 | 1-3% | Purchase or rental |
 | Makeup + hair | 2,000-5,000 | 2-3% | Bride + optional entourage |
 | Flowers + design | 2,000-10,000 | 2-5% | Most venues work with external designers |
 | Invitations + magnets | 1,000-3,000 | 1-2% | Custom magnets are Israeli tradition |
-| Rabbinate registration | ~824 (or 430 discounted) | <1% | Fee varies by Religious Council (730-844 NIS typical in 2026); 40% discount for olim, soldiers, students under 30 |
-| ACUM music license | ~395 | <1% | Fixed family-event tariff, see ACUM section |
+| Rabbinate registration | see current fee schedule | <1% | Fee is set in the schedule to the Jewish Religious Services (Fees and Services) Regulations and updated in Reshumot; a 40% discount applies to olim, soldiers, national-service volunteers, students under 30 and other listed groups |
+| ACUM music license | see ACUM tariff T008 | <1% | Fixed family-event tariff, see ACUM section |
 | Other (transport, gifts, tips) | 3,000-8,000 | 3-5% | Shuttle bus, welcome gifts |
 
 ### Per-Plate Cost by Region and Venue Type (2026)
@@ -71,7 +71,7 @@ Open a marriage file at your local Religious Council **21-90 days before the wed
 | 3 passport photos | Both | Recent photos |
 | Parents' Ketuba | Both | Original or certified copy |
 | Teudat Ravakut | Both (if registering outside your city) | Certificate of bachelorhood from your local Rabbinate |
-| Registration fee | Both | 730-844 NIS depending on city (~824 NIS standard, 430-506 NIS with 40% discount) |
+| Registration fee | Both | Set in the schedule to the Jewish Religious Services (Fees and Services) Regulations, updated in Reshumot; 40% discount for eligible groups. Ask your Religious Council for the current amount |
 | Kosher certificate of venue | Couple | Must be from the Rabbinate, not private kashrut |
 | Birth certificate | Olim/converts | Required for immigrants |
 | Conversion documents | Converts | Original papers + rabbi's letter |
@@ -118,7 +118,7 @@ Open a marriage file at your local Religious Council **21-90 days before the wed
 
 ### ACUM (Israeli Composers and Authors Society)
 
-Any public performance of music at a wedding requires an **ACUM license**. As of 2026 the family-event tariff is **395.30 NIS including VAT** (covers DJ, band, live singer, background music, or any combination). The license must be paid and reported at least 72 hours before the event at acum.org.il. This covers royalties to songwriters and composers. Either the DJ or the couple pays it, clarify in the contract. Without it, the DJ risks a fine.
+Any public performance of music at a wedding requires an **ACUM license**. The family-event tariff (ACUM tariff T008) is a fixed amount including VAT and covers a DJ, band, live singer, background music, or any combination. Read the current amount off the ACUM licensing site rather than from this skill. The license must be paid and reported at least 72 hours before the event at acum.org.il. This covers royalties to songwriters and composers. Either the DJ or the couple pays it, clarify in the contract. Without it, the DJ risks a fine.
 
 ## Civil Marriage Outside the Rabbinate
 
@@ -204,7 +204,7 @@ Actions:
 1. Suggest weekday (Sun-Wed) in winter for lowest venue pricing
 2. Target periphery venues (Sharon, Shfela) for 200-280 NIS/plate
 3. Limit guest list to 200 (realistic budget: 200 x 250 NIS = 50K for venue)
-4. Allocate remaining 50K across photographer (8K), DJ (5K + 395 ACUM), dress (5K), design (3K), Rabbinate (~824 or 430 with discount), and contingency
+4. Allocate remaining 50K across photographer (8K), DJ (5K plus the ACUM fee), dress (5K), design (3K), the Rabbinate fee, and contingency
 5. Recommend negotiating in winter months even for spring/summer dates
 
 Result: Detailed budget spreadsheet with per-vendor allocation.
@@ -245,8 +245,8 @@ Result: Side-by-side venue comparison with total cost projections.
 |--------|-----|---------------|
 | Misrad LeSherutei Dat (marriage file) | https://www.gov.il/he/pages/opening_a_marriage_file | Current tik nisuin process, fee, required documents |
 | Kol-Zchut (registration fee discount) | https://www.kolzchut.org.il/he/הנחה_בתשלום_אגרת_רישום_נישואין_ברבנות | Eligibility for 40% discount |
-| Itim (advocacy + free guidance) | https://www.itim.org.il/ | Help with Rabbinate paperwork, *3330 hotline |
-| ACUM (music license) | https://apps.acum.org.il/licenses/ | Current ACUM family-event tariff (395.30 NIS as of 2026), online license payment |
+| Itim (advocacy + free guidance) | https://www.itim.org.il/ | Help with Rabbinate paperwork |
+| ACUM (music license) | https://apps.acum.org.il/licenses/ | Current ACUM family-event tariff (T008), online license payment |
 | Kol-Zchut (Civil marriage abroad) | https://www.kolzchut.org.il/he/רישום_נישואים_אזרחיים_שנערכו_מחוץ_לישראל | Misrad HaPnim registration of overseas marriages |
 | Save A Date (vendor platform) | https://www.saveadate.co.il/ | Vendor directory, current price benchmarks |
 | Engaged (vendor platform) | https://engaged.co.il/ | Deals and discounts in 25+ categories |
@@ -256,7 +256,7 @@ Result: Side-by-side venue comparison with total cost projections.
 ## Gotchas
 
 ### 1. ACUM Fee Surprise
-Agents often forget the ACUM (Israeli Composers and Authors Society) license fee when calculating music costs. This is mandatory for any public music performance at weddings, including DJ, band, live singer, or background playlist. Family-event tariff as of 2026: 395.30 NIS including VAT. Must be paid at least 72 hours before the event via acum.org.il. Always include it in budget calculations and clarify in the DJ contract who pays.
+Agents often forget the ACUM (Israeli Composers and Authors Society) license fee when calculating music costs. This is mandatory for any public music performance at weddings, including DJ, band, live singer, or background playlist. Family-event tariff: ACUM tariff T008, a fixed amount including VAT; read the current figure off acum.org.il. Must be paid at least 72 hours before the event via acum.org.il. Always include it in budget calculations and clarify in the DJ contract who pays.
 
 ### 2. Rabbinate Deadline Window
 The tik nisuin must be opened 21-90 days before the wedding -- not earlier, not later. Agents may suggest "start as early as possible" but the Rabbinate will reject applications filed more than 90 days out. Conversely, less than 21 days leaves no buffer for missing documents.

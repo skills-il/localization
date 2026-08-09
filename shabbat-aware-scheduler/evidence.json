@@ -248,6 +248,84 @@
         "scripts/check_shabbat.py"
       ],
       "verified_via": "raw HTML fetch (curl) of source page"
+    },
+    {
+      "claim_id": "hebcal-hebcal-page",
+      "claim": "Hebcal publishes its Jewish calendar tool at hebcal.com/hebcal.",
+      "source_url": "https://www.hebcal.com/hebcal",
+      "raw_snippet": "<!DOCTYPE html><html lang=\"en\" data-bs-theme=\"auto\">",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "hebcal-shabbat-page",
+      "claim": "Hebcal publishes its Shabbat candle-lighting times tool at hebcal.com/shabbat.",
+      "source_url": "https://www.hebcal.com/shabbat",
+      "raw_snippet": "<!DOCTYPE html><html lang=\"en\" data-bs-theme=\"auto\">",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "hebcal-converter-api",
+      "claim": "The Hebcal Hebrew-date converter JSON API accepts gy/gm/gd and g2h=1 and returns the Hebrew year, month and day.",
+      "source_url": "https://www.hebcal.com/converter?cfg=json&gy=YEAR&gm=MONTH&gd=DAY&g2h=1",
+      "raw_snippet": "\"hebrew\":\"כ״ו בְּאָב תשפ״ו\",\"heDateParts\":{\"y\":\"תשפ״ו\",\"m\":\"אב\",\"d\":\"כ״ו\"},\"events\":[\"Parashat Shoftim\"]",
+      "fetched_at": "2026-08-09",
+      "verified_via": "browser",
+      "verified_at": "2026-08-09",
+      "source_note": "The URL in the skill is a call template with YEAR/MONTH/DAY placeholders and is not itself fetchable; verified by fetching the concrete instantiation gy=2026&gm=8&gd=9 with curl on 2026-08-09.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "hebcal-shabbat-api",
+      "claim": "The Hebcal Shabbat JSON API accepts latitude, longitude, tzid, b (candle-lighting minutes) and M=on and returns candle-lighting and havdalah items.",
+      "source_url": "https://www.hebcal.com/shabbat?cfg=json&gy=YEAR&gm=MONTH&gd=DAY&latitude=LAT&longitude=LON&tzid=Asia/Jerusalem&b=40&M=on",
+      "raw_snippet": "{\"title\":\"Hebcal 32°4′N 34°46′E Asia/Jerusalem August 2026\"",
+      "fetched_at": "2026-08-09",
+      "verified_via": "browser",
+      "verified_at": "2026-08-09",
+      "source_note": "Call template with placeholders; verified against the concrete instantiation latitude=32.08&longitude=34.78&gy=2026&gm=8&gd=9 with curl on 2026-08-09.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "hebcal-zmanim-api",
+      "claim": "The Hebcal zmanim JSON API accepts latitude, longitude, tzid and date and returns halachic times for that date.",
+      "source_url": "https://www.hebcal.com/zmanim?cfg=json&latitude=LAT&longitude=LON&tzid=Asia/Jerusalem&date=YYYY-MM-DD",
+      "raw_snippet": "{\"date\":\"2026-08-09\",\"version\":\"v1.5.1\",\"location\":",
+      "fetched_at": "2026-08-09",
+      "verified_via": "browser",
+      "verified_at": "2026-08-09",
+      "source_note": "Call template with placeholders; verified against the concrete instantiation latitude=32.08&longitude=34.78&date=2026-08-09 with curl on 2026-08-09.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "hebcal-holidays-api",
+      "claim": "The Hebcal holiday JSON API accepts v=1, year, maj/min/mod flags and i=on for the Israeli schedule.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=YEAR&month=x&maj=on&min=on&mod=on&i=on",
+      "raw_snippet": "{\"title\":\"Hebcal Israel 2026\"",
+      "fetched_at": "2026-08-09",
+      "verified_via": "browser",
+      "verified_at": "2026-08-09",
+      "source_note": "Call template with a YEAR placeholder; verified against the concrete instantiation year=2026 with curl on 2026-08-09.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     }
   ]
 }

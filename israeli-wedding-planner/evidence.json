@@ -9,7 +9,13 @@
       "source_url": "https://www.itim.org.il/%D7%A8%D7%99%D7%A9%D7%95%D7%9D-%D7%9C%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9F-%D7%9B%D7%9E%D7%94-%D7%96%D7%94-%D7%A2%D7%95%D7%9C%D7%94/",
       "raw_snippet": "Full Fee: 824 NIS. Discounted Fee: 430 NIS (40% reduction). Cross-referenced with Tzohar (March 2026): 844 NIS standard / 506 NIS discounted; Jerusalem Religious Council: 730 NIS; Nahariya: 824 NIS.",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "metadata.json", "references/rabbinate-checklist.md", "references/wedding-budget-calculator.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "metadata.json",
+        "references/rabbinate-checklist.md",
+        "references/wedding-budget-calculator.md"
+      ]
     },
     {
       "claim_id": "rabbinate-fee-discount",
@@ -17,7 +23,11 @@
       "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D_%D7%90%D7%92%D7%A8%D7%AA_%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9F_%D7%91%D7%A8%D7%91%D7%A0%D7%95%D7%AA",
       "raw_snippet": "Couples registering for marriage at rabbinate offices may receive a 40% discount on registration fees if one spouse belongs to an eligible population group (military, national service, disability, students under 30, yeshiva students under 30, new immigrants in first two years, blind/visually impaired).",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/rabbinate-checklist.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ]
     },
     {
       "claim_id": "acum-wedding-tariff",
@@ -25,7 +35,12 @@
       "source_url": "https://apps.acum.org.il/licenses/general/register-payment?action=info&sourceTypeCode=T008",
       "raw_snippet": "The current 2026 fee for a family event music license (such as a wedding) is 395.30 NIS, inclusive of VAT. The license must be arranged up to 72 hours before the event date and covers public performance of protected musical works from ACUM's repertoire at a single family event.",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "metadata.json", "references/wedding-budget-calculator.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "metadata.json",
+        "references/wedding-budget-calculator.md"
+      ]
     },
     {
       "claim_id": "tik-nisuin-window",
@@ -33,7 +48,11 @@
       "source_url": "https://www.nbn.org.il/life-in-israel/government-services/registering-for-marriage/",
       "raw_snippet": "You must open a marriage file (tik nissuin) at your local religious council anytime between 90 and 21 days before the wedding.",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/rabbinate-checklist.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ]
     },
     {
       "claim_id": "wedding-cost-2026",
@@ -41,7 +60,11 @@
       "source_url": "https://www.saveadate.co.il/wedding-sale/",
       "raw_snippet": "חתונה ממוצעת בשנת 2026 תעלה בין 120,000 שקל בדרום הארץ (עד 400 מוזמנים) ותגיע לסכומים של 250,000 שקל במרכז הארץ (עד 650 מוזמנים).",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "metadata.json"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "metadata.json"
+      ]
     },
     {
       "claim_id": "per-plate-2026",
@@ -49,7 +72,10 @@
       "source_url": "https://mazaltov.walla.co.il/article/wedding-sale/4186/",
       "raw_snippet": "מחיר מנה ממוצעת בחתונה סטנדרטית עומד על 280-320 שקל. במרכז 290-500 שקל, בדרום/צפון 150-240 שקל. זוג באולם סטנדרטי בינואר ביום שלישי משלם כ-180 שקל למנה; אותו אולם באותו תפריט ביוני בחמישי דורש 290 שקל למנה.",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "photographer-cost-2026",
@@ -57,7 +83,10 @@
       "source_url": "https://vwedding.co.il/blog/%D7%9B%D7%9E%D7%94-%D7%A2%D7%95%D7%9C%D7%94-%D7%A6%D7%9C%D7%9D-%D7%95%D7%99%D7%93%D7%90%D7%95-%D7%9C%D7%97%D7%AA%D7%95%D7%A0%D7%94",
       "raw_snippet": "Basic photography: 5,000-7,000 NIS; Photography with video: 7,000-10,000 NIS; Full package: 10,000-15,000 NIS. Range overall 3,500-18,000 NIS.",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "cyprus-civil-recognition",
@@ -65,7 +94,11 @@
       "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%9E%D7%97%D7%95%D7%A5_%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
       "raw_snippet": "Israel recognizes civil marriages performed outside its borders. Cyprus marriages receive full legal recognition once the apostilled marriage certificate is presented at Misrad HaPnim with notarized Hebrew translation. 2026 update: Cypriot municipalities require separate per-partner files and reject extracts printed from kiosk machines.",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "metadata.json"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "metadata.json"
+      ]
     },
     {
       "claim_id": "utah-online-recognized",
@@ -73,7 +106,11 @@
       "source_url": "https://en.wikipedia.org/wiki/Recognition_of_civil_marriage_in_Israel",
       "raw_snippet": "In September 2022, an Israeli court in Lod recognized civil and religious marriages solemnized on Zoom by officiants in Utah as legal; the ruling was upheld by the Supreme Court of Israel on 7 March 2023. By 2024, Hiddush estimated over 3,000 Israeli couples had married via Utah teleconference.",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "metadata.json"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "metadata.json"
+      ]
     },
     {
       "claim_id": "sefirat-haomer-2026",
@@ -81,7 +118,10 @@
       "source_url": "https://say-events.co.il/wedding-dates-2026/",
       "raw_snippet": "ספירת העומר בשנת 2026 חלה בין יום חמישי, 2 באפריל ועד ליום ראשון, 20 במאי. ל\"ג בעומר חל ב-5 במאי (יום שלישי). אצל ספרדים מותר מל\"ד בעומר; אצל אשכנזים בד\"כ מל\"ג בעומר ואילך.",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "three-weeks-2026",
@@ -89,7 +129,84 @@
       "source_url": "https://rabanut.co.il/%D7%99%D7%9E%D7%99%D7%9D-%D7%91%D7%94%D7%9D-%D7%90%D7%99%D7%9F-%D7%A2%D7%95%D7%A8%D7%9B%D7%99%D7%9D-%D7%97%D7%AA%D7%95%D7%A0%D7%95%D7%AA/",
       "raw_snippet": "Days on which no weddings are conducted include the Three Weeks period from 17 Tammuz to 9 Av. In 2026 this runs July 2 to July 23.",
       "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "rabbanut-fee-40pct-discount",
+      "claim": "Couples registering for marriage at a Rabbinate office are entitled to a 40% discount on the registration fee if one partner belongs to an eligible group (conscript soldiers, national service, students under 30, olim in their first two years, and others). The fee amounts themselves are set in the schedule to the regulations.",
+      "source_url": "https://www.kolzchut.org.il/he/הנחה_בתשלום_אגרת_רישום_נישואין_ברבנות",
+      "raw_snippet": "זוגות שנרשמים לנישואין באחת מלשכות הרבנות זכאים להנחה של 40% בתשלום אגרת רישום הנישואין, אם אחד מבני הזוג משתייך לאוכלוסיה שזכאית להנחה",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "rabbanut-fee-schedule-source",
+      "claim": "The marriage registration fee is set in the Jewish Religious Services (Fees and Services) Regulations and is updated by publication in Reshumot, so the current amount must be looked up rather than quoted from memory.",
+      "source_url": "https://www.gov.il/he/pages/opening_a_marriage_file",
+      "raw_snippet": "האגרה מתעדכנת בהתאם לפרסום ברשומות של השר לשרותי דת",
+      "verified_via": "browser",
+      "verified_at": "2026-08-09",
+      "source_note": "gov.il 403s to curl; loaded in Playwright and asserted location.href before reading document.body.innerText.",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "url-gov-opening-marriage-file",
+      "claim": "The Ministry of Religious Services publishes the marriage registration process page at this URL.",
+      "source_url": "https://www.gov.il/he/pages/opening_a_marriage_file",
+      "raw_snippet": "תהליך רישום לנישואין",
+      "verified_via": "browser",
+      "verified_at": "2026-08-09",
+      "source_note": "Verified in Playwright with an in-page location.href assertion.",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-kolzchut-marriage-fee-discount",
+      "claim": "Kol-Zchut publishes the marriage registration fee discount rights page at this URL.",
+      "source_url": "https://www.kolzchut.org.il/he/הנחה_בתשלום_אגרת_רישום_נישואין_ברבנות",
+      "raw_snippet": "הנחה בתשלום אגרת רישום נישואין ברבנות (זכות) – כל-זכות",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-kolzchut-civil-marriage-registration",
+      "claim": "Kol-Zchut publishes the page on registering a civil marriage performed abroad at this URL.",
+      "source_url": "https://www.kolzchut.org.il/he/רישום_נישואים_אזרחיים_שנערכו_מחוץ_לישראל",
+      "raw_snippet": "רישום נישואים אזרחיים שנערכו מחוץ לישראל (הליך) – כל-זכות",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-acum-licenses",
+      "claim": "ACUM operates its licensing and payments portal at apps.acum.org.il/licenses/, which lists tariff T008 for a single family event.",
+      "source_url": "https://apps.acum.org.il/licenses/",
+      "raw_snippet": "אירוע משפחתי T008",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     }
   ]
 }
