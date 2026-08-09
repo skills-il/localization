@@ -7,43 +7,53 @@ compatibility: Works with Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCod
 
 # Israeli Wedding Planner
 
+## Before You Use Any Price in This Skill
+
+Every price in this skill is an indicative market range, not a quoted price. Israeli wedding pricing varies enormously by region, season, day of the week and guest count, and no official body publishes price tables for wedding vendors. Treat these bands as a way to sanity-check a quote you already hold or to sketch a first-draft budget, nothing more. Get written quotes from at least three vendors in every category before you commit to a budget. All amounts in this skill are in new Israeli shekels unless stated otherwise.
+
 ## Wedding Budget Breakdown
 
-Average Israeli wedding cost in 2026: **120,000-180,000 NIS** for a standard mid-range wedding, climbing to **250,000+ NIS** for high-end center-Israel venues with 400-650 guests. The single largest expense is the venue and catering.
+A standard mid-range Israeli wedding in 2026 typically lands somewhere around **120,000-180,000**, and high-end center-Israel venues with 400-650 guests typically run **250,000 and up**. These are indicative bands, not quotes. The single largest expense is the venue and catering.
 
-| Category | Typical Range (NIS) | % of Budget | Notes |
+The table below is an indicative allocation, not a rule. Get quotes before you fix any line.
+
+| Category | Typical Range (indicative) | Share of Budget | Notes |
 |----------|-------------------|-------------|-------|
-| Venue + catering | 70,000-130,000 | 55-65% | Per-plate x guests. Biggest variable |
-| Photography + video | 7,000-18,000 | 8-12% | Still + video package (basic from ~5K, full premium 10-15K) |
-| Music (DJ or band) | 4,000-15,000 | 4-8% | Plus the ACUM license fee (see below) |
-| Wedding dress | 3,000-15,000 | 3-8% | Purchase, rental, or custom |
-| Groom's suit | 1,500-5,000 | 1-3% | Purchase or rental |
-| Makeup + hair | 2,000-5,000 | 2-3% | Bride + optional entourage |
-| Flowers + design | 2,000-10,000 | 2-5% | Most venues work with external designers |
-| Invitations + magnets | 1,000-3,000 | 1-2% | Custom magnets are Israeli tradition |
-| Rabbinate registration | see current fee schedule | <1% | Fee is set in the schedule to the Jewish Religious Services (Fees and Services) Regulations and updated in Reshumot; a 40% discount applies to olim, soldiers, national-service volunteers, students under 30 and other listed groups |
-| ACUM music license | see ACUM tariff T008 | <1% | Fixed family-event tariff, see ACUM section |
-| Other (transport, gifts, tips) | 3,000-8,000 | 3-5% | Shuttle bus, welcome gifts |
+| Venue + catering | 70,000-130,000 | roughly 55-65 | Per-plate x guests. Biggest variable |
+| Photography + video | 7,000-18,000 | roughly 8-12 | Still + video package (basic from ~5K, full premium 10-15K) |
+| Music (DJ or band) | 4,000-15,000 | roughly 4-8 | Plus the ACUM license fee (see below) |
+| Wedding dress | 3,000-15,000 | roughly 3-8 | Purchase, rental, or custom |
+| Groom's suit | 1,500-5,000 | roughly 1-3 | Purchase or rental |
+| Makeup + hair | 2,000-5,000 | roughly 2-3 | Bride + optional entourage |
+| Flowers + design | 2,000-10,000 | roughly 2-5 | Most venues work with external designers |
+| Invitations + magnets | 1,000-3,000 | roughly 1-2 | Custom magnets are Israeli tradition |
+| Rabbinate registration | see current fee schedule | minor | Fee is set in the schedule to the Jewish Religious Services (Fees and Services) Regulations and updated in Reshumot; a 40% discount applies to olim, soldiers, national-service volunteers, students under 30 and other listed groups |
+| ACUM music license | see ACUM tariff T008 | minor | Fixed family-event tariff, see ACUM section |
+| Other (transport, gifts, tips) | 3,000-8,000 | roughly 3-5 | Shuttle bus, welcome gifts |
 
 ### Per-Plate Cost by Region and Venue Type (2026)
 
-| Venue Type | Central Israel | Periphery | Notes |
-|-----------|---------------|-----------|-------|
-| Budget hall | 250-290 NIS | 170-240 NIS | Basic menu, weekday |
-| Mid-range hall | 290-350 NIS | 240-300 NIS | Most common choice (industry standard) |
-| Premium hall/garden | 350-500 NIS | 300-420 NIS | Higher-end catering |
-| Luxury venue | 500-800+ NIS | 400-600 NIS | Top-tier Tel Aviv venues |
+Indicative ranges only. Ask three venues for a written per-plate quote for your exact date and headcount.
 
-A January weekday wedding can drop to ~180 NIS/plate at a standard hall; the same hall with the same menu in June on Thursday can hit 290+ NIS/plate. Plan around the slow season for the steepest savings.
+| Venue Type | Central Israel (per plate) | Periphery (per plate) | Notes |
+|-----------|---------------|-----------|-------|
+| Budget hall | 250-290 | 170-240 | Basic menu, weekday |
+| Mid-range hall | 290-350 | 240-300 | Most common choice (industry standard) |
+| Premium hall/garden | 350-500 | 300-420 | Higher-end catering |
+| Luxury venue | 500-800+ | 400-600 | Top-tier Tel Aviv venues |
+
+A January weekday wedding can drop to roughly 180 per plate at a standard hall; the same hall with the same menu in June on a Thursday can reach 290 or more per plate. Plan around the slow season for the steepest savings.
 
 ### Day-of-Week Pricing
 
+Relative demand only. Ask each venue what it actually charges for each day.
+
 | Day | Price Impact | Notes |
 |-----|-------------|-------|
-| Sunday-Wednesday | Baseline | Cheapest option |
-| Thursday | +10-20% | Very popular, nearly as expensive as peak |
-| Friday daytime | +10-15% | Must end before Shabbat, time pressure |
-| Saturday night (motzei Shabbat) | +5-15% | Premium for convenience |
+| Sunday-Wednesday | Baseline, cheapest | Best value if your guests can make it |
+| Thursday | Largest premium | Very popular, nearly as expensive as peak season |
+| Friday daytime | Meaningful premium | Must end before Shabbat, time pressure |
+| Saturday night (motzei Shabbat) | Smaller premium | Charged for convenience |
 
 ### Seasonal Pricing
 
@@ -126,8 +136,8 @@ The Rabbinate is the only path to a religious Jewish wedding registered inside I
 
 | Route | Typical cost | Process | Recognition |
 |-------|-------------|---------|-------------|
-| Cyprus civil marriage | ~3,000-7,000 NIS for travel + ceremony + apostille | 1-2 day trip, marriage at Cypriot municipality, apostille on certificate, return to Israel, register at Misrad HaPnim with notarized Hebrew translation | Full civil recognition |
-| Utah online marriage (Zoom) | ~1,900-3,000 NIS | Ceremony performed by Utah County officiant over Zoom from anywhere, apostilled certificate, register at Misrad HaPnim | Recognized by Israeli Supreme Court (March 2023 ruling), full civil recognition |
+| Cyprus civil marriage | roughly 3,000-7,000 all-in for travel, ceremony and apostille (indicative) | 1-2 day trip, marriage at Cypriot municipality, apostille on certificate, return to Israel, register at Misrad HaPnim with notarized Hebrew translation | Full civil recognition |
+| Utah online marriage (Zoom) | roughly 1,900-3,000 (indicative) | Ceremony performed by Utah County officiant over Zoom from anywhere, apostilled certificate, register at Misrad HaPnim | Recognized by Israeli Supreme Court (March 2023 ruling), full civil recognition |
 
 **Practical notes:**
 - Some Cypriot municipalities (as of 2026) require separate documentation per partner rather than combined files, and reject תמצית רישום (population-registry extract) printed from the self-service kiosk; ask a counter clerk at Misrad HaPnim to print a fresh extract.
@@ -181,30 +191,30 @@ The Rabbinate is the only path to a religious Jewish wedding registered inside I
 | Aspect | Typical | Notes |
 |--------|---------|-------|
 | Guest count | 200-400 | Israeli weddings are large by global standards |
-| RSVP rate | ~70-80% | Expect 20-30% no-shows |
-| Gift (matana) | 250-400 NIS/person | Cash in envelope, covers the plate cost |
+| RSVP rate | Well below 100 percent | Expect a meaningful share of no-shows, confirm headcount in the final week |
+| Gift (matana) | 250-400 per person (indicative) | Cash in envelope, covers the plate cost |
 | Plus-ones | Expected | Couples invited together by default |
 | Children | Varies | Specify on invitation if children are/aren't welcome |
 | Colleagues | Common | Israeli culture includes workplace invitations |
 
 ### Matana (Cash Gift) Expectations
 
-Guests typically give cash to cover their plate cost plus a small addition:
-- **Close family:** 500-1,000 NIS per person
-- **Friends:** 300-500 NIS per person
-- **Colleagues/acquaintances:** 250-350 NIS per person
+Guests typically give cash to cover their plate cost plus a small addition. The bands below are social norms people report, not measured figures, and they move with the per-plate price:
+- **Close family:** around 500-1,000 per person
+- **Friends:** around 300-500 per person
+- **Colleagues/acquaintances:** around 250-350 per person
 - **Couples:** Double the individual amount
 
 ## Examples
 
 ### Example 1: Budget Wedding Planning
-User says: "We want to plan a wedding in Israel for under 100,000 NIS"
+User says: "We want to plan a wedding in Israel for under 100,000 shekels"
 
 Actions:
 1. Suggest weekday (Sun-Wed) in winter for lowest venue pricing
-2. Target periphery venues (Sharon, Shfela) for 200-280 NIS/plate
-3. Limit guest list to 200 (realistic budget: 200 x 250 NIS = 50K for venue)
-4. Allocate remaining 50K across photographer (8K), DJ (5K plus the ACUM fee), dress (5K), design (3K), the Rabbinate fee, and contingency
+2. Target periphery venues (Sharon, Shfela) at roughly 200-280 per plate, then verify against real quotes
+3. Limit guest list to 200 (worked example: 200 plates at 250 each is 50,000 for the venue)
+4. Allocate the remaining 50,000 across photographer (about 8,000), DJ (about 5,000 plus the ACUM fee), dress (about 5,000), design (about 3,000), the Rabbinate fee, and contingency
 5. Recommend negotiating in winter months even for spring/summer dates
 
 Result: Detailed budget spreadsheet with per-vendor allocation.

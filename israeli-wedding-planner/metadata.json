@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "category": "localization",
   "tags": {
     "he": [
@@ -29,8 +29,8 @@
     "en": "Israeli Wedding Planning Guide"
   },
   "display_description": {
-    "he": "מדריך עזר לתכנון חתונה ישראלית מאירוסין ועד חופה: בחירת אולם או גן אירועים, השוואת ספקים דרך פלטפורמות ישראליות, תכנון תקציב (טווח טיפוסי 120-180 אלף שקל ב-2026, ועד 250 אלף באולמות יוקרה), רישום ברבנות (תיק נישואין, תעודת רווקות, אגרה של כ-824 שקל), חלופות חתונה אזרחית בקפריסין ובזום מיוטה שמוכרות בישראל מאז פסיקת העליון 2023, דרישות הלכתיות, ניהול מוזמנים, מחיר למנה, תמחור עונתי ואגרת אקו\"ם (395 שקל). עוזר להימנע מטעויות נפוצות כמו פספוס מועדי רבנות, תשלום יתר על ימי שיא, או שכחת אגרת אקו\"ם.",
-    "en": "Reference guide for planning an Israeli wedding from engagement to chuppah: venue selection (ulmot, ganot), vendor comparison via Israeli platforms, budget planning (120-180K NIS typical in 2026, up to 250K NIS at premium center-Israel venues), Rabbinate registration (tik nisuin, teudat ravakut, ~824 NIS fee), Cyprus and Utah online civil-marriage alternatives recognized by Israel since the 2023 Supreme Court ruling, halachic requirements, guest management, per-plate cost benchmarks, seasonal pricing, and the ACUM music license fee (395 NIS). Helps avoid common mistakes like missing Rabbinate deadlines, overpaying on popular weekdays, or forgetting the ACUM fee."
+    "he": "מדריך עזר לתכנון חתונה ישראלית מאירוסין ועד חופה: בחירת אולם או גן אירועים, השוואת ספקים דרך פלטפורמות ישראליות, תכנון תקציב (טווח טיפוסי 120-180 אלף שקל ב-2026, ועד 250 אלף באולמות יוקרה), רישום ברבנות (תיק נישואין, תעודת רווקות, אגרה לפי טבלת האגרות העדכנית), חלופות חתונה אזרחית בקפריסין ובזום מיוטה שמוכרות בישראל מאז פסיקת העליון 2023, דרישות הלכתיות, ניהול מוזמנים, מחיר למנה, תמחור עונתי ואגרת אקו\"ם לפי תעריף T008. עוזר להימנע מטעויות נפוצות כמו פספוס מועדי רבנות, תשלום יתר על ימי שיא, או שכחת אגרת אקו\"ם.",
+    "en": "Reference guide for planning an Israeli wedding from engagement to chuppah: venue selection (ulmot, ganot), vendor comparison via Israeli platforms, budget planning (120-180K NIS typical in 2026, up to 250K NIS at premium center-Israel venues), Rabbinate registration (tik nisuin, teudat ravakut, fee per the current schedule), Cyprus and Utah online civil-marriage alternatives recognized by Israel since the 2023 Supreme Court ruling, halachic requirements, guest management, per-plate cost benchmarks, seasonal pricing, and the ACUM music license fee (tariff T008). Helps avoid common mistakes like missing Rabbinate deadlines, overpaying on popular weekdays, or forgetting the ACUM fee."
   },
   "supported_agents": [
     "claude-code",

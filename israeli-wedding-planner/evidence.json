@@ -21,8 +21,8 @@
       "claim_id": "rabbinate-fee-discount",
       "claim": "40% discount on Rabbinate registration fee for olim (within 2 years), IDF/national service, students under 30, persons with disabilities, blind or visually impaired.",
       "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D_%D7%90%D7%92%D7%A8%D7%AA_%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9F_%D7%91%D7%A8%D7%91%D7%A0%D7%95%D7%AA",
-      "raw_snippet": "Couples registering for marriage at rabbinate offices may receive a 40% discount on registration fees if one spouse belongs to an eligible population group (military, national service, disability, students under 30, yeshiva students under 30, new immigrants in first two years, blind/visually impaired).",
-      "fetched_at": "2026-05-20T00:00:00Z",
+      "raw_snippet": "זוגות שנרשמים לנישואין באחת מלשכות הרבנות זכאים להנחה של 40% בתשלום אגרת רישום הנישואין, אם אחד מבני הזוג משתייך לאוכלוסיה שזכאית להנחה.",
+      "fetched_at": "2026-08-10",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
@@ -52,40 +52,6 @@
         "SKILL.md",
         "SKILL_HE.md",
         "references/rabbinate-checklist.md"
-      ]
-    },
-    {
-      "claim_id": "wedding-cost-2026",
-      "claim": "Average Israeli wedding cost in 2026: 120,000 NIS in the south up to 250,000 NIS in central Israel for 400-650 guests.",
-      "source_url": "https://www.saveadate.co.il/wedding-sale/",
-      "raw_snippet": "חתונה ממוצעת בשנת 2026 תעלה בין 120,000 שקל בדרום הארץ (עד 400 מוזמנים) ותגיע לסכומים של 250,000 שקל במרכז הארץ (עד 650 מוזמנים).",
-      "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "metadata.json"
-      ]
-    },
-    {
-      "claim_id": "per-plate-2026",
-      "claim": "Standard per-plate cost in Israel in 2026 is 280-320 NIS, range 250-350 NIS; January weekday hall ~180 NIS, June Thursday at same hall ~290 NIS.",
-      "source_url": "https://mazaltov.walla.co.il/article/wedding-sale/4186/",
-      "raw_snippet": "מחיר מנה ממוצעת בחתונה סטנדרטית עומד על 280-320 שקל. במרכז 290-500 שקל, בדרום/צפון 150-240 שקל. זוג באולם סטנדרטי בינואר ביום שלישי משלם כ-180 שקל למנה; אותו אולם באותו תפריט ביוני בחמישי דורש 290 שקל למנה.",
-      "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "photographer-cost-2026",
-      "claim": "Wedding photographer + video packages in Israel 2026: basic 5,000-7,000 NIS, photo+video 7,000-10,000 NIS, full package 10,000-15,000 NIS.",
-      "source_url": "https://vwedding.co.il/blog/%D7%9B%D7%9E%D7%94-%D7%A2%D7%95%D7%9C%D7%94-%D7%A6%D7%9C%D7%9D-%D7%95%D7%99%D7%93%D7%90%D7%95-%D7%9C%D7%97%D7%AA%D7%95%D7%A0%D7%94",
-      "raw_snippet": "Basic photography: 5,000-7,000 NIS; Photography with video: 7,000-10,000 NIS; Full package: 10,000-15,000 NIS. Range overall 3,500-18,000 NIS.",
-      "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
       ]
     },
     {
@@ -203,6 +169,61 @@
       "source_url": "https://apps.acum.org.il/licenses/",
       "raw_snippet": "אירוע משפחתי T008",
       "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-saveadate",
+      "claim": "Save A Date (saveadate.co.il) is an Israeli events portal listing wedding venues, dresses, suits and other vendor categories.",
+      "source_url": "https://www.saveadate.co.il/",
+      "raw_snippet": "Save A Date - פורטל האירועים המקיף בישראל",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-engaged",
+      "claim": "Engaged (engaged.co.il) is an Israeli wedding-planning site and app offering vendor recommendations, prices and deals.",
+      "source_url": "https://engaged.co.il/",
+      "raw_snippet": "ספקים מומלצים לחתונה",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-mit4mit",
+      "claim": "Mitchatnim LeMaan Mitchatnim, an Israeli wedding portal, hosts user-written reviews and ratings of wedding businesses and service providers.",
+      "source_url": "https://www.mit4mit.co.il/",
+      "raw_snippet": "מתחתנים למען מתחתנים - חוות דעת והמלצות אמיתיות",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-itim",
+      "claim": "Itim (itim.org.il) is an Israeli nonprofit that helps the public navigate religious services, including marriage.",
+      "source_url": "https://www.itim.org.il/",
+      "raw_snippet": "אנחנו כאן כדי לסייע לכם במפגש עם שירותי הדת",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-walla-wedding",
+      "claim": "Walla! Wedding (mazaltov.walla.co.il) is an Israeli wedding portal with vendor listings, articles, reader recommendations and planning tools.",
+      "source_url": "https://mazaltov.walla.co.il/",
+      "raw_snippet": "אתר האירועים והחתונות הגדול בישראל - וואלה! Wedding",
+      "fetched_at": "2026-08-10",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
