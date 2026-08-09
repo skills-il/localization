@@ -17,7 +17,6 @@ The Israeli rental market is competitive and fast-moving. Understanding current 
 **National averages (2026):**
 - National average rent: NIS 4,952/month (based on Q3 2025 data). Early-2026 data shows supply tightened and new-lease asking rents rose further, so treat these figures as a floor and budget above them.
 - National average gross rental yield: 3.1%
-- Yad2 active rental listings: approximately 30,000 as of early 2026
 
 | City | 2-Room (NIS/month) | 3-Room (NIS/month) | 4-Room (NIS/month) |
 |------|---------------------|---------------------|---------------------|
@@ -42,7 +41,7 @@ Multiple platforms serve the Israeli rental market. Using several simultaneously
 
 | Platform | Type | Strengths | Hebrew Name |
 |----------|------|-----------|-------------|
-| Yad2 | Website/App | Largest listing site (~30,000 rentals), filters, alerts | יד2 |
+| Yad2 | Website/App | Main Israeli classifieds site for rentals; filters, saved searches, alerts | יד2 |
 | Madlan | Website/App | Price history, neighborhood data, building info | מדלן |
 | Facebook Groups | Social | Direct from owners, negotiable, fast | קבוצות פייסבוק |
 | Homeless | Website | English-friendly, popular with olim | הומלס |
