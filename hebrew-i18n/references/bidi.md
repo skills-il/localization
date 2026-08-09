@@ -69,7 +69,7 @@ Problem: `054-1234567` may display as `1234567-054`
 Problem: URL parts may reorder
 ```html
 <!-- Solution -->
-<p dir="rtl">בקרו ב-<a href="https://example.com" dir="ltr">example.com</a></p>
+<p dir="rtl">בקרו ב-<a href="#" dir="ltr">example.com</a></p>
 ```
 
 ### Mixed List Items

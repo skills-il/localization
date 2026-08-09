@@ -5,11 +5,14 @@
   "claims": [
     {
       "claim_id": "example-domain-placeholder",
-      "claim": "https://example.com (and user@example.com) are placeholder values in the bidi reference examples. example.com is the reserved example/documentation domain (RFC 2606 / IANA), not a real external dependency.",
-      "source_url": "https://example.com",
-      "raw_snippet": "This domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination or asking for permission.",
-      "fetched_at": "2026-06-16T00:00:00Z",
-      "appears_in": ["references/bidi.md"]
+      "claim": "example.com is an IANA-reserved second-level domain name for use as an example (RFC 2606), so https://example.com and user@example.com in the bidi reference are placeholders, not a real external dependency.",
+      "source_url": "https://www.rfc-editor.org/rfc/rfc2606.txt",
+      "raw_snippet": "The Internet Assigned Numbers Authority (IANA) also currently has the\n   following second level domain names reserved which can be used as\n   examples.",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "references/bidi.md"
+      ],
+      "verified_via": "raw fetch (curl) of RFC 2606 text"
     },
     {
       "claim_id": "he-il-short-date-dots",
@@ -17,7 +20,10 @@
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat",
       "raw_snippet": "The Intl.DateTimeFormat object enables language-sensitive date and time formatting. The he-IL locale uses the CLDR date patterns for Hebrew (Israel); the short date pattern uses dot separators (d.M.y).",
       "fetched_at": "2026-06-16T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "cldr-hebrew-plural-categories",
@@ -25,7 +31,11 @@
       "source_url": "https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html",
       "raw_snippet": "Hebrew he cardinal: one - i = 1 and v = 0 or i = 0 and v != 0; two - i = 2 and v = 0; other.",
       "fetched_at": "2026-06-16T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/pluralization.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/pluralization.md"
+      ]
     }
   ]
 }
