@@ -215,7 +215,7 @@ def should_run_today(holidays_cache=None, skip_friday=False, skip_erev_chag=Fals
 | Sukkot | September 25 to October 2, 2026 | First and last days Yom Tov; middle is chol ha-moed |
 | Shemini Atzeret / Simchat Torah | October 2 to October 3, 2026 | One day in Israel, falls on Friday-Shabbat |
 
-Dates verified against Hebcal 2026 (Israeli observance). Always re-check the calendar each year; the Hebrew calendar slides against the Gregorian by 11 to 19 days. In 2026, Yom HaAtzmaut is postponed by one day (nidcheh) because the natural date would have triggered Yom HaZikaron on a problematic day.
+Dates verified against Hebcal 2026 (Israeli observance). Always re-check the calendar each year; the Hebrew calendar slides against the Gregorian by 11 to 19 days. In 2026 Yom HaAtzmaut falls on its natural date, 5 Iyyar 5786 (April 21 to 22), with no postponement. In other years it can be moved earlier or postponed when it, or Yom HaZikaron which always precedes it, would conflict with Shabbat, so never compute 5 Iyyar directly.
 
 ## Examples
 
@@ -266,7 +266,7 @@ The deprecated `hebcal-js` package (NPM `hebcal`) is the predecessor of `@hebcal
 - Israeli holidays (chagim) have different work restrictions than Shabbat. Most holidays are one day in Israel but two days in the diaspora (Rosh Hashana is two days in both). Using a diaspora holiday calendar for Israeli scheduling will block extra workdays that are actually chol ha-moed in Israel.
 - The Hebrew calendar has leap years with an extra month (Adar II), occurring 7 times in a 19-year cycle. Agents may calculate dates using the Gregorian calendar and miss this month entirely.
 - Business hours in Israel run Sunday to Thursday, with Friday a half-day (until early afternoon). Saturday is the weekly rest day, not Sunday. Agents may schedule Friday afternoon meetings or Monday-morning deadlines.
-- Yom HaAtzmaut and Yom HaZikaron can be postponed (nidcheh) when their natural date would conflict with Shabbat. In 2026 the dates shift accordingly. Always trust the Hebcal `i=on` flag rather than computing Iyar 5 directly.
+- Yom HaAtzmaut and Yom HaZikaron can be postponed (nidcheh) when their natural date would conflict with Shabbat. In 2026 no shift applies (5 Iyyar 5786 falls on April 21 to 22). Always trust the Hebcal `i=on` flag rather than computing Iyar 5 directly.
 - Havdalah default in Hebcal is now Tzeit HaKochavim (sun 8.5 degrees below the horizon, around 40 to 50 minutes after sunset in Israel). Stricter Rabbeinu Tam observers use 72 minutes. Pick the right `m=` value if your audience is not the default.
 - Yom Kippur is treated as Shabbat for scheduling purposes (full shutdown, including secular businesses, transit, and broadcast media in Israel). Do not deploy or schedule anything inside the 25-hour window.
 - The Three Weeks (17 Tammuz to 9 Av) is a mourning period; weddings, concerts, and corporate celebration events are typically deferred. The Nine Days (1 to 9 Av) is stricter. Treat as a "no launch parties" window even though it is not a Yom Tov.
