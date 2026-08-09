@@ -4,20 +4,6 @@
   "generated_at": "2026-05-20T00:00:00Z",
   "claims": [
     {
-      "claim_id": "rabbinate-fee-full",
-      "claim": "The Rabbinate marriage registration fee in 2026 is approximately 824 NIS (730-844 NIS depending on city).",
-      "source_url": "https://www.itim.org.il/%D7%A8%D7%99%D7%A9%D7%95%D7%9D-%D7%9C%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9F-%D7%9B%D7%9E%D7%94-%D7%96%D7%94-%D7%A2%D7%95%D7%9C%D7%94/",
-      "raw_snippet": "Full Fee: 824 NIS. Discounted Fee: 430 NIS (40% reduction). Cross-referenced with Tzohar (March 2026): 844 NIS standard / 506 NIS discounted; Jerusalem Religious Council: 730 NIS; Nahariya: 824 NIS.",
-      "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "metadata.json",
-        "references/rabbinate-checklist.md",
-        "references/wedding-budget-calculator.md"
-      ]
-    },
-    {
       "claim_id": "rabbinate-fee-discount",
       "claim": "40% discount on Rabbinate registration fee for olim (within 2 years), IDF/national service, students under 30, persons with disabilities, blind or visually impaired.",
       "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D_%D7%90%D7%92%D7%A8%D7%AA_%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9F_%D7%91%D7%A8%D7%91%D7%A0%D7%95%D7%AA",
@@ -31,73 +17,25 @@
     },
     {
       "claim_id": "acum-wedding-tariff",
-      "claim": "ACUM family-event music license fee in 2026 is 395.30 NIS including VAT, must be paid at least 72 hours before the event.",
+      "claim": "ACUM tariff T008, the single-family-event music licence, must be reported and paid no later than 72 hours before the event; the listed price is 395.30 NIS including VAT.",
       "source_url": "https://apps.acum.org.il/licenses/general/register-payment?action=info&sourceTypeCode=T008",
-      "raw_snippet": "The current 2026 fee for a family event music license (such as a wedding) is 395.30 NIS, inclusive of VAT. The license must be arranged up to 72 hours before the event date and covers public performance of protected musical works from ACUM's repertoire at a single family event.",
-      "fetched_at": "2026-05-20T00:00:00Z",
+      "raw_snippet": "המחיר(כולל מע\"מ) 395.30 ₪ לכל אירוע בודד ויש להסדירו עד 72 שעות לפני מועד קיום האירוע.",
+      "fetched_at": "2026-08-10",
       "appears_in": [
         "SKILL.md",
-        "SKILL_HE.md",
-        "metadata.json",
-        "references/wedding-budget-calculator.md"
+        "SKILL_HE.md"
       ]
     },
     {
       "claim_id": "tik-nisuin-window",
       "claim": "Tik nisuin (marriage file) must be opened 21-90 days before the wedding.",
       "source_url": "https://www.nbn.org.il/life-in-israel/government-services/registering-for-marriage/",
-      "raw_snippet": "You must open a marriage file (tik nissuin) at your local religious council anytime between 90 and 21 days before the wedding.",
-      "fetched_at": "2026-05-20T00:00:00Z",
+      "raw_snippet": "Open a marriage file (“tik nissuin”) at your local religious council anytime between 90 and 21 days before the wedding.",
+      "fetched_at": "2026-08-10",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/rabbinate-checklist.md"
-      ]
-    },
-    {
-      "claim_id": "cyprus-civil-recognition",
-      "claim": "Cyprus civil marriages are recognized by Israel via Misrad HaPnim registration after apostille + notarized Hebrew translation.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%9E%D7%97%D7%95%D7%A5_%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
-      "raw_snippet": "Israel recognizes civil marriages performed outside its borders. Cyprus marriages receive full legal recognition once the apostilled marriage certificate is presented at Misrad HaPnim with notarized Hebrew translation. 2026 update: Cypriot municipalities require separate per-partner files and reject extracts printed from kiosk machines.",
-      "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "metadata.json"
-      ]
-    },
-    {
-      "claim_id": "utah-online-recognized",
-      "claim": "Civil marriages performed online by Utah County officiants (Zoom) are recognized by Israeli courts, ruling upheld by Supreme Court on 7 March 2023.",
-      "source_url": "https://en.wikipedia.org/wiki/Recognition_of_civil_marriage_in_Israel",
-      "raw_snippet": "In September 2022, an Israeli court in Lod recognized civil and religious marriages solemnized on Zoom by officiants in Utah as legal; the ruling was upheld by the Supreme Court of Israel on 7 March 2023. By 2024, Hiddush estimated over 3,000 Israeli couples had married via Utah teleconference.",
-      "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "metadata.json"
-      ]
-    },
-    {
-      "claim_id": "sefirat-haomer-2026",
-      "claim": "Sefirat HaOmer 2026 runs from April 2 to May 20; Lag BaOmer is May 5. Ashkenazi custom usually permits weddings from Lag BaOmer; Sephardi custom from Lag BaOmer + 1.",
-      "source_url": "https://say-events.co.il/wedding-dates-2026/",
-      "raw_snippet": "ספירת העומר בשנת 2026 חלה בין יום חמישי, 2 באפריל ועד ליום ראשון, 20 במאי. ל\"ג בעומר חל ב-5 במאי (יום שלישי). אצל ספרדים מותר מל\"ד בעומר; אצל אשכנזים בד\"כ מל\"ג בעומר ואילך.",
-      "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "three-weeks-2026",
-      "claim": "Three Weeks period in 2026: 17 Tammuz (July 2) to 9 Av/Tisha B'Av (July 23). No weddings during this period in standard practice.",
-      "source_url": "https://rabanut.co.il/%D7%99%D7%9E%D7%99%D7%9D-%D7%91%D7%94%D7%9D-%D7%90%D7%99%D7%9F-%D7%A2%D7%95%D7%A8%D7%9B%D7%99%D7%9D-%D7%97%D7%AA%D7%95%D7%A0%D7%95%D7%AA/",
-      "raw_snippet": "Days on which no weddings are conducted include the Three Weeks period from 17 Tammuz to 9 Av. In 2026 this runs July 2 to July 23.",
-      "fetched_at": "2026-05-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
       ]
     },
     {
@@ -223,6 +161,106 @@
       "claim": "Walla! Wedding (mazaltov.walla.co.il) is an Israeli wedding portal with vendor listings, articles, reader recommendations and planning tools.",
       "source_url": "https://mazaltov.walla.co.il/",
       "raw_snippet": "אתר האירועים והחתונות הגדול בישראל - וואלה! Wedding",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "pesach-2026-israel",
+      "claim": "Pesach I in 2026 falls on 2 April (15 Nisan 5786), per the hebcal Israel schedule (i=on).",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Pesach I\",\"date\":\"2026-04-02\",\"hdate\":\"15 Nisan 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "lag-baomer-2026",
+      "claim": "Lag BaOmer 2026 falls on Tuesday 5 May (18 Iyyar 5786), and hebcal describes it as a break in the Omer semi-mourning period during which Jewish weddings take place.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Lag BaOmer\",\"date\":\"2026-05-05\",\"hdate\":\"18 Iyyar 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "shavuot-2026-israel",
+      "claim": "Shavuot 2026 falls on 22 May (6 Sivan 5786) in Israel, so the Omer count runs from the second night of Pesach through 21 May.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Shavuot\",\"date\":\"2026-05-22\",\"hdate\":\"6 Sivan 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tzom-tammuz-2026",
+      "claim": "17 Tammuz 5786 falls on 2 July 2026, the start of the Three Weeks.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=7&maj=on&min=on&mf=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Tzom Tammuz\",\"date\":\"2026-07-02\",\"hdate\":\"17 Tamuz 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tisha-bav-2026",
+      "claim": "Tisha B'Av (9 Av 5786) falls on 23 July 2026, the end of the Three Weeks.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=7&maj=on&min=on&mf=on&i=on&lg=s",
+      "raw_snippet": "\"date\":\"2026-07-23\",\"hdate\":\"9 Av 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "civil-marriage-abroad-registration",
+      "claim": "An Israeli citizen or resident who married abroad must register as married in the Population Registry; the process requires an apostille on the certificate and, as a rule, a notarised translation, and carries no fee.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%9E%D7%97%D7%95%D7%A5_%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+      "raw_snippet": "אזרח ישראלי או תושב ישראל שנישא בחו\"ל (לאזרח ישראלי או לאזרח זר) ונמצא בישראל מכוח אזרחותו או מכוח תעודת עולה או רישיון לישיבת קבע צריך להירשם כנשוי במרשם האוכלוסין בישראל.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "civil-marriage-abroad-no-fee",
+      "claim": "Registering a marriage performed abroad in the Israeli Population Registry carries no fee.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%9E%D7%97%D7%95%D7%A5_%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+      "raw_snippet": "הליך רישום הנישואים עצמו אינו כרוך בתשלום אגרה.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "online-marriage-registrable",
+      "claim": "Couples who married civilly under the law of a given country, certified by that country in a public document, are entitled to be registered as married in the Israeli Population Registry even when the ceremony was held online.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%91%D7%90%D7%95%D7%A4%D7%9F_%D7%9E%D7%A7%D7%95%D7%95%D7%9F",
+      "raw_snippet": "זוגות שהתחתנו בנישואים אזרחיים על פי חוקי מדינה מסוימת, ואותה מדינה אישרה זאת בתעודה ציבורית, זכאים להירשם כנשואים במרשם האוכלוסין הישראלי גם אם החתונה נעשתה באופן מקוון.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "metadata.json"
+      ]
+    },
+    {
+      "claim_id": "online-marriage-supreme-court",
+      "claim": "The administrative-court ruling requiring registration of an online (Utah/Zoom) civil marriage was appealed to the Supreme Court, which dismissed the appeal and upheld the ruling.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%91%D7%90%D7%95%D7%A4%D7%9F_%D7%9E%D7%A7%D7%95%D7%95%D7%9F",
+      "raw_snippet": "על פסק הדין הוגש ערעור לבית המשפט העליון. בית המשפט העליון דחה את הערעור ואישר את פסק הדין.",
       "fetched_at": "2026-08-10",
       "appears_in": [
         "SKILL.md",

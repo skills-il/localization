@@ -137,12 +137,12 @@ The Rabbinate is the only path to a religious Jewish wedding registered inside I
 | Route | Typical cost | Process | Recognition |
 |-------|-------------|---------|-------------|
 | Cyprus civil marriage | roughly 3,000-7,000 all-in for travel, ceremony and apostille (indicative) | 1-2 day trip, marriage at Cypriot municipality, apostille on certificate, return to Israel, register at Misrad HaPnim with notarized Hebrew translation | Full civil recognition |
-| Utah online marriage (Zoom) | roughly 1,900-3,000 (indicative) | Ceremony performed by Utah County officiant over Zoom from anywhere, apostilled certificate, register at Misrad HaPnim | Recognized by Israeli Supreme Court (March 2023 ruling), full civil recognition |
+| Utah online marriage (Zoom) | roughly 1,900-3,000 (indicative) | Ceremony performed by an officiant in Utah over Zoom from anywhere, apostilled certificate, register at Misrad HaPnim | An administrative court ordered the registrar to register such a marriage, and the Supreme Court dismissed the appeal and upheld that ruling. Full civil recognition |
 
 **Practical notes:**
-- Some Cypriot municipalities (as of 2026) require separate documentation per partner rather than combined files, and reject תמצית רישום (population-registry extract) printed from the self-service kiosk; ask a counter clerk at Misrad HaPnim to print a fresh extract.
+- Cypriot municipalities differ in what they accept, so confirm with the specific municipality whether it wants one combined file or separate documentation per partner before you fly. Ask a counter clerk at Misrad HaPnim to print a fresh תמצית רישום (population-registry extract) rather than using the self-service kiosk, since some offices will not accept a kiosk printout.
 - Israel recognizes the marriage but does not change religious status. The Rabbinate considers civil-marriage couples as un-married for halachic purposes (relevant for future divorce, which goes through Rabbinical Court regardless).
-- Utah online ceremonies are still faster and cheaper than Cyprus and avoid travel entirely, but the legal landscape can shift; verify current Supreme Court status before booking.
+- Utah online ceremonies are still faster and cheaper than Cyprus and avoid travel entirely, but the legal landscape can shift; verify the current position before booking.
 
 ## Wedding Timeline Template
 
