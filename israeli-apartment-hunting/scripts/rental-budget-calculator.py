@@ -269,7 +269,7 @@ def format_result(result):
     recommended_income_low = result["total_low"] * 3
     recommended_income_high = result["total_high"] * 3
     lines.append(f"    Suggested gross salary:       {recommended_income_low:>7,.0f}-{recommended_income_high:,.0f} NIS/month")
-    lines.append("    (Rule of thumb: housing should be ~30% of gross income)")
+    lines.append("    (Rule of thumb: check the total against your own monthly net income before committing)")
 
     lines.append("")
     lines.append("  Disclaimer: All figures are estimates. Actual costs vary")

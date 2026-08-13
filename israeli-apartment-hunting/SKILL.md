@@ -125,7 +125,7 @@ Negotiation is common and expected in the Israeli rental market. Most landlords 
 
 | Negotiation Point | Typical Range |
 |-------------------|---------------|
-| Monthly rent | 5-10% below asking price |
+| Monthly rent | Below asking price (landlords commonly build in room to negotiate; how much varies by city, season and how long the unit has been listed) |
 | Lease length | 12 months standard, 24 months may get discount |
 | Included appliances | AC units, washing machine, fridge |
 | Repairs before move-in | Painting, plumbing fixes, appliance replacement |
@@ -207,7 +207,7 @@ Chok Schirut Hogenet (2017, חוק שכירות הוגנת) is the baseline tena
 
 | Right | What It Means |
 |-------|---------------|
-| Minimum habitability | Apartment must have running water, electricity, drainage, ventilation, locking doors, and mamad access (for buildings post-1992). Below this standard the unit is not legally rentable |
+| Landlord's repair duty | The landlord must fix, at their own expense, any defect that is not minor and was not caused by unreasonable use, even if the lease says otherwise. This covers the things that make an apartment liveable (water, electricity, drainage) |
 | Deposit cap | Lower of (3 months rent) or (1/3 of total lease period). Demands above this are void |
 | Repair-deduction right | If landlord fails to repair an essential defect after written notice, tenant may have the repair done and deduct the cost from rent. Statutory windows: roughly 30 days for non-urgent defects, ~3 days for urgent defects |
 | Itemized return | Deposit deductions at lease end should be itemized for the tenant; landlord may not withhold without justification |
@@ -302,7 +302,7 @@ Result: Remote worker makes an informed city choice based on total cost and life
 | [Nadlan MCP](https://agentskills.co.il/he/mcp/nadlan) | Real estate transaction data from the Israeli government (Govmap API): recent deal prices by address or neighborhood, market trend analysis, and multi-address price comparison to validate asking rents against actual sale prices in the area. |
 
 ## Gotchas
-- Israeli apartment sizes are quoted in gross square meters (bruto), which includes shared spaces like stairwells and walls. Net area (neto) is typically 20-25% less. Agents may compare Israeli and US listings without accounting for this difference.
+- Israeli apartment sizes are quoted in gross square meters (bruto), which includes shared spaces like stairwells and walls. Net area (neto) is meaningfully smaller, so ask the agent for the net figure before comparing. Agents may compare Israeli and US listings without accounting for this difference.
 - The "rooms" count in Israeli listings (e.g., "3 rooms") counts the salon (living room) as one room. A "3-room apartment" is typically a 2-bedroom. Agents may interpret "3 rooms" as 3 bedrooms.
 - Israeli lease contracts (chozeh sechirut) are typically for 12 months with an option to extend. Agents may suggest US-style month-to-month arrangements, which are uncommon in Israel.
 - Va'ad bayit (building committee fees) and arnona (property tax) are paid separately from rent and can add 500-2,000 NIS/month. Agents may calculate total housing cost based on rent alone.

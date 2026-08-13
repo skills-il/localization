@@ -5,25 +5,29 @@
   "claims": [
     {
       "claim_id": "security-cap-section-25yod",
-      "claim": "Section 25י (25yod) of the Rental and Loan Law caps securities that involve a tenant monetary outlay (a bank guarantee or cash deposit) at the LOWER of three months' rent or one-third of the lease period (~3 months for a standard 12-month lease). The cap does NOT apply to a regular security check or a promissory note (shtar chov), which are not cashed unless the tenant defaults.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%98%D7%95%D7%97%D7%95%D7%AA_%D7%91%D7%97%D7%95%D7%96%D7%94_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%9C%D7%9E%D7%92%D7%95%D7%A8%D7%99%D7%9D",
-      "raw_snippet": "סעיף 25י לחוק השכירות והשאילה: ערובה שכרוכה בהוצאה כספית (ערבות בנקאית או מזומן) מוגבלת לנמוך מבין שלושה חודשי שכירות או שליש מתקופת השכירות; Section 25",
-      "fetched_at": "2026-06-29T01:20:00Z",
+      "claim": "Section 25י of the Rental and Loan Law caps securities that cause the tenant a monetary outlay (bank guarantee, credit-company or insurer guarantee, cash deposit) at the LOWER of three months' rent or the rent for one-third of the lease period.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%91%D7%9C%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%A9%D7%9E%D7%95%D7%AA%D7%A8_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "החוק מגביל את הסכום הכולל של הערובות שמותר לבקש מהשוכר, אם הן גורמות לו להוצאה כספית (למשל, עמלה על ערבות בנקאית, ערבות מחברת אשראי או מחברת ביטוח, או פיקדון מזומן) | הסכום הכולל של הערובות שמותר למשכיר לבקש מהשוכר יהיה הנמוך מבין אלה: סכום דמי השכירות עבור 1/3 (שליש) מתקופת השכירות. סכום דמי השכירות עבור 3 חודשים. | חוק השכירות והשאילה - סעיף 25י",
+      "fetched_at": "2026-08-13T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "playwright",
+      "verified_at": "2026-08-13T00:00:00Z"
     },
     {
       "claim_id": "broker-fee-section-25tet",
-      "claim": "Under Section 25ט (25tet) of the Rental and Loan Law (Fair Rental Law, 2017 amendment), a residential tenant may NOT be required to pay a broker fee when the broker acted on the landlord's behalf; this protection is non-waivable (a contrary lease clause is void). A tenant who independently engaged a broker for a specific apartment does pay, and only half if both parties used the same broker.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%93%D7%9E%D7%99_%D7%AA%D7%99%D7%95%D7%95%D7%9A_%D7%91%D7%A2%D7%A1%D7%A7%D7%AA_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA",
-      "raw_snippet": "סעיף 25ט לחוק השכירות והשאילה: אסור למשכיר לדרוש משוכר לשלם דמי תיווך למתווך שפעל מטעם המשכיר; הוראה קוגנטית שאי אפשר להתנות עליה",
-      "fetched_at": "2026-06-29T01:10:00Z",
+      "claim": "Under Section 25ט(b)(3) of the Rental and Loan Law a residential tenant may not be made to pay the broker fee the landlord undertook to pay, where the broker acted on the landlord's behalf; a lease clause shifting that fee has no effect. A tenant who approached the broker themselves does pay the fee they undertook in writing.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%90%D7%99%D7%A1%D7%95%D7%A8_%D7%A2%D7%9C_%D7%9E%D7%A9%D7%9B%D7%99%D7%A8_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%A9%D7%9C%D7%9D_%D7%93%D7%9E%D7%99_%D7%AA%D7%99%D7%95%D7%95%D7%9A_%D7%9C%D7%9E%D7%AA%D7%95%D7%95%D7%9A_%D7%A9%D7%A4%D7%A2%D7%9C_%D7%9E%D7%98%D7%A2%D7%9D_%D7%9E%D7%A9%D7%9B%D7%99%D7%A8_%D7%94%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "החוק אוסר לדרוש משוכרי דירה לשלם דמי תיווך שהמשכיר התחייב לשלם למתווך, כאשר המתווך פעל מטעם המשכיר | אם השוכרים פנו למתווך כדי שיחפש עבורם דירה, או פנו למתווך בעקבות מודעה שפרסם, עליהם לשלם את דמי התיווך שהתחייבו עליהם בכתב אפילו כשהמתווך פועל מטעם המשכיר | חוק השכירות והשאילה - סעיף 25ט(ב)(3)",
+      "fetched_at": "2026-08-13T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "playwright",
+      "verified_at": "2026-08-13T00:00:00Z"
     },
     {
       "claim_id": "small-claims-ceiling-2026",
@@ -49,14 +53,16 @@
     },
     {
       "claim_id": "fair-rental-law-habitability",
-      "claim": "Chok Schirut Hogenet sets minimum habitability standards (running water, electricity, drainage, ventilation, locking doors, mamad access) and gives tenant the right to have a repair done and deduct the cost from rent if the landlord fails to repair after written notice. Statutory windows: roughly 30 days for non-urgent defects, ~3 days for urgent defects.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%97%D7%95%D7%A7_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%94%D7%95%D7%92%D7%A0%D7%AA",
-      "raw_snippet": "חוק שכירות הוגנת קובע סטנדרט מינימלי לדירה: מים, חשמל, ניקוז, אוורור, ממ\"ד וזכות תיקון על חשבון השוכר. חלונות סטטוטוריים: 30 יום לליקוי לא דחוף, 3 ימים לליקוי דחוף.",
-      "fetched_at": "2026-05-18T01:50:00Z",
+      "claim": "The landlord must fix, at their own expense, any defect in the rented apartment that is not minor and was not caused by unreasonable use, within a reasonable time and no more than 30 days from the tenant's demand (3 days for an urgent defect that makes the apartment not reasonably habitable); if the landlord does not, the tenant may have the repair done and recover reasonable costs.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%AA%D7%99%D7%A7%D7%95%D7%9F_%D7%9C%D7%99%D7%A7%D7%95%D7%99%D7%99%D7%9D_%D7%91%D7%93%D7%99%D7%A8%D7%94_%D7%9E%D7%95%D7%A9%D7%9B%D7%A8%D7%AA",
+      "raw_snippet": "המשכיר אחראי לתקן על חשבונו כל ליקוי או פגם בדירה המושכרת, שעונה על שני התנאים הבאים... הליקוי הוא לא ליקוי קל ערך. הליקוי לא נגרם עקב שימוש בלתי סביר בדירה | על המשכיר לתקן את הליקוי בתוך זמן סביר ולא יותר מ-30 ימים מהיום שהשוכר דרש זאת | אם מדובר בתיקון דחוף, על המשכיר לתקנו בתוך זמן סביר ולא יותר מ-3 ימים מהיום שהשוכר דרש זאת. פגם שדורש תיקון דחוף הוא פגם שלא מאפשר מגורים בדירה באופן סביר | לתקן את הפגם ולדרוש מהמשכיר להחזיר לו את הוצאותיו",
+      "fetched_at": "2026-08-13T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "playwright",
+      "verified_at": "2026-08-13T00:00:00Z"
     },
     {
       "claim_id": "standard-lease-default-clauses",
@@ -115,14 +121,16 @@
     },
     {
       "claim_id": "deposit-return-60-days",
-      "claim": "Security deposit must be returned within 60 days of lease end if no damages, and any deductions require itemized written documentation",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%97%D7%96%D7%A8%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%9C%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
-      "raw_snippet": "החזרת ערובה: 60 יום מתום השכירות, עם פירוט ניכויים בכתב",
-      "fetched_at": "2026-05-18T01:50:00Z",
+      "claim": "The security must be returned within 60 days of the date the tenant handed the apartment back, or the date the tenant's debts were paid, whichever is later, together with any profit the landlord made on it.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%91%D7%9C%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%A9%D7%9E%D7%95%D7%AA%D7%A8_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "בתום תקופת השכירות המשכיר יחזיר לשוכר את הערובה (או את יתרתה אם מימש חלק ממנה) כולל כל רווח שהפיק ממנה | יש להחזיר את הערובה עד 60 ימים מהמועד שבו השוכר החזיר למשכיר את הדירה, או עד למועד שבו שולמו חובות השוכר - לפי המאוחר מביניהם",
+      "fetched_at": "2026-08-13T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "playwright",
+      "verified_at": "2026-08-13T00:00:00Z"
     },
     {
       "claim_id": "oleh-arnona-discount",
@@ -146,28 +154,6 @@
         "SKILL.md",
         "SKILL_HE.md",
         "references/city-rental-guide.md"
-      ]
-    },
-    {
-      "claim_id": "arnona-annual-ranges-2026",
-      "claim": "Approximate annual arnona ranges for a 70 sqm residential unit (NIS): Tel Aviv 5,500-7,500, Jerusalem 3,500-5,500, Haifa 2,500-4,000, Beersheba 2,000-3,000, Herzliya 4,500-6,500, Netanya 3,000-4,500. Rates vary by city, zone, and CPI updates.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94_%D7%9C%D7%9E%D7%92%D7%95%D7%A8%D7%99%D7%9D",
-      "raw_snippet": "Arnona annual rates (70 sqm residential) NIS 2,000 NIS 2,500 NIS 3,000 NIS 3,500 NIS 4,000 NIS 4,500 NIS 5,500 NIS 6,500 NIS 7,500 / 2,000 ש\"ח 2,500 ש\"ח 3,000 ש\"ח 3,500 ש\"ח 4,000 ש\"ח 4,500 ש\"ח 5,500 ש\"ח 6,500 ש\"ח 7,500 ש\"ח",
-      "fetched_at": "2026-05-18T02:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "negotiation-norms",
-      "claim": "Israeli rental negotiation norms: typical room for negotiation 5-10% below asking; annual rent increase cap typically requested at 2-3% or CPI; landlord margin usually 5-10% built into asking price. Israeli apartment gross-vs-net difference: net area is typically 20-25% less than gross (bruto) due to shared walls/stairs. Mamad required in residential buildings post-1992 (100% of new builds). Va'ad bayit + arnona can add 500-2,000 NIS / 500-2,000 ש\"ח per month.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%9E%D7%A9%D7%90_%D7%95%D7%9E%D7%AA%D7%9F_%D7%A2%D7%9C_%D7%93%D7%9E%D7%99_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA",
-      "raw_snippet": "ניהול משא ומתן: 5-10% מתחת למחיר המבוקש, צמדת מדד 2-3% או מדד, מרווח 5-10%. הפרש שטח ברוטו נטו 20-25%. ממ\"ד נדרש מ-1992. ועד בית + ארנונה 500-2,000 NIS / 500-2,000 ש\"ח לחודש. Negotiation: 5-10% below asking; 2-3% / 3 % annual cap; 30% margin for negotiation; 70% landlord asks. 25% gross/net difference. 10% margin negotiation room.",
-      "fetched_at": "2026-05-18T02:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
       ]
     },
     {
