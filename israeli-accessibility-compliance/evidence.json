@@ -9,7 +9,11 @@
       "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
       "raw_snippet": "חוק שוויון זכויות לאנשים עם מוגבלות, התשנ\"ח-1998.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
     },
     {
       "claim_id": "exemption-thresholds",
@@ -17,7 +21,11 @@
       "source_url": "https://www.kolzchut.org.il/he/פטור_מחובת_הנגשה_לאתרי_אינטרנט_ואפליקציות",
       "raw_snippet": "פטור זמני לבעל מחזור כספי שנתי ממוצע של עד 120,000 ש\"ח; פטור לאתר קיים של בעל מחזור שבין 120,000 ל-1,000,000 ש\"ח שהוקם לפני 26.10.2017. הפטור מבוסס על מחזור ולא על מספר עובדים, ואין סף של 25 עובדים או 300,000 ש\"ח. מקורות אחרים (נגישות ישראל) מציינים 100,000 ש\"ח כסף, ולכן המקורות חלוקים והסכום המדויק טעון אימות מול נוסח התקנות.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
     },
     {
       "claim_id": "statutory-damages-50000",
@@ -25,7 +33,11 @@
       "source_url": "https://www.kolzchut.org.il/he/פטור_מחובת_הנגשה_לאתרי_אינטרנט_ואפליקציות",
       "raw_snippet": "פיצוי ללא הוכחת נזק בסך של עד 50,000 ש\"ח.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
     },
     {
       "claim_id": "amendment-23-izum",
@@ -33,7 +45,11 @@
       "source_url": "https://www.gov.il/he/pages/equality_law_23_amendment_explanation",
       "raw_snippet": "תיקון 23 לחוק שוויון זכויות לאנשים עם מוגבלות מסמיך את הנציבות להטיל עיצומים כספיים. גובה העיצום נקבע לפי גודל העוסק: עסק זעיר עד מחזור 2,000,000 ש\"ח, עסק קטן עד 20,000,000 ש\"ח, ועסק רגיל מעל זה.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
     },
     {
       "claim_id": "regulation-35-morshe",
@@ -41,7 +57,10 @@
       "source_url": "https://aisrael.org/אתרי-אינטרנט-נגישים-סקירה-דרישות-וס/",
       "raw_snippet": "תקנה 35 לתקנות נגישות השירות עוסקת בהנגשת אתרי אינטרנט; פטור בשל קושי טכנולוגי מותנה בחוות דעת של מורשה נגישות השירות.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "widget-text-size-steps",
@@ -49,7 +68,10 @@
       "source_url": "https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0",
       "raw_snippet": "Success Criterion 1.4.4 Resize text: text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "example-placeholder-domain",
@@ -57,15 +79,24 @@
       "source_url": "https://example.co.il",
       "raw_snippet": "example.co.il is a placeholder domain used in documentation examples, analogous to the reserved example.com domain.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "coordinator-25-employees",
-      "claim": "The Service Accessibility Regulations require a public body or a service provider with 25 or more employees to appoint an accessibility coordinator (rakaz negishut). This triggers the coordinator appointment, not the website-accessibility duty.",
-      "source_url": "https://www.kolzchut.org.il/he/רכז_נגישות",
-      "raw_snippet": "גוף ציבורי או מי שמעסיק 25 עובדים או יותר חייב למנות רכז נגישות מבין עובדיו.",
-      "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+      "claim": "Under the Service Accessibility Regulations a duty-holder employing at least 25 workers must appoint an accessibility coordinator from among its employees, per section 19mb of the Law. A duty-holder with fewer than 100 employees may appoint a coordinator with under a year of practical accessibility experience.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%AA%D7%A7%D7%A0%D7%95%D7%AA%20%D7%A9%D7%95%D7%95%D7%99%D7%95%D7%9F%20%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA%20%D7%9C%D7%90%D7%A0%D7%A9%D7%99%D7%9D%20%D7%A2%D7%9D%20%D7%9E%D7%95%D7%92%D7%91%D7%9C%D7%95%D7%AA%20%28%D7%94%D7%AA%D7%90%D7%9E%D7%95%D7%AA%20%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA%20%D7%9C%D7%A9%D7%99%D7%A8%D7%95%D7%AA%29",
+      "raw_snippet": "רכז נגישות (א) חייב בביצוע התאמות נגישות לשירות המעסיק 25 עובדים לפחות, ימנה מתוך העובדים רכז נגישות, לפי סעיף 19מב לחוק",
+      "fetched_at": "2026-08-14",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ],
+      "verified_via": "curl",
+      "verified_at": "2026-08-14"
     },
     {
       "claim_id": "is5568-wcag20-anchor",
@@ -73,7 +104,11 @@
       "source_url": "https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0",
       "raw_snippet": "How to Meet WCAG (Quick Reference) filtered to show only the WCAG 2.0 Level A and AA success criteria.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
     },
     {
       "claim_id": "is5568-part2",
@@ -81,7 +116,11 @@
       "source_url": "https://www.sii.org.il/en/",
       "raw_snippet": "The Standards Institution of Israel develops and publishes Israeli standards, including IS 5568 on web and digital-document accessibility.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/is-5568.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
     },
     {
       "claim_id": "accessibe-ftc-fine",
@@ -89,7 +128,10 @@
       "source_url": "https://www.ftc.gov/news-events/news/press-releases/2025/04/ftc-approves-final-order-requiring-accessibe-pay-1-million",
       "raw_snippet": "FTC Approves Final Order Requiring accessiBe to Pay $1 Million over deceptive claims that its automated overlay product could make any website compliant.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "nvda-screen-reader",
@@ -97,7 +139,10 @@
       "source_url": "https://www.nvaccess.org/",
       "raw_snippet": "NVDA (NonVisual Desktop Access) is a free screen reader for Windows from NV Access.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "commission-enforcement",
@@ -105,7 +150,10 @@
       "source_url": "https://www.gov.il/he/departments/moj_disability_rights/govil-landing-page",
       "raw_snippet": "נציבות שוויון זכויות לאנשים עם מוגבלות במשרד המשפטים אחראית על אכיפת חוק הנגישות וטיפול בתלונות.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     }
   ]
 }
