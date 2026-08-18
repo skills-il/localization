@@ -1,0 +1,14 @@
+{
+  "cycles": [
+    {
+      "version": "1.4.0",
+      "date": "2026-07-07",
+      "lessons": [
+        "Added Nesach Tabu -> spreadsheet capability (Step 4b, tabu_to_spreadsheet.py, nesach-tabu-structure.md) from a WhatsApp community request.",
+        "Expert review caught: script must model ALL encumbrance sections (lien/order/expropriation/easement), not just mortgage/lease/caution, and must emit unplaceable rows as section=unrecognized with a warning rather than drop them.",
+        "Sofit-folding gotcha: matching section-header markers against strip_key()-folded text breaks plural headings with a final letter (צווים -> צווימ). Match markers on BOTH the raw and folded line. Regression-covered in EXAMPLE_TEXT.",
+        "Deferred (documented as caveats, not columns): parcel area/שטח, apartment חלק ברכוש המשותף, and distinguishing נסח מרוכז/היסטורי are flagged for human review rather than auto-extracted."
+      ]
+    }
+  ]
+}

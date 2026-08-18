@@ -1,0 +1,271 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "israeli-wedding-planner",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "claims": [
+    {
+      "claim_id": "rabbinate-fee-discount",
+      "claim": "40% discount on Rabbinate registration fee for olim (within 2 years), IDF/national service, students under 30, persons with disabilities, blind or visually impaired.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D_%D7%90%D7%92%D7%A8%D7%AA_%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9F_%D7%91%D7%A8%D7%91%D7%A0%D7%95%D7%AA",
+      "raw_snippet": "זוגות שנרשמים לנישואין באחת מלשכות הרבנות זכאים להנחה של 40% בתשלום אגרת רישום הנישואין, אם אחד מבני הזוג משתייך לאוכלוסיה שזכאית להנחה.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "acum-wedding-tariff",
+      "claim": "ACUM tariff T008, the single-family-event music licence, must be reported and paid no later than 72 hours before the event; the listed price is 395.30 NIS including VAT.",
+      "source_url": "https://apps.acum.org.il/licenses/general/register-payment?action=info&sourceTypeCode=T008",
+      "raw_snippet": "המחיר(כולל מע\"מ) 395.30 ₪ לכל אירוע בודד ויש להסדירו עד 72 שעות לפני מועד קיום האירוע.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tik-nisuin-window",
+      "claim": "Tik nisuin (marriage file) must be opened 21-90 days before the wedding.",
+      "source_url": "https://www.nbn.org.il/life-in-israel/government-services/registering-for-marriage/",
+      "raw_snippet": "Open a marriage file (“tik nissuin”) at your local religious council anytime between 90 and 21 days before the wedding.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "rabbanut-fee-40pct-discount",
+      "claim": "Couples registering for marriage at a Rabbinate office are entitled to a 40% discount on the registration fee if one partner belongs to an eligible group (conscript soldiers, national service, students under 30, olim in their first two years, and others). The fee amounts themselves are set in the schedule to the regulations.",
+      "source_url": "https://www.kolzchut.org.il/he/הנחה_בתשלום_אגרת_רישום_נישואין_ברבנות",
+      "raw_snippet": "זוגות שנרשמים לנישואין באחת מלשכות הרבנות זכאים להנחה של 40% בתשלום אגרת רישום הנישואין, אם אחד מבני הזוג משתייך לאוכלוסיה שזכאית להנחה",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "rabbanut-fee-schedule-source",
+      "claim": "The marriage registration fee is set in the Jewish Religious Services (Fees and Services) Regulations and is updated by publication in Reshumot, so the current amount must be looked up rather than quoted from memory.",
+      "source_url": "https://www.gov.il/he/pages/opening_a_marriage_file",
+      "raw_snippet": "האגרה מתעדכנת בהתאם לפרסום ברשומות של השר לשרותי דת",
+      "verified_via": "browser",
+      "verified_at": "2026-08-09",
+      "source_note": "gov.il 403s to curl; loaded in Playwright and asserted location.href before reading document.body.innerText.",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "url-gov-opening-marriage-file",
+      "claim": "The Ministry of Religious Services publishes the marriage registration process page at this URL.",
+      "source_url": "https://www.gov.il/he/pages/opening_a_marriage_file",
+      "raw_snippet": "תהליך רישום לנישואין",
+      "verified_via": "browser",
+      "verified_at": "2026-08-09",
+      "source_note": "Verified in Playwright with an in-page location.href assertion.",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-kolzchut-marriage-fee-discount",
+      "claim": "Kol-Zchut publishes the marriage registration fee discount rights page at this URL.",
+      "source_url": "https://www.kolzchut.org.il/he/הנחה_בתשלום_אגרת_רישום_נישואין_ברבנות",
+      "raw_snippet": "הנחה בתשלום אגרת רישום נישואין ברבנות (זכות) – כל-זכות",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-kolzchut-civil-marriage-registration",
+      "claim": "Kol-Zchut publishes the page on registering a civil marriage performed abroad at this URL.",
+      "source_url": "https://www.kolzchut.org.il/he/רישום_נישואים_אזרחיים_שנערכו_מחוץ_לישראל",
+      "raw_snippet": "רישום נישואים אזרחיים שנערכו מחוץ לישראל (הליך) – כל-זכות",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-acum-licenses",
+      "claim": "ACUM operates its licensing and payments portal at apps.acum.org.il/licenses/, which lists tariff T008 for a single family event.",
+      "source_url": "https://apps.acum.org.il/licenses/",
+      "raw_snippet": "אירוע משפחתי T008",
+      "fetched_at": "2026-08-09",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-saveadate",
+      "claim": "Save A Date (saveadate.co.il) is an Israeli events portal listing wedding venues, dresses, suits and other vendor categories.",
+      "source_url": "https://www.saveadate.co.il/",
+      "raw_snippet": "Save A Date - פורטל האירועים המקיף בישראל",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-engaged",
+      "claim": "Engaged (engaged.co.il) is an Israeli wedding-planning site and app offering vendor recommendations, prices and deals.",
+      "source_url": "https://engaged.co.il/",
+      "raw_snippet": "ספקים מומלצים לחתונה",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-mit4mit",
+      "claim": "Mitchatnim LeMaan Mitchatnim, an Israeli wedding portal, hosts user-written reviews and ratings of wedding businesses and service providers.",
+      "source_url": "https://www.mit4mit.co.il/",
+      "raw_snippet": "מתחתנים למען מתחתנים - חוות דעת והמלצות אמיתיות",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-itim",
+      "claim": "Itim (itim.org.il) is an Israeli nonprofit that helps the public navigate religious services, including marriage.",
+      "source_url": "https://www.itim.org.il/",
+      "raw_snippet": "אנחנו כאן כדי לסייע לכם במפגש עם שירותי הדת",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-walla-wedding",
+      "claim": "Walla! Wedding (mazaltov.walla.co.il) is an Israeli wedding portal with vendor listings, articles, reader recommendations and planning tools.",
+      "source_url": "https://mazaltov.walla.co.il/",
+      "raw_snippet": "אתר האירועים והחתונות הגדול בישראל - וואלה! Wedding",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "pesach-2026-israel",
+      "claim": "Pesach I in 2026 falls on 2 April (15 Nisan 5786), per the hebcal Israel schedule (i=on).",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Pesach I\",\"date\":\"2026-04-02\",\"hdate\":\"15 Nisan 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "lag-baomer-2026",
+      "claim": "Lag BaOmer 2026 falls on Tuesday 5 May (18 Iyyar 5786), and hebcal describes it as a break in the Omer semi-mourning period during which Jewish weddings take place.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Lag BaOmer\",\"date\":\"2026-05-05\",\"hdate\":\"18 Iyyar 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "shavuot-2026-israel",
+      "claim": "Shavuot 2026 falls on 22 May (6 Sivan 5786) in Israel, so the Omer count runs from the second night of Pesach through 21 May.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Shavuot\",\"date\":\"2026-05-22\",\"hdate\":\"6 Sivan 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tzom-tammuz-2026",
+      "claim": "17 Tammuz 5786 falls on 2 July 2026, the start of the Three Weeks.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=7&maj=on&min=on&mf=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Tzom Tammuz\",\"date\":\"2026-07-02\",\"hdate\":\"17 Tamuz 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tisha-bav-2026",
+      "claim": "Tisha B'Av (9 Av 5786) falls on 23 July 2026, the end of the Three Weeks.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=7&maj=on&min=on&mf=on&i=on&lg=s",
+      "raw_snippet": "\"date\":\"2026-07-23\",\"hdate\":\"9 Av 5786\"",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "civil-marriage-abroad-registration",
+      "claim": "An Israeli citizen or resident who married abroad must register as married in the Population Registry; the process requires an apostille on the certificate and, as a rule, a notarised translation, and carries no fee.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%9E%D7%97%D7%95%D7%A5_%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+      "raw_snippet": "אזרח ישראלי או תושב ישראל שנישא בחו\"ל (לאזרח ישראלי או לאזרח זר) ונמצא בישראל מכוח אזרחותו או מכוח תעודת עולה או רישיון לישיבת קבע צריך להירשם כנשוי במרשם האוכלוסין בישראל.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "civil-marriage-abroad-no-fee",
+      "claim": "Registering a marriage performed abroad in the Israeli Population Registry carries no fee.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%9E%D7%97%D7%95%D7%A5_%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+      "raw_snippet": "הליך רישום הנישואים עצמו אינו כרוך בתשלום אגרה.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "online-marriage-registrable",
+      "claim": "Couples who married civilly under the law of a given country, certified by that country in a public document, are entitled to be registered as married in the Israeli Population Registry even when the ceremony was held online.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%91%D7%90%D7%95%D7%A4%D7%9F_%D7%9E%D7%A7%D7%95%D7%95%D7%9F",
+      "raw_snippet": "זוגות שהתחתנו בנישואים אזרחיים על פי חוקי מדינה מסוימת, ואותה מדינה אישרה זאת בתעודה ציבורית, זכאים להירשם כנשואים במרשם האוכלוסין הישראלי גם אם החתונה נעשתה באופן מקוון.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "metadata.json"
+      ]
+    },
+    {
+      "claim_id": "online-marriage-supreme-court",
+      "claim": "The administrative-court ruling requiring registration of an online (Utah/Zoom) civil marriage was appealed to the Supreme Court, which dismissed the appeal and upheld the ruling.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%91%D7%90%D7%95%D7%A4%D7%9F_%D7%9E%D7%A7%D7%95%D7%95%D7%9F",
+      "raw_snippet": "על פסק הדין הוגש ערעור לבית המשפט העליון. בית המשפט העליון דחה את הערעור ואישר את פסק הדין.",
+      "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    }
+  ]
+}

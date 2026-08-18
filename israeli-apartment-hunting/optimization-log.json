@@ -1,0 +1,17 @@
+{
+  "cycles": [
+    {
+      "version": "1.2.1",
+      "date": "2026-06-29",
+      "lessons": [
+        "WRONG fix: the broker-fee table said 'One month + VAT, paid by tenant' and 'Who pays: usually the tenant'. That is the pre-2017 market habit, not the law. Section 25ט of the Rental and Loan Law (Fair Rental Law) makes it NON-WAIVABLE that a residential tenant cannot be charged a fee for a broker who acted on the landlord's behalf; a tenant who independently hires a broker pays (half if both sides used the same broker). Rewrote the Who-pays cell in EN + HE. This was a long-standing missed law, not a 2026 change.",
+        "Freshness: the Q3-2025 national average (NIS 4,952) is accurate but early-2026 supply tightened and new-lease asking rents rose, so added a 'treat as a floor' note in both languages.",
+        "VERIFIED OK (no change): listing sites all live (Yad2 still dominant, Madlan, Homeless, WinWin, Facebook), VAT 18%, deposit cap = lower of 3 months or one-third of lease, repair windows (~30d/~3d), habitability standard (dira re'uya), mamad post-1992, 2024 broker ethics regs (eff. 9.3.2025) incl. mandatory written heskem-tivuch, Hebrew glossary terms, arnona municipality-specific + oleh discount up to 90% / first 100sqm / 12-of-24 months, small-claims ceiling NIS 39,900 (eff. 1.1.2026).",
+        "CARRY (WATCH, not enacted): a Knesset bill to fully ban imposing broker fees on tenants and an amendment to the Brokers Law adding disciplinary liability are advancing but not yet law. Revisit next cycle.",
+        "CRITICAL fix (expert-found, pre-existing): the skill said a bank guarantee 'typically equals 3-6 months rent', which exceeds the Section 25י statutory cap. A bank guarantee is a tenant-monetary-outlay security and is capped at the LOWER of 3 months or 1/3 of the lease (~3 months for a 12-month lease). Capped the figure in EN+HE. Also scoped the cap correctly: it applies to bank-guarantee/cash, NOT to a regular security check or promissory note (shtar chov), which may be set higher. Added a Section 25י evidence claim.",
+        "MINOR fix: 'only half if both sides used the same broker' was presented as a rule; reframed as a negotiated practice, not a statutory entitlement.",
+        "Stripped pre-existing em-dashes from SKILL.md + SKILL_HE.md (em-dash ban applies to touched files)."
+      ]
+    }
+  ]
+}

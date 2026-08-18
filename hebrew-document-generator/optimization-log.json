@@ -1,0 +1,106 @@
+{
+  "cycles": [
+    {
+      "version": "1.3.0",
+      "date": "2026-06-18",
+      "holdout_before": 1.0,
+      "holdout_after": 1.0,
+      "buckets": {
+        "improved": [],
+        "regressed": [],
+        "persistent_fail": [],
+        "stable_success": [
+          "create a Hebrew Word document for this contract",
+          "I need a .docx in Hebrew that mixes Hebrew and English without breaking",
+          "create a Word document summarizing Q3 sales (English only, should NOT trigger)"
+        ]
+      },
+      "lessons": [
+        "DOCX root cause was never a missing <w:rtl/> (it was already emitted); the real defects were (a) the whole mixed line in one rtl-flagged run incl. Latin, and (b) no complex-script w:cs font / w:szCs size. Verified empirically by building the doc and inspecting word/document.xml.",
+        "Complex-script rule generalizes: bold/italic on Hebrew need w:bCs/w:iCs, not just w:b/w:i. Added bold+italic params.",
+        "Description broadened to win selection over the generic /mnt/skills/public/docx skill; kept the 'prefer' clause conditional on a Hebrew/RTL signal to avoid mis-routing English-only docx requests.",
+        "Coverage deferred (non-blocking MINOR): helper covers body paragraphs only; tables, headers/footers, numbered lists, and sectPr RTL flow are documented as a note but not implemented as helpers. Revisit if a user reports broken Hebrew tables."
+      ]
+    },
+    {
+      "version": "1.3.1",
+      "date": "2026-06-22",
+      "holdout_before": 0.5,
+      "holdout_after": 1.0,
+      "buckets": {
+        "improved": [
+          "Hebrew doc looks fine in Claude but scrambled when opened in Word",
+          "fix Hebrew formatting in Word"
+        ],
+        "regressed": [],
+        "persistent_fail": [],
+        "stable_success": [
+          "create a Hebrew Word document for this contract",
+          "set up RTL layout in my React/Tailwind Hebrew website (must NOT trigger)"
+        ]
+      },
+      "lessons": [
+        "Routing gap was discovery-side, not content: body Troubleshooting already covered the scrambled-in-Word symptom thoroughly, but the description was goal-framed ('create a Hebrew Word doc') so symptom queries ('my Word doc is broken/reversed') mis-routed to the web-only hebrew-rtl-best-practices skill. Fix = add symptom/troubleshooting trigger phrasing to description (frontmatter EN + metadata display_description he/en).",
+        "SKILL.md frontmatter description is hard-capped at 1024 chars by validate-skill.sh; metadata.json display_description has no cap. Kept the fuller symptom phrasing in display_description (drives the site embedding/routing the user actually hits) and a trimmed 1015-char version in frontmatter.",
+        "Watch (non-blocking): description now contains the token 'web/CSS RTL' inside a negation ('NOT a web/CSS RTL change'). Embedding retrieval is negation-blind, so monitor that pure React/Tailwind RTL website queries still route to hebrew-rtl-best-practices and not here; document-signal density (Word/docx/PDF/PPTX/python-docx) should dominate. Revisit if a web-RTL query mis-routes.",
+        "Deferred (MINOR, scope-kept): did not add a symptom-framed FAQ pair to enriched content this cycle. Body Troubleshooting already explains it; FAQ does not feed routing embeddings. Revisit if users on the detail page still ask why the Word export breaks."
+      ]
+    },
+    {
+      "version": "1.4.0",
+      "date": "2026-06-22",
+      "lessons": [
+        "User report (challenging mixed Hebrew/English medical doc): structure was correct (bidi on Hebrew paras, per-script runs, w:rtl on Hebrew only, David w:cs font) but ALL paragraphs incl. pure-English clinical lines got w:bidi + RIGHT unconditionally, so 7 English-only lines (lab values, drug/mutation rows) rendered right-aligned = the residual 'still looks RTL-broken' artifact.",
+        "Fix: add _para_is_rtl(text) and pick paragraph base direction per line: any Hebrew letter -> RTL+right (a Hebrew sentence may embed English); no Hebrew but Latin present -> LTR+left; all-neutral -> RTL. add_rtl_paragraph now emits w:bidi only for RTL paragraphs and aligns LEFT for pure-English.",
+        "Latent regex footgun fixed: the _HEB character class used a precomposed Hebrew presentation-form char (U+FB1D) that is invisible in source and can decompose to U+05D9+U+05B4, silently widening the class to U+05B4..U+FB4F and matching en-dash/CJK/etc. Replaced with explicit unicode-escape codepoints so neutral chars (the en-dash in 'Lobectomy - 9/2023') stay neutral and pure-English lines with dashes are detected LTR. Verified by extracting and executing the REAL SKILL.md code block against the user 8-line sample: all 8 base directions correct.",
+        "Still deferred (documented, not implemented): tables, headers/footers, numbered/bulleted lists, sectPr RTL flow. Per-script run split + base-direction are now both correct for body paragraphs only."
+      ]
+    },
+    {
+      "version": "1.5.0",
+      "date": "2026-06-22",
+      "lessons": [
+        "MAJOR Word-bidi fix, proven against real Microsoft Word (the v1.4.0 helper's whole premise was wrong for Word). Word's bidi engine is STRICTER than Unicode/UBA: LibreOffice AND macOS CoreText/Quick Look both render the broken files CORRECTLY, hiding the bug, so they are useless as Word proxies. Only Word reveals it. Verified by round-tripping generated .docx through the user's Word.",
+        "Root cause: explicit per-run <w:rtl/> flags on the runs of a MIXED Hebrew+English paragraph. Word force-reverses any Latin/number caught in (or beside) an rtl-flagged run (7/2023 -> 2023/7, KI-67 flips) and mis-pairs parens. Fix: in a paragraph that contains any Latin letter, flag NO run rtl; the paragraph <w:bidi/> alone orders mixed lines correctly.",
+        "Pure-Hebrew paragraphs (labels/headings, no Latin letters, digits allowed) DO need <w:rtl/> on their Hebrew runs, or Word drifts a trailing colon (מחלות רקע:) and a leading section number (2. כותרת) to the wrong edge. So the rule is conditional on para_has_latin.",
+        "Unicode directional isolates (U+2066-2069) are NOT a usable fix: Word renders them as visible .notdef boxes in the David font (other viewers draw them zero-width, hiding it). Never insert directional control chars.",
+        "Digits treated as LTR-strong in _strong so a number forms its own LTR run (never rides in a Hebrew rtl run). Plus _shift_boundary_spaces: move a space at the end of an LTR run before an RTL run to the start of the RTL run, because Word trims a run's trailing whitespace at a direction boundary (gluing '2.' to the heading word); a leading space on the RTL run survives.",
+        "Carried from v1.4.0 (still true): base direction is per-paragraph (any Hebrew -> RTL+right; pure-English line -> LTR+left). Still deferred: tables, headers/footers, numbered/bulleted lists, sectPr RTL flow.",
+        "Process lesson: verify DOCX RTL ONLY in Microsoft Word. LibreOffice/CoreText/pdfplumber-vs-python-bidi all agreed the broken output was 'correct' and would have shipped the bug twice. Drive Word via the user (its AppleScript save-as is broken in current Mac builds and do-Visual-Basic was removed)."
+      ]
+    },
+    {
+      "version": "1.6.0",
+      "date": "2026-06-23",
+      "lessons": [
+        "Leading section-number marker (2. / 10.) on an RTL line: Word floats its trailing period to the wrong side (renders as dot-then-number) because the marker is a separate LTR run. Fix _merge_list_marker: merge a leading 1-2-digit+period LTR run into the following Hebrew RTL run so the marker rides in RTL and the period stays after the number. Regex is strict (1-2 digits + period only) so a date like 13/01/2026 stays its own LTR run and is not reversed. Confirmed in real Word (N4 of the marker A/B test).",
+        "KNOWN LIMITATION (accepted, not a skill bug): a sentence ending in a Latin word + period in an RTL paragraph places the period at the visual left edge. This is native Word RTL behavior (identical to typing it by hand) and resists docx-level fixes: LRM (U+200E) after the period had no effect in Word, and isolates render as boxes. Left as-is; meaning and reading order are correct.",
+        "evidence verify-evidence.py DOES scan optimization-log.json. Keep bare percentages/NIS amounts out of lesson text (an illustrative KI-67 percentage written as a literal once tripped the gate on the next cycle clone). Describe examples without a literal percent/amount."
+      ]
+    },
+    {
+      "version": "1.7.0",
+      "date": "2026-06-29",
+      "lessons": [
+        "User-reported bug: Hebrew DOCX tables came out mirror-reversed (first logical column on the left). Root cause is COLUMN ORDER, not cell text direction: python-docx tables ship with no w:bidiVisual on w:tblPr, so Word lays columns LTR. Prior skill only had a one-line caveat telling the reader to apply per-cell bidi, which never moves the columns. Fix added as a dedicated 'Hebrew Tables in DOCX' step + Troubleshooting + Gotcha: table.table_direction = WD_TABLE_DIRECTION.RTL (emits w:bidiVisual) for column order PLUS per-cell bidi for in-cell text; both required. Column-order fix CONFIRMED IN REAL MICROSOFT WORD (mac, 2026-06-29 screencapture). NOTE: the v1.7.0 cell ALIGNMENT approach shipped here was WRONG and was corrected in v1.7.1 (see that cycle) once the real-Word check revealed Hebrew cells aligning left.",
+        "PPTX (pptxgenjs) tables have the OPPOSITE convention from DOCX: no bidiVisual flag exists, so the column list must be reversed per-row in the data, with rtlMode+align:right on each cell. Documented alongside the DOCX fix so the two are not conflated.",
+        "CARRY (from 1.6.0, resolved-as-reworded): the KI-67 percentage literal in lesson text re-tripped verify-evidence.py on this cycle's clone. Reworded to drop the literal; future lessons must never embed a bare percent/NIS figure.",
+        "Expert CRITICAL fixed this cycle: numeric cells (qty/price/total) auto-classify LTR under _para_is_rtl, so they left-aligned while Hebrew headers right-aligned, giving a ragged invoice amount column. Added an `align` param to set_cell_rtl_text + a `col_align` (default all-right) to add_rtl_table + table.alignment=RIGHT. Verified all cells align RIGHT and jc(right) emitted.",
+        "Expert MAJOR deferred (CARRY): the bundled scripts/generate_doc.py sample invoice (its line items total above the current allocation-number threshold) omits the מספר הקצאה (allocation number) field, now mandatory at/above the mid-2026 threshold. The SKILL.md text documents the requirement but the helper script does not emit the field. Next cycle: add an allocation-number field to generate_doc.py's invoice and to the DOCX table example.",
+        "Expert MAJOR deferred (CARRY): no full code snippet shows adding section sectPr <w:bidi/> for a fully RTL page (told only in prose, lines ~269/~325). Add a tiny add_section-bidi snippet next cycle.",
+        "Expert MINOR deferred: header-row shading (<w:shd>), explicit column widths, and <w:tblHeader/> header-row-repeat are standard invoice-table expectations not yet covered. Low priority, log for a future polish cycle.",
+        "Process: a real-Word visual confirmation (screenshot of the generated table) is the missing final gate for every DOCX-RTL fix in this skill (per the docx-RTL-Word-only rule). Reproductions only prove the XML elements are emitted, not the Word render."
+      ]
+    },
+    {
+      "version": "1.7.1",
+      "date": "2026-06-29",
+      "lessons": [
+        "ALIGNMENT BUG in v1.7.0 (caught by a real-Word screencapture the user watched, the exact gate the 1.7.0 log flagged as missing): the v1.7.0 add_rtl_table set a physical RIGHT alignment (align/col_align -> WD_ALIGN_PARAGRAPH.RIGHT -> w:jc=right) on every cell. But w:jc is LOGICAL, not physical: in a w:bidi (RTL) paragraph, jc=right = line END = visual LEFT. So Hebrew header/text cells aligned LEFT while LTR number cells (no bidi) stayed RIGHT -> ragged, mismatched table. The Expert's earlier 'numeric cells left-align' CRITICAL was based on the python-docx alignment ENUM value, not the Word render, and led to the wrong fix.",
+        "v1.7.1 FIX (confirmed in real Microsoft Word, user signed off 'looks ok now'): give EVERY cell paragraph w:bidi (RTL base) and set NO explicit alignment. An RTL paragraph defaults to its START edge = visual RIGHT, so headers, Hebrew, and numbers all align flush right. Removed the align/col_align params and the _ALIGN dict. Kept table.alignment=RIGHT (that is the table BLOCK position in tblPr, correct and separate from cell jc).",
+        "GENERAL RULE for this skill: never reason about RTL alignment from the python-docx WD_ALIGN_PARAGRAPH enum or the OOXML jc value alone, it is logical and inverts under bidi. The only authoritative check is a real-Word render. The screencapture path (open -a 'Microsoft Word' + osascript activate + /usr/bin/screencapture, then crop with PIL) works on this mac even though the computer-use MCP cannot see/grant Word.",
+        "Known minor (not fixed, acceptable): a parenthesized integer inside Hebrew like '(3 שעות)' can render with the space shifted ('( 3שעות)') because the lone LTR digit + neutral space reorder under bidi. Meaning stays clear; deferred."
+      ]
+    }
+  ]
+}

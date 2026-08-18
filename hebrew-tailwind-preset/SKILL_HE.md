@@ -1,0 +1,363 @@
+# תצורת Tailwind לעברית
+
+מומלץ Tailwind CSS v4 (גרסה עדכנית v4.3, מאי 2026); גרסה v3.1+ תואמת עבור וריאנטי `dir`. עובד עם React, Vue, Angular, Next.js ו-Nuxt. לא דורש רשת.
+
+## הנחיות
+
+### שלב 1: התקנה והגדרה של Tailwind v4 ל-RTL
+
+תסתכלו על `references/rtl-config.md` למדריך תצורה מלא.
+
+**קודם כל תתקינו את תוסף ה-build של Tailwind v4.** ב-v4 בוטלה הטעינה האוטומטית של `tailwind.config.js`, ולכן `@import "tailwindcss"` לבדו לא יבנה עד שמחברים תוסף build. תבחרו את זה שמתאים לכלי שלכם:
+
+```bash
+# Vite (מומלץ): התקנת תוסף ה-Vite הרשמי
+npm install tailwindcss @tailwindcss/vite
+```
+
+```js
+// vite.config.js -- הוספת התוסף
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
+```
+
+```bash
+# כלים מבוססי PostCSS (Next.js, Webpack וכו')
+npm install tailwindcss @tailwindcss/postcss postcss
+```
+
+```js
+// postcss.config.mjs
+export default {
+  plugins: { '@tailwindcss/postcss': {} },
+};
+```
+
+ב-v4 התוסף `@tailwindcss/postcss` מטפל בהטמעת `@import` ובהוספת קידומות יצרן, ולכן `postcss-import` ו-`autoprefixer` כבר לא נחוצים.
+
+אחר כך תטענו את הגופנים העבריים עם `font-display: swap` (דרך `<link>` של Google Fonts או כלל `@font-face`) כדי למנוע הבזק של טקסט בלתי נראה בזמן טעינת קובץ הגופן העברי. תראו את שלב 2 לקטע הקוד.
+
+**Tailwind v4 (תצורה מבוססת CSS):**
+```css
+/* app.css -- מיובא על ידי נקודת הכניסה של ה-build */
+@import "tailwindcss";
+
+@theme {
+  /* מחסניות גופנים עבריות */
+  --font-hebrew: 'Heebo', 'Assistant', 'Noto Sans Hebrew', sans-serif;
+  --font-hebrew-serif: 'Frank Ruhl Libre', 'David Libre', serif;
+  --font-mono: 'Fira Code', 'Source Code Pro', monospace;
+
+  /* סולם גדלים מותאם לעברית */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /* גובהי שורה לעברית (גבוהים מברירת המחדל הלטינית) */
+  --leading-tight: 1.4;
+  --leading-normal: 1.7;
+  --leading-relaxed: 1.9;
+}
+```
+
+**Tailwind v3 (תצורת JavaScript):**
+```js
+// tailwind.config.js
+module.exports = {
+  content: ['./src/**/*.{html,js,jsx,tsx}'],
+  theme: {
+    extend: {
+      fontFamily: {
+        hebrew: ['Heebo', 'Assistant', 'Noto Sans Hebrew', 'sans-serif'],
+        'hebrew-serif': ['Frank Ruhl Libre', 'David Libre', 'serif'],
+      },
+      lineHeight: {
+        'hebrew': '1.7',
+        'hebrew-tight': '1.4',
+        'hebrew-relaxed': '1.9',
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+**תטענו את הגופנים העבריים עם `font-display: swap`.** אפשר להוסיף `<link>` של Google Fonts ל-head של ה-HTML:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&display=swap" rel="stylesheet">
+```
+
+או לארח את הגופן עצמכם עם כלל `@font-face` באותו קובץ CSS שבו נמצא בלוק ה-`@theme`:
+
+```css
+@font-face {
+  font-family: 'Heebo';
+  src: url('/fonts/heebo-variable.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+```
+
+גם פרמטר השאילתה `&display=swap` (בקישור) וגם המאפיין `font-display: swap` (ב-`@font-face`) גורמים לדפדפן להציג טקסט חלופי מיד במקום להסתיר טקסט עד שהגופן העברי נטען.
+
+**ב-Next.js: חברו את `next/font` דרך `@theme inline`.** כשמארחים עצמית עם `next/font` (מומלץ ב-Next.js: בלי בקשה חיצונית, בלי הזזת פריסה), הגופן נחשף כמשתנה CSS, ו-`@theme` לא יכול להפנות למשתנה זמן-ריצה ישירות. השתמשו ב-`@theme inline` כדי שהמשתנה ייפתר במקום השימוש:
+
+```css
+/* app.css */
+@import "tailwindcss";
+@theme inline {
+  --font-hebrew: var(--font-heebo); /* ‏--font-heebo מגיע מ-next/font */
+}
+```
+
+```tsx
+// layout.tsx
+import { Heebo } from 'next/font/google';
+const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
+// <html lang="he" dir="rtl" className={heebo.variable}> ... </html>
+```
+
+הצורה `@theme { --font-hebrew: var(--font-heebo); }` (בלי `inline`) נשברת, כי Tailwind מנסה לפתור את המשתנה בזמן ה-build כשהוא עדיין לא קיים.
+
+### שלב 2: כלי שירות לוגיים
+
+כלי השירות הלוגיים המובנים של Tailwind v4 והוריאנטים `rtl:`/`ltr:` מכסים RTL בעצמם, ולכן תוסף הקהילה הישן `tailwindcss-rtl` כבר לא נחוץ. תמיד תעדיפו כלי שירות לוגיים על פני כיווניים פיזיים:
+
+| פיזי (תימנעו) | לוגי (תשתמשו) | איך זה מתנהג ב-RTL |
+|-------------------|-----------------|---------------|
+| `ml-4` | `ms-4` | שוליים ימניים ב-RTL |
+| `mr-4` | `me-4` | שוליים שמאליים ב-RTL |
+| `pl-4` | `ps-4` | ריפוד ימני ב-RTL |
+| `pr-4` | `pe-4` | ריפוד שמאלי ב-RTL |
+| `left-0` | `inset-s-0` | ימין: 0 ב-RTL (v4.3+; `start-0` הוא הכינוי המיושן) |
+| `right-0` | `inset-e-0` | שמאל: 0 ב-RTL (v4.3+; `end-0` הוא הכינוי המיושן) |
+| `border-l` | `border-s` | גבול ימני ב-RTL |
+| `border-r` | `border-e` | גבול שמאלי ב-RTL |
+| `rounded-l-lg` | `rounded-s-lg` | עיגול ימני ב-RTL |
+| `rounded-r-lg` | `rounded-e-lg` | עיגול שמאלי ב-RTL |
+| `text-left` | `text-start` | מיושר לימין ב-RTL |
+| `text-right` | `text-end` | מיושר לשמאל ב-RTL |
+| `scroll-ml-4` | `scroll-ms-4` | שוליים ימניים לגלילה ב-RTL |
+
+**שינוי שמות ה-inset ב-Tailwind v4.3.** החל מ-v4.3 (מאי 2026) כלי המיקום הלוגיים `start-*`/`end-*` הוצאו משימוש לטובת `inset-s-*`/`inset-e-*` (כדי להתיישר עם `inset-bs-*`/`inset-be-*`). השמות הישנים עדיין עובדים, אבל עדיף `inset-s-0`/`inset-e-0` בקוד חדש. השינוי הזה נוגע רק ל-inset/מיקום; כלי ה-margin/padding/border‏ `ms-*`/`me-*`/`ps-*`/`pe-*`/`border-s`/`border-e` לא השתנו. גם ערכים שרירותיים משתלבים עם כלים לוגיים (למשל `ms-[3px]`, `inset-s-[10px]`).
+
+### שלב 3: וריאנטים כיווניים לסגנונות ייחודיים ל-RTL
+
+**תנאי מקדים:** הוריאנטים `rtl:` ו-`ltr:` (מובנים ב-Tailwind v4) מתאימים לפי מאפיין ה-`dir` של אלמנט אב. הם לא עושים כלום אלא אם אלמנט אב באמת נושא `dir="rtl"` (או `dir="ltr"`) - בדרך כלל אלמנט ה-`<html>`. תקבעו `dir="rtl"` על השורש לפני שאתם מסתמכים על וריאנט `rtl:` כלשהו למטה. מכיוון שהוריאנטים האלה נפתרים דרך הפסבדו-קלאס `:dir()` של CSS, הם מגיבים נכון גם ל-`dir="auto"` על תוכן מעורב עברית/אנגלית של משתמשים, ולא רק ל-`dir="rtl"` מפורש.
+
+**מצב כהה ב-v4.** מפתח התצורה `darkMode` של v3 בוטל. ב-v4 מפעילים מצב כהה מבוסס-מחלקה ב-CSS עם `@custom-variant dark (&:where(.dark, .dark *));`, ואז משלבים בחופשיות עם כיוון, למשל `class="dark:bg-gray-900 rtl:text-right"`. קבעו `dir="rtl"` על `<html>` והחליפו את המחלקה `.dark` על אותו אלמנט.
+
+כשצריך דריסות ייחודיות לכיוון:
+
+```html
+<!-- הגדרת שורש -- ה-dir="rtl" כאן הוא מה שמפעיל כל וריאנט rtl: -->
+<html lang="he" dir="rtl">
+
+<!-- שימוש בוריאנט כיווני -->
+<div class="flex rtl:flex-row-reverse">
+  <span class="rtl:rotate-180">&#8594;</span>
+  <span>הבא</span>
+</div>
+
+<!-- שיקוף אייקונים כיווניים -->
+<button class="flex items-center gap-2">
+  <svg class="rtl:scale-x-[-1]"><!-- אייקון חץ --></svg>
+  <span>חזרה</span>
+</button>
+
+<!-- ריווח מותנה שמשתנה לפי כיוון -->
+<div class="ltr:ml-auto rtl:mr-auto">
+  <!-- דחיפה לקצה בשני הכיוונים -->
+</div>
+```
+
+### שלב 4: כלי שירות טיפוגרפיים לעברית
+
+```html
+<!-- גוף טקסט עברי עם הגדרות תקינות -->
+<body dir="rtl" class="font-hebrew text-base leading-hebrew
+                        tracking-normal">
+
+  <!-- כותרת עברית -->
+  <h1 class="text-3xl font-bold leading-hebrew-tight">
+    כותרת ראשית
+  </h1>
+
+  <!-- פסקה עברית -->
+  <p class="text-base leading-hebrew [word-spacing:0.05em]">
+    טקסט גוף עם ריווח מותאם לקריאות בעברית.
+  </p>
+
+  <!-- תוכן מעורב עברית + אנגלית -->
+  <p class="text-base leading-hebrew">
+    פריט מספר <span dir="ltr" class="font-mono">ORD-12345</span> אושר
+  </p>
+</body>
+```
+
+### שלב 5: תבניות רכיבים RTL-First עם Tailwind
+
+**כרטיס RTL-first:**
+```html
+<div class="rounded-lg border border-gray-200 p-6">
+  <div class="flex items-center justify-between mb-4
+              border-b border-gray-100 pb-4">
+    <h3 class="text-lg font-bold">כותרת הכרטיס</h3>
+    <span class="text-sm text-gray-500">פעיל</span>
+  </div>
+  <p class="text-base leading-hebrew text-gray-700">
+    תוכן הכרטיס עם טקסט בעברית.
+  </p>
+  <div class="mt-4 flex gap-3">
+    <button class="bg-blue-600 text-white px-4 py-2 rounded-md">
+      אישור
+    </button>
+    <button class="border border-gray-300 px-4 py-2 rounded-md">
+      ביטול
+    </button>
+  </div>
+</div>
+```
+
+**ניווט RTL-first:**
+```html
+<nav dir="rtl" class="flex items-center justify-between
+                       px-6 py-4 bg-white border-b">
+  <div class="flex items-center gap-3">
+    <img src="/logo.svg" alt="לוגו" class="h-8">
+    <span class="font-bold text-xl">שם האתר</span>
+  </div>
+  <ul class="flex gap-6 text-sm font-medium">
+    <li><a href="/" class="text-blue-600">ראשי</a></li>
+    <li><a href="/about" class="text-gray-600">אודות</a></li>
+    <li><a href="/contact" class="text-gray-600">צור קשר</a></li>
+  </ul>
+</nav>
+```
+
+**פריסת סרגל צד RTL-first:**
+```html
+<div class="grid grid-cols-[280px_1fr] min-h-screen">
+  <!-- סרגל צד: מופיע מימין ב-RTL אוטומטית -->
+  <aside class="border-e border-gray-200 pe-6 p-4">
+    <nav class="space-y-2">
+      <a href="#" class="block ps-4 py-2 rounded-md
+                         bg-blue-50 text-blue-700 border-s-4
+                         border-blue-600">לוח בקרה</a>
+      <a href="#" class="block ps-4 py-2 rounded-md
+                         text-gray-600">הגדרות</a>
+    </nav>
+  </aside>
+  <!-- תוכן ראשי -->
+  <main class="p-6">
+    <h1 class="text-2xl font-bold mb-6">לוח בקרה</h1>
+  </main>
+</div>
+```
+
+### שלב 6: כלי שירות לטפסים בעברית
+
+```html
+<form dir="rtl" class="max-w-lg space-y-6">
+  <div>
+    <label for="name" class="block text-sm font-medium
+                              text-gray-700 mb-2">שם מלא</label>
+    <input id="name" type="text"
+           class="w-full px-4 py-3 border border-gray-300
+                  rounded-md text-base font-hebrew
+                  focus:outline-none focus:ring-2
+                  focus:ring-blue-500">
+  </div>
+
+  <div>
+    <label for="phone" class="block text-sm font-medium
+                               text-gray-700 mb-2">טלפון</label>
+    <input id="phone" type="tel" dir="ltr"
+           placeholder="05X-XXXXXXX"
+           class="w-full px-4 py-3 border border-gray-300
+                  rounded-md text-base
+                  focus:outline-none focus:ring-2
+                  focus:ring-blue-500">
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium
+                                 text-gray-700 mb-2">הודעה</label>
+    <textarea id="message" rows="4"
+              class="w-full px-4 py-3 border border-gray-300
+                     rounded-md text-base font-hebrew
+                     leading-hebrew
+                     focus:outline-none focus:ring-2
+                     focus:ring-blue-500"></textarea>
+  </div>
+
+  <button type="submit"
+          class="w-full bg-blue-600 text-white py-3
+                 rounded-md font-medium text-base
+                 hover:bg-blue-700 transition-colors">
+    שליחה
+  </button>
+</form>
+```
+
+## דוגמאות
+
+### דוגמה 1: הגדרת Tailwind לפרויקט בעברית
+המשתמש אומר: "הגדר Tailwind לאפליקציית הווב העברית שלי"
+תוצאה: מוסיפים משפחות גופנים עבריות לתמה של Tailwind, מגדירים גובהי שורה מותאמים לעברית, קובעים `dir="rtl"` על אלמנט ה-HTML הראשי, ומדגימים שימוש בכלי שירות לוגיים (ms-/me-/ps-/pe-) במקום פיזיים (ml-/mr-/pl-/pr-).
+
+### דוגמה 2: המרת רכיב Tailwind מ-LTR ל-RTL
+המשתמש אומר: "התאם את רכיב ה-Tailwind הזה לעבודה ב-RTL עברי"
+תוצאה: מחליפים את כל מחלקות השירות הפיזיות במקבילות לוגיות (ml- ל-ms-, pl- ל-ps-, text-left ל-text-start, border-l ל-border-s, rounded-l ל-rounded-s), מוסיפים וריאנטי rtl: לאייקונים כיווניים, וקובעים מחלקת font-hebrew על אלמנטי טקסט.
+
+### דוגמה 3: בניית לוח בקרה בעברית עם Tailwind
+המשתמש אומר: "צור פריסת לוח בקרה עברי עם Tailwind"
+תוצאה: בונים פריסת grid עם סרגל צד ב-RTL (border-e, pe-6), ניווט עם גופן עברי וזרימת RTL, רכיבי כרטיסים עם ריווח לוגי, ואלמנטי טופס עם טיפוגרפיה עברית תקינה (font-hebrew, leading-hebrew).
+
+## משאבים מצורפים
+
+### קובצי עזר
+- `references/rtl-config.md` -- מדריך תצורת Tailwind CSS ל-RTL מלא: דוגמאות תצורה CSS-first ל-v4 ו-JavaScript ל-v3, טבלת מיפוי מלאה מתכונות שירות פיזיות ללוגיות, תבניות שימוש בוריאנטים כיווניים, מחסניות גופנים עבריות מוכנות, הגדרות תגי טיפוגרפיה, ומדריך מיגרציה מתכונות פיזיות ללוגיות.
+
+## מלכודות נפוצות
+- Tailwind CSS v3+ תומך בווריאנטים RTL (תחילית rtl:), אבל סוכנים לא משתמשים בהם ומקודדים mr-4 כשצריך להשתמש ב-ms-4 (margin-start) לתאימות RTL.
+- הכלי space-x-4 ב-Tailwind לא מכבד כיוון RTL. סוכנים חייבים להשתמש ב-gap-4 עם flex או grid, או להוסיף ידנית rtl:space-x-reverse כדי להפוך את כיוון הרווח.
+- הצהרות גופנים מותאמים לעברית חייבות לכלול font-display: swap כדי למנוע FOIT (הבזק של טקסט בלתי נראה). סוכנים עלולים להשמיט את זה, וזה גורם לטקסט עברי להיעלם בזמן טעינת הגופן.
+- text-left ו-text-right ב-Tailwind הן תכונות פיזיות. תשתמשו בקלאסים text-start ו-text-end ליישור מודע RTL. סוכנים הולכים לקלאסי כיוון פיזיים כברירת מחדל.
+- כיוון של גרדיאנט וצל הוא פיזי, לא לוגי: `bg-gradient-to-r` וצללים עם היסט לא מתהפכים ב-RTL. הוסיפו דריסת `rtl:` (למשל `rtl:bg-gradient-to-l`) כשהכיוון משמעותי.
+
+## קישורי עזר
+
+| מקור | כתובת | מה לבדוק |
+|------|-------|----------|
+| תיעוד Tailwind CSS | https://tailwindcss.com/docs | תחביר תצורה עדכני, הערות מעבר ל-v4 |
+| תמיכת RTL ותכונות לוגיות ב-Tailwind | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | וריאנטי `rtl:` ו-`ltr:` |
+| Google Fonts – Heebo | https://fonts.google.com/specimen/Heebo | גופן ממשק עברי, משקלים, קוד טעינה |
+| Google Fonts – Assistant | https://fonts.google.com/specimen/Assistant | גופן גוף טקסט עברי |
+| MDN font-display | https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display | ערך swap והתמודדות עם FOIT |
+
+## פתרון בעיות
+
+### שגיאה: "תכונות השירות הלוגיות של Tailwind לא עובדות"
+סיבה: שימוש בגרסת Tailwind ישנה בלי תמיכה בתכונות לוגיות
+פתרון: כלי שירות לוגיים (ms-, me-, ps-, pe-, וה-inset‏ `inset-s-`/`inset-e-`, בעבר `start-`/`end-`) דורשים Tailwind v3.3+. ל-v3.0-3.2, תשתמשו בוריאנטי rtl:/ltr: במקום (`rtl:mr-4 ltr:ml-4` למשל). ב-Tailwind v4 התמיכה בתכונות לוגיות מובנית במלואה; השמות `inset-s-*`/`inset-e-*` נכנסו ב-v4.3 (השמות הישנים `start-*`/`end-*` עדיין עובדים).
+
+### שגיאה: "הגופן לא מוחל עם מחלקת font-hebrew"
+סיבה: משפחת גופנים עברית לא הוגדרה בתצורת Tailwind
+פתרון: תוסיפו מחסנית גופנים עברית לתמה של Tailwind תחת fontFamily.hebrew. תוודאו ש-CSS של הגופן מיובא (קישור Google Fonts או @font-face מקומי). תאמתו ששם המחלקה תואם למפתח התצורה.
+
+### שגיאה: "הסרגל הצד מופיע בצד הלא נכון ב-RTL"
+סיבה: פריסת Grid או Flex לא מכבדת את תכונת dir
+פתרון: CSS Grid ו-Flexbox מכבדים אוטומטית `dir="rtl"`. תוודאו ש-`dir="rtl"` מוגדר על אלמנט ה-`html`. תשתמשו בתכונות לוגיות לגבולות (border-e במקום border-r) ולריפוד (pe- במקום pr-). תשמרו על ערך ה-`direction` ב-CSS עקבי עם מאפיין ה-`dir` של ה-HTML - עדיף לקבוע כיוון דרך מאפיין ה-`dir` כדי שהמפל וריאנטי ה-`rtl:`/`ltr:` יישארו מסונכרנים; אם בכל זאת קובעים `direction` ב-CSS, תוודאו שהוא תואם ל-`dir`.
