@@ -49,20 +49,20 @@
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "cited page fetched; 16 of 23 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"site\"",
+      "verified_via": "cited page fetched; 48 of 55 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"site\"",
       "verified_at": "2026-08-18"
     },
     {
       "claim_id": "dark-mode-custom-variant",
       "claim": "In Tailwind v4 the darkMode config key is gone; class-based dark mode is opted into in CSS with @custom-variant dark (&:where(.dark, .dark *));.",
       "source_url": "https://tailwindcss.com/docs/dark-mode",
-      "raw_snippet": "Toggling dark mode manually If you want your dark theme to be driven by a CSS selector instead of the prefers-color-scheme media query, override the dark variant to use your custom selector: app.css @import \"tailwindcss\" ; @custom-variant dark (&:where(.dark, .dark *)) ; Now instead of dark:* utilities being applied based on prefers-color-scheme , they will be applied whenever the dark class is present earlier in the HTML tree: HTML < html class = \" dark \" > < body > < div class = \"bg-white dark :bg-black \" > <!--",
+      "raw_snippet": "Toggling dark mode manually If you want your dark theme to be driven by a CSS selector instead of the prefers-color-scheme media query, override the dark variant to use your custom selector: app.css @import \"tailwindcss\" ; @custom-variant dark (&:where(.dark, .",
       "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "cited page fetched; 11 of 16 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"query\"",
+      "verified_via": "cited page fetched; 34 of 39 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"want\"",
       "verified_at": "2026-08-18"
     },
     {
@@ -124,13 +124,13 @@
       "claim_id": "font-display-swap",
       "claim": "The font-display: swap descriptor renders fallback text immediately and swaps in the web font when loaded, mitigating FOIT.",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display",
-      "raw_snippet": "block Gives the font face a short block period and an infinite swap period. swap Gives the font face an extremely small block period and an infinite swap period. fallback Gives the font face an extremely small block period and a short swap period. optional Gives the font face an extremely small block period and no swap period. Note: In Firefox, the preferences gfx.downloadable_fonts.fallback_delay and gfx.downloadable_fonts.",
+      "raw_snippet": "optional Gives the font face an extremely small block period and no swap period. Note: In Firefox, the preferences gfx.downloadable_fonts.fallback_delay and gfx.downloadable_fonts.fallback_delay_short provide the duration of the \"short\" and \"extremely small\" periods, respectively. Description The font display timeline is based on a timer that begins the moment the user agent attempts to use a given downloaded font face.",
       "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "cited page fetched; 12 of 19 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"infinite\"",
+      "verified_via": "cited page fetched; 22 of 27 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"note\"",
       "verified_at": "2026-08-18"
     }
   ]
