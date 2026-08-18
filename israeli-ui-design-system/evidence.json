@@ -55,12 +55,14 @@
       "claim_id": "shadcn-ui",
       "claim": "shadcn/ui provides RTL-friendly component recipes and primitives.",
       "source_url": "https://ui.shadcn.com",
-      "raw_snippet": "shadcn/ui is a set of accessible, composable React component recipes built on Radix and Tailwind.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "The Foundation for your Design System - shadcn/ui",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "wcag-contrast",

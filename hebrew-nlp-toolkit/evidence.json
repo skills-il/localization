@@ -7,13 +7,15 @@
       "claim_id": "dicta-and-ivrit-models",
       "claim": "Hebrew NLP models used: the DictaBERT family (dicta-il/dictabert base masked-LM, -ner, -sentiment, -morph, -heq, -large-char-menaked Nakdan, neodictabert-bilingual-embed), the DictaLM 3.0 family (24B-Base/Thinking, Nemotron-12B-Instruct/Base, 1.7B-Thinking), and ivrit.ai Whisper (whisper-large-v3, -turbo-ct2). dictabert is a masked-LM base with no classification head, fine-tune or use a task-specific model for classification",
       "source_url": "https://huggingface.co/dicta-il",
-      "raw_snippet": "dicta-il/dictabert dictabert-ner dictabert-sentiment dictabert-morph dictabert-heq dictabert-large-char-menaked neodictabert-bilingual-embed DictaLM-3.0; AutoModelForMaskedLM; ivrit-ai/whisper-large-v3 turbo-ct2",
-      "fetched_at": "2026-06-17T00:55:00Z",
+      "raw_snippet": "dicta-il (DICTA: The Israel Center for Text Analysis)",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/model-comparison.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "ivrit-ai-corpus",

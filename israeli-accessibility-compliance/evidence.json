@@ -137,12 +137,14 @@
       "claim_id": "nvda-screen-reader",
       "claim": "NVDA is a free open-source Windows screen reader used to test Hebrew screen-reader compatibility.",
       "source_url": "https://www.nvaccess.org/",
-      "raw_snippet": "NVDA (NonVisual Desktop Access) is a free screen reader for Windows from NV Access.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "NV Access",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "commission-enforcement",

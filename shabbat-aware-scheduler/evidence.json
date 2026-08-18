@@ -84,15 +84,17 @@
     },
     {
       "claim_id": "rosh-hashana-2026",
-      "claim": "Rosh Hashana 2026: Friday September 11 (eve) through Sunday September 13. Combined with adjacent Shabbat this creates a three-day no-work span.",
-      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
-      "raw_snippet": "Rosh Hashana - Fri, Sept 11 - Sun, Sept 13 (multi-day span)",
-      "fetched_at": "2026-05-20",
+      "claim": "ראש השנה תשפ\"ז: ערב החג ביום שישי 11.9.2026, וימי החג 12 ו-13 בספטמבר, לפי לוח Hebcal.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&mod=on&nx=on&year=2026&month=x&ss=on&mf=on&c=off&geo=none",
+      "raw_snippet": "2026-09-11 Erev Rosh Hashana / 2026-09-12 Rosh Hashana 5787 / 2026-09-13 Rosh Hashana II",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-holiday-calendar.md"
-      ]
+      ],
+      "verified_via": "Hebcal JSON API queried for the full 2026 calendar and the dates read off the returned items",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "yom-kippur-2026",
@@ -136,15 +138,17 @@
     },
     {
       "claim_id": "tisha-bav-2026",
-      "claim": "Tisha B'Av 2026: eve Wednesday July 22 through Thursday July 23. Three Weeks period (17 Tammuz to 9 Av) runs early July to late July 2026.",
-      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
-      "raw_snippet": "Tisha B'Av - Wed, July 22 - Thu, July 23",
-      "fetched_at": "2026-05-20",
+      "claim": "תשעה באב 2026: ערב הצום ביום רביעי 22.7.2026 והצום ביום חמישי 23.7.2026, לפי לוח Hebcal.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&mod=on&nx=on&year=2026&month=x&ss=on&mf=on&c=off&geo=none",
+      "raw_snippet": "2026-07-22 Erev Tish’a B’Av / 2026-07-23 Tish’a B’Av",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-holiday-calendar.md"
-      ]
+      ],
+      "verified_via": "Hebcal JSON API queried for the full 2026 calendar and the dates read off the returned items",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "yom-haatzmaut-2026-nidcheh",
@@ -161,25 +165,29 @@
     },
     {
       "claim_id": "yom-hashoah-2026",
-      "claim": "Yom HaShoah 2026: April 13-14.",
-      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
-      "raw_snippet": "Yom HaShoah - Mon, Apr 13 - Tue, Apr 14",
-      "fetched_at": "2026-05-20",
+      "claim": "יום השואה 2026 חל ב-14 באפריל, כשהטקסים מתחילים בערב שלפניו, 13 באפריל, לפי לוח Hebcal.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&mod=on&nx=on&year=2026&month=x&ss=on&mf=on&c=off&geo=none",
+      "raw_snippet": "2026-04-14 Yom HaShoah",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "Hebcal JSON API queried for the full 2026 calendar and the dates read off the returned items",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "yom-hazikaron-2026",
-      "claim": "Yom HaZikaron 2026: April 20-21.",
-      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
-      "raw_snippet": "Yom HaZikaron - Mon, Apr 20 - Tue, Apr 21",
-      "fetched_at": "2026-05-20",
+      "claim": "יום הזיכרון 2026 חל ב-21 באפריל, כשהטקסים מתחילים בערב שלפניו, 20 באפריל, לפי לוח Hebcal.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&mod=on&nx=on&year=2026&month=x&ss=on&mf=on&c=off&geo=none",
+      "raw_snippet": "2026-04-21 Yom HaZikaron",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "Hebcal JSON API queried for the full 2026 calendar and the dates read off the returned items",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "hebcal-core-npm-version",

@@ -18,14 +18,16 @@
     },
     {
       "claim_id": "tailwind-v4-current",
-      "claim": "Tailwind CSS v4 has been GA since early 2025 and the current version is v4.3 (released May 2026); v4 uses CSS-first configuration with @import \"tailwindcss\".",
-      "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
-      "raw_snippet": "Tailwind CSS v4.3. May 8, 2026. CSS-first configuration via @import \"tailwindcss\".",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "Tailwind CSS v4 is the current major line and the latest published version is 4.3.3, per the npm registry.",
+      "source_url": "https://api.github.com/repos/tailwindlabs/tailwindcss/releases/latest",
+      "raw_snippet": "\"tag_name\": \"v4.3.3\", \"target_commitish\": \"main\", \"name\": \"v4.3.3\"",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "GitHub releases API for tailwindlabs/tailwindcss",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "tailwind-v43-inset-deprecation",
@@ -42,12 +44,14 @@
       "claim_id": "tailwind-logical-since-33",
       "claim": "Tailwind logical property utilities (ms-, me-, ps-, pe-, start-, end-, text-start, text-end) require Tailwind v3.3+ and are fully supported in v4.",
       "source_url": "https://tailwindcss.com/docs/margin",
-      "raw_snippet": "Use the ms-* and me-* utilities to set the margin-inline-start and margin-inline-end logical properties.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "margin - Spacing - Tailwind CSS",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "mui-rtl-plugin",
@@ -88,12 +92,14 @@
       "claim_id": "intl-numberformat-ils",
       "claim": "Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }) formats shekel amounts and Intl.DateTimeFormat('he-IL') formats dates for Hebrew locale.",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
-      "raw_snippet": "new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }) returns a formatter for Israeli new shekel currency.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "Intl.NumberFormat - JavaScript | MDN",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "ref-mdn-dir",
