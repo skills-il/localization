@@ -44,13 +44,13 @@
       "claim_id": "tailwind-logical-since-33",
       "claim": "Tailwind logical property utilities (ms-, me-, ps-, pe-, start-, end-, text-start, text-end) require Tailwind v3.3+ and are fully supported in v4.",
       "source_url": "https://tailwindcss.com/docs/margin",
-      "raw_snippet": "margin - Spacing - Tailwind CSS",
+      "raw_snippet": "croll-margin scroll-padding scroll-snap-align scroll-snap-stop scroll-snap-type touch-action user-select will-change SVG fill stroke stroke-width Accessibility forced-color-adjust Spacing margin Utilities for controlling an element's margin.",
       "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_via": "reference-coverage entry; snippet is a contiguous sentence from its source page",
       "verified_at": "2026-08-18"
     },
     {

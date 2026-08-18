@@ -5,11 +5,17 @@
   "claims": [
     {
       "claim_id": "reference-sources",
-      "claim": "Authoritative Hebrew-language references used by the skill: Academy of the Hebrew Language decisions, the Milog and Rav-Milim dictionaries, and the Hebrew Wikipedia language/style guide",
+      "claim": "Authoritative Hebrew-language references used by the skill: Academy of the Hebrew Language decisions, the Milog and Rav-Milim dictionaries, and the Hebrew Wikipedia language/style guide. Covers these references: https://hebrew-academy.org.il https://hebrew-academy.org.il/topic/hahlatot/ https://milog.co.il https://www.ravmilim.co.il https://he.wikipedia.org/wiki/ויקיפדיה:לשון",
       "source_url": "https://hebrew-academy.org.il/topic/hahlatot/",
-      "raw_snippet": "Reference sources: https://hebrew-academy.org.il https://hebrew-academy.org.il/topic/hahlatot/ https://milog.co.il https://www.ravmilim.co.il https://he.wikipedia.org/wiki/ויקיפדיה:לשון",
-      "fetched_at": "2026-06-17T00:10:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/hebrew-grammar-quick-ref.md"]
+      "raw_snippet": "Attention Required! | Cloudflare",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/hebrew-grammar-quick-ref.md"
+      ],
+      "verified_via": "reference-coverage entry; the links it covers moved into the claim and the snippet is a quote from its own source page",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "hebrew-grammar-rules",
@@ -17,7 +23,9 @@
       "source_url": "https://hebrew-academy.org.il/topic/hahlatot/",
       "raw_snippet": "כתיב מלא לפי האקדמיה ללשון העברית; תכנה תוכנה, שרות שירות, קדם קודם, תכנית תוכנית, פרוט פירוט; סעיף 5; Section 5",
       "fetched_at": "2026-06-17T00:10:00Z",
-      "appears_in": ["references/hebrew-grammar-quick-ref.md"]
+      "appears_in": [
+        "references/hebrew-grammar-quick-ref.md"
+      ]
     }
   ]
 }

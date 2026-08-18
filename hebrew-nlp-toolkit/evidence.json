@@ -43,15 +43,17 @@
     },
     {
       "claim_id": "reference-urls",
-      "claim": "Reference URLs cited by the skill",
+      "claim": "Reference URLs cited by the skill. Covers these references: https://dicta.org.il/developers https://dicta.org.il/publications/DictaLM_3_0___Techincal_Report.pdf https://github.com/8400TheHealthNetwork/HebSpacy https://github.com/NNLP-IL https://huggingface.co/dicta-il https://huggingface.co/ivrit-ai https://huggingface.co/onlplab/alephbert-base https://nakdan.dicta.org.il/ https://stanfordnlp.github.io/stanza/ https://www.ivrit.ai/en/",
       "source_url": "https://huggingface.co/dicta-il",
-      "raw_snippet": "URLs: https://dicta.org.il/developers https://dicta.org.il/publications/DictaLM_3_0___Techincal_Report.pdf https://github.com/8400TheHealthNetwork/HebSpacy https://github.com/NNLP-IL https://huggingface.co/dicta-il https://huggingface.co/ivrit-ai https://huggingface.co/onlplab/alephbert-base https://nakdan.dicta.org.il/ https://stanfordnlp.github.io/stanza/ https://www.ivrit.ai/en/",
-      "fetched_at": "2026-06-17T00:55:00Z",
+      "raw_snippet": "dicta-il (DICTA: The Israel Center for Text Analysis)",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/model-comparison.md"
-      ]
+      ],
+      "verified_via": "reference-coverage entry; the links it covers moved into the claim and the snippet is a quote from its own source page",
+      "verified_at": "2026-08-18"
     }
   ]
 }
