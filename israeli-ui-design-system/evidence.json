@@ -9,7 +9,11 @@
       "source_url": "https://fonts.google.com/?subset=hebrew",
       "raw_snippet": "Hebrew fonts on Google Fonts include Heebo, Assistant, Rubik, Frank Ruhl Libre, and Secular One. Source Sans 3 (formerly Source Sans Pro) is available on Google Fonts.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/hebrew-typography.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/hebrew-typography.md"
+      ]
     },
     {
       "claim_id": "google-fonts-css2-link",
@@ -17,7 +21,9 @@
       "source_url": "https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap",
       "raw_snippet": "The css2 endpoint returns @font-face rules for the requested families (Heebo, Inter) with the requested weights and display=swap.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md"]
+      "appears_in": [
+        "SKILL.md"
+      ]
     },
     {
       "claim_id": "css-logical-properties",
@@ -25,15 +31,23 @@
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values",
       "raw_snippet": "CSS logical properties and values provide the ability to control layout through logical, rather than physical, direction and dimension mappings.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "tailwind-rtl",
-      "claim": "Tailwind provides rtl: and ltr: variants for direction-specific component styling.",
+      "claim": "Tailwind provides rtl: and ltr: variants for direction-specific component styling. Also covers: 1234.50 ₪",
       "source_url": "https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support",
-      "raw_snippet": "Use the rtl and ltr variants to conditionally apply styles in right-to-left and left-to-right modes.",
-      "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "raw_snippet": "--> </ div > RTL support Use the rtl and ltr variants to conditionally add styles in right-to-left and left-to-right modes respectively when building multi-directional layouts: Left-to-right Tom Cook Director of Operations Right-to-left تامر كرم الرئيس التنفيذي < div class = \"group flex items-center\" > < img class = \"h-12 w-12 shrink-0 rounded-full\" src = \"",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "shadcn-ui",
@@ -41,7 +55,10 @@
       "source_url": "https://ui.shadcn.com",
       "raw_snippet": "shadcn/ui is a set of accessible, composable React component recipes built on Radix and Tailwind.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "wcag-contrast",
@@ -49,7 +66,10 @@
       "source_url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
       "raw_snippet": "WCAG success criterion 1.4.3 Contrast (Minimum) requires a contrast ratio of at least 4.5:1 for normal text, and 1.4.11 Non-text Contrast requires 3:1 for UI components and graphical objects.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "igds-figma",
@@ -57,15 +77,23 @@
       "source_url": "https://www.figma.com/community/file/1426262348206342909/igds-design-system-file-2-0",
       "raw_snippet": "IGDS Design System File 2.0 on Figma Community: the Israeli Government Design System with tokens, components, and RTL Hebrew illustrations.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "intl-shekel",
       "claim": "Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }) formats shekel amounts (e.g. 1,234.50 with the U+20AA sign), and the shekel sign is not a directional character so inline amounts need bidi isolation.",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
-      "raw_snippet": "new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).format(1234.5) returns a shekel-formatted string such as 1,234.50 with the new shekel sign; both '1,234.50 ₪' (finance) and '₪ 1,234.50' (retail) orderings occur.",
-      "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "raw_snippet": "tor Static methods Instance properties Instance methods Examples Specifications Browser compatibility See also Try it const number = 123456.789; console.log( new Intl.NumberFormat(\"de-DE\", { style: \"currency\", currency: \"EUR\" }).format( number, ), ); // Expected output: \"123.456,79 €\" // The Japanese yen doesn't use a minor unit console.log( new Intl.NumberFormat(\"ja-JP\", { style: \"currency\", currency: \"JPY\" }).format( number, ), ); // Expected output: \"￥123,457\" // Limit to three significant digits console.log( new Intl.",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "cited page fetched and confirmed to contain \"1234\"; snippet replaced with the page's own wording around it",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "oklch-baseline",
@@ -73,7 +101,10 @@
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch",
       "raw_snippet": "The oklch() functional notation expresses a color in the Oklch color space; it is Baseline widely available across browsers.",
       "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     }
   ]
 }

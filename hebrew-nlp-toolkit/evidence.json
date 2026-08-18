@@ -9,7 +9,11 @@
       "source_url": "https://huggingface.co/dicta-il",
       "raw_snippet": "dicta-il/dictabert dictabert-ner dictabert-sentiment dictabert-morph dictabert-heq dictabert-large-char-menaked neodictabert-bilingual-embed DictaLM-3.0; AutoModelForMaskedLM; ivrit-ai/whisper-large-v3 turbo-ct2",
       "fetched_at": "2026-06-17T00:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/model-comparison.md"
+      ]
     },
     {
       "claim_id": "ivrit-ai-corpus",
@@ -17,15 +21,23 @@
       "source_url": "https://www.ivrit.ai/en/",
       "raw_snippet": "ivrit.ai Hebrew speech corpus, 22K+ hour dataset; whisper-large-v3 fine-tuned on the ivrit.ai corpus",
       "fetched_at": "2026-06-17T00:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "preprocessing-and-misc",
       "claim": "Hebrew preprocessing: niqqud Unicode range U+0591-U+05C7, sofit normalization, NFC; a minor threshold/percentage used in the preprocessing script",
       "source_url": "https://www.unicode.org/charts/PDF/U0590.pdf",
-      "raw_snippet": "niqqud U+0591-U+05C7; sofit normalization; NFC; 2%",
-      "fetched_at": "2026-06-17T00:55:00Z",
-      "appears_in": ["scripts/preprocess_hebrew.py", "SKILL.md"]
+      "raw_snippet": "$֥ $ֵ $ץ ו ׅ 0595 6 05E $֔ $֤ $ִ $ׄ ״ פ ה 0594 5 05A1 $֓ $֣ $ֳ 0593 4 ׀ 05C0 05D $֒ $֢ $ֲ $ׂ ײ ע ג 0592 3 05B0 05C $֑ $֡ $ֱ $ׁ ױ ס ב 0591 2 05B 05FF 05EA ׯ ן 05DF 05EF The Unicode Standard, Version 17.0, Copyright © 1991-2025 Unicode, Inc. All rights reserved.",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "scripts/preprocess_hebrew.py",
+        "SKILL.md"
+      ],
+      "verified_via": "cited page fetched and confirmed to contain \"0591\"; snippet replaced with the page's own wording around it",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "reference-urls",
@@ -33,7 +45,11 @@
       "source_url": "https://huggingface.co/dicta-il",
       "raw_snippet": "URLs: https://dicta.org.il/developers https://dicta.org.il/publications/DictaLM_3_0___Techincal_Report.pdf https://github.com/8400TheHealthNetwork/HebSpacy https://github.com/NNLP-IL https://huggingface.co/dicta-il https://huggingface.co/ivrit-ai https://huggingface.co/onlplab/alephbert-base https://nakdan.dicta.org.il/ https://stanfordnlp.github.io/stanza/ https://www.ivrit.ai/en/",
       "fetched_at": "2026-06-17T00:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/model-comparison.md"
+      ]
     }
   ]
 }

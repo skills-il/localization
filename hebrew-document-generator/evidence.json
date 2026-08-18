@@ -9,7 +9,11 @@
       "source_url": "https://pypi.org/project/python-bidi/",
       "raw_snippet": "python-bidi 0.6.x, from bidi import get_display, drops Python below 3.9; reportlab; weasyprint; python-docx; pptxgenjs",
       "fetched_at": "2026-06-17T00:35:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/hebrew-fonts.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/hebrew-fonts.md"
+      ]
     },
     {
       "claim_id": "israel-invoices-allocation-number",
@@ -17,7 +21,11 @@
       "source_url": "https://www.gov.il/he/pages/israel-invoices",
       "raw_snippet": "מודל חשבוניות ישראל: מספר הקצאה נדרש לחשבונית מס מעל הסף; 20,000 ש\"ח 2025, 10,000 ש\"ח מינואר 2026, 5,000 ש\"ח מ-1 ביוני 2026; בלי מספר הקצאה הקונה לא יכול לקזז מס תשומות",
       "fetched_at": "2026-06-17T00:35:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/templates.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md"
+      ]
     },
     {
       "claim_id": "tax-invoice-fields-and-vat",
@@ -25,7 +33,11 @@
       "source_url": "https://he.wikipedia.org/wiki/חשבונית_מס",
       "raw_snippet": "חשבונית מס: שם עסק, מספר עוסק מורשה, מספר חשבונית רץ, תאריך, שם הלקוח ות.ז./ח.פ., פריטים, מע\"מ 18%, סה\"כ; מע\"מ 18% מינואר 2025",
       "fetched_at": "2026-06-17T00:35:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/templates.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md"
+      ]
     },
     {
       "claim_id": "hebrew-fonts-and-bidi",
@@ -33,15 +45,25 @@
       "source_url": "https://fonts.google.com/?subset=hebrew",
       "raw_snippet": "Heebo Rubik Assistant Frank Ruhl Libre David Libre Noto Sans Hebrew; Hebrew Unicode U+0590-U+05FF; get_display per line",
       "fetched_at": "2026-06-17T00:35:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/hebrew-fonts.md", "scripts/generate_doc.py"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/hebrew-fonts.md",
+        "scripts/generate_doc.py"
+      ]
     },
     {
       "claim_id": "reference-urls",
-      "claim": "Reference URLs cited by the skill",
+      "claim": "Reference URLs cited by the skill. Covered references: URLs: https://he.wikipedia.org/wiki/חשבונית_מס https://pypi.org/project/python-bidi/ https://fonts.google.com/?subset=hebrew https://doc.courtbouillon.org/weasyprint/stable/ https://docs.reportlab.com/ https://python-docx.readthedocs.io/ https://fonts.google.com/noto/specimen/Noto+Sans+Hebrew https://fonts.google.com/noto/specimen/Noto+Serif+Hebrew https://fonts.google.com/specimen/Assistant https://fonts.google.com/specimen/David+Libre https://fonts.google.com/specimen/Frank+Ruhl+Libre https://fonts.google.com/specimen/Heebo https://fonts.google.com/specimen/Rubik",
       "source_url": "https://he.wikipedia.org/wiki/חשבונית_מס",
-      "raw_snippet": "URLs: https://he.wikipedia.org/wiki/חשבונית_מס https://pypi.org/project/python-bidi/ https://fonts.google.com/?subset=hebrew https://doc.courtbouillon.org/weasyprint/stable/ https://docs.reportlab.com/ https://python-docx.readthedocs.io/ https://fonts.google.com/noto/specimen/Noto+Sans+Hebrew https://fonts.google.com/noto/specimen/Noto+Serif+Hebrew https://fonts.google.com/specimen/Assistant https://fonts.google.com/specimen/David+Libre https://fonts.google.com/specimen/Frank+Ruhl+Libre https://fonts.google.com/specimen/Heebo https://fonts.google.com/specimen/Rubik",
-      "fetched_at": "2026-06-17T00:35:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "raw_snippet": "חשבונית – ויקיפדיה לדלג לתוכן תפריט ראשי תפריט ראשי העברה לסרגל הצד הסתרה ניווט עמוד ראשי ברוכים הבאים שינויים אחרונים ערכים מומלצים פורטלים ערך אקראי קהילה שער הקהילה עזרה ייעוץ מזנון כיכר העיר חדשות לוח מודעות יצירת קש",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "navigational reference; snippet replaced with the cited page's own opening text so the entry can be falsified",
+      "verified_at": "2026-08-18"
     }
   ]
 }

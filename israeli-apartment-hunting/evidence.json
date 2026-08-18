@@ -90,12 +90,14 @@
       "claim_id": "vat-rate-18",
       "claim": "Israeli VAT rate is 18% effective January 1, 2025 (raised from 17%)",
       "source_url": "https://marosavat.com/vat-news/israel-increases-vat-rate-from-17-to-18-by-2025",
-      "raw_snippet": "Israel VAT raised from 17% to 18% effective 2025",
-      "fetched_at": "2026-05-18T01:50:00Z",
+      "raw_snippet": "Israel Increases VAT Rate from 17% to 18% By 2025 Product VATify VAT Compliance RTR Compliance VAT Recovery e-Invoicing Peppol Country by Country AI VAT Automation Industries Enterprise Tax firms E-commerce sellers Partners Resources VAT Overviews VAT format number e-Invoicing in Europe Fiscal representative obligations How to get a VAT number Statute of limitations in Europe VAT Due Dates in Europe VAT on Online Sales VAT Rates in Eu",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "cited page fetched and confirmed to contain \"18%\"; snippet replaced with the page's own wording around it",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "mamad-1992-requirement",
@@ -160,22 +162,26 @@
       "claim_id": "small-claims-ceiling-2026-canonical",
       "claim": "Small Claims Court ceiling effective January 1, 2026 is NIS 39,900 / 39,900 ש\"ח (raised from NIS 35,800)",
       "source_url": "https://pelleg-law.co.il/%D7%AA%D7%A7%D7%A8%D7%AA-%D7%AA%D7%91%D7%99%D7%A2%D7%95%D7%AA-%D7%A7%D7%98%D7%A0%D7%95%D7%AA-2026/",
-      "raw_snippet": "Small Claims ceiling NIS 39,900 / 39,900 NIS / 39,900 ש\"ח / 39,900 שקל from January 1, 2026",
-      "fetched_at": "2026-05-18T02:00:00Z",
+      "raw_snippet": "תקרת תביעה תביעות קטנות עד 39,900 ₪ דלג לתוכן 03-7385404 בית אודות בתקשורת משפט אזרחי-מסחרי תביעות קטנות דיני שכירות תביעות נגד מוסכים מכתב התראה לפני תביעה תצהירים ואימות חתימה חוזים והסכמים התמחויות עורך דין לרישוי רופאים, עררים בחינות התמחות והכרה מחו\"ל הכרה בתואר מחו״ל ייצוג סטודנטים בוועדות משמעת ייעוץ וייצוג פסיכולוגים מאמרים צור קשר בית אודות בתקשורת משפט אזרחי-מסחרי תביעות קטנות דיני שכירות תביעות נגד מוסכים מכתב הת",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "cited page fetched and confirmed to contain \"39,900\"; snippet replaced with the page's own wording around it",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "rent-budget-calc-input-range",
       "claim": "rental-budget-calculator.py validates input rent is between 500 and 50,000 NIS — a sanity bound on the calculator, not a market claim",
       "source_url": "https://github.com/skills-il/localization/blob/master/israeli-apartment-hunting/scripts/rental-budget-calculator.py",
-      "raw_snippet": "Calculator input sanity bound: Rent must be between 500 and 50,000 NIS (50,000 NIS upper bound for argument validation only)",
-      "fetched_at": "2026-05-18T02:15:00Z",
+      "raw_snippet": "parse_args () # Validate rent if args . rent < 500 or args . rent > 50000 : print ( \"Error: Rent must be between 500 and 50,000 NIS.\" ) sys . exit ( 1 ) # Validate rooms if args . rooms < 1 or args . rooms > 8 : print ( \"Error: Rooms must be between 1 and 8.\" ) sys . exit ( 1 ) result , error = calculate_budget ( rent = args . rent , city = args . city , rooms = args . rooms , oleh = args . oleh , oleh_year = args . oleh_year , parking = args . parking , insurance_opt = args .",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "scripts/rental-budget-calculator.py"
-      ]
+      ],
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "verified_at": "2026-08-18"
     }
   ]
 }
