@@ -29,7 +29,7 @@
       "claim_id": "css-logical-properties",
       "claim": "CSS logical properties (padding-inline, margin-block, inset-inline-start) provide direction-aware layout and are documented by MDN.",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values",
-      "raw_snippet": "cal properties and values The CSS logical properties and values module defines logical properties and values that can control layout through logical rather than physical direction and dimension mappings. Logical properties define direction‐relative equivalents to their corresponding physical properties. The start of a line is not always the left side of a line. Different writing systems operate in various directions. For example: English and Portuguese are written from left to right with new lines added below the previous ones.",
+      "raw_snippet": "properties and values The CSS logical properties and values module defines logical properties and values that can control layout through logical rather than physical direction and dimension mappings. Logical properties define direction‐relative equivalents to their corresponding physical properties. The start of a line is not always the left side of a line. Different writing systems operate in various directions. For example: English and Portuguese are written from left to right with new lines added below the previous ones.",
       "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
@@ -90,7 +90,7 @@
       "claim_id": "intl-shekel",
       "claim": "Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }) formats shekel amounts (e.g. 1,234.50 with the U+20AA sign), and the shekel sign is not a directional character so inline amounts need bidi isolation.",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
-      "raw_snippet": "tor Static methods Instance properties Instance methods Examples Specifications Browser compatibility See also Try it const number = 123456.789; console.log( new Intl.NumberFormat(\"de-DE\", { style: \"currency\", currency: \"EUR\" }).format( number, ), ); // Expected output: \"123.456,79 €\" // The Japanese yen doesn't use a minor unit console.log( new Intl.NumberFormat(\"ja-JP\", { style: \"currency\", currency: \"JPY\" }).format( number, ), ); // Expected output: \"￥123,457\" // Limit to three significant digits console.log( new Intl.",
+      "raw_snippet": "Static methods Instance properties Instance methods Examples Specifications Browser compatibility See also Try it const number = 123456.789; console.log( new Intl.NumberFormat(\"de-DE\", { style: \"currency\", currency: \"EUR\" }).format( number, ), ); // Expected output: \"123.456,79 €\" // The Japanese yen doesn't use a minor unit console.log( new Intl.NumberFormat(\"ja-JP\", { style: \"currency\", currency: \"JPY\" }).format( number, ), ); // Expected output: \"￥123,457\" // Limit to three significant digits console.log( new Intl.",
       "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
