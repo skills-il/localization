@@ -64,12 +64,14 @@
       "claim_id": "nextfont-selfhost",
       "claim": "next/font self-hosts Google fonts (Heebo) with no external request and zero layout shift; the API takes subsets and weight options.",
       "source_url": "https://nextjs.org/docs/app/getting-started/fonts",
-      "raw_snippet": "next/font automatically self-hosts any Google Font. Fonts are included in the deployment and served from the same domain, with no requests sent to Google.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "It includes built-in self-hosting for any font file. This means you can optimally load web fonts with no layout shift. To start using next/font , import it from next/font/local or next/font/google , call it as a function with the appropriate options, and set the className of the element you want to apply the font to. For example: app/layout.",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "cited page fetched; 18 of 22 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"shift\"",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "hebrew-google-fonts",

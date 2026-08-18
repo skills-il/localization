@@ -58,25 +58,29 @@
       "claim_id": "pesach-2026",
       "claim": "Pesach 2026 runs April 1 to April 8 (first day April 2, last day April 8) in Israeli observance.",
       "source_url": "https://www.hebcal.com/holidays/2026?i=on",
-      "raw_snippet": "Pesach - Wed, Apr 1 - Wed, Apr 8",
-      "fetched_at": "2026-05-20",
+      "raw_snippet": "It is marked by the birth of a new moon. Note: the first day of Tishrei is not considered Rosh Chodesh. The holiday that occurs on the 1st day of Tishrei is called Rosh Hashana , the Jewish New Year. For the month of Tishrei, the major holiday of Rosh Hashana takes precedence over what would be a minor holiday.",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-holiday-calendar.md"
-      ]
+      ],
+      "verified_via": "cited page fetched; 5 of 7 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"first\"",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "shavuot-2026",
       "claim": "Shavuot 2026 begins evening Thursday May 21 and ends evening Friday May 22, one-day Yom Tov in Israel.",
       "source_url": "https://www.hebcal.com/holidays/2026?i=on",
-      "raw_snippet": "Shavuot - Thu, May 21 - Fri, May 22",
-      "fetched_at": "2026-05-20",
+      "raw_snippet": "Days of the Omer : Thu, 2 April sunset - Thu, 21 May nightfall Shavuot ⛰️🌸 Thu, 21 May sunset - Fri, 22 May nightfall Dates listed are for Israel 🇮🇱 6 Sivan 5786 Festival of Weeks. Commemorates the giving of the Torah at Mount Sinai. Tish’a B’Av ✡️ Wed, 22 July sunset - Thu, 23 July nightfall 9 Av 5786 The Ninth of Av. Fast commemorating the destruction of the two Temples.",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-holiday-calendar.md"
-      ]
+      ],
+      "verified_via": "cited page fetched; 5 of 8 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"shavuot\"",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "rosh-hashana-2026",
@@ -94,13 +98,15 @@
       "claim_id": "yom-kippur-2026",
       "claim": "Yom Kippur 2026: evening Sunday September 20 through evening Monday September 21.",
       "source_url": "https://www.hebcal.com/holidays/2026?i=on",
-      "raw_snippet": "Yom Kippur - Sun, Sept 20 - Mon, Sept 21",
-      "fetched_at": "2026-05-20",
+      "raw_snippet": "Also spelled Rosh Hashanah. Tzom Gedaliah : Mon, 14 September dawn - nightfall Yom Kippur ✡️ Sun, 20 September sunset - Mon, 21 September nightfall 10 Tishrei 5787 Day of Atonement. The holiest day of the year in Judaism, traditionally observed with a 25-hour period of fasting and intensive prayer. Sukkot 🌿🍋 Fri, 25 September sunset - Fri, 2 October nightfall 15-21 Tishrei 5787 Feast of Booths.",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-holiday-calendar.md"
-      ]
+      ],
+      "verified_via": "cited page fetched; 5 of 7 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"kippur\"",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "sukkot-2026-a",

@@ -29,12 +29,14 @@
       "claim_id": "css-logical-properties",
       "claim": "CSS logical properties (padding-inline, margin-block, inset-inline-start) provide direction-aware layout and are documented by MDN.",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values",
-      "raw_snippet": "CSS logical properties and values provide the ability to control layout through logical, rather than physical, direction and dimension mappings.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "cal properties and values The CSS logical properties and values module defines logical properties and values that can control layout through logical rather than physical direction and dimension mappings. Logical properties define direction‐relative equivalents to their corresponding physical properties. The start of a line is not always the left side of a line. Different writing systems operate in various directions. For example: English and Portuguese are written from left to right with new lines added below the previous ones.",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "cited page fetched; 14 of 18 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"through\"",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "tailwind-rtl",
@@ -99,12 +101,14 @@
       "claim_id": "oklch-baseline",
       "claim": "The CSS oklch() color function is Baseline (widely available) since 2023, enabling perceptually-uniform color ramps.",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch",
-      "raw_snippet": "The oklch() functional notation expresses a color in the Oklch color space; it is Baseline widely available across browsers.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "default Light Dark English (US) Remember language Learn more Deutsch English (US) Français 日本語 中文 (简体) oklch() CSS function Baseline Widely available * This feature is well established and works across many devices and browser versions. It’s been available across browsers since May 2023. * Some parts of this feature may have varying levels of support. Learn more See full compatibility The oklch() functional notation expresses a given color in the Oklab color space .",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "cited page fetched; 11 of 14 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"widely\"",
+      "verified_at": "2026-08-18"
     }
   ]
 }
