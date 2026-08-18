@@ -7,14 +7,14 @@
       "claim_id": "reference-sources",
       "claim": "Authoritative Hebrew-language references used by the skill: Academy of the Hebrew Language decisions, the Milog and Rav-Milim dictionaries, and the Hebrew Wikipedia language/style guide. Covers these references: https://hebrew-academy.org.il https://hebrew-academy.org.il/topic/hahlatot/ https://milog.co.il https://www.ravmilim.co.il https://he.wikipedia.org/wiki/ויקיפדיה:לשון",
       "source_url": "https://hebrew-academy.org.il/topic/hahlatot/",
-      "raw_snippet": "Attention Required! | Cloudflare",
+      "raw_snippet": "כל ההחלטות אושרו במליאת האקדמיה, ורובן ככולן פורסמו ברשומות ובחוברות מיוחדות בהוצאת המזכירות המדעית של האקדמיה.",
       "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/hebrew-grammar-quick-ref.md"
       ],
-      "verified_via": "reference-coverage entry; the links it covers moved into the claim and the snippet is a quote from its own source page",
+      "verified_via": "Academy of the Hebrew Language decisions page read in a browser",
       "verified_at": "2026-08-18"
     },
     {
