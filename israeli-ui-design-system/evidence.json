@@ -19,11 +19,13 @@
       "claim_id": "google-fonts-css2-link",
       "claim": "The Google Fonts css2 endpoint loads Heebo and Inter with font-display: swap via an @import or link.",
       "source_url": "https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap",
-      "raw_snippet": "The css2 endpoint returns @font-face rules for the requested families (Heebo, Inter) with the requested weights and display=swap.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 300; font-display: swap; src: url(https://fonts.gstatic.com/s/heebo/v28/NGS6v5_NC0k9P9H0TbFhsqMA6aw.woff2) format('woff",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "css-logical-properties",

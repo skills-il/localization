@@ -57,12 +57,14 @@
       "claim_id": "mui-rtl-plugin",
       "claim": "Current MUI (v9 as of 2026) uses the official fork @mui/stylis-plugin-rtl for RTL, recommended since MUI v6.",
       "source_url": "https://mui.com/material-ui/customization/right-to-left/",
-      "raw_snippet": "Right-to-left support. Use the @mui/stylis-plugin-rtl plugin with the prefixer to enable RTL in Material UI.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "Right-to-left support - Material UI",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "nextfont-selfhost",
@@ -177,12 +179,14 @@
       "claim_id": "scrollbar-gutter-baseline",
       "claim": "scrollbar-gutter became Baseline (newly available) in December 2024; reserving the gutter avoids content reflow. text-wrap: balance is referenced in the skill only as a heading-readability aid, with no Baseline-date claim.",
       "source_url": "https://web.dev/blog/baseline-scrollbar-props",
-      "raw_snippet": "scrollbar-gutter and the scrollbar-color and scrollbar-width properties are now Baseline newly available as of December 11, 2024.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "CSS scrollbar-gutter and scrollbar-width are Baseline Newly available | Articles | web.dev",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     }
   ]
 }

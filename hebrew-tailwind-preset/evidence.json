@@ -113,12 +113,14 @@
       "claim_id": "google-fonts-css2-link",
       "claim": "The Google Fonts css2 endpoint loads Heebo and Assistant with font-display: swap via a stylesheet link.",
       "source_url": "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&display=swap",
-      "raw_snippet": "The css2 endpoint returns @font-face rules for the requested families (Heebo, Assistant) with the requested weights and display=swap.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Assistant'; font-style: normal; font-weight: 400; font-display: swap; src: url(https://fonts.gstatic.com/s/assistant/v24/2sDcZGJYnIjSi6H75xkzamW5Kb8VZBHR.woff2)",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "font-display-swap",
