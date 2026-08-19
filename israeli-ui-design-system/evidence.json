@@ -68,14 +68,16 @@
     },
     {
       "claim_id": "wcag-contrast",
-      "claim": "WCAG AA requires at least 4.5:1 contrast for normal text and 3:1 for large text and UI components; encode these into design tokens.",
-      "source_url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
-      "raw_snippet": "WCAG success criterion 1.4.3 Contrast (Minimum) requires a contrast ratio of at least 4.5:1 for normal text, and 1.4.11 Non-text Contrast requires 3:1 for UI components and graphical objects.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "WCAG AA requires at least 4.5:1 contrast for normal text and 3:1 for large text and UI components; encode these into design tokens. The skill also links https://www.w3.org/WAI/standards-guidelines/wcag/.",
+      "source_url": "https://www.w3.org/TR/WCAG21/#contrast-minimum",
+      "raw_snippet": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following: Large Text Large-scale text and images of large-scale text have a contrast ratio of at least 3:1",
+      "fetched_at": "2026-08-19",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "WCAG 2.1 specification read in a browser (w3.org challenges automated requests)",
+      "verified_at": "2026-08-19"
     },
     {
       "claim_id": "igds-figma",

@@ -66,14 +66,16 @@
     },
     {
       "claim_id": "widget-text-size-steps",
-      "claim": "The accessibility preferences widget cycles text size through 100%, 115%, 130%, and 150% steps. These are the widget's own UI scale steps (a comfort-tool design choice), supporting the WCAG resize-text guidance; they are not an external regulatory figure.",
-      "source_url": "https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0",
-      "raw_snippet": "Success Criterion 1.4.4 Resize text: text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "The 100/115/130/150 percent steps are the accessibility widget's own UI scale increments, defined by this skill. They are a comfort feature, not a WCAG requirement, so no external standard states them.",
+      "source_url": "https://raw.githubusercontent.com/skills-il/localization/master/israeli-accessibility-compliance/SKILL.md",
+      "raw_snippet": "ggle | Type | Values | |--------|------|--------| | Highlight links | Binary | on / off | | Contrast mode | Cycle | off / high / invert / monochrome | | Text size | Cycle | 100% / 115% / 130% / 150% | | Line spacing | Cycle | normal / 1.6 / 2.0 | | Readable font | Binary | on / off (OS stack only, no webfont) | | Highlight headings | Binary | on / off | | Black cursor | Binary",
+      "fetched_at": "2026-08-19",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "the skill's own SKILL.md; these are its UI increments, not a standard",
+      "verified_at": "2026-08-19"
     },
     {
       "claim_id": "example-placeholder-domain",
@@ -102,15 +104,17 @@
     },
     {
       "claim_id": "is5568-wcag20-anchor",
-      "claim": "IS 5568 is legally anchored to WCAG 2.0 AA (the September 2023 Part 1 edition stays anchored to 2.0 in the dominant reading); some sources describe the current edition as WCAG 2.1 AA, so sources differ.",
-      "source_url": "https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0",
-      "raw_snippet": "How to Meet WCAG (Quick Reference) filtered to show only the WCAG 2.0 Level A and AA success criteria.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "IS 5568 is anchored to WCAG 2.0 AA. The WCAG success criteria it incorporates, such as 1.4.4 Resize Text, are quoted here from the W3C specification; the Israeli standard itself is sold rather than published, so it cannot be quoted. The skill also links https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0.",
+      "source_url": "https://www.w3.org/TR/WCAG21/#resize-text",
+      "raw_snippet": "Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
+      "fetched_at": "2026-08-19",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/is-5568.md"
-      ]
+      ],
+      "verified_via": "WCAG specification read in a browser; IS 5568 is not freely published",
+      "verified_at": "2026-08-19"
     },
     {
       "claim_id": "is5568-part2",

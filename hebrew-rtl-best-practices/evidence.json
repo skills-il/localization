@@ -155,12 +155,14 @@
       "claim_id": "ref-w3c-bidi",
       "claim": "W3C Internationalization documents inline bidi markup and the Unicode bidirectional algorithm best practices.",
       "source_url": "https://www.w3.org/International/articles/inline-bidi-markup/",
-      "raw_snippet": "Creating HTML pages in Arabic, Hebrew and other right-to-left scripts: inline markup and bidirectional text.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "Arabic, Hebrew, and other languages that use right-to-left scripts commonly include numerals or include text written in the Latin or other scripts: both of these typically flow left-to-right within the overall right-to-left context.",
+      "fetched_at": "2026-08-19",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "W3C i18n article read in a browser (w3.org challenges automated requests)",
+      "verified_at": "2026-08-19"
     },
     {
       "claim_id": "illustrative-shekel-testcase",
