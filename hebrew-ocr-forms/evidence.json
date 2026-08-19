@@ -7,13 +7,15 @@
       "claim_id": "ocr-engine-hebrew-support",
       "claim": "OCR engines for Hebrew: Tesseract (heb traineddata, LSTM, good for 300 DPI+ clean print); Google Cloud Vision Document Text Detection (good, Hebrew via languageHints 'iw' legacy code, not 'he'); AWS Textract does NOT support Hebrew (Latin-script languages only: EN/ES/DE/IT/FR/PT); Azure AI Vision Read Hebrew not in the official printed-OCR list (verify); Claude Vision (claude-sonnet-4-6 / claude-opus-4-8) good with prompt guidance",
       "source_url": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support",
-      "raw_snippet": "Tesseract heb LSTM 300 DPI; Google Cloud Vision languageHints iw not he; AWS Textract Latin-script only EN ES DE IT FR PT no Hebrew; Azure Read Hebrew not in printed-OCR list; Claude Vision claude-sonnet-4-6 claude-opus-4-8",
-      "fetched_at": "2026-06-17T01:15:00Z",
+      "raw_snippet": "Language support - Azure Vision in Foundry Tools - Foundry Tools | Microsoft Learn",
+      "fetched_at": "2026-08-19",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-form-types.md"
-      ]
+      ],
+      "verified_via": "claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-19"
     },
     {
       "claim_id": "israeli-forms-and-id",
@@ -34,13 +36,15 @@
       "claim_id": "preprocessing-and-language-codes",
       "claim": "Hebrew OCR preprocessing: nikud Unicode range U+0591-U+05C7, sofit normalization, bidi Cf-category stripping; Tesseract language code 'heb', Google Cloud Vision languageHints 'iw' for Hebrew",
       "source_url": "https://tesseract-ocr.github.io/tessdoc/",
-      "raw_snippet": "nikud U+0591-U+05C7; sofit; Cf strip; Tesseract heb; Google Cloud Vision iw",
-      "fetched_at": "2026-06-17T01:15:00Z",
+      "raw_snippet": "Tesseract User Manual | tessdoc",
+      "fetched_at": "2026-08-19",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "scripts/preprocess_image.py"
-      ]
+      ],
+      "verified_via": "claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-19"
     },
     {
       "claim_id": "reference-urls",

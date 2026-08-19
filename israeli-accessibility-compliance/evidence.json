@@ -41,15 +41,17 @@
     },
     {
       "claim_id": "amendment-23-izum",
-      "claim": "Amendment 23 to the Equal Rights Act gave the Commission an administrative-enforcement track with monetary penalties (izum kaspi), scaled by operator size: micro business up to 2,000,000 NIS turnover, small business up to 20,000,000 NIS, regular business above that or a public authority.",
+      "claim": "תיקון 23 לחוק שוויון זכויות לאנשים עם מוגבלות הקנה לנציבות מסלול אכיפה מינהלי עם עיצומים כספיים. הפרה חוזרת או נמשכת מובילה לעיצומים גבוהים יותר, ובארבע השנים הראשונות עסקים זעירים וקטנים מקבלים התראה מינהלית בהפרה ראשונה.",
       "source_url": "https://www.gov.il/he/pages/equality_law_23_amendment_explanation",
-      "raw_snippet": "תיקון 23 לחוק שוויון זכויות לאנשים עם מוגבלות מסמיך את הנציבות להטיל עיצומים כספיים. גובה העיצום נקבע לפי גודל העוסק: עסק זעיר עד מחזור 2,000,000 ש\"ח, עסק קטן עד 20,000,000 ש\"ח, ועסק רגיל מעל זה.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "בסופו של התהליך ייקבע האם להטיל עיצום כספי או לנקוט בהליך אכיפה אחר וכן יקבע גובה העיצום אם יוטל. כמו כן, החוק קובע כי הפרה חוזרת או הפרה נמשכת של הוראות החוק מצד אותו גוף, יובילו לעיצומים בסכומים גבוהים יותר מהסכום המקורי.",
+      "fetched_at": "2026-08-19",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/is-5568.md"
-      ]
+      ],
+      "verified_via": "Equal Rights Commission explanation page rendered in a browser",
+      "verified_at": "2026-08-19"
     },
     {
       "claim_id": "regulation-35-morshe",
@@ -126,12 +128,14 @@
       "claim_id": "accessibe-ftc-fine",
       "claim": "In April 2025 the FTC approved a final order requiring accessibility-overlay vendor accessiBe to pay $1,000,000, supporting the skill's warning against automatic accessibility overlays/widgets.",
       "source_url": "https://www.ftc.gov/news-events/news/press-releases/2025/04/ftc-approves-final-order-requiring-accessibe-pay-1-million",
-      "raw_snippet": "FTC Approves Final Order Requiring accessiBe to Pay $1 Million over deceptive claims that its automated overlay product could make any website compliant.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "adcrumb Home News and Events News Press Releases For Your Information FTC Approves Final Order Requiring accessiBe to pay $1 Million April 22, 2025 Tags: Consumer Protection Bureau of Consumer Protection deceptive/misleading conduct Technology Advertising and Marketing The Federal Trade Commission has approved a final consent order against accessiBe Inc. and accessiBe Ltd. (accessiBe). AccessiBe claimed the plug-in accessWidget can make any website compliant with Web Content Accessibility Guidelines (WCAG).",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "cited page fetched; 18 of 26 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"april\"",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "nvda-screen-reader",
@@ -152,6 +156,19 @@
       "source_url": "https://www.gov.il/he/departments/moj_disability_rights/govil-landing-page",
       "raw_snippet": "נציבות שוויון זכויות לאנשים עם מוגבלות במשרד המשפטים אחראית על אכיפת חוק הנגישות וטיפול בתלונות.",
       "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "izum-size-thresholds",
+      "claim": "חוק שוויון זכויות לאנשים עם מוגבלות מגדיר את מדרגות הגודל לעניין העיצום הכספי: \"חייב זעיר\" הוא מי שמחזור העסקאות השנתי שלו לא עלה על 2,000,000 ש\"ח, \"חייב קטן\" הוא מי שמחזורו עלה על 2,000,000 ש\"ח ולא עלה על 20,000,000 ש\"ח, וכל השאר הם \"חייב רגיל\". רשות ציבורית אינה נכללת בשתי המדרגות הראשונות.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "\"חייב זעיר\" – חייב, למעט רשות ציבורית, שמחזוק העסקאות השנתי שלו בשנה שקדמה למועד ההפרה לא עלה על 2 מיליון שקלים חדשים; \"חייב קטן\" – חייב, למעט רשות ציבורית, שמחזור העסקאות השנתי שלו בשנה שקדמה למועד ההפרה עלה על 2 מיליון שקלים חדשים ולא עלה על 20 מיליון שקלים חדשים",
+      "verified_via": "Equal Rights for Persons with Disabilities Law read on nevo in a browser",
+      "verified_at": "2026-08-19",
+      "fetched_at": "2026-08-19",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
