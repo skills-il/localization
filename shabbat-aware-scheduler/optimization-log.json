@@ -1,0 +1,21 @@
+{
+  "cycles": [
+    {
+      "version": "1.4.0",
+      "date": "2026-08-25",
+      "lessons": [
+        "The evidence gate is near-inert for this skill type: verify-evidence.py extracts 0 'facts' from SKILL.md because the skill's claims are dates, clock times and minute offsets, not currency or percentages. 'Unjustified: 0' here is measured against 0 extracted facts. Correctness on this skill must come from RUNNING the script and diffing against Hebcal, not from the gate.",
+        "Expert MAJOR deferred: no coverage of non-Jewish statutory rest days (Hours of Work and Rest Law s.7 election of Friday or Sunday; Eid al-Fitr, Eid al-Adha, Christmas, Nabi Shu'ayb) or of Knesset election day, which is a paid national day off absent from every Hebrew-calendar API. Needs a non-Hebcal data source; see domain-checklist S1/S2.",
+        "Expert MAJOR deferred: no compound-closure detection. Dates are classified independently, so the tool cannot answer 'the next three days are one continuous closure', which is the shape of the answer a release manager actually wants. domain-checklist S3.",
+        "Expert MAJOR deferred: Adar II is named in a Gotcha but never handled in code. Nothing states that Purim and Ta'anit Esther move to Adar II in a leap year while Purim Katan stays on 14 Adar I, and no code path or fixture covers a leap year. domain-checklist M18.",
+        "Expert MAJOR deferred: BUSINESS_HOURS[Friday] is still a hardcoded 08:00-13:00 and is never checked against that Friday's actual candle-lighting time or a travel buffer. This is the same class of defect the skill's own Troubleshooting section warns about, one hour earlier. domain-checklist M16/S5.",
+        "Expert MAJOR deferred: the skill ships zero tests. The Yom HaAtzma'ut misclassification survived a full cycle undetected; a fixture set covering a Saturday query, an erev-chag evening, both DST switch weekends, a nidcheh year and a leap-year Purim would have caught it. Highest-value next-cycle item.",
+        "Expert MINOR deferred: the reference file's per-month Jerusalem candle-lighting table is now real measured Hebcal data for 2026, but it is still a static snapshot that will drift. Either regenerate it each cycle or replace it with a documented one-line query.",
+        "Pattern worth carrying: every defect found this cycle was in the layer BELOW the documented facts. Every date the skill stated was correct; the bundled script was silently reporting Yom HaAtzma'ut as an ordinary business day because Hebcal writes it with a typographic apostrophe and flags it yomtov:false. Fact-checking cannot see this class of bug. Run the code.",
+        "Expert MINOR deferred: should_run_today reports closed for the whole of Saturday including motzei Shabbat (Sat 21:30) because the weekday rule is date-granular, even though the live rest window ended at havdalah. Conservative and safe, but it costs the Saturday evening.",
+        "Expert MINOR deferred: find_next_available_slot returns bare None when the calendar source is unreachable, which is indistinguishable from 'no slot within 60 days'. Should return a distinguishable unknown.",
+        "Process lesson: the first round of fixes introduced two NEW criticals of the same shape as the ones being fixed (a rest-window helper that still anchored on the upcoming Friday, and a slot-search entrypoint with no morning-only clamp). Fixing a time-granularity bug in one function does not fix it in the sibling function; re-run the panel after fixing, and grep for every entrypoint that makes the same decision."
+      ]
+    }
+  ]
+}

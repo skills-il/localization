@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "shabbat-aware-scheduler",
-  "generated_at": "2026-08-09",
+  "generated_at": "2026-08-24T21:15:55+00:00",
   "claims": [
     {
       "claim_id": "candle-lighting-minutes",
@@ -56,45 +56,39 @@
     },
     {
       "claim_id": "pesach-2026",
-      "claim": "Pesach 2026 runs April 1 to April 8 (first day April 2, last day April 8) in Israeli observance.",
-      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
-      "raw_snippet": "It is marked by the birth of a new moon. Note: the first day of Tishrei is not considered Rosh Chodesh. The holiday that occurs on the 1st day of Tishrei is called Rosh Hashana , the Jewish New Year. For the month of Tishrei, the major holiday of Rosh Hashana takes precedence over what would be a minor holiday.",
-      "fetched_at": "2026-08-18",
+      "claim": "Pesach I falls on 2026-04-02 (15 Nisan 5786) and is Yom Tov in the Israeli Hebcal feed; Erev Pesach is 2026-04-01 and Pesach VII, the other Yom Tov, is 2026-04-08",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&mod=on&i=on&nx=off&ss=off",
+      "raw_snippet": "\"date\":\"2026-04-02\",\"hdate\":\"15 Nisan 5786\",\"category\":\"holiday\",\"subcat\":\"major\",\"yomtov\":true",
+      "fetched_at": "2026-08-24T21:28:52+00:00",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-holiday-calendar.md"
-      ],
-      "verified_via": "cited page fetched; 25 of 27 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"first\"",
-      "verified_at": "2026-08-18"
+      ]
     },
     {
       "claim_id": "shavuot-2026",
-      "claim": "Shavuot 2026 begins evening Thursday May 21 and ends evening Friday May 22, one-day Yom Tov in Israel.",
-      "source_url": "https://www.hebcal.com/holidays/2026?i=on",
-      "raw_snippet": "year 2025 2026 2027 2028 Show dates for Diaspora Israel Tu BiShvat 🌳 Sun, 1 February sunset - Mon, 2 February nightfall 15 Sh’vat 5786 New Year for Trees. Tu BiShvat is one of four “New Years” mentioned in the Mishnah. Purim 🎭️📜 Mon, 2 March sunset - Tue, 3 March nightfall 14 Adar 5786 Celebration of Jewish deliverance as told by Megilat Esther. It commemorates a time when the Jewish people living in Persia were saved from extermination.",
-      "fetched_at": "2026-08-18",
+      "claim": "Erev Shavuot falls on 2026-05-21 (5 Sivan 5786) and Shavuot itself, a single day of Yom Tov in Israel, on 2026-05-22",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&mod=on&i=on&nx=off&ss=off",
+      "raw_snippet": "\"date\":\"2026-05-21\",\"hdate\":\"5 Sivan 5786\",\"category\":\"holiday\",\"subcat\":\"major\"",
+      "fetched_at": "2026-08-24T21:28:52+00:00",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-holiday-calendar.md"
-      ],
-      "verified_via": "cited page fetched and confirmed to contain \"5786\"; snippet replaced with the page's own wording around it",
-      "verified_at": "2026-08-18"
+      ]
     },
     {
       "claim_id": "rosh-hashana-2026",
-      "claim": "ראש השנה תשפ\"ז: ערב החג ביום שישי 11.9.2026, וימי החג 12 ו-13 בספטמבר, לפי לוח Hebcal.",
-      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&mod=on&nx=on&year=2026&month=x&ss=on&mf=on&c=off&geo=none",
-      "raw_snippet": "2026-09-11 Erev Rosh Hashana / 2026-09-12 Rosh Hashana 5787 / 2026-09-13 Rosh Hashana II",
-      "fetched_at": "2026-08-18",
+      "claim": "Rosh Hashana 5787 begins on 2026-09-12 (1 Tishrei 5787), which is a Saturday, so day one coincides with Shabbat rather than adding a day to it; day two is Sunday 2026-09-13",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&mod=on&i=on&nx=off&ss=off",
+      "raw_snippet": "\"date\":\"2026-09-12\",\"hdate\":\"1 Tishrei 5787\",\"category\":\"holiday\",\"subcat\":\"major\",\"yomtov\":true",
+      "fetched_at": "2026-08-24T21:28:52+00:00",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-holiday-calendar.md"
-      ],
-      "verified_via": "Hebcal JSON API queried for the full 2026 calendar and the dates read off the returned items",
-      "verified_at": "2026-08-18"
+      ]
     },
     {
       "claim_id": "yom-kippur-2026",
@@ -339,6 +333,143 @@
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "hebcal-b-default-covers-erev-chag",
+      "claim": "Hebcal's b= candle-lighting default is 18 minutes before sunset (40 for Jerusalem, 30 for Haifa and Zikhron Ya'akov) and applies to Erev Chag as well as Erev Shabbat",
+      "source_url": "https://www.hebcal.com/home/197/shabbat-times-rest-api",
+      "raw_snippet": "By default, candle lighting time is 18 minutes before sundown (40 minutes for Jerusalem, 30 minutes for Haifa and Zikhron Ya",
+      "fetched_at": "2026-08-24T21:15:55+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/check_shabbat.py"
+      ]
+    },
+    {
+      "claim_id": "hebcal-m-is-fixed-minutes-not-stars",
+      "claim": "m=N in the Hebcal API means Havdalah a fixed N minutes after sundown; it is not a star-count setting. M=on is tzeit hakochavim at sun 8.5 degrees below the horizon (three small stars)",
+      "source_url": "https://www.hebcal.com/home/197/shabbat-times-rest-api",
+      "raw_snippet": "m=50 – Havdalah 50 minutes after sundown. This option is available for those whose minhag is to end Shabbat a fixed number of mi",
+      "fetched_at": "2026-08-24T21:15:55+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "hebcal-geonameid-applies-city-minhag",
+      "claim": "Passing geonameid to the Hebcal Shabbat REST API selects the location, so Hebcal applies that city's own candle-lighting minhag without a caller-supplied b= value",
+      "source_url": "https://www.hebcal.com/home/197/shabbat-times-rest-api",
+      "raw_snippet": "https://www.hebcal.com/shabbat?cfg=json&geonameid=3448439&M=on&leyning=off",
+      "fetched_at": "2026-08-24T21:15:55+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/check_shabbat.py"
+      ]
+    },
+    {
+      "claim_id": "tzeit-85deg-minutes-after-sunset-jerusalem",
+      "claim": "Hebcal's M=on havdalah (tzeit hakochavim, sun 8.5 degrees below the horizon) for Jerusalem on Saturday 2026-08-29 is 19:44, which is 37 minutes after that day's 19:07 sunset, not the 50 minutes often quoted",
+      "source_url": "https://www.hebcal.com/shabbat?geonameid=281184&gy=2026&gm=8&gd=28",
+      "raw_snippet": "Havdalah: 19:44 on Saturday, Aug 29",
+      "fetched_at": "2026-08-24T21:17:04+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tzeit-85deg-winter-jerusalem",
+      "claim": "The same 8.5-degree havdalah for Jerusalem on Saturday 2026-12-19 is 17:18, which is 40 minutes after that day's 16:38 sunset, so the seasonal spread is roughly 37 to 40 minutes",
+      "source_url": "https://www.hebcal.com/shabbat?geonameid=281184&gy=2026&gm=12&gd=18",
+      "raw_snippet": "Havdalah: 17:18 on Saturday, Dec 19",
+      "fetched_at": "2026-08-24T21:17:04+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "non-yomtov-closures-flagged-false-2026",
+      "claim": "Yom HaZikaron (2026-04-21), Yom HaAtzma'ut (2026-04-22), Erev Yom Kippur (2026-09-20) and Tisha B'Av (2026-07-23) are all returned by the Hebcal Israeli feed without a yomtov flag, so a yomtov-only filter treats them as ordinary business days",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&mod=on&i=on&nx=off&ss=off",
+      "raw_snippet": "\"date\":\"2026-04-22\",\"hdate\":\"5 Iyyar 5786\",\"category\":\"holiday\",\"subcat\":\"modern\"",
+      "fetched_at": "2026-08-24T21:15:55+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/check_shabbat.py"
+      ]
+    },
+    {
+      "claim_id": "shushan-purim-2026-walled-cities",
+      "claim": "Shushan Purim falls on 2026-03-04 and is observed in Jerusalem and other historically walled cities only, while Purim itself (2026-03-03) is national",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=3&maj=on&min=on&mod=on&i=on",
+      "raw_snippet": "Purim celebrated in Jerusalem and walled cities",
+      "fetched_at": "2026-08-24T21:15:55+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/check_shabbat.py"
+      ]
+    },
+    {
+      "claim_id": "sukkot-2026-hoshana-raba-is-workday",
+      "claim": "In the 2026 Israeli calendar the only Yom Tov inside Sukkot is Sukkot I on 2026-09-26; 2026-09-27 through 2026-10-02 are chol ha-moed, and Hoshana Raba on 2026-10-02 is a workday. The closing Yom Tov is Shmini Atzeret on 2026-10-03",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=10&maj=on&min=on&mod=on&i=on",
+      "raw_snippet": "\"title\":\"Sukkot VII (Hoshana Raba)\"",
+      "fetched_at": "2026-08-24T21:15:55+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "israel-dst-rule-2026",
+      "claim": "Israeli daylight saving runs from 02:00 on the Friday before the last Sunday of March to 02:00 on the last Sunday of October, which is 2026-03-27 and 2026-10-25",
+      "source_url": "https://data.iana.org/time-zones/tzdb/asia",
+      "raw_snippet": "Every year, in the period from the Friday before the last Sunday in",
+      "fetched_at": "2026-08-24T21:17:04+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "minor-fasts-require-mf-flag",
+      "claim": "Minor fast days are returned by the Hebcal calendar API only when mf=on is passed; with maj/min/mod alone Tzom Gedaliah (2026-09-14), Tzom Tammuz (2026-07-02), Asara B'Tevet, Ta'anit Esther and Ta'anit Bechorot are absent from the response",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&mod=on&i=on&mf=on&nx=off&ss=off",
+      "raw_snippet": "\"date\":\"2026-09-14\",\"hdate\":\"3 Tishrei 5787\",\"category\":\"holiday\",\"subcat\":\"fast\"",
+      "fetched_at": "2026-08-24T21:28:52+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/check_shabbat.py",
+        "references/israeli-holiday-calendar.md"
+      ]
+    },
+    {
+      "claim_id": "tzom-tammuz-2026",
+      "claim": "The 17 Tammuz fast that opens the Three Weeks falls on 2026-07-02 (17 Tamuz 5786)",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026&month=x&maj=on&min=on&mod=on&i=on&mf=on&nx=off&ss=off",
+      "raw_snippet": "\"date\":\"2026-07-02\",\"hdate\":\"17 Tamuz 5786\",\"category\":\"holiday\",\"subcat\":\"fast\"",
+      "fetched_at": "2026-08-24T21:28:52+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "references/israeli-holiday-calendar.md"
+      ]
+    },
+    {
+      "claim_id": "jerusalem-seasonal-candle-times-2026",
+      "claim": "Hebcal's actual Jerusalem candle-lighting and havdalah for a representative Friday per month in 2026 run from 15:55 / 17:16 in December to 19:07 / 20:29 in July; a June sample Friday (2026-06-12) is 19:05 candle lighting, not the 19:25 an earlier approximation claimed",
+      "source_url": "https://www.hebcal.com/shabbat?geonameid=281184&gy=2026&gm=6&gd=12",
+      "raw_snippet": "Candle lighting: 19:05 on Friday, Jun 12",
+      "fetched_at": "2026-08-24T21:28:52+00:00",
+      "appears_in": [
+        "references/israeli-holiday-calendar.md"
       ]
     }
   ]
