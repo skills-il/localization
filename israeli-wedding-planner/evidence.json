@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "israeli-wedding-planner",
-  "generated_at": "2026-08-24T00:00:00Z",
+  "generated_at": "2026-08-24T23:10:48+00:00",
   "claims": [
     {
       "claim_id": "rabbinate-fee-discount",
@@ -562,6 +562,622 @@
         "SKILL.md",
         "SKILL_HE.md"
       ]
+    },
+    {
+      "claim_id": "venue-licence-item-7-9",
+      "claim": "Event halls are item 7.9 of the Business Licensing Order (Licensable Businesses), 2013, in group 7 (public entertainment), with a 15-year licence validity",
+      "source_url": "https://he.wikisource.org/wiki/%D7%A6%D7%95_%D7%A8%D7%99%D7%A9%D7%95%D7%99_%D7%A2%D7%A1%D7%A7%D7%99%D7%9D_(%D7%A2%D7%A1%D7%A7%D7%99%D7%9D_%D7%98%D7%A2%D7%95%D7%A0%D7%99_%D7%A8%D7%99%D7%A9%D7%95%D7%99)",
+      "raw_snippet": "אולם או גן לשמחות ולאירועים, שעיקר עיסוקו הוא קיום אירועים, לרבות הגשת משקאות משכרים לצריכה במקום ההגשה",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "venue-licence-group-7",
+      "claim": "Item 7.9 sits in group 7, \"public entertainment, leisure and sport\"",
+      "source_url": "https://he.wikisource.org/wiki/%D7%A6%D7%95_%D7%A8%D7%99%D7%A9%D7%95%D7%99_%D7%A2%D7%A1%D7%A7%D7%99%D7%9D_(%D7%A2%D7%A1%D7%A7%D7%99%D7%9D_%D7%98%D7%A2%D7%95%D7%A0%D7%99_%D7%A8%D7%99%D7%A9%D7%95%D7%99)",
+      "raw_snippet": "קבוצה 7 – עינוג ציבורי, נופש וספורט",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "business-licensing-s4",
+      "claim": "Section 4 of the Business Licensing Law, 1968 makes operating a licensable business without a licence an offence (סעיף 4 לחוק רישוי עסקים, התשכ\"ח-1968)",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%A8%D7%99%D7%A9%D7%95%D7%99_%D7%A2%D7%A1%D7%A7%D7%99%D7%9D",
+      "raw_snippet": "לא יעסוק אדם בעסק טעון רישוי אלא אם יש בידו רישיון, היתר זמני או היתר מזורז לפי חוק זה ובהתאם לתנאיו",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "business-licensing-s6-approvers",
+      "claim": "Section 6(a): a licence is not issued without the approval of every designated approving body (סעיף 6(א))",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%A8%D7%99%D7%A9%D7%95%D7%99_%D7%A2%D7%A1%D7%A7%D7%99%D7%9D",
+      "raw_snippet": "לא יינתן אלא אם כן נתן אישור כל אחד מהשרים או מי שהם הסמיכו לכך (להלן – נותן האישור)",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "business-licensing-fire-purpose",
+      "claim": "Compliance with the fire laws is licensing purpose 1(a)(7) (סעיף 1(א)(7))",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%A8%D7%99%D7%A9%D7%95%D7%99_%D7%A2%D7%A1%D7%A7%D7%99%D7%9D",
+      "raw_snippet": "קיום הדינים הנוגעים לכבאות.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "business-licensing-s5a1",
+      "claim": "The licensing authority within a local authority is its head or a delegate, section 5(a)(1) (סעיף 5(א)(1))",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%A8%D7%99%D7%A9%D7%95%D7%99_%D7%A2%D7%A1%D7%A7%D7%99%D7%9D",
+      "raw_snippet": "רשות הרישוי לעסק טעון רישוי היא – (1) בתחום רשות מקומית – ראש הרשות המקומית או מי שהוא הסמיכו לכך",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "business-licensing-s20-closure",
+      "claim": "Section 20 allows an administrative closure order where an unlicensed business creates a real danger to the public (סעיף 20, צו הפסקה מינהלי)",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%A8%D7%99%D7%A9%D7%95%D7%99_%D7%A2%D7%A1%D7%A7%D7%99%D7%9D",
+      "raw_snippet": "עסק טעון רישוי לפי חוק זה פועל בלא רישיון, היתר זמני או היתר מזורז, בניגוד לתנאיהם, או בניגוד לתקנות לפי חוק זה, והדבר מקים סכנה ממשית או חשש משמעותי לפגיעה בציבור",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "business-licensing-s16-court-closure",
+      "claim": "Section 16 allows a court on conviction to order the business stopped (סעיף 16)",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%A8%D7%99%D7%A9%D7%95%D7%99_%D7%A2%D7%A1%D7%A7%D7%99%D7%9D",
+      "raw_snippet": "לצוות על הפסקת העיסוק בעסק, לחלוטין או לתקופה שיקבע",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "licence-display-reg-41",
+      "claim": "Regulation 41 of the Business Licensing (General Provisions) Regulations, 2001 requires the licence to be displayed in a visible place (תקנה 41 לתקנות רישוי עסקים (הוראות כלליות), התשס\"א-2001)",
+      "source_url": "https://he.wikisource.org/wiki/%D7%AA%D7%A7%D7%A0%D7%95%D7%AA_%D7%A8%D7%99%D7%A9%D7%95%D7%99_%D7%A2%D7%A1%D7%A7%D7%99%D7%9D_(%D7%94%D7%95%D7%A8%D7%90%D7%95%D7%AA_%D7%9B%D7%9C%D7%9C%D7%99%D7%95%D7%AA)",
+      "raw_snippet": "רישיון עסק, היתר זמני או היתר מזורז יוצגו בעסק במקום נראה לעין.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "versailles-2001-collapse",
+      "claim": "The Versailles hall floor collapsed on 24 May 2001; a non-standard pal-kal floor plus renovations without municipal or Standards Institute supervision",
+      "source_url": "https://he.wikipedia.org/wiki/%D7%90%D7%A1%D7%95%D7%9F_%D7%90%D7%95%D7%9C%D7%9E%D7%99_%D7%95%D7%A8%D7%A1%D7%90%D7%99",
+      "raw_snippet": "התברר שהשיפוצים נעשו בלא פקחים מהעירייה או ממכון התקנים.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "zeiler-commission-mandate",
+      "claim": "The Zeiler commission's mandate expressly covered event venues under the Business Licensing Law, and produced private review institutes and a maintenance duty",
+      "source_url": "https://he.wikipedia.org/wiki/%D7%95%D7%A2%D7%93%D7%AA_%D7%96%D7%99%D7%99%D7%9C%D7%A8_(%D7%91%D7%98%D7%99%D7%97%D7%95%D7%AA_%D7%9E%D7%91%D7%A0%D7%99%D7%9D)",
+      "raw_snippet": "מכלול השאלות המקצועיות והמשפטיות הנוגעות לאחריות על בטיחות מבנים ומקומות המשמשים ציבור, לרבות ובמיוחד המשמשים אירועים ציבוריים רבי-משתתפים, וכל הכרוך בעינוג ציבורי, נופש וספורט לפי חוק רישוי עסקים",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-purpose",
+      "claim": "Berur yahadut verifies the applicant's mother's Jewishness and issues a certificate of Jewish status",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%A8%D7%95%D7%A8_%D7%99%D7%94%D7%93%D7%95%D7%AA",
+      "raw_snippet": "הליך בירור יהדות נועד לברר ולבדוק לגבי יהדותה של אם הפונה, ולהוציא לפונה אישור יהדות.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-trigger",
+      "claim": "It is triggered for people registering to marry in Israel who lack an Israeli Rabbinate marriage certificate or ketuba for their parents",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%A8%D7%95%D7%A8_%D7%99%D7%94%D7%93%D7%95%D7%AA",
+      "raw_snippet": "יהודים שנרשמו לנישואין בישראל, ואין בידיהם תעודת נישואין או כתובה של הוריהם מהרבנות בארץ.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-regional-court",
+      "claim": "The file is opened at the regional rabbinical court nearest the applicant's residence",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%A8%D7%95%D7%A8_%D7%99%D7%94%D7%93%D7%95%D7%AA",
+      "raw_snippet": "לשם בירור היהדות יש לפתוח תיק בירור יהדות בבית הדין הרבני האזורי הקרוב למקום המגורים.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-mevarer-role",
+      "claim": "A mevarer yahadut forms recommendations for the dayanim",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%A8%D7%95%D7%A8_%D7%99%D7%94%D7%93%D7%95%D7%AA",
+      "raw_snippet": "תפקידו של מברר יהדות הוא לגבש המלצות לגבי יהדות הנבדק/ת ולהגישן לדייני בית הדין.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-dayan-decides",
+      "claim": "A dayan reviews the documents at the hearing and delivers the decision",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%A8%D7%95%D7%A8_%D7%99%D7%94%D7%93%D7%95%D7%AA",
+      "raw_snippet": "הדיון מתנהל בפני דיין בית הדין הרבני ובמהלכו עובר הדיין על מסמכי המבקש ומוסר את החלטתו.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-no-fee",
+      "claim": "The process carries no fee",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%A8%D7%95%D7%A8_%D7%99%D7%94%D7%93%D7%95%D7%AA",
+      "raw_snippet": "הליך בירור יהדות אינו כרוך בתשלום אגרה.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-appeal-30-days",
+      "claim": "An appeal lies to the Beit Din HaGadol in Jerusalem within 30 days of the decision",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%A8%D7%95%D7%A8_%D7%99%D7%94%D7%93%D7%95%D7%AA",
+      "raw_snippet": "את הערעור יש להגיש עד 30 ימים מיום קבלת החלטת בית הדין.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-exemption-first-degree",
+      "claim": "A first-degree relative's prior berur can exempt the applicant entirely",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%A8%D7%95%D7%A8_%D7%99%D7%94%D7%93%D7%95%D7%AA",
+      "raw_snippet": "אדם עשוי להיות פטור מההליך כולו, אם מישהו מקרובי משפחתו מקרבה ראשונה כבר נישא בישראל ועבר בשעתו בירור יהדות בבית דין רבני.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-do-it-early",
+      "claim": "The Ministry advises doing the process at any age and stage of life, not necessarily near the wedding",
+      "source_url": "https://www.gov.il/he/service/rbc-jewish-confirmation",
+      "raw_snippet": "וניתן לבצע אותו בכל גיל ובכל שלב בחיים, ולא בהכרח בזמן קרוב לזמן הנישואין.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-early-reasons",
+      "claim": "The stated reasons to go early are lost original documents, harder archival documentation, and testimony from elderly relatives",
+      "source_url": "https://www.gov.il/he/service/rbc-jewish-confirmation",
+      "raw_snippet": "חשש מאיבוד מסמכים מקוריים. קושי בתיעוד ארכיוני. אפשרות לקבל עדות מבני משפחה מבוגרים.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-country-teams",
+      "claim": "Intake runs through teams specialising in the CIS, Georgia, Eastern Europe, India, Ethiopia, South America and the United States",
+      "source_url": "https://www.gov.il/he/service/rbc-jewish-confirmation",
+      "raw_snippet": "ההליך מתבצע על ידי צוות המתמחה בארצות חבר העמים, גיאורגיה, מזרח אירופה, הודו, אתיופיה, דרום אמריקה, ארצות הברית ועוד.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-hotline",
+      "claim": "Intake centre 5889*, extension 3",
+      "source_url": "https://www.gov.il/he/service/rbc-jewish-confirmation",
+      "raw_snippet": "לפרטים נוספים ניתן לפנות למוקד בירור יהדות 5889* שלוחה 3",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-fsu-million",
+      "claim": "About a million citizens came from countries without organised rabbinic marriage registration",
+      "source_url": "https://www.gov.il/he/service/rbc-jewish-confirmation",
+      "raw_snippet": "במדינת ישראל חיים כמיליון אזרחים שהגיעו אליה מארצות בהן לא הייתה מערכת רישום נישואין רבנית מוסדרת.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "berur-itim-4000",
+      "claim": "ITIM reports roughly 4,000 berur proceedings a year, overwhelmingly people from the former Soviet Union",
+      "source_url": "https://itim.org.il/%d7%91%d7%99%d7%a8%d7%95%d7%a8%d7%99-%d7%99%d7%94%d7%93%d7%95%d7%aa-%d7%91%d7%91%d7%aa%d7%99-%d7%93%d7%99%d7%9f-%d7%a8%d7%91%d7%a0%d7%99%d7%99%d7%9d/",
+      "raw_snippet": "אלפי אזרחי ישראל עוברים מדי שנה הליכי בירור יהדות בבתי הדין הרבניים (כ-4,000 בשנה), רובם המוחלט יוצאי ברית המועצות לשעבר.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "cancel-regs-item-8",
+      "claim": "Hosting, travel, holiday and leisure services are item (8) of the schedule to the Consumer Protection (Cancellation of a Transaction) Regulations, 2010, unless performed entirely outside Israel",
+      "source_url": "https://he.wikisource.org/wiki/%D7%AA%D7%A7%D7%A0%D7%95%D7%AA_%D7%94%D7%92%D7%A0%D7%AA_%D7%94%D7%A6%D7%A8%D7%9B%D7%9F_(%D7%91%D7%99%D7%98%D7%95%D7%9C_%D7%A2%D7%A1%D7%A7%D7%94)",
+      "raw_snippet": "שירותי הארחה, נסיעה, חופש ובילוי למעט אם הם מתבצעים במלואם מחוץ לישראל כאמור בתקנה 6(א)(12)",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "cancel-regs-6a12-exclusion",
+      "claim": "Regulation 6(a)(12) excludes only services performed entirely outside Israel (תקנה 6(א)(12))",
+      "source_url": "https://he.wikisource.org/wiki/%D7%AA%D7%A7%D7%A0%D7%95%D7%AA_%D7%94%D7%92%D7%A0%D7%AA_%D7%94%D7%A6%D7%A8%D7%9B%D7%9F_(%D7%91%D7%99%D7%98%D7%95%D7%9C_%D7%A2%D7%A1%D7%A7%D7%94)",
+      "raw_snippet": "שירותי הארחה, נסיעה, חופש ובילוי המתבצעים במלואם מחוץ לישראל",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "cancel-regs-2-3-window",
+      "claim": "Regulation 2(3): cancel within 14 days of making the agreement and at least 14 non-rest days before the service begins (תקנה 2(3) לתקנות הגנת הצרכן (ביטול עסקה), התשע\"א-2010)",
+      "source_url": "https://he.wikisource.org/wiki/%D7%AA%D7%A7%D7%A0%D7%95%D7%AA_%D7%94%D7%92%D7%A0%D7%AA_%D7%94%D7%A6%D7%A8%D7%9B%D7%9F_(%D7%91%D7%99%D7%98%D7%95%D7%9C_%D7%A2%D7%A1%D7%A7%D7%94)",
+      "raw_snippet": "בתוך 14 ימים מיום עשיית ההסכם ובלבד שהביטול ייעשה 14 ימים שאינם ימי מנוחה לפחות, קודם למועד תחילת השירות",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "cancel-regs-5a-cap",
+      "claim": "Regulation 5(a): cancellation fee is the lower of 5 percent of the price or 100 shekels (תקנה 5(א))",
+      "source_url": "https://he.wikisource.org/wiki/%D7%AA%D7%A7%D7%A0%D7%95%D7%AA_%D7%94%D7%92%D7%A0%D7%AA_%D7%94%D7%A6%D7%A8%D7%9B%D7%9F_(%D7%91%D7%99%D7%98%D7%95%D7%9C_%D7%A2%D7%A1%D7%A7%D7%94)",
+      "raw_snippet": "רשאי העוסק לגבות מהצרכן דמי ביטול בשיעור של 5% ממחיר הטובין או מערך השירות או 100 שקלים חדשים לפי הנמוך מביניהם.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "cancel-regs-refund-7-days",
+      "claim": "Refund within seven business days, regulation 4(a) (תקנה 4(א))",
+      "source_url": "https://he.wikisource.org/wiki/%D7%AA%D7%A7%D7%A0%D7%95%D7%AA_%D7%94%D7%92%D7%A0%D7%AA_%D7%94%D7%A6%D7%A8%D7%9B%D7%9F_(%D7%91%D7%99%D7%98%D7%95%D7%9C_%D7%A2%D7%A1%D7%A7%D7%94)",
+      "raw_snippet": "לא מאוחר משבעה ימי עסקים",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "remedies-s18a-frustration",
+      "claim": "Section 18(a) of the Contracts (Remedies for Breach of Contract) Law, 1970 removes enforcement and damages where the circumstances were unforeseeable and unpreventable (סעיף 18(א) לחוק החוזים (תרופות בשל הפרת חוזה), התשל\"א-1970)",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%97%D7%95%D7%96%D7%99%D7%9D_(%D7%AA%D7%A8%D7%95%D7%A4%D7%95%D7%AA_%D7%91%D7%A9%D7%9C_%D7%94%D7%A4%D7%A8%D7%AA_%D7%97%D7%95%D7%96%D7%94)",
+      "raw_snippet": "היתה הפרת החוזה תוצאה מנסיבות שהמפר, בעת כריתת החוזה, לא ידע ולא היה עליו לדעת עליהן או שלא ראה ולא היה עליו לראותן מראש, ולא יכול היה למנען, וקיום החוזה באותן נסיבות הוא בלתי אפשרי או שונה באופן יסודי ממה שהוסכם עליו בין הצדדים, לא תהיה ההפרה עילה לאכיפת החוזה שהופר או לפיצויים.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "remedies-s18b-restitution",
+      "claim": "Section 18(b) restitution is a judicial discretion exercised where it seems just (סעיף 18(ב))",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%97%D7%95%D7%96%D7%99%D7%9D_(%D7%AA%D7%A8%D7%95%D7%A4%D7%95%D7%AA_%D7%91%D7%A9%D7%9C_%D7%94%D7%A4%D7%A8%D7%AA_%D7%97%D7%95%D7%96%D7%94)",
+      "raw_snippet": "והכל אם נראה לבית המשפט צודק לעשות כן בנסיבות הענין ובמידה שנראה לו.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "civil-defence-9c-declaration",
+      "claim": "A special home-front situation is declared under section 9C of the Civil Defence Law, 1951, and lapses within five days absent committee action (סעיף 9ג לחוק ההתגוננות האזרחית, התשי\"א-1951)",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%94%D7%AA%D7%92%D7%95%D7%A0%D7%A0%D7%95%D7%AA_%D7%94%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%AA",
+      "raw_snippet": "שוכנעה הממשלה כי קיימת סבירות גבוהה שתתרחש התקפה על האוכלוסיה האזרחית, רשאית היא להכריז, במדינה כולה או בשטח מסוים, על מצב מיוחד בעורף.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "civil-defence-9d-instructions",
+      "claim": "Section 9D empowers listed officers to give any instruction required to protect life or property while such a state is declared (סעיף 9ד)",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%94%D7%AA%D7%92%D7%95%D7%A0%D7%A0%D7%95%D7%AA_%D7%94%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%AA",
+      "raw_snippet": "כל הוראה הנדרשת לשמירתם או להצלתם של חיי אדם או של רכוש",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "oref-gathering-over-10",
+      "claim": "Home Front Command defines a gathering as a meeting of more than 10 people in the same space at the same time, across 30 instruction zones",
+      "source_url": "https://www.oref.org.il/heb/articles/info/iron-swords/1100",
+      "raw_snippet": "התקהלות ושירותים - מפגש של מעל 10 אנשים יחד באותו מרחב ובאותו זמן.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-08-25"
+    },
+    {
+      "claim_id": "prenup-mechanism-no-get-undertaking",
+      "claim": "A get-refusal prenup cannot contain an express undertaking to give or receive a get; it imposes counselling, court attendance and payment duties instead",
+      "source_url": "https://itim.org.il/%d7%94%d7%a1%d7%9b%d7%9e%d7%99-%d7%a7%d7%93%d7%9d-%d7%a0%d7%99%d7%a9%d7%95%d7%90%d7%99%d7%9f-2/",
+      "raw_snippet": "ההסכם אינו יכול לכלול התחייבות מפורשת למתן גט או לקבלתו, היות שזו תפגע בתוקפן הרצוני ההכרחי של הפעולות, אולם הוא מטיל על הזוג חובות שונות, כגון פגישות יעוץ זוגי, נוכחות בבית הדין בדיוני הגט וחובת תשלום סכום כסף גבוה בכל יום של עיכוב גט או סרבנות גט, אשר ניתנות לאכיפה על ידי בית משפט במקרה הצורך.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "prenup-tzohar-monthly",
+      "claim": "Tzohar's form uses elevated monthly maintenance paid by whichever spouse delays the separation, realisable only after a waiting period of at least six months",
+      "source_url": "https://www.tzohar.org.il/heskemeahava2/%d7%9e%d7%94%d7%95%d7%aa-%d7%94%d7%94%d7%a1%d7%9b%d7%9d/",
+      "raw_snippet": "מי שיעכב את הליך הפרידה, ישלם סכום נכבד כדמי מזונות חודשיים.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "prenup-can-sign-after",
+      "claim": "Tzohar states expressly that the agreement can also be signed after the wedding",
+      "source_url": "https://www.tzohar.org.il/heskemeahava2/",
+      "raw_snippet": "בכל מקרה, ניתן לחתום על ההסכם גם לאחר הנישואין.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "prenup-itim-lawyer",
+      "claim": "The ITIM form is signed before a lawyer and is enforceable in the Family Court or the rabbinical court",
+      "source_url": "https://itim.org.il/%d7%94%d7%a1%d7%9b%d7%9e%d7%99-%d7%a7%d7%93%d7%9d-%d7%a0%d7%99%d7%a9%d7%95%d7%90%d7%99%d7%9f-2/",
+      "raw_snippet": "ניתן לחתום על ההסכם לפני או אחרי החתונה בפני עו”ד.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "prenup-kolech-notary",
+      "claim": "The Kolech form is free to download and must be signed before a notary",
+      "source_url": "https://www.kolech.org.il/%d7%94%d7%a1%d7%9b%d7%9d-%d7%9c%d7%9b%d7%91%d7%95%d7%93-%d7%94%d7%93%d7%93%d7%99/",
+      "raw_snippet": "על ההסכם יש לחתום בפני נוטריון.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "prenup-not-mandatory",
+      "claim": "Signing a prenuptial agreement is not compulsory",
+      "source_url": "https://itim.org.il/%d7%94%d7%a1%d7%9b%d7%9e%d7%99-%d7%a7%d7%93%d7%9d-%d7%a0%d7%99%d7%a9%d7%95%d7%90%d7%99%d7%9f-2/",
+      "raw_snippet": "החתימה על הסכם קדם נישואין איננה חובה, אולם הדבר נעשה מקובל יותר ויותר על שכבות נרחבות בציבור ועל רבנים.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "prenup-ketuba-silent",
+      "claim": "The ketuba contains no provision addressing get-refusal",
+      "source_url": "https://www.tzohar.org.il/heskemeahava2/",
+      "raw_snippet": "אין בכתובה התייחסות למצב של 'סרבנות גט'.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-5-2-0008-title",
+      "claim": "Procedure 5.2.0008 governs granting status to a foreign spouse married to an Israeli citizen",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "נוהל הטיפול במתן מעמד לבן זוג זר הנשוי לאזרח ישראלי",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-registration-not-status",
+      "claim": "Updating personal status to married carries no determination as to genuineness of the relationship or the arranging of status",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "יודגש כי אין בביצוע העדכון של המצב האישי משום קביעה באשר לכנות הקשר הזוגי והסדרת המעמד בישראל",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-b1-six-months",
+      "claim": "A B/1 licence for up to six months is granted while the application is checked and does not count toward the graduated process",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "רישיון שהיה ועבודה מסוג ב 1/כללי או היתר מת\"ק למוזמן תושב האזור לתקופה של עד חצי שנה, שאינה נכללת במסגרת ההליך המדורג",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-a5-four-years",
+      "claim": "A/5 temporary residency is granted first for one year and up to a total of four years",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "רישיון הארעי יינתן לראשונה לשנה אחת ועד לתקופה כוללת של 4שנים",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-interview-components",
+      "claim": "The interview tests genuineness of the relationship, a joint centre of life, and absence of a security or criminal impediment",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "כנות הקשר הזוגי בין המבקשים",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-three-months-notice",
+      "claim": "Three months before the four A/5 years end the applicant must notify which status is sought, and both spouses must attend in person",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "מחויב להודיע ללשכה 3חודשים לפני תום 4שנות שהייתו ברישיון לישיבת ארעי מסוג א 5/",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-no-automatic-citizenship",
+      "claim": "A foreign spouse is not automatically entitled to Israeli citizenship by virtue of the marriage",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "המוזמן אינו זכאי אוטומטית לאזרחות ישראלית מכוח נישואיו לישראלי",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-inadmissible-cert-14-days",
+      "claim": "If the marriage certificate is inadmissible under procedure 2.11.0001 the application is rejected on the threshold and the spouse must leave within 14 days",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "תסורב הבקשה על הסף מאחר שאינה קריטריונית בהתאם לנוהל זה והמוזמן יידרש לצאת את ישראל בתוך 14ימים.",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-5-2-0009-convert",
+      "claim": "Procedure 5.2.0009 covers unmarried partners; a couple who marry mid-track may convert with no further fee",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "נוהל הטיפול במתן מעמד לבני זוג של ישראלים ,לרבות בני אותו מין\" (נוהל מס' )5.2.0009",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "nohal-el-salvador",
+      "claim": "Procedure 5.2.0008 routes El Salvador marriage certificates to the personal-status section of procedure 5.2.0009",
+      "source_url": "https://www.gov.il/BlobFolder/policy/status_foreigner_married_to_israeli_procedure/he/5.2.0008.pdf",
+      "raw_snippet": "ככל ש תעודת הנישואין הינה מאל סלבדור ,תטופל הבקשה בהתאם להוראות סעיף \"בחינת מצב אישי\" לנוהל .5.2.0009",
+      "fetched_at": "2026-08-24T22:49:19+00:00",
+      "appears_in": [
+        "references/legal-and-contract-risks.md"
+      ]
+    },
+    {
+      "claim_id": "omer-no-weddings-until-lag-baomer",
+      "claim": "Shulchan Aruch OC 493:1 bars weddings between Pesach and Shavuot until Lag BaOmer; the Rema adds that from Lag BaOmer onward all is permitted",
+      "source_url": "https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.493.1",
+      "raw_snippet": "נוהגים שלא לישא אשה בין פסח לעצרת עד ל\"ג בעומר",
+      "fetched_at": "2026-08-24T23:10:48+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-08-25"
+    },
+    {
+      "claim_id": "omer-start-varies-rema-493-3",
+      "claim": "Rema OC 493:3 records places whose Omer mourning runs until Rosh Chodesh Iyar and places whose mourning runs from after Pesach until Lag BaOmer (stated there about haircuts)",
+      "source_url": "https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.493.3",
+      "raw_snippet": "מיהו בהרבה מקומות נוהגין להסתפר עד ר\"ח אייר ואותן לא יסתפרו מל\"ג בעומר ואילך",
+      "fetched_at": "2026-08-24T23:10:48+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-08-25"
     }
   ]
 }

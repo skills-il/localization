@@ -21,7 +21,7 @@ Every figure printed in this file is an indicative market estimate, not a quoted
 | Venue + catering | | | | [ ] | Per-plate x guests |
 | Photography | | | | [ ] | |
 | Video | | | | [ ] | |
-| DJ / Band | | | | [ ] | Include AKUM fee |
+| DJ / Band | | | | [ ] | Include ACUM fee |
 | Wedding dress | | | | [ ] | |
 | Groom's suit | | | | [ ] | |
 | Makeup + hair | | | | [ ] | |
@@ -47,7 +47,7 @@ Total cost = (per_plate_price x guest_count) + fixed_costs
 #### Budget Wedding (worked example, roughly 80,000)
 - 180 guests at roughly 280 per plate is 50,400 (venue)
 - Photography + video: 10,000
-- DJ + AKUM: 5,800
+- DJ + ACUM: 5,800
 - Dress: 4,000
 - Suit: 2,000
 - Makeup: 2,000
@@ -61,7 +61,7 @@ Total cost = (per_plate_price x guest_count) + fixed_costs
 #### Mid-Range Wedding (worked example, roughly 120,000)
 - 250 guests at roughly 320 per plate is 80,000 (venue)
 - Photography + video: 15,000
-- DJ + AKUM: 8,800
+- DJ + ACUM: 8,800
 - Dress: 8,000
 - Suit: 3,000
 - Makeup: 3,000
@@ -75,7 +75,7 @@ Total cost = (per_plate_price x guest_count) + fixed_costs
 #### Premium Wedding (worked example, roughly 180,000)
 - 300 guests at roughly 420 per plate is 126,000 (venue)
 - Photography + video: 20,000
-- DJ/Band + AKUM: 15,800
+- DJ/Band + ACUM: 15,800
 - Dress: 12,000
 - Suit: 4,000
 - Makeup: 4,000
@@ -100,3 +100,14 @@ Roughly half of the total wedding cost is commonly recovered through matanot. Th
 | Acquaintances | 15 in 100 | 250 | guests x 0.15 x 250 |
 
 For 250 guests this worked example yields 95,000 in matanot (18,750 + 30,000 + 21,875 + 15,000 + 9,375). Close family and friends tend to give more than the averages above.
+
+## Matana (cash gift) bands
+
+Moved here from `SKILL.md`. Guests typically give cash covering their plate cost plus a small
+addition, so these move with the per-plate price. They are social norms people report, not
+measured figures, and no official body publishes them.
+
+- Close family: around 500-1,000 per person
+- Friends: around 300-500 per person
+- Colleagues and acquaintances: around 250-350 per person
+- Couples: roughly double the individual amount
