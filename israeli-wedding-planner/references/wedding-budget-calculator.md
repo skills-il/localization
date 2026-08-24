@@ -28,8 +28,8 @@ Every figure printed in this file is an indicative market estimate, not a quoted
 | Flowers + design | | | | [ ] | |
 | Invitations | | | | [ ] | |
 | Magnets | | | | [ ] | |
-| Rabbinate fee | current fee schedule | | | [ ] | Ask your Religious Council; 40% discount for eligible groups |
-| ACUM music license | ACUM tariff T008 | | | [ ] | Fixed family-event tariff |
+| Rabbinate fee | 844 (from 1 Jan 2026) | | | [ ] | Ask your Religious Council; 40% discount for eligible groups |
+| ACUM music license | 395.30 incl. VAT (2026 tariff, T008) | | | [ ] | Fixed family-event tariff |
 | Transportation | | | | [ ] | Shuttle bus |
 | Tips | | | | [ ] | DJ, waitstaff, coordinator |
 | Contingency | | | | N/A | Set aside a buffer for unexpected costs |
@@ -53,8 +53,8 @@ Total cost = (per_plate_price x guest_count) + fixed_costs
 - Makeup: 2,000
 - Flowers: 2,000
 - Invitations + magnets: 1,500
-- Rabbinate: current fee schedule (40% discount if eligible)
-- ACUM music license: ACUM tariff T008
+- Rabbinate: 844 from 1 Jan 2026 (40% discount if eligible)
+- ACUM music license: 395.30 incl. VAT (2026 tariff T008)
 - Transport + tips: 1,600
 - **Worked-example total: roughly 80,000**
 
@@ -67,8 +67,8 @@ Total cost = (per_plate_price x guest_count) + fixed_costs
 - Makeup: 3,000
 - Flowers: 5,000
 - Invitations + magnets: 2,500
-- Rabbinate: current fee schedule (40% discount if eligible)
-- ACUM music license: ACUM tariff T008
+- Rabbinate: 844 from 1 Jan 2026 (40% discount if eligible)
+- ACUM music license: 395.30 incl. VAT (2026 tariff T008)
 - Transport + tips: 3,000
 - **Worked-example total: roughly 129,000** (negotiate the venue down to fit 120,000)
 
@@ -81,8 +81,8 @@ Total cost = (per_plate_price x guest_count) + fixed_costs
 - Makeup: 4,000
 - Flowers: 8,000
 - Invitations + magnets: 3,000
-- Rabbinate: current fee schedule (40% discount if eligible)
-- ACUM music license: ACUM tariff T008
+- Rabbinate: 844 from 1 Jan 2026 (40% discount if eligible)
+- ACUM music license: 395.30 incl. VAT (2026 tariff T008)
 - Transport + tips: 5,000
 - **Worked-example total: roughly 198,500** (negotiate the venue or cut guests to fit 180,000)
 
@@ -99,4 +99,4 @@ Roughly half of the total wedding cost is commonly recovered through matanot. Th
 | Colleagues | 20 in 100 | 300 | guests x 0.2 x 300 |
 | Acquaintances | 15 in 100 | 250 | guests x 0.15 x 250 |
 
-For 250 guests this worked example yields roughly 87,500 in matanot. Close family and friends tend to give more than the averages above.
+For 250 guests this worked example yields 95,000 in matanot (18,750 + 30,000 + 21,875 + 15,000 + 9,375). Close family and friends tend to give more than the averages above.

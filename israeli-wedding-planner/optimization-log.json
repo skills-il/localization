@@ -1,0 +1,22 @@
+{
+  "cycles": [
+    {
+      "version": "1.4.0",
+      "date": "2026-08-24",
+      "lessons": [
+        "ROOT CAUSE worth remembering: the wrong '21-90 day' tik-nisuin window passed every gate for multiple cycles because it HAD a real evidence entry, sourced to nbn.org.il (Nefesh B'Nefesh), a secondary site. The gate checks that a snippet exists at the cited URL, not that the URL is the authoritative issuer. For any rule owned by a ministry, cite the ministry.",
+        "Expert CRITICAL deferred: venue business licence (rishayon esek), fire approval and occupancy cap are absent from the vendor red-flags table. Business Licensing Law 1968; the Versailles collapse is why this is separately regulated.",
+        "Expert CRITICAL deferred: berur yahadut (Jewish-status inquiry) is reduced to a one-line pitfall. In practice it opens a months-long rabbinical-court track and is the leading cause of a lost wedding date for FSU olim and for couples whose parents married abroad. Tie it to ITIM, which is already linked but not connected to this procedure.",
+        "Expert CRITICAL deferred: no force-majeure / Home Front Command clause guidance and no mention of event insurance, despite gathering limits and reserve call-ups having cancelled Israeli weddings repeatedly since Oct 2023. Now a standard negotiated contract term.",
+        "Expert CRITICAL deferred: get-refusal prenup (heskem lekavod hadadi) not mentioned; like the hesken mamon it is unavailable once married.",
+        "Expert CRITICAL deferred: foreign spouse's hahalich hamedorag at the Population Authority after a Cyprus/Utah marriage, often the actual reason couples choose the civil route.",
+        "Expert MAJOR deferred: venue contract commercial terms (guaranteed minimum headcount, over-order clause, vendor meals, deposit, index linkage) and the alcohol/bar line, which is priced separately from per-plate and makes every worked total structurally low.",
+        "Expert MAJOR deferred: the Troubleshooting row on venue price increases states consumer-protection law loosely; cancellation of event/hosting services runs on its own timetable under the 2010 cancellation regulations, not the general rule. Re-verify before quoting it to a user.",
+        "Expert MAJOR deferred: Friday candle-lighting cut-off and summer motzei-Shabbat start times are priced but never stated as usability constraints, which is what actually decides whether the cheaper slot is bookable.",
+        "Expert MINOR deferred: references/wedding-budget-calculator.md still says 'AKUM' in three places where the rest of the skill standardised on ACUM; the English description also still says AKUM.",
+        "Tooling: verify_legal.py fired REVIEW on this skill because SKILL_HE.md contained 'שימו לב לניסוח: החוק...' meaning 'note the statute's WORDING'. That is a false positive in the documented drafting-keyword family, cleared by the legal-review gate (verdict CLEAR, Tier C) and worked around by rewording to 'נוסח החוק'. The scanner's ninusach false-positive list should get this pattern plus a regression fixture, so the next skill that quotes statutory wording does not re-trip it. Not changed this cycle because scan_catalog.py is shared by 14 pipelines and a mid-batch edit there is not safe.",
+        "Deferred: metadata.json display_description still routes the fee to 'the current schedule' now that the body states 844. Left alone deliberately, because editing the description would drag in the Phase 5.7 holdout gate for no routing benefit. Revisit when the description is next edited for another reason."
+      ]
+    }
+  ]
+}

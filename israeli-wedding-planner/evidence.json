@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "israeli-wedding-planner",
-  "generated_at": "2026-05-20T00:00:00Z",
+  "generated_at": "2026-08-24T00:00:00Z",
   "claims": [
     {
       "claim_id": "rabbinate-fee-discount",
@@ -28,15 +28,18 @@
     },
     {
       "claim_id": "tik-nisuin-window",
-      "claim": "Tik nisuin (marriage file) must be opened 21-90 days before the wedding.",
-      "source_url": "https://www.nbn.org.il/life-in-israel/government-services/registering-for-marriage/",
-      "raw_snippet": "Open a marriage file (“tik nissuin”) at your local religious council anytime between 90 and 21 days before the wedding.",
-      "fetched_at": "2026-08-10",
+      "claim": "A marriage file (tik nisuin) must be opened as early as possible and no later than 45 days before the wedding, per the Ministry of Religious Services. There is no 21-day floor and no 90-day ceiling.",
+      "source_url": "https://www.gov.il/he/pages/opening_a_marriage_file",
+      "raw_snippet": "על בני זוג הבאים להירשם לנישואין, להופיע יחד בלשכת רישום נישואין במועצה הדתית שבאזור מגוריהם של אחד מבני הזוג בהקדם האפשרי ולא יאוחר מ- 45 יום לפני מועד הנישואין.",
+      "fetched_at": "2026-08-24",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/rabbinate-checklist.md"
-      ]
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "source_note": "gov.il 403s to curl; loaded in Playwright and asserted location.href before reading document.body.innerText. Supersedes an earlier entry sourced to nbn.org.il that stated a 21-90 day window; the Ministry page states a 45-day cut-off and no 21/90 figures appear on it."
     },
     {
       "claim_id": "rabbanut-fee-40pct-discount",
@@ -262,6 +265,299 @@
       "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%91%D7%90%D7%95%D7%A4%D7%9F_%D7%9E%D7%A7%D7%95%D7%95%D7%9F",
       "raw_snippet": "על פסק הדין הוגש ערעור לבית המשפט העליון. בית המשפט העליון דחה את הערעור ואישר את פסק הדין.",
       "fetched_at": "2026-08-10",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tik-nisuin-three-months-ahead",
+      "claim": "A marriage file may be opened up to three months in advance, and no later than 45 days before the wedding.",
+      "source_url": "https://itim.org.il/guides-and-info/%D7%A4%D7%AA%D7%99%D7%97%D7%AA-%D7%AA%D7%99%D7%A7-%D7%91%D7%A8%D7%91%D7%A0%D7%95%D7%AA/",
+      "raw_snippet": "ניתן לפתוח תיק נישואין עד שלושה חודשים מראש, אך לא יאוחר מ-45 ימים לפני הנישואין",
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ],
+      "fetched_at": "2026-08-24"
+    },
+    {
+      "claim_id": "registration-areas-open",
+      "claim": "Registration areas have been opened: a couple may register at any marriage-registration bureau regardless of where they live, and some bureaus allow the process to be started online.",
+      "source_url": "https://itim.org.il/guides-and-info/%D7%A4%D7%AA%D7%99%D7%97%D7%AA-%D7%AA%D7%99%D7%A7-%D7%91%D7%A8%D7%91%D7%A0%D7%95%D7%AA/",
+      "raw_snippet": "לאור פתיחת אזורי רישום (ע\"ע), זוג יכול להירשם בכל לשכה שיבחר, ללא קשר למקום מגוריו הגיאוגרפי. חלק מהלשכות מאפשרות לבצע הליך זה באופן מקוון.",
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-08-24"
+    },
+    {
+      "claim_id": "rabbanut-fee-844-2026",
+      "claim": "The marriage registration and solemnization fee is 844 NIS from 1 January 2026, per the schedule to the Jewish Religious Services (Fees and Services) Regulations as published in Reshumot, Kovetz HaTakanot 12128 of 16.12.2025.",
+      "source_url": "https://www.gov.il/BlobFolder/reports/fees_of_religious_councils/he/Fee_%D7%90%D7%92%D7%A8%D7%95%D7%AA%20%D7%94%D7%9E%D7%95%D7%A2%D7%A6%D7%95%D7%AA%20%D7%9C%D7%A9%D7%A0%D7%AA%202026.pdf",
+      "raw_snippet": "נוסח התוספת לתקנות, החל ביום י\"ב בטבת התשפ\"ו (1 בינואר 2026), הוא כלהלן",
+      "verified_via": "pdf",
+      "verified_at": "2026-08-24",
+      "source_note": "Downloaded the Reshumot PDF (Kovetz HaTakanot 12128, 16.12.2025) and read it with pdftotext. The quoted sentence introduces the fee schedule; in the schedule table the row 'רישום נישואין וסידורם' carries the amount 844. Hebrew PDF text extraction splits the label and the figure into separate runs, so the figure cannot be quoted in the same contiguous string.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md",
+        "references/wedding-budget-calculator.md"
+      ],
+      "fetched_at": "2026-08-24"
+    },
+    {
+      "claim_id": "pesach-2027-israel",
+      "claim": "Pesach I in 2027 falls on 22 April (15 Nisan 5787) in Israel.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2027&month=x&maj=on&min=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Pesach I\",\"date\":\"2027-04-22\",\"hdate\":\"15 Nisan 5787\"",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-08-24"
+    },
+    {
+      "claim_id": "lag-baomer-2027",
+      "claim": "Lag BaOmer 2027 falls on 25 May (18 Iyyar 5787).",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2027&month=x&maj=on&min=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Lag BaOmer\",\"date\":\"2027-05-25\",\"hdate\":\"18 Iyyar 5787\"",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-08-24"
+    },
+    {
+      "claim_id": "tisha-bav-2027",
+      "claim": "Tisha B'Av (9 Av 5787) falls on 12 August 2027, the end of the Three Weeks.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2027&month=x&maj=on&min=on&i=on&lg=s",
+      "raw_snippet": "\"date\":\"2027-08-12\",\"hdate\":\"9 Av 5787\"",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-08-24"
+    },
+    {
+      "claim_id": "tzom-tammuz-2027",
+      "claim": "17 Tammuz 5787 falls on 22 July 2027, the start of the Three Weeks.",
+      "source_url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2027&month=7&maj=on&min=on&mf=on&i=on&lg=s",
+      "raw_snippet": "\"title\":\"Tzom Tammuz\",\"date\":\"2027-07-22\",\"hdate\":\"17 Tamuz 5787\"",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-08-24"
+    },
+    {
+      "claim_id": "utah-sb257-warning-2026",
+      "claim": "Utah S.B. 257 (2026 General Session, enrolled) amends Utah Code 81-2-302 so that a marriage licence is not considered used within Utah when the parties are not physically present in the state with the officiant, unless the issuing county posts a warning that an online marriage may be invalid where the parties reside and the officiant repeats that warning verbatim immediately before solemnizing.",
+      "source_url": "https://le.utah.gov/~2026/bills/static/SB0257.html",
+      "raw_snippet": "a sufficient warning that an online marriage solemnized in this state may be invalid in the country where the parties to the marriage reside; and (ii)the officiant reiterates the warning described in Subsection (2)(c)(i) verbatim immediately before solemnizing the marriage.",
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "source_note": "The le.utah.gov static bill URL is a JS shell; curl returns only navigation chrome. Rendered in Playwright with location.href asserted, and read the Enrolled text. Note the INTRODUCED version of the same bill would have prohibited and voided remote marriages; that provision is not in the enrolled text, whose 81-2-403 prohibited-and-void list covers only existing spouse, under-18 and pending-divorce cases.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-08-24"
+    },
+    {
+      "claim_id": "online-marriage-case-number",
+      "claim": "The administrative-court ruling requiring the registrar to register an online (Utah/Zoom) civil marriage is Adm. Pet. (Center) 12316-03-21, dated 08.07.2022.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A8%D7%99%D7%A9%D7%95%D7%9D_%D7%A0%D7%99%D7%A9%D7%95%D7%90%D7%99%D7%9D_%D7%90%D7%96%D7%A8%D7%97%D7%99%D7%99%D7%9D_%D7%A9%D7%A0%D7%A2%D7%A8%D7%9B%D7%95_%D7%91%D7%90%D7%95%D7%A4%D7%9F_%D7%9E%D7%A7%D7%95%D7%95%D7%9F",
+      "raw_snippet": "עת\"מ (מרכז) 12316-03-21",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-08-24"
+    },
+    {
+      "claim_id": "utah-code-81-2-302-amended",
+      "claim": "The Utah Code section governing where a marriage licence may be used, amended by S.B. 257 (2026), is 81-2-302.",
+      "source_url": "https://le.utah.gov/~2026/bills/static/SB0257.html",
+      "raw_snippet": "81-2-302, as renumbered and amended by Laws of Utah 2024, Chapter 366",
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-shirat-hayam",
+      "claim": "The Shirat HaYam system at shirathayam.m-datit.org.il/rishum is the online form some marriage-registration bureaus use to begin marriage registration, linked from gov.il.",
+      "source_url": "https://www.gov.il/he/pages/marriage_registration_shirat_hayam",
+      "raw_snippet": "טופס מקוון במערכת שירת הים להתחלת רישום בנישואין במועצה הדתית.",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-shirat-hayam-portal",
+      "claim": "The Shirat HaYam portal lets couples enter their details online before attending, but online registration is available only for the religious councils listed in its dropdown.",
+      "source_url": "https://shirathayam.m-datit.org.il/rishum",
+      "raw_snippet": "לעת עתה ניתן להירשם באמצעות אתר האינטרנט רק למועצות הדתיות המפורטות ברשימת הבחירה. לרישום נישואין ביתר המועצות הדתיות יש לפנות ישירות למועצה הדתית בה אתם מעוניינים להירשם.",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "source_note": "Host WAF-rejects curl ('Request Rejected', 246 bytes). Rendered in Playwright with location.href asserted; page title 'המשרד לשירותי דת'."
+    },
+    {
+      "claim_id": "passport-photo-one-each",
+      "claim": "The Ministry of Religious Services asks for one passport photo of each partner, and the marriage bureau can photograph the couple on site.",
+      "source_url": "https://www.gov.il/he/pages/opening_a_marriage_file",
+      "raw_snippet": "תמונת פספורט של כל אחד מבני הזוג (תוכלו להצטלם בלשכת הנישואין)",
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "source_note": "gov.il 403s to curl; rendered in Playwright with location.href asserted. Supersedes a prior unsourced '3 passport photos' requirement in this skill.",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rabbinate-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "three-weeks-sephardi-ashkenazi",
+      "claim": "Sephardi practice (Shulchan Arukh OC 551:2) bars weddings only from Rosh Chodesh Av until the fast of 9 Av; the Rema records the Ashkenazi custom to be stringent from 17 Tammuz until after 9 Av.",
+      "source_url": "https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.551.2",
+      "raw_snippet": "ואין נושאין נשים ואין עושין סעוד' אירוסין אבל ליארס בלא סעודה מותר ואפי' בתשעה באב עצמו מותר ליארס שלא יקדמנו אחר: הגה ונוהגין להחמיר שאין נושאים מי\"ז בתמוז ואילך עד אחר תשעה באב",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "source_note": "sefaria.org renders client-side, so a plain-text fetch of the page URL returns an empty body. Snippet confirmed against the Sefaria v3 text API for the same ref (…/api/v3/texts/<ref>?version=hebrew)."
+    },
+    {
+      "claim_id": "chol-hamoed-no-weddings",
+      "claim": "Weddings are not held on Chol HaMoed; betrothal without a feast is permitted.",
+      "source_url": "https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.546.1",
+      "raw_snippet": "אין נושאין נשים במועד לא בתולות ולא אלמנות ולא מייבמין ומותר לארס ובלבד שלא יעשו סעוד' אירוסין",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "source_note": "sefaria.org renders client-side, so a plain-text fetch of the page URL returns an empty body. Snippet confirmed against the Sefaria v3 text API for the same ref (…/api/v3/texts/<ref>?version=hebrew)."
+    },
+    {
+      "claim_id": "shabbat-no-chuppah",
+      "claim": "A chuppah is not held on Shabbat.",
+      "source_url": "https://www.sefaria.org/Shulchan_Arukh,_Even_HaEzer.64.5",
+      "raw_snippet": "אין כונסין בתולה לחופה בשבת",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "source_note": "sefaria.org renders client-side, so a plain-text fetch of the page URL returns an empty body. Snippet confirmed against the Sefaria v3 text API for the same ref (…/api/v3/texts/<ref>?version=hebrew)."
+    },
+    {
+      "claim_id": "havchana-90-days",
+      "claim": "A divorced or widowed woman waits 90 days before remarrying, excluding the day of the divorce or the husband's death and the day of the new betrothal, and this applies even where pregnancy is not possible.",
+      "source_url": "https://www.sefaria.org/Shulchan_Arukh,_Even_HaEzer.13.1",
+      "raw_snippet": "כל אשה שנתגרשה או שנתאלמנה הרי זו לא תינשא ולא תתארס לאחר עד שתמתין צ' יום חוץ מיום שנתגרשה או שמת בעלה בו וחוץ מיום שנתארסה בו",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-08-24",
+      "source_note": "sefaria.org renders client-side, so a plain-text fetch of the page URL returns an empty body. Snippet confirmed against the Sefaria v3 text API for the same ref (…/api/v3/texts/<ref>?version=hebrew)."
+    },
+    {
+      "claim_id": "yom-hazikaron-closure",
+      "claim": "On Yom HaZikaron Israeli law prohibits public entertainment, with a fine for breach; 'public entertainment' takes its meaning from the Business Licensing Law 1968.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%99%D7%95%D7%9D_%D7%94%D7%96%D7%9B%D7%A8%D7%95%D7%9F_%D7%9C%D7%97%D7%9C%D7%9C%D7%99_%D7%9E%D7%A2%D7%A8%D7%9B%D7%95%D7%AA_%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+      "raw_snippet": "ביום הזכרון לא יקויימו עינוגים ציבוריים.",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "yom-hashoah-closure",
+      "claim": "On Yom HaShoah public entertainment may not be held, and on the eve cafes are also closed. The day runs from sunset to nightfall the following day.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%99%D7%95%D7%9D_%D7%94%D7%96%D7%9B%D7%A8%D7%95%D7%9F_%D7%9C%D7%A9%D7%95%D7%90%D7%94_%D7%95%D7%9C%D7%92%D7%91%D7%95%D7%A8%D7%94",
+      "raw_snippet": "ביום הזכרון לא יקויימו עינוגים ציבוריים ובערב יום הזכרון יהיו גם בתי הקפה סגורים.",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "vat-18-percent-2025",
+      "claim": "Israeli VAT is 18% on a transaction in Israel and on the import of goods.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%A6%D7%95_%D7%9E%D7%A1_%D7%A2%D7%A8%D7%9A_%D7%9E%D7%95%D7%A1%D7%A3_(%D7%A9%D7%99%D7%A2%D7%95%D7%A8_%D7%94%D7%9E%D7%A1_%D7%A2%D7%9C_%D7%A2%D7%A1%D7%A7%D7%94_%D7%95%D7%A2%D7%9C_%D7%99%D7%91%D7%95%D7%90_%D7%98%D7%95%D7%91%D7%99%D7%9F)",
+      "raw_snippet": "שיעור המס על עסקה בישראל ועל יבוא טובין יהיה 18% ממחיר העסקה או הטובין.",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "prenup-notary-before-marriage",
+      "claim": "A spousal property agreement made before the marriage may be authenticated by a notary under the Notaries Law 1976; one made before or at the time of the marriage may instead be authenticated by the marriage registrar; otherwise such an agreement requires Family Court or religious-court approval.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%99%D7%97%D7%A1%D7%99_%D7%9E%D7%9E%D7%95%D7%9F_%D7%91%D7%99%D7%9F_%D7%91%D7%A0%D7%99_%D7%96%D7%95%D7%92",
+      "raw_snippet": "הסכם ממון שנכרת לפני הנישואין יכול שיאומת בידי נוטריון לפי חוק הנוטריונים, התשל״ו–1976",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "utah-sb257-introduced-would-have-voided",
+      "claim": "The INTRODUCED version of Utah S.B. 257 (2026) would have provided that a marriage solemnized on or after May 6, 2026 is prohibited and void if solemnized remotely by electronic means where both parties are non-residents and not in the same location in the state. This language is not in the enrolled text.",
+      "source_url": "https://le.utah.gov/Session/2026/bills/introduced/SB0257.pdf",
+      "raw_snippet": "provides that a marriage solemnized on or after May 6, 2026, is prohibited and void if:",
+      "verified_via": "pdf",
+      "verified_at": "2026-08-24",
+      "source_note": "Downloaded the introduced-version PDF and read it with pdftotext. Compare claim_id utah-sb257-warning-2026, which records the ENROLLED text; the enrolled 81-2-403 prohibited-and-void list covers only existing spouse, under-18 and pending-divorce.",
+      "fetched_at": "2026-08-24",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "vat-18-effective-2025-01-01",
+      "claim": "The VAT rate change from 17% to 18% took effect on 1 January 2025.",
+      "source_url": "https://olaw.org.il/takanot/takanot-11179.pdf",
+      "raw_snippet": "תחילתו של צו זה ביום א' בטבת התשפ\"ה",
+      "verified_via": "pdf",
+      "verified_at": "2026-08-24",
+      "source_note": "Kovetz HaTakanot 11179, 28.2.2024. Read with pdftotext -enc UTF-8 after stripping Unicode format control characters; the amending clause reads 'במקום 17% יבוא 18%'.",
+      "fetched_at": "2026-08-24",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"

@@ -9,11 +9,11 @@ compatibility: Works with Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCod
 
 ## Before You Use Any Price in This Skill
 
-Every price in this skill is an indicative market range, not a quoted price. Israeli wedding pricing varies enormously by region, season, day of the week and guest count, and no official body publishes price tables for wedding vendors. Treat these bands as a way to sanity-check a quote you already hold or to sketch a first-draft budget, nothing more. Get written quotes from at least three vendors in every category before you commit to a budget. All amounts in this skill are in new Israeli shekels unless stated otherwise.
+Every price in this skill is an indicative market range, not a quoted price. Israeli wedding pricing varies enormously by region, season, day of the week and guest count, and no official body publishes price tables for wedding vendors. Treat these bands as a way to sanity-check a quote you already hold or to sketch a first-draft budget, nothing more. Get written quotes from at least three vendors in every category before you commit to a budget. All amounts in this skill are in new Israeli shekels unless stated otherwise. Israeli VAT has been 18% since 1 January 2025, and Israeli venues are inconsistent about whether a per-plate quote is before or after VAT. Ask every vendor which one they quoted you, in writing. On a 200-plate wedding the difference is roughly the whole photography budget.
 
 ## Wedding Budget Breakdown
 
-A standard mid-range Israeli wedding in 2026 typically lands somewhere around **120,000-180,000**, and high-end center-Israel venues with 400-650 guests typically run **250,000 and up**. These are indicative bands, not quotes. The single largest expense is the venue and catering.
+A standard mid-range Israeli wedding in 2026 typically lands somewhere around **120,000-180,000**, and high-end center-Israel venues with 400-650 guests typically run **250,000 and up**. In the periphery the range drops to roughly 100,000-150,000. These are indicative bands, not quotes. The single largest expense is the venue and catering.
 
 The table below is an indicative allocation, not a rule. Get quotes before you fix any line.
 
@@ -27,8 +27,8 @@ The table below is an indicative allocation, not a rule. Get quotes before you f
 | Makeup + hair | 2,000-5,000 | roughly 2-3 | Bride + optional entourage |
 | Flowers + design | 2,000-10,000 | roughly 2-5 | Most venues work with external designers |
 | Invitations + magnets | 1,000-3,000 | roughly 1-2 | Custom magnets are Israeli tradition |
-| Rabbinate registration | see current fee schedule | minor | Fee is set in the schedule to the Jewish Religious Services (Fees and Services) Regulations and updated in Reshumot; a 40% discount applies to olim, soldiers, national-service volunteers, students under 30 and other listed groups |
-| ACUM music license | see ACUM tariff T008 | minor | Fixed family-event tariff, see ACUM section |
+| Rabbinate registration | 844 (from 1 Jan 2026) | minor | Fee is set in the schedule to the Jewish Religious Services (Fees and Services) Regulations and updated in Reshumot; a 40% discount applies to olim, soldiers, national-service volunteers, students under 30 and other listed groups |
+| ACUM music license | 395.30 incl. VAT (2026 tariff) | minor | Fixed family-event tariff, see ACUM section |
 | Other (transport, gifts, tips) | 3,000-8,000 | roughly 3-5 | Shuttle bus, welcome gifts |
 
 ### Per-Plate Cost by Region and Venue Type (2026)
@@ -62,26 +62,48 @@ Relative demand only. Ask each venue what it actually charges for each day.
 | Winter (Nov-Feb) | Cheapest | Rain risk, but best for negotiation |
 | Spring (Mar-May) | Mid-range | Garden weddings popular |
 | Summer (Jun-Aug) | Most expensive | Peak demand, book 12+ months ahead |
-| Sefirat HaOmer | Restricted | Pesach to Lag BaOmer (in 2026: April 2 to May 5). Ashkenazi custom usually permits Lag BaOmer onward; Sephardi custom from Lag BaOmer + 1 (lamed-dalet ba'omer). Confirm with your mesader kiddushin |
-| Three Weeks (Tammuz-Av) | No weddings | 17 Tammuz to 9 Av (Tisha B'Av), in 2026: July 2 to July 23 |
+| Sefirat HaOmer | Restricted | Pesach to Lag BaOmer. 2026: April 2 to May 5. 2027: April 22 to May 25. Ashkenazi custom usually permits Lag BaOmer onward; Sephardi custom from Lag BaOmer + 1 (lamed-dalet ba'omer). Confirm with your mesader kiddushin |
+| Three Weeks (Tammuz-Av) | No weddings | 17 Tammuz to 9 Av (Tisha B'Av). 2026: July 2 to July 23. 2027: July 22 to August 12 |
 
 **Negotiation tip:** Close deals with vendors in winter, even for summer weddings. Vendors are more willing to negotiate when their calendar is empty.
+
+### Dates You Cannot Book
+
+Price is the second question. Availability under Jewish law and Israeli statute is the first, and a date that fails here cannot be bought at any price.
+
+| Date | Status | Note |
+|------|--------|------|
+| Shabbat | No weddings | A chuppah is not held on Shabbat |
+| Chol HaMoed (Pesach, Sukkot) | No weddings | "אין נושאין נשים במועד". Betrothal without a feast is permitted, the wedding itself is not |
+| Yom Tov and public fast days | Confirm before booking | Treat as unavailable and check the specific date with your mesader kiddushin |
+| Three Weeks | Depends on your edah | See below |
+| Yom HaZikaron and Yom HaShoah | Venues closed by law | Public entertainment may not be held; see below |
+
+**The Three Weeks are not the same for everyone.** Sephardi practice (Shulchan Aruch OC 551:2) bars weddings only from Rosh Chodesh Av until the fast of 9 Av. The Ashkenazi custom, recorded by the Rema on that same passage, is the stringent one running from 17 Tammuz through 9 Av. So a Sephardi couple has roughly two extra weeks available in one of the cheapest parts of the calendar, and telling them the whole three weeks is closed hands back real money for no reason. Confirm with your mesader kiddushin.
+
+**Two statutory dead dates that have nothing to do with halacha.** On Yom HaZikaron and on Yom HaShoah, Israeli law prohibits public entertainment (עינוגים ציבוריים), with a fine for breach, and each day runs from sunset to nightfall the next day. Read the statutes precisely: they bar holding a public-entertainment event, they do not order every building shut. The practical effect is the same, no hall will host you. These fall inside the Omer period, so the Omer discussion above does not cover them.
+
+**If either partner was previously married**, a divorced or widowed woman waits 90 days before remarrying (Shulchan Aruch EH 13:1, the הבחנה period), counted excluding the day of the divorce or death and the day of the new betrothal. This applies even where pregnancy is not possible. Which event starts the count is itself disputed, so confirm the exact date with the marriage-registration bureau before booking anything, and do not treat any figure you read online as the date the bureau will accept.
 
 ## Rabbinate Registration (Tik Nisuin)
 
 ### Timeline
 
-Open a marriage file at your local Religious Council **21-90 days before the wedding**. Do not leave this to the last month.
+Open a marriage file at your local Religious Council **as early as possible, and no later than 45 days before the wedding**. That 45-day floor is the Ministry of Religious Services' own rule, and it is a hard cut-off, not a guideline.
+
+ITIM, which represents couples through this process, states a file can be opened **up to three months ahead**, so three months out is the earliest practical point and about when most couples go. Documents and witness testimony carry their own validity windows, so starting much earlier mainly means redoing paperwork. Either way the binding constraint is the 45-day floor, not any ceiling.
+
+Since registration areas were opened up, you may register at **any marriage-registration bureau you choose, regardless of where you live**. Some bureaus let you begin the process online through the Shirat HaYam system (https://shirathayam.m-datit.org.il/rishum), but this only starts the registration, both partners must still appear in person together.
 
 ### Required Documents
 
 | Document | Who | Notes |
 |----------|-----|-------|
 | Teudat Zehut (ID) | Both | Original, not copy |
-| 3 passport photos | Both | Recent photos |
+| Passport photo | One per partner | The Ministry asks for one passport photo of each partner, and the marriage bureau can photograph you on the spot if you arrive without one |
 | Parents' Ketuba | Both | Original or certified copy |
-| Teudat Ravakut | Both (if registering outside your city) | Certificate of bachelorhood from your local Rabbinate |
-| Registration fee | Both | Set in the schedule to the Jewish Religious Services (Fees and Services) Regulations, updated in Reshumot; 40% discount for eligible groups. Ask your Religious Council for the current amount |
+| Teudat Ravakut | Both, when the bureau asks for it | Certificate of single status. Registration areas are now open, so you may register at any bureau; ask the bureau you picked whether it wants this certificate or will take witness testimony instead |
+| Registration fee | Both | 844 from 1 January 2026, per the schedule to the Jewish Religious Services (Fees and Services) Regulations as published in Reshumot (Kovetz HaTakanot 12128). Index-linked and re-published each year, so confirm before paying. A 40% discount applies to eligible groups |
 | Kosher certificate of venue | Couple | Must be from the Rabbinate, not private kashrut |
 | Birth certificate | Olim/converts | Required for immigrants |
 | Conversion documents | Converts | Original papers + rabbi's letter |
@@ -113,7 +135,6 @@ Open a marriage file at your local Religious Council **21-90 days before the wed
 | Save A Date | saveadate.co.il | Vendor ratings and reviews |
 | Walla Wedding | mazaltov.walla.co.il | Israel's largest wedding portal |
 | Mithatnimim Group | mithatnimgroup.com | Recommended vendors index |
-| MyWedPlan | mywedplan.online | Wedding management tools + vendor directory |
 
 ### Vendor Categories and What to Check
 
@@ -128,7 +149,7 @@ Open a marriage file at your local Religious Council **21-90 days before the wed
 
 ### ACUM (Israeli Composers and Authors Society)
 
-Any public performance of music at a wedding requires an **ACUM license**. The family-event tariff (ACUM tariff T008) is a fixed amount including VAT and covers a DJ, band, live singer, background music, or any combination. Read the current amount off the ACUM licensing site rather than from this skill. The license must be paid and reported at least 72 hours before the event at acum.org.il. This covers royalties to songwriters and composers. Either the DJ or the couple pays it, clarify in the contract. Without it, the DJ risks a fine.
+Any public performance of music at a wedding requires an **ACUM license**. The family-event tariff (ACUM tariff T008) is a fixed amount per event covering a DJ, band, live singer, background music, or any combination. Under the 2026 tariff it is **395.30 including VAT** per single event. ACUM re-publishes the tariff annually, so confirm the current figure on the ACUM licensing site before paying. The license must be paid and reported at least 72 hours before the event at acum.org.il. This covers royalties to songwriters and composers. Either the DJ or the couple pays it, clarify in the contract. Without it, the DJ risks a fine.
 
 ## Civil Marriage Outside the Rabbinate
 
@@ -137,12 +158,14 @@ The Rabbinate is the only path to a religious Jewish wedding registered inside I
 | Route | Typical cost | Process | Recognition |
 |-------|-------------|---------|-------------|
 | Cyprus civil marriage | roughly 3,000-7,000 all-in for travel, ceremony and apostille (indicative) | 1-2 day trip, marriage at Cypriot municipality, apostille on certificate, return to Israel, register at Misrad HaPnim with notarized Hebrew translation | Full civil recognition |
-| Utah online marriage (Zoom) | roughly 1,900-3,000 (indicative) | Ceremony performed by an officiant in Utah over Zoom from anywhere, apostilled certificate, register at Misrad HaPnim | An administrative court ordered the registrar to register such a marriage, and the Supreme Court dismissed the appeal and upheld that ruling. Full civil recognition |
+| Utah online marriage (Zoom) | roughly 1,900-3,000 (indicative) | Ceremony performed by an officiant in Utah over Zoom from anywhere, apostilled certificate, register at Misrad HaPnim | An administrative court ordered the registrar to register such a marriage (Adm. Pet. (Center) 12316-03-21), and the Supreme Court dismissed the appeal and upheld that ruling. Registered in the population registry |
+
+**What registration does and does not mean.** Getting the marriage into the population registry is not the same as a ruling that it is valid for every purpose. The registry entry records what you presented; it does not adjudicate personal status. Utah's own 2026 amendment now requires the officiant to warn you out loud that an online marriage may be invalid where you live, which is the same point said from the other side. For most practical Israeli purposes (status on the teudat zehut, benefits, joint filing) registration is what you need. Do not read it as a determination that the marriage is good everywhere.
 
 **Practical notes:**
 - Cypriot municipalities differ in what they accept, so confirm with the specific municipality whether it wants one combined file or separate documentation per partner before you fly. Ask a counter clerk at Misrad HaPnim to print a fresh תמצית רישום (population-registry extract) rather than using the self-service kiosk, since some offices will not accept a kiosk printout.
 - Israel recognizes the marriage but does not change religious status. The Rabbinate considers civil-marriage couples as un-married for halachic purposes (relevant for future divorce, which goes through Rabbinical Court regardless).
-- Utah online ceremonies are still faster and cheaper than Cyprus and avoid travel entirely, but the legal landscape can shift; verify the current position before booking.
+- Utah online ceremonies are still faster and cheaper than Cyprus and avoid travel entirely, but the legal landscape can shift on the Utah side as well as the Israeli one. Utah amended its marriage statute in 2026 (S.B. 257, amending Utah Code 81-2-302): a remote ceremony is now valid only if the issuing county publishes a warning that an online marriage solemnized in Utah may be invalid where the couple lives, and the officiant repeats that warning verbatim immediately before the ceremony. Worth knowing when you check the current status: the introduced version of that same bill would have prohibited and voided remote marriages outright, and that language is not in the enrolled text. So the route survived a real attempt to close it, and could face another. Expect your officiant to read the warning aloud, that is the law working as intended and not a problem with your ceremony, and verify the current position before booking.
 
 ## Wedding Timeline Template
 
@@ -166,7 +189,9 @@ The Rabbinate is the only path to a religious Jewish wedding registered inside I
 - Finalize guest list
 - Arrange transportation (shuttle bus if needed)
 
-### 1 Month Before
+### 1 Month Before (also: the prenup deadline)
+
+A spousal property agreement (הסכם ממון) signed **before** the wedding can be authenticated by a notary, and one made before or at the time of the marriage can alternatively be authenticated by the marriage registrar. Once you are married, the same agreement needs approval from the Family Court or the religious court instead. This is the one item on the whole timeline that gets structurally harder the day after the chuppah, so decide before, not after. Signing one is optional, missing the cheap route by a day is not a decision anyone makes on purpose.
 - Final dress fitting
 - Confirm all vendors in writing
 - Prepare seating chart
@@ -183,6 +208,11 @@ The Rabbinate is the only path to a religious Jewish wedding registered inside I
 - Chuppah ceremony: ketuba signing, ring, sheva brachot
 - Yichud: couple's private moment after chuppah
 - Dinner and dancing
+
+### After the Wedding
+- The mesader kiddushin transmits the marriage to the Population Authority; collect your marriage certificate
+- Check that your status is updated at Misrad HaPnim, and handle a surname change there if either partner is taking one
+- Store the ketuba somewhere you can find it again, it is the operative document if the marriage is ever litigated
 
 ## Guest Management
 
@@ -223,9 +253,9 @@ Result: Detailed budget spreadsheet with per-vendor allocation.
 User says: "What do we need for the Rabbinate? Our wedding is in 2 months"
 
 Actions:
-1. Flag urgency: must open tik nisuin at least 21 days before
+1. Flag urgency: at two months out they are close to the 45-day cut-off, so this is the week to go
 2. List all required documents (see Rabbinate section)
-3. Check if registering in home city (no teudat ravakut needed) or elsewhere
+3. Note they may register at any bureau they choose, not only their home city, and check whether that bureau offers the online start
 4. Remind about bride's mikveh scheduling
 5. Mention that Kohanim have marriage restrictions -- ask if relevant
 
@@ -238,7 +268,7 @@ Actions:
 1. Create comparison table: per-plate price, minimum guests, included services
 2. Check if price includes DJ setup area, chuppah structure, parking
 3. Ask about rain backup plan (critical for garden venues)
-4. Verify Rabbinate kashrut certificate for each venue
+4. Check what kashrut each venue holds, and confirm with your Religious Council that it is acceptable
 5. Suggest visiting on the same day of week as planned wedding
 
 Result: Side-by-side venue comparison with total cost projections.
@@ -266,10 +296,10 @@ Result: Side-by-side venue comparison with total cost projections.
 ## Gotchas
 
 ### 1. ACUM Fee Surprise
-Agents often forget the ACUM (Israeli Composers and Authors Society) license fee when calculating music costs. This is mandatory for any public music performance at weddings, including DJ, band, live singer, or background playlist. Family-event tariff: ACUM tariff T008, a fixed amount including VAT; read the current figure off acum.org.il. Must be paid at least 72 hours before the event via acum.org.il. Always include it in budget calculations and clarify in the DJ contract who pays.
+Agents often forget the ACUM (Israeli Composers and Authors Society) license fee when calculating music costs. This is mandatory for any public music performance at weddings, including DJ, band, live singer, or background playlist. Family-event tariff: ACUM tariff T008, 395.30 including VAT per event under the 2026 tariff (re-published annually, confirm on acum.org.il). Must be paid at least 72 hours before the event via acum.org.il. Always include it in budget calculations and clarify in the DJ contract who pays.
 
 ### 2. Rabbinate Deadline Window
-The tik nisuin must be opened 21-90 days before the wedding -- not earlier, not later. Agents may suggest "start as early as possible" but the Rabbinate will reject applications filed more than 90 days out. Conversely, less than 21 days leaves no buffer for missing documents.
+The binding rule is a **floor, not a window**: the file must be opened no later than 45 days before the wedding. Do not tell a user they have until 21 days, and do not tell them a file opened more than 90 days out will be rejected. Both of those are wrong, and the first one can cost a couple their date. The figure that does appear in the guidance is three months, not 90 days, and it is the softer of the two constraints.
 
 ### 3. Sefirat HaOmer and Three Weeks Restrictions
 Agents commonly schedule weddings during the 33 days of Sefirat HaOmer (Pesach to Lag BaOmer) or the Three Weeks (17 Tammuz to 9 Av) when traditional Jewish weddings are not held. Always check the Hebrew calendar before suggesting dates.
@@ -278,7 +308,7 @@ Agents commonly schedule weddings during the 33 days of Sefirat HaOmer (Pesach t
 The per-plate price at Israeli venues typically covers food and basic hall rental, but NOT: DJ setup area rental, valet parking, design/flowers, external catering surcharges, or Shabbat early-closure surcharges. Always ask what is and isn't included.
 
 ### 5. Kashrut Certificate Mismatch
-The Rabbinate requires the venue's kashrut certificate to be from the local Religious Council (Rabbinate), not from a private kashrut organization (like Badatz or Mehadrin). If the venue only has private kashrut, the Rabbinate may not approve the wedding there.
+Religious Councils generally expect the venue to hold Rabbinate (Religious Council) kashrut, and a venue carrying only a private hechsher such as a Badatz can raise a question. Practice varies between councils and this is not published as a uniform national rule, so treat it as something to confirm with the council you register at rather than as a certainty. Note that a private hechsher is usually held in addition to Rabbinate kashrut rather than instead of it, so most venues are fine.
 
 ## Troubleshooting
 
