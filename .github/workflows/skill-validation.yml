@@ -82,13 +82,19 @@ jobs:
 
       - name: Validate SKILL.md files
         if: steps.changed.outputs.files != ''
+        env:
+          CHANGED_FILES: ${{ steps.changed.outputs.files }}
         run: |
           chmod +x scripts/validate-skill.sh
-          # shellcheck disable=SC2086
-          ./scripts/validate-skill.sh ${{ steps.changed.outputs.files }}
+          # CHANGED_FILES is newline-separated; pass it via env so 2+ skills in one push do not break the shell.
+          printf '%s\n' "$CHANGED_FILES" \
+            | grep -v '^[[:space:]]*$' \
+            | xargs -r ./scripts/validate-skill.sh
 
       - name: Check evidence.json present for touched skill folders
         if: steps.changed.outputs.files != ''
+        env:
+          CHANGED_DIRS: ${{ steps.changed.outputs.dirs }}
         run: |
           # Forward-only enforcement: any skill folder touched in this change must
           # contain evidence.json. Skills not touched here are exempt
@@ -96,7 +102,7 @@ jobs:
           # See /he/guides/how-we-validate Layer 2 + .claude/skills/update-skill/SKILL.md.
           set -e
           MISSING=""
-          for dir in ${{ steps.changed.outputs.dirs }}; do
+          for dir in $CHANGED_DIRS; do
             if [ -f "$dir/SKILL.md" ] && [ ! -f "$dir/evidence.json" ]; then
               MISSING="$MISSING\n  - $dir/evidence.json"
             fi
