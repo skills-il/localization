@@ -37,23 +37,34 @@ def preprocess_hebrew(text, remove_niqqud=True, normalize_whitespace=True,
     # Step 1: Unicode NFC normalization
     text = unicodedata.normalize('NFC', text)
 
-    # Step 2: Remove niqqud (diacritics) - Unicode range U+0591 to U+05C7
+    # Step 2: Remove niqqud and cantillation marks. The U+0591-U+05C7 block
+    # also holds punctuation, so skip maqaf U+05BE, paseq U+05C0,
+    # sof pasuq U+05C3 and nun hafukha U+05C6 instead of stripping the range.
     if remove_niqqud:
-        text = re.sub(r'[\u0591-\u05C7]', '', text)
+        text = re.sub(r'[\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4\u05C5\u05C7]', '', text)
 
-    # Step 3: Remove other Hebrew-specific marks (cantillation, etc.)
-    # Maqaf (Hebrew hyphen) U+05BE -- keep it, it's meaningful
-    # Paseq U+05C0, Sof Pasuq U+05C3 -- remove (biblical punctuation)
+    # Step 3: Remove biblical punctuation (paseq U+05C0, sof pasuq U+05C3).
+    # Maqaf (Hebrew hyphen) U+05BE is kept, it joins words.
     text = re.sub(r'[\u05C0\u05C3]', '', text)
 
-    # Step 4: Normalize quotation marks used in Hebrew abbreviations
-    # Geresh (U+05F3) and Gershayim (U+05F4) are used for abbreviations
-    # Keep them as they carry meaning (e.g., צה״ל)
+    # Step 4: Geresh (U+05F3) and gershayim (U+05F4) carry meaning in
+    # abbreviations (צה״ל) and are kept as they are.
 
     # Step 5: Optionally remove punctuation
     if remove_punctuation:
-        # Keep Hebrew letters, digits, spaces, geresh/gershayim
-        text = re.sub(r'[^\u0590-\u05FF\u05F3\u05F4\w\s]', '', text)
+        # Most text types an ASCII " inside acronyms (צה"ל, מע"מ). Convert it to
+        # gershayim only in the acronym shape: two or more Hebrew letters, the
+        # quote, then exactly one final Hebrew letter. A quoted word such as
+        # "כן" does not match. ASCII ' is never converted, because a closing
+        # single quote after a Hebrew word looks the same as a geresh.
+        text = re.sub(
+            r'(?<=[א-ת]{2})"(?=[א-ת](?![א-ת]))',
+            '״',
+            text,
+        )
+        # Keep Hebrew letters, digits, spaces, geresh/gershayim and the shekel
+        # sign. Removed marks become a space so hyphenated tokens do not fuse.
+        text = re.sub(r'[^֐-׿׳״₪\w\s]', ' ', text)
 
     # Step 6: Normalize whitespace
     if normalize_whitespace:
@@ -151,10 +162,18 @@ def normalize_numbers(text):
     Returns:
         Text with normalized number formats.
     """
-    # Remove commas from numbers (1,000 -> 1000)
-    text = re.sub(r'(\d),(\d)', r'\1\2', text)
-    # Normalize shekel symbol variations
-    text = text.replace('ש״ח', '₪').replace('שח', '₪')
+    # Remove thousands separators only (1,000,000 -> 1000000). A comma followed
+    # by anything other than exactly three digits (3,5 or 1,2,3) is left alone.
+    text = re.sub(r'(?<=\d),(?=\d{3}(?!\d))', '', text)
+    # Normalize the shekel abbreviation only when it carries gershayim U+05F4
+    # or an ASCII double quote. The bare form is skipped because שח is also
+    # an ordinary word (הוא שח, שח מט). One attached prefix letter
+    # (בש"ח, לש"ח) is allowed and kept.
+    text = re.sub(
+        r'(?<![א-ת])([בוכלמהש]?)ש[״"]ח(?![א-ת])',
+        r'\1₪',
+        text,
+    )
     return text
 
 

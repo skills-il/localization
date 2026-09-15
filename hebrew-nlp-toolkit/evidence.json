@@ -1,59 +1,199 @@
 {
   "schemaVersion": "1.0",
   "skill": "hebrew-nlp-toolkit",
-  "generated_at": "2026-06-17T01:00:00Z",
+  "generated_at": "2026-09-15T12:00:00Z",
   "claims": [
     {
       "claim_id": "dicta-and-ivrit-models",
-      "claim": "Hebrew NLP models used: the DictaBERT family (dicta-il/dictabert base masked-LM, -ner, -sentiment, -morph, -heq, -large-char-menaked Nakdan, neodictabert-bilingual-embed), the DictaLM 3.0 family (24B-Base/Thinking, Nemotron-12B-Instruct/Base, 1.7B-Thinking), and ivrit.ai Whisper (whisper-large-v3, -turbo-ct2). dictabert is a masked-LM base with no classification head, fine-tune or use a task-specific model for classification",
+      "claim": "Hebrew NLP models used: the DictaBERT family (dicta-il/dictabert base masked-LM, -ner, -sentiment, -morph, -joint, -heq, -large-char-menaked Nakdan, neodictabert-bilingual-embed), the DictaLM 3.0 family (24B-Base/Thinking, Nemotron-12B-Instruct/Base, 1.7B-Thinking GGUF, FP8 and W4A16 quantized checkpoints), and ivrit.ai Whisper (whisper-large-v3, -turbo-ct2, faster-whisper-v2-d4). All IDs resolved via the HuggingFace models API on 2026-09-15. dictabert is a masked-LM base with no classification head",
       "source_url": "https://huggingface.co/dicta-il",
       "raw_snippet": "dicta-il (DICTA: The Israel Center for Text Analysis)",
-      "fetched_at": "2026-08-18",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/model-comparison.md"
-      ],
-      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
-      "verified_at": "2026-08-18"
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"],
+      "verified_via": "navigational claim; every model ID checked with https://huggingface.co/api/models/<id> returning HTTP 200 on 2026-09-15",
+      "verified_at": "2026-09-15"
     },
     {
-      "claim_id": "ivrit-ai-corpus",
-      "claim": "ivrit.ai Whisper v3 is fine-tuned on the ivrit.ai Hebrew speech corpus, a 22K+ hour dataset (the 22K figure is the dataset size, not the checkpoint training-set size)",
-      "source_url": "https://www.ivrit.ai/en/",
-      "raw_snippet": "ivrit.ai Hebrew speech corpus, 22K+ hour dataset; whisper-large-v3 fine-tuned on the ivrit.ai corpus",
-      "fetched_at": "2026-06-17T00:55:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
+      "claim_id": "ivrit-ai-corpus-22000",
+      "claim": "The ivrit.ai Hebrew audio corpus is over 22,000 hours (22K+), as of July 2025",
+      "source_url": "https://www.ivrit.ai/en/ivrit-ai-2/",
+      "raw_snippet": "the world’s largest Hebrew audio dataset, over 22,000 hours",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "whisper-large-v3-training-hours",
+      "claim": "ivrit-ai/whisper-large-v3 was trained on about 5,000 hours: Knesset plenums ~4700h, crowd-transcribe-v5 ~300h, crowd-recital ~50h; license apache-2.0",
+      "source_url": "https://huggingface.co/ivrit-ai/whisper-large-v3/raw/main/README.md",
+      "raw_snippet": "A subset of a Knesset (Israeli house of representatives) plenum protocols. ~4700h",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "whisper-param-counts",
+      "claim": "ivrit-ai/whisper-large-v3 has about 1.55B parameters (API safetensors total 1543490560) and the turbo variant about 809M (API total 808878080, shown on the model page as 0.8B)",
+      "source_url": "https://huggingface.co/ivrit-ai/whisper-large-v3-turbo",
+      "raw_snippet": "Model size 0.8B params",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "turbo-ct2-faster-whisper-usage",
+      "claim": "ivrit-ai/whisper-large-v3-turbo-ct2 is a CTranslate2 build loaded with faster_whisper.WhisperModel and transcribed with language='he'",
+      "source_url": "https://huggingface.co/ivrit-ai/whisper-large-v3-turbo-ct2/raw/main/README.md",
+      "raw_snippet": "model = faster_whisper.WhisperModel('ivrit-ai/whisper-large-v3-turbo-ct2')",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "faster-whisper-generator-int8-vad",
+      "claim": "faster-whisper segments is a generator; CPU uses compute_type int8; vad_filter=True and word_timestamps=True options exist",
+      "source_url": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/master/README.md",
+      "raw_snippet": "is a *generator* so the transcription only starts when you iterate over it",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "faster-whisper-v2-d4-legacy",
+      "claim": "ivrit-ai/faster-whisper-v2-d4 is based on whisper-large-v2 and crowd-transcribe-v4, released September 2024",
+      "source_url": "https://huggingface.co/ivrit-ai/faster-whisper-v2-d4/raw/main/README.md",
+      "raw_snippet": "Release date: September 8th, 2024.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["references/model-comparison.md"]
+    },
+    {
+      "claim_id": "dictabert-ner-13-labels",
+      "claim": "dicta-il/dictabert-ner has 13 entity types: ANG, DUC, EVE, FAC, GPE, INFORMAL, LOC, MISC, ORG, PER, TIMEX, TTL, WOA",
+      "source_url": "https://huggingface.co/dicta-il/dictabert-ner/raw/main/config.json",
+      "raw_snippet": "\"6\": \"B-ORG\",",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "dictabert-ner-wordpiece-decoder",
+      "claim": "dictabert-ner pipeline with aggregation_strategy='simple' needs a WordPiece decoder set on the tokenizer; DictaBERT models are licensed cc-by-4.0",
+      "source_url": "https://huggingface.co/dicta-il/dictabert-ner/raw/main/README.md",
+      "raw_snippet": "oracle.tokenizer.backend_tokenizer.decoder = WordPiece()",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "dictabert-sentiment-pipeline",
+      "claim": "dicta-il/dictabert-sentiment works directly with the sentiment-analysis pipeline, labels Positive / Negative / Neutral",
+      "source_url": "https://huggingface.co/dicta-il/dictabert-sentiment/raw/main/README.md",
+      "raw_snippet": "oracle = pipeline('sentiment-analysis', model='dicta-il/dictabert-sentiment')",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "dictabert-joint-predict",
+      "claim": "dicta-il/dictabert-joint is loaded with trust_remote_code=True and exposes predict(sentences, tokenizer, output_style='json')",
+      "source_url": "https://huggingface.co/dicta-il/dictabert-joint/raw/main/README.md",
+      "raw_snippet": "print(model.predict([sentence], tokenizer, output_style='json'))",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "neodictabert-embed-usage",
+      "claim": "neodictabert-bilingual-embed is a sentence-transformers model loaded with trust_remote_code=True, using encode_query with a 'query: ' prefix and encode_document; 768-dimensional vectors; about 363M parameters (362588928)",
+      "source_url": "https://huggingface.co/dicta-il/neodictabert-bilingual-embed/raw/main/README.md",
+      "raw_snippet": "maps sentences & paragraphs to a 768-dimensional dense vector space",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "neodictabert-param-count",
+      "claim": "neodictabert-bilingual-embed safetensors total is 362588928 parameters per the HF API (~363M), shown on the model page as 0.4B",
+      "source_url": "https://huggingface.co/dicta-il/neodictabert-bilingual-embed",
+      "raw_snippet": "Model size 0.4B params",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "nemotron-license-trust-remote-code",
+      "claim": "DictaLM-3.0-Nemotron-12B-Instruct is under the NVIDIA Open Model License, loads with trust_remote_code=True, and the card recommends vllm serve with --enable-auto-tool-choice --tool-call-parser hermes --trust-remote-code",
+      "source_url": "https://huggingface.co/dicta-il/DictaLM-3.0-Nemotron-12B-Instruct/raw/main/README.md",
+      "raw_snippet": "license_name: nvidia-open-model-license",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "dictalm-24b-apache",
+      "claim": "DictaLM-3.0-24B-Base is licensed apache-2.0",
+      "source_url": "https://huggingface.co/dicta-il/DictaLM-3.0-24B-Base/raw/main/README.md",
+      "raw_snippet": "license: apache-2.0",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "menaked-scope",
+      "claim": "dictabert-large-char-menaked targets modern Hebrew prose, not Biblical, Rabbinic, premodern or poetic texts; predict takes a list of sentences",
+      "source_url": "https://huggingface.co/dicta-il/dictabert-large-char-menaked/raw/main/README.md",
+      "raw_snippet": "it is not intended for earlier layers of Hebrew (e.g. Biblical, Rabbinic, Premodern), nor for poetic texts",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
     },
     {
       "claim_id": "preprocessing-and-misc",
-      "claim": "Hebrew preprocessing: niqqud Unicode range U+0591-U+05C7, sofit normalization, NFC; a minor threshold/percentage used in the preprocessing script",
-      "source_url": "https://www.unicode.org/charts/PDF/U0590.pdf",
-      "raw_snippet": "$֥ $ֵ $ץ ו ׅ 0595 6 05E $֔ $֤ $ִ $ׄ ״ פ ה 0594 5 05A1 $֓ $֣ $ֳ 0593 4 ׀ 05C0 05D $֒ $֢ $ֲ $ׂ ײ ע ג 0592 3 05B0 05C $֑ $֡ $ֱ $ׁ ױ ס ב 0591 2 05B 05FF 05EA ׯ ן 05DF 05EF The Unicode Standard, Version 17.0, Copyright © 1991-2025 Unicode, Inc. All rights reserved.",
-      "fetched_at": "2026-08-18",
-      "appears_in": [
-        "scripts/preprocess_hebrew.py",
-        "SKILL.md"
-      ],
-      "verified_via": "cited page fetched and confirmed to contain \"0591\"; snippet replaced with the page's own wording around it",
-      "verified_at": "2026-08-18"
+      "claim": "Hebrew preprocessing: the U+0591-U+05C7 block holds points and cantillation plus punctuation; maqaf is U+05BE, paseq U+05C0, sof pasuq U+05C3, nun hafukha U+05C6; the regex strips U+0591-U+05BD, U+05BF, U+05C1-U+05C2, U+05C4-U+05C5, U+05C7",
+      "source_url": "https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt",
+      "raw_snippet": "05BE;HEBREW PUNCTUATION MAQAF;Pd;0;R;;;;;N;;;;;",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["scripts/preprocess_hebrew.py", "SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "dictalm3-training-tokens",
+      "claim": "DictaLM 3.0 models were continuously pre-trained on about 100 billion (100B) Hebrew tokens mixed with 30B tokens of English data; the 1.7B model is built on Qwen3 1.7B, the 24B on Mistral-Small-3.1-24B, the 12B on NVIDIA Nemotron Nano v2 12B",
+      "source_url": "https://dicta.org.il/publications/DictaLM_3_0___Techincal_Report.pdf",
+      "raw_snippet": "All three models were continuously pre-trained on approximately 100 billion tokens of Hebrew, mixed together with 30B tokens of English data.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["references/model-comparison.md", "SKILL.md", "SKILL_HE.md"],
+      "verified_via": "pdf",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "bf16-weight-memory-estimate",
+      "claim": "Weights-only memory estimate: BF16 stores 2 bytes per parameter, so 24B is about 48GB, 12B about 24GB, 1.7B about 3.5GB; FP8 about half, W4A16 about a quarter; KV cache and activations excluded",
+      "source_url": "https://huggingface.co/dicta-il/DictaLM-3.0-24B-Base/raw/main/README.md",
+      "raw_snippet": "license: apache-2.0",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"],
+      "verified_via": "arithmetic from parameter counts (24B, 12B, 1.7B) at 16 bits per parameter; labelled in the skill as a weights-only estimate, not a vendor figure",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "turbo-ct2-training-hours",
+      "claim": "ivrit-ai/whisper-large-v3-turbo-ct2 lists 295 hours of crowd-transcribe-v5 speech plus 93 hours of professionally transcribed speech from other sources",
+      "source_url": "https://huggingface.co/ivrit-ai/whisper-large-v3-turbo-ct2/raw/main/README.md",
+      "raw_snippet": "Training data includes 295 hours of volunteer-transcribed speech from the ivrit-ai/crowd-transcribe-v5 dataset, as well as 93 hours of professional transcribed speech from other sources.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"]
+    },
+    {
+      "claim_id": "dictabert-morph-role",
+      "claim": "dicta-il/dictabert-morph is the model for morphological tagging",
+      "source_url": "https://huggingface.co/dicta-il/dictabert-morph/raw/main/README.md",
+      "raw_snippet": "This is the fine-tuned model for the morphological tagging task.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["references/model-comparison.md"]
+    },
+    {
+      "claim_id": "dictabert-seg-role",
+      "claim": "dicta-il/dictabert-seg is the model for prefix segmentation",
+      "source_url": "https://huggingface.co/dicta-il/dictabert-seg/raw/main/README.md",
+      "raw_snippet": "This is the fine-tuned model for the prefix segmentation task.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["references/model-comparison.md"]
     },
     {
       "claim_id": "reference-urls",
-      "claim": "Reference URLs cited by the skill. Covers these references: https://dicta.org.il/developers https://dicta.org.il/publications/DictaLM_3_0___Techincal_Report.pdf https://github.com/8400TheHealthNetwork/HebSpacy https://github.com/NNLP-IL https://huggingface.co/dicta-il https://huggingface.co/ivrit-ai https://huggingface.co/onlplab/alephbert-base https://nakdan.dicta.org.il/ https://stanfordnlp.github.io/stanza/ https://www.ivrit.ai/en/",
+      "claim": "Reference URLs cited by the skill. Covers these references: https://dicta.org.il/developers https://dicta.org.il/publications/DictaLM_3_0___Techincal_Report.pdf https://github.com/8400TheHealthNetwork/HebSpacy https://github.com/NNLP-IL https://huggingface.co/dicta-il https://huggingface.co/ivrit-ai https://huggingface.co/onlplab/alephbert-base https://nakdan.dicta.org.il/ https://stanfordnlp.github.io/stanza/ https://www.ivrit.ai/en/ivrit-ai-2/ https://github.com/SYSTRAN/faster-whisper",
       "source_url": "https://huggingface.co/dicta-il",
       "raw_snippet": "dicta-il (DICTA: The Israel Center for Text Analysis)",
-      "fetched_at": "2026-08-18",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/model-comparison.md"
-      ],
-      "verified_via": "reference-coverage entry; the links it covers moved into the claim and the snippet is a quote from its own source page",
-      "verified_at": "2026-08-18"
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/model-comparison.md"],
+      "verified_via": "reference-coverage entry; each URL returned HTTP 200 on 2026-09-15",
+      "verified_at": "2026-09-15"
     }
   ]
 }

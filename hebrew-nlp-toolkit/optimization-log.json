@@ -1,0 +1,20 @@
+{
+  "cycles": [
+    {
+      "version": "1.4.0",
+      "date": "2026-09-15",
+      "lessons": [
+        "Resolved: preprocess script niqqud regex deleted the maqaf; --normalize-numbers mangled any word containing ש+ח and collapsed decimal commas; ASCII ש\"ח was not normalized. Same maqaf bug fixed in the inline Step 3 snippet.",
+        "Resolved: NER label list (13 types, not 4), missing trust_remote_code on Nemotron, license differences, sentiment usable without fine-tuning, WordPiece vs morphological tokenization, ivrit.ai 22K corpus vs ~5,000h checkpoint training data, removed 401 model ivrit-ai/whisper-large-v2-tuned, wrong כמו prefix example.",
+        "Expert MAJOR deferred: speaker diarization (ivrit-ai publishes pyannote-speaker-diarization-3.1 mirror), subtitles output.",
+        "Expert MAJOR deferred: DictaLM chat usage (apply_chat_template, stripping Thinking blocks) beyond the vLLM serve line.",
+        "Expert MAJOR deferred: Hebrew search normalization guidance (final-letter folding for matching, ktiv male/haser variants, geresh/gershayim vs ASCII quote unification) and Hebrew ASR WER/CER evaluation.",
+        "Discretionary deferred over the batch cap: script --segment treats digits/punctuation as 'other' producing noise segments; --segment/--detect-language return before other flags run; detect_hebrew_ratio counts niqqud as letters.",
+        "Discretionary deferred: BEREL models for Rabbinic Hebrew, whisper.cpp ggml / ONNX edge paths, Yiddish yi-whisper pointer, full list of 1.7B Instruct and GGUF variants.",
+        "Expert MINOR deferred (opt-in --remove-punctuation only): decimals split (3.5 -> '3 5'), % dropped, one-letter-before-quote acronyms split (ת\"א, ע\"י, ד\"ר -> two tokens), ASCII apostrophes in English and ג'ירפה split. Default path leaves text byte-identical.",
+        "Judge MINOR noted: paseq and sof pasuq are removed even with --keep-niqqud; comment wording could be clearer.",
+        "Process lesson: the first repair of the shekel/acronym normalization introduced two new false positives (bare שח, closing single quote to geresh). Re-review of the repair caught both; keep quote handling opt-in."
+      ]
+    }
+  ]
+}
