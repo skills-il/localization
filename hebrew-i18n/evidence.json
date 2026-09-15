@@ -1,45 +1,183 @@
 {
   "schemaVersion": "1.0",
   "skill": "hebrew-i18n",
-  "generated_at": "2026-06-16T00:00:00Z",
+  "generated_at": "2026-09-15T12:00:00Z",
   "claims": [
     {
       "claim_id": "example-domain-placeholder",
       "claim": "example.com is an IANA-reserved second-level domain name for use as an example (RFC 2606), so https://example.com and user@example.com in the bidi reference are placeholders, not a real external dependency.",
       "source_url": "https://www.rfc-editor.org/rfc/rfc2606.txt",
       "raw_snippet": "The Internet Assigned Numbers Authority (IANA) also currently has the\n   following second level domain names reserved which can be used as\n   examples.",
-      "fetched_at": "2026-08-09",
-      "appears_in": [
-        "references/bidi.md"
-      ],
-      "verified_via": "raw fetch (curl) of RFC 2606 text"
+      "fetched_at": "2026-09-15",
+      "appears_in": ["references/bidi.md"],
+      "verified_via": "raw fetch (curl) of RFC 2606 text",
+      "verified_at": "2026-09-15"
     },
     {
       "claim_id": "he-il-short-date-dots",
-      "claim": "Intl.DateTimeFormat('he-IL') renders the short date with dot separators (DD.MM.YYYY, e.g. 04.03.2026), not slashes; the long form is '4 March 2026' in Hebrew. The he-IL CLDR short-date pattern is d.M.y.",
+      "claim": "Intl.DateTimeFormat('he-IL') renders the short date with dot separators (DD.MM.YYYY, e.g. 04.03.2026), not slashes; the long form is '4 במרץ 2026'. Re-run on Node v20.19.6 (ICU 78.1) on 2026-09-15.",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat",
-      "raw_snippet": "It’s been available across browsers since September 2017. Learn more See full compatibility The Intl.DateTimeFormat object enables language-sensitive date and time formatting. In this article Try it Constructor Static methods Instance properties Instance methods Examples Specifications Browser compatibility See also Try it const date = new Date(Date.",
-      "fetched_at": "2026-08-18",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ],
-      "verified_via": "source fetched and the passage copied verbatim from the cited page",
-      "verified_at": "2026-08-18"
+      "raw_snippet": "The Intl.DateTimeFormat object enables language-sensitive date and time formatting.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"],
+      "verified_via": "runtime: node -e with Intl.DateTimeFormat('he-IL', {year:'numeric',month:'2-digit',day:'2-digit'}) returned 04.03.2026 for 2026-03-04",
+      "verified_at": "2026-09-15"
     },
     {
-      "claim_id": "cldr-hebrew-plural-categories",
-      "claim": "Modern Unicode CLDR Hebrew (he) cardinal plural rules use three categories: one (i=1 and v=0, or i=0 and v!=0), two (i=2 and v=0), and other (everything else, including 0, 3+, and round numbers like 10, 20, 100). The many category was removed in CLDR 42 (2022).",
+      "claim_id": "cldr-hebrew-plural-rule-one",
+      "claim": "CLDR Hebrew cardinal plural rules: one is 'i = 1 and v = 0 or i = 0 and v != 0' (so decimals below 1 such as 0.5 select one), two is 'i = 2 and v = 0', other is everything else including 0, 3+, 100, 1.5 and 2.5. The many category was removed in CLDR 42 (2022).",
+      "source_url": "https://raw.githubusercontent.com/unicode-org/cldr/main/common/supplemental/plurals.xml",
+      "raw_snippet": "<pluralRule count=\"one\">i = 1 and v = 0 or i = 0 and v != 0 @integer 1 @decimal 0.0~0.9, 0.00~0.05</pluralRule>",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/pluralization.md"]
+    },
+    {
+      "claim_id": "cldr-hebrew-plural-categories-chart",
+      "claim": "The CLDR language plural rules chart lists Hebrew with one, two and other categories; the many category removal happened in CLDR 42 (2022).",
       "source_url": "https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html",
       "raw_snippet": "Please file a ticket to supply. n/a Hebrew he cardinal one 1 0.0~0.9, 0.00~0.05 יום יום i = 1 and v = 0 or i = 0 and v != 0 two 2 יומיים i = 2 and v = 0 other 0, 3~17, 100, 1000, 10000, 100000, 1000000,",
-      "fetched_at": "2026-08-18",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/pluralization.md"
-      ],
-      "verified_via": "source fetched and the passage copied verbatim from the cited page",
-      "verified_at": "2026-08-18"
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/pluralization.md"],
+      "verified_via": "source fetched and the passage copied verbatim from the cited page; many-category removal in CLDR 42 carried from the 2026-06-16 cycle",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "intl-runtime-outputs",
+      "claim": "On Node v20.19.6: new Intl.PluralRules('he').select(0.5) returns 'one'; Intl.DateTimeFormat('he-IL-u-ca-hebrew', {dateStyle:'long'}) formats 2026-03-04 as 'ט״ו באדר תשפ״ו'; Intl.NumberFormat('he-IL', {style:'currency', currency:'ILS'}).format(1234.5) returns code points 200F 1,234.50 00A0 200F 20AA (RLM before the digits and before ₪, no-break space).",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat",
+      "raw_snippet": "The Intl.DateTimeFormat object enables language-sensitive date and time formatting.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/pluralization.md"],
+      "verified_via": "runtime: node -e run on 2026-09-15, output code points dumped with codePointAt (200f 31 2c 32 33 34 2e 35 30 a0 200f 20aa)",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "vue-i18n-pipe-plurals",
+      "claim": "Released vue-i18n (npm latest 11.4.10) picks plural cases by position: pluralDefault returns Math.min(choice, 2) for three cases (zero | one | other), so Hebrew needs a custom rule; {count} and {n} are predefined named arguments.",
+      "source_url": "https://raw.githubusercontent.com/intlify/vue-i18n/v11.4.10/packages/core-base/src/runtime.ts",
+      "raw_snippet": "// zero (0) | singular (1) | plural (2)\n  return Math.min(choice, 2)",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "scripts/generate_i18n.py"]
+    },
+    {
+      "claim_id": "vue-i18n-custom-plural-rules-option",
+      "claim": "vue-i18n v11 custom pluralization is passed to createI18n as pluralRules (Composition API) or pluralizationRules (legacy Options API), with a rule function receiving (choice, choicesLength, orgRule).",
+      "source_url": "https://raw.githubusercontent.com/intlify/vue-i18n/v11.4.10/docs/guide/essentials/pluralization.md",
+      "raw_snippet": "2. `pluralRules` (for Composition API)",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "scripts/generate_i18n.py"]
+    },
+    {
+      "claim_id": "vue-i18n-legacy-default",
+      "claim": "In vue-i18n v11, createI18n runs in legacy mode unless legacy: false is passed (the legacy feature flag defaults to true), and legacy mode reads only pluralizationRules, so pluralRules requires legacy: false.",
+      "source_url": "https://raw.githubusercontent.com/intlify/vue-i18n/v11.4.10/packages/vue-i18n-core/src/i18n.ts",
+      "raw_snippet": ": __FEATURE_LEGACY_API__ && isBoolean(options.legacy)\n      ? options.legacy\n      : __FEATURE_LEGACY_API__",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "scripts/generate_i18n.py"]
+    },
+    {
+      "claim_id": "vue-i18n-legacy-reads-pluralizationrules",
+      "claim": "vue-i18n v11 legacy option conversion reads options.pluralizationRules and maps it to the composer pluralRules.",
+      "source_url": "https://raw.githubusercontent.com/intlify/vue-i18n/v11.4.10/packages/vue-i18n-core/src/legacy.ts",
+      "raw_snippet": "const pluralizationRules = options.pluralizationRules",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "scripts/generate_i18n.py"]
+    },
+    {
+      "claim_id": "vue-i18n-intl-pluralrules-main-only",
+      "claim": "Automatic pluralization with Intl.PluralRules is a breaking (feat!) change on the vue-i18n main branch, not present in the 11.x runtime.",
+      "source_url": "https://raw.githubusercontent.com/intlify/vue-i18n/master/CHANGELOG.md",
+      "raw_snippet": "feat!: Support automatic pluralization with `Intl.PluralRules`",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "i18next-plural-suffixes-hermes",
+      "claim": "i18next selects plural key suffixes (_one, _two, _other) via Intl.PluralRules; React Native's Hermes does not implement Intl.PluralRules, and since i18next v24 there is no fallback, so without a polyfill (intl-pluralrules) only English-style _one/_other resolve.",
+      "source_url": "https://raw.githubusercontent.com/i18next/i18next-gitbook/master/translation-function/plurals.md",
+      "raw_snippet": "Since i18next v24 there is no fallback: without Intl only English-style `_one`/`_other` forms resolve.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "next16-proxy-rename",
+      "claim": "In next-intl setup for Next.js 16, the middleware file is proxy.ts; it was called middleware.ts up until Next.js 16. The matcher is '/((?!api|trpc|_next|_vercel|.*\\\\..*).*)'.",
+      "source_url": "https://raw.githubusercontent.com/amannn/next-intl/main/docs/src/pages/docs/routing/middleware.mdx",
+      "raw_snippet": "**Note:** `proxy.ts` was called `middleware.ts` up until Next.js 16.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "next-intl-request-ts",
+      "claim": "The next-intl example i18n/request.ts uses getRequestConfig with next/root-params, hasLocale and notFound, and returns locale plus messages imported from ../../messages/${locale}.json.",
+      "source_url": "https://raw.githubusercontent.com/amannn/next-intl/main/examples/example-app-router/src/i18n/request.ts",
+      "raw_snippet": "messages: (await import(`../../messages/${locale}.json`)).default",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "next-root-params-16-3",
+      "claim": "next/root-params is available by default in Next.js 16.3 and later; earlier versions need experimental.rootParams.",
+      "source_url": "https://raw.githubusercontent.com/amannn/next-intl/main/docs/src/pages/docs/routing/setup.mdx",
+      "raw_snippet": "`next/root-params` is available by default in Next.js 16.3 and later.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "next-intl-provider-inherits",
+      "claim": "NextIntlClientProvider rendered from a Server Component inherits locale and messages, so getMessages() does not need to be passed in.",
+      "source_url": "https://raw.githubusercontent.com/amannn/next-intl/main/docs/src/pages/docs/usage/configuration.mdx",
+      "raw_snippet": "These props are inherited if you're rendering `NextIntlClientProvider` from a Server Component:",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "next-intl-plugin",
+      "claim": "request.ts is wired in with createNextIntlPlugin from next-intl/plugin in next.config.ts.",
+      "source_url": "https://raw.githubusercontent.com/amannn/next-intl/main/docs/src/pages/docs/getting-started/app-router.mdx",
+      "raw_snippet": "const withNextIntl = createNextIntlPlugin();",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "angular-localize-option",
+      "claim": "Angular needs the \"localize\" build option set to true (or an array of locale IDs) to generate localized builds.",
+      "source_url": "https://raw.githubusercontent.com/angular/angular/main/adev/src/content/guide/i18n/merge.md",
+      "raw_snippet": "Set `\"localize\"` to `true` for all the locales previously defined in the build configuration.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "tailwind-v4-space-x-logical",
+      "claim": "Tailwind v4 space-x sets margin-inline-start and margin-inline-end, which follow dir.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/main/packages/tailwindcss/src/utilities.ts",
+      "raw_snippet": "decl('margin-inline-start', zero ? '0' : `calc(${value} * var(--tw-space-x-reverse))`),",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "tailwind-v3-space-x-physical",
+      "claim": "Tailwind v3 (3.4.17) space-x sets physical margin-right and margin-left, which do not flip with dir. Logical utilities ms/me/ps/pe and rtl:/ltr: variants exist from v3.3.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/v3.4.17/src/corePlugins.js",
+      "raw_snippet": "'margin-right': `calc(${value} * var(--tw-space-x-reverse))`,",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "rn-i18nmanager-restart",
+      "claim": "React Native I18nManager direction changes take effect on the next application start and are persisted across restarts.",
+      "source_url": "https://raw.githubusercontent.com/facebook/react-native-website/main/docs/i18nmanager.md",
+      "raw_snippet": "Changes take effect on the next application start, not immediately",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "mdn-dir-auto",
+      "claim": "dir=\"auto\" should be used for data with unknown directionality such as user input; the browser uses the first strongly directional character, so text that starts with an English name gets a left-to-right base direction.",
+      "source_url": "https://raw.githubusercontent.com/mdn/content/main/files/en-us/web/html/reference/global_attributes/dir/index.md",
+      "raw_snippet": "The `auto` value should be used for data with an unknown directionality, like data coming from user input or external data.",
+      "fetched_at": "2026-09-15",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
     }
   ]
 }

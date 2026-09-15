@@ -6,11 +6,11 @@ Hebrew uses three plural categories defined by the Unicode CLDR:
 
 | Category | Rule | Examples |
 |----------|------|---------|
-| one | n = 1 and v = 0 | 1 |
-| two | n = 2 and v = 0 | 2 |
-| other | everything else | 0, 3, 4, 5, 10, 100, 0.5, 1.5 |
+| one | i = 1 and v = 0 or i = 0 and v != 0 | 1, and decimals below 1 such as 0.5 |
+| two | i = 2 and v = 0 | 2 |
+| other | everything else | 0, 3, 4, 5, 10, 100, 1.5, 2.5 |
 
-Where `n` is the absolute value and `v` is the number of visible fraction digits.
+Where `i` is the integer digits and `v` is the number of visible fraction digits. Source: CLDR `plurals.xml`, `pluralRules locales="he iw"`. Check a specific value with `new Intl.PluralRules('he').select(0.5)`, which returns `"one"`.
 
 ## Common Noun Plural Forms
 
@@ -71,9 +71,9 @@ Hebrew uses the `other` category for zero, but you may want explicit handling:
 ## Edge Cases
 
 ### Decimal Numbers
-Decimal numbers always use the `other` category:
-- 1.5 ימים (not יום)
-- 2.5 שעות (not שעתיים)
+Decimals from 1.0 upward use the `other` category, but decimals below 1 use `one`:
+- 1.5 ימים (not יום), 2.5 שעות (not שעתיים): `other`
+- 0.5 hits the `one` branch, so a message like `one {שעה אחת}` would render "שעה אחת" for half an hour. Give fractions their own wording (for example `חצי שעה`) instead of passing them to the plural message
 
 ### Numbers 11-19
 Despite ending in teen forms, they use `other`:
@@ -82,4 +82,5 @@ Despite ending in teen forms, they use `other`:
 ### Gender Agreement with Numbers
 - Masculine: אחד, שניים, שלושה, ארבעה, חמישה
 - Feminine: אחת, שתיים, שלוש, ארבע, חמש
-- Numbers 1-10 take the OPPOSITE gender of the noun they modify
+- 1 and 2 agree with the noun's gender (יום אחד, שעה אחת, שני ימים, שתי שעות)
+- 3 to 10 take the OPPOSITE-looking form: masculine nouns take the form ending in ה (שלושה ימים), feminine nouns take the form without it (שלוש שעות)

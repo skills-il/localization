@@ -1,14 +1,24 @@
 {
   "cycles": [
     {
-      "version": "1.2.2",
-      "date": "2026-06-16",
+      "version": "1.3.0",
+      "date": "2026-09-15",
       "lessons": [
-        "Resolved this cycle: the skill claimed Intl.DateTimeFormat('he-IL') short date outputs slash-separated DD/MM/YYYY; it actually emits DOT separators (DD.MM.YYYY, e.g. 04.03.2026, CLDR pattern d.M.y). Fixed the body, the code comment, and the Example 2 result lines in EN+HE. The Troubleshooting heading keeps DD/MM/YYYY because it describes day-before-month ORDER vs American MM/DD, not the separator.",
-        "Verified-and-kept (do NOT regress): Hebrew CLDR plural rules use ONLY one/two/other. The 'many' category was removed in CLDR 42 (2022); adding a 'many' branch would be dead code on any modern ICU/CLDR runtime (20/100/1000 resolve to 'other'). Added an explicit note so a future maintainer does not re-introduce it.",
-        "Resolved this cycle: labeled the Tailwind RTL utilities as v3.3+ AND v4 (logical utilities, rtl:/ltr: variants, and the space-x non-reversal caveat all still hold in v4).",
-        "Expert MINOR deferred: the next-intl setup omits the i18n/request.ts (getRequestConfig) file that actually feeds getMessages(); a one-line pointer would make the next-intl path runnable end to end. Next cycle: add it.",
-        "Expert MINOR deferred: references/bidi.md line ~120 has an unescaped double-quote inside a double-quoted example string; cosmetic, illustrative test data, not runnable. Next cycle: escape or reword."
+        "Resolved CARRY: next-intl setup now includes i18n/request.ts (getRequestConfig) and the createNextIntlPlugin wiring.",
+        "Resolved CARRY: references/bidi.md test string with an unescaped double quote now uses single-quote delimiters.",
+        "Resolved STALE: Next.js 16 renamed middleware.ts to proxy.ts; layout no longer passes getMessages() because NextIntlClientProvider inherits from a Server Component.",
+        "Resolved STALE: Tailwind v4 space-x uses margin-inline so it already follows dir; the v3 advice to add space-x-reverse under RTL now double-reverses on v4. Gotcha split by version.",
+        "Resolved STALE: CLDR Hebrew 'one' rule is 'i = 1 and v = 0 or i = 0 and v != 0', so 0.5 selects 'one'. Decimal edge case rewritten.",
+        "Resolved BUG: generate_i18n.py emitted ICU plural strings for vue-i18n, which uses pipe-separated cases selected by Intl.PluralRules in CLDR order.",
+        "Resolved BUG: number-gender polarity applies to 3-10, not 1-10.",
+        "Resolved BUG: React example set dir on a div (contradicting the Gotcha) and promised react-i18next with no snippet; added runtime document.documentElement dir switching and i18next _one/_two/_other keys with the Hermes polyfill caveat.",
+        "Resolved STALE: he-IL currency output contains U+200F marks and U+00A0; documented, with a Troubleshooting row.",
+        "Added (MAJOR, cheap): dir=auto for user-typed fields and dir=ltr for email/phone inputs, native Hebrew calendar via he-IL-u-ca-hebrew, React Native I18nManager reload requirement, Angular localize build option.",
+        "Expert MAJOR deferred: Hebrew-capable font guidance (next/font subsets, line-height), mirroring rules for icons that must NOT flip, gender select combined with plural in ICU, RTL visual-regression testing, Intl.RelativeTimeFormat / ListFormat Hebrew quirks, Intl.Locale getTextInfo for deriving dir.",
+        "Discretionary deferred over the batch cap: generator i18next format and en.json counterpart, Angular standalone Dir import, hreflang alternates, RTL scrollLeft sign for carousels.",
+        "Expert MAJOR deferred: a pre-Next.js-16.3 request.ts variant using requestLocale inline (skill currently points to experimental.rootParams instead).",
+        "Expert MINOR noted: hePlural(0.5) returns the 'other' index while CLDR puts 0.5 in 'one'; skill already tells users to word fractions separately.",
+        "Process lesson: the first vue-i18n fix copied main-branch docs (automatic Intl.PluralRules) that are not in the 11.x release; the second fix used pluralRules without legacy: false, which 11.x silently ignores in its default legacy mode. Verify library claims against the source at the released npm tag, not the default branch."
       ]
     }
   ]

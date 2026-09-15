@@ -117,4 +117,4 @@ Test strings that expose common bidi bugs:
 - `"טלפון: 054-1234567"` -- phone with punctuation
 - `"שלום user@email.com בוקר טוב"` -- email in Hebrew
 - `"גרסה v2.1.3-beta"` -- version string
-- `"מחיר: $99.99 (כולל מע"מ)"` -- currency with parentheses
+- `'מחיר: $99.99 (כולל מע"מ)'` -- currency with parentheses and gershayim-style quote
