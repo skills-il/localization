@@ -30,6 +30,7 @@ export interface A11yPrefs {
   cursorBlack: boolean;
   cursorLarge: boolean;
   reduceMotion: boolean;
+  hideImages: boolean;
 }
 
 export const A11Y_VERSION = 1;
@@ -46,6 +47,7 @@ export const DEFAULT_PREFS: A11yPrefs = Object.freeze({
   cursorBlack: false,
   cursorLarge: false,
   reduceMotion: false,
+  hideImages: false,
 });
 
 const CONTRAST_CYCLE: ContrastMode[] = ['off', 'high', 'invert', 'mono'];
@@ -72,7 +74,8 @@ export function isAnyActive(prefs: A11yPrefs): boolean {
     prefs.headings ||
     prefs.cursorBlack ||
     prefs.cursorLarge ||
-    prefs.reduceMotion
+    prefs.reduceMotion ||
+    prefs.hideImages
   );
 }
 
@@ -98,6 +101,7 @@ const CLASS_RULES: ReadonlyArray<[
   ['a11y-cursor-black',    (p) => p.cursorBlack,           '!!p.cursorBlack'],
   ['a11y-cursor-large',    (p) => p.cursorLarge,           '!!p.cursorLarge'],
   ['a11y-reduce-motion',   (p) => p.reduceMotion,          '!!p.reduceMotion'],
+  ['a11y-hide-images',     (p) => p.hideImages,            '!!p.hideImages'],
 ];
 
 export function applyPrefsToElement(el: HTMLElement, prefs: A11yPrefs): void {
@@ -367,7 +371,58 @@ function ToggleCard({ icon: Icon, label, active, valueLabel, cycling, onClick }:
 
 ---
 
-## 4. framer-motion Reduced-Motion Provider
+## 4. Reduced Motion for JS-Driven Animation
+
+The `a11y-reduce-motion` CSS class stops CSS animations only. Every
+JS-driven animation (`setInterval` slide autoplay, `requestAnimationFrame`
+tweens) must subscribe to a shared, SSR-safe hook that ORs the OS media
+query with the widget preference — otherwise the widget toggle does nothing
+for exactly the elements auditors check first (the hero slider):
+
+```ts
+// lib/use-reduced-motion.ts
+'use client';
+
+import { useSyncExternalStore } from 'react';
+import { useA11yPrefs } from '@/lib/a11y-prefs/store';
+
+const QUERY = '(prefers-reduced-motion: reduce)';
+
+function subscribe(cb: () => void) {
+  const mql = window.matchMedia(QUERY);
+  mql.addEventListener('change', cb);
+  return () => mql.removeEventListener('change', cb);
+}
+
+export function useReducedMotion(): boolean {
+  const osPref = useSyncExternalStore(
+    subscribe,
+    () => window.matchMedia(QUERY).matches,
+    () => false, // server snapshot — value is consumed only in effects, so no hydration mismatch
+  );
+  const { reduceMotion } = useA11yPrefs();
+  return osPref || reduceMotion;
+}
+```
+
+Usage in an autoplay effect — and note the count-up rule: when the pref
+flips mid-animation, cancel the in-flight frame and snap to the final
+value; freezing at a partial number misrepresents content:
+
+```ts
+const reduced = useReducedMotion();
+useEffect(() => {
+  if (reduced) return; // also cancels a running interval via cleanup
+  const id = window.setInterval(next, autoplayMs);
+  return () => window.clearInterval(id);
+}, [reduced, autoplayMs]);
+```
+
+Find what to wire with `grep -rn "setInterval\|requestAnimationFrame" src/`.
+Wire visible decorative motion; leave functional timers (OTP countdowns,
+retry backoff) running — they represent real state, not decoration.
+
+## 4b. framer-motion Reduced-Motion Provider
 
 ```tsx
 'use client';
@@ -447,7 +502,7 @@ Each toggle produces one or more CSS classes on `<html>`. Map them in `globals.c
 | Toggle | Class(es) applied | Suggested CSS rule |
 |--------|-------------------|--------------------|
 | Highlight links | `.a11y-links` | `.a11y-links a { text-decoration: underline !important; font-weight: 600 !important; outline: 1px solid currentColor !important; outline-offset: 2px !important; }` |
-| Contrast high | `.a11y-contrast-high` | `.a11y-contrast-high { filter: contrast(1.3); }` |
+| Contrast high | `.a11y-contrast-high` | **Not a filter** — a filter cannot repair a failing ratio and a real auditor will fail it. Remap the site's color custom properties to measured ≥4.5:1 values at the most primitive token layer: `.a11y-contrast-high { --brand-x: <darker passing shade>; }` + per-dark-theme scoped overrides going *lighter*. See SKILL.md "High Contrast Must Remap Tokens, Not Filter". |
 | Contrast invert | `.a11y-contrast-invert` | `.a11y-contrast-invert { filter: invert(1) hue-rotate(180deg); }` + counter-invert widget |
 | Contrast mono | `.a11y-contrast-mono` | `.a11y-contrast-mono { filter: grayscale(1) contrast(1.1); }` + counter-invert widget |
 | Text size | `.a11y-text-115`, `.a11y-text-130`, `.a11y-text-150` | `.a11y-text-150 { font-size: 150%; }` |
@@ -456,7 +511,8 @@ Each toggle produces one or more CSS classes on `<html>`. Map them in `globals.c
 | Highlight headings | `.a11y-headings` | `.a11y-headings h1, .a11y-headings h2, .a11y-headings h3 { outline: 2px dashed currentColor; outline-offset: 4px; }` |
 | Black cursor | `.a11y-cursor-black` | `.a11y-cursor-black, .a11y-cursor-black * { cursor: url("data:image/svg+xml,…black cursor SVG…"), auto !important; }` |
 | Large cursor | `.a11y-cursor-large` | `.a11y-cursor-large, .a11y-cursor-large * { cursor: url("data:image/svg+xml,…large cursor SVG…"), auto !important; }` |
-| Stop animations | `.a11y-reduce-motion` | `.a11y-reduce-motion *, .a11y-reduce-motion *::before, .a11y-reduce-motion *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }` |
+| Stop animations | `.a11y-reduce-motion` | `.a11y-reduce-motion *, .a11y-reduce-motion *::before, .a11y-reduce-motion *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }` — CSS animations only; JS-driven motion needs the `useReducedMotion()` hook below |
+| Hide images | `.a11y-hide-images` | `.a11y-hide-images img { filter: brightness(0) !important; }` + white text scoped to real text-over-photo spots only + `visibility: hidden` for blend-composited decorative images + leave meaningful `<svg>` icons alone. See SKILL.md "Hide Images Without Breaking the Page". |
 
 ### Counter-invert (required)
 
@@ -479,6 +535,7 @@ Without this, users end up with an unreadable widget when invert/mono is active.
   html[class*="a11y-text-"] { font-size: 100% !important; }
   html[class*="a11y-lines-"] { line-height: normal !important; }
   html.a11y-cursor-black, html.a11y-cursor-large { cursor: auto !important; }
+  html.a11y-hide-images img { filter: none !important; }
 }
 ```
 
@@ -531,6 +588,9 @@ Before shipping:
 - [ ] Enable 150% text → no text clipped, no horizontal scroll introduced
 - [ ] Print preview → filters removed, text at 100%
 - [ ] Enable "Stop animations" → framer-motion animations skip via `MotionConfig`
+- [ ] Enable "Stop animations" → JS-driven motion actually stops: hero autoplay halts, count-up counters render final values (grep `setInterval|requestAnimationFrame` for anything unwired)
+- [ ] Enable high contrast → re-MEASURE ratios in the live DOM on a production build (dev builds and dev caches lie about custom-property overrides); with the mode OFF, computed brand colors are byte-identical to before
+- [ ] Enable "Hide images" → walk every page where text overlaps a photo (search for absolutely-positioned/`mix-blend-*` images near headings, don't trust memory or comments) and confirm the text is still legible; meaningful icons still visible
 - [ ] Screen reader (NVDA / VoiceOver) → cycling toggle announces current value, not "pressed"
 - [ ] Cross-tab test → preferences persist across tabs (storage event not required; each tab reads from localStorage on load)
 
