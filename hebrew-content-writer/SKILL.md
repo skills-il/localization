@@ -30,7 +30,7 @@ Modern Hebrew content uses ktiv maleh (plene spelling) with vav and yod for vowe
 **Smichut (Construct State) Rules:**
 - First noun loses definite article: "beit ha-sefer" (the school) not "ha-beit ha-sefer"
 - First noun may change form: bayit -> beit, yom -> yom (unchanged)
-- Adjectives agree with the LAST noun in the chain
+- To make a smichut plural, pluralize the first noun: בתי ספר (schools), not בתי ספרים. The second noun keeps whatever number its own meaning needs (ספרי ילדים, חנות בגדים)
 
 **Direct Object Marker (et):**
 - Required before definite direct objects: "ra'iti ET ha-sefer" (I saw the book)
@@ -57,8 +57,8 @@ Use masculine plural for mixed groups. Standard in government, legal, academic w
 | Instead of | Use |
 |-----------|-----|
 | המשתמש צריך ללחוץ (the user needs to click, m.) | יש ללחוץ על (click on) |
-| אתה יכול לבחור (you can choose, m.) | ניתן לבחור (it is possible to choose) |
-| הלקוחות שלנו מרוצים (our customers are satisfied, m.) | שביעות רצון הלקוחות שלנו (the satisfaction of our customers) |
+| אתה יכול לבחור (you can choose, m.) | אפשר לבחור (it is possible to choose) |
+| הלקוחות שלנו מרוצים (our customers are satisfied, m.) | רמת שביעות הרצון בקרב הלקוחות גבוהה (customer satisfaction is high) |
 
 **Ask the user** which approach they prefer if not specified.
 
@@ -70,7 +70,6 @@ Use masculine plural for mixed groups. Standard in government, legal, academic w
 | Missing et | ראיתי הכלב | ראיתי את הכלב | Definite direct object needs et |
 | Wrong gender agreement | הילדה הלך | הילדה הלכה | Verb must match subject gender |
 | Mixed ktiv | תוכנה/תכנה in same text | Pick one consistently | Use ktiv maleh throughout |
-| Incorrect vav ha-hipukh | ואז הוא הולך | ואז הוא הלך | Vav ha-hipukh is biblical, not modern |
 | Colloquial in formal text | נגיד ש... | לדוגמה... | Match register to context |
 
 ### Step 5: Hebrew SEO Optimization
@@ -82,10 +81,10 @@ Use masculine plural for mixed groups. Standard in government, legal, academic w
 - Consider bilingual searches -- Israelis search English for tech terms
 
 **On-Page SEO for Hebrew:**
-- Title tag: 50-60 Hebrew characters, primary keyword near beginning
-- Meta description: 120-150 characters, compelling call-to-action
+- Title tag: primary keyword near the beginning. Google sets no length limit but truncates the displayed title to fit the device width, so keep the key words early
+- Meta description: a compelling call-to-action. Google sets no length limit here either and truncates the snippet as needed, so lead with the value
 - H1: One per page, contains primary keyword
-- URL slug: Transliterated Hebrew ("bituach-briut") or English equivalent
+- URL slug: Google recommends words in the audience's language, and transliterated words where relevant. Hebrew words (percent-encoded in the URL), a transliteration ("bituach-briut") or an English equivalent all work; pick one convention per site
 - Alt text: Descriptive Hebrew text for images
 - Internal linking: Use Hebrew anchor text
 
@@ -94,6 +93,16 @@ Use masculine plural for mixed groups. Standard in government, legal, academic w
 - Use headers (H2, H3) every 200-300 words
 - Bulleted lists improve readability in Hebrew
 - Bold key terms for scanning
+
+**Advertising sent by fax, automated call, SMS, email or any other electronic message such as WhatsApp (Communications Law section 30A):**
+- Send only with the recipient's prior explicit consent in writing; consent given in an electronic message or a recorded call counts. A one-time approach to a business recipient that asks them to agree to receive advertising is not a violation.
+- The exception for commercial advertising sent without consent needs ALL three: the recipient gave their details while buying, or negotiating to buy, a product or service and was told they would be used for advertising; they were given a chance to refuse and did not; and the advertising is for a similar kind of product or service.
+- State these prominently and clearly, without misleading: that it is advertising, with the word "פרסומת" (or "בקשת תרומה" for a donation request, "תעמולה" for propaganda) at the start and, in an electronic message, in its title or subject line; the advertiser's name, address and contact details; and the recipient's right to refuse at any time with a simple way to do so (for an electronic message, a valid internet address for refusals).
+- For an automated call, the recorded message must also say at its start that the recipient may ask to be removed from the mailing list, and let them do so right away, including by pressing a key.
+- For an SMS the law replaces that list: the message states only the advertiser's name and contact details for sending a refusal.
+- A court may award up to 1,000 NIS per advertising message sent knowingly in breach, without proof of damage.
+- Donation requests and propaganda messages have their own variants of these rules (for example, section 30A(b1) for nonprofits and public-benefit companies sending by email); check the statute for those.
+- Check the statute text and the Ministry of Communications FAQ (https://www.gov.il/he/pages/17052018_7) before writing campaign copy; these requirements come from the law, not from style.
 
 ### Step 6: Write in the Dugri (Direct) Register
 
@@ -110,7 +119,7 @@ How to write dugri:
 |----------------|-------------|
 | נשמח אם תוכלו לשקול לעדכן את הפרטים | תעדכנו את הפרטים |
 | ייתכן שכדאי לבדוק את החיבור לאינטרנט | תבדקו את החיבור לאינטרנט |
-| אנחנו מתנצלים על אי הנוחות שנגרמה | סליחה על העיכוב. תיקנו את זה |
+| אנחנו מתנצלים על אי הנוחות שנגרמה | סליחה על אי הנוחות. (add "תיקנו את זה" only if it is true) |
 
 ### Step 7: Handle Mixed Hebrew/English (Heblish)
 
@@ -141,9 +150,10 @@ English nouns taking Hebrew grammar:
 
 **Numerals and dates:**
 - In running body copy, prefer digits for most numbers ("3 ימים", "תוך 24 שעות"); spelling out is reserved for formal/legal text or numbers that open a sentence.
-- Number-gender agreement for 1-10: Hebrew numbers take the OPPOSITE gender form of the noun they count (a known trap). With a masculine noun use the feminine-form number: "שלושה ימים" (three days, masc. noun). With a feminine noun use the masculine-form number: "שלוש שנים" (three years, fem. noun).
+- Number-gender agreement: 1 and 2 agree with the noun ("יום אחד", "שני ימים"; "שנה אחת", "שתי שנים"). From 3 to 10 the number takes the OPPOSITE-looking form (a known trap): a masculine noun takes the form ending in ה, "שלושה ימים" (three days), and a feminine noun takes the form without it, "שלוש שנים" (three years).
 - Dates follow Israeli convention `DD/MM/YYYY` and 24-hour time. See `israeli-ui-design-system` for formatting in UI components.
-- Hebrew quotation marks: Hebrew uses the same `"` for quotation in practice, but note that gershayim `"` and geresh `'` are reserved for acronyms (צה"ל) and abbreviations - do not let them double as quote marks in the same span.
+- Gershayim (״) mark an acronym and go before its last letter (צה״ל, בי״ס); a geresh (׳) marks a shortened word and goes after its last written letter (מס׳, עמ׳). The Academy leaves the choice between double and single quotation marks to house style.
+- Put a maqaf (־) between a Hebrew prefix and a number or a Latin-letter word: ב־2026, ה־API, המאה ה־12. A maqaf joins with no spaces; a dash (–) separates and takes a space on each side, except in a range, where it takes no spaces (עמ' 46–53, 16.00–18.00).
 
 ### Step 9: Literal-Translation Pitfalls
 
@@ -151,10 +161,10 @@ Calques from English produce text that is grammatical but unmistakably translate
 
 | Pitfall | Wrong (calque) | Natural Hebrew |
 |---------|----------------|----------------|
-| "to make sense" translated word-for-word | זה עושה סנס / זה עושה שכל | זה הגיוני / זה מסתדר |
+| "to make sense" translated word-for-word | זה עושה סנס / זה עושה שכל | זה הגיוני / זה נשמע הגיוני |
 | Over-using generic "אתה" for impersonal "you" | אתה צריך ללחוץ, אתה יכול לראות | יש ללחוץ, אפשר לראות |
 | "בכדי" used where plain "כדי" belongs | בכדי לשמור את הקובץ | כדי לשמור את הקובץ |
-| Redundant "את ה־" stacking after a preposition | להתחבר את החשבון | לחבר את החשבון / להתחבר לחשבון |
+| Hitpa'el verb given a direct object with "את" | להתחבר את החשבון | לחבר את החשבון / להתחבר לחשבון |
 | Literal "at the end of the day" | בסוף היום | בסופו של דבר / בשורה התחתונה |
 
 "בכדי" is not wrong in every context, but it is overused as a fancier-looking "כדי"; default to plain "כדי".
@@ -163,11 +173,11 @@ Calques from English produce text that is grammatical but unmistakably translate
 
 ### Example 1: Marketing Email
 User says: "Write a Hebrew marketing email for a SaaS product launch"
-Result: Write business-register Hebrew email with compelling subject line, benefit-focused body, clear CTA. Apply SEO principles if it will be a web version. Use gender-inclusive language.
+Result: Write business-register Hebrew email with compelling subject line, benefit-focused body, clear CTA. If the email is advertising, first confirm the recipients consented or meet the three-condition exception in Step 5, then start the subject line with "פרסומת" and include the sender details and refusal address. Apply SEO principles if it will be a web version. Use gender-inclusive language.
 
 ### Example 2: UX Error Message
 User says: "Write Hebrew error messages for a login form"
-Result: Write short, clear, action-oriented Hebrew text in imperative mood. Use neutral/inclusive phrasing. Examples: "הסיסמה שגויה. יש לנסות שנית" (The password is incorrect. Please try again).
+Result: Write short, clear, action-oriented Hebrew text in imperative mood. Use neutral/inclusive phrasing. Examples: "הסיסמה שגויה. נסו שוב" (The password is incorrect. Try again).
 
 ### Example 3: SEO Blog Post
 User says: "Write a Hebrew blog post about cloud security for Israeli businesses"
@@ -195,7 +205,8 @@ Result: Identify gendered forms, apply Option C rewording where possible, use sl
 | Academy of the Hebrew Language | https://hebrew-academy.org.il | Official spelling rules, loanword decisions, new terms |
 | Milog online dictionary | https://milog.co.il | Modern Hebrew usage, register, common phrasing |
 | Ravmilim online dictionary | https://www.ravmilim.co.il | Synonyms, collocations, grammatical info |
-| Kotar HaKeshet | https://hebrew-academy.org.il/topic/hahlatot/ | Academy decisions on grammar and terminology |
+| Academy decisions (ההחלטות) | https://hebrew-academy.org.il/topic/hahlatot/ | Academy decisions on grammar, spelling and terminology |
+| Academy punctuation rules (כללי הפיסוק) | https://hebrew-academy.org.il/topic/hahlatot/punctuation/ | Maqaf, gershayim, geresh, quotation marks |
 | Hebrew style guide (Wikipedia) | https://he.wikipedia.org/wiki/ויקיפדיה:לשון | Community-maintained modern Hebrew language and style conventions |
 
 ## Troubleshooting

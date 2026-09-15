@@ -1,31 +1,296 @@
 {
   "schemaVersion": "1.0",
   "skill": "hebrew-content-writer",
-  "generated_at": "2026-06-17T00:15:00Z",
+  "generated_at": "2026-09-15T12:00:00Z",
   "claims": [
     {
       "claim_id": "reference-sources",
-      "claim": "Authoritative Hebrew-language references used by the skill: Academy of the Hebrew Language decisions, the Milog and Rav-Milim dictionaries, and the Hebrew Wikipedia language/style guide. Covers these references: https://hebrew-academy.org.il https://hebrew-academy.org.il/topic/hahlatot/ https://milog.co.il https://www.ravmilim.co.il https://he.wikipedia.org/wiki/ויקיפדיה:לשון",
+      "claim": "Authoritative Hebrew-language references used by the skill: Academy of the Hebrew Language decisions and punctuation rules, the Milog and Rav-Milim dictionaries, and the Hebrew Wikipedia language/style guide. Covers these references: https://hebrew-academy.org.il https://hebrew-academy.org.il/topic/hahlatot/ https://hebrew-academy.org.il/topic/hahlatot/punctuation/ https://milog.co.il https://www.ravmilim.co.il https://he.wikipedia.org/wiki/ויקיפדיה:לשון https://www.gov.il/he/pages/17052018_7",
       "source_url": "https://hebrew-academy.org.il/topic/hahlatot/",
       "raw_snippet": "כל ההחלטות אושרו במליאת האקדמיה, ורובן ככולן פורסמו ברשומות ובחוברות מיוחדות בהוצאת המזכירות המדעית של האקדמיה.",
-      "fetched_at": "2026-08-18",
+      "fetched_at": "2026-09-15",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/hebrew-grammar-quick-ref.md"
       ],
-      "verified_via": "Academy of the Hebrew Language decisions page read in a browser",
-      "verified_at": "2026-08-18"
+      "verified_via": "browser: Playwright render on 2026-09-15, location.href asserted, page title 'ההחלטות - האקדמיה ללשון העברית'; curl is bot-blocked (403)",
+      "verified_at": "2026-09-15"
     },
     {
-      "claim_id": "hebrew-grammar-rules",
-      "claim": "Hebrew grammar reference: number-gender agreement, smichut (construct state), and ktiv maleh spelling conventions per the Academy of the Hebrew Language. Ktiv maleh adds vav/yod (e.g. תכנה->תוכנה, שרות->שירות, קדם->קודם, תכנית->תוכנית, פרוט->פירוט). Includes a numbered rule reference (Section 5 / סעיף 5)",
-      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/",
-      "raw_snippet": "כתיב מלא לפי האקדמיה ללשון העברית; תכנה תוכנה, שרות שירות, קדם קודם, תכנית תוכנית, פרוט פירוט; סעיף 5; Section 5",
-      "fetched_at": "2026-06-17T00:10:00Z",
+      "claim_id": "ktiv-maleh-vav-for-o",
+      "claim": "Ktiv maleh (Academy rules without niqqud) writes the o vowel with a vav, e.g. תוכנית, קודם-type forms (תוכנה, קודם follow the same rule).",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/missingvocalizationspelling/",
+      "raw_snippet": "מסמנים תנועת o בווי\"ו, כגון חוף, שופט, מולדת",
+      "fetched_at": "2026-09-15",
       "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/hebrew-grammar-quick-ref.md"
+      ],
+      "verified_via": "browser: Playwright render on 2026-09-15, location.href asserted; the same paragraph lists תוכנית among the examples",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "ktiv-maleh-sherut",
+      "claim": "Ktiv maleh spells שירות with a yod.",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/missingvocalizationspelling/",
+      "raw_snippet": "תיאבון,[2]  ריאיון,[2] גירעון,[3] זירעון (זֵרְעוֹן), שירות, מיאוס, גירושים",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/hebrew-grammar-quick-ref.md"
+      ],
+      "verified_via": "browser: Playwright render on 2026-09-15, location.href asserted",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "smichut-definite-article-last-noun",
+      "claim": "In standard Hebrew, a smichut is made definite by adding ה only to the second noun: בית הספר, not הבית ספר or הבית הספר.",
+      "source_url": "https://he.wikipedia.org/wiki/%D7%A1%D7%9E%D7%99%D7%9B%D7%95%D7%AA",
+      "raw_snippet": "יידוע סמיכות נעשה על ידי הוספת הא הידיעה לסומך בלבד",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
         "references/hebrew-grammar-quick-ref.md"
       ]
+    },
+    {
+      "claim_id": "smichut-plural-first-noun",
+      "claim": "A smichut is pluralized by pluralizing only the first noun: בתי ספר, not בתי ספרים.",
+      "source_url": "https://he.wikipedia.org/wiki/%D7%A1%D7%9E%D7%99%D7%9B%D7%95%D7%AA",
+      "raw_snippet": "ריבוי סמיכות נעשה דווקא באמצעות ריבוי הנסמך בלבד, ללא הסומך",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/hebrew-grammar-quick-ref.md"
+      ]
+    },
+    {
+      "claim_id": "academy-gershayim-placement",
+      "claim": "Gershayim mark acronyms and go before the last letter (צה\"ל, בי\"ס); a geresh marks a shortened word and goes after its last written letter (מס', עמ').",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "גרשיים משמשים לסימון ראשי תיבות, והם באים לפני האות האחרונה של הקיצור",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser: Playwright render on 2026-09-15, location.href asserted, page title 'כללי הפיסוק - האקדמיה ללשון העברית'",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "academy-quotation-marks-no-rule",
+      "claim": "The Academy set no rule on choosing double vs single quotation marks; it is left to publishers' house style.",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "האקדמיה לא קבעה מסמרות בעניין זה.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser: Playwright render on 2026-09-15, location.href asserted",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "academy-maqaf-mixed-scripts",
+      "claim": "A maqaf goes in a sequence that mixes two kinds of characters, such as a prefix letter with a number or Latin letters (המאה ה־12, ב־DNA); a maqaf joins with no spaces while a dash separates with spaces.",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "שמים מקף ברצף שיש בו שני סוגי גופנים, כגון אותיות ומספרים. למשל: המאה ה־12, פגיעה ב־DNA.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser: Playwright render on 2026-09-15, location.href asserted; the following note states the maqaf is attached to both words and the dash has a space on each side",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "academy-range-dash-no-spaces",
+      "claim": "A dash marking a range is written without spaces before and after it, e.g. עמ' 46–53 and 16.00–18.00.",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "הערה א: נוהגים שלא לשים רווחים לפני הקו ואחריו.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser: Playwright render on 2026-09-15, location.href asserted; the note follows the range examples עמ' 46–53 and בשעה 16.00–18.00",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "google-title-no-limit",
+      "claim": "Google sets no length limit on the title element and truncates the title link to fit the device width.",
+      "source_url": "https://developers.google.com/search/docs/appearance/title-link",
+      "raw_snippet": "While there's no limit on how long a <title> element can be, the title link is truncated in Google Search results as needed, typically to fit the device width.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "google-meta-description-no-limit",
+      "claim": "Google sets no length limit on meta descriptions and truncates snippets as needed.",
+      "source_url": "https://developers.google.com/search/docs/appearance/snippet",
+      "raw_snippet": "There's no limit on how long a meta description can be, but the snippet is truncated in Google Search results as needed, typically to fit the device width.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "google-url-audience-language",
+      "claim": "Google recommends using words in the audience's language in URLs, and transliterated words where applicable.",
+      "source_url": "https://developers.google.com/search/docs/crawling-indexing/url-structure",
+      "raw_snippet": "Use words in your audience's language in the URL (and, if applicable, transliterated words).",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-c-exception-three-conditions",
+      "claim": "Section 30A(c) allows advertising without consent only when all three hold: the recipient gave their details during a purchase or purchase negotiation and was told they would be used for advertising; they were given a chance to refuse and did not; and the advertising concerns a similar kind of product or service.",
+      "source_url": "https://he.wikisource.org/w/index.php?title=%D7%97%D7%95%D7%A7_%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA_(%D7%91%D7%96%D7%A7_%D7%95%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D)&action=raw",
+      "raw_snippet": "דבר הפרסומת מתייחס למוצר או לשירות מסוג דומה למוצר או לשירות האמורים בפסקה (1).",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-b-business-one-time",
+      "claim": "Under section 30A(b), a one-time approach to a business recipient asking them to agree to receive advertising is not a violation.",
+      "source_url": "https://he.wikisource.org/w/index.php?title=%D7%97%D7%95%D7%A7_%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA_(%D7%91%D7%96%D7%A7_%D7%95%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D)&action=raw",
+      "raw_snippet": "המהווה הצעה להסכים לקבל דברי פרסומת מטעמו, לא תיחשב הפרה של הוראות סעיף זה.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-e1-prominent-clear",
+      "claim": "Section 30A(e)(1) requires the details to be stated prominently and clearly, in a way that does not mislead.",
+      "source_url": "https://he.wikisource.org/w/index.php?title=%D7%97%D7%95%D7%A7_%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA_(%D7%91%D7%96%D7%A7_%D7%95%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D)&action=raw",
+      "raw_snippet": "יציין בו את הפרטים האלה באופן בולט וברור, שאין בו כדי להטעות:",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-e2-sms-reduced",
+      "claim": "Section 30A(e)(2): notwithstanding paragraph (1), an advertiser sending advertising by SMS states only its name and contact details for sending a refusal.",
+      "source_url": "https://he.wikisource.org/w/index.php?title=%D7%97%D7%95%D7%A7_%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA_(%D7%91%D7%96%D7%A7_%D7%95%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D)&action=raw",
+      "raw_snippet": "מפרסם המשגר דבר פרסומת באמצעות הודעת מסר קצר יציין בדבר הפרסומת רק את שמו ואת דרכי יצירת הקשר עמו לצורך מתן הודעת סירוב.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-j-exemplary-damages",
+      "claim": "Section 30A(j)(1): for advertising knowingly sent in breach, a court may award damages not dependent on harm of up to 1,000 NIS per advertising message received.",
+      "source_url": "https://he.wikisource.org/w/index.php?title=%D7%97%D7%95%D7%A7_%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA_(%D7%91%D7%96%D7%A7_%D7%95%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D)&action=raw",
+      "raw_snippet": "בסכום שלא יעלה על 1,000 שקלים חדשים בשל כל דבר פרסומת שקיבל הנמען בניגוד להוראות סעיף זה.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-electronic-message-definition",
+      "claim": "Section 30A defines an electronic message (הודעה אלקטרונית) as a coded communication message transmitted over the internet to a recipient or group, storable and retrievable by computer, so it is not limited to email (it covers messaging apps such as WhatsApp).",
+      "source_url": "https://he.wikisource.org/w/index.php?title=%D7%97%D7%95%D7%A7_%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA_(%D7%91%D7%96%D7%A7_%D7%95%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D)&action=raw",
+      "raw_snippet": "מסר בזק מקודד המועבר ברשת האינטרנט אל נמען או קבוצה של נמענים, וניתן לשמירה ולאחזור בדרך ממוחשבת;",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-b1-nonprofit-email",
+      "claim": "Section 30A(b1) lets a nonprofit (עמותה or חברה לתועלת הציבור) email donation or propaganda requests without prior consent unless the recipient refused; donation and propaganda messages have their own variants of the rules.",
+      "source_url": "https://he.wikisource.org/w/index.php?title=%D7%97%D7%95%D7%A7_%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA_(%D7%91%D7%96%D7%A7_%D7%95%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D)&action=raw",
+      "raw_snippet": "משלוח דבר פרסומת באמצעות דואר אלקטרוני לשם קבלת תרומה או תעמולה על ידי מפרסם שהוא עמותה או חברה לתועלת הציבור",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-e1a-opening-word",
+      "claim": "Section 30A(e)(1)(a): the words 'פרסומת', 'בקשת תרומה' or 'תעמולה', as applicable, appear at the start of the message, and in an electronic message in its title.",
+      "source_url": "https://he.wikisource.org/w/index.php?title=%D7%97%D7%95%D7%A7_%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA_(%D7%91%D7%96%D7%A7_%D7%95%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D)&action=raw",
+      "raw_snippet": "”בקשת תרומה“ או ”תעמולה“, לפי העניין, יופיעו בתחילת דבר הפרסומת",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-e1c2-automated-call-removal",
+      "claim": "Section 30A(e)(1)(c)(2): for advertising sent by an automatic dialing system, the advertiser states at the start of the voice message that the recipient may ask to be removed from its mailing list, and lets them do so immediately, including by pressing a key.",
+      "source_url": "https://he.wikisource.org/w/index.php?title=%D7%97%D7%95%D7%A7_%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA_(%D7%91%D7%96%D7%A7_%D7%95%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D)&action=raw",
+      "raw_snippet": "יציין המפרסם בתחילת הודעת המסר הקולי כי הנמען רשאי לבקש להסיר את שמו מרשימת התפוצה של המפרסם, ויאפשר לו, מיד לאחר מכן, להסיר את שמו כאמור גם בדרך של לחיצה על החייגן.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "spam-law-30a-consent",
+      "claim": "Under Communications Law section 30A, an advertiser may not send advertising by fax, automatic dialing system, electronic message or SMS without the recipient's prior explicit written consent; consent given in a recorded call or electronic message counts as written.",
+      "source_url": "https://www.gov.il/he/pages/17052018_7",
+      "raw_snippet": "לא ישלח מפרסם דבר פרסומת באמצעות פקסימיליה, מערכת חיוג אוטומטי, הודעה אלקטרונית או הודעת מסר קצר, בלא קבלת הסכמה מפורשת מראש בכתב מהנמען.",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser: Playwright render with FAQ accordions expanded on 2026-09-15, location.href asserted; curl returns a JS shell",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "spam-law-section-30a-reference",
+      "claim": "The advertising-message rules are in Communications Law (Bezeq and Broadcasts) section 30A (סעיף 30א), and subsection (e) lists the details an advertising message must state.",
+      "source_url": "https://www.gov.il/he/pages/17052018_7",
+      "raw_snippet": "סעיף 30א(ה) לחוק התקשורת קובע כי מפרסם המשגר דבר פרסומת בהתאם להוראות החוק יציין בו את הפרטים הבאים באופן בולט וברור, שאין בו כדי להטעות:",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser: Playwright render with FAQ accordions expanded on 2026-09-15, location.href asserted",
+      "verified_at": "2026-09-15"
+    },
+    {
+      "claim_id": "spam-law-30a-e-required-details",
+      "claim": "Section 30A(e) requires an advertising message to state clearly that it is advertising, with the word 'פרסומת' at the start and, in an email, in the subject line; the advertiser's name, address and contact details; and the right to refuse with a simple way to do so (for email, a valid address). An SMS only needs the advertiser's name and contact details for refusing.",
+      "source_url": "https://www.gov.il/he/pages/17052018_7",
+      "raw_snippet": "על המילה \"פרסומת\" להופיע בתחילת דבר הפרסומת, ואם דבר הפרסומת משוגר באמצעות הודעה אלקטרונית – בכותרת ההודעה;",
+      "fetched_at": "2026-09-15",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser: Playwright render with FAQ accordions expanded on 2026-09-15, location.href asserted; the next lines list name, address, contact details, refusal right, and the SMS-only reduced list",
+      "verified_at": "2026-09-15"
     }
   ]
 }

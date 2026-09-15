@@ -9,7 +9,7 @@ Hebrew has 7 verb patterns (binyanim), each with a different semantic role:
 | Pa'al (Kal) | פָּעַל | Simple active | כָּתַב (wrote) |
 | Nif'al | נִפְעַל | Simple passive / reflexive | נִכְתַּב (was written) |
 | Pi'el | פִּעֵל | Intensive active | דִּבֵּר (spoke), סִפֵּר (told) |
-| Pu'al | פֻּעַל | Intensive passive | דֻּבַּר (was spoken), סֻפַּר (was counted/told) |
+| Pu'al | פֻּעַל | Intensive passive | דֻּבַּר (was spoken), סֻפַּר (was told) |
 | Hif'il | הִפְעִיל | Causative active | הִכְתִּיב (dictated) |
 | Huf'al | הֻפְעַל | Causative passive | הֻכְתַּב (was dictated) |
 | Hitpa'el | הִתְפַּעֵל | Reflexive / reciprocal | הִתְכַּתֵּב (corresponded) |
@@ -56,9 +56,9 @@ Ktiv Maleh (full spelling) adds vav and yod to indicate vowels. Always use Ktiv 
 | בית (bayit) | בית (beit) | בית ספר (school) |
 | דבר (davar) | דבר (dvar) | דבר תורה (Torah teaching) |
 | שם (shem) | שם (shem) | שם משפחה (family name) |
-| ספר (sefer) | ספר (sifrei) | ספרי ילדים (children's books, pl.) |
+| ספרים (sfarim) | ספרי (sifrei) | ספרי ילדים (children's books) |
 
-**Rule:** In smichut, only the LAST noun takes the definite article "ha-":
+**Rule:** In smichut, only the LAST noun takes the definite article "ha-". To pluralize the whole construct, pluralize the FIRST noun (בתי ספר, not בתי ספרים); the second noun keeps its own number as the meaning requires (ספרי ילדים):
 - Correct: בית הספר (beit ha-sefer)
 - Wrong: הבית הספר (ha-beit ha-sefer)
 
@@ -69,9 +69,9 @@ Replace gendered imperatives with infinitive forms:
 - Instead of: לחץ כאן (click here, masculine)
 - Use: יש ללחוץ כאן (one should click here)
 
-### Pattern 2: Passive Voice
+### Pattern 2: Impersonal Modal (יש / אפשר + infinitive)
 - Instead of: אתה צריך למלא את הטופס (you need to fill the form, m.)
-- Use: יש למלא את הטופס (the form should be filled)
+- Use: יש למלא את הטופס (the form must be filled in)
 
 ### Pattern 3: Collective Nouns
 - Instead of: המשתמשים מרוצים (the users are satisfied, m.)

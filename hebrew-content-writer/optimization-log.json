@@ -1,0 +1,27 @@
+{
+  "cycles": [
+    {
+      "version": "1.3.0",
+      "date": "2026-09-15",
+      "lessons": [
+        "Resolved BUG: 'Incorrect vav ha-hipukh' row used 'ואז הוא הולך', which is ordinary conjunctive vav plus present tense, not vav ha-hipukh. Row removed rather than replaced.",
+        "Resolved BUG: 'Adjectives agree with the LAST noun in the chain' was wrong. Replaced with the sourced rules: definite article on the last noun only, plural on the first noun only (בתי ספר).",
+        "Resolved BUG: Option C gender-neutral example was a noun phrase with no predicate; Step 9 row was mislabelled as a preposition problem (it is a Hitpa'el verb taking a direct object); 'זה מסתדר' does not mean 'it makes sense'.",
+        "Resolved BUG in references: ספר smichut row paired singular with the plural construct ספרי; Pu'al סופר means 'was told', not 'was counted'; Pattern 2 was labelled 'Passive Voice' but is an impersonal modal.",
+        "Resolved STALE: SEO title 50-60 / meta 120-150 character 'rules' replaced with Google Search Central's statement that there is no length limit and display is truncated to device width.",
+        "Resolved: URL slug advice now includes Hebrew words, matching Google's 'use words in your audience's language'. 'Kotar HaKeshet' label replaced with the Academy decisions page name.",
+        "Resolved: added Academy punctuation rules for gershayim vs geresh placement, no fixed rule on double vs single quotation marks, and maqaf between a prefix and a number or Latin-letter word (ה־12, ב־DNA).",
+        "Resolved legal-gate baseline failure: the scanner read 'ניסוח' (UI phrasing) as legal drafting. Reworded to 'כתיבה' / 'ביטויים'; no regulated profession is involved (writing aid, Tier C).",
+        "Resolved evidence defect: the 'hebrew-grammar-rules' raw_snippet was the skill's own content, not a quote from the Academy. Replaced with page-sliced quotes.",
+        "Expert MAJOR deferred: Academy 2017 ktiv maleh edge rules (double vav/yod for consonants, no added yod before shva nach), plain-language / accessibility guidance for UI copy (IS 5568 reading level), currency placement and number ranges in RTL, second-person plural imperative ('לחצו') as a gender-neutral UX convention (needs a source).",
+        "Expert MINOR deferred: Pattern 3 'קהילת המשתמשים מרוצה' still contains a masculine plural noun; אנו vs אנחנו by register; common microcopy word pairs; mobile CTA length.",
+        "Resolved CRITICAL (round 1 expert): numerals rule said 1-10 take the opposite gender; 1 and 2 agree with the noun. Smichut plural rule was stated as absolute; the second noun keeps its own number (ספרי ילדים).",
+        "Resolved MAJOR: s.30A block rewritten from the statute text (Wikisource): fax included, business one-time approach, three cumulative exception conditions, prominence requirement, SMS reduced list per 30A(e)(2), damages up to 1,000 NIS per message sent knowingly.",
+        "Expert MAJOR rejected after checking the statute: 'an SMS must still start with פרסומת'. 30A(e)(2) says 'על אף הוראות פסקה (1) ... יציין ... רק את שמו ואת דרכי יצירת הקשר', which replaces the (e)(1) list. Revisit only if a regulation or ruling says otherwise.",
+        "Resolved MAJOR (round 2 expert): opening word may be 'בקשת תרומה' or 'תעמולה' as applicable (30A(e)(1)(a)); 'the one exception' qualified to commercial advertising, with donation/propaganda and 30A(b1) pointed to the statute. Expert withdrew its SMS objection after reading 30A(e)(2).",
+        "Expert MINOR deferred: 30A(j)(5) presumes knowledge unless the advertiser proves otherwise; automated-call messages must say at the start that the recipient may ask to be removed and allow removal by keypress (30A(e)(1)(c)(2)); refusal may be given in writing or by the same channel (30A(d)).",
+        "Expert MINOR deferred: SKILL_HE.md uses ASCII hyphen after prefixes (ב-SMS, ל-UX) while Step 8 now recommends a maqaf; soften the ASCII-gershayim Gotcha (ASCII is standard on the web); 'בית -> בית' form-change example shows no visible change; first person has no gender in past/future; 'בסוף היום' should be labelled register-dependent; 'רמה' vs 'משלב' terminology; mixed singular/plural imperatives in HE instructions; passive-for-formal vs plain-language guidance; move the s.30A block to its own step."
+      ]
+    }
+  ]
+}
