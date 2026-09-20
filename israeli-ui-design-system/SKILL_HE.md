@@ -342,6 +342,37 @@ body[dir="rtl"] {
 </form>
 ```
 
+**שדות זיהוי ויצירת קשר ישראליים.** שלושה סוגי קלט שמערכות עיצוב שנבנו קודם
+כול ללטינית מפספסות:
+
+```html
+<!-- תעודת זהות: 9 ספרות, והאפס המוביל משמעותי.
+     type="number" בולע אותו בשקט ומוסיף חיצי הגדלה. תמיד text יחד עם inputmode. -->
+<input id="tz" type="text" dir="ltr" inputmode="numeric"
+       pattern="[0-9]{9}" maxlength="9" autocomplete="off">
+
+<!-- נייד ישראלי: 05X ועוד 7 ספרות, כולל הצורה עם מקף והצורה עם 972+
+     שמשתמשים באמת מקלידים. נשאר LTR בתוך טופס RTL. מנרמלים בשליחה. -->
+<input id="phone" type="tel" dir="ltr" inputmode="tel"
+       pattern="(0|\+972-?)5[0-9]-?[0-9]{7}" autocomplete="tel">
+
+<!-- דוא"ל, כתובת אתר ו-IBAN הם תוכן לטיני: תכפו LTR כדי שהסמן והפיסוק
+     יתנהגו כמו שצריך, גם כשהטופס מסביב הוא RTL. -->
+<input id="email" type="email" dir="ltr" autocomplete="email">
+```
+
+**תוכן משתמש בכיוון מעורב.** כל מה שמשתמש הקליד, וכל מה שמגיע מ-API, עלול להיות
+בעברית או בלטינית. אסור לקבע לו כיוון: `dir="auto"` נותן לתו החזק הראשון להכריע,
+לכל רכיב בנפרד.
+
+```html
+<textarea dir="auto"></textarea>
+<li dir="auto">{{ comment.body }}</li>
+```
+
+יש להגדיר `dir="auto"` על כל פריט בנפרד, אף פעם לא פעם אחת על העוטף של הרשימה:
+עוטף יחיד מקבל את הכיוון של הפריט הראשון ומסיט את כל השאר.
+
 ### שלב 7: מוסכמות פורמט ישראליות (מטבע, מספרים, תאריכים)
 
 תגי עיצוב ורכיבים צריכים לקודד מוסכמות פורמט ישראליות, לא לחקות ברירות מחדל אמריקאיות או אירופיות.
@@ -362,8 +393,13 @@ new Intl.NumberFormat('he-IL', {
   style: 'currency',
   currency: 'ILS',
 }).format(1234.5);
-// => "‏1,234.50 ₪"
+// => "‏1,234.50 ‏₪"  (נראה על המסך כ-"1,234.50 ₪")
 ```
+
+המחרוזת שחוזרת אינה `"1,234.50 ₪"` הנקייה שהיא נראית. יש בה שני סימני RTL
+בלתי נראים (U+200F) ורווח קשיח, וזה בדיוק מה שמונע מסימן השקל לזוז בטקסט
+דו-כיווני. אף פעם לא להשוות אותה למחרוזת שנכתבה ביד בבדיקת snapshot או בבדיקת
+יחידה: משווים פלט של `Intl` לפלט של `Intl`, או מסירים `‏ ` קודם.
 
 **מספרים בתוך טקסט עברי**
 
@@ -375,20 +411,38 @@ new Intl.NumberFormat('he-IL', {
 
 **תאריכים ושעה**
 
-ברירת המחדל היא הקונבנציה הישראלית: `DD/MM/YYYY` (למשל `20/04/2026`), לא `MM/DD/YYYY` אמריקאי או `YYYY-MM-DD` של ISO בטקסט לממשק משתמש. שימוש בשעון 24 שעות (`14:30`) - AM/PM כמעט ולא בשימוש בממשקים ישראליים.
+תאריכים בישראל נכתבים כשהיום ראשון, אף פעם לא `MM/DD/YYYY` אמריקאי ואף פעם לא
+`YYYY-MM-DD` של ISO בטקסט לממשק משתמש. שימוש בשעון 24 שעות (`14:30`) - AM/PM
+כמעט ולא בשימוש בממשקים ישראליים.
+
+**המפריד בפלטפורמה הוא נקודה, לא לוכסן.** בתקן CLDR התבנית הקצרה של העברית היא
+`d.M.y`, ולכן `Intl` מחזיר נקודות ואין הגדרת דפדפן שתהפוך אותן ללוכסנים:
 
 ```js
 new Intl.DateTimeFormat('he-IL', {
   day: '2-digit', month: '2-digit', year: 'numeric',
-}).format(new Date());
-// => "20.4.2026" או "20/04/2026" תלוי בנתוני locale של הדפדפן
+}).format(new Date(2026, 3, 20));
+// => "20.04.2026"   (עם dateStyle: 'short' מתקבל "20.4.2026")
+```
+
+נקודות הן ברירת המחדל הבטוחה: זה מה שמשתמש ישראלי מצפה לראות וזה מה שכל אפליקציה
+אחרת בעברית מציגה. אם הנחיות המותג דורשות `20/04/2026`, יש להרכיב את המחרוזת
+ידנית במקום לצפות ש-`Intl` יפיק אותה:
+
+```js
+const parts = Object.fromEntries(
+  new Intl.DateTimeFormat('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' })
+    .formatToParts(new Date(2026, 3, 20))
+    .map((p) => [p.type, p.value]),
+);
+`${parts.day}/${parts.month}/${parts.year}`; // => "20/04/2026"
 ```
 
 להגדיר תגי עיצוב כדי שרכיבים במורד הזרם יישארו עקביים:
 
 ```css
 :root {
-  --date-format-short: 'dd/MM/yyyy';
+  --date-format-short: 'dd.MM.yyyy';
   --time-format: 'HH:mm';
   --currency-locale: 'he-IL';
   --currency-code: 'ILS';
@@ -430,7 +484,7 @@ new Intl.DateTimeFormat('he-IL', {
 | מקור | כתובת | מה לבדוק |
 |------|-------|----------|
 | Google Fonts – עברית | https://fonts.google.com/?subset=hebrew | Heebo, Assistant, Rubik, Frank Ruhl Libre, קטעי טעינה |
-| תכונות CSS לוגיות (MDN) | https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values | padding-inline, margin-block, מיקום לוגי |
+| תכונות CSS לוגיות (MDN) | https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values | padding-inline, margin-block, מיקום לוגי |
 | תמיכת RTL ב-Tailwind | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | וריאנטי `rtl:` ו-`ltr:` לספריות רכיבים |
 | shadcn/ui | https://ui.shadcn.com | רכיבים תואמי RTL ופרימיטיבים |
 | WCAG Quick Reference | https://www.w3.org/WAI/standards-guidelines/wcag/ | דרישות ניגודיות וסדר קריאה שחלים על RTL |

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "israeli-ui-design-system",
-  "generated_at": "2026-06-21T00:00:00Z",
+  "generated_at": "2026-09-20T00:00:00Z",
   "claims": [
     {
       "claim_id": "hebrew-google-fonts",
@@ -30,7 +30,7 @@
     {
       "claim_id": "css-logical-properties",
       "claim": "CSS logical properties (padding-inline, margin-block, inset-inline-start) provide direction-aware layout and are documented by MDN.",
-      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values",
       "raw_snippet": "properties and values The CSS logical properties and values module defines logical properties and values that can control layout through logical rather than physical direction and dimension mappings. Logical properties define direction‐relative equivalents to their corresponding physical properties. The start of a line is not always the left side of a line. Different writing systems operate in various directions. For example: English and Portuguese are written from left to right with new lines added below the previous ones.",
       "fetched_at": "2026-08-18",
       "appears_in": [
@@ -92,16 +92,17 @@
     },
     {
       "claim_id": "intl-shekel",
-      "claim": "Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }) formats shekel amounts (e.g. 1,234.50 with the U+20AA sign), and the shekel sign is not a directional character so inline amounts need bidi isolation.",
+      "claim": "Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).format(1234.5) returns \"\\u200f1,234.50\\u00a0\\u200f\\u20aa\": the string carries two U+200F RTL marks and a U+00A0 non-breaking space, not the bare \"1,234.50 \\u20aa\" it appears to be. Those marks are what keep the shekel sign positioned in bidi text, and they break naive string-equality assertions.",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
-      "raw_snippet": "Static methods Instance properties Instance methods Examples Specifications Browser compatibility See also Try it const number = 123456.789; console.log( new Intl.NumberFormat(\"de-DE\", { style: \"currency\", currency: \"EUR\" }).format( number, ), ); // Expected output: \"123.456,79 €\" // The Japanese yen doesn't use a minor unit console.log( new Intl.NumberFormat(\"ja-JP\", { style: \"currency\", currency: \"JPY\" }).format( number, ), ); // Expected output: \"￥123,457\" // Limit to three significant digits console.log( new Intl.",
-      "fetched_at": "2026-08-18",
+      "raw_snippet": "codepoints: 200f 31 2c 32 33 34 2e 35 30 a0 200f 20aa (Node v20.19.6, ICU 78.1)",
+      "fetched_at": "2026-09-20T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "cited page fetched and confirmed to contain \"1234\"; snippet replaced with the page's own wording around it",
-      "verified_at": "2026-08-18"
+      "verified_via": "runtime observation: node v20.19.6, ICU 78.1 (the cited MDN page documents the API, not this byte sequence)",
+      "verified_at": "2026-08-18",
+      "source_fetched_at": "2026-09-20T00:00:00Z"
     },
     {
       "claim_id": "oklch-baseline",
@@ -115,6 +116,18 @@
       ],
       "verified_via": "cited page fetched; 36 of 39 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"widely\"",
       "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "intl-he-date-separator",
+      "claim": "CLDR gives Hebrew the short gregorian date pattern d.M.y, so Intl.DateTimeFormat('he-IL') returns dot-separated dates (\"20.04.2026\" with 2-digit day/month, \"20.4.2026\" with dateStyle 'short'). It never returns slash-separated DD/MM/YYYY; producing slashes requires composing formatToParts output manually.",
+      "source_url": "https://github.com/unicode-org/cldr/blob/main/common/main/he.xml",
+      "raw_snippet": "<dateFormatLength type=\"short\"><dateFormat><pattern>d.M.y</pattern>",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     }
   ]
 }

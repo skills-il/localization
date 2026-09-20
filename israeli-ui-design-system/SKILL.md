@@ -1,6 +1,6 @@
 ---
 name: israeli-ui-design-system
-description: Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, "itzuv" (design), Israeli design system, Hebrew font pairing, RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans 3), gov.il design system patterns, Israeli formatting conventions (shekel sign, DD/MM/YYYY dates, 24-hour clock), and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead).
+description: Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, "itzuv" (design), Israeli design system, Hebrew font pairing, RTL component library, "tipografia ivrit" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans 3), gov.il design system patterns, Israeli formatting conventions (shekel sign, day-first dates, 24-hour clock), and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead).
 license: MIT
 ---
 
@@ -348,6 +348,37 @@ The CSS below is a **generic institutional pattern, NOT the official IGDS**. Use
 </form>
 ```
 
+**Israeli identity and contact fields.** Three input types that Latin-first design
+systems get wrong:
+
+```html
+<!-- Teudat zehut: 9 digits, and the leading zero is significant.
+     type="number" silently eats it and adds spinners. Always text + inputmode. -->
+<input id="tz" type="text" dir="ltr" inputmode="numeric"
+       pattern="[0-9]{9}" maxlength="9" autocomplete="off">
+
+<!-- Israeli mobile: 05X + 7 digits, accepting the dashed and +972 forms users
+     actually type. Keep it LTR inside the RTL form. Normalise on submit. -->
+<input id="phone" type="tel" dir="ltr" inputmode="tel"
+       pattern="(0|\+972-?)5[0-9]-?[0-9]{7}" autocomplete="tel">
+
+<!-- Email, URL and IBAN are Latin content: force LTR so the cursor and any
+     punctuation behave, even though the surrounding form is RTL. -->
+<input id="email" type="email" dir="ltr" autocomplete="email">
+```
+
+**Mixed-direction user content.** Anything a user typed, and anything from an API,
+may be Hebrew or Latin. Do not hardcode a direction on it: `dir="auto"` lets the
+first strong character decide, per element.
+
+```html
+<textarea dir="auto"></textarea>
+<li dir="auto">{{ comment.body }}</li>
+```
+
+Set `dir="auto"` per item, never once on a list wrapper: a single wrapper takes
+the direction of the first item and misaligns every other one.
+
 ### Step 7: Israeli Formatting Conventions (Currency, Numbers, Dates)
 
 Design tokens and components must encode Israel-specific formatting, not mirror Latin/US defaults.
@@ -368,8 +399,14 @@ new Intl.NumberFormat('he-IL', {
   style: 'currency',
   currency: 'ILS',
 }).format(1234.5);
-// => "1,234.50 ₪"
+// => "‏1,234.50 ‏₪"  (renders as "1,234.50 ₪")
 ```
+
+The returned string is NOT the clean `"1,234.50 ₪"` it looks like. It carries two
+RTL marks (U+200F) and a non-breaking space, which is exactly what keeps the sign
+from drifting in bidi text. Never assert string equality against a hand-typed
+literal in a snapshot or unit test: compare `Intl` output to `Intl` output, or
+strip `‏ ` first.
 
 **Numbers in Hebrew body text**
 
@@ -381,20 +418,38 @@ Numbers (phone numbers, ID numbers, prices, dates) do not reverse under RTL. But
 
 **Dates and time**
 
-Default to the Israeli convention: `DD/MM/YYYY` (e.g., `20/04/2026`), not US `MM/DD/YYYY` or ISO `YYYY-MM-DD` in user-facing copy. Use 24-hour time (`14:30`); AM/PM is rare in Israeli UIs.
+Israeli dates are day-first, never US `MM/DD/YYYY` and never ISO `YYYY-MM-DD` in
+user-facing copy. Use 24-hour time (`14:30`); AM/PM is rare in Israeli UIs.
+
+**The platform separator is a dot, not a slash.** CLDR gives Hebrew the short
+pattern `d.M.y`, so `Intl` returns dots and no browser setting turns them into
+slashes:
 
 ```js
 new Intl.DateTimeFormat('he-IL', {
   day: '2-digit', month: '2-digit', year: 'numeric',
-}).format(new Date());
-// => "20.4.2026" or "20/04/2026" depending on browser locale data
+}).format(new Date(2026, 3, 20));
+// => "20.04.2026"   (dateStyle: 'short' gives "20.4.2026")
+```
+
+Dots are the safe default: they are what a native user expects and what every
+other Hebrew app shows. If a brand guideline demands `20/04/2026`, compose it
+yourself instead of expecting `Intl` to produce it:
+
+```js
+const parts = Object.fromEntries(
+  new Intl.DateTimeFormat('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' })
+    .formatToParts(new Date(2026, 3, 20))
+    .map((p) => [p.type, p.value]),
+);
+`${parts.day}/${parts.month}/${parts.year}`; // => "20/04/2026"
 ```
 
 Define design tokens so downstream components stay consistent:
 
 ```css
 :root {
-  --date-format-short: 'dd/MM/yyyy';
+  --date-format-short: 'dd.MM.yyyy';
   --time-format: 'HH:mm';
   --currency-locale: 'he-IL';
   --currency-code: 'ILS';
@@ -436,7 +491,7 @@ Result: Apply gov.il header pattern with institutional blue, Hebrew navigation w
 | Source | URL | What to Check |
 |--------|-----|---------------|
 | Google Fonts – Hebrew | https://fonts.google.com/?subset=hebrew | Heebo, Assistant, Rubik, Frank Ruhl Libre, loading snippets |
-| CSS logical properties (MDN) | https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values | padding-inline, margin-block, logical positioning |
+| CSS logical properties (MDN) | https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values | padding-inline, margin-block, logical positioning |
 | Tailwind RTL support | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | `rtl:` and `ltr:` variants for component libraries |
 | shadcn/ui | https://ui.shadcn.com | RTL-friendly component recipes and primitives |
 | WCAG quick reference | https://www.w3.org/WAI/standards-guidelines/wcag/ | Contrast and reading-order requirements that apply to RTL |

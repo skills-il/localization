@@ -10,6 +10,28 @@
         "Deferred (MAJOR, next cycle): MODEL the token taxonomy the prose now preaches -- a 2-3 tier primitive->semantic->component example (--blue-600 -> --color-action-primary -> --button-bg) plus real success/warning/error 600-700 steps so components stop referencing --color-primary-500 directly; one concrete DTCG $value/$type snippet + a line on how Style Dictionary consumes it and emits the CSS vars (Figma Variables / Tokens Studio round-trip); Hebrew measure/line-length token (~45-75ch via max-inline-size).",
         "Deferred (MINOR): prefers-color-scheme + color-scheme: light dark wiring for the dark tier; clamp() fluid type + @container queries; RTL directional-motion note (toast slide / drawer transform-origin must flip sign) + prefers-reduced-motion; express one ramp in oklch with a hex fallback; tighten sibling-boundary vs israeli-accessibility-compliance now that contrast guidance overlaps."
       ]
+    },
+    {
+      "version": "1.4.0",
+      "date": "2026-09-20",
+      "findings": [
+        "Intl.DateTimeFormat('he-IL') returns dot-separated dates; the skill claimed slashes were possible and its prose told readers to expect DD/MM/YYYY from the API",
+        "Intl.NumberFormat ILS output carries U+200F/U+00A0 marks; the skill showed a clean literal that breaks snapshot tests",
+        "MDN logical-properties URL moved to /Web/CSS/Guides/Logical_properties_and_values"
+      ],
+      "changes": [
+        "Rewrote the date section around the CLDR d.M.y pattern with a formatToParts recipe for brands that require slashes",
+        "Documented the invisible bidi marks in the currency output and the test implication",
+        "Recanonicalised the MDN URL in both skill files and evidence.json",
+        "Changed the --date-format-short token from dd/MM/yyyy to dd.MM.yyyy",
+        "Added Israeli identity/contact input patterns (teudat zehut leading zero, tel, LTR latin fields) and dir=auto guidance for mixed-direction user content"
+      ],
+      "deferred": [
+        "next/font Hebrew-subset integration",
+        "Tailwind v4 logical-property utilities",
+        "RTL visual-regression testing story",
+        "icon mirroring allow/deny list as tokens"
+      ]
     }
   ]
 }
