@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "israeli-accessibility-compliance",
-  "generated_at": "2026-06-21T00:00:00Z",
+  "generated_at": "2026-09-20T00:00:00Z",
   "claims": [
     {
       "claim_id": "legal-framework",
@@ -17,27 +17,16 @@
     },
     {
       "claim_id": "exemption-thresholds",
-      "claim": "Website-accessibility exemptions are based on revenue, not employee count (there is no 25-employee or 300,000 NIS trigger). The small-business threshold figure is contested between sources: Kol Zchut states 120,000 NIS for the renewable 3-year temporary exemption, while some accessibility sources (Nagishut Israel) cite 100,000 NIS, so the skill presents it as 'sources differ, confirm against the regulation'. The next tier runs from that threshold up to 1,000,000 NIS (3-year exemption for pre-26-Oct-2017 existing sites); above 1,000,000 NIS no automatic exemption (must apply for a heavy-burden exemption). Full exemption for osek patur.",
-      "source_url": "https://www.kolzchut.org.il/he/פטור_מחובת_הנגשה_לאתרי_אינטרנט_ואפליקציות",
-      "raw_snippet": "פטור זמני לבעל מחזור כספי שנתי ממוצע של עד 120,000 ש\"ח; פטור לאתר קיים של בעל מחזור שבין 120,000 ל-1,000,000 ש\"ח שהוקם לפני 26.10.2017. הפטור מבוסס על מחזור ולא על מספר עובדים, ואין סף של 25 עובדים או 300,000 ש\"ח. מקורות אחרים (נגישות ישראל) מציינים 100,000 ש\"ח כסף, ולכן המקורות חלוקים והסכום המדויק טעון אימות מול נוסח התקנות.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "Website-accessibility exemptions are based on revenue, not employee count. Osek patur: full exemption. Average annual revenue under 120,000 NIS: renewable 3-year exemption. From 120,000 NIS up to 1,000,000 NIS: 3-year exemption for a site that began operating before 26.10.2017, while a new site after that date must be accessible. Above 1,000,000 NIS: no automatic exemption. The previously hedged 100,000 NIS alternative is dropped.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A4%D7%98%D7%95%D7%A8_%D7%9E%D7%97%D7%95%D7%91%D7%AA_%D7%94%D7%A0%D7%92%D7%A9%D7%94_%D7%9C%D7%90%D7%AA%D7%A8%D7%99_%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98_%D7%95%D7%90%D7%A4%D7%9C%D7%99%D7%A7%D7%A6%D7%99%D7%95%D7%AA",
+      "raw_snippet": "לעוסק עם מחזור שנתי ממוצע מתחת ל-120,000 ₪ ... לבעל מחזור שנתי ממוצע בין 120,000 ₪ עד 1,000,000 ₪ ... לבעל מחזור שנתי ממוצע מעל 1,000,000 ₪ - אין פטור אוטומטי ... אתר חדש לאחר 26.10.2017, על האתר החדש להיות נגיש.",
+      "fetched_at": "2026-09-20T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/is-5568.md"
-      ]
-    },
-    {
-      "claim_id": "statutory-damages-50000",
-      "claim": "A claimant can sue for up to 50,000 NIS in statutory damages without proof of harm for an inaccessible site, subject to a 60-day cure-notice period.",
-      "source_url": "https://www.kolzchut.org.il/he/פטור_מחובת_הנגשה_לאתרי_אינטרנט_ואפליקציות",
-      "raw_snippet": "פיצוי ללא הוכחת נזק בסך של עד 50,000 ש\"ח.",
-      "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/is-5568.md"
-      ]
+      ],
+      "source_fetched_at": "2026-09-20T00:00:00Z"
     },
     {
       "claim_id": "amendment-23-izum",
@@ -87,20 +76,6 @@
         "SKILL.md",
         "SKILL_HE.md"
       ]
-    },
-    {
-      "claim_id": "coordinator-25-employees",
-      "claim": "Under the Service Accessibility Regulations a duty-holder employing at least 25 workers must appoint an accessibility coordinator from among its employees, per section 19mb of the Law. A duty-holder with fewer than 100 employees may appoint a coordinator with under a year of practical accessibility experience.",
-      "source_url": "https://he.wikisource.org/wiki/%D7%AA%D7%A7%D7%A0%D7%95%D7%AA%20%D7%A9%D7%95%D7%95%D7%99%D7%95%D7%9F%20%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA%20%D7%9C%D7%90%D7%A0%D7%A9%D7%99%D7%9D%20%D7%A2%D7%9D%20%D7%9E%D7%95%D7%92%D7%91%D7%9C%D7%95%D7%AA%20%28%D7%94%D7%AA%D7%90%D7%9E%D7%95%D7%AA%20%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA%20%D7%9C%D7%A9%D7%99%D7%A8%D7%95%D7%AA%29",
-      "raw_snippet": "רכז נגישות (א) חייב בביצוע התאמות נגישות לשירות המעסיק 25 עובדים לפחות, ימנה מתוך העובדים רכז נגישות, לפי סעיף 19מב לחוק",
-      "fetched_at": "2026-08-14",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/is-5568.md"
-      ],
-      "verified_via": "curl",
-      "verified_at": "2026-08-14"
     },
     {
       "claim_id": "is5568-wcag20-anchor",
@@ -176,6 +151,84 @@
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "coordinator-19mb",
+      "claim": "The accessibility-coordinator (rakaz negishut) duty is in the primary Act, section 19מב (added by Amendment 2, 2005), not in the 2013 Service Accessibility Regulations. The single trigger is being responsible for supplying a public service under Sign ד' and employing at least 25 employees. There is no separate public-body limb. The coordinator's duties include giving advice and training (ייעוץ והדרכה) on the public service's accessibility obligations.",
+      "raw_snippet": "רכז נגישות (תיקון מס' 2) תשס\"ה-2005 19 מב. (א) מי שאחראי להספקת שירות ציבורי כהגדרתו בסימן ד', המעסיק 25 עובדים לפחות ימנה מקרב עובדיו אדם הבקיא, ככל הניתן, בתחום הנגישות לאנשים עם מוגבלות וככל האפשר הוא יהיה אדם עם מוגבלות (בסעיף זה – רכז נגישות). (ב) רכז נגישות – (1) ימסור מידע לציבור על אודות נגישותו של השירות הציבורי או המקום שבו הוא ניתן; (2) ייתן ייעוץ והדרכה בדבר חובותיו של השירות הציבורי,",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "statutory-damages-indexation",
+      "claim": "Section 19נא(ב) caps statutory damages without proof of harm at 50,000 NIS, and 19נא(ו)(1) index-links that sum: it is updated once a year against the CPI with a base index of February 2005. 50,000 NIS is therefore the statutory base, not the current ceiling. The updated 2026 figure was not located and must not be computed.",
+      "raw_snippet": "(ב) בית משפט רשאי לפסוק בשל עוולה לפי סעיף קטן (א) פיצויים בסכום שלא יעלה על 50,000 שקלים חדשים, בלא הוכחת נזק ... (ו) (1) הסכום האמור בסעיף קטן (ב) יעודכן אחת לשנה בהתאם לשיעור עליית המדד החדש לעומת המדד הבסיסי. (2) לענין סעיף קטן זה – \"מדד\" – מדד המחירים לצרכן שמפרסמת הלשכה המרכזית לסטטיסטיקה; \"המדד הבסיסי\" – מדד חודש פברואר 2005",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "administrative-penalty-table",
+      "claim": "Section 26ז(ג), as updated by הודעה תשפ\"ו-2026, sets the full administrative penalty table in NIS by Eighth Schedule part and debtor size (חייב זעיר / חייב קטן / חייב רגיל): part א' 1,310 / 3,830 / 13,680; part ב' 2,620 / 7,660 / 27,360; part ג' 3,940 / 14,220 / 41,030; part ד' 3,940 / 14,220 / 218,820. Section 26ז(ב) sets 27,360 NIS for adequate-representation breaches.",
+      "raw_snippet": "הודעה תשפ\"ו-2026 (ג) ... רשאי הממונה להטיל עליו עיצום כספי לפי הסכומים המפורטים להלן ... החלק בתוספת השמינית סכום העיצום (בשקלים חדשים) חייב זעיר חייב קטן חייב רגיל א' 1,310 3,830 13,680 ב' 2,620 7,660 27,360 ג' 3,940 14,220 41,030 ד' 3,940 14,220 218,820",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "debtor-size-bands",
+      "claim": "Section 26ז(א) defines the size bands by turnover (מחזור עסקאות) in the year preceding the breach: חייב זעיר is a debtor other than a public authority whose annual turnover did not exceed 2,000,000 NIS; חייב קטן is a debtor other than a public authority whose turnover exceeded 2,000,000 NIS and did not exceed 20,000,000 NIS; חייב רגיל is any debtor that is neither.",
+      "raw_snippet": "\"חייב זעיר\" – חייב, למעט רשות ציבורית, שמחזוק העסקאות השנתי שלו בשנה שקדמה למועד ההפרה לא עלה על 2 מיליון שקלים חדשים; \"חייב קטן\" – חייב, למעט רשות ציבורית, שמחזור העסקאות השנתי שלו בשנה שקדמה למועד ההפרה עלה על 2 מיליון שקלים חדשים ולא עלה על 20 מיליון שקלים חדשים; \"חייב רגיל\" – חייב שאינו חייב זעיר או חייב קטן",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "chapter-tet-in-force",
+      "claim": "Chapter ט' (administrative enforcement) was added by Amendment 23, תשפ\"ב-2022, and came into force on 10.8.2023, conditioned on publication of the regulations under section 26יב(ב). Section 26ז was subsequently amended by Amendment 25, תשפ\"ד-2024, and its sums re-indexed by הודעה תשפ\"ה-2025 and הודעה תשפ\"ו-2026.",
+      "raw_snippet": "(תיקון מס' 23) תשפ\"ב-2022 פרק ט': אמצעי אכיפה מינהליים מיום 13.7.2023 10.8.2023 (עם פרסום תקנות לפי סעיף 26יב(ב)) תיקון מס' 23 ס\"ח תשפ\"ב מס' 3007 מיום 13.7.2022 עמ' 1117 ( ה\"ח 1444 ) הוספת פרק ט'",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "dual-track-defenses",
+      "claim": "Amendment 23 added section 19נא(ג)(1א)-(1ב): a court will not award damages without proof of harm where the operator had filed a written undertaking (כתב התחייבות) under Chapter ט' Sign ג' and is complying with it, or where an administrative penalty or administrative warning was already imposed for the same act or omission, that defense running for the period the Commissioner set for carrying out the accommodations. Section 19נג(ג) bars the Commission from suing over an act already penalised administratively.",
+      "raw_snippet": "(תיקון מס' 23) תשפ\"ב-2022 (1ב) הוטל עליו עיצום כספי או ניתנה לו התראה מינהלית בשל המעשה או המחדל נושא התביעה לפי הוראות פרק ט', במועד שקדם למעשה או המחדל נושא התביעה; הגנה זו תעמוד לנתבע לפרק הזמן שקבע הנציב לביצוע התאמות נגישות",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
       ]
     }
   ]

@@ -1,12 +1,18 @@
 ---
 name: israeli-accessibility-compliance
-description: Implement Israeli web accessibility compliance per IS 5568 standard, anchored to WCAG 2.0 AA (IS 5568 adds some 2.1-aligned criteria; sources differ), for Hebrew RTL applications. Use when user asks about Israeli accessibility law, "negishot" (accessibility), IS 5568, "teken negishot" (accessibility standard), "nachim" (disabilities), Hebrew screen reader support, RTL ARIA patterns, or accessibility audit for Israeli websites. Covers mandatory legal requirements under the Equal Rights for Persons with Disabilities Act, who is exempt, enforcement and penalties, the accessibility coordinator role, Hebrew screen reader compatibility (NVDA, JAWS, VoiceOver), and RTL-specific ARIA patterns. Do NOT use for general WCAG guidance without Israeli context (use standard a11y resources instead).
+description: Not an accessibility surveyor's opinion and not legal advice. Implement Israeli web accessibility compliance per IS 5568 standard, anchored to WCAG 2.0 AA (IS 5568 adds some 2.1-aligned criteria; sources differ), for Hebrew RTL applications. Use when user asks about Israeli accessibility law, "negishot" (accessibility), IS 5568, "teken negishot" (accessibility standard), "nachim" (disabilities), Hebrew screen reader support, RTL ARIA patterns, or accessibility audit for Israeli websites. Covers mandatory legal requirements under the Equal Rights for Persons with Disabilities Act, who is exempt, enforcement and penalties, the accessibility coordinator role, Hebrew screen reader compatibility (NVDA, JAWS, VoiceOver), and RTL-specific ARIA patterns. Do NOT use for general WCAG guidance without Israeli context (use standard a11y resources instead).
 license: MIT
 allowed-tools: Bash(python:*) Bash(pip:*)
 compatibility: Works with any web framework. Python 3.9+ for audit script. No network required for core patterns. axe-core for automated testing.
 ---
 
 # Israeli Accessibility Compliance
+
+## Legal notice
+
+This is a free information tool operated by an AI model. It explains Israeli accessibility law, maps the IS 5568 requirements, runs static HTML checks and drafts an accessibility statement, and all of its output is produced automatically, without the involvement, review or approval of a certified accessibility expert (morshe negishut). The output is not a certified accessibility expert's opinion, not an accredited accessibility audit and not legal advice: it is raw technical and explanatory material only. It does not include manual testing with assistive technology, does not review documents under IS 5568 Part 2, does not produce the technological-difficulty opinion required by Regulation 35, and does not verify the current index-linked statutory damages figure. An AI model may err, omit data or present a wrong conclusion.
+
+The accessibility statement block in Step 9 and the output of audit_a11y.py are a working draft for internal organisational use, to be reviewed by a certified accessibility expert (morshe negishut) before publication and before being relied on against an enforcement action or a civil claim. This tool is not a substitute for advice that takes into account the particular circumstances and needs of each person, and before publishing an accessibility statement, claiming an exemption or answering a complaint you should turn to a certified accessibility expert or to a lawyer.
 
 ## Instructions
 
@@ -16,12 +22,12 @@ Israeli web accessibility (negishot) is legally mandatory under the **Equal Righ
 
 | Regulation | Requirement | Status | Penalty |
 |------------|-------------|--------|---------|
-| IS 5568 (2017, updated 2020 and 2023) | Israeli accessibility standard, anchored to WCAG 2.0 AA | New websites accessible from 25 October 2015; existing websites by 26 October 2017; the October 2020 date extended the lower-revenue exemption tiers, not the universal deadline | Up to 50,000 NIS statutory civil damages per violation, without proof of harm |
+| IS 5568 (2017, updated 2020 and 2023) | Israeli accessibility standard, anchored to WCAG 2.0 AA | New websites accessible from 25 October 2015; existing websites by 26 October 2017; the October 2020 date extended the lower-revenue exemption tiers, not the universal deadline | Statutory civil damages without proof of harm, base 50,000 NIS under s.19נא(ב), CPI-index-linked (see Step 3) |
 | Takanat Negishut LeSherut (2013) | Public websites and apps must comply | In effect; covers services provided to the public | Lawsuits + statutory damages |
 | Mobile applications | Included in scope per the 2013 regulations; explicitly reaffirmed in later updates | In effect | Same statutory damages |
 | Government sites | Must meet IS 5568 Level AA | In effect | Commission oversight + administrative penalty |
 
-**Note on WCAG version.** The statute and regulations reference IS 5568. The dominant reading is that IS 5568, including the September 2023 Part 1 edition, stays legally anchored to **WCAG 2.0 AA**, with WCAG 2.1 alignment being partial or vendor-claimed rather than the legal baseline. Some sources describe IS 5568:2020 as WCAG 2.1 AA, so sources differ. The safe working target is WCAG 2.0 AA plus the Israeli-specific additions below; meeting WCAG 2.1 (and 2.2) criteria on top of that is useful future-proofing but is not the floor the law sets.
+**Note on WCAG version.** IS 5568, including the September 2023 Part 1 edition, stays legally anchored to **WCAG 2.0 AA**; WCAG 2.1 alignment is partial or vendor-claimed, and some sources do describe IS 5568:2020 as 2.1 AA, so sources differ. Target WCAG 2.0 AA plus the Israeli additions below. Meeting 2.1 and 2.2 on top is useful future-proofing, not the legal floor.
 
 **Who must comply:** All public-facing Israeli websites and mobile applications of service providers open to the public, including government agencies, educational institutions, healthcare providers, businesses, and non-profits.
 
@@ -38,26 +44,53 @@ The Service Accessibility Regulations base website-accessibility exemptions on *
 | Operator | Exemption |
 |----------|-----------|
 | Osek patur (VAT-exempt dealer) | Full exemption from website accessibility |
-| Average annual revenue under the small-business threshold (sources differ: some cite 100,000 NIS, others 120,000 NIS; confirm against the current regulation before relying on it) | Temporary 3-year exemption, renewable every 3 years while average revenue stays at or below that threshold |
-| Average annual revenue from that threshold up to 1,000,000 NIS | 3-year exemption for an existing site whose operation began before 26 October 2017; a new site built after that date must be accessible |
+| Average annual revenue under 120,000 NIS | Temporary 3-year exemption, renewable every 3 years while average revenue stays at or below 120,000 NIS |
+| Average annual revenue from 120,000 NIS up to 1,000,000 NIS | 3-year exemption for an existing site whose operation began before 26 October 2017; a new site built after that date must be accessible |
 | Average annual revenue above 1,000,000 NIS | No automatic exemption. The operator must apply to the Commission for Equal Rights of Persons with Disabilities to claim a heavy-burden exemption |
 
-These exemptions (except the heavy-burden application) are automatic and need no approval, but the operator must re-check their revenue every 3 years. The exact small-business threshold figure is contested between sources, so a borderline operator should verify against the regulation text or the Commission rather than self-certify as exempt. Exemption from website accessibility does not exempt the operator from other service-accessibility duties, nor from the separate **physical-premises accessibility** duty (negishut hamivne), which is governed by its own regulations.
+These exemptions (except the heavy-burden application) are automatic and need no approval, but the operator must re-check their revenue every 3 years. Exemption from website accessibility does not exempt the operator from other service-accessibility duties, nor from the separate **physical-premises accessibility** duty (negishut hamivne), which is governed by its own regulations.
 
 ### Step 3: Enforcement and Penalties
 
 Two enforcement tracks run in parallel:
 
-- **Civil lawsuit.** A claimant can sue for up to **50,000 NIS in statutory damages without proof of harm**, only needing to show the site is non-compliant. **60-day cure period:** a deviation is not treated as a violation unless the operator was first sent a notice demanding a fix and failed to fix it within a reasonable time, no later than 60 days from receiving the notice. A class-action request for an inaccessible site has no cause of action if no prior fix notice was sent. This is a real defense for operators.
-- **Administrative enforcement by the Commission.** Amendment 23 to the Equal Rights Act gave the Commission for Equal Rights of Persons with Disabilities an administrative track: warnings, commitments, accessibility orders, and an **administrative monetary penalty** (izum kaspi). The penalty amount is scaled by the operator's size (micro business up to 2,000,000 NIS turnover, small business up to 20,000,000 NIS, regular business above that or a public authority) and by the cost of the specific accommodation, with a per-day charge while a violation continues. Reductions apply for a clean prior record and for corrective action. This penalty is separate from and on top of the 50,000 NIS civil damages.
+- **Civil lawsuit.** A claimant can sue for **statutory damages without proof of harm**, only needing to show the site is non-compliant. Section 19נא(ב) sets the ceiling at **50,000 NIS**, but 19נא(ו)(1) index-links that sum: it is updated once a year against the Consumer Price Index, with a base index of February 2005. So 50,000 NIS is the statutory base, not today's number, and the practical current ceiling is higher. Do not quote an updated figure you have not read from the Commission's published sum.
+- **Administrative enforcement by the Commission.** Chapter ט' of the Equal Rights Act, added by **Amendment 23 (2022) and in force from 10 August 2023** (conditioned on publication of the regulations under s.26יב(ב)), gave the Commission an administrative track: warnings, written undertakings, accessibility orders, and an **administrative monetary penalty** (izum kaspi). Section 26ז was later amended by Amendment 25 (2024) and its sums re-indexed by הודעה תשפ"ה-2025 and הודעה תשפ"ו-2026. The 10.8.2023 date matters because it bounds which conduct is exposed to the administrative track at all.
+
+**Debtor size bands (s.26ז(א)),** measured by turnover (מחזור עסקאות) in the year preceding the breach:
+
+| Term | Definition |
+|------|------------|
+| חייב זעיר | Turnover not exceeding 2,000,000 NIS. Public authorities excluded |
+| חייב קטן | Turnover above 2,000,000 NIS and not exceeding 20,000,000 NIS. Public authorities excluded |
+| חייב רגיל | Anything that is neither of the above |
+
+**Penalty amounts (s.26ז(ג), as updated by הודעה תשפ"ו-2026),** in NIS, by the part of the Eighth Schedule the breached provision sits in:
+
+| Eighth Schedule part | חייב זעיר | חייב קטן | חייב רגיל |
+|---|---|---|---|
+| א' | 1,310 | 3,830 | 13,680 |
+| ב' | 2,620 | 7,660 | 27,360 |
+| ג' | 3,940 | 14,220 | 41,030 |
+| ד' | 3,940 | 14,220 | 218,820 |
+
+Section 26ז(ב) separately sets **27,360 NIS** for breaches of the adequate-representation duty. A per-day charge runs while a violation continues, and reductions apply for a clean prior record and for corrective action.
+
+**The two tracks are not purely cumulative.** Amendment 23 added defenses in s.19נא(ג)(1א)-(1ב): a court will **not** award damages without proof of harm where the operator had already filed a **written undertaking (ktav hitchayvut)** under Chapter ט' Sign ג' and is complying with it, or where an administrative penalty or an administrative warning was already imposed on it for the same act or omission, that defense running for the period the Commissioner set for carrying out the accommodations. Section 19נג(ג) likewise bars the Commission from suing over an act it has already penalised administratively. An operator that has taken the administrative route therefore has a real answer to a later civil claim on the same facts.
+
+**60-day cure period.** A deviation is not treated as a violation unless the operator was first sent a notice demanding a fix and failed to fix it within a reasonable time, no later than 60 days from receiving the notice. A class-action request for an inaccessible site has no cause of action if no prior fix notice was sent. This is a real defense for operators.
 
 **Filing a complaint (user side).** A user who hits an inaccessible site sends the operator a fix notice (which starts the 60-day clock); if it is not fixed in time, the user can complain to the Commission for Equal Rights of Persons with Disabilities or sue for the statutory damages. The operator's accessibility coordinator (Step 4) is the first point of contact for such complaints, so an operator should route incoming accessibility complaints through the coordinator and act within the cure window.
 
 ### Step 4: The Accessibility Coordinator (Rakaz Negishut)
 
-The Service Accessibility Regulations require a service provider that is a public body, or that employs **25 or more employees**, to appoint one of its staff as an **accessibility coordinator** (rakaz negishut). Note this 25-employee figure is the trigger for the *coordinator appointment*, not for the website-accessibility duty itself, which is universal subject to the revenue exemptions above. The coordinator:
+The coordinator duty sits in the **primary Act, section 19מב** (added by Amendment 2, 2005), **not** in the 2013 Service Accessibility Regulations. There is a **single trigger**: whoever is responsible for supplying a public service as defined in Sign ד' **and employs at least 25 employees** must appoint, from among its own staff, a person as expert in accessibility for people with disabilities as possible, and so far as possible a person with a disability, as the **accessibility coordinator** (rakaz negishut). There is no separate public-body limb in 19מב. Note this 25-employee figure is the trigger for the *coordinator appointment*, not for the website-accessibility duty itself, which is universal subject to the revenue exemptions above. Section 19מב(ב) itself lists exactly two duties:
 
-- Gives the public information about the accessibility arrangements of the provider's assets and services.
+- Gives the public information about the accessibility of the public service or of the place where it is given.
+- Gives **advice and training (ייעוץ והדרכה)** on the public service's own accessibility obligations.
+
+Two further duties are commonly attributed to the coordinator, but they come from the Service Accessibility Regulations rather than from 19מב, so do not cite the Act for them:
+
 - Handles accessibility inquiries and complaints from the public.
 - Helps the parties responsible for accessibility carry out and maintain the required accommodations.
 
@@ -312,15 +345,15 @@ Result: Add `dir="rtl"` to the table element, include a Hebrew `caption`, use `s
 ## Bundled Resources
 
 ### Scripts
-- `scripts/audit_a11y.py` -- Run IS 5568 accessibility audit: automated checks for Hebrew lang attribute, RTL direction, ARIA labels, contrast ratios, and skip navigation using axe-core and selenium. Generates compliance report with pass/fail per IS 5568 clause. Run: `python scripts/audit_a11y.py --help`
+- `scripts/audit_a11y.py` -- Static-HTML IS 5568 audit: lang, dir, title, skip link, image alt, form labels, accessibility-statement link, heading levels. Exits 1 when a check fails, so it works as a CI gate. Run: `python scripts/audit_a11y.py --help`
 
 ### References
-- `references/is-5568.md` -- Complete IS 5568 standard reference: clause-by-clause requirements mapped to WCAG 2.0 AA, Israeli-specific additions, exemption tiers, the two-track enforcement model (civil damages + Commission administrative penalty) with the 60-day cure period, the accessibility coordinator role, mandatory accessibility statement template, and checklist for compliance audits.
-- `references/widget-implementation.md` -- Copy-pasteable TypeScript/React code for a Regulation 35 accessibility preferences widget: pub-sub prefs store with `useSyncExternalStore`, class-based CSS toggles, FOUC bootstrap script, `Alt+A` keyboard shortcut (layout-independent via `e.code`), framer-motion `MotionConfig` wiring, and counter-invert rules. Consult when the user wants to ship the widget surface itself, not just audit compliance.
+- `references/is-5568.md` -- Clause-by-clause IS 5568 reference mapped to WCAG 2.0 AA, Israeli additions, exemption tiers, both enforcement tracks, the coordinator role, the statement template, and the audit checklist.
+- `references/widget-implementation.md` -- Copy-pasteable TypeScript/React code for a Regulation 35 preferences widget: pub-sub store, CSS class toggles, FOUC bootstrap, `Alt+A` shortcut, `MotionConfig` wiring, counter-invert rules.
 
 ## Building a Compliant Accessibility Preferences Widget
 
-Regulation 35 and IS 5568 require Israeli consumer-facing sites to expose an accessibility control surface that users can operate with the keyboard, typically a floating widget with toggles for contrast, text size, line spacing, cursor, and motion. This widget is a **user-preference comfort tool**, not an automation overlay. The difference is legally and financially significant: the FTC fined accessiBe $1M in April 2025 for misleading claims that its overlay auto-remediated sites (it didn't). The widget you ship must do only what the user asks it to do.
+Israeli consumer-facing sites commonly expose an accessibility control surface (no regulation mandates a widget as such) that users can operate with the keyboard, typically a floating widget with toggles for contrast, text size, line spacing, cursor, and motion. This widget is a **user-preference comfort tool**, not an automation overlay. The difference is legally and financially significant: the FTC fined accessiBe $1M in April 2025 for misleading claims that its overlay auto-remediated sites (it didn't). The widget you ship must do only what the user asks it to do.
 
 ### Feature Set
 
@@ -465,7 +498,9 @@ The widget is one layer of compliance. The other layers, semantic HTML, correct 
 
 ## Gotchas
 - Israeli accessibility law (IS 5568) is anchored to WCAG 2.0 AA (sources differ on whether the current edition reaches 2.1), and adds Israeli-specific requirements on top, including the bilingual-content expectation for public bodies that serve the public in Hebrew and Arabic (see Step 5). Agents may apply only WCAG without the Israeli additions.
-- Agents may copy a stale "businesses with 25+ employees or 300,000 NIS revenue must comply" rule. That figure is not in the regulations. The website-accessibility duty is universal for public-facing services, subject to revenue-based exemptions (see Step 2, Who Is Exempt). The 25-employee number is the trigger for appointing an accessibility coordinator, a separate duty.
+- Agents may copy a stale "businesses with 25+ employees or 300,000 NIS revenue must comply" rule. That figure is not in the regulations. The website-accessibility duty is universal for public-facing services, subject to revenue-based exemptions (see Step 2, Who Is Exempt). The 25-employee number is the trigger for appointing an accessibility coordinator under s.19מב of the Act, a separate duty in a different instrument.
+- Agents may present the 50,000 NIS statutory-damages ceiling as a flat current figure. It is the base in s.19נא(ב) and is index-linked annually under s.19נא(ו) against the CPI, base index February 2005 (see Step 3).
+- Agents may treat the civil and administrative tracks as purely cumulative. Sections 19נא(ג)(1א)-(1ב) and 19נג(ג) give an operator that has filed a written undertaking, or that was already penalised administratively for the same act, a defense against damages without proof of harm (see Step 3).
 - Agents may skip the 60-day cure period. A non-compliant operator must first receive a fix notice and be given up to 60 days before a suit or class-action request has a cause of action (see Step 3).
 - Screen readers for Hebrew (NVDA, JAWS) read RTL text differently than LTR. Agents may generate ARIA labels assuming LTR reading order, which confuses Hebrew screen reader users.
 - Israeli law requires accessibility statements (hatzaharat negishut) to be published on every website. Agents may generate WCAG-compliant sites without this mandatory statement page.
@@ -475,12 +510,12 @@ The widget is one layer of compliance. The other layers, semantic HTML, correct 
 
 | Source | URL | What to Check |
 |--------|-----|---------------|
-| Commission for Equal Rights of Persons with Disabilities | https://www.gov.il/he/departments/moj_disability_rights/govil-landing-page | Israeli accessibility law, enforcement, complaints |
-| IS 5568 / Tav Negishut | https://www.sii.org.il/en/ | Israeli Standards Institute source for the IS 5568 standard |
-| Equal Rights Act (Nevo) | https://www.nevo.co.il/law_html/law01/p214m2_001.htm | Legal text of the Equal Rights for Persons with Disabilities Act |
-| WCAG 2.0 quick reference | https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0 | Success criteria and techniques for AA compliance, the version IS 5568 is anchored to |
-| Website accessibility exemptions (Kol Zchut) | https://www.kolzchut.org.il/he/פטור_מחובת_הנגשה_לאתרי_אינטרנט_ואפליקציות | Revenue-based exemption tiers and how to claim them |
-| NVDA Hebrew support | https://www.nvaccess.org/ | Free screen reader widely used for Hebrew a11y testing |
+| Commission for Equal Rights of Persons with Disabilities | https://www.gov.il/he/departments/moj_disability_rights/govil-landing-page | Law, enforcement, complaints |
+| IS 5568 / Tav Negishut | https://www.sii.org.il/en/ | Source for the IS 5568 standard |
+| Equal Rights Act (Nevo) | https://www.nevo.co.il/law_html/law01/p214m2_001.htm | Statute text: 19מב, 19נא, 19נג, chapter ט' |
+| WCAG 2.0 quick reference | https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0 | AA success criteria, the version IS 5568 is anchored to |
+| Website accessibility exemptions (Kol Zchut) | https://www.kolzchut.org.il/he/פטור_מחובת_הנגשה_לאתרי_אינטרנט_ואפליקציות | Revenue-based exemption tiers |
+| NVDA Hebrew support | https://www.nvaccess.org/ | Free screen reader used for Hebrew testing |
 
 ## Troubleshooting
 
