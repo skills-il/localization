@@ -9,6 +9,35 @@
         "Deferred (MAJOR, next cycle): @variant/@custom-variant deeper coverage; @tailwindcss/typography prose RTL handling; @plugin directive form for v4. Deferred (MINOR): more arbitrary-logical-value examples.",
         "Description unchanged this cycle -> Phase 5.7 eval skipped."
       ]
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-09-20",
+      "findings": [
+        "MAJOR: the v4 @theme block defined --leading-tight/normal/relaxed, which only override the built-in scale, so leading-hebrew, leading-hebrew-tight and leading-hebrew-relaxed generated NO CSS in v4. Every v4 reader copying Steps 4, 5 and 6 got default line-height on Hebrew text. The v3 branch defined them correctly, so the two branches disagreed.",
+        "MAJOR: the space-x-* gotcha was Tailwind v3 era. In v4 space-x-* compiles to margin-inline-start/end and is already direction-aware; the recommended rtl:space-x-reverse sets --tw-space-x-reverse: 1 and moves the spacing to the WRONG side.",
+        "MINOR: bg-gradient-to-* is a legacy alias; v4 documents bg-linear-to-*.",
+        "MINOR: two reference URLs 301-redirect (MDN font-display moved under /Reference/At-rules/; /docs redirects to the Vite install page).",
+        "GAP: v4.3 block-axis and logical-sizing utilities absent from the mapping table; @source unmentioned, so a v3 reader hunting for the content key finds nothing.",
+        "Judge FAIL, evidence provenance only (no fact was wrong). Two raw_snippets were reconstructions rather than copied text. theme-leading-namespace now quotes the live tailwindcss.com/docs/theme sentence 'Theme variables are defined in namespaces and each namespace corresponds to one or more utility class or variant APIs.' with a source_note pointing at the separate '--leading-* Line height utilities like leading-tight' table row, since a table cell cannot be spliced into the same quote.",
+        "v43-block-axis-and-logical-sizing carried one paraphrased sentence covering two different claims. Split into v42-block-axis-logical-spacing and v42-logical-sizing, each with its own contiguous sentence copied from the v4.3 blog post. Re-reading that post also showed these utilities landed in v4.2, not v4.3 (the post covers two releases), so both claims now say 'available in v4.3, added in v4.2'. tailwind-v43-inset-deprecation's snippet was re-sliced to end at 'inset-be-*' because the rendered page puts whitespace before the period.",
+        "All four touched snippets were checked as substrings of the live page text after whitespace collapsing. No skill body text changed this cycle."
+      ],
+      "changes": [
+        "Renamed the v4 @theme line-height variables to --leading-hebrew / --leading-hebrew-tight / --leading-hebrew-relaxed in SKILL.md, SKILL_HE.md and references/rtl-config.md, with a comment explaining why the namespace name is load-bearing. v4 and v3 branches now agree.",
+        "Rewrote the space-x gotcha in both languages: v4 space-x-* is direction-aware, rtl:space-x-reverse is harmful, space-x-reverse is for reversed DOM order, gap-* still preferred for wrapping.",
+        "Switched gradient examples and gotcha to bg-linear-to-r / rtl:bg-linear-to-l, noting the alias.",
+        "Added five v4.3 rows to the physical-to-logical table (mbs/mbe, pbs/pbe, border-bs/border-be, inset-bs/inset-be, inline-*/block-*) and an @source paragraph.",
+        "Fixed the MDN font-display URL to its canonical path and pointed the Tailwind docs row at /docs/theme.",
+        "Added 5 evidence claims (theme-leading-namespace, space-x-logical-v4, bg-linear-v4-naming, v43-block-axis-and-logical-sizing, v4-source-directive), each verified by compiling against tailwindcss 4.3.3."
+      ],
+      "deferred": [
+        "@tailwindcss/webpack (new in v4.3, faster than routing webpack through @tailwindcss/postcss) still unmentioned.",
+        "font-features-* (new in v4.3) and OpenType/variation guidance for Hebrew variable fonts.",
+        "Nikkud interaction with line-height: the 1.4/1.7/1.9 values remain unsourced editorial recommendations.",
+        "Frank Ruhl Libre and David Libre are in the font stack but not in the Reference Links table and not verified.",
+        "@theme inline being strictly required (vs recommended) for next/font was not re-confirmed against a doc passage; the existing citation is not load-bearing."
+      ]
     }
   ]
 }

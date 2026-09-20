@@ -21,10 +21,14 @@
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
 
-  /* Hebrew line heights */
-  --leading-tight: 1.4;
-  --leading-normal: 1.7;
-  --leading-relaxed: 1.9;
+  /* Hebrew line heights. The --leading-* namespace is what generates
+     leading-<name>, so these names create leading-hebrew,
+     leading-hebrew-tight and leading-hebrew-relaxed. Using
+     --leading-tight / --leading-normal / --leading-relaxed instead only
+     overrides the built-in scale and leaves leading-hebrew* undefined. */
+  --leading-hebrew: 1.7;
+  --leading-hebrew-tight: 1.4;
+  --leading-hebrew-relaxed: 1.9;
 }
 ```
 

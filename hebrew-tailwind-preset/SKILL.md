@@ -68,10 +68,15 @@ Then load Hebrew fonts with `font-display: swap` (via a Google Fonts `<link>` or
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
 
-  /* Hebrew line heights (taller than Latin defaults) */
-  --leading-tight: 1.4;
-  --leading-normal: 1.7;
-  --leading-relaxed: 1.9;
+  /* Hebrew line heights (taller than Latin defaults).
+     The --leading-* namespace generates leading-<name> utilities,
+     so these names are what make leading-hebrew, leading-hebrew-tight
+     and leading-hebrew-relaxed exist. Naming them --leading-tight /
+     --leading-normal / --leading-relaxed instead would only override
+     the built-in scale and leave every leading-hebrew* class empty. */
+  --leading-hebrew: 1.7;
+  --leading-hebrew-tight: 1.4;
+  --leading-hebrew-relaxed: 1.9;
 }
 ```
 
@@ -147,8 +152,8 @@ Tailwind v4's native logical utilities and `rtl:`/`ltr:` variants cover RTL on t
 | `mr-4` | `me-4` | Left margin in RTL |
 | `pl-4` | `ps-4` | Right padding in RTL |
 | `pr-4` | `pe-4` | Left padding in RTL |
-| `left-0` | `inset-s-0` | Right: 0 in RTL (v4.3+; `start-0` is the deprecated alias) |
-| `right-0` | `inset-e-0` | Left: 0 in RTL (v4.3+; `end-0` is the deprecated alias) |
+| `left-0` | `inset-s-0` | Right: 0 in RTL (v4.2+; `start-0` is the deprecated alias) |
+| `right-0` | `inset-e-0` | Left: 0 in RTL (v4.2+; `end-0` is the deprecated alias) |
 | `border-l` | `border-s` | Right border in RTL |
 | `border-r` | `border-e` | Left border in RTL |
 | `rounded-l-lg` | `rounded-s-lg` | Right rounded in RTL |
@@ -156,8 +161,15 @@ Tailwind v4's native logical utilities and `rtl:`/`ltr:` variants cover RTL on t
 | `text-left` | `text-start` | Right-aligned in RTL |
 | `text-right` | `text-end` | Left-aligned in RTL |
 | `scroll-ml-4` | `scroll-ms-4` | Right scroll margin in RTL |
+| `mt-4` / `mb-4` | `mbs-4` / `mbe-4` | Block-axis margin (v4.2+) |
+| `pt-4` / `pb-4` | `pbs-4` / `pbe-4` | Block-axis padding (v4.2+) |
+| `border-t` / `border-b` | `border-bs` / `border-be` | Block-axis border (v4.2+) |
+| `top-0` / `bottom-0` | `inset-bs-0` / `inset-be-0` | Block-axis inset (v4.2+) |
+| `w-40` / `h-20` | `inline-40` / `block-20` | Logical sizing (v4.2+, also `min-inline-*`, `max-block-*`) |
 
-**Tailwind v4.3 inset rename.** As of v4.3 (May 2026) the logical *positioning* utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` (so they line up with `inset-bs-*`/`inset-be-*`). The old names still work, but prefer `inset-s-0`/`inset-e-0` in new code. This rename affects only inset/positioning; the margin/padding/border utilities `ms-*`/`me-*`/`ps-*`/`pe-*`/`border-s`/`border-e` are unchanged. Arbitrary values compose with logical utilities too (e.g. `ms-[3px]`, `inset-s-[10px]`).
+**Tailwind v4.2 inset rename.** As of v4.2 (18 February 2026, recapped in the v4.3 blog post) the logical *positioning* utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` (so they line up with `inset-bs-*`/`inset-be-*`). The old names still work, but prefer `inset-s-0`/`inset-e-0` in new code. This rename affects only inset/positioning; the margin/padding/border utilities `ms-*`/`me-*`/`ps-*`/`pe-*`/`border-s`/`border-e` are unchanged. Arbitrary values compose with logical utilities too (e.g. `ms-[3px]`, `inset-s-[10px]`).
+
+**Use `@source`, not a `content` array.** Tailwind v4 auto-detects your templates, so a v3 reader will look for the `content: [...]` key and find nothing. Paths Tailwind does not scan (an external UI package, anything in `.gitignore`) are registered in CSS instead, relative to the stylesheet: `@source "../node_modules/@acmecorp/ui-lib";`. This matters for Hebrew markup that lives in a shared component library.
 
 ### Step 3: Use Dir Variants for RTL-Specific Styles
 
@@ -339,26 +351,26 @@ Result: Build grid layout with RTL sidebar (border-e, pe-6), navigation with Heb
 
 ## Gotchas
 - Tailwind CSS v3+ supports RTL variants (`rtl:` prefix), but agents often do not use them, instead hardcoding `mr-4` when they should use `ms-4` (margin-start) for RTL compatibility.
-- The `space-x-4` utility in Tailwind does not respect RTL direction. Agents must use `gap-4` with flex or grid, or manually add `rtl:space-x-reverse` to flip spacing direction.
+- `space-x-*` IS direction-aware in Tailwind v4: it compiles to `margin-inline-start` / `margin-inline-end`, so it already flips under `dir="rtl"` and needs no override. Do NOT add `rtl:space-x-reverse` - that sets `--tw-space-x-reverse: 1` and moves the spacing to the wrong side. `space-x-reverse` is only for children rendered in reverse DOM order (`flex-row-reverse`), in which case it belongs on the same element regardless of direction. The physical-margin behaviour agents remember is Tailwind v3. `gap-4` is still the better choice for flex and grid because `space-x-*` breaks on wrapped rows.
 - Custom font declarations for Hebrew must include `font-display: swap` to prevent FOIT (Flash of Invisible Text). Agents may omit this, causing Hebrew text to disappear during font loading.
 - Tailwind's `text-left` and `text-right` are physical properties. Use `text-start` and `text-end` classes for RTL-aware alignment. Agents default to physical direction classes.
-- Gradient and shadow direction is physical, not logical: `bg-gradient-to-r` and offset shadows do not flip in RTL. Add a `rtl:` override (e.g. `rtl:bg-gradient-to-l`) when the direction is meaningful.
+- Gradient and shadow direction is physical, not logical: `bg-linear-to-r` and offset shadows do not flip in RTL. Add a `rtl:` override (e.g. `rtl:bg-linear-to-l`) when the direction is meaningful. Use the v4 `bg-linear-*` names; `bg-gradient-*` still compiles as a legacy alias but is no longer the documented spelling.
 
 ## Reference Links
 
 | Source | URL | What to Check |
 |--------|-----|---------------|
-| Tailwind CSS docs | https://tailwindcss.com/docs | Current configuration syntax, v4 migration notes |
+| Tailwind CSS theme docs | https://tailwindcss.com/docs/theme | Current configuration syntax, v4 migration notes |
 | Tailwind RTL / logical properties | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | `rtl:` and `ltr:` variants |
 | Google Fonts – Heebo | https://fonts.google.com/specimen/Heebo | Hebrew UI font, weights, loading snippet |
 | Google Fonts – Assistant | https://fonts.google.com/specimen/Assistant | Hebrew body font |
-| MDN font-display | https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display | `swap` value and FOIT mitigation |
+| MDN font-display | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face/font-display | `swap` value and FOIT mitigation |
 
 ## Troubleshooting
 
 ### Error: "Tailwind logical utilities not working"
 Cause: Using older Tailwind version without logical property support
-Solution: Logical utilities (ms-, me-, ps-, pe-, and inset `inset-s-`/`inset-e-`, formerly `start-`/`end-`) require Tailwind v3.3+. For v3.0-3.2, use rtl:/ltr: variants instead (e.g., `rtl:mr-4 ltr:ml-4`). Tailwind v4 has full logical property support built in; the `inset-s-*`/`inset-e-*` names landed in v4.3 (the older `start-*`/`end-*` still resolve).
+Solution: Logical utilities (ms-, me-, ps-, pe-, and inset `inset-s-`/`inset-e-`, formerly `start-`/`end-`) require Tailwind v3.3+. For v3.0-3.2, use rtl:/ltr: variants instead (e.g., `rtl:mr-4 ltr:ml-4`). Tailwind v4 has full logical property support built in; the `inset-s-*`/`inset-e-*` names landed in v4.2 (the older `start-*`/`end-*` still resolve).
 
 ### Error: "Font not applying with font-hebrew class"
 Cause: Hebrew font family not defined in Tailwind configuration

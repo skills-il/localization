@@ -62,10 +62,15 @@ export default {
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
 
-  /* גובהי שורה לעברית (גבוהים מברירת המחדל הלטינית) */
-  --leading-tight: 1.4;
-  --leading-normal: 1.7;
-  --leading-relaxed: 1.9;
+  /* גובהי שורה לעברית (גבוהים מברירת המחדל הלטינית).
+     מרחב השמות --leading-* הוא שמייצר את מחלקות leading-<name>,
+     ולכן דווקא השמות האלה יוצרים את leading-hebrew,
+     leading-hebrew-tight ו-leading-hebrew-relaxed. שמות כמו
+     --leading-tight או --leading-normal רק דורסים את הסולם המובנה
+     ומשאירים את כל מחלקות leading-hebrew ריקות מ-CSS. */
+  --leading-hebrew: 1.7;
+  --leading-hebrew-tight: 1.4;
+  --leading-hebrew-relaxed: 1.9;
 }
 ```
 
@@ -141,8 +146,8 @@ const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
 | `mr-4` | `me-4` | שוליים שמאליים ב-RTL |
 | `pl-4` | `ps-4` | ריפוד ימני ב-RTL |
 | `pr-4` | `pe-4` | ריפוד שמאלי ב-RTL |
-| `left-0` | `inset-s-0` | ימין: 0 ב-RTL (v4.3+; `start-0` הוא הכינוי המיושן) |
-| `right-0` | `inset-e-0` | שמאל: 0 ב-RTL (v4.3+; `end-0` הוא הכינוי המיושן) |
+| `left-0` | `inset-s-0` | ימין: 0 ב-RTL (v4.2+; `start-0` הוא הכינוי המיושן) |
+| `right-0` | `inset-e-0` | שמאל: 0 ב-RTL (v4.2+; `end-0` הוא הכינוי המיושן) |
 | `border-l` | `border-s` | גבול ימני ב-RTL |
 | `border-r` | `border-e` | גבול שמאלי ב-RTL |
 | `rounded-l-lg` | `rounded-s-lg` | עיגול ימני ב-RTL |
@@ -150,8 +155,15 @@ const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
 | `text-left` | `text-start` | מיושר לימין ב-RTL |
 | `text-right` | `text-end` | מיושר לשמאל ב-RTL |
 | `scroll-ml-4` | `scroll-ms-4` | שוליים ימניים לגלילה ב-RTL |
+| `mt-4` / `mb-4` | `mbs-4` / `mbe-4` | שוליים בציר הבלוק (v4.2+) |
+| `pt-4` / `pb-4` | `pbs-4` / `pbe-4` | ריפוד בציר הבלוק (v4.2+) |
+| `border-t` / `border-b` | `border-bs` / `border-be` | מסגרת בציר הבלוק (v4.2+) |
+| `top-0` / `bottom-0` | `inset-bs-0` / `inset-be-0` | מיקום בציר הבלוק (v4.2+) |
+| `w-40` / `h-20` | `inline-40` / `block-20` | מידות לוגיות (v4.2+, וגם `min-inline-*`, `max-block-*`) |
 
-**שינוי שמות ה-inset ב-Tailwind v4.3.** החל מ-v4.3 (מאי 2026) כלי המיקום הלוגיים `start-*`/`end-*` הוצאו משימוש לטובת `inset-s-*`/`inset-e-*` (כדי להתיישר עם `inset-bs-*`/`inset-be-*`). השמות הישנים עדיין עובדים, אבל עדיף `inset-s-0`/`inset-e-0` בקוד חדש. השינוי הזה נוגע רק ל-inset/מיקום; כלי ה-margin/padding/border‏ `ms-*`/`me-*`/`ps-*`/`pe-*`/`border-s`/`border-e` לא השתנו. גם ערכים שרירותיים משתלבים עם כלים לוגיים (למשל `ms-[3px]`, `inset-s-[10px]`).
+**שינוי שמות ה-inset ב-Tailwind v4.2.** החל מ-v4.2 (18 בפברואר 2026, מסוכם שוב בפוסט של v4.3) כלי המיקום הלוגיים `start-*`/`end-*` הוצאו משימוש לטובת `inset-s-*`/`inset-e-*` (כדי להתיישר עם `inset-bs-*`/`inset-be-*`). השמות הישנים עדיין עובדים, אבל עדיף `inset-s-0`/`inset-e-0` בקוד חדש. השינוי הזה נוגע רק ל-inset/מיקום; כלי ה-margin/padding/border‏ `ms-*`/`me-*`/`ps-*`/`pe-*`/`border-s`/`border-e` לא השתנו. גם ערכים שרירותיים משתלבים עם כלים לוגיים (למשל `ms-[3px]`, `inset-s-[10px]`).
+
+**השתמשו ב-`@source` במקום במערך `content`.** טיילווינד v4 מזהה את קבצי התבניות לבד, ולכן מי שמגיע מ-v3 יחפש את המפתח `content: [...]` ולא ימצא אותו. נתיבים שטיילווינד אינו סורק (ספריית רכיבים חיצונית, כל מה שנמצא ב-.gitignore) נרשמים ב-CSS יחסית לקובץ הסגנון: `@source "../node_modules/@acmecorp/ui-lib";`. זה קריטי כשקוד עברי יושב בספריית רכיבים משותפת.
 
 ### שלב 3: וריאנטים כיווניים לסגנונות ייחודיים ל-RTL
 
@@ -329,30 +341,30 @@ const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
 ## משאבים מצורפים
 
 ### קובצי עזר
-- `references/rtl-config.md` -- מדריך תצורת Tailwind CSS ל-RTL מלא: דוגמאות תצורה CSS-first ל-v4 ו-JavaScript ל-v3, טבלת מיפוי מלאה מתכונות שירות פיזיות ללוגיות, תבניות שימוש בוריאנטים כיווניים, מחסניות גופנים עבריות מוכנות, הגדרות תגי טיפוגרפיה, ומדריך מיגרציה מתכונות פיזיות ללוגיות.
+- מדריך התצורה המלא נמצא ב-`references/rtl-config.md` -- מדריך תצורת Tailwind CSS ל-RTL מלא: דוגמאות תצורה CSS-first ל-v4 ו-JavaScript ל-v3, טבלת מיפוי מלאה מתכונות שירות פיזיות ללוגיות, תבניות שימוש בוריאנטים כיווניים, מחסניות גופנים עבריות מוכנות, הגדרות תגי טיפוגרפיה, ומדריך מיגרציה מתכונות פיזיות ללוגיות.
 
 ## מלכודות נפוצות
-- Tailwind CSS v3+ תומך בווריאנטים RTL (תחילית rtl:), אבל סוכנים לא משתמשים בהם ומקודדים mr-4 כשצריך להשתמש ב-ms-4 (margin-start) לתאימות RTL.
-- הכלי space-x-4 ב-Tailwind לא מכבד כיוון RTL. סוכנים חייבים להשתמש ב-gap-4 עם flex או grid, או להוסיף ידנית rtl:space-x-reverse כדי להפוך את כיוון הרווח.
+- גרסה v3+ של Tailwind CSS תומכת בווריאנטים RTL (תחילית rtl:), אבל סוכנים לא משתמשים בהם ומקודדים mr-4 כשצריך להשתמש ב-ms-4 (margin-start) לתאימות RTL.
+- הכלי `space-x-*` ב-Tailwind v4 כן מודע לכיוון: הוא מתקמפל ל-`margin-inline-start` ו-`margin-inline-end`, ולכן הוא כבר מתהפך תחת `dir="rtl"` ואינו דורש דריסה. אין להוסיף `rtl:space-x-reverse` - זה מציב `--tw-space-x-reverse: 1` ומעביר את הרווח לצד הלא נכון. `space-x-reverse` מיועד רק לילדים שמוצגים בסדר DOM הפוך (`flex-row-reverse`), ושם הוא נחוץ בכל כיוון. ההתנהגות הפיזית שסוכנים זוכרים היא של Tailwind v3. `gap-4` עדיין עדיף ב-flex וב-grid, כי `space-x-*` נשבר בשורות שנשברות לשתי שורות.
 - הצהרות גופנים מותאמים לעברית חייבות לכלול font-display: swap כדי למנוע FOIT (הבזק של טקסט בלתי נראה). סוכנים עלולים להשמיט את זה, וזה גורם לטקסט עברי להיעלם בזמן טעינת הגופן.
-- text-left ו-text-right ב-Tailwind הן תכונות פיזיות. תשתמשו בקלאסים text-start ו-text-end ליישור מודע RTL. סוכנים הולכים לקלאסי כיוון פיזיים כברירת מחדל.
-- כיוון של גרדיאנט וצל הוא פיזי, לא לוגי: `bg-gradient-to-r` וצללים עם היסט לא מתהפכים ב-RTL. הוסיפו דריסת `rtl:` (למשל `rtl:bg-gradient-to-l`) כשהכיוון משמעותי.
+- המחלקות text-left ו-text-right ב-Tailwind הן תכונות פיזיות. תשתמשו בקלאסים text-start ו-text-end ליישור מודע RTL. סוכנים הולכים לקלאסי כיוון פיזיים כברירת מחדל.
+- כיוון של גרדיאנט וצל הוא פיזי, לא לוגי: `bg-linear-to-r` וצללים עם היסט לא מתהפכים ב-RTL. הוסיפו דריסת `rtl:` (למשל `rtl:bg-linear-to-l`) כשהכיוון משמעותי. השתמשו בשמות `bg-linear-*` של v4; `bg-gradient-*` עדיין מתקמפל ככינוי ישן אך אינו הכתיב המתועד.
 
 ## קישורי עזר
 
 | מקור | כתובת | מה לבדוק |
 |------|-------|----------|
-| תיעוד Tailwind CSS | https://tailwindcss.com/docs | תחביר תצורה עדכני, הערות מעבר ל-v4 |
+| תיעוד ה-theme של Tailwind CSS | https://tailwindcss.com/docs/theme | תחביר תצורה עדכני, הערות מעבר ל-v4 |
 | תמיכת RTL ותכונות לוגיות ב-Tailwind | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | וריאנטי `rtl:` ו-`ltr:` |
 | Google Fonts – Heebo | https://fonts.google.com/specimen/Heebo | גופן ממשק עברי, משקלים, קוד טעינה |
 | Google Fonts – Assistant | https://fonts.google.com/specimen/Assistant | גופן גוף טקסט עברי |
-| MDN font-display | https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display | ערך swap והתמודדות עם FOIT |
+| MDN font-display | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face/font-display | ערך swap והתמודדות עם FOIT |
 
 ## פתרון בעיות
 
 ### שגיאה: "תכונות השירות הלוגיות של Tailwind לא עובדות"
 סיבה: שימוש בגרסת Tailwind ישנה בלי תמיכה בתכונות לוגיות
-פתרון: כלי שירות לוגיים (ms-, me-, ps-, pe-, וה-inset‏ `inset-s-`/`inset-e-`, בעבר `start-`/`end-`) דורשים Tailwind v3.3+. ל-v3.0-3.2, תשתמשו בוריאנטי rtl:/ltr: במקום (`rtl:mr-4 ltr:ml-4` למשל). ב-Tailwind v4 התמיכה בתכונות לוגיות מובנית במלואה; השמות `inset-s-*`/`inset-e-*` נכנסו ב-v4.3 (השמות הישנים `start-*`/`end-*` עדיין עובדים).
+פתרון: כלי שירות לוגיים (ms-, me-, ps-, pe-, וה-inset‏ `inset-s-`/`inset-e-`, בעבר `start-`/`end-`) דורשים Tailwind v3.3+. ל-v3.0-3.2, תשתמשו בוריאנטי rtl:/ltr: במקום (`rtl:mr-4 ltr:ml-4` למשל). ב-Tailwind v4 התמיכה בתכונות לוגיות מובנית במלואה; השמות `inset-s-*`/`inset-e-*` נכנסו ב-v4.2 (השמות הישנים `start-*`/`end-*` עדיין עובדים).
 
 ### שגיאה: "הגופן לא מוחל עם מחלקת font-hebrew"
 סיבה: משפחת גופנים עברית לא הוגדרה בתצורת Tailwind

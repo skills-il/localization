@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "hebrew-tailwind-preset",
-  "generated_at": "2026-06-21T00:00:00Z",
+  "generated_at": "2026-09-20T00:00:00Z",
   "claims": [
     {
       "claim_id": "tailwind-v4-current",
@@ -16,15 +16,17 @@
     },
     {
       "claim_id": "tailwind-v43-inset-deprecation",
-      "claim": "As of Tailwind v4.3 (May 2026) the logical inset utilities start-*/end-* are deprecated in favor of inset-s-*/inset-e-* (old names still work); margin/padding ms-/me-/ps-/pe- are unaffected.",
+      "claim": "The logical inset utilities start-*/end-* were deprecated in favor of inset-s-*/inset-e-* in Tailwind CSS v4.2.0, released 18 February 2026 (the v4.3 blog post only recaps it), aligning them with inset-bs-*/inset-be-* (old names still work); margin/padding ms-/me-/ps-/pe- are unaffected.",
       "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
-      "raw_snippet": "The existing start-* and end-* utilities are still available, but they're now deprecated in favor of inset-s-* and inset-e-* so the whole API lines up with inset-bs-* and inset-be-*.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "The existing start-* and end-* utilities are still available, but they're now deprecated in favor of inset-s-* and inset-e-* so the whole API lines up with inset-bs-* and inset-be-*",
+      "fetched_at": "2026-09-20T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/rtl-config.md"
-      ]
+      ],
+      "source_note": "The 'margin/padding unaffected' half is not stated on this page; it is verified by compiling ms-4, me-4, ps-4 and pe-4 against tailwindcss 4.3.3, where they still emit.",
+      "source_fetched_at": "2026-09-20T00:00:00Z"
     },
     {
       "claim_id": "tailwind-rtl-variant",
@@ -125,7 +127,7 @@
     {
       "claim_id": "font-display-swap",
       "claim": "The font-display: swap descriptor renders fallback text immediately and swaps in the web font when loaded, mitigating FOIT.",
-      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face/font-display",
       "raw_snippet": "optional Gives the font face an extremely small block period and no swap period. Note: In Firefox, the preferences gfx.downloadable_fonts.fallback_delay and gfx.downloadable_fonts.fallback_delay_short provide the duration of the \"short\" and \"extremely small\" periods, respectively. Description The font display timeline is based on a timer that begins the moment the user agent attempts to use a given downloaded font face.",
       "fetched_at": "2026-08-18",
       "appears_in": [
@@ -134,6 +136,94 @@
       ],
       "verified_via": "cited page fetched; 22 of 27 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"note\"",
       "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "theme-leading-namespace",
+      "claim": "In Tailwind v4 each @theme variable namespace generates the matching utilities, so leading-hebrew / leading-hebrew-tight / leading-hebrew-relaxed exist only if --leading-hebrew*, not --leading-tight/normal/relaxed, are defined.",
+      "source_url": "https://tailwindcss.com/docs/theme",
+      "raw_snippet": "Theme variables are defined in namespaces and each namespace corresponds to one or more utility class or variant APIs.",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rtl-config.md"
+      ],
+      "verified_via": "compiled against tailwindcss 4.3.3 with @tailwindcss/cli: the old @theme block emitted only .font-hebrew; the corrected block emitted .leading-hebrew, .leading-hebrew-tight and .leading-hebrew-relaxed",
+      "verified_at": "2026-09-20T00:00:00Z",
+      "source_note": "The namespace table on the same page carries the row \"--leading-* Line height utilities like leading-tight\", and the sentence \"Defining new theme variables in these namespaces will make new corresponding utilities and variants available in your project:\" introduces it. Quoted here as one contiguous sentence; the table row is a separate HTML table cell and cannot be spliced into the same quote."
+    },
+    {
+      "claim_id": "space-x-logical-v4",
+      "claim": "In Tailwind v4 space-x-* compiles to margin-inline-start / margin-inline-end and is therefore direction-aware; space-x-reverse is for reversed DOM order (flex-row-reverse), not for RTL, and rtl:space-x-reverse puts the spacing on the wrong side. gap-* remains preferred for flex and grid.",
+      "source_url": "https://tailwindcss.com/docs/margin",
+      "raw_snippet": "If your elements are in reverse order (using say flex-row-reverse or flex-col-reverse), use the space-x-reverse or space-y-reverse utilities to ensure the space is added to the correct side of each element ... For those situations, it's better to use the gap utilities when possible",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "compiled against tailwindcss 4.3.3: :where(.space-x-4 > :not(:last-child)) { --tw-space-x-reverse: 0; margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse)); margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse))); } and .rtl\\:space-x-reverse sets --tw-space-x-reverse: 1",
+      "verified_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "bg-linear-v4-naming",
+      "claim": "The v4 documented spelling for linear gradients is bg-linear-to-r / bg-linear-to-l; bg-gradient-to-* still compiles as a legacy alias.",
+      "source_url": "https://tailwindcss.com/docs/background-image",
+      "raw_snippet": "<div class=\"h-14 bg-linear-to-r from-cyan-500 to-blue-500\"></div>",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "both .bg-linear-to-r and .bg-gradient-to-r compile in tailwindcss 4.3.3",
+      "verified_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "v42-block-axis-logical-spacing",
+      "claim": "Tailwind ships block-axis logical spacing utilities mbs-*/mbe-*, pbs-*/pbe-* and border-bs/border-be-*, available in v4.3 (added in v4.2 and documented in the v4.3 release post).",
+      "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
+      "raw_snippet": "For spacing, there are new block-start and block-end utilities for padding, margin, scroll padding, scroll margin, and borders:",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "source_note": "The same post opens with \"Tailwind CSS v4.2 added a whole bunch of new logical property utilities\", and the code sample immediately under this sentence shows mbs-6 mbe-2 pbs-4 pbe-8 and border-bs border-be-2. The class names sit in a separate code block, so they are not quoted inside the sentence.",
+      "verified_via": "mbs-4, mbe-4, pbs-4, pbe-4, border-bs and border-be-2 all compile in tailwindcss 4.3.3",
+      "verified_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "v42-logical-sizing",
+      "claim": "Tailwind ships logical sizing utilities inline-*/block-* with min and max variants (min-inline-*, max-block-*), available in v4.3 (added in v4.2 and documented in the v4.3 release post).",
+      "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
+      "raw_snippet": "We've also added logical sizing utilities for inline-size and block-size , along with min and max variants:",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "source_note": "The code sample directly under this sentence shows block-64 inline-full max-block-screen max-inline-lg min-block-24 min-inline-0. Spacing inside the quote follows the rendered page, which separates the inline code spans with whitespace.",
+      "verified_via": "inline-40, block-20, min-inline-0 and max-block-full all compile in tailwindcss 4.3.3",
+      "verified_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "v4-source-directive",
+      "claim": "Tailwind v4 auto-detects template sources; paths it does not scan (for example a dependency listed in .gitignore) are registered in CSS with the @source directive, relative to the stylesheet.",
+      "source_url": "https://tailwindcss.com/docs/detecting-classes-in-source-files",
+      "raw_snippet": "Use `@source` to explicitly register source paths relative to the stylesheet: ... This is especially useful when you need to scan an external library that is built with Tailwind, since dependencies are usually listed in your `.gitignore` file and ignored by Tailwind by default.",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "source fetched 2026-09-20 and the passage copied verbatim from the cited page",
+      "verified_at": "2026-09-20T00:00:00Z"
     }
   ]
 }
