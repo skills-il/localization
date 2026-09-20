@@ -10,6 +10,33 @@
         "persistent: description unchanged this cycle so Phase 5.7 eval skipped; revisit description trigger phrases if AI-mode routing data shows misroutes.",
         "Expert MAJORs deferred to next cycle (non-blocking, gate PASSed): (1) RTL scrollLeft / JS-scroller cross-browser inconsistency for custom carousels; (2) CSS Grid track/line-based placement does NOT follow logical direction like flex row (reference file over-claims 'Grid just works'); (3) add general 'keep code/pre/kbd/file-paths LTR' rule beyond the table-cell case; (4) positive order + :dir(rtl) reorder pattern to complement the row-reverse gotcha; (5) lang+dir pairing on embedded spans for shaping/a11y; (6) typography section is partly folkloric -- word-spacing:0.05em and '16px because Hebrew' are weak; the real wins (Hebrew has no uppercase so text-transform:uppercase is a no-op; Latin webfonts silently lack Hebrew glyphs) are missing. Fixed this cycle: Example 3 rtl:rotate-180 -> rtl:-scale-x-100."
       ]
+    },
+    {
+      "version": "1.5.0",
+      "date": "2026-09-20",
+      "findings": [
+        "STALE/breaking: MUI RTL snippet used a named import `{ rtlPlugin }` from @mui/stylis-plugin-rtl, which has only a default export. Copied code compiled and silently disabled RTL.",
+        "STALE: start-*/end-* inset deprecation attributed to Tailwind v4.3 (May 2026); it actually landed in v4.2.0 (18 February 2026).",
+        "URL drift: MDN CSS logical properties path 301-redirects to /Web/CSS/Guides/Logical_properties_and_values.",
+        "GAPS: Hebrew caselessness vs text-transform; nikkud vs tight line-height; Hebrew calendar via Intl -u-ca-hebrew; no automated RTL regression testing."
+      ],
+      "changes": [
+        "Fixed the MUI import to the default export in both files and added one line naming the silent-failure mode.",
+        "Recanonicalised the MDN logical-properties URL in both reference tables and in evidence.json.",
+        "Step 5: added the text-transform/small-caps trap (no-op on Hebrew, still uppercases embedded Latin) and the nikkud rationale for line-height 1.7.",
+        "Step 3: added Intl.DateTimeFormat('he-IL-u-ca-hebrew') for Hebrew dates (he-IL resolves to gregory).",
+        "Step 8: added a Playwright dir=rtl/dir=ltr screenshot-diff bullet.",
+        "Evidence: updated mui-rtl-plugin, tailwind-v43-inset-deprecation and ref-mdn-logical-properties in place (claim_ids kept); added hebrew-script-has-no-case and intl-hebrew-calendar.",
+        "Stated the start-*/end-* inset deprecation without a removal timing: no removal date has been announced by Tailwind (judge finding, the earlier wording was unbacked)"
+      ],
+      "deferred": [
+        "Hebrew punctuation (geresh/gershayim vs ASCII quotes) and Hebrew quotation marks: real but copy-level, would bloat a layout-focused skill.",
+        "Tailwind v4 @custom-variant authoring path for a v3 RTL config migration.",
+        "Tailwind v4.3 first-class scrollbar-gutter-* utilities in Step 7 item 10 (raw CSS still correct).",
+        "Unverified typography numbers (word-spacing 0.05em, font-size 16px, the absolute 'NEVER letter-spacing') left as-is pending a citable source.",
+        "references/css-logical-properties.md browser-support baselines and postcss-logical maintenance status not re-verified this cycle.",
+        "Prior-cycle expert MAJORs still open: RTL scrollLeft inconsistency, CSS Grid line-based placement not following logical direction, general keep-code/pre/kbd LTR rule, order + :dir(rtl) reorder pattern, lang+dir pairing on embedded spans."
+      ]
     }
   ]
 }

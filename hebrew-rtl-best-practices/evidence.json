@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "hebrew-rtl-best-practices",
-  "generated_at": "2026-06-21T00:00:00Z",
+  "generated_at": "2026-09-20T00:00:00Z",
   "claims": [
     {
       "claim_id": "dir-pseudo-browser-support",
@@ -31,14 +31,17 @@
     },
     {
       "claim_id": "tailwind-v43-inset-deprecation",
-      "claim": "As of Tailwind v4.3 (May 2026) the logical inset utilities start-*/end-* are deprecated in favor of inset-s-*/inset-e-* (the old names still work); the margin/padding utilities ms-*/me-*/ps-*/pe-* are unaffected.",
-      "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
-      "raw_snippet": "The existing start-* and end-* utilities are still available, but they're now deprecated in favor of inset-s-* and inset-e-* so the whole API lines up with inset-bs-* and inset-be-*.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "The logical inset utilities start-*/end-* were deprecated in favor of inset-s-*/inset-e-* in Tailwind CSS v4.2.0, released 18 February 2026 (the v4.3 blog post only recaps it). Margin/padding ms-*/me-*/ps-*/pe-* are unaffected.",
+      "source_url": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.2.0",
+      "raw_snippet": "Deprecate `start-*` and `end-*` utilities in favor of `inset-s-*` and `inset-e-*` utilities",
+      "fetched_at": "2026-09-20T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "verified_via": "release notes for v4.2.0 fetched; version attribution corrected from v4.3 (May 2026) to v4.2 (February 2026)",
+      "verified_at": "2026-09-20T00:00:00Z"
     },
     {
       "claim_id": "tailwind-logical-since-33",
@@ -55,16 +58,17 @@
     },
     {
       "claim_id": "mui-rtl-plugin",
-      "claim": "Current MUI (v9 as of 2026) uses the official fork @mui/stylis-plugin-rtl for RTL, recommended since MUI v6.",
+      "claim": "@mui/stylis-plugin-rtl has only a DEFAULT export; the MUI RTL guide imports it as `import rtlPlugin from '@mui/stylis-plugin-rtl';`. A named `{ rtlPlugin }` import resolves to undefined and silently disables RTL transformation.",
       "source_url": "https://mui.com/material-ui/customization/right-to-left/",
-      "raw_snippet": "Right-to-left support - Material UI",
-      "fetched_at": "2026-08-18",
+      "raw_snippet": "import rtlPlugin from '@mui/stylis-plugin-rtl';",
+      "fetched_at": "2026-09-20T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
-      "verified_at": "2026-08-18"
+      "verified_via": "MUI RTL guide plus the shipped type declarations of @mui/stylis-plugin-rtl@9.4.0 (`export default stylisRTLPlugin;`, no named rtlPlugin)",
+      "verified_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z"
     },
     {
       "claim_id": "nextfont-selfhost",
@@ -116,16 +120,17 @@
     },
     {
       "claim_id": "ref-mdn-logical-properties",
-      "claim": "MDN documents CSS logical properties and values (margin-inline-start, padding-inline-end, inset-inline-start, etc.) and their browser support. Covered references: CSS logical properties and values are a module of CSS introducing logical properties and values that provide the ability to control layout through logical, rather than physical, direction and dimension mappings.",
-      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values",
-      "raw_snippet": "CSS logical properties and values - CSS | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See all",
-      "fetched_at": "2026-08-18",
+      "claim": "The canonical MDN URL for CSS logical properties and values is /Web/CSS/Guides/Logical_properties_and_values; the old /Web/CSS/CSS_logical_properties_and_values path 301-redirects to it.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values",
+      "raw_snippet": "curl -L final effective URL: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values (HTTP 200 after redirect from .../Web/CSS/CSS_logical_properties_and_values)",
+      "fetched_at": "2026-09-20T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "navigational reference; snippet replaced with the cited page's own opening text so the entry can be falsified",
-      "verified_at": "2026-08-18"
+      "verified_via": "curl -sLo /dev/null -w '%{url_effective} %{http_code}' on the legacy path returned the Guides path with 200",
+      "verified_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z"
     },
     {
       "claim_id": "ref-mdn-bdi",
@@ -189,6 +194,34 @@
       ],
       "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
       "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "hebrew-script-has-no-case",
+      "claim": "Hebrew is a caseless (unicameral) script: the widely used modern scripts with case are Latin, Greek, Armenian and Cyrillic, so text-transform: uppercase/capitalize and small-caps are no-ops on Hebrew letters while still transforming embedded Latin.",
+      "source_url": "https://www.unicode.org/faq/casemap_charprop.html",
+      "raw_snippet": "The most widely used modern scripts with case are Latin, Greek, Armenian and Cyrillic.",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "Unicode case-mapping FAQ fetched; page also states \"The vast majority of scripts, modern or archaic, do not have case distinctions.\"",
+      "verified_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "intl-hebrew-calendar",
+      "claim": "Intl.DateTimeFormat('he-IL') resolves to the Gregorian calendar; the Hebrew calendar is requested via the `ca` Unicode extension key, e.g. Intl.DateTimeFormat('he-IL-u-ca-hebrew'), which formats 2026-09-20 as '9 בתשרי 5787'.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat",
+      "raw_snippet": "The calendar to use, such as \"chinese\", \"gregory\", \"persian\", and so on. For a list of supported calendar types, see Intl.supportedValuesOf(); the default is locale dependent. This option can also be set through the ca Unicode extension key; if both are provided, this options property takes precedence.",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "MDN DateTimeFormat options fetched; behaviour confirmed locally: new Intl.DateTimeFormat('he-IL').resolvedOptions().calendar === 'gregory' and 'he-IL-u-ca-hebrew' formats 2026-09-20 as '9 בתשרי 5787'",
+      "verified_at": "2026-09-20T00:00:00Z"
     }
   ]
 }

@@ -72,6 +72,8 @@ Common bidi issues:
 
 **Format the value, then isolate it.** Bidi isolation only stops a *correct* string from flipping; it does not produce the right string. Use `Intl` to format, then isolate: `Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' })` for shekel amounts and `Intl.DateTimeFormat('he-IL')` for dates, and wrap the output in `<span dir="ltr">` (or `unicode-bidi: isolate`) if it sits inline in Hebrew prose. Devs commonly conflate the two and apply bidi fixes to a formatting bug (or vice versa).
 
+**Hebrew dates need the calendar extension.** `Intl.DateTimeFormat('he-IL')` resolves to the Gregorian calendar (`resolvedOptions().calendar === 'gregory'`), so a Hebrew locale alone will not give you a Hebrew date. Request the calendar through the `-u-ca-` Unicode extension: `Intl.DateTimeFormat('he-IL-u-ca-hebrew')` formats 20 September 2026 as `9 בתשרי 5787`. Use it for holiday, yahrzeit, and dual-date displays, and keep the Gregorian format for anything users file with an authority.
+
 **Form inputs need `dir="auto"`.** Put `dir="auto"` on every `<input>` and `<textarea>` so each value resolves its own base direction. This is the most visible end-user RTL bug: an email or an English word typed into a Hebrew form jumps to the wrong side without it. Note that the placeholder does not trigger auto-detection, so set the resting direction with CSS if the empty-field look matters.
 
 **`<bdi>` vs `<bdo>`:** use `<bdo dir="ltr">` only when you want to *force* a direction (it overrides the bidi algorithm). For user-generated or unknown-direction content, prefer `<bdi>`, which *isolates* the content so its direction is auto-detected and cannot leak into the surrounding text:
@@ -134,6 +136,10 @@ body[dir="rtl"] {
 }
 ```
 
+**Hebrew has no letter case.** The widely used modern scripts with case are Latin, Greek, Armenian, and Cyrillic, Hebrew is not among them, so `text-transform: uppercase` / `capitalize` and `font-variant: small-caps` are no-ops on Hebrew letters. They are *not* no-ops on the Latin words embedded in the same element: a shared design-system button or heading that uppercases its label leaves the Hebrew untouched while shouting "GMAIL" or "PDF" beside it. Remove case transforms from the RTL theme rather than assuming they do nothing.
+
+**Nikkud and cantillation marks need vertical room.** Vowel points are combining marks that sit below or above the base letter and enlarge the effective glyph box. A tight `line-height` (1.2 or less) clips them or collides them with the line above, which is the practical reason for the 1.7 recommended here. Some Latin-first webfonts also ship Hebrew letters without the nikkud glyphs, so test any pointed text (liturgy, children's content, dictionaries) in the actual font before shipping.
+
 ### Step 6: Framework-Specific Setup
 
 **Tailwind CSS RTL (v4, current; logical utilities since v3.3):**
@@ -161,7 +167,7 @@ Prefer logical property utilities over `rtl:`/`ltr:` variants:
 
 Reserve `rtl:` / `ltr:` variants only for cases logical properties cannot handle (e.g., directional icons, transforms).
 
-**Tailwind v4 note:** v4 (GA since early 2025, currently v4.3) uses CSS-first configuration (`@import "tailwindcss"` in CSS) instead of `tailwind.config.js`. Logical utilities work identically in both v3 and v4. As of v4.3 (May 2026) the logical *inset* utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` (the old names still work); the margin/padding utilities `ms-*`/`me-*`/`ps-*`/`pe-*` are unaffected.
+**Tailwind v4 note:** v4 (GA since early 2025, currently v4.3) uses CSS-first configuration (`@import "tailwindcss"` in CSS) instead of `tailwind.config.js`. Logical utilities work identically in both v3 and v4. As of v4.2 (February 2026) the logical *inset* utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` (the old names still work; no removal date has been announced); the margin/padding utilities `ms-*`/`me-*`/`ps-*`/`pe-*` are unaffected.
 
 **Next.js App Router:**
 ```tsx
@@ -201,7 +207,7 @@ Current MUI (v9 as of 2026) uses the official fork `@mui/stylis-plugin-rtl`, not
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
-import { rtlPlugin } from '@mui/stylis-plugin-rtl';
+import rtlPlugin from '@mui/stylis-plugin-rtl';
 import { prefixer } from 'stylis';
 
 const cacheRtl = createCache({
@@ -212,7 +218,7 @@ const cacheRtl = createCache({
 const theme = createTheme({ direction: 'rtl' });
 ```
 
-Confirm the exact import name and setup against the current MUI RTL guide (https://mui.com/material-ui/customization/right-to-left/) for your MUI version.
+`@mui/stylis-plugin-rtl` exposes only a **default** export, so a named `import { rtlPlugin }` compiles but yields `undefined`, and Emotion silently skips the plugin: the app looks LTR with no error. Confirm the exact import name and setup against the current MUI RTL guide (https://mui.com/material-ui/customization/right-to-left/) for your MUI version.
 
 **Portalled UI (modals, dropdowns, tooltips, toasts).** Components rendered through a portal (React `createPortal`, Radix, MUI Menu, Floating UI) mount at `document.body` and inherit direction from there, but many libraries assume LTR. Set `dir` on `<html>` AND pass the library's own direction setting: Radix needs a `<DirectionProvider dir="rtl">` wrapper, MUI needs `direction: 'rtl'` in the theme. Otherwise popovers open on the wrong side even when the rest of the page is correct.
 
@@ -234,6 +240,7 @@ Authoring rules are not enough, verify before shipping:
 - Test one canonical mixed string in every text surface: `שלום John 050-1234567 ₪1,234` exercises Hebrew, Latin, a phone number, and a currency amount at once.
 - Open every modal, dropdown, tooltip, and toast (portalled UI is the most common RTL miss).
 - Check fixed/sticky chrome, charts/SVG, and form fields with `dir="auto"`.
+- Automate it: render the same pages twice under `dir="rtl"` and `dir="ltr"` in Playwright and screenshot-diff them. Manual flipping is the step teams skip first, and a physical property that creeps back in shows up as a pixel diff long before a user reports it.
 
 ## Examples
 
@@ -306,7 +313,7 @@ User says: "My sidebar is on the wrong side in Hebrew"
 
 | Source | URL | What to Check |
 |--------|-----|---------------|
-| MDN CSS Logical Properties | https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values | Full property list, browser support tables |
+| MDN CSS Logical Properties | https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values | Full property list, browser support tables |
 | MDN `:dir()` pseudo-class | https://developer.mozilla.org/en-US/docs/Web/CSS/:dir | Syntax, behavior vs `[dir]` attribute selectors |
 | Can I use: `:dir()` | https://caniuse.com/css-dir-pseudo | Current browser support table |
 | MDN `<bdi>` element | https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/bdi | Isolating user-generated bidi content |

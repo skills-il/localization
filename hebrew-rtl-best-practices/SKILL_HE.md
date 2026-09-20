@@ -80,6 +80,8 @@ compatibility: 'Works with Claude Code, Claude.ai, Cursor. No network required.'
 
 עצבו את הערך ואז בודדו אותו: בידוד bidi רק מונע ממחרוזת *תקינה* להתהפך, הוא לא מייצר את המחרוזת הנכונה. השתמשו ב-Intl לעיצוב ואז בודדו: `Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' })` לסכומים בשקלים ו-`Intl.DateTimeFormat('he-IL')` לתאריכים, ועטפו את הפלט ב-`<span dir="ltr">` (או `unicode-bidi: isolate`) אם הוא יושב בתוך טקסט עברי. מפתחים נוטים לבלבל בין השניים ולהחיל תיקון bidi על באג עיצוב (ולהפך).
 
+תאריך עברי דורש את סיומת לוח השנה: הקריאה `Intl.DateTimeFormat('he-IL')` נופלת על הלוח הגרגוריאני (הערך המוחזר ב-`resolvedOptions().calendar` הוא `gregory`), ולכן לוקאל עברי לבדו לא מספיק כדי לקבל תאריך עברי. מבקשים את הלוח דרך סיומת יוניקוד `-u-ca-`: הקריאה `Intl.DateTimeFormat('he-IL-u-ca-hebrew')` מציגה את 20 בספטמבר 2026 כ-`9 בתשרי 5787`. כדאי להשתמש בזה לחגים, ליארצייט ולתצוגת תאריך כפול, ולהשאיר את התאריך הלועזי לכל מה שמגישים לרשות.
+
 שדות טופס צריכים `dir="auto"`: הוסיפו `dir="auto"` לכל `<input>` ו-`<textarea>` כדי שכל ערך יפתור את כיוון הבסיס שלו. זה הבאג הכי בולט למשתמש קצה ב-RTL: אימייל או מילה באנגלית בתוך טופס עברי קופצים לצד הלא נכון בלעדיו. שימו לב שה-placeholder לא מפעיל זיהוי אוטומטי, אז קבעו את כיוון המנוחה ב-CSS אם המראה של שדה ריק חשוב.
 
 האלמנט `<bdi>` מול `<bdo>`: השתמשו ב-`<bdo dir="ltr">` רק כשרוצים *לכפות* כיוון (הוא דורס את אלגוריתם ה-bidi). לתוכן שנוצר על ידי משתמשים או תוכן בכיוון לא ידוע, עדיף `<bdi>`, שמבודד את התוכן כך שהכיוון שלו מזוהה אוטומטית ולא יכול לדלוף לטקסט שמסביב:
@@ -142,6 +144,10 @@ body[dir="rtl"] {
 }
 ```
 
+בעברית אין אותיות גדולות וקטנות: הכתבים המודרניים הנפוצים שיש בהם אותיות רישיות הם לטיני, יווני, ארמני וקירילי, והעברית אינה ביניהם, ולכן `text-transform: uppercase` / `capitalize` ו-`font-variant: small-caps` לא משנים כלום באותיות עבריות. הם כן משנים את המילים הלטיניות שיושבות באותו אלמנט: כפתור או כותרת ממערכת עיצוב משותפת שמרימה את התווית לאותיות גדולות משאירה את העברית כמו שהיא וצועקת "GMAIL" או "PDF" לידה. עדיף להסיר את הכלל ממערכת העיצוב של ה-RTL במקום להניח שהוא לא עושה כלום.
+
+ניקוד וטעמי מקרא צריכים מקום לגובה: סימני הניקוד הם תווים משולבים שיושבים מתחת לאות או מעליה ומגדילים את תיבת התו בפועל. ערך `line-height` צפוף (1.2 ומטה) חותך אותם או מרסק אותם אל השורה שמעל, וזו הסיבה המעשית לערך 1.7 שמומלץ כאן. חלק מגופני הווב שתוכננו קודם כול ללטינית מספקים אותיות עבריות בלי גליפים לניקוד, אז כדאי לבדוק טקסט מנוקד (תפילה, תוכן לילדים, מילונים) בגופן האמיתי לפני שילוח.
+
 ### שלב 6: הגדרה לפי פריימוורק
 
 **Tailwind CSS RTL (v4, עדכני; כלים לוגיים מאז v3.3):**
@@ -169,7 +175,7 @@ body[dir="rtl"] {
 
 תשאירו את ה-variants של `rtl:` / `ltr:` רק למקרים שתכונות לוגיות לא מכסות (אייקונים כיווניים, transforms וכדומה).
 
-**הערה ל-Tailwind v4:** גרסה 4 (זמינה רשמית מתחילת 2025, כיום v4.3) משתמשת בקונפיגורציה מבוססת CSS (`@import "tailwindcss"` ב-CSS) במקום `tailwind.config.js`. התכונות הלוגיות עובדות זהה בגרסאות 3 ו-4. החל מ-v4.3 (מאי 2026) כלי ה-inset הלוגיים `start-*`/`end-*` הוצאו משימוש לטובת `inset-s-*`/`inset-e-*` (השמות הישנים עדיין עובדים); כלי ה-margin/padding‏ `ms-*`/`me-*`/`ps-*`/`pe-*` לא הושפעו.
+**הערה ל-Tailwind v4:** גרסה 4 (זמינה רשמית מתחילת 2025, כיום v4.3) משתמשת בקונפיגורציה מבוססת CSS (`@import "tailwindcss"` ב-CSS) במקום `tailwind.config.js`. התכונות הלוגיות עובדות זהה בגרסאות 3 ו-4. החל מגרסה 4.2 (פברואר 2026) כלי ה-inset הלוגיים `start-*`/`end-*` הוצאו משימוש לטובת `inset-s-*`/`inset-e-*` (השמות הישנים עדיין עובדים, ולא הוכרז מועד להסרתם); כלי ה-margin/padding‏ `ms-*`/`me-*`/`ps-*`/`pe-*` לא הושפעו.
 
 **Next.js App Router:**
 ```tsx
@@ -209,7 +215,7 @@ export default async function RootLayout({
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
-import { rtlPlugin } from '@mui/stylis-plugin-rtl';
+import rtlPlugin from '@mui/stylis-plugin-rtl';
 import { prefixer } from 'stylis';
 
 const cacheRtl = createCache({
@@ -219,6 +225,8 @@ const cacheRtl = createCache({
 
 const theme = createTheme({ direction: 'rtl' });
 ```
+
+החבילה `@mui/stylis-plugin-rtl` חושפת ייצוא ברירת מחדל בלבד, ולכן ייבוא בשם `import { rtlPlugin }` מתקמפל אבל מחזיר `undefined`, ו-Emotion פשוט מדלג על הפלאגין: האפליקציה נראית LTR בלי שום שגיאה.
 
 כדאי לאמת את שם הייבוא המדויק ואת ההגדרה מול מדריך ה-RTL העדכני של MUI (https://mui.com/material-ui/customization/right-to-left/) לגרסת ה-MUI שלכם.
 
@@ -242,6 +250,7 @@ const theme = createTheme({ direction: 'rtl' });
 - בדקו מחרוזת מעורבת אחת בכל משטח טקסט: `שלום John 050-1234567 ₪1,234` מפעילה עברית, לטינית, מספר טלפון וסכום מטבע בבת אחת.
 - פתחו כל מודל, תפריט נפתח, tooltip ו-toast (ממשק ב-portal הוא הפספוס הנפוץ ביותר ב-RTL).
 - בדקו אלמנטים קבועים/דביקים, גרפים/SVG, ושדות טופס עם `dir="auto"`.
+- כדאי לאוטומט את הבדיקה: מרנדרים את אותם עמודים פעמיים, פעם ב-`dir="rtl"` ופעם ב-`dir="ltr"`, ומשווים צילומי מסך ב-Playwright. הבדיקה הידנית היא הדבר הראשון שצוותים מדלגים עליו, ותכונה פיזית שחוזרת בשקט מופיעה כהפרש פיקסלים הרבה לפני שמשתמש מדווח עליה.
 
 ## דוגמאות
 
@@ -314,7 +323,7 @@ const theme = createTheme({ direction: 'rtl' });
 
 | מקור | כתובת | מה לבדוק |
 |------|-------|----------|
-| MDN תכונות CSS לוגיות | https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values | רשימת תכונות מלאה, טבלאות תמיכת דפדפנים |
+| MDN תכונות CSS לוגיות | https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values | רשימת תכונות מלאה, טבלאות תמיכת דפדפנים |
 | MDN פסבדו-קלאס `:dir()` | https://developer.mozilla.org/en-US/docs/Web/CSS/:dir | תחביר, התנהגות מול סלקטורים על תכונת `[dir]` |
 | Can I use: `:dir()` | https://caniuse.com/css-dir-pseudo | טבלת תמיכת דפדפנים עדכנית |
 | MDN אלמנט `<bdi>` | https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/bdi | בידוד תוכן דו-כיווני שנוצר על ידי משתמשים |
