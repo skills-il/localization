@@ -7,9 +7,10 @@
 
 @theme {
   /* Hebrew font stacks */
+  --font-sans: 'Heebo', 'Assistant', 'Noto Sans Hebrew', sans-serif; /* default font for html, body and form controls */
   --font-hebrew: 'Heebo', 'Assistant', 'Noto Sans Hebrew', sans-serif;
   --font-hebrew-serif: 'Frank Ruhl Libre', 'David Libre', serif;
-  --font-mono: 'Fira Code', 'Source Code Pro', monospace;
+  --font-mono: 'Cousine', 'Fira Code', monospace; /* Cousine carries Hebrew glyphs for code comments; Fira Code does not */
 
   /* Hebrew-optimized type scale */
   --text-xs: 0.8125rem;
@@ -80,7 +81,7 @@ module.exports = {
 | `left-*` | `inset-s-*` | Inset inline start (was `start-*`) |
 | `right-*` | `inset-e-*` | Inset inline end (was `end-*`) |
 
-As of Tailwind v4.3 (May 2026) the inset utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` so the API lines up with `inset-bs-*`/`inset-be-*`. The old `start-*`/`end-*` names still work. This rename affects only inset/positioning; `ms-*`/`me-*`/`ps-*`/`pe-*`/`border-s`/`border-e` are unchanged.
+As of Tailwind v4.2 (18 February 2026) the inset utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` so the API lines up with `inset-bs-*`/`inset-be-*`. The old `start-*`/`end-*` names still work. This rename affects only inset/positioning; `ms-*`/`me-*`/`ps-*`/`pe-*`/`border-s`/`border-e` are unchanged.
 
 ### Border
 
@@ -129,16 +130,19 @@ As of Tailwind v4.3 (May 2026) the inset utilities `start-*`/`end-*` are depreca
 <svg><!-- search, home, settings, close --></svg>
 ```
 
-### Conditional Flex Direction
+### Flex Direction (no variant needed)
 ```html
-<!-- Reverse flex in RTL when needed -->
+<!-- dir="rtl" already runs a flex row right to left -->
+<div class="flex">...</div>
+
+<!-- Wrong: rtl:flex-row-reverse double-flips back to LTR visual order -->
 <div class="flex rtl:flex-row-reverse">...</div>
 ```
 
-### Conditional Positioning
+### Positioning at the End Side
 ```html
-<!-- Position at the "end" side -->
-<span class="absolute top-0 rtl:left-0 ltr:right-0">...</span>
+<!-- One logical class instead of a rtl:left-0 ltr:right-0 pair -->
+<span class="absolute top-0 inset-e-0">...</span>
 ```
 
 ## Migration Guide: Physical to Logical
@@ -151,11 +155,11 @@ Search and replace in your templates:
 4. `pr-` -> `pe-`
 5. `text-left` -> `text-start`
 6. `text-right` -> `text-end`
-7. `left-` -> `inset-s-` (v4.3+; `start-` still works but is deprecated)
-8. `right-` -> `inset-e-` (v4.3+; `end-` still works but is deprecated)
+7. `left-` -> `inset-s-` (v4.2+; `start-` still works but is deprecated)
+8. `right-` -> `inset-e-` (v4.2+; `end-` still works but is deprecated)
 9. `border-l` -> `border-s`
 10. `border-r` -> `border-e`
 11. `rounded-l-` -> `rounded-s-`
 12. `rounded-r-` -> `rounded-e-`
 
-Note: `float-left` -> `float-start` and `float-right` -> `float-end` require Tailwind v3.3+ or v4.
+Note: `float-left` -> `float-start` and `float-right` -> `float-end` require Tailwind v3.4+ or v4, and the underlying `float: inline-start` / `inline-end` needs Chrome/Edge 118+ (Firefox 55, Safari 15).

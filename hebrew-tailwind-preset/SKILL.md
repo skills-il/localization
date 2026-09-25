@@ -6,7 +6,7 @@ license: MIT
 
 # Hebrew Tailwind Preset
 
-Tailwind CSS v4 recommended (current release v4.3, May 2026); v3.1+ is compatible for `dir` variants. Works with React, Vue, Angular, Next.js, and Nuxt. No network required.
+Tailwind CSS v4 recommended (current release v4.3, May 2026); v3.3+ also works: logical utilities arrived and the `rtl:`/`ltr:` variants were marked stable in v3.3.0. Works with React, Vue, Angular, Next.js, and Nuxt. No network required.
 
 ## Instructions
 
@@ -14,7 +14,7 @@ Tailwind CSS v4 recommended (current release v4.3, May 2026); v3.1+ is compatibl
 
 See `references/rtl-config.md` for complete configuration reference.
 
-**Install the Tailwind v4 build plugin first.** Tailwind v4 dropped the automatic `tailwind.config.js` loading, so `@import "tailwindcss"` alone will not build until a build plugin is wired. Pick the one matching your toolchain:
+**Install the Tailwind v4 build plugin first.** Tailwind v4 runs through a build plugin (Vite, PostCSS, or webpack) and is configured in CSS; `tailwind.config.js` is no longer loaded automatically. Pick the plugin matching your toolchain:
 
 ```bash
 # Vite (recommended): install the first-party Vite plugin
@@ -43,9 +43,9 @@ export default {
 };
 ```
 
-In v4 the `@tailwindcss/postcss` plugin handles `@import` inlining and vendor prefixing, so `postcss-import` and `autoprefixer` are no longer needed.
+In v4 the `@tailwindcss/postcss` plugin handles `@import` inlining and vendor prefixing, so `postcss-import` and `autoprefixer` are no longer needed. For a plain webpack build without PostCSS, v4.2 added a loader: `npm install @tailwindcss/webpack`, then list `'@tailwindcss/webpack'` after `'css-loader'` in the `.css` rule's `use` array.
 
-Then load Hebrew fonts with `font-display: swap` (via a Google Fonts `<link>` or an `@font-face` rule) to avoid a Flash of Invisible Text while the Hebrew font file loads. See Step 2 for the snippet.
+Then load Hebrew fonts with `font-display: swap` (via a Google Fonts `<link>` or an `@font-face` rule) to avoid a Flash of Invisible Text while the Hebrew font file loads. The loading snippet follows the configuration blocks below.
 
 **Tailwind v4 (CSS-first configuration):**
 ```css
@@ -54,9 +54,10 @@ Then load Hebrew fonts with `font-display: swap` (via a Google Fonts `<link>` or
 
 @theme {
   /* Hebrew font stacks */
+  --font-sans: 'Heebo', 'Assistant', 'Noto Sans Hebrew', sans-serif; /* default font for html, body and form controls */
   --font-hebrew: 'Heebo', 'Assistant', 'Noto Sans Hebrew', sans-serif;
   --font-hebrew-serif: 'Frank Ruhl Libre', 'David Libre', serif;
-  --font-mono: 'Fira Code', 'Source Code Pro', monospace;
+  --font-mono: 'Cousine', 'Fira Code', monospace; /* Cousine carries Hebrew glyphs for code comments; Fira Code does not */
 
   /* Hebrew-optimized type scale */
   --text-xs: 0.8125rem;
@@ -107,7 +108,7 @@ module.exports = {
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&family=Cousine&display=swap" rel="stylesheet">
 ```
 
 Or self-host with an `@font-face` rule inside the same CSS file as your `@theme` block:
@@ -121,26 +122,28 @@ Or self-host with an `@font-face` rule inside the same CSS file as your `@theme`
 }
 ```
 
-The `&display=swap` query param (link) and the `font-display: swap` descriptor (`@font-face`) both make the browser render fallback text immediately instead of hiding text until the Hebrew font loads.
+The `&display=swap` query param (link) and the `font-display: swap` descriptor (`@font-face`) both give the font an extremely small block period and an infinite swap period: the browser shows fallback text almost at once and swaps in the Hebrew font whenever it arrives, instead of hiding text while it loads.
 
-**Next.js: wire `next/font` through `@theme inline`.** When you self-host with `next/font` (recommended for Next.js: no external request, no layout shift), the font is exposed as a CSS variable, and `@theme` cannot reference a runtime variable directly. Use `@theme inline` so the variable resolves at the use site:
+**Next.js: wire `next/font` through `@theme inline`.** When you self-host with `next/font` (recommended for Next.js: no external request, no layout shift), the font is exposed as a CSS variable. Point `--font-sans` at it, because Preflight takes the page's default font from `--font-sans` and form controls inherit it (`font: inherit`), so Hebrew becomes the default everywhere without a `font-hebrew` class on every element:
 
 ```css
-/* app.css */
+/* app/globals.css */
 @import "tailwindcss";
 @theme inline {
-  --font-hebrew: var(--font-heebo); /* --font-heebo comes from next/font */
+  --font-sans: var(--font-heebo); /* --font-heebo comes from next/font */
+  --font-hebrew: var(--font-heebo);
 }
 ```
 
 ```tsx
-// layout.tsx
+// app/layout.tsx
+import './globals.css';
 import { Heebo } from 'next/font/google';
 const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
 // <html lang="he" dir="rtl" className={heebo.variable}> ... </html>
 ```
 
-Plain `@theme { --font-hebrew: var(--font-heebo); }` (without `inline`) breaks, because Tailwind tries to resolve the variable at build time when it does not yet exist.
+Keep `heebo.variable` on `<html>`, not `<body>`. Preflight applies the default font on `html`, so a variable defined lower down never reaches it, with or without `inline`, and the page silently falls back to Tailwind's default sans stack. Why `inline` as well: a theme variable that references another variable is resolved where the theme variable is defined (`:root`), not where the utility is used. With `inline`, Tailwind writes `var(--font-heebo)` straight into utilities such as `font-hebrew`, so they resolve wherever the class is used. The build succeeds either way, which is why both mistakes are easy to miss.
 
 ### Step 2: Use Logical Property Utilities
 
@@ -173,9 +176,9 @@ Tailwind v4's native logical utilities and `rtl:`/`ltr:` variants cover RTL on t
 
 ### Step 3: Use Dir Variants for RTL-Specific Styles
 
-**Prerequisite:** the `rtl:` and `ltr:` variants (built into Tailwind v4) match on an ancestor's `dir` attribute. They do nothing unless an ancestor element actually carries `dir="rtl"` (or `dir="ltr"`) - normally the `<html>` element. Set `dir="rtl"` on the root before relying on any `rtl:` utility below. Because these variants resolve via the CSS `:dir()` pseudo-class, they also respond correctly to `dir="auto"` on mixed Hebrew/English user content, not only an explicit `dir="rtl"`.
+**How the variants match.** In v4, `rtl:` compiles to `:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *)` and `ltr:` to the mirror selector. Set `dir="rtl"` on `<html>` before relying on any `rtl:` utility below. Two consequences are easy to miss. First, `ltr:` utilities already apply on a page with no `dir` at all, because the default direction is LTR. Second, a nested `dir="auto"` island that resolves to LTR inside an RTL page matches BOTH variants: `rtl:` through the `[dir="rtl"] *` arm and `ltr:` through `:dir(ltr)`. For mixed Hebrew/English user content in such islands, use logical utilities (`ms-*`, `text-start`) instead of `rtl:`/`ltr:` pairs.
 
-**Dark mode in v4.** The v3 `darkMode` config key is gone. In v4 you opt into class-based dark mode in CSS with `@custom-variant dark (&:where(.dark, .dark *));`, then combine freely with direction, e.g. `class="dark:bg-gray-900 rtl:text-right"`. Set `dir="rtl"` on `<html>` and toggle `.dark` on the same element.
+**Dark mode in v4.** The v3 `darkMode` config key is gone. In v4 you opt into class-based dark mode in CSS with `@custom-variant dark (&:where(.dark, .dark *));`, then combine freely with direction, e.g. `class="dark:bg-gray-900 rtl:bg-linear-to-l"`. Set `dir="rtl"` on `<html>` and toggle `.dark` on the same element.
 
 When you need direction-specific overrides:
 
@@ -183,11 +186,14 @@ When you need direction-specific overrides:
 <!-- Root setup -- dir="rtl" here is what activates every rtl: variant -->
 <html lang="he" dir="rtl">
 
-<!-- Dir variant usage -->
-<div class="flex rtl:flex-row-reverse">
-  <span class="rtl:rotate-180">&#8594;</span>
+<!-- Dir variant usage: flip a directional arrow horizontally -->
+<a class="inline-flex items-center gap-2">
   <span>הבא</span>
-</div>
+  <span class="rtl:-scale-x-100">&#8594;</span>
+</a>
+
+<!-- Do NOT add rtl:flex-row-reverse: dir="rtl" already runs a flex row
+     right to left, so reversing it again restores LTR visual order -->
 
 <!-- Icon mirroring for directional icons -->
 <button class="flex items-center gap-2">
@@ -195,10 +201,8 @@ When you need direction-specific overrides:
   <span>חזרה</span>
 </button>
 
-<!-- Conditional spacing that differs by direction -->
-<div class="ltr:ml-auto rtl:mr-auto">
-  <!-- Push to end in both directions -->
-</div>
+<!-- Push to the end in both directions: one logical class, no variant pair -->
+<div class="ms-auto">...</div>
 ```
 
 ### Step 4: Hebrew Typography Utilities
@@ -214,8 +218,8 @@ When you need direction-specific overrides:
   </h1>
 
   <!-- Hebrew paragraph -->
-  <p class="text-base leading-hebrew [word-spacing:0.05em]">
-    טקסט גוף עם ריווח מותאם לקריאות עברית.
+  <p class="text-base leading-hebrew">
+    טקסט גוף בעברית.
   </p>
 
   <!-- Mixed Hebrew + English content -->
@@ -370,7 +374,7 @@ Result: Build grid layout with RTL sidebar (border-e, pe-6), navigation with Heb
 
 ### Error: "Tailwind logical utilities not working"
 Cause: Using older Tailwind version without logical property support
-Solution: Logical utilities (ms-, me-, ps-, pe-, and inset `inset-s-`/`inset-e-`, formerly `start-`/`end-`) require Tailwind v3.3+. For v3.0-3.2, use rtl:/ltr: variants instead (e.g., `rtl:mr-4 ltr:ml-4`). Tailwind v4 has full logical property support built in; the `inset-s-*`/`inset-e-*` names landed in v4.2 (the older `start-*`/`end-*` still resolve).
+Solution: Logical utilities (ms-, me-, ps-, pe-, and inset `inset-s-`/`inset-e-`, formerly `start-`/`end-`) require Tailwind v3.3+, the same release that marked the rtl:/ltr: variants stable. On v3.0-3.2 the variants were still experimental and printed warnings, so upgrade rather than falling back to `rtl:mr-4 ltr:ml-4` pairs. Tailwind v4 has full logical property support built in; the `inset-s-*`/`inset-e-*` names landed in v4.2 (the older `start-*`/`end-*` still resolve).
 
 ### Error: "Font not applying with font-hebrew class"
 Cause: Hebrew font family not defined in Tailwind configuration

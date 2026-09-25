@@ -1,58 +1,57 @@
 {
   "schemaVersion": "1.0",
   "skill": "hebrew-tailwind-preset",
-  "generated_at": "2026-09-20T00:00:00Z",
+  "generated_at": "2026-09-26T00:00:00Z",
   "claims": [
     {
       "claim_id": "tailwind-v4-current",
-      "claim": "Tailwind CSS v4 is GA (current release v4.3, May 2026) and uses CSS-first configuration via @import \"tailwindcss\"; v4 dropped automatic tailwind.config.js loading and needs a build plugin (@tailwindcss/vite or @tailwindcss/postcss).",
-      "source_url": "https://tailwindcss.com/docs",
-      "raw_snippet": "Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for class names, generating the corresponding styles and then writing them to a static CSS file.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "Tailwind CSS v4 is current; v4.3.0 was released on May 8, 2026 (latest patch 4.3.3). v4 is configured in CSS via @import \"tailwindcss\" and runs through a build plugin (@tailwindcss/vite, @tailwindcss/postcss or @tailwindcss/webpack).",
+      "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
+      "raw_snippet": "May 8, 2026 Tailwind CSS v4.3: Scrollbars, new colors, and more",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verification_note": "npm view tailwindcss version = 4.3.3 on 2026-09-25."
     },
     {
       "claim_id": "tailwind-v43-inset-deprecation",
-      "claim": "The logical inset utilities start-*/end-* were deprecated in favor of inset-s-*/inset-e-* in Tailwind CSS v4.2.0, released 18 February 2026 (the v4.3 blog post only recaps it), aligning them with inset-bs-*/inset-be-* (old names still work); margin/padding ms-/me-/ps-/pe- are unaffected.",
-      "source_url": "https://tailwindcss.com/blog/tailwindcss-v4-3",
-      "raw_snippet": "The existing start-* and end-* utilities are still available, but they're now deprecated in favor of inset-s-* and inset-e-* so the whole API lines up with inset-bs-* and inset-be-*",
-      "fetched_at": "2026-09-20T00:00:00Z",
+      "claim": "The logical inset utilities start-*/end-* were deprecated in favor of inset-s-*/inset-e-* in Tailwind CSS v4.2.0, released 18 February 2026, aligning them with inset-bs-*/inset-be-* (old names still work); margin/padding ms-/me-/ps-/pe- are unaffected.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/main/CHANGELOG.md",
+      "raw_snippet": "Deprecate `start-*` and `end-*` utilities in favor of `inset-s-*` and `inset-e-*` utilities",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/rtl-config.md"
       ],
-      "source_note": "The 'margin/padding unaffected' half is not stated on this page; it is verified by compiling ms-4, me-4, ps-4 and pe-4 against tailwindcss 4.3.3, where they still emit.",
-      "source_fetched_at": "2026-09-20T00:00:00Z"
+      "source_note": "The entry sits under '## [4.2.0] - 2026-02-18' (see tailwind-v42-release-date). The v4.3 blog post recaps the rename but carries neither the version number of the change nor its date. The 'margin/padding unaffected' half is verified by compiling ms-4, me-4, ps-4 and pe-4 against tailwindcss 4.3.3.",
+      "source_fetched_at": "2026-09-26T00:00:00Z"
     },
     {
       "claim_id": "tailwind-rtl-variant",
-      "claim": "Tailwind provides built-in rtl: and ltr: variants for direction-specific styling, resolved via the CSS :dir() pseudo-class so they respond to dir=\"auto\" as well as explicit dir=\"rtl\".",
+      "claim": "Tailwind v4's rtl: and ltr: variants compile to :where(:dir(rtl), [dir=\"rtl\"], [dir=\"rtl\"] *) and the ltr mirror. So ltr: applies on a page with no dir, and a nested dir=\"auto\" island resolving to LTR inside an RTL page matches both variants.",
       "source_url": "https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support",
-      "raw_snippet": "--> </ div > RTL support Use the rtl and ltr variants to conditionally add styles in right-to-left and left-to-right modes respectively when building multi-directional layouts: Left-to-right Tom Cook Director of Operations Right-to-left تامر كرم الرئيس التنفيذي < div class = \"group flex items-center\" > < img class = \"h-12 w-12 shrink-0 rounded-full\" src = \"",
-      "fetched_at": "2026-08-18",
+      "raw_snippet": "rtl & :where(:dir(rtl), [dir=\"rtl\"], [dir=\"rtl\"] *) ltr & :where(:dir(ltr), [dir=\"ltr\"], [dir=\"ltr\"] *)",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "source fetched and the passage copied verbatim from the cited page",
-      "verified_at": "2026-08-18"
+      "verification_note": "Chromium test 2026-09-26 on tailwindcss 4.3.3 output: in <html dir=rtl>, a <p dir=auto> containing English gets both rtl:text-red-500 and ltr:underline; with no dir anywhere, ltr:underline applies."
     },
     {
       "claim_id": "theme-inline-nextfont",
-      "claim": "Tailwind v4 @theme inline resolves CSS variables at the use site, which is required when wiring next/font (which exposes the font as a runtime CSS variable); plain @theme cannot reference a runtime variable.",
+      "claim": "A Tailwind theme variable that references another variable (e.g. --font-sans: var(--font-heebo) from next/font) should use @theme inline: without it the utility references the theme variable, which CSS resolves where it is defined, so utilities can resolve to unexpected values.",
       "source_url": "https://tailwindcss.com/docs/theme",
-      "raw_snippet": "e-color outline-style outline-offset Effects box-shadow text-shadow opacity mix-blend-mode background-blend-mode mask-clip mask-composite mask-image mask-mode mask-origin mask-position mask-repeat mask-size mask-type Filters filter blur brightness contrast drop-shadow grayscale hue-rotate invert saturate sepia backdrop-filter blur brightness contrast grayscale hue-rotate invert opacity saturate sepia Tables border-collapse border-spacing table-layout caption-side Transitions & Animation transition-property transition-behavior t",
-      "fetched_at": "2026-08-18",
+      "raw_snippet": "your utility classes might resolve to unexpected values because of how variables are resolved in CSS",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "cited page fetched; 48 of 55 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"site\"",
-      "verified_at": "2026-08-18"
+      "verification_note": "Chromium test 2026-09-26 with tailwindcss 4.3.3 output: next/font-style variable on <html>: both @theme and @theme inline resolve; variable on <body>: .font-sans resolves only with inline, and the Preflight default font on html falls back to the Tailwind sans stack in BOTH cases. The build succeeds in all cases."
     },
     {
       "claim_id": "dark-mode-custom-variant",
@@ -69,32 +68,38 @@
     },
     {
       "claim_id": "heebo-google-font",
-      "claim": "Heebo is a Hebrew UI font available on Google Fonts.",
+      "claim": "Heebo (designed by Oded Ezer) has a Google Fonts specimen page at https://fonts.google.com/specimen/Heebo; its Hebrew subset is evidenced by google-fonts-host-apis.",
       "source_url": "https://fonts.google.com/specimen/Heebo",
-      "raw_snippet": "Heebo is a Hebrew and Latin typeface family available on Google Fonts.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "Designed by Oded Ezer",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T00:00:00Z",
+      "verification_note": "Specimen page is JS-rendered; rendered with local Playwright Chromium on 2026-09-26, location matched the requested URL."
     },
     {
       "claim_id": "assistant-google-font",
-      "claim": "Assistant is a Hebrew body font available on Google Fonts.",
+      "claim": "Assistant has a Google Fonts specimen page at https://fonts.google.com/specimen/Assistant and is served with a hebrew subset.",
       "source_url": "https://fonts.google.com/specimen/Assistant",
-      "raw_snippet": "Assistant is a Hebrew and Latin sans-serif typeface available on Google Fonts.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "Designed by Adobe Systems Inc., Ben Nathan",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T00:00:00Z",
+      "verification_note": "Rendered with local Playwright Chromium on 2026-09-26. Hebrew subset: css2?family=Assistant returns a '/* hebrew */' @font-face block (curl, Chrome UA)."
     },
     {
       "claim_id": "google-fonts-host-gstatic",
-      "claim": "fonts.gstatic.com is the Google Fonts static host serving font binary files; preconnect to it for faster loading.",
-      "source_url": "https://fonts.gstatic.com",
-      "raw_snippet": "fonts.gstatic.com is the Google Fonts static content host that serves the font binary files.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "fonts.gstatic.com (https://fonts.gstatic.com) is the host the Google Fonts stylesheet points font binaries at; preconnect to it (with crossorigin) for faster loading.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Heebo",
+      "raw_snippet": "src: url(https://fonts.gstatic.com/s/heebo/",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
@@ -102,10 +107,10 @@
     },
     {
       "claim_id": "google-fonts-host-apis",
-      "claim": "fonts.googleapis.com serves the Google Fonts stylesheet; preconnect to it for faster loading.",
-      "source_url": "https://fonts.googleapis.com",
-      "raw_snippet": "fonts.googleapis.com is the Google Fonts API host that serves the generated CSS stylesheet.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "fonts.googleapis.com (https://fonts.googleapis.com) serves the Google Fonts stylesheet, and Heebo is served there with a hebrew subset; preconnect to it for faster loading.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Heebo",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Heebo';",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
@@ -113,29 +118,25 @@
     },
     {
       "claim_id": "google-fonts-css2-link",
-      "claim": "The Google Fonts css2 endpoint loads Heebo and Assistant with font-display: swap via a stylesheet link.",
-      "source_url": "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&display=swap",
-      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Assistant'; font-style: normal; font-weight: 400; font-display: swap; src: url(https://fonts.gstatic.com/s/assistant/v24/2sDcZGJYnIjSi6H75xkzamW5Kb8VZBHR.woff2)",
-      "fetched_at": "2026-08-18",
+      "claim": "The Google Fonts css2 endpoint loads Heebo, Assistant and Cousine (each with a hebrew subset) with font-display: swap via one stylesheet link.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&family=Cousine&display=swap",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Cousine'; font-style: normal; font-weight: 400; font-display: swap;",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ],
-      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
-      "verified_at": "2026-08-18"
+      ]
     },
     {
       "claim_id": "font-display-swap",
-      "claim": "The font-display: swap descriptor renders fallback text immediately and swaps in the web font when loaded, mitigating FOIT.",
+      "claim": "font-display: swap gives the font face an extremely small block period and an infinite swap period, so fallback text shows almost at once and the web font swaps in when loaded (mitigating FOIT).",
       "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face/font-display",
-      "raw_snippet": "optional Gives the font face an extremely small block period and no swap period. Note: In Firefox, the preferences gfx.downloadable_fonts.fallback_delay and gfx.downloadable_fonts.fallback_delay_short provide the duration of the \"short\" and \"extremely small\" periods, respectively. Description The font display timeline is based on a timer that begins the moment the user agent attempts to use a given downloaded font face.",
-      "fetched_at": "2026-08-18",
+      "raw_snippet": "swap Gives the font face an extremely small block period and an infinite swap period.",
+      "fetched_at": "2026-09-26T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ],
-      "verified_via": "cited page fetched; 22 of 27 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"note\"",
-      "verified_at": "2026-08-18"
+      ]
     },
     {
       "claim_id": "theme-leading-namespace",
@@ -157,7 +158,7 @@
       "claim_id": "space-x-logical-v4",
       "claim": "In Tailwind v4 space-x-* compiles to margin-inline-start / margin-inline-end and is therefore direction-aware; space-x-reverse is for reversed DOM order (flex-row-reverse), not for RTL, and rtl:space-x-reverse puts the spacing on the wrong side. gap-* remains preferred for flex and grid.",
       "source_url": "https://tailwindcss.com/docs/margin",
-      "raw_snippet": "If your elements are in reverse order (using say flex-row-reverse or flex-col-reverse), use the space-x-reverse or space-y-reverse utilities to ensure the space is added to the correct side of each element ... For those situations, it's better to use the gap utilities when possible",
+      "raw_snippet": "use the space-x-reverse or space-y-reverse utilities to ensure the space is added to the correct side of each element",
       "fetched_at": "2026-09-20T00:00:00Z",
       "source_fetched_at": "2026-09-20T00:00:00Z",
       "appears_in": [
@@ -215,7 +216,7 @@
       "claim_id": "v4-source-directive",
       "claim": "Tailwind v4 auto-detects template sources; paths it does not scan (for example a dependency listed in .gitignore) are registered in CSS with the @source directive, relative to the stylesheet.",
       "source_url": "https://tailwindcss.com/docs/detecting-classes-in-source-files",
-      "raw_snippet": "Use `@source` to explicitly register source paths relative to the stylesheet: ... This is especially useful when you need to scan an external library that is built with Tailwind, since dependencies are usually listed in your `.gitignore` file and ignored by Tailwind by default.",
+      "raw_snippet": "Use @source to explicitly register source paths relative to the stylesheet",
       "fetched_at": "2026-09-20T00:00:00Z",
       "source_fetched_at": "2026-09-20T00:00:00Z",
       "appears_in": [
@@ -224,6 +225,157 @@
       ],
       "verified_via": "source fetched 2026-09-20 and the passage copied verbatim from the cited page",
       "verified_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "space-x-prefer-gap",
+      "claim": "Tailwind recommends gap utilities over space-x/space-y for wrapped or complex layouts.",
+      "source_url": "https://tailwindcss.com/docs/margin",
+      "raw_snippet": "For those situations, it's better to use the gap utilities when possible",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "source-directive-gitignore",
+      "claim": "Dependencies are usually listed in .gitignore and ignored by Tailwind's automatic source detection, so an external component library must be registered with @source.",
+      "source_url": "https://tailwindcss.com/docs/detecting-classes-in-source-files",
+      "raw_snippet": "since dependencies are usually listed in your .gitignore file and ignored by Tailwind by default",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tailwind-webpack-loader",
+      "claim": "Tailwind CSS v4.2.0 added the @tailwindcss/webpack package, a webpack loader listed after css-loader in the .css rule.",
+      "source_url": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.2.0",
+      "raw_snippet": "Add @tailwindcss/webpack package to run Tailwind CSS as a webpack plugin",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "Package README (tailwindlabs/tailwindcss packages/@tailwindcss-webpack) describes it as 'A webpack loader for Tailwind CSS v4' with use: [MiniCssExtractPlugin.loader, 'css-loader', '@tailwindcss/webpack']; npm @tailwindcss/webpack 4.3.3."
+    },
+    {
+      "claim_id": "preflight-default-font-sans",
+      "claim": "Tailwind v4 Preflight takes the page's default font family from the --font-sans theme variable, and form controls inherit it (font: inherit), so pointing --font-sans at a Hebrew stack makes Hebrew the default.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/main/packages/tailwindcss/theme.css",
+      "raw_snippet": "--default-font-family: --theme(--font-sans, initial);",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "tailwindcss 4.3.3 preflight.css applies font-family: --theme(--default-font-family, ...) on html and 'font: inherit' on button/input/select/optgroup/textarea."
+    },
+    {
+      "claim_id": "nextjs-import-globals-css",
+      "claim": "In the Next.js App Router, the Tailwind stylesheet (app/globals.css with @import 'tailwindcss') must be imported in the root layout.",
+      "source_url": "https://nextjs.org/docs/app/getting-started/css",
+      "raw_snippet": "Import the CSS file in your root layout:",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "flex-row-follows-direction",
+      "claim": "A flex row's main axis follows the text direction, so under dir=rtl the first item is placed at the right; adding row-reverse puts it at the inline-end (left), restoring LTR visual order.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-direction",
+      "raw_snippet": "the flex container's main-axis is defined to be the same as the text direction",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rtl-config.md"
+      ],
+      "verification_note": "tailwindcss 4.3.3 compiles rtl:flex-row-reverse to a plain flex-direction: row-reverse under :where(:dir(rtl), [dir=\"rtl\"], [dir=\"rtl\"] *)."
+    },
+    {
+      "claim_id": "float-start-tailwind-v34",
+      "claim": "Tailwind's logical float utilities (float-start, float-end) were added in v3.4.0.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/v3.4.17/CHANGELOG.md",
+      "raw_snippet": "Add logical property values for `float` and `clear` utilities",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "references/rtl-config.md"
+      ],
+      "verification_note": "The entry sits under '## [3.4.0] - 2023-12-19' in the v3.4.17 CHANGELOG."
+    },
+    {
+      "claim_id": "float-inline-start-support",
+      "claim": "float: inline-start / inline-end shipped in Chrome (and Edge, which mirrors Chrome) 118, Firefox 55 and Safari 15.",
+      "source_url": "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/float.json",
+      "raw_snippet": "\"support\": { \"chrome\": { \"version_added\": \"118\" }, \"chrome_android\": \"mirror\", \"edge\": \"mirror\", \"firefox\": {",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "references/rtl-config.md"
+      ]
+    },
+    {
+      "claim_id": "cousine-hebrew-subset",
+      "claim": "Cousine is served by Google Fonts with a hebrew subset (Fira Code is served without one).",
+      "source_url": "https://fonts.googleapis.com/css2?family=Cousine",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Cousine';",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rtl-config.md"
+      ],
+      "verification_note": "css2?family=Fira+Code (Chrome UA, 2026-09-25) lists only cyrillic-ext, cyrillic, greek-ext, greek, latin-ext, latin subsets."
+    },
+    {
+      "claim_id": "tailwind-v42-release-date",
+      "claim": "Tailwind CSS v4.2.0 was released on 18 February 2026.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/main/CHANGELOG.md",
+      "raw_snippet": "## [4.2.0] - 2026-02-18",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/rtl-config.md"
+      ]
+    },
+    {
+      "claim_id": "tailwind-v33-logical-utilities",
+      "claim": "Tailwind's inline-direction logical utilities (ms-, me-, ps-, pe-, start-, end-) were added in v3.3.0.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/v3.4.17/CHANGELOG.md",
+      "raw_snippet": "Add logical properties support for inline direction",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "The entry sits under '## [3.3.0] - 2023-03-27'."
+    },
+    {
+      "claim_id": "tailwind-v33-rtl-variants-stable",
+      "claim": "Tailwind marked the rtl and ltr variants stable (removing their warnings) in v3.3.0, so they were experimental in v3.0-3.2.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/v3.4.17/CHANGELOG.md",
+      "raw_snippet": "Mark `rtl` and `ltr` variants as stable and remove warnings",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "The entry sits under '## [3.3.0] - 2023-03-27'."
+    },
+    {
+      "claim_id": "v4-js-config-not-autodetected",
+      "claim": "In Tailwind v4, JavaScript config files are no longer detected automatically; they can still be loaded explicitly with @config.",
+      "source_url": "https://tailwindcss.com/docs/upgrade-guide",
+      "raw_snippet": "JavaScript config files are still supported for backward compatibility, but they are no longer detected automatically in v4.",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 # תצורת Tailwind לעברית
 
-מומלץ Tailwind CSS v4 (גרסה עדכנית v4.3, מאי 2026); גרסה v3.1+ תואמת עבור וריאנטי `dir`. עובד עם React, Vue, Angular, Next.js ו-Nuxt. לא דורש רשת.
+מומלץ Tailwind CSS v4 (גרסה עדכנית v4.3, מאי 2026); גם גרסה v3.3+ עובדת: הכלים הלוגיים נוספו והוריאנטים `rtl:`/`ltr:` סומנו כיציבים בגרסה v3.3.0. עובד עם React, Vue, Angular, Next.js ו-Nuxt. לא דורש רשת.
 
 ## הנחיות
 
@@ -8,7 +8,7 @@
 
 תסתכלו על `references/rtl-config.md` למדריך תצורה מלא.
 
-**קודם כל תתקינו את תוסף ה-build של Tailwind v4.** ב-v4 בוטלה הטעינה האוטומטית של `tailwind.config.js`, ולכן `@import "tailwindcss"` לבדו לא יבנה עד שמחברים תוסף build. תבחרו את זה שמתאים לכלי שלכם:
+**קודם כל תתקינו את תוסף ה-build של Tailwind v4.** גרסה 4 רצה דרך תוסף build (Vite, PostCSS או webpack) ומוגדרת ב-CSS; הקובץ `tailwind.config.js` כבר לא נטען אוטומטית. תבחרו את התוסף שמתאים לכלי שלכם:
 
 ```bash
 # Vite (מומלץ): התקנת תוסף ה-Vite הרשמי
@@ -37,9 +37,9 @@ export default {
 };
 ```
 
-ב-v4 התוסף `@tailwindcss/postcss` מטפל בהטמעת `@import` ובהוספת קידומות יצרן, ולכן `postcss-import` ו-`autoprefixer` כבר לא נחוצים.
+ב-v4 התוסף `@tailwindcss/postcss` מטפל בהטמעת `@import` ובהוספת קידומות יצרן, ולכן `postcss-import` ו-`autoprefixer` כבר לא נחוצים. לבנייה ב-webpack בלי PostCSS, גרסה v4.2 הוסיפה loader: מריצים `npm install @tailwindcss/webpack`, ואז מוסיפים את `'@tailwindcss/webpack'` אחרי `'css-loader'` במערך `use` של הכלל של קובצי `.css`.
 
-אחר כך תטענו את הגופנים העבריים עם `font-display: swap` (דרך `<link>` של Google Fonts או כלל `@font-face`) כדי למנוע הבזק של טקסט בלתי נראה בזמן טעינת קובץ הגופן העברי. תראו את שלב 2 לקטע הקוד.
+אחר כך תטענו את הגופנים העבריים עם `font-display: swap` (דרך `<link>` של Google Fonts או כלל `@font-face`) כדי למנוע הבזק של טקסט בלתי נראה בזמן טעינת קובץ הגופן העברי. קטע הקוד לטעינה מופיע אחרי בלוקי התצורה שלמטה.
 
 **Tailwind v4 (תצורה מבוססת CSS):**
 ```css
@@ -48,9 +48,10 @@ export default {
 
 @theme {
   /* מחסניות גופנים עבריות */
+  --font-sans: 'Heebo', 'Assistant', 'Noto Sans Hebrew', sans-serif; /* default font for html, body and form controls */
   --font-hebrew: 'Heebo', 'Assistant', 'Noto Sans Hebrew', sans-serif;
   --font-hebrew-serif: 'Frank Ruhl Libre', 'David Libre', serif;
-  --font-mono: 'Fira Code', 'Source Code Pro', monospace;
+  --font-mono: 'Cousine', 'Fira Code', monospace; /* Cousine carries Hebrew glyphs for code comments; Fira Code does not */
 
   /* סולם גדלים מותאם לעברית */
   --text-xs: 0.8125rem;
@@ -101,7 +102,7 @@ module.exports = {
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&family=Cousine&display=swap" rel="stylesheet">
 ```
 
 או לארח את הגופן עצמכם עם כלל `@font-face` באותו קובץ CSS שבו נמצא בלוק ה-`@theme`:
@@ -115,26 +116,28 @@ module.exports = {
 }
 ```
 
-גם פרמטר השאילתה `&display=swap` (בקישור) וגם המאפיין `font-display: swap` (ב-`@font-face`) גורמים לדפדפן להציג טקסט חלופי מיד במקום להסתיר טקסט עד שהגופן העברי נטען.
+גם פרמטר השאילתה `&display=swap` (בקישור) וגם המאפיין `font-display: swap` (ב-`@font-face`) נותנים לגופן תקופת חסימה קצרה מאוד ותקופת החלפה אינסופית: הדפדפן מציג טקסט חלופי כמעט מיד ומחליף לגופן העברי ברגע שהוא מגיע, במקום להסתיר טקסט בזמן הטעינה.
 
-**ב-Next.js: חברו את `next/font` דרך `@theme inline`.** כשמארחים עצמית עם `next/font` (מומלץ ב-Next.js: בלי בקשה חיצונית, בלי הזזת פריסה), הגופן נחשף כמשתנה CSS, ו-`@theme` לא יכול להפנות למשתנה זמן-ריצה ישירות. השתמשו ב-`@theme inline` כדי שהמשתנה ייפתר במקום השימוש:
+**ב-Next.js: חברו את `next/font` דרך `@theme inline`.** כשמארחים עצמית עם `next/font` (מומלץ ב-Next.js: בלי בקשה חיצונית, בלי הזזת פריסה), הגופן נחשף כמשתנה CSS. מפנים אליו את `--font-sans`, כי Preflight לוקח את גופן ברירת המחדל של הדף מ-`--font-sans` ופקדי טופס יורשים אותו (`font: inherit`), וכך העברית הופכת לברירת המחדל בכל מקום בלי להוסיף `font-hebrew` לכל אלמנט:
 
 ```css
-/* app.css */
+/* app/globals.css */
 @import "tailwindcss";
 @theme inline {
-  --font-hebrew: var(--font-heebo); /* ‏--font-heebo מגיע מ-next/font */
+  --font-sans: var(--font-heebo); /* ‏--font-heebo מגיע מ-next/font */
+  --font-hebrew: var(--font-heebo);
 }
 ```
 
 ```tsx
-// layout.tsx
+// app/layout.tsx
+import './globals.css';
 import { Heebo } from 'next/font/google';
 const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
 // <html lang="he" dir="rtl" className={heebo.variable}> ... </html>
 ```
 
-הצורה `@theme { --font-hebrew: var(--font-heebo); }` (בלי `inline`) נשברת, כי Tailwind מנסה לפתור את המשתנה בזמן ה-build כשהוא עדיין לא קיים.
+משאירים את `heebo.variable` על `<html>` ולא על `<body>`. ‏Preflight מחיל את גופן ברירת המחדל על `html`, ולכן משתנה שמוגדר נמוך יותר אף פעם לא מגיע אליו, עם `inline` או בלעדיו, והדף נופל בשקט לערימת ה-sans של Tailwind. למה גם `inline`: משתנה theme שמפנה למשתנה אחר נפתר במקום שבו משתנה ה-theme מוגדר (`:root`), ולא במקום שבו משתמשים בכלי. עם `inline`, ‏Tailwind כותב את `var(--font-heebo)` ישירות לתוך כלים כמו `font-hebrew`, כך שהם נפתרים בכל מקום שבו משתמשים בקלאס. ה-build מצליח בשני המקרים, ולכן קל לפספס את שתי הטעויות.
 
 ### שלב 2: כלי שירות לוגיים
 
@@ -167,9 +170,9 @@ const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
 
 ### שלב 3: וריאנטים כיווניים לסגנונות ייחודיים ל-RTL
 
-**תנאי מקדים:** הוריאנטים `rtl:` ו-`ltr:` (מובנים ב-Tailwind v4) מתאימים לפי מאפיין ה-`dir` של אלמנט אב. הם לא עושים כלום אלא אם אלמנט אב באמת נושא `dir="rtl"` (או `dir="ltr"`) - בדרך כלל אלמנט ה-`<html>`. תקבעו `dir="rtl"` על השורש לפני שאתם מסתמכים על וריאנט `rtl:` כלשהו למטה. מכיוון שהוריאנטים האלה נפתרים דרך הפסבדו-קלאס `:dir()` של CSS, הם מגיבים נכון גם ל-`dir="auto"` על תוכן מעורב עברית/אנגלית של משתמשים, ולא רק ל-`dir="rtl"` מפורש.
+**איך הוריאנטים מתאימים.** ב-v4 הוריאנט `rtl:` מתקמפל ל-`:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *)`, והוריאנט `ltr:` לסלקטור המקביל. תקבעו `dir="rtl"` על `<html>` לפני שאתם מסתמכים על וריאנט `rtl:` כלשהו למטה. יש שתי השלכות שקל לפספס. ראשית, כלי `ltr:` חלים כבר בדף בלי `dir` בכלל, כי כיוון ברירת המחדל הוא LTR. שנית, אי של `dir="auto"` שנפתר ל-LTR בתוך דף RTL מתאים לשני הוריאנטים: ל-`rtl:` דרך הזרוע `[dir="rtl"] *` ול-`ltr:` דרך `:dir(ltr)`. לתוכן משתמשים מעורב עברית/אנגלית באיים כאלה משתמשים בכלים לוגיים (`ms-*`, `text-start`) במקום בזוגות `rtl:`/`ltr:`.
 
-**מצב כהה ב-v4.** מפתח התצורה `darkMode` של v3 בוטל. ב-v4 מפעילים מצב כהה מבוסס-מחלקה ב-CSS עם `@custom-variant dark (&:where(.dark, .dark *));`, ואז משלבים בחופשיות עם כיוון, למשל `class="dark:bg-gray-900 rtl:text-right"`. קבעו `dir="rtl"` על `<html>` והחליפו את המחלקה `.dark` על אותו אלמנט.
+**מצב כהה ב-v4.** מפתח התצורה `darkMode` של v3 בוטל. ב-v4 מפעילים מצב כהה מבוסס-מחלקה ב-CSS עם `@custom-variant dark (&:where(.dark, .dark *));`, ואז משלבים בחופשיות עם כיוון, למשל `class="dark:bg-gray-900 rtl:bg-linear-to-l"`. קבעו `dir="rtl"` על `<html>` והחליפו את המחלקה `.dark` על אותו אלמנט.
 
 כשצריך דריסות ייחודיות לכיוון:
 
@@ -177,11 +180,14 @@ const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
 <!-- הגדרת שורש -- ה-dir="rtl" כאן הוא מה שמפעיל כל וריאנט rtl: -->
 <html lang="he" dir="rtl">
 
-<!-- שימוש בוריאנט כיווני -->
-<div class="flex rtl:flex-row-reverse">
-  <span class="rtl:rotate-180">&#8594;</span>
+<!-- שימוש בוריאנט כיווני: היפוך אופקי של חץ כיווני -->
+<a class="inline-flex items-center gap-2">
   <span>הבא</span>
-</div>
+  <span class="rtl:-scale-x-100">&#8594;</span>
+</a>
+
+<!-- לא מוסיפים rtl:flex-row-reverse: ה-dir="rtl" כבר מריץ שורת flex
+     מימין לשמאל, והיפוך נוסף מחזיר את הסדר החזותי של LTR -->
 
 <!-- שיקוף אייקונים כיווניים -->
 <button class="flex items-center gap-2">
@@ -189,10 +195,8 @@ const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
   <span>חזרה</span>
 </button>
 
-<!-- ריווח מותנה שמשתנה לפי כיוון -->
-<div class="ltr:ml-auto rtl:mr-auto">
-  <!-- דחיפה לקצה בשני הכיוונים -->
-</div>
+<!-- דחיפה לקצה בשני הכיוונים: קלאס לוגי אחד, בלי זוג וריאנטים -->
+<div class="ms-auto">...</div>
 ```
 
 ### שלב 4: כלי שירות טיפוגרפיים לעברית
@@ -208,8 +212,8 @@ const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
   </h1>
 
   <!-- פסקה עברית -->
-  <p class="text-base leading-hebrew [word-spacing:0.05em]">
-    טקסט גוף עם ריווח מותאם לקריאות בעברית.
+  <p class="text-base leading-hebrew">
+    טקסט גוף בעברית.
   </p>
 
   <!-- תוכן מעורב עברית + אנגלית -->
@@ -364,7 +368,7 @@ const heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' });
 
 ### שגיאה: "תכונות השירות הלוגיות של Tailwind לא עובדות"
 סיבה: שימוש בגרסת Tailwind ישנה בלי תמיכה בתכונות לוגיות
-פתרון: כלי שירות לוגיים (ms-, me-, ps-, pe-, וה-inset‏ `inset-s-`/`inset-e-`, בעבר `start-`/`end-`) דורשים Tailwind v3.3+. ל-v3.0-3.2, תשתמשו בוריאנטי rtl:/ltr: במקום (`rtl:mr-4 ltr:ml-4` למשל). ב-Tailwind v4 התמיכה בתכונות לוגיות מובנית במלואה; השמות `inset-s-*`/`inset-e-*` נכנסו ב-v4.2 (השמות הישנים `start-*`/`end-*` עדיין עובדים).
+פתרון: כלי שירות לוגיים (ms-, me-, ps-, pe-, וה-inset‏ `inset-s-`/`inset-e-`, בעבר `start-`/`end-`) דורשים Tailwind v3.3+. זו אותה גרסה שבה הוריאנטים rtl:/ltr: סומנו כיציבים. ב-v3.0-3.2 הוריאנטים עדיין היו ניסיוניים והדפיסו אזהרות, ולכן עדיף לשדרג במקום ליפול לזוגות כמו `rtl:mr-4 ltr:ml-4`. ב-Tailwind v4 התמיכה בתכונות לוגיות מובנית במלואה; השמות `inset-s-*`/`inset-e-*` נכנסו ב-v4.2 (השמות הישנים `start-*`/`end-*` עדיין עובדים).
 
 ### שגיאה: "הגופן לא מוחל עם מחלקת font-hebrew"
 סיבה: משפחת גופנים עברית לא הוגדרה בתצורת Tailwind

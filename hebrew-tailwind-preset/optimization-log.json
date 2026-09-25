@@ -38,6 +38,38 @@
         "Frank Ruhl Libre and David Libre are in the font stack but not in the Reference Links table and not verified.",
         "@theme inline being strictly required (vs recommended) for next/font was not re-confirmed against a doc passage; the existing citation is not load-bearing."
       ]
+    },
+    {
+      "version": "1.3.0",
+      "date": "2026-09-26",
+      "findings": [
+        "BUG: Step 3 taught `flex rtl:flex-row-reverse` (double flip back to LTR visual order under dir=rtl; MDN flex-direction), `rtl:rotate-180` on an arrow, and `ltr:ml-auto rtl:mr-auto` (anti-pattern the skill itself forbids). rtl-config.md repeated the flex pattern and a `rtl:left-0 ltr:right-0` pair.",
+        "BUG: the @theme inline explanation ('Tailwind tries to resolve the variable at build time') was wrong. Chromium test with 4.3.3 output: the build always succeeds; without inline, utilities only resolve while the next/font class is on <html>; with the class on <body>, even inline cannot fix the Preflight default font on html.",
+        "STALE: rtl-config.md still dated the start-*/end- inset deprecation to v4.3 (May 2026) in two places; it is v4.2.0 (18 Feb 2026). The 1.2.0 cycle fixed SKILL.md only.",
+        "BUG: rtl-config.md said float-start/float-end need Tailwind v3.3+; CHANGELOG puts them in 3.4.0, and float: inline-start needs Chrome/Edge 118.",
+        "BASELINE FAILURE: verify-evidence.py default exited 1 at HEAD (two ellipsis-stitched raw_snippets), so 1.2.0 shipped with the gate red. theme-inline-nextfont's snippet was an unrelated navigation-menu chunk; tailwind-v4-current's snippet did not support its claim; 4 entries were unreachable (2 JS specimen pages, 2 bare preconnect origins).",
+        "GAP-MAJOR: Hebrew was never made the default font. Preflight reads --font-sans (theme.css: --default-font-family: --theme(--font-sans, initial)) and form controls inherit it.",
+        "GAP-MAJOR: Next.js snippet never imported globals.css.",
+        "Enriched DB drift: best_practices still told users to add rtl:space-x-reverse (the harmful v3 advice the 1.2.0 body fix removed); problem_statement and best_practices claimed breakpoints behave differently in RTL."
+      ],
+      "changes": [
+        "Rewrote the Step 3 variant examples (horizontal arrow flip, explicit do-not-add-row-reverse note, ms-auto) and the matching rtl-config.md sections.",
+        "Next.js block: app/globals.css, import in app/layout.tsx, --font-sans mapped to next/font, correct inline/<html> explanation.",
+        "Step 1: build-plugin sentence reworded; @tailwindcss/webpack loader (v4.2) added (resolves carried deferred item, which the prior log misdated to v4.3).",
+        "rtl-config.md: v4.2 dates, float v3.4+ and browser note.",
+        "Discretionary (3/3): removed unsourced [word-spacing:0.05em]; reworded the plugin/config sentence; --font-mono now leads with Cousine (Fira Code and Source Code Pro have no Hebrew subset).",
+        "Evidence: split the two stitched snippets, replaced two non-supporting snippets, re-sourced 4 unreachable entries, added 9 entries. Default exit 0; --check-sources 14 verified, 12 declared, 0 unreachable, 0 failed.",
+        "Panel fix round 1: rtl:/ltr: section rewritten from the compiled selector (ltr: applies with no dir; a nested dir=auto LTR island inside an RTL page matches BOTH variants, verified in Chromium), replacing the false 'responds correctly to dir=auto'. Version floor v3.1+ -> v3.3.0 (logical utilities added and rtl/ltr marked stable there). v4.2 date re-cited to the CHANGELOG. font-display: swap described per MDN (extremely small block, infinite swap). Minors: --font-sans added to the non-Next @theme, Cousine added to the Google Fonts link so the declared mono font actually loads, dark-mode example no longer uses physical rtl:text-right, broken 'See Step 2' pointer fixed. Bootstrapped references/domain-checklist.md."
+      ],
+      "lessons": [
+        "Resolved in fix round 1: the 'v3.1+' dir-variant floor is now v3.3.0 per CHANGELOG.",
+        "Deferred (MINOR): Next.js caveat that next/font should replace the Google Fonts <link> (ESLint no-page-custom-font), not verified this cycle.",
+        "Deferred (MINOR): dynamic dir/lang for bilingual [locale] layouts in Tailwind examples; alignment for dir=ltr inputs inside RTL forms.",
+        "Deferred from 1.2.0 (still open): @tailwindcss/typography prose RTL; font-features-* (v4.2) for Hebrew variable fonts; nikkud line-height values 1.4/1.7/1.9 unsourced; Frank Ruhl Libre / David Libre not in Reference Links.",
+        "Deferred (enriched, discretionary): prompts[1] still asks about font-face 'inside tailwind.config' (v3 framing).",
+        "Process: this skill was updated 2026-09-20 with no skill_updates row, so the selector saw last_changelog 2026-06-21.",
+        "Deferred (MINOR): the v3 tailwind.config.js example does not set fontFamily.sans, so on v3 Hebrew is still not the default font."
+      ]
     }
   ]
 }
