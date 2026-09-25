@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "israeli-accessibility-compliance",
-  "generated_at": "2026-09-20T00:00:00Z",
+  "generated_at": "2026-09-25T21:30:00Z",
   "claims": [
     {
       "claim_id": "legal-framework",
@@ -16,21 +16,8 @@
       ]
     },
     {
-      "claim_id": "exemption-thresholds",
-      "claim": "Website-accessibility exemptions are based on revenue, not employee count. Osek patur: full exemption. Average annual revenue under 120,000 NIS: renewable 3-year exemption. From 120,000 NIS up to 1,000,000 NIS: 3-year exemption for a site that began operating before 26.10.2017, while a new site after that date must be accessible. Above 1,000,000 NIS: no automatic exemption. The previously hedged 100,000 NIS alternative is dropped.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%A4%D7%98%D7%95%D7%A8_%D7%9E%D7%97%D7%95%D7%91%D7%AA_%D7%94%D7%A0%D7%92%D7%A9%D7%94_%D7%9C%D7%90%D7%AA%D7%A8%D7%99_%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98_%D7%95%D7%90%D7%A4%D7%9C%D7%99%D7%A7%D7%A6%D7%99%D7%95%D7%AA",
-      "raw_snippet": "לעוסק עם מחזור שנתי ממוצע מתחת ל-120,000 ₪ ... לבעל מחזור שנתי ממוצע בין 120,000 ₪ עד 1,000,000 ₪ ... לבעל מחזור שנתי ממוצע מעל 1,000,000 ₪ - אין פטור אוטומטי ... אתר חדש לאחר 26.10.2017, על האתר החדש להיות נגיש.",
-      "fetched_at": "2026-09-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/is-5568.md"
-      ],
-      "source_fetched_at": "2026-09-20T00:00:00Z"
-    },
-    {
       "claim_id": "amendment-23-izum",
-      "claim": "תיקון 23 לחוק שוויון זכויות לאנשים עם מוגבלות הקנה לנציבות מסלול אכיפה מינהלי עם עיצומים כספיים. הפרה חוזרת או נמשכת מובילה לעיצומים גבוהים יותר, ובארבע השנים הראשונות עסקים זעירים וקטנים מקבלים התראה מינהלית בהפרה ראשונה.",
+      "claim": "תיקון 23 לחוק שוויון זכויות לאנשים עם מוגבלות הקנה לנציבות מסלול אכיפה מינהלי עם עיצומים כספיים, והפרה חוזרת או נמשכת מובילה לעיצומים בסכומים גבוהים יותר.",
       "source_url": "https://www.gov.il/he/pages/equality_law_23_amendment_explanation",
       "raw_snippet": "בסופו של התהליך ייקבע האם להטיל עיצום כספי או לנקוט בהליך אכיפה אחר וכן יקבע גובה העיצום אם יוטל. כמו כן, החוק קובע כי הפרה חוזרת או הפרה נמשכת של הוראות החוק מצד אותו גוף, יובילו לעיצומים בסכומים גבוהים יותר מהסכום המקורי.",
       "fetched_at": "2026-08-19",
@@ -43,65 +30,42 @@
       "verified_at": "2026-08-19"
     },
     {
-      "claim_id": "regulation-35-morshe",
-      "claim": "Regulation 35 of the Service Accessibility Regulations governs website/app accessibility and its technological-difficulty exemption requires a written opinion from a certified service-accessibility expert (morshe negishut hasherut) in consultation with an internet-accessibility professional.",
-      "source_url": "https://aisrael.org/אתרי-אינטרנט-נגישים-סקירה-דרישות-וס/",
-      "raw_snippet": "תקנה 35 לתקנות נגישות השירות עוסקת בהנגשת אתרי אינטרנט; פטור בשל קושי טכנולוגי מותנה בחוות דעת של מורשה נגישות השירות.",
-      "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
       "claim_id": "widget-text-size-steps",
       "claim": "The 100/115/130/150 percent steps are the accessibility widget's own UI scale increments, defined by this skill. They are a comfort feature, not a WCAG requirement, so no external standard states them.",
       "source_url": "https://raw.githubusercontent.com/skills-il/localization/master/israeli-accessibility-compliance/SKILL.md",
       "raw_snippet": "ggle | Type | Values | |--------|------|--------| | Highlight links | Binary | on / off | | Contrast mode | Cycle | off / high / invert / monochrome | | Text size | Cycle | 100% / 115% / 130% / 150% | | Line spacing | Cycle | normal / 1.6 / 2.0 | | Readable font | Binary | on / off (OS stack only, no webfont) | | Highlight headings | Binary | on / off | | Black cursor | Binary",
       "fetched_at": "2026-08-19",
       "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
+        "references/widget-implementation.md"
       ],
       "verified_via": "the skill's own SKILL.md; these are its UI increments, not a standard",
       "verified_at": "2026-08-19"
     },
     {
       "claim_id": "example-placeholder-domain",
-      "claim": "example.co.il is used only as an illustrative placeholder domain in code examples and the accessibility-statement template; it is not a real operational URL.",
-      "source_url": "https://example.co.il",
-      "raw_snippet": "example.co.il is a placeholder domain used in documentation examples, analogous to the reserved example.com domain.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "https://www.example.com (script usage examples) and the example.co.il mailbox in the statement template are illustrative placeholders, not operational addresses.",
+      "source_url": "https://www.example.com",
+      "raw_snippet": "This domain is for use in documentation examples without needing permission.",
+      "fetched_at": "2026-09-26T00:20:00Z",
       "appears_in": [
+        "scripts/audit_a11y.py",
         "SKILL.md",
         "SKILL_HE.md"
       ]
     },
     {
       "claim_id": "is5568-wcag20-anchor",
-      "claim": "IS 5568 is anchored to WCAG 2.0 AA. The WCAG success criteria it incorporates, such as 1.4.4 Resize Text, are quoted here from the W3C specification; the Israeli standard itself is sold rather than published, so it cannot be quoted. The skill also links https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0.",
+      "claim": "IS 5568 is anchored to WCAG 2.0 AA; WCAG success criteria it incorporates, such as 1.4.4 Resize Text, are quoted from the W3C specification. The Israeli standard itself is freely available to the public (IS 5568-1 PDF on gov.il). The skill also links https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0",
       "source_url": "https://www.w3.org/TR/WCAG21/#resize-text",
       "raw_snippet": "Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
-      "fetched_at": "2026-08-19",
+      "fetched_at": "2026-09-26T10:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/is-5568.md"
       ],
-      "verified_via": "WCAG specification read in a browser; IS 5568 is not freely published",
-      "verified_at": "2026-08-19"
-    },
-    {
-      "claim_id": "is5568-part2",
-      "claim": "IS 5568 is split into Part 1 (web content) and Part 2 (accessibility of digital documents such as PDFs and Office files), published 2020. The standard is maintained by the Standards Institution of Israel (SII).",
-      "source_url": "https://www.sii.org.il/en/",
-      "raw_snippet": "The Standards Institution of Israel develops and publishes Israeli standards, including IS 5568 on web and digital-document accessibility.",
-      "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/is-5568.md"
-      ]
+      "verified_via": "WCAG specification read in a browser; the IS 5568-1 PDF itself states it is freely available to the public (see is5568-free-to-public)",
+      "verified_at": "2026-09-26T12:00:00Z"
     },
     {
       "claim_id": "accessibe-ftc-fine",
@@ -115,30 +79,6 @@
       ],
       "verified_via": "cited page fetched; 18 of 26 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"april\"",
       "verified_at": "2026-08-18"
-    },
-    {
-      "claim_id": "nvda-screen-reader",
-      "claim": "NVDA is a free open-source Windows screen reader used to test Hebrew screen-reader compatibility.",
-      "source_url": "https://www.nvaccess.org/",
-      "raw_snippet": "curement and rollout Consulting / Development Services Newsletter Blog In-Process Blog News Support Us Shop Create Account / Log In We believe that every Blind + Vision Impaired person Deserves the right to freely & easily access a computer!",
-      "fetched_at": "2026-08-18",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ],
-      "verified_via": "reference-coverage entry; snippet is a contiguous sentence from its source page",
-      "verified_at": "2026-08-18"
-    },
-    {
-      "claim_id": "commission-enforcement",
-      "claim": "The Commission for Equal Rights of Persons with Disabilities at the Ministry of Justice enforces accessibility law and handles complaints.",
-      "source_url": "https://www.gov.il/he/departments/moj_disability_rights/govil-landing-page",
-      "raw_snippet": "נציבות שוויון זכויות לאנשים עם מוגבלות במשרד המשפטים אחראית על אכיפת חוק הנגישות וטיפול בתלונות.",
-      "fetched_at": "2026-06-21T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
     },
     {
       "claim_id": "izum-size-thresholds",
@@ -155,36 +95,10 @@
     },
     {
       "claim_id": "coordinator-19mb",
-      "claim": "The accessibility-coordinator (rakaz negishut) duty is in the primary Act, section 19מב (added by Amendment 2, 2005), not in the 2013 Service Accessibility Regulations. The single trigger is being responsible for supplying a public service under Sign ד' and employing at least 25 employees. There is no separate public-body limb. The coordinator's duties include giving advice and training (ייעוץ והדרכה) on the public service's accessibility obligations.",
+      "claim": "חובת רכז הנגישות מקורה בסעיף 19מב לחוק (תיקון מס' 2, 2005): מי שאחראי להספקת שירות ציבורי כהגדרתו בסימן ד' והמעסיק 25 עובדים לפחות ימנה רכז נגישות; סעיף 19מב(ב) מונה שתי חובות: מסירת מידע לציבור, וייעוץ והדרכה. The coordinator duty originates in s.19מב of the Act with a single trigger (public service under Sign ד' and at least 25 employees) and two listed duties.",
       "raw_snippet": "רכז נגישות (תיקון מס' 2) תשס\"ה-2005 19 מב. (א) מי שאחראי להספקת שירות ציבורי כהגדרתו בסימן ד', המעסיק 25 עובדים לפחות ימנה מקרב עובדיו אדם הבקיא, ככל הניתן, בתחום הנגישות לאנשים עם מוגבלות וככל האפשר הוא יהיה אדם עם מוגבלות (בסעיף זה – רכז נגישות). (ב) רכז נגישות – (1) ימסור מידע לציבור על אודות נגישותו של השירות הציבורי או המקום שבו הוא ניתן; (2) ייתן ייעוץ והדרכה בדבר חובותיו של השירות הציבורי,",
       "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
-      "fetched_at": "2026-09-20T00:00:00Z",
-      "source_fetched_at": "2026-09-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/is-5568.md"
-      ]
-    },
-    {
-      "claim_id": "statutory-damages-indexation",
-      "claim": "Section 19נא(ב) caps statutory damages without proof of harm at 50,000 NIS, and 19נא(ו)(1) index-links that sum: it is updated once a year against the CPI with a base index of February 2005. 50,000 NIS is therefore the statutory base, not the current ceiling. The updated 2026 figure was not located and must not be computed.",
-      "raw_snippet": "(ב) בית משפט רשאי לפסוק בשל עוולה לפי סעיף קטן (א) פיצויים בסכום שלא יעלה על 50,000 שקלים חדשים, בלא הוכחת נזק ... (ו) (1) הסכום האמור בסעיף קטן (ב) יעודכן אחת לשנה בהתאם לשיעור עליית המדד החדש לעומת המדד הבסיסי. (2) לענין סעיף קטן זה – \"מדד\" – מדד המחירים לצרכן שמפרסמת הלשכה המרכזית לסטטיסטיקה; \"המדד הבסיסי\" – מדד חודש פברואר 2005",
-      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
-      "fetched_at": "2026-09-20T00:00:00Z",
-      "source_fetched_at": "2026-09-20T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/is-5568.md"
-      ]
-    },
-    {
-      "claim_id": "administrative-penalty-table",
-      "claim": "Section 26ז(ג), as updated by הודעה תשפ\"ו-2026, sets the full administrative penalty table in NIS by Eighth Schedule part and debtor size (חייב זעיר / חייב קטן / חייב רגיל): part א' 1,310 / 3,830 / 13,680; part ב' 2,620 / 7,660 / 27,360; part ג' 3,940 / 14,220 / 41,030; part ד' 3,940 / 14,220 / 218,820. Section 26ז(ב) sets 27,360 NIS for adequate-representation breaches.",
-      "raw_snippet": "הודעה תשפ\"ו-2026 (ג) ... רשאי הממונה להטיל עליו עיצום כספי לפי הסכומים המפורטים להלן ... החלק בתוספת השמינית סכום העיצום (בשקלים חדשים) חייב זעיר חייב קטן חייב רגיל א' 1,310 3,830 13,680 ב' 2,620 7,660 27,360 ג' 3,940 14,220 41,030 ד' 3,940 14,220 218,820",
-      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
-      "fetched_at": "2026-09-20T00:00:00Z",
+      "fetched_at": "2026-09-25T21:30:00Z",
       "source_fetched_at": "2026-09-20T00:00:00Z",
       "appears_in": [
         "SKILL.md",
@@ -220,7 +134,7 @@
     },
     {
       "claim_id": "dual-track-defenses",
-      "claim": "Amendment 23 added section 19נא(ג)(1א)-(1ב): a court will not award damages without proof of harm where the operator had filed a written undertaking (כתב התחייבות) under Chapter ט' Sign ג' and is complying with it, or where an administrative penalty or administrative warning was already imposed for the same act or omission, that defense running for the period the Commissioner set for carrying out the accommodations. Section 19נג(ג) bars the Commission from suing over an act already penalised administratively.",
+      "claim": "Amendment 23 added section 19נא(ג)(1א)-(1ב): a court will not award damages without proof of harm where the operator had filed a written undertaking (כתב התחייבות) under Chapter ט' Sign ג' and is complying with it, or where an administrative penalty or administrative warning was already imposed for the same act or omission, that defense running for the period the Commissioner set for carrying out the accommodations. Section 19נג(ג) bars the Commission from suing over an act already penalised administratively. (סעיף 19נא(ג)(1א)-(1ב))",
       "raw_snippet": "(תיקון מס' 23) תשפ\"ב-2022 (1ב) הוטל עליו עיצום כספי או ניתנה לו התראה מינהלית בשל המעשה או המחדל נושא התביעה לפי הוראות פרק ט', במועד שקדם למעשה או המחדל נושא התביעה; הגנה זו תעמוד לנתבע לפרק הזמן שקבע הנציב לביצוע התאמות נגישות",
       "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
       "fetched_at": "2026-09-20T00:00:00Z",
@@ -229,6 +143,790 @@
         "SKILL.md",
         "SKILL_HE.md",
         "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "statutory-damages-base",
+      "claim": "סעיף 19נא(ב) לחוק: בית משפט רשאי לפסוק פיצויים בלא הוכחת נזק בסכום שלא יעלה על 50,000 ש\"ח (the statutory base).",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "בית משפט רשאי לפסוק בשל עוולה לפי סעיף קטן (א) פיצויים בסכום שלא יעלה על 50,000 שקלים חדשים, בלא הוכחת נזק",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "statutory-damages-indexation",
+      "claim": "Section 19נא(ו)(1) index-links the 50,000 NIS sum once a year to the CPI; the base index is February 2005. No published updated figure was found, so the skill does not state one.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "הסכום האמור בסעיף קטן (ב) יעודכן אחת לשנה בהתאם לשיעור עליית המדד החדש לעומת המדד הבסיסי.",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "statutory-damages-base-index",
+      "claim": "The base index for the 19נא indexation is the February 2005 CPI.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "\"המדד הבסיסי\" – מדד חודש פברואר 2005;",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "administrative-penalty-table",
+      "claim": "סעיף 26ז(ג) כפי שעודכן בהודעה תשפ\"ו-2026: Eighth Schedule part א' 1,310 / 3,830 / 13,680; ב' 2,620 / 7,660 / 27,360; ג' 3,940 / 14,220 / 41,030; ד' 3,940 / 14,220 / 218,820 NIS for חייב זעיר / קטן / רגיל.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "החלק בתוספת השמינית סכום העיצום (בשקלים חדשים) חייב זעיר חייב קטן חייב רגיל א' 1,310 3,830 13,680 ב' 2,620 7,660 27,360 ג' 3,940 14,220 41,030 ד' 3,940 14,220 218,820",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "adequate-representation-27360",
+      "claim": "סעיף 26ז(ב): עיצום כספי של 27,360 ש\"ח להפרת חובת ייצוג הולם.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "רשאי הממונה להטיל עליו עיצום כספי בסכום של 27,360 שקלים חדשים",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "continuing-breach-one-fiftieth",
+      "claim": "Section 26יא(א): a continuing breach adds one-fiftieth of the 26ז penalty for every month it continues; 26יא(ב): a repeat breach within two years adds a sum equal to the penalty.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "בהפרה נמשכת ייווסף על העיצום הכספי הקבוע בסעיף 26ז החלק החמישים שלו לכל חודש שבו נמשכה ההפרה.",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "repeat-breach-two-years",
+      "claim": "Section 26יא(ב): a repeat breach of the same accessibility duty within two years adds a sum equal to the penalty.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "בהפרה חוזרת ייווסף על העיצום הכספי הקבוע לאותה הפרה סכום השווה לעיצום הכספי כאמור",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "eighth-schedule-web-part-gimel",
+      "claim": "The Eighth Schedule places the website/app duty (regs 35א and 35ג) in part ג'.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "הספקת התאמות נגישות באתר אינטרנט או ביישומון (אפליקציה) תקנות 35א ו-35ג לתקנות נגישות לשירות",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "eighth-schedule-statement-part-alef",
+      "claim": "The Eighth Schedule places displaying the accessibility statement (reg 35ה) among items in part א'.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "ציון הצהרת נגישות בשירות אינטרנט תקנות 34, 35ה, 47, 50, 57, 61, 66, 72, 73, 83 ו-86 לתקנות נגישות לשירות",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "commission-no-double-suit",
+      "claim": "סעיף 19נג(ג): the Commission will not sue over an act already penalised administratively.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "לא תגיש הנציבות תובענה לפי הוראות סעיף קטן (א) על מעשה או מחדל שעניינו הפרת חובות נגישות כהגדרתן בפרק ט' אם הוטל על המפר עיצום כספי",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35-standard-definition",
+      "claim": "תקנה 35: the internet accessibility standard is IS 5568, all parts, as amended from time to time.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "\"תקן נגישות אינטרנט\" – תקן ישראלי 5568 – קווים מנחים לנגישות תכנים באינטרנט, על חלקיו השונים ונספחיהם, כתיקונם מזמן לזמן",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35-internet-service-includes-apps",
+      "claim": "Regulation 35 defines \"internet service\" to include websites, documents and apps.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "המוצגים למשתמש באמצעות אתרי אינטרנט, מסמכים או יישומים (אפליקציות)",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35-average-turnover",
+      "claim": "Average turnover is the mean of the last three tax years with non-zero turnover.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "\"מחזור ממוצע\" – ממוצע המחזורים של החייב בשלוש שנות המס האחרונות שלפני מועד הבדיקה, שבהן לא היה המחזור שווה ל-0;",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35-turnover-vat",
+      "claim": "Turnover means the dealer's VAT-law transaction turnover (or the amuta / income-tax equivalents).",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "\"מחזור\" – כל אחד מאלה, לפי העניין: (1) מחזור עסקאות של עוסק, כהגדרתו בסעיף 1 לחוק מע\"מ;",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35a-duty-aa",
+      "claim": "תקנה 35א(א): accessibility per IS 5568 at level AA, apps and time-based media excepted to 35ג/35ד.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "חייב יספק התאמות נגישות בשירות אינטרנט, למעט לעניין יישומים (אפליקציות) כמשמעותם בתקנה 35ג ולמדיה מבוססת זמן לפי תקן נגישות אינטרנט בהתאם לקווים המנחים הקבועים בו, ברמה AA",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35a-documents-2017",
+      "claim": "Regulation 35א(ג)(1): documents prepared from 26 October 2017 and uploaded must be accessible; 35א(ג)(2) covers service forms even if older.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "מסמך שהוכן מיום וק בחשוון התשע\"ח (26 באוקטובר 2017) ואילך, כגון מסמך pdf , והועלה לאתר אינטרנט או ליישום של חייב, יהיה נגיש",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "reg35a-60-days",
+      "claim": "Regulation 35א(ד)(1): no violation unless a fix notice was sent and not fixed within a reasonable time, no later than 60 days.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "לא יראו סטייה מעמידה בהוראות סימן זה כהפרה של הוראות הנגישות, אלא אם כן נשלחה לחייב הודעה הדורשת ממנו לתקנה והחייב לא תיקנה בתוך זמן סביר אך לא יאוחר מ-60 ימים מיום קבלת ההודעה",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35a-interim-alternative",
+      "claim": "Regulation 35א(ד)(2): after a notice the operator must provide alternative accommodations as soon as possible.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "חייב כאמור בפסקה האמורה יבצע התאמות חלופיות בהקדם האפשרי ממועד קבלת ההודעה כדי להבטיח נגישות לשירות לאדם עם מוגבלות",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35b-third-party",
+      "claim": "Regulation 35ב: not liable for third-party content it does not edit or produce, but must supply accessible infrastructure such as an image-description field.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "ואולם החייב יעמיד תשתית נגישה, לרבות יצירת שדות למילוי מידע באופן נגיש, כגון שדה תיאור תמונות",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35g-apps-two-os",
+      "claim": "Regulation 35ג(ב): IS 5568 success criteria apply to apps as far as possible and relevant, on at least two common operating systems.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "הוראות פסקה (1) יחולו בשתי מערכות הפעלה נפוצות לפחות",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "reg35g-apps-criteria",
+      "claim": "Regulation 35ג(ב)(1): IS 5568 success criteria apply to apps as far as possible and relevant and per the operating system accessibility options.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "הוראות סימן זה יחולו בהתאם לקריטריונים להצלחה הקבועים בתקן נגישות האינטרנט ככל האפשר וככל שהן רלוונטיות ליישומים אלה ולאפשרויות הנגישות הניתנו לביצוע במסגרת מערכת ההפעלה",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "reg35g-apps-exemption",
+      "claim": "Regulation 35ג(ג): an app is exempt where an identical accessible mobile-adapted website exists, and must link to it.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "חייב המפעיל יישום לא נגיש, בהתאם לפטור האמור, יפרסם ביישום קישור נגיש ככל האפשר המפנה לאתר העומד בדרישות הנגישות",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "reg35d-video-5m",
+      "claim": "Regulation 35ד: the video captions duty applies to a public authority or an operator with average turnover above 5 million NIS that edits or produces recorded video, and covers WCAG 1.2.2.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "חייב שהוא רשות ציבורית או חייב שהמחזור הממוצע שלו עולה על 5 מיליון שקלים העורך או מפיק תוכני וידיאו מוקלטים",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35h-statement",
+      "claim": "Regulation 35ה: the statement must be prominent on the site and in the app, and include adjustments made, coordinator details if obliged to appoint one, and contact details for reporting missing accessibility including a 35א(ד)(1) demand.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "חייב יציין במקום בולט באתר האינטרנט שלו וביישום שהוא מפעיל, אם יש יישום כזה, הצהרה, בהתאם להנחיות הקבועות בתקן נגישות האינטרנט לעניין הצהרת נגישות, הכוללת מידע בדבר התאמות נגישות שביצע וכן פרטי רכז נגישות ודרכי ההתקשרות עמו, אם מחויב למנותו לפי החוק, ופרטים המאפשרים יצירת קשר לצורך הודעה על העדר התאמות נגישות או בקשה לביצוע הנגשה, לרבות דרישה לפי תקנה 35א(ד)(1)",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md",
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "reg35v-tech-exemption",
+      "claim": "תקנה 35ו(א): a morshe negishut hasherut may exempt an adjustment the platform cannot support, on a professional's opinion.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "מורשה לנגישות השירות שנוכח, על סמך חוות דעת של איש מקצוע, כי חייב משתמש בשירותי האינטרנט שלו בתשתית (פלטפורמה) או בממשק טכנולוגי שאינם מאפשרים, מסיבות טכנולוגיות, ביצוע התאמה מסוימת הנדרשת לפי סימן זה, רשאי לפטור את החייב מביצועה",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35v-tech-duration",
+      "claim": "Regulation 35ו(ב)(1): up to 3 years, renewable once for up to 3 more; beyond that only the Commissioner.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "הוא יהיה תקף לתקופה של עד שלוש שנים ויהיה ניתן לחדשו לתקופה נוספת של עד שלוש שנים; פטור נוסף מעבר לשתי תקופות אלה יינתן, מטעמים מיוחדים שיירשמו, בידי הנציב או מי מטעמו",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35v-tech-alternative",
+      "claim": "Regulation 35ו(ג): an exempted operator provides alternative access, publishes the exemption and alternatives in the statement, and gives the form to a person with a disability on request.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "חייב שקיבל פטור יספק נגישות חלופית ויפרסם בהצהרת הנגישות לפי תקנה 35ה את דבר הפטור ואת ההתאמות החלופיות",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35v-z-100000",
+      "claim": "תקנה 35ו(ז): osek patur, or average annual turnover not above 100,000 NIS, is exempt from the web duty.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "(ז) חייב שהוא עוסק פטור כהגדרתו בסעיף 1 לחוק המע\"מ או שהמחזור השנתי הממוצע שלו אינו עולה על 100,000 שקלים חדשים, יהיה פטור מביצוע התאמות נגישות לפי סימן זה.",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35v-h-300000-expired",
+      "claim": "Regulation 35ו(ח): the 300,000 NIS tier applied only until 26 October 2020.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "האמור בתקנת משנה (ז) יחול גם על חייב שהמחזור השנתי הממוצע שלו אינו עולה על 300,000 שקלים חדשים, עד יום ח' בחשוון התשפ\"א (26 באוקטובר 2020).",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35v-t-1000000",
+      "claim": "Regulation 35ו(ט): up to 1,000,000 NIS average turnover, for a site or app operated before commencement, 3-year renewable exemption conditioned on accessible contact channels.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "חייב אשר המחזור הממוצע שלו עומד על 1,000,000 שקלים חדשים או פחות, יהיה פטור מביצוע התאמות נגישות לפי סימן זה באתר אינטרנט או יישום שהוא החל להפעיל לפני תחילתן של תקנות אלה",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35v-t-renewal",
+      "claim": "Regulation 35ו(ט): the exemption is valid 3 years from the end of the last tax year in the average and renewable every 3 years.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "פטור זה יהיה תקף למשך שלוש שנים מתום שנת המס האחרונה שנכללה בבדיקת המחזור הממוצע של החייב ויהיה ניתן לחדשו כל שלוש שנים",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35v-he-500",
+      "claim": "Regulation 35ו(ה): content of a service limited to pre-registered users with at most 500 registered simultaneously.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "רשומים לשירות האינטרנט 500 משתתפים בו-זמנית, לכל היותר",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg35v-yod-advertising",
+      "claim": "Regulation 35ו(י): the web rules do not apply to advertising that has an accessible alternative.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "הוראות סימן זה לא יחולו על פרסומו ובלבד שיש חלופה נגישה למידע על השירות שמופיע בפרסומת",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg91-coordinator",
+      "claim": "תקנה 91: appointment per s.19מב; duties 91(ד) information and advice/training; 91(ה) publish name, office and contact channels.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "חייב בביצוע התאמות נגישות לשירות המעסיק 25 עובדים לפחות, ימנה מתוך העובדים רכז נגישות, לפי סעיף 19מב לחוק.",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg91-duties",
+      "claim": "Regulation 91(ד): the coordinator's duties are information to the public and advice and training.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "(2) ייעוץ והדרכה לחייב בביצוע התאמות נגישות בדבר חובותיו לפי החוק.",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "reg91-publish",
+      "claim": "Regulation 91(ה): publish the coordinator's name, office location and contact channels.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "החייב בהתאמות נגישות יפרסם לציבור ויביא לידיעת העובדים את שמו של רכז הנגישות שמינה, מקום משרדו ודרכי הפנייה אליו",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ]
+    },
+    {
+      "claim_id": "kz-120000-divergence",
+      "claim": "Kol Zchut states the lowest tier as under 120,000 NIS and a temporary 3-year renewable exemption, which differs from the regulation text (100,000 NIS, no time limit).",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A4%D7%98%D7%95%D7%A8_%D7%9E%D7%97%D7%95%D7%91%D7%AA_%D7%94%D7%A0%D7%92%D7%A9%D7%94_%D7%9C%D7%90%D7%AA%D7%A8%D7%99_%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98_%D7%95%D7%90%D7%A4%D7%9C%D7%99%D7%A7%D7%A6%D7%99%D7%95%D7%AA",
+      "raw_snippet": "לעוסק עם מחזור שנתי ממוצע מתחת ל-120,000 ₪ קיים פטור זמני מביצוע נגישות של שירותי אינטרנט למשך 3 שנים, אשר ניתן להארכה כל 3 שנים, כל עוד המחזור השנתי הממוצע לא עולה על 120,000 ₪.",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-25T21:30:00Z"
+    },
+    {
+      "claim_id": "kz-existing-site-2017",
+      "claim": "Kol Zchut reads the existing-site tier as sites first operated before 26.10.2017.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A4%D7%98%D7%95%D7%A8_%D7%9E%D7%97%D7%95%D7%91%D7%AA_%D7%94%D7%A0%D7%92%D7%A9%D7%94_%D7%9C%D7%90%D7%AA%D7%A8%D7%99_%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98_%D7%95%D7%90%D7%A4%D7%9C%D7%99%D7%A7%D7%A6%D7%99%D7%95%D7%AA",
+      "raw_snippet": "קיים פטור זמני למשך 3 שנים להנגשה של אתרים קיימים בלבד, שהפעלתם החלה לפני 26.10.2017",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-25T21:30:00Z"
+    },
+    {
+      "claim_id": "heavy-burden-19yod-gimel",
+      "claim": "Heavy-burden exemption by application to the Commission under Act s.19יג(א)(2); not available to a public authority.",
+      "source_url": "https://www.gov.il/he/service/application_for_exemption_internet_people_with_disabilities",
+      "raw_snippet": "שירות זה מאפשר לבעלי אתרי אינטרנט המחויבים לבצע נגישות, להגיש בקשת פטור מחובת הנגישות בשל נטל כבד מדי, בהתאם לסעיף 19יג(א)(2) לחוק",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-25T21:30:00Z"
+    },
+    {
+      "claim_id": "heavy-burden-not-public-authority",
+      "claim": "The heavy-burden application is open to website owners that are not a public authority.",
+      "source_url": "https://www.gov.il/he/service/application_for_exemption_internet_people_with_disabilities",
+      "raw_snippet": "בעלי אתר אינטרנט שאינם רשות ציבורית יכולים לבקש פטור זה.",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-25T21:30:00Z"
+    },
+    {
+      "claim_id": "is5568-1-wcag20-identical",
+      "claim": "IS 5568 Part 1 (September 2023), apart from its national changes, is identical to WCAG 2.0 (11 December 2008); it replaces the May 2021 edition.",
+      "source_url": "https://www.gov.il/BlobFolder/legalinfo/israeli_accessibility_standards_pdf/he/sitedocs_si-5568-1-september-2023.pdf",
+      "raw_snippet": "Web Content Accessibility Guidelines (WCAG) 2.0",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ],
+      "verified_via": "pdf",
+      "verified_at": "2026-09-25T21:30:00Z"
+    },
+    {
+      "claim_id": "is5568-1-national-changes-media",
+      "claim": "IS 5568 Part 1 raises 1.2.1-1.2.3 from A to AA and moves 1.2.4-1.2.5 from AA to AAA (Annex D); 2.4.10 raised to AA; 3.1.2 does not apply.",
+      "source_url": "https://www.gov.il/BlobFolder/legalinfo/israeli_accessibility_standards_pdf/he/sitedocs_si-5568-1-september-2023.pdf",
+      "raw_snippet": "תקן זה משנה את רמת ההתאמה בסעיפים 1.2.2 ,1.2.1 ו 1.2.3 - מ Level A - ל Level AA",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ],
+      "verified_via": "pdf",
+      "verified_at": "2026-09-25T21:30:00Z"
+    },
+    {
+      "claim_id": "is5568-2-edition",
+      "claim": "IS 5568 Part 2 (September 2023) replaces the May 2020 edition and covers digital documents.",
+      "source_url": "https://www.gov.il/BlobFolder/legalinfo/israeli_accessibility_standards_pdf/he/sitedocs_si-5568-2-september-2023.pdf",
+      "raw_snippet": "Web Content Accessibility Guidelines (WCAG) 2.0",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md"
+      ],
+      "verified_via": "pdf",
+      "verified_at": "2026-09-25T21:30:00Z"
+    },
+    {
+      "claim_id": "mobile-accessibility-scanner",
+      "claim": "Google Accessibility Scanner suggests improvements based on content labels, touch target size, clickable items and text and image contrast. Cited in the skill as https://support.google.com/accessibility/android/answer/6376570",
+      "source_url": "https://support.google.com/accessibility/android/answer/6376570?hl=en",
+      "raw_snippet": "Accessibility Scanner scans your screen and provides suggestions to improve the accessibility of your app",
+      "fetched_at": "2026-09-25T21:30:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "ios-uiaccessibility",
+      "claim": "UIKit UIAccessibility provides accessibility symbols and posting notifications such as announcements.",
+      "source_url": "https://developer.apple.com/documentation/uikit/uiaccessibility",
+      "raw_snippet": "A namespace for accessibility symbols for UIKit apps.",
+      "fetched_at": "2026-09-26T00:10:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T00:10:00Z"
+    },
+    {
+      "claim_id": "swiftui-accessibility-label",
+      "claim": "SwiftUI provides the accessibilityLabel(_:) modifier.",
+      "source_url": "https://developer.apple.com/documentation/swiftui/view-accessibility",
+      "raw_snippet": "func accessibilityLabel(_:)",
+      "fetched_at": "2026-09-26T00:10:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T00:10:00Z"
+    },
+    {
+      "claim_id": "ios-dynamic-type",
+      "claim": "Dynamic Type: set adjustsFontForContentSizeCategory to true so text follows the user size setting.",
+      "source_url": "https://developer.apple.com/documentation/uikit/scaling-fonts-automatically",
+      "raw_snippet": "set the adjustsFontForContentSizeCategory property on the text control to true",
+      "fetched_at": "2026-09-26T00:10:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T00:10:00Z"
+    },
+    {
+      "claim_id": "ios-accessibility-inspector",
+      "claim": "Accessibility Inspector reveals how an app represents itself to accessibility features.",
+      "source_url": "https://developer.apple.com/documentation/accessibility/accessibility-inspector",
+      "raw_snippet": "Reveal how your app represents itself to people using accessibility features.",
+      "fetched_at": "2026-09-26T00:10:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T00:10:00Z"
+    },
+    {
+      "claim_id": "android-content-description",
+      "claim": "Android: describe each UI element in its contentDescription attribute. Cited in the skill as https://developer.android.com/guide/topics/ui/accessibility/apps",
+      "source_url": "https://developer.android.com/guide/topics/ui/accessibility/apps?hl=en",
+      "raw_snippet": "In most cases, you include this description in the element's contentDescription attribute",
+      "fetched_at": "2026-09-26T00:10:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "compose-semantics",
+      "claim": "Compose semantics carry contentDescription for icons. Cited in the skill as https://developer.android.com/develop/ui/compose/accessibility/semantics",
+      "source_url": "https://developer.android.com/develop/ui/compose/accessibility/semantics?hl=en",
+      "raw_snippet": "An Icon contains a contentDescription property (if set by the developer)",
+      "fetched_at": "2026-09-26T00:10:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "espresso-accessibility-checks",
+      "claim": "Espresso accessibility testing is enabled with the AccessibilityChecks class. Cited in the skill as https://developer.android.com/training/testing/espresso/accessibility-checking",
+      "source_url": "https://developer.android.com/training/testing/espresso/accessibility-checking?hl=en",
+      "raw_snippet": "You can enable and configure accessibility testing using the AccessibilityChecks class",
+      "fetched_at": "2026-09-26T00:10:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "rn-accessibility-role",
+      "claim": "React Native accessibilityRole communicates a component purpose to assistive technology; accessibilityLabel names it.",
+      "source_url": "https://reactnative.dev/docs/accessibility",
+      "raw_snippet": "accessibilityRole communicates the purpose of a component to the user of assistive technology.",
+      "fetched_at": "2026-09-26T00:10:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "w3c-wcag2mobile",
+      "claim": "W3C Group Draft Note on applying WCAG 2.2 to mobile applications (guidance, not Israeli law).",
+      "source_url": "https://www.w3.org/TR/wcag2mobile-22/",
+      "raw_snippet": "W3C Group Draft Note 06 May 2025",
+      "fetched_at": "2026-09-26T00:10:00Z",
+      "appears_in": [
+        "references/mobile-apps.md"
+      ]
+    },
+    {
+      "claim_id": "is5568-free-to-public",
+      "claim": "IS 5568 Part 1 states it is freely available to the public.",
+      "source_url": "https://www.gov.il/BlobFolder/legalinfo/israeli_accessibility_standards_pdf/he/sitedocs_si-5568-1-september-2023.pdf",
+      "raw_snippet": "תקן זה זמין לשימוש חופשי של הציבור",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "references/is-5568.md"
+      ],
+      "verified_via": "pdf",
+      "verified_at": "2026-09-26T10:00:00Z"
+    },
+    {
+      "claim_id": "reg34-website-publication",
+      "claim": "תקנה 34(א)(4): publish the accessibility adjustments of the service and its premises via the operator's website, if it has one.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "(4) באמצעות אתר האינטרנט של נותן השירות, אם קיים.",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "reg34-duty",
+      "claim": "Regulation 34(א): an operator must publish the accessibility adjustments made in the service and public places, including aids and services on request.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "חייב בביצוע התאמות לשירות יפרסם את התאמות הנגישות אשר בוצעו בשירות ובמקומות הציבוריים שניתן בהם השירות",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "reg34-he-exemption-publication",
+      "claim": "Regulation 34(ה): an exempt operator publishes the exemption and existing alternative adjustments in the ways listed in 34(א).",
+      "source_url": "https://www.nevo.co.il/law_html/law01/500_865.htm",
+      "raw_snippet": "יפרסם את הפטור ואת ההתאמות החלופיות הקיימות, אם יש כאלה, בדרכים המפורטות בתקנת משנה (א)",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "undertaking-must-precede",
+      "claim": "Section 19נא(ג)(1א): the written undertaking must have been filed at a time preceding the act or omission sued on.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "הוא הגיש כתב התחייבות בשל המעשה או המחדל נושא התביעה לפי הוראות סימן ג' בפרק ט', במועד שקדם לאותו מעשה או מחדל",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "defense-accessibility-order",
+      "claim": "Section 19נא(ג)(1): no damages without proof of harm where an accessibility order was issued and is being complied with.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "הוצא נגדו צו נגישות בשל המעשה או המחדל נושא התביעה, והוא ממלא אחר הוראותיו בלוח הזמנים הקבוע בו",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "defense-prior-claim-3-months",
+      "claim": "Section 19נא(ג)(2)(ב): an earlier claim over the same act filed less than three months before, with the operator fixing on a reasonable timetable.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "התביעה הקודמת הוגשה פחות משלושה חודשים לפני הגשת התביעה הנדונה בבית המשפט",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "defense-commission-inquiry",
+      "claim": "Section 19נא(ג)(3): the operator made an inquiry to the Commission a reasonable time before the claim.",
+      "source_url": "https://www.nevo.co.il/law_html/law01/p214m2_001.htm",
+      "raw_snippet": "הוא פנה לנציבות זמן סביר לפני הגשת התביעה בשאילתה",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "class-actions-s3",
+      "claim": "Class Actions Law s.3(א): a class action may be filed only in a claim listed in the Second Schedule or where a statute expressly allows it.",
+      "source_url": "https://www.nevo.co.il/law_html/law00/74020.htm",
+      "raw_snippet": "לא תוגש תובענה ייצוגית אלא בתביעה כמפורט בתוספת השניה או בענין שנקבע בהוראת חוק מפורשת",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "class-actions-item-9",
+      "claim": "Class Actions Law Second Schedule item 9(1): claims under chapters ד', ה' or ה'1 of the Equal Rights Law.",
+      "source_url": "https://www.nevo.co.il/law_html/law00/74020.htm",
+      "raw_snippet": "תביעה בעילה לפי פרקים ד', ה' או ה'1 לחוק שוויון זכויות לאנשים עם מוגבלות",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "class-actions-s8",
+      "claim": "Class Actions Law s.8(א): certification conditions include common material questions and that a class action is the efficient and fair way to decide.",
+      "source_url": "https://www.nevo.co.il/law_html/law00/74020.htm",
+      "raw_snippet": "התובענה מעוררת שאלות מהותיות של עובדה או משפט המשותפות לכלל חברי הקבוצה",
+      "fetched_at": "2026-09-26T10:00:00Z",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ben-or-prior-notice",
+      "claim": "Tel Aviv District Court, ת\"צ 52621-07-23 בן אור נ' אביב בית השקעות (22.1.2024): a prior notice is required before a class-action request at least for claims under reg 35ה (missing statement) and reg 34 (missing arrangements). District-court level, not a Supreme Court holding.",
+      "source_url": "https://he.afiklaw.com/caselaw/16089",
+      "raw_snippet": "הדרישה לפנייה המוקדמת חלה במקרה שלפנינו, לכל הפחות בשתי עילות התביעה שעניינן הפרת תקנה 35ה לתקנות הנגישות",
+      "fetched_at": "2026-09-26T14:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/is-5568.md",
+        "references/domain-checklist.md"
       ]
     }
   ]

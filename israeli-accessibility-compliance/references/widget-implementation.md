@@ -1,12 +1,141 @@
 # Accessibility Preferences Widget: Implementation Reference
 
-Copy-pasteable TypeScript/React code for a Regulation 35 / IS 5568 accessibility preferences widget. IS 5568 is anchored to WCAG 2.0 AA (it adds some 2.1-aligned criteria; sources differ).
+Copy-pasteable TypeScript/React code for an accessibility preferences widget on an IS 5568 site. No regulation requires such a widget; IS 5568 Part 1 is WCAG 2.0 AA plus Israeli national changes.
 
 **Consult this file when** the user wants to ship the widget itself, not just audit an existing site. The main `SKILL.md` covers compliance guidance; this file covers the implementation.
 
 **Scope reminder:** this widget is a user-preference comfort tool. It toggles CSS classes on `<html>`. It does NOT mutate content DOM, inject `alt` text, rewrite ARIA, or auto-remediate anything. See "Avoiding Overlay Anti-Patterns" in `SKILL.md`.
 
 Stack assumptions: Next.js App Router (13+), React 18+, TypeScript, Tailwind (optional but referenced), shadcn/ui Sheet + Button, framer-motion (optional).
+
+---
+
+## 0. Design Rules (moved from SKILL.md)
+
+Israeli consumer-facing sites commonly expose an accessibility control surface (no regulation mandates a widget as such) that users can operate with the keyboard, typically a floating widget with toggles for contrast, text size, line spacing, cursor, and motion. This widget is a **user-preference comfort tool**, not an automation overlay. The difference is legally and financially significant: the FTC fined accessiBe $1M in April 2025 for misleading claims that its overlay auto-remediated sites (it didn't). The widget you ship must do only what the user asks it to do.
+
+#### Feature Set
+
+A minimum-viable preferences widget exposes these toggles:
+
+| Toggle | Type | Values |
+|--------|------|--------|
+| Highlight links | Binary | on / off |
+| Contrast mode | Cycle | off / high / invert / monochrome |
+| Text size | Cycle | 100% / 115% / 130% / 150% |
+| Line spacing | Cycle | normal / 1.6 / 2.0 |
+| Readable font | Binary | on / off (OS stack only, no webfont) |
+| Highlight headings | Binary | on / off |
+| Black cursor | Binary | on / off |
+| Large cursor | Binary | on / off |
+| Stop animations | Binary | on / off |
+| Reset | Action | clears all preferences |
+
+#### Architecture
+
+Three parts: a preferences store, a UI panel, and a CSS layer.
+
+1. **Preferences store.** A pub-sub store (`subscribe` / `getSnapshot` / `getServerSnapshot` / `set` / `reset`) consumed by React via `useSyncExternalStore`. State is persisted to `localStorage` under a versioned key (e.g., `site_a11y_prefs_v1`). Version mismatches invalidate stored state so schema bumps do not leave stale fields around. Pre-populate the in-memory cache on `notify()` so subscriber fan-out does not trigger redundant `localStorage` reads.
+
+2. **UI panel.** A floating trigger button (`fixed bottom-6 start-6 z-40`, RTL-aware via CSS logical properties) opens a Radix Sheet containing a 3-column grid of toggle cards plus a Reset action. The trigger carries `aria-expanded`, `aria-controls`, and `aria-keyshortcuts="Alt+A"`.
+
+3. **CSS layer.** Every visual change is driven by CSS classes on `<html>` (for example `a11y-contrast-high`, `a11y-text-150`, `a11y-lines-20`, `a11y-reduce-motion`). **The widget never mutates content DOM.** It does not inject `alt` text, reorder nodes, or rewrite ARIA. That is the line that separates a user-preference tool from an auto-remediation overlay. Overlays are not banned; what drew the FTC order against accessiBe was deceptive claims that one made sites compliant.
+
+#### Single-Source Class Rules
+
+The class list applied at runtime must be identical to the one applied by the FOUC bootstrap script (below), or users see a flash of unstyled preferences on every page load. Define the mapping once and generate both the runtime `applyPrefsToElement()` function and the bootstrap `<script>` body from the same table:
+
+```ts
+const CLASS_RULES = [
+  ['a11y-links',           (p) => p.links,                 '!!p.links'],
+  ['a11y-contrast-high',   (p) => p.contrast === 'high',   "p.contrast==='high'"],
+  ['a11y-contrast-invert', (p) => p.contrast === 'invert', "p.contrast==='invert'"],
+  ['a11y-contrast-mono',   (p) => p.contrast === 'mono',   "p.contrast==='mono'"],
+  ['a11y-text-115',        (p) => p.textSize === 115,      'p.textSize===115'],
+  ['a11y-text-130',        (p) => p.textSize === 130,      'p.textSize===130'],
+  ['a11y-text-150',        (p) => p.textSize === 150,      'p.textSize===150'],
+] as const;
+```
+
+#### FOUC Prevention
+
+Preferences live in `localStorage`, which means the first paint happens at default styling and only after React hydrates does the widget re-apply the user's settings. That flash is unacceptable for users who rely on high contrast or 150% text. Fix it with an inline `<script>` in `<head>` that runs synchronously before React hydrates:
+
+```ts
+// Generated from CLASS_RULES so runtime and bootstrap can't drift
+export const A11Y_BOOTSTRAP_SCRIPT =
+  `(function(){try{var raw=localStorage.getItem('site_a11y_prefs_v1');` +
+  `if(!raw)return;var p=JSON.parse(raw);if(p.version!==1)return;` +
+  `var c=document.documentElement.classList;` +
+  CLASS_RULES.map(([cls,,js]) => `c.toggle(${JSON.stringify(cls)},${js})`).join(';') +
+  `}catch(e){}})()`;
+```
+
+In your root layout:
+
+```tsx
+<head>
+  <script dangerouslySetInnerHTML={{ __html: A11Y_BOOTSTRAP_SCRIPT }} />
+</head>
+```
+
+Keep a `useEffect` safety net in the widget component that re-applies classes after mount. If `localStorage` is blocked (private browsing, quota exceeded), the bootstrap silently returns and the safety net covers the case.
+
+#### Keyboard Shortcut: Use `e.code`, Not `e.key`
+
+A shortcut that works from any focus context makes the panel reachable without hunting for the trigger. `Alt+A` is a common convention. Detect it via `e.code`, not `e.key`:
+
+```ts
+if (e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey && e.code === 'KeyA') {
+  e.preventDefault();
+  togglePanel();
+}
+```
+
+On macOS, `Alt+A` produces the dead-key `å` for `e.key`, which fails the intuitive `e.key === 'a'` check. `e.code` is the physical key position and is layout-independent across macOS, Windows, and Linux.
+
+#### ARIA Correctness
+
+- **Binary toggles** (links highlight, readable font, cursor, motion, headings): use `aria-pressed={active}`.
+- **Cycling toggles** (contrast, text size, line spacing): **omit `aria-pressed`**. Reading "pressed" aloud is misleading when the control has more than two states. The accessible name itself should carry the current value: `aria-label={`"${label}: ${valueLabel}"`}`.
+- **Live region** announcing state changes: use `role="status" aria-live="polite"` and render it **outside** the Sheet portal. Portals unmount when the Sheet closes; a live region inside the portal loses late-arriving announcements.
+
+#### framer-motion / Reduced Motion
+
+If the app uses framer-motion, wrap the tree in a `<MotionConfig>` that mirrors the Stop Animations toggle:
+
+```tsx
+<MotionConfig reducedMotion={prefs.reduceMotion ? 'always' : 'user'}>
+```
+
+`'always'` forces reduced motion when the widget toggle is on. `'user'` falls back to the OS `prefers-reduced-motion` media query when the toggle is off, so system-level requests are still honored.
+
+#### Counter-Invert the Widget
+
+If the user enables invert or monochrome contrast, the whole page is filtered. The widget itself must be counter-inverted so the user can still read it to turn the setting off:
+
+```css
+html.a11y-contrast-invert #a11y-widget-panel,
+html.a11y-contrast-invert #a11y-widget-trigger {
+  filter: invert(1) hue-rotate(180deg);
+}
+```
+
+Forget this and users end up with an unreadable widget they cannot deactivate.
+
+#### Print Rule
+
+Reset every `a11y-*` class in print context so high-contrast filters and inverted colors do not follow the user to paper:
+
+```css
+@media print {
+  html[class*="a11y-"] { filter: none !important; }
+  html[class*="a11y-text-"] { font-size: 100% !important; }
+  html[class*="a11y-lines-"] { line-height: normal !important; }
+}
+```
+
+See the numbered sections below for complete copy-pasteable code covering the pub-sub store, the FOUC bootstrap, the React component with the ToggleCard grid, the `MotionA11yProvider`, and the CSS class reference table.
 
 ---
 

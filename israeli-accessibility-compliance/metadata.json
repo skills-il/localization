@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "category": "localization",
   "tags": {
     "he": [
@@ -27,8 +27,8 @@
     "en": "Israeli Accessibility Compliance"
   },
   "display_description": {
-    "he": "אינו חוות דעת מורשה נגישות ואינו ייעוץ משפטי. מטמיעים נגישות אתרים ישראלית לפי תקן IS 5568, שמעוגן ב-WCAG 2.0 AA (התקן מוסיף חלק מקריטריוני 2.1; המקורות חלוקים), לאפליקציות בעברית עם RTL. שימושי כשמשתמש שואל על חוק הנגישות בישראל, תקן 5568, מי פטור מהנגשת אתר, אכיפה וקנסות, רכז נגישות, תמיכת קוראי מסך בעברית או ביקורת נגישות לאתר. מכסה את הדרישות המשפטיות מכוח חוק שוויון זכויות לאנשים עם מוגבלות, מדרגות הפטור לפי מחזור, שני מסלולי האכיפה (פיצוי אזרחי ועיצום כספי של הנציבות) ותקופת התיקון של 60 יום, תפקיד רכז הנגישות, תאימות לקוראי מסך בעברית ותבניות ARIA ל-RTL. לא מיועד להנחיות WCAG כלליות ללא ההקשר הישראלי.",
-    "en": "Not an accessibility surveyor's opinion and not legal advice. Implement Israeli web accessibility compliance per IS 5568 standard, anchored to WCAG 2.0 AA (IS 5568 adds some 2.1-aligned criteria; sources differ), for Hebrew RTL applications. Use when user asks about Israeli accessibility law, \"negishot\" (accessibility), IS 5568, who is exempt from website accessibility, enforcement and penalties, the accessibility coordinator role, Hebrew screen reader support, RTL ARIA patterns, or accessibility audit for Israeli websites. Covers mandatory legal requirements under the Equal Rights for Persons with Disabilities Act, revenue-based exemption tiers, the two enforcement tracks (civil damages and the Commission administrative penalty) and the 60-day cure period, the accessibility coordinator role, Hebrew screen reader compatibility, and RTL-specific ARIA patterns. Do NOT use for general WCAG guidance without Israeli context (use standard a11y resources instead)."
+    "he": "אינו חוות דעת מורשה נגישות ואינו ייעוץ משפטי. מטמיעים נגישות אתרים ישראלית לפי תקן IS 5568, שמבוסס על WCAG 2.0 AA עם שינויים לאומיים, לאתרים ולאפליקציות בעברית עם RTL. שימושי כשמשתמש שואל על חוק הנגישות בישראל, תקן 5568, מי פטור מהנגשת אתר, אכיפה וקנסות, רכז נגישות, תמיכת קוראי מסך בעברית או ביקורת נגישות לאתר. מכסה את הדרישות המשפטיות מכוח חוק שוויון זכויות לאנשים עם מוגבלות, מדרגות הפטור לפי מחזור, שני מסלולי האכיפה (פיצוי אזרחי ועיצום כספי של הנציבות) ותקופת התיקון של 60 יום, תפקיד רכז הנגישות, תאימות לקוראי מסך בעברית ותבניות ARIA ל-RTL. לא מיועד להנחיות WCAG כלליות ללא ההקשר הישראלי, או לבניית ווידג'ט העדפות נגישות (השתמשו ב-wcag-accessibility-widget).",
+    "en": "Not an accessibility surveyor's opinion and not legal advice. Implement Israeli web accessibility compliance per IS 5568 standard, which is WCAG 2.0 AA plus Israeli national changes, for Hebrew RTL sites and apps. Use when user asks about Israeli accessibility law, \"negishot\" (accessibility), IS 5568, who is exempt from website accessibility, enforcement and penalties, the accessibility coordinator role, Hebrew screen reader support, RTL ARIA patterns, or accessibility audit for Israeli websites. Covers mandatory legal requirements under the Equal Rights for Persons with Disabilities Act, revenue-based exemption tiers, the two enforcement tracks (civil damages and the Commission administrative penalty) and the 60-day cure period, the accessibility coordinator role, Hebrew screen reader compatibility, and RTL-specific ARIA patterns. Do NOT use for general WCAG guidance without Israeli context, or for building a self-hosted preferences widget (use wcag-accessibility-widget)."
   },
   "supported_agents": [
     "claude-code",
