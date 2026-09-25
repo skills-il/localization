@@ -57,24 +57,26 @@ When mixing Hebrew and English/numbers:
   direction: ltr;
 }
 
-/* For inline elements with mixed content */
-.bidi-override {
-  unicode-bidi: bidi-override;
+/* Mixed or unknown-direction content: each paragraph picks its own base direction */
+.user-content {
+  unicode-bidi: plaintext;
 }
 ```
 
+Do not use `unicode-bidi: bidi-override` for mixed content. It switches off the implicit part of the bidi algorithm and lays every character out strictly in the `direction` value, so English inside an RTL override renders letter-reversed. Reserve it (or `<bdo>`) for deliberately forcing a known visual order.
+
 Common bidi issues:
-- Phone numbers appearing reversed: Wrap in `<bdo dir="ltr">`
+- Phone numbers written with spaces (`050 321 4450`) or a `+972` prefix appearing scrambled: wrap in `<bdo dir="ltr">`. A plain hyphenated `050-321-4450` already stays intact, because a single hyphen between two numbers joins them into one number run.
 - Punctuation at wrong end of sentence: Use `unicode-bidi: isolate`
 - URLs/emails in Hebrew text: Wrap in `<span dir="ltr">`
 
 **Numbers and dates:** Standalone numbers and DD/MM/YYYY dates inside Hebrew text usually render fine because digits are weak-LTR, but a number that is immediately followed by a sign, currency, or a second number can flip. When a value must keep a fixed visual order, isolate it with `<span dir="ltr">` or `unicode-bidi: isolate` rather than trusting the default bidi resolution.
 
-**Format the value, then isolate it.** Bidi isolation only stops a *correct* string from flipping; it does not produce the right string. Use `Intl` to format, then isolate: `Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' })` for shekel amounts and `Intl.DateTimeFormat('he-IL')` for dates, and wrap the output in `<span dir="ltr">` (or `unicode-bidi: isolate`) if it sits inline in Hebrew prose. Devs commonly conflate the two and apply bidi fixes to a formatting bug (or vice versa).
+**Format the value, then isolate it.** Bidi isolation only stops a *correct* string from flipping; it does not produce the right string. Use `Intl` to format, then isolate: `Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' })` for shekel amounts and `Intl.DateTimeFormat('he-IL')` for dates, and wrap the output in `<bdi>` (or `unicode-bidi: isolate`) if it sits inline in Hebrew prose. Do not force `dir="ltr"` on `he-IL` output: the currency string carries its own right-to-left marks (U+200F) and is laid out for an RTL context, so forcing LTR moves the ₪ to the other side of the number. The distinction: force `dir="ltr"` on raw digit strings such as phone numbers, which carry no direction marks, and only isolate Intl output, which does. Devs commonly conflate the two and apply bidi fixes to a formatting bug (or vice versa).
 
 **Hebrew dates need the calendar extension.** `Intl.DateTimeFormat('he-IL')` resolves to the Gregorian calendar (`resolvedOptions().calendar === 'gregory'`), so a Hebrew locale alone will not give you a Hebrew date. Request the calendar through the `-u-ca-` Unicode extension: `Intl.DateTimeFormat('he-IL-u-ca-hebrew')` formats 20 September 2026 as `9 בתשרי 5787`. Use it for holiday, yahrzeit, and dual-date displays, and keep the Gregorian format for anything users file with an authority.
 
-**Form inputs need `dir="auto"`.** Put `dir="auto"` on every `<input>` and `<textarea>` so each value resolves its own base direction. This is the most visible end-user RTL bug: an email or an English word typed into a Hebrew form jumps to the wrong side without it. Note that the placeholder does not trigger auto-detection, so set the resting direction with CSS if the empty-field look matters.
+**Form inputs need `dir="auto"`.** Put `dir="auto"` on every `<input>` and `<textarea>` so each value resolves its own base direction. This is the most visible end-user RTL bug: an email or an English word typed into a Hebrew form jumps to the wrong side without it. Note that the placeholder does not trigger auto-detection, so set the resting direction with CSS if the empty-field look matters. Two exceptions. A `type="tel"` input is already LTR by default (the HTML spec gives a tel input without `dir` an LTR directionality), so leave `dir` off it. For `email` and `url` fields most values are Latin, so set `dir="ltr"` deliberately: with `dir="auto"` a value that starts with Hebrew, such as an address on the Hebrew-script domain `.ישראל`, flips the field to RTL mid-typing. Weigh that against the cost: `dir="ltr"` also left-aligns a Hebrew placeholder.
 
 **`<bdi>` vs `<bdo>`:** use `<bdo dir="ltr">` only when you want to *force* a direction (it overrides the bidi algorithm). For user-generated or unknown-direction content, prefer `<bdi>`, which *isolates* the content so its direction is auto-detected and cannot leak into the surrounding text:
 
@@ -82,6 +84,8 @@ Common bidi issues:
 <!-- User name could be Hebrew or Latin; bdi isolates it either way -->
 <p>שלום, <bdi>{{ userName }}</bdi>, ברוך הבא</p>
 ```
+
+**Pair `dir` with `lang` on embedded runs.** `dir` only fixes visual order. Mark an English term inside Hebrew prose as `<span lang="en" dir="ltr">`: speech synthesizers and Braille translators use the language tag to switch language mode, and `:lang()` font and hyphenation rules key on it. Without it, assistive tech has no signal to leave Hebrew mode for that run.
 
 For free-text fields, `dir="auto"` (or `unicode-bidi: plaintext` in CSS) lets the browser pick the base direction per value, which is the correct default for comments, names, and search queries where you do not know the language in advance.
 
@@ -128,13 +132,13 @@ font-family: 'Heebo', 'Assistant', 'Rubik', 'Noto Sans Hebrew', sans-serif;
 
 Typography settings:
 ```css
-body[dir="rtl"] {
-  font-size: 16px; /* Hebrew needs slightly larger than Latin */
+html[dir="rtl"] body {
   line-height: 1.7;
-  letter-spacing: normal; /* NEVER add letter-spacing for Hebrew */
-  word-spacing: 0.05em; /* Slight word spacing improves readability */
+  letter-spacing: normal; /* no tracking on running text */
 }
 ```
+
+**Letter-spacing is a Hebrew emphasis device, so do not ban it globally.** Keep running text at `letter-spacing: normal`, but Hebrew typography deliberately uses letter-spacing (tracking) to emphasise names, terms, and concepts. A blanket `letter-spacing: 0 !important` reset in an RTL theme strips that legitimate emphasis.
 
 **Hebrew has no letter case.** The widely used modern scripts with case are Latin, Greek, Armenian, and Cyrillic, Hebrew is not among them, so `text-transform: uppercase` / `capitalize` and `font-variant: small-caps` are no-ops on Hebrew letters. They are *not* no-ops on the Latin words embedded in the same element: a shared design-system button or heading that uppercases its label leaves the Hebrew untouched while shouting "GMAIL" or "PDF" beside it. Remove case transforms from the RTL theme rather than assuming they do nothing.
 
@@ -167,11 +171,13 @@ Prefer logical property utilities over `rtl:`/`ltr:` variants:
 
 Reserve `rtl:` / `ltr:` variants only for cases logical properties cannot handle (e.g., directional icons, transforms).
 
+Some utilities have no logical form and stay physical in v4: `translate-x-*` (slide-in drawers and sheets), `origin-left` / `origin-right`, and `bg-linear-to-r` / `bg-linear-to-l`. Pair each with an `rtl:` override, for example `-translate-x-full rtl:translate-x-full` for a drawer that enters from the start edge.
+
 **Tailwind v4 note:** v4 (GA since early 2025, currently v4.3) uses CSS-first configuration (`@import "tailwindcss"` in CSS) instead of `tailwind.config.js`. Logical utilities work identically in both v3 and v4. As of v4.2 (February 2026) the logical *inset* utilities `start-*`/`end-*` are deprecated in favor of `inset-s-*`/`inset-e-*` (the old names still work; no removal date has been announced); the margin/padding utilities `ms-*`/`me-*`/`ps-*`/`pe-*` are unaffected.
 
 **Next.js App Router:**
 ```tsx
-// app/layout.tsx
+// app/[locale]/layout.tsx (a plain app/layout.tsx receives no locale param)
 import { Heebo } from 'next/font/google';
 
 const heebo = Heebo({
@@ -218,6 +224,8 @@ const cacheRtl = createCache({
 const theme = createTheme({ direction: 'rtl' });
 ```
 
+In the Next.js App Router, pass the same options to MUI's `AppRouterCacheProvider` (from `@mui/material-nextjs/v16-appRouter`, matching your Next.js major) instead of building a separate cache: `<AppRouterCacheProvider options={{ key: 'muirtl', stylisPlugins: [prefixer, rtlPlugin] }}>`, with `<ThemeProvider theme={theme}>` inside it. Its `options` prop is passed straight to Emotion's `createCache`.
+
 `@mui/stylis-plugin-rtl` exposes only a **default** export, so a named `import { rtlPlugin }` compiles but yields `undefined`, and Emotion silently skips the plugin: the app looks LTR with no error. Confirm the exact import name and setup against the current MUI RTL guide (https://mui.com/material-ui/customization/right-to-left/) for your MUI version.
 
 **Portalled UI (modals, dropdowns, tooltips, toasts).** Components rendered through a portal (React `createPortal`, Radix, MUI Menu, Floating UI) mount at `document.body` and inherit direction from there, but many libraries assume LTR. Set `dir` on `<html>` AND pass the library's own direction setting: Radix needs a `<DirectionProvider dir="rtl">` wrapper, MUI needs `direction: 'rtl'` in the theme. Otherwise popovers open on the wrong side even when the rest of the page is correct.
@@ -228,16 +236,16 @@ const theme = createTheme({ direction: 'rtl' });
 3. Sliders/carousels -- swipe direction should reverse
 4. Form labels -- should be right-aligned
 5. Breadcrumbs -- separator direction should reverse
-6. Tables -- columns reorder automatically, but force numeric, code, and date cells back to LTR with `<td dir="ltr">` or `text-align: end`
+6. Tables -- columns reorder automatically, but force numeric, code, and date cells back to LTR with `<td dir="ltr">`, and align them consistently (for example `text-align: end`; alignment alone does not change direction)
 7. Charts -- x-axis may need to reverse for Hebrew readers (SVG has no logical properties, so use the charting library's `reversed`/`rtl` option, not CSS)
 8. Shadows and gradients -- physical offsets/angles do not auto-flip (see Step 3)
 9. Fixed and sticky chrome (headers, toasts, FABs, drawers) -- hardcoded `left: 0` / `right: 0` does not flip; use `inset-inline-start` / `inset-inline-end`
-10. Scrollbars sit on the left in RTL -- reserve space with `scrollbar-gutter: stable` to avoid reflow; `text-wrap: balance` improves Hebrew headings
+10. Scrollbars sit on the left in RTL -- reserve space with `scrollbar-gutter: stable` (Tailwind v4.3+: `scrollbar-gutter-stable`) to avoid reflow; `text-wrap: balance` improves Hebrew headings
 
 ### Step 8: Verify the RTL Layout
 Authoring rules are not enough, verify before shipping:
 - Flip the whole app to `dir="rtl"` and scan for anything that did not move (it is still using a physical property).
-- Test one canonical mixed string in every text surface: `שלום John 050-1234567 ₪1,234` exercises Hebrew, Latin, a phone number, and a currency amount at once.
+- Test one canonical mixed string in every text surface: `שלום John +972 50-123-4567 ₪1,234` exercises Hebrew, Latin, an international phone number, and a currency amount at once.
 - Open every modal, dropdown, tooltip, and toast (portalled UI is the most common RTL miss).
 - Check fixed/sticky chrome, charts/SVG, and form fields with `dir="auto"`.
 - Automate it: render the same pages twice under `dir="rtl"` and `dir="ltr"` in Playwright and screenshot-diff them. Manual flipping is the step teams skip first, and a physical property that creeps back in shows up as a pixel diff long before a user reports it.
@@ -273,14 +281,17 @@ With Tailwind, replace `ml-4 pr-3 text-left border-l-4` with `ms-4 pe-3 text-sta
 User says: "Numbers are showing backwards in my Hebrew text"
 
 ```html
-<!-- Wrong: phone number renders as 0544-123-050 -->
-<p>התקשרו אלינו: 050-321-4450</p>
+<!-- Wrong: space-separated groups render in reverse order (4450 321 050) -->
+<p>התקשרו אלינו: 050 321 4450</p>
+
+<!-- Wrong: the +972 prefix jumps to the far end (50-321-4450 972+) -->
+<p>התקשרו אלינו: +972 50-321-4450</p>
 
 <!-- Correct: isolate the LTR content -->
-<p>התקשרו אלינו: <span dir="ltr">050-321-4450</span></p>
+<p>התקשרו אלינו: <span dir="ltr">+972 50-321-4450</span></p>
 ```
 
-Use `unicode-bidi: isolate` on the containing span for CSS-only solutions.
+A hyphen-only number such as `050-321-4450` renders correctly without help, so check the actual format before blaming bidi. Use `unicode-bidi: isolate` with `direction: ltr` on the containing span for CSS-only solutions.
 
 ### Example 3: Tailwind RTL Navigation
 User says: "My sidebar is on the wrong side in Hebrew"
@@ -307,20 +318,21 @@ User says: "My sidebar is on the wrong side in Hebrew"
 - CSS `text-align: left` is wrong for Hebrew. Use `text-align: start` which respects the document direction. Agents frequently hardcode `left` alignment in CSS.
 - `margin-left` and `padding-right` do not flip in RTL mode. Use CSS logical properties: `margin-inline-start` and `padding-inline-end` instead. Agents trained on LTR CSS will generate physical properties.
 - Flexbox `row` direction auto-reverses in RTL, but `row-reverse` also reverses, causing a double-flip back to LTR order. Agents may add `row-reverse` thinking it creates RTL, but it actually creates LTR within an RTL context.
-- Phone numbers, credit card numbers, and code snippets must remain LTR even inside RTL containers. Wrap them in `<bdo dir="ltr">` or use `direction: ltr` on the containing element. Agents often let these inherit RTL.
+- Phone numbers, credit card numbers, code, file paths, and CLI commands must remain LTR even inside RTL containers. Wrap inline values in `<bdo dir="ltr">`, and set `code, pre, kbd, samp { direction: ltr; unicode-bidi: isolate; }` once in the RTL theme so every code block and keyboard shortcut is covered. Agents often let these inherit RTL, which moves a trailing slash or flag to the wrong end.
+- In an RTL scroll container, `scrollLeft` is `0` at the start (rightmost) position and becomes increasingly NEGATIVE toward the end. Custom carousels and "next" buttons written as `el.scrollLeft += 300`, or clamped with `Math.max(0, ...)`, scroll the wrong way or stick at the start. Use `el.scrollBy({ left: isRtl ? -300 : 300 })` and treat `scrollLeft <= 0` as the normal RTL range.
 
 ## Reference Links
 
 | Source | URL | What to Check |
 |--------|-----|---------------|
 | MDN CSS Logical Properties | https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values | Full property list, browser support tables |
-| MDN `:dir()` pseudo-class | https://developer.mozilla.org/en-US/docs/Web/CSS/:dir | Syntax, behavior vs `[dir]` attribute selectors |
+| MDN `:dir()` pseudo-class | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:dir | Syntax, behavior vs `[dir]` attribute selectors |
 | Can I use: `:dir()` | https://caniuse.com/css-dir-pseudo | Current browser support table |
 | MDN `<bdi>` element | https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/bdi | Isolating user-generated bidi content |
 | Tailwind CSS RTL Support | https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support | `rtl:` / `ltr:` variant syntax |
 | Tailwind Logical Properties | https://tailwindcss.com/docs/margin | `ms-*`, `me-*`, `ps-*`, `pe-*` utilities |
 | MUI Right-to-left | https://mui.com/material-ui/customization/right-to-left/ | `@mui/stylis-plugin-rtl` setup for current MUI |
-| Google Fonts Hebrew | https://fonts.google.com/?subset=hebrew | Available Hebrew font families |
+| Google Fonts Hebrew | https://fonts.google.com/?lang=he_Hebr | Available Hebrew font families |
 | W3C Internationalization | https://www.w3.org/International/articles/inline-bidi-markup/ | Unicode bidi algorithm, markup best practices |
 
 ## Troubleshooting

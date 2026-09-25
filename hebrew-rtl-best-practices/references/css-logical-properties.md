@@ -64,10 +64,11 @@ font-family: 'Frank Ruhl Libre', 'David Libre', 'Noto Serif Hebrew', serif;
 
 ### Monospace (for code with Hebrew comments)
 ```css
-font-family: 'Cousine', 'Noto Sans Mono', monospace;
+font-family: 'Cousine', monospace;
 ```
+Cousine ships a Hebrew subset on Google Fonts. Not every monospace family has one, so check a replacement family's subsets before adding it, or Hebrew comments will silently fall back to a system font.
 
 ## Browser Support Notes
-- CSS Logical Properties are supported in all modern browsers (Chrome 89+, Firefox 66+, Safari 15+, Edge 89+)
+- CSS Logical Properties are supported in all modern browsers (Chrome 89+, Firefox 66+, Safari 15+, Edge 89+), but a few logical values arrived much later: `float: inline-start` / `inline-end` and `clear: inline-start` / `inline-end` only in Chrome and Edge 118 (Firefox 55, Safari 15), `resize: inline` / `block` in Chrome and Edge 118 (Firefox 63, Safari 16), and the `overflow-inline` / `overflow-block` properties only in Chrome and Edge 135 and Safari 26 (Firefox 69). Keep a physical fallback for these if you support older browsers.
 - For older browser support, use PostCSS plugin `postcss-logical` as a fallback
-- Flexbox and Grid automatically respect `dir="rtl"` -- no additional CSS needed for basic layout reversal
+- Flexbox and Grid automatically respect `dir="rtl"` -- no additional CSS needed for basic layout reversal. This includes line-based Grid placement: in an RTL grid, line 1 is the right-hand edge and line -1 the left, so `grid-column: 1 / 3` mirrors without any override.
