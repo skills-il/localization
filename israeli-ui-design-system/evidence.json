@@ -5,10 +5,10 @@
   "claims": [
     {
       "claim_id": "hebrew-google-fonts",
-      "claim": "Heebo, Assistant, Rubik, Frank Ruhl Libre, and Secular One are Hebrew fonts on Google Fonts; their Latin pairings (Inter, Source Sans 3, Roboto, Merriweather, Montserrat) are also on Google Fonts. Source Sans Pro was renamed Source Sans 3 (Adobe, 2021) and Google Fonts dropped the old name.",
-      "source_url": "https://fonts.google.com/?subset=hebrew",
-      "raw_snippet": "Hebrew fonts on Google Fonts include Heebo, Assistant, Rubik, Frank Ruhl Libre, and Secular One. Source Sans 3 (formerly Source Sans Pro) is available on Google Fonts.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "claim": "Heebo, Assistant, Rubik, Frank Ruhl Libre, Secular One, Noto Sans Hebrew and David Libre all carry a hebrew subset on Google Fonts (browse: https://fonts.google.com/?subset=hebrew; data from the metadata endpoint).",
+      "source_url": "https://fonts.google.com/metadata/fonts",
+      "raw_snippet": "\"family\": \"Heebo\"",
+      "fetched_at": "2026-09-26T01:10:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
@@ -54,19 +54,6 @@
       "verified_at": "2026-08-18"
     },
     {
-      "claim_id": "shadcn-ui",
-      "claim": "shadcn/ui provides RTL-friendly component recipes and primitives.",
-      "source_url": "https://ui.shadcn.com",
-      "raw_snippet": "The Foundation for your Design System - shadcn/ui",
-      "fetched_at": "2026-08-18",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ],
-      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
-      "verified_at": "2026-08-18"
-    },
-    {
       "claim_id": "wcag-contrast",
       "claim": "WCAG AA requires at least 4.5:1 contrast for normal text and 3:1 for large text and UI components; encode these into design tokens. The skill also links https://www.w3.org/WAI/standards-guidelines/wcag/.",
       "source_url": "https://www.w3.org/TR/WCAG21/#contrast-minimum",
@@ -81,14 +68,16 @@
     },
     {
       "claim_id": "igds-figma",
-      "claim": "The Israeli Government Design System (IGDS) is published as a Figma Community file ('IGDS Design System File 2.0') used to unify gov.il user experience.",
+      "claim": "The earlier IGDS Design System File 2.0 is still listed on Figma Community: https://www.figma.com/community/file/1426262348206342909/igds-design-system-file-2-0",
       "source_url": "https://www.figma.com/community/file/1426262348206342909/igds-design-system-file-2-0",
-      "raw_snippet": "IGDS Design System File 2.0 on Figma Community: the Israeli Government Design System with tokens, components, and RTL Hebrew illustrations.",
-      "fetched_at": "2026-06-21T00:00:00Z",
+      "raw_snippet": "The Israeli Government Design System was created to enable a unified and consistent user experience across all government websites.",
+      "fetched_at": "2026-09-26T01:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T01:00:00Z"
     },
     {
       "claim_id": "intl-shekel",
@@ -124,6 +113,268 @@
       "raw_snippet": "<dateFormatLength type=\"short\"><dateFormat><pattern>d.M.y</pattern>",
       "fetched_at": "2026-09-20T00:00:00Z",
       "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "igds-3-0",
+      "claim": "The current Israeli Government DS 3.0 Figma Community file (CC BY 4.0, support address at digital.gov.il): https://www.figma.com/community/file/1637743894870099523/israeli-government-ds-3-0",
+      "source_url": "https://www.figma.com/community/file/1637743894870099523/israeli-government-ds-3-0",
+      "raw_snippet": "Support: rachelik@digital.gov.il",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T01:00:00Z"
+    },
+    {
+      "claim_id": "shadcn-rtl",
+      "claim": "shadcn/ui RTL: rtl: true in components.json converts physical classes to logical ones, supported icons flip with rtl:rotate-180, only for shadcn create styles (base-nova, radix-nova); DirectionProvider via shadcn add direction.",
+      "source_url": "https://ui.shadcn.com/docs/rtl",
+      "raw_snippet": "Automatic RTL transformation via the CLI is only available for projects created using shadcn create with the new styles",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "shadcn-rtl-icons",
+      "claim": "shadcn/ui flips supported icons with rtl:rotate-180.",
+      "source_url": "https://ui.shadcn.com/docs/rtl",
+      "raw_snippet": "Supported icons are automatically flipped using rtl:rotate-180",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "google-fonts-metadata",
+      "claim": "Google Fonts metadata lists each family subsets and weights (e.g. Heebo has hebrew and latin subsets; Inter has no hebrew subset): https://fonts.google.com/metadata/fonts",
+      "source_url": "https://fonts.google.com/metadata/fonts",
+      "raw_snippet": "\"family\": \"Heebo\"",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "references/hebrew-typography.md"
+      ]
+    },
+    {
+      "claim_id": "tailwind-inset-s-4-2",
+      "claim": "Tailwind v4.2.0 (2026-02-18) added inset-s-*/inset-e-*/inset-bs-*/inset-be-* and deprecated start-*/end-* in favour of inset-s-*/inset-e-*; it also added pbs-/pbe-/mbs-/mbe- utilities.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/main/CHANGELOG.md",
+      "raw_snippet": "Deprecate `start-*` and `end-*` utilities in favor of `inset-s-*` and `inset-e-*` utilities",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tailwind-4-2-block-utilities",
+      "claim": "Tailwind v4.2.0 added pbs-*/pbe-* for padding-block-start/end.",
+      "source_url": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/main/CHANGELOG.md",
+      "raw_snippet": "Add `pbs-*` and `pbe-*` utilities for `padding-block-start` and `padding-block-end`",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tailwind-theme-inline",
+      "claim": "Tailwind v4: use @theme inline when a theme variable references another variable.",
+      "source_url": "https://tailwindcss.com/docs/theme",
+      "raw_snippet": "When defining theme variables that reference other variables, use the inline option",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "next-font-subsets",
+      "claim": "next/font: failing to specify any subsets while preload is true results in a warning; subsets must be listed explicitly.",
+      "source_url": "https://nextjs.org/docs/app/api-reference/components/font",
+      "raw_snippet": "Failing to specify any subsets while preload is true will result in a warning.",
+      "fetched_at": "2026-09-26T11:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "dtcg-2025-10",
+      "claim": "DTCG Format Module 2025.10 is a Final Community Group Report dated 28 October 2025.",
+      "source_url": "https://www.designtokens.org/TR/2025.10/format/",
+      "raw_snippet": "Final Community Group Report 28 October 2025",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "dtcg-color-object",
+      "claim": "DTCG 2025.10 color $value is an object with colorSpace, components and optional hex.",
+      "source_url": "https://www.designtokens.org/TR/2025.10/color/",
+      "raw_snippet": "\"colorSpace\" : \"srgb\" , \"components\" : [ 1 , 0 , 1 ] , \"alpha\" : 1 , \"hex\" : \"#ff00ff\"",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "style-dictionary-dtcg",
+      "claim": "Style Dictionary has first-class DTCG support since v4; 2025.10 not fully supported yet, work in progress in v5.",
+      "source_url": "https://styledictionary.com/info/dtcg/",
+      "raw_snippet": "the latest format 2025.10 does not have full support yet in Style Dictionary",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "style-dictionary-output-references",
+      "claim": "Style Dictionary options.outputReferences keeps references in the output.",
+      "source_url": "https://styledictionary.com/reference/hooks/formats/predefined/",
+      "raw_snippet": "Whether or not to keep references (a -> b -> c) in the output.",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "material-mirroring",
+      "claim": "Material bidirectionality: do not mirror media playback controls, clocks/refresh/history icons, non-directional icons, charts and numbers; mirror back/forward arrows.",
+      "source_url": "https://m2.material.io/design/usability/bidirectionality.html",
+      "raw_snippet": "Do not mirror media playback buttons and the media progress indicator as they refer to the direction of tape being played, not the direction of time.",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T01:00:00Z"
+    },
+    {
+      "claim_id": "hebrew-letter-heights",
+      "claim": "The font metrics in references/hebrew-typography.md were computed on 2026-09-26 with fontTools from the TTF files named in each family's google/fonts METADATA.pb (OS/2 sxHeight / unitsPerEm; glyph bounds of mem and H). Heebo: Latin x-height 0.53, Hebrew mem 0.59, Latin H 0.71 em, so Hebrew letters sit between the Latin x-height and cap height and Hebrew reads smaller than Latin at the same size.",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/heebo/METADATA.pb",
+      "raw_snippet": "filename: \"Heebo[wght].ttf\"",
+      "fetched_at": "2026-09-26T01:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/hebrew-typography.md"
+      ]
+    },
+    {
+      "claim_id": "shadcn-portal-dir",
+      "claim": "shadcn/ui docs: pass the dir prop to portal elements as a workaround for a known tw-animate-css issue with logical slide utilities.",
+      "source_url": "https://ui.shadcn.com/docs/rtl",
+      "raw_snippet": "There is a known issue with the tw-animate-css library where the logical slide utilities are not working as expected.",
+      "fetched_at": "2026-09-26T11:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "material-undo-redo",
+      "claim": "Material: undo/redo imply both horizontal and circular direction; in RTL choose one.",
+      "source_url": "https://m2.material.io/design/usability/bidirectionality.html",
+      "raw_snippet": "In RTL, choose whether to show circular or horizontal direction.",
+      "fetched_at": "2026-09-26T11:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-26T11:00:00Z"
+    },
+    {
+      "claim_id": "bidi-mirrored-chevrons",
+      "claim": "> (U+003E) and › (U+203A) are Bidi_Mirrored, so browsers already flip them in RTL.",
+      "source_url": "https://www.unicode.org/Public/UCD/latest/ucd/BidiMirroring.txt",
+      "raw_snippet": "203A; 2039 # SINGLE RIGHT-POINTING ANGLE QUOTATION MARK",
+      "fetched_at": "2026-09-26T11:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "he-il-week-info",
+      "claim": "Intl.Locale getWeekInfo() returns firstDay, weekend and minimalDays; some runtimes implemented it as a weekInfo accessor. For he-IL: firstDay 7, weekend [5, 6] (checked in Node v20.19.6).",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo",
+      "raw_snippet": "In some versions of some browsers, this method was implemented as an accessor property called weekInfo",
+      "fetched_at": "2026-09-26T11:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "tz-check-digit-padding",
+      "claim": "Israeli ID numbers are nine digits, the last (rightmost) a check digit, left-padded with zeros to nine digits.",
+      "source_url": "https://he.wikipedia.org/wiki/%D7%9E%D7%A1%D7%A4%D7%A8_%D7%96%D7%94%D7%95%D7%AA_(%D7%99%D7%A9%D7%A8%D7%90%D7%9C)",
+      "raw_snippet": "כאשר הספרה האחרונה (מימין) היא ספרת ביקורת",
+      "fetched_at": "2026-09-26T11:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "tz-check-digit-algorithm",
+      "claim": "Check-digit validation: multiply digits alternately by 1 and 2, add the digits of each product, total must be divisible by 10. Example 050012343 validates.",
+      "source_url": "https://he.wikipedia.org/wiki/%D7%A1%D7%A4%D7%A8%D7%AA_%D7%91%D7%99%D7%A7%D7%95%D7%A8%D7%AA",
+      "raw_snippet": "return (sum % 10 === 0);",
+      "fetched_at": "2026-09-26T11:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "arial-hebrew",
+      "claim": "Arial (as shipped by Microsoft) supports Hebrew: its supported code pages include 1255 Hebrew and its script tags include Hebr.",
+      "source_url": "https://learn.microsoft.com/en-us/typography/font-list/arial",
+      "raw_snippet": "1255 Hebrew",
+      "fetched_at": "2026-09-26T13:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "native-date-input-locale",
+      "claim": "A native <input type=\"date\"> displays the date formatted by the browser locale, while the value is always yyyy-mm-dd.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/date",
+      "raw_snippet": "the displayed date is formatted based on the locale of the user's browser",
+      "fetched_at": "2026-09-26T13:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "transform-not-on-inline-boxes",
+      "claim": "A CSS transform does not apply to a non-replaced inline box, so an icon-font chevron must be inline-block (or an SVG) for scaleX(-1) to take effect.",
+      "source_url": "https://www.w3.org/TR/css-transforms-1/",
+      "raw_snippet": "all elements whose layout is governed by the CSS box model except for non-replaced inline boxes",
+      "fetched_at": "2026-09-25T22:03:58+00:00",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"

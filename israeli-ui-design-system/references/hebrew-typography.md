@@ -32,15 +32,17 @@
 
 ## Hebrew Font Metrics
 
-| Font | x-height | Weight Range | Google Fonts | Characters |
-|------|----------|-------------|--------------|------------|
-| Heebo | 0.52 | 100-900 | Yes | Hebrew + Latin |
-| Rubik | 0.50 | 300-900 | Yes | Hebrew + Latin |
-| Assistant | 0.51 | 200-800 | Yes | Hebrew + Latin |
-| Frank Ruhl Libre | 0.45 | 300-900 | Yes | Hebrew + Latin |
-| Secular One | 0.53 | 400 | Yes | Hebrew + Latin |
-| Noto Sans Hebrew | 0.52 | 100-900 | Yes | Hebrew only |
-| David Libre | 0.44 | 400-700 | Yes | Hebrew + Latin |
+| Font | Latin x-height | Hebrew letter height (מ) | Latin cap height | Weight Range | Scripts |
+|------|----------------|--------------------------|------------------|-------------|---------|
+| Heebo | 0.53 | 0.59 | 0.71 | 100-900 | Hebrew + Latin |
+| Rubik | 0.52 | 0.57 | 0.70 | 300-900 | Hebrew + Latin + Arabic + Cyrillic |
+| Assistant | 0.50 | 0.55 | 0.66 | 200-800 | Hebrew + Latin |
+| Frank Ruhl Libre | 0.47 | 0.59 | 0.66 | 300-900 | Hebrew + Latin |
+| Secular One | 0.52 | 0.55 | 0.67 | 400 | Hebrew + Latin |
+| Noto Sans Hebrew | 0.54 | 0.59 | 0.71 | 100-900 | Hebrew + Latin |
+| David Libre | 0.48 | 0.53 | 0.62 | 400, 500, 700 | Hebrew + Latin |
+
+Heights are fractions of the em. They were measured on 2026-09-26 from the Google Fonts TTF files in the `google/fonts` GitHub repo: x-height from the OS/2 `sxHeight` field divided by `unitsPerEm`, the other two from the glyph bounding boxes of `מ` and `H`. Subsets and weights are from `https://fonts.google.com/metadata/fonts`. The pattern is what matters: Hebrew letters sit between the Latin x-height and cap height, which is why Hebrew reads smaller than mixed-case Latin at the same font size.
 
 ## Font Loading Strategies
 
@@ -93,7 +95,7 @@ Slight word spacing (0.03-0.05em) improves Hebrew readability without affecting 
 ## Bilingual Typography
 
 When designing for Hebrew + English content:
-1. Hebrew font should be listed first in font-family
+1. In a two-font pairing, list the Latin-only face first (e.g. `'Inter', 'Heebo', sans-serif`): Hebrew glyphs fall through to the Hebrew face. Every Hebrew font above also contains Latin, so listing it first means the Latin face is never used
 2. Hebrew text needs larger line-height than Latin
 3. Hebrew headings may need to be 1-2px larger than Latin equivalents
 4. Use `lang` attribute to apply language-specific styles

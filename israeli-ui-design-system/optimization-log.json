@@ -32,6 +32,25 @@
         "RTL visual-regression testing story",
         "icon mirroring allow/deny list as tokens"
       ]
+    },
+    {
+      "version": "1.5.0",
+      "date": "2026-09-26",
+      "lessons": [
+        "CORRECTNESS: Step 2 said Hebrew is 'visually larger' than Latin at the same size; the reference file said the opposite. Measured from the google/fonts TTFs with fontTools: Hebrew letters sit between the Latin x-height and cap height (Heebo mem 0.59 vs H 0.71 em), so Hebrew reads SMALLER. Fixed and the reference metrics table replaced with measured values (the old x-height column was unsourced and off by up to 0.04 em; Noto Sans Hebrew is not 'Hebrew only').",
+        "CORRECTNESS: font stack 'var(--font-hebrew), var(--font-latin)' put sans-serif mid-list and Heebo (which has Latin glyphs) first, so Inter never rendered. Now Latin-first: 'Inter', 'Heebo', ..., sans-serif. Reference rule 'Hebrew font first' corrected. Gotcha calling Rubik/Heebo 'system fonts' corrected.",
+        "CORRECTNESS: metadata display_description (he+en) still said DD/MM/YYYY after 1.4.0 moved the body to dot-separated dates; fixed. Live FAQ also still said DD/MM/YYYY and 'dir=auto on a single container' (the body says per element); SQL in the report.",
+        "STALE: IGDS 3.0 ('Israeli Government DS 3.0', CC BY 4.0, digital.gov.il support) supersedes the 2.0 Figma file the skill cited. shadcn/ui now ships official RTL (rtl: true in components.json, base-nova/radix-nova only, DirectionProvider).",
+        "CARRY RESOLVED (1.3.0 MAJOR + 1.4.0 deferred): token tiers primitive->semantic->component with a DTCG 2025.10 snippet (color $value is an object) and Style Dictionary outputReferences; measure token; Tailwind v4 logical utilities incl. v4.2.0 inset-s/inset-e and the start-/end- deprecation; next/font Hebrew subset + @theme inline; icon mirroring allow/deny list (Material bidirectionality); Step 8 RTL visual-regression testing.",
+        "Deferred (MINOR, carried from 1.3.0, over the batch cap): color-scheme / prefers-color-scheme wiring for the dark tier; clamp() fluid type and @container queries; directional motion sign flips (toast/drawer) + prefers-reduced-motion; tabular-nums for numeric table columns; one ramp expressed in oklch with a hex fallback.",
+        "FIX ROUND 1 (panel): Expert CRITICAL, body[dir=\"rtl\"] never matched once dir moved to <html> (Next.js example); selector is now html[dir=\"rtl\"] body, body[dir=\"rtl\"]. Lesson: when an example moves an attribute, grep every selector that keys on it.",
+        "FIX ROUND 1: next/font has no default subset (omitting subsets with preload on only warns); shadcn portal dir is a tw-animate-css workaround, not inheritance; undo/redo moved out of the mirror column (Material: choose circular or horizontal); '>' and '›' are Bidi_Mirrored so text chevrons must not get scaleX(-1); #d97706 is 3.19:1 on white; 'a quarter to a third shorter' figure removed; system-font gotcha reconciled with an Arial fallback in the Step 1 stack; phone validation moved to a normalised-value regex; primary-button order labelled a house choice.",
+        "FIX ROUND 1 additions: teudat zehut check digit and zero left-padding (he.wikipedia, validator tested on 050012343), he-IL week starts Sunday with Fri-Sat weekend (getWeekInfo), native date input format mismatch, gendered microcopy as labelled practice, references/domain-checklist.md adopted from the panel draft with sources. The Hebrew microcopy heading first used 'ניסוח' and tripped verify_legal's drafting signal; reworded rather than allowlisting.",
+        "Deferred (MINOR): Hebrew calendar dates (-u-ca-hebrew) for holiday and government contexts.",
+        "FIX ROUND 2 (panel): isValidTz padded before validating, so '', '0' and whitespace passed; now rejects empty, all-zero and non 1-9 digit input before padding (tested). The TZ pattern=\"[0-9]{9}\" contradicted the pad-first advice; removed in favour of script validation. getWeekInfo() throws on Node 20/22; example now uses locale.getWeekInfo?.() ?? locale.weekInfo. Phone regex accepts 972 without + and a +9720 trunk zero. scaleX needs inline-block for icon fonts; Troubleshooting now warns not to flip text chevrons. Evidence added for Arial's Hebrew code page and the native date-input locale display. Lesson: test a validator on empty and degenerate input, not only on a valid and an invalid number.",
+        "Panel minor (Expert iter 3): the TZ field is not cleaned like the phone field; isValidTz rejects an ID typed with internal spaces or dashes, and maxlength=9 truncates a pasted '012-345-678'. Strip non-digits before validating and drop or raise maxlength.",
+        "Panel minor (Expert iter 3): the mobile regex rejects the international 00972 prefix."
+      ]
     }
   ]
 }
