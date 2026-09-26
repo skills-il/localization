@@ -1,6 +1,7 @@
 ---
 name: hebrew-document-generator
-description: Generate Hebrew documents (PDF, DOCX/Word, PPTX) with correct right-to-left layout, mixed Hebrew-and-English bidi handling, and Hebrew typography. Use whenever the output is a Hebrew or mixed Hebrew/English Word document, Hebrew PDF, or Hebrew PowerPoint ("Hebrew Word document", "מסמך Word בעברית", "create a .docx in Hebrew", "litstor hozeh"), or Israeli templates like Heshbonit Mas, Hozeh, or Protokol. ALSO use this for the symptom where a Hebrew document looks fine on screen or in Claude but comes out scrambled, reversed, or broken in Word, with English, numbers, or punctuation on the wrong side ("Hebrew text reversed in Word", "fix Hebrew formatting in Word"); the fix is regenerating the .docx with paragraph-level RTL/bidi, NOT a web/CSS RTL change. Prefer over the generic docx/pdf skills ONLY when the document is Hebrew or RTL; for English-only docs use the generic skill. Covers reportlab, WeasyPrint, python-docx, pptxgenjs. Do NOT use for OCR or reading existing documents (use hebrew-ocr-forms).
+description: Generate Hebrew documents (PDF, DOCX/Word, PPTX) with correct right-to-left layout, mixed Hebrew-and-English bidi handling, and Hebrew typography. Use whenever the output is a Hebrew or mixed Hebrew/English Word document, Hebrew PDF, or Hebrew PowerPoint ("create a .docx in Hebrew", "מסמך Word בעברית"), or Israeli templates like Heshbonit Mas, Hozeh, or Protokol. ALSO use when Hebrew looks fine on screen but comes out scrambled or reversed in Word, or when a Hebrew document opens LEFT-ALIGNED in Google Docs or Word. Prefer over the generic docx/pdf skills ONLY when the document is Hebrew or RTL. Covers reportlab, WeasyPrint, python-docx, pptxgenjs. Do NOT use for OCR or reading existing documents (use hebrew-ocr-forms).
+
 license: MIT
 allowed-tools: Bash(python:*) Bash(pip:*) Bash(node:*) Bash(npm:*)
 compatibility: Requires Python 3.9+ with reportlab or WeasyPrint for PDF, python-docx for DOCX. Node.js with pptxgenjs for PPTX. Hebrew fonts must be available on the system.
@@ -41,7 +42,8 @@ npm install pptxgenjs
 | Font | Style | Best For | Source |
 |------|-------|----------|--------|
 | Heebo | Sans-serif, modern | Web-style documents, invoices | Google Fonts |
-| David | Classic serif | Legal contracts, formal letters | System (Windows/macOS) |
+| David | Classic serif | Legal contracts, formal letters | System (Windows/macOS). **Absent from Google Docs**, which substitutes silently |
+| Arial | Sans-serif | **Default when the reader's app is unknown** | Word, Google Docs, macOS, LibreOffice; full Hebrew coverage |
 | Narkisim | Serif, elegant | Proposals, invitations | System (Windows) |
 | Frank Ruehl | Traditional serif | Academic, literary | Google Fonts (Frank Ruhl Libre) |
 | Rubik | Sans-serif, rounded | Presentations, marketing | Google Fonts |
@@ -159,18 +161,18 @@ WeasyPrint advantages for Hebrew:
 
 ### Step 5: Generate Hebrew DOCX with python-docx
 
-DOCX is where mixed Hebrew/English breaks most often, and Microsoft Word's bidi engine is stricter than the Unicode standard. LibreOffice, macOS Preview/Quick Look, and most viewers render forgiving output that HIDES Word-only bugs, so always verify in Word itself, not a substitute renderer. Four rules, each learned against real Word:
+DOCX is where mixed Hebrew/English breaks most often, and Microsoft Word's bidi engine is stricter than the Unicode standard. LibreOffice, macOS Preview/Quick Look, and most viewers render forgiving output that HIDES Word-only bugs, so always verify in Word itself, not a substitute renderer. Five rules, each learned against real Word:
 
 1. Every Hebrew paragraph carries `<w:bidi/>` (RTL base direction); a pure-English line (a lab value, a drug name, an English-only row) gets LTR base + left alignment instead. The helper picks this per paragraph from whether the line contains any Hebrew, so English-only rows do not hang off the right margin in an otherwise Hebrew document.
 2. **Do NOT put `<w:rtl/>` on the runs of a MIXED Hebrew+English paragraph.** This is the single biggest Word trap. Word honors `<w:rtl/>` strictly: any Latin or number that lands in (or beside) an rtl-flagged run gets force-reversed, so `7/2023` prints as `2023/7`, an embedded `KI-67` code flips, and the parentheses around a mixed group like `(גסטרית, KI-67)` mis-pair. In a mixed paragraph the paragraph's own `<w:bidi/>` already orders the line correctly, leave every run unflagged.
 3. **Flag `<w:rtl/>` ONLY on Hebrew runs of a paragraph that has no Latin letters** (a pure-Hebrew label or heading, digits allowed). There the flag is what anchors a trailing colon (`מחלות רקע:`) to the left end. A leading section-number marker (`2.`, `10.`) is additionally merged into the Hebrew run (`_merge_list_marker`) so its period does not flip to `.2`; a date like `13/01/2026` is left as its own LTR run so Word does not reverse it. The split stays by script so each run still gets the right complex-script font.
-4. Every run sets the complex-script font (`w:cs`) and size (`w:szCs`). Hebrew is a "complex script" in Word's model, so `w:ascii`/`w:sz` alone never govern the Hebrew glyphs. Omitting `w:cs`/`w:szCs` is the most common cause of "the font/size I set did nothing and the Hebrew looks broken". Bold and italic are the same: `w:b`/`w:i` only affect Latin, you also need `w:bCs`/`w:iCs`. **Never insert Unicode directional isolates (U+2066-2069) or marks to force order, Word renders them as visible `.notdef` boxes in the David font even though other viewers hide them.**
+4. **Never set a paragraph alignment.** `w:jc` is LOGICAL: `right` is the line END, which in a `<w:bidi/>` paragraph is the visual LEFT, so `WD_ALIGN_PARAGRAPH.RIGHT` left-aligns Hebrew in Word and Google Docs. Set no `w:jc`: the paragraph then uses its START edge, which rule 1 already makes correct both ways. LibreOffice and PDF renders treat `w:jc` physically, so this breaks only for the reader.
+5. Every run sets the complex-script font (`w:cs`) and size (`w:szCs`). Hebrew is a "complex script" in Word's model, so `w:ascii`/`w:sz` alone never govern the Hebrew glyphs. Omitting `w:cs`/`w:szCs` is the most common cause of "the font/size I set did nothing and the Hebrew looks broken". Bold and italic are the same: `w:b`/`w:i` only affect Latin, you also need `w:bCs`/`w:iCs`. **Never insert Unicode directional isolates (U+2066-2069) or marks to force order, Word renders them as visible `.notdef` boxes in the David font even though other viewers hide them.**
 
 ```python
 import re
 from docx import Document
 from docx.shared import Pt
-from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 
 # Hebrew block + Hebrew presentation forms. Used to pick each run's direction.
@@ -259,7 +261,7 @@ def _para_is_rtl(text):
         return False
     return True
 
-def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False,
+def add_rtl_paragraph(doc, text, font='Arial', size=12, bold=False, italic=False,
                       heading_level=None):
     """Add a paragraph that renders mixed Hebrew/Latin/digit text correctly,
     auto-selecting RTL or LTR base direction from whether the line has Hebrew.
@@ -278,7 +280,7 @@ def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False
     pPr = p._p.get_or_add_pPr()
     if base_rtl:
         pPr.append(pPr.makeelement(qn('w:bidi'), {}))
-    p.alignment = WD_ALIGN_PARAGRAPH.RIGHT if base_rtl else WD_ALIGN_PARAGRAPH.LEFT
+    # (4) No p.alignment: w:jc is logical, direction alone gives the correct edge.
 
     # A paragraph with ANY Latin letter is "mixed": never rtl-flag its runs
     # (rule 2 above). A paragraph with only Hebrew (+digits/punct) is "pure":
@@ -311,7 +313,7 @@ def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False
     return p
 
 doc = Document()
-doc.styles['Normal'].font.name = 'David'
+doc.styles['Normal'].font.name = 'Arial'
 doc.styles['Normal'].font.size = Pt(12)
 
 add_rtl_paragraph(doc, 'חוזה שירותים', size=18, bold=True, heading_level=1)
@@ -333,12 +335,12 @@ python-docx creates a table with NO `<w:bidiVisual/>` on its `<w:tblPr>`. In an 
 1. **Column order, set once per table:** `table.table_direction = WD_TABLE_DIRECTION.RTL`. This emits `<w:bidiVisual/>` on `<w:tblPr>`, which mirrors the visual column order so the first logical column renders on the right. This is the actual fix for "the table is reversed". Also set `table.alignment = WD_TABLE_ALIGNMENT.RIGHT` so the table block hugs the right margin instead of floating left.
 2. **Text inside each cell:** every cell holds its own paragraph (a separate story `add_rtl_paragraph` does not reach), so give each cell paragraph `<w:bidi/>` (RTL base) and run its text through the same per-script-run logic from Step 5.
 
-**Cell alignment, the one trap to get right:** do NOT set a physical "right" alignment on the cell paragraphs. In OOXML `w:jc` is **logical, not physical**: `right` means "the END of the line". In a Hebrew (`<w:bidi/>`) paragraph the line ends on the LEFT, so a `RIGHT` alignment actually pushes Hebrew text to the visual **left** (numbers, being LTR runs, would still go right, so you get the headers on the left and the numbers on the right, a mismatched mess, this was the v1.7.0 bug). The fix is to set NO explicit alignment: a cell paragraph carrying `<w:bidi/>` defaults to its START edge, which is the visual RIGHT. Give every cell `<w:bidi/>` and leave alignment unset, and headers, Hebrew text, and numbers all line up flush right. Verified in Microsoft Word.
+**Cell alignment:** rule 4 applies here too, and this is where it was first found (the v1.7.0 bug). Set no alignment on cell paragraphs; with `<w:bidi/>` they use the START edge, so headers, Hebrew and numbers all sit flush right.
 
 ```python
 from docx.enum.table import WD_TABLE_DIRECTION, WD_TABLE_ALIGNMENT
 
-def set_cell_rtl_text(cell, text, font='David', size=11, bold=False):
+def set_cell_rtl_text(cell, text, font='Arial', size=11, bold=False):
     """Fill an RTL table cell. Reuses _split_by_script / _merge_list_marker /
     _shift_boundary_spaces from Step 5. Gives the cell paragraph <w:bidi/> (RTL base)
     and sets NO explicit alignment: an RTL paragraph defaults to its START edge =
@@ -363,7 +365,7 @@ def set_cell_rtl_text(cell, text, font='David', size=11, bold=False):
         if is_rtl and not para_has_latin:
             rPr.append(rPr.makeelement(qn('w:rtl'), {}))
 
-def add_rtl_table(doc, headers, rows, font='David', size=11):
+def add_rtl_table(doc, headers, rows, font='Arial', size=11):
     """Add a Hebrew table whose COLUMNS read right-to-left (first column on the right)
     and whose cells (headers, Hebrew, numbers) all align flush right."""
     table = doc.add_table(rows=1 + len(rows), cols=len(headers))

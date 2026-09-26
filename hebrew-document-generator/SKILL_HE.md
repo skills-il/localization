@@ -33,7 +33,8 @@ npm install pptxgenjs
 | גופן | סגנון | מתאים ל- | מקור |
 |-------|-------|----------|--------|
 | Heebo | סנס-סריף, מודרני | מסמכי ווב, חשבוניות | Google Fonts |
-| David | סריף קלאסי | חוזים משפטיים, מכתבים רשמיים | מערכת (Windows/macOS) |
+| David | סריף קלאסי | חוזים משפטיים, מכתבים רשמיים | מערכת (Windows/macOS). **לא קיים ב-Google Docs**, שמחליף אותו בשקט |
+| Arial | סנס-סריף | **ברירת מחדל כשלא ידוע באיזו תוכנה יפתחו** | Word, Google Docs, macOS, LibreOffice; כיסוי מלא לעברית |
 | Narkisim | סריף, אלגנטי | הצעות מחיר, הזמנות | מערכת (Windows) |
 | Frank Ruehl | סריף מסורתי | אקדמי, ספרותי | Google Fonts (Frank Ruhl Libre) |
 | Rubik | סנס-סריף, מעוגל | מצגות, שיווק | Google Fonts |
@@ -151,18 +152,18 @@ HTML(string=html_content).write_pdf('invoice.pdf')
 
 ### שלב 5: DOCX בעברית עם python-docx
 
-ב-DOCX טקסט מעורב עברית/אנגלית נשבר הכי הרבה, ומנוע ה-bidi של Microsoft Word מחמיר יותר מתקן Unicode. LibreOffice, תצוגה מקדימה של macOS ורוב המציגים מרנדרים תוצאה סלחנית שמסתירה באגים ייחודיים ל-Word, אז תמיד בדקו ב-Word עצמו ולא במציג חלופי. ארבעה כללים, כל אחד נלמד מול Word אמיתי:
+ב-DOCX טקסט מעורב עברית/אנגלית נשבר הכי הרבה, ומנוע ה-bidi של Microsoft Word מחמיר יותר מתקן Unicode. LibreOffice, תצוגה מקדימה של macOS ורוב המציגים מרנדרים תוצאה סלחנית שמסתירה באגים ייחודיים ל-Word, אז תמיד בדקו ב-Word עצמו ולא במציג חלופי. חמישה כללים, כל אחד נלמד מול Word אמיתי:
 
 1. כל פסקה עברית נושאת `<w:bidi/>` (כיוון בסיס RTL); שורה באנגלית בלבד (ערך מעבדה, שם תרופה, שורה קלינית באנגלית) מקבלת בסיס LTR ויישור לשמאל. העוזר קובע זאת לכל פסקה לפי האם השורה מכילה עברית, כך ששורות באנגלית בלבד לא נדחקות לשוליים הימניים במסמך עברי.
 2. **אל תשימו `<w:rtl/>` על ה-runs של פסקה מעורבת עברית+אנגלית.** זו המלכודת הגדולה ביותר ב-Word. Word מכבד `<w:rtl/>` בקפדנות: כל לטינית או מספר שנלכד ב-run מסומן rtl (או לידו) נהפך, כך ש-`7/2023` מודפס `2023/7`, קוד `KI-67` מוטבע מתהפך, והסוגריים סביב קבוצה מעורבת כמו `(גסטרית, KI-67)` לא מזדווגים נכון. בפסקה מעורבת ה-`<w:bidi/>` של הפסקה כבר מסדר את השורה, השאירו כל run בלי דגל.
 3. **סמנו `<w:rtl/>` רק על runs עבריים של פסקה ללא אותיות לטיניות** (תווית או כותרת עברית טהורה, ספרות מותרות). שם הדגל מעגן נקודתיים נגררות (`מחלות רקע:`) לקצה השמאלי. סמן כותרת מספרי מוביל (`2.`, `10.`) ממוזג בנוסף אל ה-run העברי (`_merge_list_marker`) כדי שהנקודה שלו לא תתהפך ל-`.2`; תאריך כמו `13/01/2026` נשאר run מסוג LTR נפרד כדי ש-Word לא יהפוך אותו. הפיצול נשאר לפי סקריפט כדי שכל run יקבל את גופן הסקריפט המורכב הנכון.
-4. כל run מגדיר את גופן הסקריפט המורכב (`w:cs`) ואת הגודל (`w:szCs`). עברית היא "סקריפט מורכב" במודל של Word, אז `w:ascii`/`w:sz` לבדם לעולם לא חלים על התווים העבריים. השמטת `w:cs`/`w:szCs` היא הסיבה הנפוצה ביותר ל"הגופן והגודל שהגדרתי לא עשו כלום והעברית נראית שבורה". מודגש ונטוי זהים: `w:b`/`w:i` משפיעים רק על לטינית, צריך גם `w:bCs`/`w:iCs`. **לעולם אל תכניסו תווי בידוד כיווניים של Unicode (U+2066-2069) או סימונים כדי לכפות סדר, Word מרנדר אותם כריבועי `.notdef` גלויים בגופן David גם כשמציגים אחרים מסתירים אותם.**
+4. **לעולם אל תגדירו יישור פסקה.** `w:jc` הוא לוגי: `right` הוא סוף השורה, שבפסקת `<w:bidi/>` הוא הצד השמאלי, ולכן `WD_ALIGN_PARAGRAPH.RIGHT` מיישר עברית לשמאל ב-Word וב-Google Docs. בלי `w:jc` הפסקה משתמשת בקצה ההתחלה שלה, שכלל 1 כבר עושה נכון בשני הכיוונים. LibreOffice ורינדור PDF מתייחסים ל-`w:jc` כפיזי, ולכן זה נשבר רק אצל הקורא.
+5. כל run מגדיר את גופן הסקריפט המורכב (`w:cs`) ואת הגודל (`w:szCs`). עברית היא "סקריפט מורכב" במודל של Word, אז `w:ascii`/`w:sz` לבדם לעולם לא חלים על התווים העבריים. השמטת `w:cs`/`w:szCs` היא הסיבה הנפוצה ביותר ל"הגופן והגודל שהגדרתי לא עשו כלום והעברית נראית שבורה". מודגש ונטוי זהים: `w:b`/`w:i` משפיעים רק על לטינית, צריך גם `w:bCs`/`w:iCs`. **לעולם אל תכניסו תווי בידוד כיווניים של Unicode (U+2066-2069) או סימונים כדי לכפות סדר, Word מרנדר אותם כריבועי `.notdef` גלויים בגופן David גם כשמציגים אחרים מסתירים אותם.**
 
 ```python
 import re
 from docx import Document
 from docx.shared import Pt
-from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 
 # בלוק עברי + צורות הצגה עבריות. משמש לבחירת כיוון של כל run.
@@ -246,7 +247,7 @@ def _para_is_rtl(text):
         return False
     return True
 
-def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False,
+def add_rtl_paragraph(doc, text, font='Arial', size=12, bold=False, italic=False,
                       heading_level=None):
     """מוסיף פסקה שמרנדרת נכון טקסט מעורב עברית/לטינית/ספרות, ובוחרת אוטומטית
     כיוון בסיס RTL או LTR לפי האם השורה מכילה עברית.
@@ -264,7 +265,7 @@ def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False
     pPr = p._p.get_or_add_pPr()
     if base_rtl:
         pPr.append(pPr.makeelement(qn('w:bidi'), {}))
-    p.alignment = WD_ALIGN_PARAGRAPH.RIGHT if base_rtl else WD_ALIGN_PARAGRAPH.LEFT
+    # (4) אין p.alignment: w:jc לוגי, הכיוון לבדו נותן את הקצה הנכון.
 
     # פסקה שיש בה אות לטינית כלשהי היא "מעורבת": לעולם לא מסמנים rtl על ה-runs
     # שלה (כלל 2). פסקה עם עברית בלבד (+ספרות/פיסוק) היא "טהורה": ה-runs העבריים
@@ -297,7 +298,7 @@ def add_rtl_paragraph(doc, text, font='David', size=12, bold=False, italic=False
     return p
 
 doc = Document()
-doc.styles['Normal'].font.name = 'David'
+doc.styles['Normal'].font.name = 'Arial'
 doc.styles['Normal'].font.size = Pt(12)
 
 add_rtl_paragraph(doc, 'חוזה שירותים', size=18, bold=True, heading_level=1)
@@ -319,12 +320,12 @@ python-docx יוצר טבלה ללא `<w:bidiVisual/>` על `<w:tblPr>` שלה. 
 1. **סדר העמודות, נקבע פעם אחת לכל טבלה:** `table.table_direction = WD_TABLE_DIRECTION.RTL`. זה פולט `<w:bidiVisual/>` על `<w:tblPr>`, שמשקף את סדר העמודות הוויזואלי כך שהעמודה הלוגית הראשונה מוצגת מימין. זהו התיקון האמיתי ל"הטבלה הפוכה". הגדירו גם `table.alignment = WD_TABLE_ALIGNMENT.RIGHT` כדי שגוש הטבלה ייצמד לשוליים הימניים במקום לצוף שמאלה.
 2. **הטקסט בתוך כל תא:** כל תא מחזיק פסקה משלו ("סיפור" נפרד ש-`add_rtl_paragraph` לא מגיע אליו), לכן תנו לכל פסקת תא `<w:bidi/>` (בסיס RTL) והעבירו את הטקסט שלה דרך אותה לוגיקת פיצול runs לפי סקריפט משלב 5.
 
-**יישור התא, המלכודת היחידה שצריך לדייק בה:** אל תגדירו יישור "ימין" פיזי על פסקאות התא. ב-OOXML, `w:jc` הוא **לוגי, לא פיזי**: `right` פירושו "סוף השורה". בפסקה עברית (`<w:bidi/>`) השורה מסתיימת בצד שמאל, ולכן יישור `RIGHT` דוחף את הטקסט העברי לשמאל הוויזואלי (מספרים, בהיותם runs בכיוון LTR, עדיין ילכו ימינה, אז מקבלים כותרות בשמאל ומספרים בימין, בלגן לא מיושר, זה היה הבאג ב-v1.7.0). התיקון הוא לא להגדיר יישור כלל: פסקת תא הנושאת `<w:bidi/>` מתיישרת כברירת מחדל לקצה ה-START שלה, שהוא הימין הוויזואלי. תנו לכל תא `<w:bidi/>` והשאירו את היישור לא מוגדר, וכותרות, טקסט עברי ומספרים כולם יתיישרו צמוד לימין. נבדק ב-Microsoft Word.
+**יישור התא:** כלל 4 חל גם כאן, וכאן הוא התגלה לראשונה (הבאג ב-v1.7.0). אל תגדירו יישור על פסקאות התא; עם `<w:bidi/>` הן משתמשות בקצה ההתחלה, וכותרות, עברית ומספרים כולם נצמדים לימין.
 
 ```python
 from docx.enum.table import WD_TABLE_DIRECTION, WD_TABLE_ALIGNMENT
 
-def set_cell_rtl_text(cell, text, font='David', size=11, bold=False):
+def set_cell_rtl_text(cell, text, font='Arial', size=11, bold=False):
     """ממלא תא בטבלת RTL. עושה שימוש חוזר ב-_split_by_script / _merge_list_marker /
     _shift_boundary_spaces משלב 5. נותן לפסקת התא `<w:bidi/>` (בסיס RTL) ולא מגדיר יישור
     כלל: פסקת RTL מתיישרת כברירת מחדל לקצה ה-START שלה = ימין ויזואלי, כך שכותרות, עברית
@@ -348,7 +349,7 @@ def set_cell_rtl_text(cell, text, font='David', size=11, bold=False):
         if is_rtl and not para_has_latin:
             rPr.append(rPr.makeelement(qn('w:rtl'), {}))
 
-def add_rtl_table(doc, headers, rows, font='David', size=11):
+def add_rtl_table(doc, headers, rows, font='Arial', size=11):
     """מוסיף טבלה עברית שהעמודות שלה נקראות מימין לשמאל (העמודה הראשונה מימין)
     ושכל התאים שלה (כותרות, עברית, מספרים) מתיישרים צמוד לימין."""
     table = doc.add_table(rows=1 + len(rows), cols=len(headers))
