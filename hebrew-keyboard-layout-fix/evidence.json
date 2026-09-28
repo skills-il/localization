@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-keyboard-layout-fix",
+  "generated_at": "2026-09-28T12:00:00Z",
+  "claims": [
+    {
+      "claim_id": "hebrew-layout-letter-positions",
+      "claim": "On the Windows Hebrew keyboard layout (KBDHEB, KLID 0000040d) the unshifted letter keys produce: Q=/ W=' E=ק R=ר T=א Y=ט U=ו I=ן O=ם P=פ, A=ש S=ד D=ג F=כ G=ע H=י J=ח K=ל L=ך ;=ף '=, , Z=ז X=ס C=ב V=ה B=נ N=מ M=צ ,=ת .=ץ /=. - the mapping table in SKILL.md and scripts/convert_layout.py.",
+      "source_url": "https://kbdlayout.info/kbdheb",
+      "raw_snippet": "Q / W ' E ק € R ר T א Y ט U ו װ I ן O ם P פ } ] ] [ { [ [ ] ... Caps Lock A ש S ד D ג F כ G ע H י ײ J ח ױ K ל L ך : ף ף ; \" , , ' ... Shift | \\ Z ז X ס C ב V ה B נ N מ M צ > ת ת , < ץ ץ . ? . . / Shift",
+      "fetched_at": "2026-09-28",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "scripts/convert_layout.py"],
+      "verified_via": "raw fetch of the kbdlayout.info page (HTML tags stripped), cross-checked against Windows keyboard behaviour",
+      "verified_at": "2026-09-28"
+    },
+    {
+      "claim_id": "hebrew-standard-layout-same-letters",
+      "claim": "The newer Windows 'Hebrew (Standard)' layout (kbdhebl3, KLID 0002040d, SI-1452) puts the Hebrew letters on the same keys as the classic Hebrew layout, so the same mapping applies to both.",
+      "source_url": "https://kbdlayout.info/kbdhebl3",
+      "raw_snippet": "Q / ׂ W ' ׁ E ק ָ R ר ֳ T א Y ט װ U ֺ ו ֹ I ן O ם P פ ַ ... Caps Lock A ש ְ S ד ּ D ג F כ G ע ױ H י ײ J ZWJ ח ִ K ל L “ ך ” : ␀ ” ף ... Z ז X ס ֶ C CGJ ב ֱ V ה B ׆ נ N ZWNJ מ M צ ֵ > ␀ ‘ ת , ’ < ␀ ’ ץ . ‚ ? ␀ . / ÷",
+      "fetched_at": "2026-09-28",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"],
+      "verified_via": "raw fetch of the kbdlayout.info page (HTML tags stripped); letter keys match the KBDHEB page",
+      "verified_at": "2026-09-28"
+    },
+    {
+      "claim_id": "bilingual-hebrew-us-keyboards",
+      "claim": "Hebrew keyboards are bilingual with the U.S. QWERTY layout on the same physical keys, which is why text typed with the wrong layout active can be recovered by key position.",
+      "source_url": "https://en.wikipedia.org/wiki/Hebrew_keyboard",
+      "raw_snippet": "Most [[Hebrew language|Hebrew]] keyboards are bilingual, with [[Latin script|Latin]] characters, usually in a U.S. [[QWERTY]] layout.",
+      "fetched_at": "2026-09-28",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"],
+      "verified_via": "raw fetch of the article wikitext (action=raw)",
+      "verified_at": "2026-09-28"
+    },
+    {
+      "claim_id": "final-letters-end-of-word",
+      "claim": "The five Hebrew final letters (ך ם ן ף ץ) are used only at the end of a word, so a final letter in the middle of a 'word' is a strong signal of wrong-layout typing.",
+      "source_url": "https://en.wikipedia.org/wiki/Hebrew_alphabet",
+      "raw_snippet": "the modern Hebrew script has five [[letter (alphabet)|letters]] that have special [[final form]]s, ... called '''sofit''' ... form, used only at the end of a word",
+      "fetched_at": "2026-09-28",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"],
+      "verified_via": "raw fetch of the article wikitext (action=raw)",
+      "verified_at": "2026-09-28"
+    },
+    {
+      "claim_id": "keyboard-fix-tool",
+      "claim": "Keyboard Fix is a free MIT-licensed Windows tool that flips selected text between the Hebrew and English layouts with Ctrl+CapsLock in any app, including terminals.",
+      "source_url": "https://github.com/avivazulay65-afk/keyboard-fix",
+      "raw_snippet": "Typed a whole sentence in the wrong keyboard language? Select it, press `Ctrl+CapsLock`, done. ... Hebrew ↔ English layout fixer for Windows — works in every app.",
+      "fetched_at": "2026-09-28",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"],
+      "verified_via": "maintained by the skill author; README fetched from the public repository",
+      "verified_at": "2026-09-28"
+    }
+  ]
+}

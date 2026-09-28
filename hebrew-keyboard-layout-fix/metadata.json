@@ -1,0 +1,39 @@
+{
+  "author": "avivazulay65-afk",
+  "version": "1.0.0",
+  "category": "localization",
+  "tags": {
+    "he": [
+      "עברית",
+      "מקלדת",
+      "פריסת מקלדת",
+      "הקלדה",
+      "ג'יבריש",
+      "תיקון טקסט"
+    ],
+    "en": [
+      "hebrew",
+      "keyboard",
+      "keyboard-layout",
+      "typing",
+      "gibberish",
+      "text-fix"
+    ]
+  },
+  "display_name": {
+    "he": "תיקון טקסט שהוקלד בשפה הלא נכונה",
+    "en": "Hebrew Keyboard Layout Fix"
+  },
+  "display_description": {
+    "he": "משחזרים טקסט שהוקלד כשהמקלדת הייתה על השפה הלא נכונה: עברית במקום אנגלית או אנגלית במקום עברית (למשל tbh rumv במקום \"אני רוצה\", או יקךךם במקום hello). השתמשו כשהמשתמש מדביק או כותב ג'יבריש שנראה כמו הקלדה בשפה הלא נכונה, אומר שהמקלדת הייתה על השפה הלא נכונה, או מבקש להפוך טקסט בין עברית לאנגלית. ממיר לפי מיקום המקשים הפיזי, מילה-מילה, כך שגם טקסט מעורב מתהפך במלואו. כולל סקריפט Python ללא תלויות. לא מיועד לתרגום בין עברית לאנגלית או לתעתיק.",
+    "en": "Recover text that was typed with the wrong keyboard layout active, Hebrew instead of English or English instead of Hebrew (for example \"tbh rumv\" that should be \"אני רוצה\", or \"יקךךם\" that should be \"hello\"). Use when the user pastes or writes gibberish that looks like wrong-layout typing, says the keyboard was on the wrong language, or asks to flip or fix Hebrew/English layout text. Converts by physical key position, word by word, so mixed text is fully swapped. Includes a zero-dependency Python converter. Do NOT use for translation or transliteration."
+  },
+  "supported_agents": [
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "windsurf",
+    "opencode",
+    "gemini-cli"
+  ]
+}
