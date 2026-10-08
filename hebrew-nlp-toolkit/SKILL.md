@@ -104,6 +104,7 @@ print(' '.join(s.text for s in segs))
 Before feeding text to models:
 1. **Normalize:** Remove extra whitespace, normalize Unicode (NFC)
 2. **Handle niqqud:** Remove diacritics unless specifically needed
+   - Also strip invisible bidirectional marks (LRM U+200E and RLM U+200F) before tokenizing or embedding. They do not show on screen, but they add tokens and make otherwise identical strings differ in exact-match search.
 3. **Handle English:** Decide whether to keep, translate, or mark English tokens
 4. **Tokenization:** DictaBERT and AlephBERT tokenizers split words into WordPiece sub-units, not morphemes. If you need real prefix segmentation (for search indexing, counting, lemmas) run `dictabert-joint` from Step 2
 
