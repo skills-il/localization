@@ -1,0 +1,160 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-document-translation",
+  "generated_at": "2026-09-27T08:45:00Z",
+  "claims": [
+    {
+      "claim_id": "docx-paragraph-bidirectional",
+      "claim": "docx-js Paragraph accepts a `bidirectional` boolean option, which the skill sets on every paragraph containing Hebrew.",
+      "source_url": "https://unpkg.com/docx@9.7.2/dist/index.d.ts",
+      "raw_snippet": "readonly bidirectional?: boolean;",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:45:00Z",
+      "verified_via": "published type declarations of docx@9.7.2 fetched; the same line is in the locally installed package",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/rtl_docx_helpers.js"
+      ]
+    },
+    {
+      "claim_id": "docx-run-righttoleft",
+      "claim": "docx-js TextRun accepts a `rightToLeft` boolean option (emitted as w:rtl on the run), which scriptRuns() sets only on Hebrew runs of paragraphs that contain no Latin letters.",
+      "source_url": "https://unpkg.com/docx@9.7.2/dist/index.d.ts",
+      "raw_snippet": "readonly rightToLeft?: boolean;",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:45:00Z",
+      "verified_via": "published type declarations of docx@9.7.2 fetched; the same line is in the locally installed package",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/rtl_docx_helpers.js"
+      ]
+    },
+    {
+      "claim_id": "docx-visually-rtl-table",
+      "claim": "docx-js Table accepts `visuallyRightToLeft: true`, which reverses the visual order of the table's columns.",
+      "source_url": "https://raw.githubusercontent.com/dolanmiu/docx/master/docs/usage/tables.md",
+      "raw_snippet": "It is possible to reverse how the cells of the table are displayed. The table direction.",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:45:00Z",
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/rtl_docx_helpers.js"
+      ]
+    },
+    {
+      "claim_id": "docx-page-number-fields",
+      "claim": "Running header/footer page numbers use docx-js field codes PageNumber.CURRENT and PageNumber.TOTAL_PAGES inside a TextRun's children.",
+      "source_url": "https://raw.githubusercontent.com/dolanmiu/docx/master/docs/usage/page-numbers.md",
+      "raw_snippet": "children: [\"Page \", PageNumber.CURRENT, \" of \", PageNumber.TOTAL_PAGES],",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:45:00Z",
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/toc-pagination.md",
+        "scripts/rtl_docx_helpers.js"
+      ]
+    },
+    {
+      "claim_id": "arial-hebrew",
+      "claim": "Arial (as shipped by Microsoft) supports Hebrew: its supported code pages include 1255 Hebrew.",
+      "source_url": "https://learn.microsoft.com/en-us/typography/font-list/arial",
+      "raw_snippet": "1255 Hebrew",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:45:00Z",
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/rtl_docx_helpers.js"
+      ]
+    },
+    {
+      "claim_id": "hebrew-unicode-block",
+      "claim": "The Hebrew Unicode block is U+0590-U+05FF, the range scriptRuns() uses to detect Hebrew segments.",
+      "source_url": "https://www.unicode.org/charts/PDF/U0590.pdf",
+      "raw_snippet": "Range: 0590\u201305FF",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:45:00Z",
+      "verified_via": "pdf",
+      "appears_in": [
+        "scripts/rtl_docx_helpers.js"
+      ]
+    },
+    {
+      "claim_id": "uax9-scope",
+      "claim": "The Unicode Bidirectional Algorithm (UAX #9) is the specification for ordering mixed right-to-left (Hebrew) and left-to-right text for display.",
+      "source_url": "https://unicode.org/reports/tr9/",
+      "raw_snippet": "This annex describes specifications for the positioning of characters in text containing characters flowing from right to left, such as Arabic or Hebrew.",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:45:00Z",
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "libreoffice-headless-convert",
+      "claim": "LibreOffice can convert a document to PDF without a user interface via --headless and --convert-to pdf, which the skill uses for render-and-verify.",
+      "source_url": "https://help.libreoffice.org/latest/en-US/text/shared/guide/start_parameters.html",
+      "raw_snippet": "--headless Starts in \"headless mode\" which allows using the application without user interface.",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:45:00Z",
+      "verified_via": "source fetched and the passage copied verbatim from the cited page; the same page gives the example --convert-to pdf *.doc",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/toc-pagination.md"
+      ]
+    },
+    {
+      "claim_id": "poppler-reference",
+      "claim": "poppler is the PDF library behind the pdftotext, pdfimages, and pdfinfo command-line tools the skill uses for verification and logo extraction.",
+      "source_url": "https://poppler.freedesktop.org/",
+      "raw_snippet": "Poppler is a PDF rendering library based on the xpdf-3.0 code base.",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:45:00Z",
+      "verified_via": "navigational reference; snippet is the cited page's own opening text, fetched to confirm the page exists and is what the claim says it is",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/logo-extraction.md",
+        "references/toc-pagination.md"
+      ]
+    },
+    {
+      "claim_id": "hebrew-academy-reference",
+      "claim": "The Academy of the Hebrew Language publishes its binding decisions on Hebrew style and terminology; the skill links its decisions page as the official source.",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/",
+      "raw_snippet": "כל ההחלטות אושרו במליאת האקדמיה, ורובן ככולן פורסמו ברשומות ובחוברות מיוחדות בהוצאת המזכירות המדעית של האקדמיה.",
+      "fetched_at": "2026-09-27T08:55:00Z",
+      "verified_at": "2026-09-27T08:55:00Z",
+      "verified_via": "browser: Playwright render on 2026-09-27, location.href asserted, page title 'ההחלטות - האקדמיה ללשון העברית'; curl is bot-blocked (403)",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "helper-mixed-paragraph-no-run-rtl",
+      "claim": "The bundled helpers emit no w:rtl on any run of a paragraph that contains Latin letters, flag w:rtl only on Hebrew runs of Latin-free paragraphs, set no w:jc on table-cell paragraphs, keep w:rtl out of the default run style, build a header without a logo file, and packRtlDocx adds <w:bidi/> to the section sectPr.",
+      "source_url": "https://github.com/skills-il/localization/blob/master/hebrew-document-translation/scripts/rtl_docx_helpers.js",
+      "raw_snippet": "'בדיקות אינטגרציה (integration testing) בגרסה 7/2023' jc= ['right'] rtlRuns= 0 | 'מחלות רקע:' jc= ['right'] rtlRuns= 2 | 'תיאור' jc= [] rtlRuns= 1 | styles default rtl: False | sectPr: ...<w:titlePg/><w:bidi/><w:docGrid w:linePitch=\"360\"/></w:sectPr>",
+      "fetched_at": "2026-09-27T08:45:00Z",
+      "verified_at": "2026-09-27T08:58:00Z",
+      "verified_via": "runtime: built a test .docx with the helpers against docx@9.7.2 (node) on 2026-09-27, unzipped it and counted w:rtl / w:jc per paragraph in word/document.xml and docDefaults in word/styles.xml; sectPr read from the file written by packRtlDocx and parsed as well-formed XML",
+      "appears_in": [
+        "scripts/rtl_docx_helpers.js",
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "This verifies the generated OOXML only. How Microsoft Word renders w:rtl in mixed paragraphs, and that w:jc=right is logical (line end) in a bidi paragraph, is the rule documented as verified in Word by the hebrew-document-generator skill in this repository; it was not re-rendered in Word for this skill."
+    }
+  ]
+}
