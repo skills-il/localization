@@ -9,6 +9,18 @@
         "Sofit-folding gotcha: matching section-header markers against strip_key()-folded text breaks plural headings with a final letter (צווים -> צווימ). Match markers on BOTH the raw and folded line. Regression-covered in EXAMPLE_TEXT.",
         "Deferred (documented as caveats, not columns): parcel area/שטח, apartment חלק ברכוש המשותף, and distinguishing נסח מרוכז/היסטורי are flagged for human review rather than auto-extracted."
       ]
+    },
+    {
+      "version": "1.5.0",
+      "date": "2026-10-12",
+      "lessons": [
+        "Form-type facts were wrong for cycles because evidence quoted page titles, not the claim: 857 is the annual withholding certificate (not capital gains, that is 1399), BL Form 100 is a claimant refusal form (employer report is 102), 106 title is 'אישור על משכורת וניכוי מס'. Evidence now quotes gov.il text rendered in a headed Chrome.",
+        "Script rot outranked fact drift: denoise was a 1x1 no-op, adaptive binarization turned grain into garbage, 106 extractor returned field codes/years/zip codes as amounts, Nesach parser silently dropped liens/orders and merged distinct encumbrances. Synthetic Hebrew page fixtures live in the batch folder, not the repo; next cycle should add a committed regression set (checklist Should 5).",
+        "Remediation reintroduced defects twice (merge rule swallowed new entries; עד matched inside מועד). Budget 3+ reviewer rounds for parser changes.",
+        "Deferred (expert majors, next cycle): phone-photo perspective warp (low-res warning does not fire on 12 MP photos); dedicated extractors for 806/857, 102, BL certificates, vehicle licence; Nesach action-type and deed-date columns; field provenance/bbox; tessdata_best guidance; NFC + presentation-form folding for pdftotext output; batch mode with per-file isolation; withholding-file and company-number format checks; Azure Foundry rename / Image Analysis 4.0 retirement note.",
+        "Deferred: value-add gate (5.11) not run this cycle because its cases must be committed in the monorepo, which the batch brief forbade editing.",
+        "Google docs moved to docs.cloud.google.com and fetch results vary per request; Document AI languages page now redirects to processors-list. Re-render Google sources in a browser each cycle."
+      ]
     }
   ]
 }

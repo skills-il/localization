@@ -31,7 +31,23 @@ several extracts concatenate cleanly:
 - `share` is the ownership share, kept verbatim.
 - `detail` carries the section-specific extras that would otherwise be lost: a mortgage's
   degree (דרגה ראשונה/שנייה, which controls creditor priority), a caution/lien/order's
-  beneficiary (לטובת ...) and statutory reference (סעיף 126/128), a lease's end date.
+  beneficiary (לטובת ...) and any section reference printed on the row (סעיף ...), a lease's end
+  date (the date after עד / סיום / תום; with no such marker every date on the row is listed), and a
+  deed number (שטר 12345/2015/1, or an older שטר 4567/98) wherever one appears.
+- A section HEADER is recognized only when the whole line is header words (בעלויות, משכנתאות,
+  עיקולים, צווים, הערות, ...). A short content line such as `צו הריסה מנהלי` or
+  `בנק לאומי למשכנתאות בעמ` is content, never a header. A header with no rows under it is warned.
+- In an encumbrance section, a line starts a new row when it begins with an entry type (משכנתא,
+  הערת אזהרה, עיקול, צו, ...) or carries its own degree, deed number, section reference, case/file
+  number, or an id while the entry above already names its party. A bare creditor line is merged
+  into the entry above. A `לטובת:` line goes to the earliest entry in the section that names no
+  party yet, with a warning if none qualifies or if several do. Two entries on one line separated
+  by a comma are split, and so are two comma-separated owners; a row that still holds two ids is
+  warned. A mortgage row with no degree is warned (it may be a joint creditor of the mortgage
+  above), and any other encumbrance row that does not start with an entry type is warned (it may
+  be a separate entry or a wrapped continuation). On encumbrance rows the `share` column stays
+  empty; an a/b number there may be a case or file number or the fraction of the rights
+  encumbered, so it is kept verbatim in `detail` for the reader to interpret.
 
 ## Sections the parser recognizes
 
@@ -93,9 +109,14 @@ This is a structuring aid, not a substitute for reading the Nesach. Known limits
   sum do NOT hold, split it per apartment by hand. A נסח היסטורי lists struck-through (מחוק)
   past owners: they may be emitted as if current. The script warns when it detects either word,
   but verify.
-- **Owner id can be a person or a company.** A ת.ז. validates with the Israeli ID check digit;
-  a company ח.פ. / מספר תאגיד and a foreign passport do NOT and will fail that check. A failed
-  check-digit on an owner is NOT proof of a bad read, confirm whether the owner is a company.
+- **Owner id can be a person or a company.** The script runs the Israeli ID check digit only on
+  ids labelled ת.ז. / מספר זהות and warns when one fails (most likely an OCR misread). Company
+  numbers (ח.פ. / מספר תאגיד) and passports are not checked.
+- **Deed details are partial.** A deed number is kept in `detail`; the action type (מכר / ירושה /
+  מתנה) and the deed date are left in `name` / not split into columns. Check them by hand when
+  you reconcile an ownership chain.
+- **An empty sheet is not "no encumbrances".** If nothing was parsed, the script says so; treat
+  that as a failed read.
 - **Multi-line owner blocks** are merged only when a name-only line is immediately followed by an
   id/share line. A more scattered layout still needs a human eye.
 
@@ -104,8 +125,8 @@ This is a structuring aid, not a substitute for reading the Nesach. Known limits
 Emit one flat CSV where a `section` column distinguishes property / owner / lease / mortgage /
 caution rows, or emit one sheet per section. The bundled `scripts/tabu_to_spreadsheet.py` does
 the former: it takes the OCR text (or the JSON that `extract_form_fields.py` produces) and writes
-a normalized CSV that opens cleanly in Excel with RTL Hebrew intact (UTF-8 BOM so Excel detects
-the encoding).
+a normalized CSV that opens cleanly in Excel with the Hebrew intact (UTF-8 BOM so Excel detects the
+encoding; right-to-left sheet view is an Excel setting a CSV cannot carry).
 
 ## Source
 

@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "category": "localization",
   "tags": {
     "he": [
@@ -24,10 +24,10 @@
   },
   "display_name": {
     "he": "OCR לטפסים בעברית",
-    "en": "Hebrew Ocr Forms"
+    "en": "Hebrew OCR Forms"
   },
   "display_description": {
-    "he": "חילוץ נתונים מטפסי ממשלה ישראליים עם OCR: טאבו, רשות המסים, ביטוח לאומי ועוד",
+    "he": "חילוץ נתונים מטפסי ממשלה ישראליים סרוקים עם OCR: נסח טאבו, טפסי רשות המסים (106, 806/857, אישור ניכוי במקור), אישורים מביטוח לאומי ומסמכים רשמיים נוספים. מתאים כשמבקשים לסרוק טופס, לחלץ נתונים מטופס ישראלי, לפרק נסח טאבו לאקסל או לקרוא טופס מס סרוק. כולל הגדרות OCR לעברית, דפוסי חילוץ שדות, אימות ת.ז. וטיפול בטקסט מימין לשמאל, כדי לחסוך הקלדה ידנית ושגיאות. לא מיועד לזיהוי כתב יד בעברית (דורש מודלים ייעודיים) או לטפסים שאינם ישראליים.",
     "en": "Process and extract data from scanned Israeli government forms using OCR. Supports Tabu (land registry), Tax Authority forms, Bituach Leumi documents, and other official Israeli paperwork. Use when user asks to OCR Hebrew documents, extract data from Israeli forms, \"lesarek tofes\", parse Tabu extract, read scanned tax form, or process Israeli government documents. Includes Hebrew OCR configuration, field extraction patterns, and RTL text handling. Do NOT use for handwritten Hebrew recognition (requires specialized models) or non-Israeli form processing."
   },
   "supported_agents": [

@@ -1,71 +1,295 @@
 {
   "schemaVersion": "1.0",
   "skill": "hebrew-ocr-forms",
-  "generated_at": "2026-06-17T01:20:00Z",
+  "generated_at": "2026-10-12T16:30:00Z",
   "claims": [
     {
-      "claim_id": "ocr-engine-hebrew-support",
-      "claim": "OCR engines for Hebrew: Tesseract (heb traineddata, LSTM, good for 300 DPI+ clean print); Google Cloud Vision Document Text Detection (good, Hebrew via languageHints 'iw' legacy code, not 'he'); AWS Textract does NOT support Hebrew (Latin-script languages only: EN/ES/DE/IT/FR/PT); Azure AI Vision Read Hebrew not in the official printed-OCR list (verify); Claude Vision (claude-sonnet-4-6 / claude-opus-4-8) good with prompt guidance",
-      "source_url": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support",
-      "raw_snippet": "Language support - Azure Vision in Foundry Tools - Foundry Tools | Microsoft Learn",
-      "fetched_at": "2026-08-19",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/israeli-form-types.md"
-      ],
-      "verified_via": "claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
-      "verified_at": "2026-08-19"
-    },
-    {
-      "claim_id": "israeli-forms-and-id",
-      "claim": "Israeli forms recognized include Tofes 106 (annual salary summary), Tofes 857, Tofes 100; the Israeli ID (teudat zehut) check digit uses the standard Luhn-style alternating x1/x2 algorithm on a left-zero-padded 9-digit number. Also covers: טופס 100 טופס 106 טופס 857",
-      "source_url": "https://he.wikipedia.org/wiki/מספר_זהות_(ישראל)",
-      "raw_snippet": "סדרות מספרים שונות הוקצו ליישובים שונים. המספרים הראשונים בני ארבע וחמש ספרות הוקצו לתושבי ירושלים . ראשון המספרים היה המספר 1001. בהגיע הפוקדים לצפון הארץ, ל עמק יזרעאל ולגליל, הם כבר העניקו לתושביהם מספרים בני שש ספרות. באופן זה ניתן היה לדעת, במשך שנים רבות, על-פי מספר הזהות של אדם, מאיזה יישוב, שכונה ורחוב הוא. בין היתר התפקדו במפקד גם 511 עולים שהגיעו באותו יום בספינה ל נמל חיפה , וכן כ־100 עולים שהגיעו במטוס שנחת באותו יום בשדה התעופה בחיפה. נטורי קרתא סירבו ליטול חלק במפקד ולא שיתפו פעולה עם הפוקדים.",
-      "fetched_at": "2026-08-18",
+      "claim_id": "form-106-title",
+      "claim": "Form 106 is the employer-issued \"אישור על משכורת וניכוי מס\" (certificate of salary and tax withheld) for the tax year",
+      "source_url": "https://www.gov.il/he/service/itc-106",
+      "raw_snippet": "שירות זה מאפשר למעסיקים להנפיק לעובדים טופס 106 - אישור על משכורת ועל ניכויי מס בשנת המס.",
+      "fetched_at": "2026-10-12T16:30:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/israeli-form-types.md",
         "scripts/extract_form_fields.py"
       ],
-      "verified_via": "cited page fetched and confirmed to contain \"100\"; snippet replaced with the page's own wording around it",
-      "verified_at": "2026-08-18"
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
     },
     {
-      "claim_id": "preprocessing-and-language-codes",
-      "claim": "Hebrew OCR preprocessing: nikud Unicode range U+0591-U+05C7, sofit normalization, bidi Cf-category stripping; Tesseract language code 'heb', Google Cloud Vision languageHints 'iw' for Hebrew",
-      "source_url": "https://tesseract-ocr.github.io/tessdoc/",
-      "raw_snippet": "Tesseract User Manual | tessdoc",
-      "fetched_at": "2026-08-19",
+      "claim_id": "form-106-labels",
+      "claim": "Form 106 prints the header \"אישור עפ\"י תקנות מס הכנסה - ניכוי ממשכורת\" and the labels \"מספר תיק ניכויים\", \"מספר זהות העובד\", \"שנת מס\", the salary row \"משכורת\" and the tax row \"ניכיתי ושילמתי מס הכנסה\"",
+      "source_url": "https://www.gov.il/BlobFolder/service/itc-106/he/Service_Pages_Income_tax_itc106-acc.pdf",
+      "raw_snippet": "אישור עפ\"י תקנות מס הכנסה",
+      "fetched_at": "2026-10-12T16:30:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
-        "scripts/preprocess_image.py"
-      ],
-      "verified_via": "claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
-      "verified_at": "2026-08-19"
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ]
     },
     {
-      "claim_id": "reference-urls",
-      "claim": "Reference URLs cited by the skill. Covered references: URLs: https://cloud.google.com/vision/docs/fulltext-annotations https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html https://github.com/tesseract-ocr/tessdata https://he.wikipedia.org/wiki/מספר_זהות_(ישראל) https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support https://tesseract-ocr.github.io/tessdoc/ https://www.gov.il/he/service/land_registration_extract",
-      "source_url": "https://tesseract-ocr.github.io/tessdoc/",
-      "raw_snippet": "Tesseract User Manual | tessdoc Skip to the content. Tesseract User Manual Tesseract documentation View on GitHub Tesseract User Manual This user manual is for Tesseract versions 5.x .",
-      "fetched_at": "2026-08-18",
+      "claim_id": "form-106-tax-row",
+      "claim": "The Form 106 tax-withheld row reads \"ניכיתי ושילמתי מס הכנסה\"",
+      "source_url": "https://www.gov.il/BlobFolder/service/itc-106/he/Service_Pages_Income_tax_itc106-acc.pdf",
+      "raw_snippet": "בהתאם לחוק ניכיתי ושילמתי מס הכנסה",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "form-106-field-158-172",
+      "claim": "On Form 106, fields 158/172 are the total payments the employer paid the employee in the tax year",
+      "source_url": "https://meyda.education.gov.il/files/OvdeyHoraa/106-guide-2025.pdf",
+      "raw_snippet": "סך כל התשלומים שהמעסיק שילם לעובד/ת במהלך שנת המס",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "form-106-field-042",
+      "claim": "On Form 106, field 42 (042) is the tax withheld from salary in the tax year",
+      "source_url": "https://meyda.education.gov.il/files/OvdeyHoraa/106-guide-2025.pdf",
+      "raw_snippet": "סכום המס שנוכה מהשכר בשנת המס",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "form-106-other-fields",
+      "claim": "Form 106 fields 218/219 (keren hishtalmut salary), 244/245 (pension salary), 248/249 (pension deposits)",
+      "source_url": "https://meyda.education.gov.il/files/OvdeyHoraa/106-guide-2025.pdf",
+      "raw_snippet": "משכורת לצורך הפקדות לקרן השתלמות",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "references/israeli-form-types.md"
+      ]
+    },
+    {
+      "claim_id": "form-806-857",
+      "claim": "Form 806 / Form 0806 / טופס 806 (header 0806/0857, also called טופס 857) is the annual certificate of income tax withheld at source on payments, not a capital-gains form",
+      "source_url": "https://www.gov.il/he/service/itc806",
+      "raw_snippet": "אישור שנתי על ניכוי מס הכנסה מתשלומים המחייבים ניכוי מס במקור (טופס 806)",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
+    },
+    {
+      "claim_id": "form-806-857-header",
+      "claim": "The 806 certificate is referred to as form 0806/0857",
+      "source_url": "https://www.gov.il/he/service/itc806",
+      "raw_snippet": "0806/0857 גם אם לא נוכה מס",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
+    },
+    {
+      "claim_id": "form-1399-capital-gains",
+      "claim": "Sales of assets (capital gains) are reported on Form 1399 under section 91 of the Income Tax Ordinance",
+      "source_url": "https://www.gov.il/he/service/declaration-assets-sale-itc1399",
+      "raw_snippet": "הודעה על מכירת נכס על פי סעיף 91 לפקודת מס הכנסה (טופס 1399י , טופס 1399ח)",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
+    },
+    {
+      "claim_id": "ishur-nikui",
+      "claim": "The Tax Authority withholding-at-source certificate is looked up by file number (income tax / osek murshe / partnership) and is issued together with the bookkeeping certificate",
+      "source_url": "https://www.gov.il/he/service/itc-gmishurim",
+      "raw_snippet": "יש להזין את מספר התיק (מס הכנסה / עוסק מורשה / שותפות)",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
+    },
+    {
+      "claim_id": "form-102",
+      "claim": "Form 102 (\"דין וחשבון על העסקת עובדים\") is the employer's monthly report and payment of insurance contributions",
+      "source_url": "https://www.kolzchut.org.il/he/דיווח_ותשלום_לביטוח_לאומי_על-ידי_המעסיק_עבור_שכירים_ומקבלי_פנסיה",
+      "raw_snippet": "טופס דין וחשבון על העסקת עובדים (טופס 102), שאותו עליו למלא ולשלם באמצעותו את דמי הביטוח מדי חודש.",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
+    },
+    {
+      "claim_id": "btl-form-100",
+      "claim": "\"טופס 100\" / BL Form 100: the PDF BTL publishes as form 100 is a claimant's refusal form (\"סירוב לפניה למעסיקים ומשלמי פנסיה מוקדמת\"), not an employer report; \"קובץ 100\" is an online per-employee file",
+      "source_url": "https://www.btl.gov.il/טפסים%20ואישורים/Documents/t100.pdf",
+      "raw_snippet": "סירוב לפניה למעסיקים ומשלמי פנסיה",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md"
+      ]
+    },
+    {
+      "claim_id": "btl-file-100",
+      "claim": "BTL \"קובץ 100 חודשי\" is an online per-employee report file",
+      "source_url": "https://www.kolzchut.org.il/he/דיווח_ותשלום_לביטוח_לאומי_על-ידי_המעסיק_עבור_שכירים_ומקבלי_פנסיה",
+      "raw_snippet": "דיווח פרטני מקוון (קובץ 100 חודשי)",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "references/israeli-form-types.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
+    },
+    {
+      "claim_id": "btl-certificates",
+      "claim": "BTL certificates are named \"אישור זכאות לגמלאות שנתי\", \"אישור תשלומים שנתי\" and similar",
+      "source_url": "https://www.btl.gov.il/טפסים%20ואישורים/אישורים/Pages/default.aspx",
+      "raw_snippet": "אישור זכאות לגמלאות שנתי",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
+    },
+    {
+      "claim_id": "nesach-contents",
+      "claim": "A Nesach reports encumbrances (mortgages, liens, judicial orders) and is correct as of its issue date; the sub-parcel is not necessarily the apartment number; it is an original only in digital form",
+      "source_url": "https://www.gov.il/he/service/land_registration_extract",
+      "raw_snippet": "שעבודים, משכנתאות, עיקולים, צווים שיפוטיים ועוד.",
+      "fetched_at": "2026-10-12T16:30:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/nesach-tabu-structure.md"
       ],
-      "verified_via": "navigational reference; snippet replaced with the cited page's own opening text so the entry can be falsified",
-      "verified_at": "2026-08-18"
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
     },
     {
-      "claim_id": "illustrative-currency-tokens",
-      "claim": "Illustrative currency example used to show extracted-field formatting (not a live amount)",
-      "source_url": "internal-illustrative-example",
-      "raw_snippet": "Illustrative extracted amount example: ₪1,234.56; field formatted as amount, NIS",
-      "fetched_at": "2026-06-17T01:15:00Z",
+      "claim_id": "nesach-digital-original",
+      "claim": "A Nesach is recognized as an original document only in digital form, not when printed",
+      "source_url": "https://www.gov.il/he/service/land_registration_extract",
+      "raw_snippet": "הנסח רשמי ומוכר כמסמך מקורי רק בצורה דיגיטלית ולא כשהוא מודפס.",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/nesach-tabu-structure.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
+    },
+    {
+      "claim_id": "nesach-tat-helka",
+      "claim": "The Tabu sub-parcel number is not necessarily the apartment number",
+      "source_url": "https://www.gov.il/he/service/land_registration_extract",
+      "raw_snippet": "מספר תת החלקה בטאבו אינו בהכרח זהה למספר הדירה בבניין.",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/nesach-tabu-structure.md",
+        "references/israeli-form-types.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T16:30:00Z"
+    },
+    {
+      "claim_id": "israeli-id-check-digit",
+      "claim": "Israeli ID: 9 digits, rightmost is a check digit; weights 1,2,1,2...; digits of products summed",
+      "source_url": "https://he.wikipedia.org/wiki/ספרת_ביקורת",
+      "raw_snippet": "כל ספרה מוכפלת במשקל שלה, וכל הספרות של התוצאות מחוברות יחדיו",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py",
+        "scripts/tabu_to_spreadsheet.py"
+      ]
+    },
+    {
+      "claim_id": "privacy-amendment-13",
+      "claim": "Amendment 13 to the Privacy Protection Law came into force on 14 August 2025",
+      "source_url": "https://www.rsm.global/israel/he/node/228",
+      "raw_snippet": "התיקון עתיד להיכנס לתוקפו ב-14 באוגוסט 2025",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tesseract-internal-binarization",
+      "claim": "Tesseract performs image processing (including binarisation) internally via Leptonica; some noise is not removed by its binarisation step; works best at 300 DPI or more",
+      "source_url": "https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html",
+      "raw_snippet": "Tesseract does various image processing operations internally",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/preprocess_image.py"
+      ]
+    },
+    {
+      "claim_id": "tesseract-300-dpi",
+      "claim": "Tesseract works best at 300 DPI or more",
+      "source_url": "https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html",
+      "raw_snippet": "Tesseract works best on images which have a DPI of at least 300 dpi",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tesseract-psm",
+      "claim": "PSM 4 = single column of variable sizes; PSM 6 = single uniform block",
+      "source_url": "https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html",
+      "raw_snippet": "Assume a single column of text of variable sizes",
+      "fetched_at": "2026-10-12T16:30:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
@@ -73,28 +297,350 @@
       ]
     },
     {
-      "claim_id": "nesach-tabu-structure",
-      "claim": "A Nesach Tabu (land-registry extract) reports the registered owner and encumbrances (mortgages, liens, judicial orders); the property is keyed by gush and helka, and for an apartment in a shared building the tat-helka (sub-parcel) is required and is not necessarily the apartment number.",
-      "source_url": "https://www.gov.il/he/service/land_registration_extract",
-      "raw_snippet": "שעבודים, משכנתאות, עיקולים, צווים שיפוטיים ועוד. ... אם הדירה בבית משותף תידרשו להקליד גם את מספר תת החלקה. מספר תת החלקה בטאבו אינו בהכרח זהה למספר הדירה בבניין.",
-      "fetched_at": "2026-07-07T00:00:00Z",
+      "claim_id": "tesseract-oem1",
+      "claim": "--oem 1 selects the LSTM engine",
+      "source_url": "https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html",
+      "raw_snippet": "Use --oem 1 for LSTM/neural network",
+      "fetched_at": "2026-10-12T16:30:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
-        "references/nesach-tabu-structure.md",
-        "scripts/tabu_to_spreadsheet.py"
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "tesseract-preserve-interword",
+      "claim": "preserve_interword_spaces is a real Tesseract parameter",
+      "source_url": "https://raw.githubusercontent.com/tesseract-ocr/tesseract/main/src/ccmain/tesseractclass.cpp",
+      "raw_snippet": "preserve_interword_spaces, false, \"Preserve multiple interword spaces",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "tesseract-heb-data",
+      "claim": "heb.traineddata is published in tesseract-ocr/tessdata",
+      "source_url": "https://github.com/tesseract-ocr/tessdata",
+      "raw_snippet": "heb.traineddata",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tesseract-heb-ubuntu",
+      "claim": "Ubuntu package tesseract-ocr-heb",
+      "source_url": "https://packages.ubuntu.com/noble/tesseract-ocr-heb",
+      "raw_snippet": "tesseract-ocr-heb",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "tesseract-lang-brew",
+      "claim": "Homebrew tesseract-lang adds extra languages",
+      "source_url": "https://formulae.brew.sh/formula/tesseract-lang",
+      "raw_snippet": "Enables extra languages support for Tesseract",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "textract-languages",
+      "claim": "AWS Textract supports only English, Spanish, Italian, Portuguese, French, German; handwriting is English only",
+      "source_url": "https://aws.amazon.com/textract/faqs/",
+      "raw_snippet": "Currently English, Spanish, Italian, Portuguese, French, German",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "textract-handwriting",
+      "claim": "Textract handwriting is English only",
+      "source_url": "https://aws.amazon.com/textract/faqs/",
+      "raw_snippet": "Handwriting, Invoices and Receipts, Identity documents and Queries processing are in English only",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "azure-di-hebrew",
+      "claim": "Azure Document Intelligence Read model lists Hebrew (he) for printed text",
+      "source_url": "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/language-support/ocr",
+      "raw_snippet": "Hebrew he",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "azure-vision-ocr-no-hebrew",
+      "claim": "Azure Vision Read OCR print-language table has no Hebrew row",
+      "source_url": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support",
+      "raw_snippet": "OCR supported languages for print text",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "google-vision-iw",
+      "claim": "Google Cloud Vision lists Hebrew with code iw (page moved to docs.cloud.google.com; table row \"עברית Hebrew iw Hebr\")",
+      "source_url": "https://docs.cloud.google.com/vision/docs/languages",
+      "raw_snippet": "Hebrew iw",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T17:10:00Z"
+    },
+    {
+      "claim_id": "google-docai-recommendation",
+      "claim": "Google recommends Document AI over Vision for scanned documents",
+      "source_url": "https://docs.cloud.google.com/vision/docs/ocr",
+      "raw_snippet": "If you are detecting text in scanned documents, try Document AI for optical character recognition",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T17:10:00Z"
+    },
+    {
+      "claim_id": "google-vision-fulltext",
+      "claim": "Google Vision DOCUMENT_TEXT_DETECTION / fullTextAnnotation docs page",
+      "source_url": "https://docs.cloud.google.com/vision/docs/fulltext-annotations",
+      "raw_snippet": "DOCUMENT_TEXT_DETECTION",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T17:10:00Z"
+    },
+    {
+      "claim_id": "claude-model-ids",
+      "claim": "Current Claude model IDs include claude-sonnet-5-5 and claude-opus-5-5",
+      "source_url": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "raw_snippet": "Claude API ID claude-fable-5-1 claude-opus-5-5 claude-sonnet-5-5 claude-haiku-5-5",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "unicode-hebrew-punct",
+      "claim": "U+05BE maqaf (Pd), U+05C0 paseq, U+05C3 sof pasuq, U+05C6 nun hafukha (Po) are punctuation inside U+0591-U+05C7; the rest of the range is marks",
+      "source_url": "https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt",
+      "raw_snippet": "05BE;HEBREW PUNCTUATION MAQAF;Pd",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "unicode-nun-hafukha",
+      "claim": "U+05C6 nun hafukha is punctuation",
+      "source_url": "https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt",
+      "raw_snippet": "05C6;HEBREW PUNCTUATION NUN HAFUKHA;Po",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/extract_form_fields.py"
+      ]
+    },
+    {
+      "claim_id": "tested-preprocessing-behaviour",
+      "claim": "Measured on synthetic Hebrew test pages (2026-10-12, Tesseract 5.5.3, OpenCV 5.0): binarized output of grainy scans lost fields while denoised grayscale read every field; a large stamp or signature on a straight page pulled the all-ink skew estimate by about 1-3 degrees. Default denoise 15, 15-degree skew cap, 60 confidence cutoff and 8-9 digit ids (or 8 digits plus a hyphenated check digit) are script design parameters; a full A4 page at 300 DPI is 2480 x 3508 px (arithmetic: 8.27 x 11.69 in at 300 DPI), used for the low-resolution warning",
+      "source_url": "internal-test-measurement",
+      "raw_snippet": "Script design parameters and in-house test results: denoise default 15, binarize with 20, max skew 15 degrees, stamp skew 1-3 degrees, low-confidence cutoff 60, ids 8-9 digits",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/preprocess_image.py",
+        "scripts/extract_form_fields.py"
       ]
     },
     {
       "claim_id": "illustrative-tabu-tokens",
-      "claim": "Illustrative sample tokens used in the tabu_to_spreadsheet.py EXAMPLE_TEXT and in reference examples to demonstrate parsing (a synthetic Nesach). Not claims about any specific real property or statute; sample section references such as סעיף 34, סעיף 126, and סעיף 212 illustrate where a caution/lien statutory reference appears in a row.",
+      "claim": "Illustrative synthetic tokens in examples and the tabu_to_spreadsheet.py EXAMPLE_TEXT (gush 6941, helka 55, tat-helka 12, shares 1/2 and 125/1000, deed 12345/2015/1, sample ids 000000018 / 000000026 / 512345678, sample section references 34/126/212, sample lease end 31/12/2050, sample OCR artifacts such as 04221,340 and 15/03/2025)",
       "source_url": "internal-illustrative-example",
-      "raw_snippet": "Illustrative synthetic Nesach sample: גוש 6941 חלקה 55 תת-חלקה 12; owners דנה כהן / יוסי לוי; חלק 1/2; משכנתא דרגה ראשונה; עיקול סעיף 34; הערת אזהרה סעיף 126; צו הריסה סעיף 212; חכירה עד 31/12/2050",
-      "fetched_at": "2026-07-07T00:00:00Z",
+      "raw_snippet": "Illustrative synthetic Nesach sample: גוש 6941 חלקה 55 תת-חלקה 12; חלק 1/2; שטר 12345/2015/1; סעיף 34, סעיף 126, סעיף 212; 31/12/2050; 04221,340; 15/03/2025",
+      "fetched_at": "2026-10-12T16:30:00Z",
       "appears_in": [
-        "scripts/tabu_to_spreadsheet.py",
-        "references/nesach-tabu-structure.md"
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/nesach-tabu-structure.md",
+        "references/israeli-form-types.md",
+        "scripts/tabu_to_spreadsheet.py"
       ]
+    },
+    {
+      "claim_id": "illustrative-currency-tokens",
+      "claim": "Illustrative currency example used to show extracted-field formatting (not a live amount)",
+      "source_url": "internal-illustrative-example",
+      "raw_snippet": "Illustrative extracted amount example: ₪1,234.56; field formatted as amount, NIS",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md"
+      ]
+    },
+    {
+      "claim_id": "textract-analyze-docs",
+      "claim": "AWS Textract AnalyzeDocument extracts text, forms and tables (reference link)",
+      "source_url": "https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html",
+      "raw_snippet": "Amazon Textract analyzes documents and forms for relationships among detected text.",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tessdoc-root",
+      "claim": "Tesseract documentation home (reference link)",
+      "source_url": "https://tesseract-ocr.github.io/tessdoc/",
+      "raw_snippet": "Tesseract User Manual",
+      "fetched_at": "2026-10-12T16:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "ishur-nikui-rate-set-by-assessor",
+      "claim": "The withholding-at-source rate is set by the assessing officer (פקיד שומה) for each business",
+      "source_url": "https://www.kolzchut.org.il/he/ניכוי_מס_הכנסה_במקור_על-ידי_לקוח_של_עסק_עצמאי",
+      "raw_snippet": "שיעור ניכוי מס במקור נקבע על ידי פקיד שומה לכל עוסק ואו חברה.",
+      "appears_in": [
+        "references/israeli-form-types.md"
+      ],
+      "verified_via": "browser",
+      "fetched_at": "2026-10-12T18:30:00Z",
+      "verified_at": "2026-10-12T18:30:00Z"
+    },
+    {
+      "claim_id": "ishur-nikui-combined-name",
+      "claim": "Payers request \"אישור ניהול ספרים וניכוי מס במקור\" (the combined bookkeeping and withholding certificate)",
+      "source_url": "https://www.kolzchut.org.il/he/ניכוי_מס_הכנסה_במקור_על-ידי_לקוח_של_עסק_עצמאי",
+      "raw_snippet": "לבקש מבעל העסק האחר אישור ניהול ספרים וניכוי מס במקור",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "scripts/extract_form_fields.py"
+      ],
+      "verified_via": "browser",
+      "fetched_at": "2026-10-12T18:30:00Z",
+      "verified_at": "2026-10-12T18:30:00Z"
+    },
+    {
+      "claim_id": "google-docai-hebrew-row",
+      "claim": "Document AI Enterprise Document OCR language table lists Hebrew (iw, Hebr) with handwriting marked Not Supported",
+      "source_url": "https://docs.cloud.google.com/document-ai/docs/processors-list",
+      "raw_snippet": "Hebrew iw Hebr",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "fetched_at": "2026-10-12T18:30:00Z",
+      "verified_at": "2026-10-12T18:30:00Z"
+    },
+    {
+      "claim_id": "google-vision-handwriting-scripts",
+      "claim": "Google Vision handwriting recognition script list does not include Hebrew (Hebr)",
+      "source_url": "https://docs.cloud.google.com/vision/docs/languages",
+      "raw_snippet": "The following scripts are supported for handwriting recognition.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-10-12T18:30:00Z",
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T18:40:00Z"
+    },
+    {
+      "claim_id": "form-126",
+      "claim": "Form 126 is the employer's semi-annual/annual detailed wage report to Bituach Leumi",
+      "source_url": "https://www.kolzchut.org.il/he/דיווח_ותשלום_לביטוח_לאומי_על-ידי_המעסיק_עבור_שכירים_ומקבלי_פנסיה",
+      "raw_snippet": "שליחת טופס 126 חציוני",
+      "fetched_at": "2026-10-12T18:50:00Z",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T18:50:00Z"
+    },
+    {
+      "claim_id": "privacy-transfer-abroad-regs",
+      "claim": "Privacy Protection Regulations (Transfer of Data to Databases Abroad), 2001 govern transfer of personal data outside Israel",
+      "source_url": "https://www.kolzchut.org.il/he/חוק_הגנת_הפרטיות",
+      "raw_snippet": "תקנות הגנת הפרטיות (העברת מידע אל מאגרי מידע שמחוץ לגבולות המדינה)",
+      "fetched_at": "2026-10-12T19:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T19:30:00Z"
+    },
+    {
+      "claim_id": "privacy-data-security-regs",
+      "claim": "Privacy Protection Regulations (Data Security), 2017",
+      "source_url": "https://www.kolzchut.org.il/he/חוק_הגנת_הפרטיות",
+      "raw_snippet": "תקנות הגנת הפרטיות (אבטחת מידע)",
+      "fetched_at": "2026-10-12T19:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T19:30:00Z"
+    },
+    {
+      "claim_id": "ishur-nikui-online-lookup",
+      "claim": "The Tax Authority online service gives the withholding rate by file number and prints the certificates",
+      "source_url": "https://www.gov.il/he/service/itc-gmishurim",
+      "raw_snippet": "המערכת מאפשרת את הדפסת האישורים",
+      "fetched_at": "2026-10-12T19:30:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/israeli-form-types.md",
+        "references/domain-checklist.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-12T19:30:00Z"
     }
   ]
 }
