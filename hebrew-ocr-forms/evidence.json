@@ -475,9 +475,9 @@
     },
     {
       "claim_id": "tested-preprocessing-behaviour",
-      "claim": "Measured on synthetic Hebrew test pages (2026-10-12, Tesseract 5.5.3, OpenCV 5.0): binarized output of grainy scans lost fields while denoised grayscale read every field; a large stamp or signature on a straight page pulled the all-ink skew estimate by about 1-3 degrees. Default denoise 15, 15-degree skew cap, 60 confidence cutoff and 8-9 digit ids (or 8 digits plus a hyphenated check digit) are script design parameters; a full A4 page at 300 DPI is 2480 x 3508 px (arithmetic: 8.27 x 11.69 in at 300 DPI), used for the low-resolution warning",
+      "claim": "Measured on synthetic Hebrew test pages (2026-10-12, Tesseract 5.5.3, OpenCV 5.0): binarized output of grainy scans lost fields while denoised grayscale read every field; a large stamp or signature on a straight page pulled the all-ink skew estimate by about 1-3 degrees. Default denoise 15, 15-degree skew cap, 60 confidence cutoff and 8-9 digit ids (or 8 digits plus a hyphenated check digit) are script design parameters; a full A4 page at 300 DPI is 2480 x 3508 px (arithmetic: 8.27 x 11.69 in at 300 DPI), used for the low-resolution warning; median glyph height on synthetic pages: about 4 px failed OCR (0/10 and 8/10 fields), about 7 px read 10/10; the text-height warning fires below 8 px and fired on a simulated distant 12 MP phone photo (about 6 px) but not on a close one",
       "source_url": "internal-test-measurement",
-      "raw_snippet": "Script design parameters and in-house test results: denoise default 15, binarize with 20, max skew 15 degrees, stamp skew 1-3 degrees, low-confidence cutoff 60, ids 8-9 digits",
+      "raw_snippet": "Script design parameters and in-house test results: denoise default 15, binarize with 20, max skew 15 degrees, stamp skew 1-3 degrees, low-confidence cutoff 60, ids 8-9 digits, glyph height 4 px fail 7 px pass, warn below 8 px",
       "fetched_at": "2026-10-12T16:30:00Z",
       "appears_in": [
         "SKILL.md",

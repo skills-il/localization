@@ -19,7 +19,8 @@
         "Remediation reintroduced defects twice (merge rule swallowed new entries; עד matched inside מועד). Budget 3+ reviewer rounds for parser changes.",
         "Deferred (expert majors, next cycle): phone-photo perspective warp (low-res warning does not fire on 12 MP photos); dedicated extractors for 806/857, 102, BL certificates, vehicle licence; Nesach action-type and deed-date columns; field provenance/bbox; tessdata_best guidance; NFC + presentation-form folding for pdftotext output; batch mode with per-file isolation; withholding-file and company-number format checks; Azure Foundry rename / Image Analysis 4.0 retirement note.",
         "Deferred: value-add gate (5.11) not run this cycle because its cases must be committed in the monorepo, which the batch brief forbade editing.",
-        "Google docs moved to docs.cloud.google.com and fetch results vary per request; Document AI languages page now redirects to processors-list. Re-render Google sources in a browser each cycle."
+        "Google docs moved to docs.cloud.google.com and fetch results vary per request; Document AI languages page now redirects to processors-list. Re-render Google sources in a browser each cycle.",
+        "Non-blocking residuals for next cycle: a glued real negative '042-1,200' reads as positive (mirror of the hyphen-separator rule); a Nesach without a title whose BL lien sits in the first short lines is detected as bituach_leumi (generic listing, no wrong value); 'ניכוי ממשכורת' on a short payslip line can classify as 106; page-size warning is noisy on cropped regions."
       ]
     }
   ]

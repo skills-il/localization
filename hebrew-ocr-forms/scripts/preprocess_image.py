@@ -78,6 +78,15 @@ def preprocess_for_hebrew_ocr(image_path, block_size=31, c_value=10,
     # Convert to grayscale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
+    # Text size matters more than pixel count: a 12 MP phone photo of a page taken from
+    # far away still has tiny letters. On our synthetic test pages a median glyph height
+    # of about 4 px failed OCR and about 7 px read cleanly; warn below 8 px for margin.
+    glyph_h = median_glyph_height(gray)
+    if 0 < glyph_h < 8:
+        print(f"  Warning: median letter height is about {glyph_h:.0f} px, too small for "
+              "reliable OCR. Rescan at 300 DPI, or photograph the page closer and flatter.",
+              file=sys.stderr)
+
     if border_margin:
         gray = remove_borders(gray, border_margin)
 
@@ -100,6 +109,16 @@ def preprocess_for_hebrew_ocr(image_path, block_size=31, c_value=10,
         gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
         cv2.THRESH_BINARY, block_size, c_value
     )
+
+
+def median_glyph_height(gray):
+    """Median height in px of letter-sized connected components (0 if none found)."""
+    mask = cv2.threshold(cv2.medianBlur(gray, 3), 0, 255,
+                         cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+    n, _, stats, _ = cv2.connectedComponentsWithStats(mask)
+    heights = [stats[i, 3] for i in range(1, n)
+               if stats[i, 4] >= 4 and stats[i, 3] >= 3 and stats[i, 2] < stats[i, 3] * 6]
+    return float(np.median(heights)) if len(heights) >= 20 else 0.0
 
 
 def deskew_image(gray, max_angle=15.0):

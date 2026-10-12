@@ -54,7 +54,8 @@ OTHER_ID_RE = re.compile(OTHER_LABEL + r'[:\s]*([A-Z]{0,2}\d{5,9}|\d{2}-\d{6}-\d
 # number such as 12345/2015/1.
 SHARE_RE = re.compile(r'((?<![\d/])\d{1,7}\s*/\s*\d{1,7}(?![\d/])|בשלמות)')
 DEGREE_RE = re.compile(r'דרגה\s*([א-ת]\S*)')
-BENEFICIARY_RE = re.compile(r'לטובת[:\s]+(.+)')
+# Stops before a case/deed/section reference so those are not repeated inside the name.
+BENEFICIARY_RE = re.compile(r'לטובת[:\s]+(.+?)(?=\s+(?:תיק|שטר|סעיף)\b|\s+(?:תיק|שטר|סעיף)\s|$)')
 SECTION_REF_RE = re.compile(r'סעיף\s*\d+[א-ת]?')
 DATE_RE = re.compile(r'(?<![\d/.])\d{1,2}[./]\d{1,2}[./]\d{2,4}(?![\d/]|\.\d)')
 # Word-bounded, so the עד inside מועד or הועדה is not a marker. סיום / תום win over עד.
@@ -196,11 +197,13 @@ def _clean_name(line):
     name = SHARE_RE.sub('', name)
     name = SHARE_LABEL_RE.sub('', name)
     name = SECTION_REF_RE.sub('', name)
+    name = re.sub(r'על\s*\d{1,7}/\d{1,7}\s*מהזכויות|על\s*מהזכויות', '', name)
+
     name = re.sub(r'לטובת[:\s]*', '', name)
     # Keep Hebrew, spaces, quotes, hyphen, Latin letters and digits (company names).
     name = re.sub(r'[^\u0590-\u05FFA-Za-z0-9\s"\'\-]', '', name)
     name = ' '.join(name.split())
-    return re.sub(r'(?:\s+(?:עד|מ-?|תאריך סיום|מועד תחילה))+$', '', name).strip()
+    return re.sub(r'(?:\s+(?:עד|מ-?|תאריך סיום|מועד תחילה|תיק))+$', '', name).strip()
 
 
 def _has_party(row):
@@ -220,9 +223,18 @@ def _make_row(base, section, line):
         # On an encumbrance row an a/b number is not an ownership share: it may be a case or
         # file number, or the fraction of the rights encumbered ("על 1/2 מהזכויות"). Kept
         # verbatim in detail, unlabelled, for the reader to interpret.
-        nums = [m for m in re.findall(r'(?<![\d/])\d{1,7}/\d{1,7}(?![\d/])', DEED_RE.sub(' ', DATE_RE.sub(' ', line)))]
-        if nums:
-            detail = '; '.join(x for x in (detail, ', '.join(nums)) if x)
+        masked = DEED_RE.sub(' ', DATE_RE.sub(' ', line))
+        labels = []
+        for m in re.finditer(r'(?:(על|חלק|תיק|מספר|מס[\'"\u05F3]?)\s*)?(?<![\d/])(\d{1,7}/\d{1,7})(?![\d/])', masked):
+            word, num = m.group(1), m.group(2)
+            if word in ('על', 'חלק'):
+                labels.append('חלק ' + num)       # the fraction of the rights encumbered
+            elif word:
+                labels.append('מספר ' + num)      # a case or file number
+            else:
+                labels.append(num)                # unlabelled: kept verbatim
+        if labels:
+            detail = '; '.join(x for x in (detail, ', '.join(labels)) if x)
     return dict(base, section=section, name=_clean_name(line), owner_id=oid,
                 share=share, detail=detail, _personal=personal,
                 _label_no_id=label_no_id, _typed=bool(ENTRY_TYPE_RE.match(line)), _n_ids=n_ids)
@@ -319,6 +331,7 @@ def parse_nesach(ocr_text):
             target['name'] = ' '.join(x for x in (target['name'], row['name']) if x)
             target['owner_id'] = target['owner_id'] or row['owner_id']
             target['_personal'] = target.get('_personal') or row['_personal']
+            target['_label_no_id'] = target.get('_label_no_id') or row['_label_no_id']
             target['detail'] = '; '.join(x for x in (target['detail'], row['detail']) if x)
         elif row['name'] or row['owner_id'] or row['share'] or row['detail']:
             rows.append(row)

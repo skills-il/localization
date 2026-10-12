@@ -46,8 +46,10 @@ several extracts concatenate cleanly:
   warned. A mortgage row with no degree is warned (it may be a joint creditor of the mortgage
   above), and any other encumbrance row that does not start with an entry type is warned (it may
   be a separate entry or a wrapped continuation). On encumbrance rows the `share` column stays
-  empty; an a/b number there may be a case or file number or the fraction of the rights
-  encumbered, so it is kept verbatim in `detail` for the reader to interpret.
+  empty. An a/b number there may be a case or file number or the fraction of the rights
+  encumbered: it goes to `detail` as `חלק a/b` after על / חלק, as `מספר a/b` after תיק / מספר,
+  and verbatim otherwise. A ת.ז. label with a number that is not 8-9 digits is warned even on a
+  line merged into the entry above.
 
 ## Sections the parser recognizes
 

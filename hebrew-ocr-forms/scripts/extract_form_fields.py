@@ -279,6 +279,8 @@ def extract_tofes_106_fields(ocr_text):
         fields['employee_tz'], padded = _id_field(tz)
         if padded:
             fields['employee_tz_padded'] = True
+    elif re.search(TZ_LABEL + r'[:\s]*\d', ocr_text):
+        fields['employee_tz_unreadable'] = True  # a labelled id that is not 8-9 digits
 
     missing = []
     for name, label_re, code_re in (('salary_158_172', SALARY_LABEL_RE, SALARY_CODE_RE),
@@ -298,6 +300,12 @@ def extract_tofes_106_fields(ocr_text):
             missing.append(name)
     if missing:
         fields['rows_without_amount'] = missing
+    try:
+        if float(fields['income_tax_042']) > float(fields['salary_158_172']):
+            # Flag, never correct: tax withheld above salary means a misread somewhere.
+            fields['tax_exceeds_salary'] = True
+    except (KeyError, ValueError):
+        pass
     negative = [n for n in ('salary_158_172', 'income_tax_042') if fields.get(n, '').startswith('-')]
     if negative:
         fields['negative_amounts'] = negative  # rare on a 106; confirm against the form
@@ -370,7 +378,7 @@ def validate_israeli_id(id_number):
 FORM_INDICATORS = [
     # 102 first: its body can mention ניכוי ממשכורת, a 106 never carries the 102 title.
     ('tofes_102', ['דין וחשבון על העסקת עובדים'], ['טופס 102']),
-    ('tofes_106', ['אישור על משכורת וניכוי מס', 'ניכוי ממשכורת'], ['טופס 106']),
+    ('tofes_106', ['אישור על משכורת וניכוי מס'], ['טופס 106', 'ניכוי ממשכורת']),
     ('tofes_806_857', ['אישור שנתי על ניכוי מס הכנסה מתשלומים'],
      ['0806/0857', 'טופס 857', 'טופס 806']),
     ('ishur_nikui', ['אישור ניכוי מס במקור', 'אישור ניהול ספרים וניכוי מס במקור'], []),

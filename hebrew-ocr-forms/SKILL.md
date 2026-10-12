@@ -44,7 +44,7 @@ See `scripts/preprocess_image.py` for the full preprocessing pipeline. Key steps
 2. Deskew -- Israeli forms are often slightly rotated from scanning; estimates beyond 15 degrees are refused rather than guessed. The estimate uses all ink, so on our synthetic test pages a large stamp or signature rotated a straight page by about 1-3 degrees; check the output and use `--no-deskew` if so
 3. Denoise (non-local means, `--denoise-strength`, default 15)
 4. Binarize only on request (`--binarize`, best with `--denoise-strength 20`). Tesseract binarizes internally, and an adaptive threshold on a grainy scan turns grain into speckle it reads as letters; on our test scans the grayscale output read every field while the binarized one lost some
-5. Phone photos and low-DPI scans: this pipeline does not correct perspective or uneven page curvature. The script warns when the image is far smaller than an A4 page at 300 DPI; ask for a rescan at 300 DPI or a scanner app that flattens the page
+5. Phone photos and low-DPI scans: this pipeline does not correct perspective or uneven page curvature. The script warns when the image is far smaller than an A4 page at 300 DPI, and when the median letter height is too small for OCR (on our synthetic test pages about 4 px failed and about 7 px read cleanly; it warns below 8 px), which catches a distant photo even from a 12 MP camera. Ask for a rescan at 300 DPI or a closer photo with a scanner app that flattens the page
 
 ### Step 3: Run Hebrew OCR with Tesseract
 
@@ -84,7 +84,7 @@ A Nesach is not flat: one property can list several owners (each with a share), 
 - Salary: the "משכורת" row, annual-return field 158/172
 - Income tax withheld: "ניכיתי ושילמתי מס הכנסה", field 042
 
-Amount rows print the field code next to the amount, and Tesseract often glues them ("04221,340"). The script reads an amount only from the salary row and the tax row, right after the field code or label, never from a bare 42/158/172 elsewhere on the page (street numbers, phones, branch numbers), and names the fields `salary_158_172` and `income_tax_042`. When a row is found but its amount cannot be read cleanly (space-grouped thousands "184 500", an OCR'd letter O for zero) the field is omitted and listed in `rows_without_amount`; read those by hand. A negative amount is kept but listed in `negative_amounts` for a human to confirm. Field 158/172 is the total the employer paid during the tax year; do not relabel it "taxable income".
+Amount rows print the field code next to the amount, and Tesseract often glues them ("04221,340"). The script reads an amount only from the salary row and the tax row, right after the field code or label, never from a bare 42/158/172 elsewhere on the page (street numbers, phones, branch numbers), and names the fields `salary_158_172` and `income_tax_042`. When a row is found but its amount cannot be read cleanly (space-grouped thousands "184 500", an OCR'd letter O for zero) the field is omitted and listed in `rows_without_amount`; read those by hand. A negative amount is kept but listed in `negative_amounts` for a human to confirm. Tax above salary sets `tax_exceeds_salary` (flagged, never corrected), and a labelled employee ID that is not 8-9 digits sets `employee_tz_unreadable`. Field 158/172 is the total the employer paid during the tax year; do not relabel it "taxable income".
 
 ### Step 4b: Turn a Full Tabu Extract into a Spreadsheet
 
