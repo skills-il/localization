@@ -1,0 +1,337 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-ai-text-humanizer",
+  "skill_slug": "hebrew-ai-text-humanizer",
+  "generated_at": "2026-11-02T22:00:00Z",
+  "claims": [
+    {
+      "claim_id": "acad-bemida-ve",
+      "claim": "Academy of the Hebrew Language: the connective \"bemida ve-\" is considered non-standard; the correct form is \"bemida she-\". Source page: https://hebrew-academy.org.il/במידה-ש־/",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/במידה-ש־/",
+      "raw_snippet": "השימוש בביטוי הקישור במידה ו־ נחשב לא תקני. הביטוי הנכון הוא במידה ש־",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-bemida-she-condition",
+      "claim": "Academy decision (plenary): in a conditional sentence one must not say \"bemida she-\" instead of \"im\"; \"bemida she-\" is proper only to express real degree. Source page: https://hebrew-academy.org.il/topic/hahlatot/grammardecisions/terminology-ordinance/4-1-שימושי-לשון/",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/grammardecisions/terminology-ordinance/4-1-שימושי-לשון/",
+      "raw_snippet": "במשפט תנאי אין לומר 'במידה ש' במקום אם.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-bemida-she-degree",
+      "claim": "Academy decision: \"bemida she-\" is only acceptable when it expresses actual degree.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/grammardecisions/terminology-ordinance/4-1-שימושי-לשון/",
+      "raw_snippet": "אין הצירוף במידה ש כשר אלא כשהוא בא לציין מידה ממש.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-avur-style",
+      "claim": "Academy decision: the Academy does not intervene in the use of \"avur\" in the sense of \"bishvil\" (for); it is a question of style, not of correctness.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/grammardecisions/terminology-ordinance/4-1-שימושי-לשון/",
+      "raw_snippet": "אין האקדמיה רואה מקום להתערב בשאלת השימוש במילה עבור במשמעות 'בשביל'",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-avur-style-reason",
+      "claim": "Academy: the reason it does not rule on \"avur\" is that it is a question of style.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/grammardecisions/terminology-ordinance/4-1-שימושי-לשון/",
+      "raw_snippet": "בהיותה שאלת סגנון.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-inflated-register",
+      "claim": "Academy-published article (Shoshana Bahat) quoted on the Academy page: writers replace short words such as \"im\", \"kdei\" and \"she-\" with \"respectable\" longer ones (al menat, asher, bemida ve-) to make their writing sound important.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/במידה-ש־/",
+      "raw_snippet": "כדי לשוות לשון של חשיבות לכתיבתם מחליפים אותן רבים במילים \"מכובדות\" יותר.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-al-menat",
+      "claim": "Same Academy page: \"kdei she-\" gets replaced by \"al menat she-\" and \"she-\" by \"asher\".",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/במידה-ש־/",
+      "raw_snippet": "'כדי ש' מומרת ב'על מנת ש'",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-haya-ve",
+      "claim": "Academy: the conditional \"haya ve-\", like \"bemida ve-\", is considered non-standard; the most suitable word to open a conditional clause is \"im\". Source page: https://hebrew-academy.org.il/היה-ו־-היות-ש־-היות-ו־-וביטויים-קרובים/",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/היה-ו־-היות-ש־-היות-ו־-וביטויים-קרובים/",
+      "raw_snippet": "הצירוף היה ו־, כמו במידה ו־ וצירופים דומים, נחשב לא תקני. המילה המתאימה ביותר לפתיחת פסוקית תנאי היא אם.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-heyot-ve",
+      "claim": "Academy: \"heyot ve-\" uses the conjunctive vav instead of subordinating shin under the influence of \"hoil ve-\", and is also considered non-standard.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/היה-ו־-היות-ש־-היות-ו־-וביטויים-קרובים/",
+      "raw_snippet": "נוקטים את ו' החיבור במקום ש' השעבוד בהשפעת הצירוף הואיל ו־. גם שימוש זה נחשב לא תקני.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-maqaf-letters-digits",
+      "claim": "Academy: a maqaf is placed in a sequence mixing two kinds of characters such as letters and digits (example: ha-knes ha-15 written with a maqaf). Source page: https://hebrew-academy.org.il/על-מקף-וקו-מפריד/",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/על-מקף-וקו-מפריד/",
+      "raw_snippet": "שמים מקף ברצף שיש בו שני סוגי גופנים, כגון אותיות ומספרים: הכנס ה־15, המאה ה־12.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-maqaf-latin",
+      "claim": "Academy punctuation rules (maqaf section): examples of a maqaf between a prefix and digits or a Latin-script word, \"the 12th century\" and \"damage to DNA\". Source page: https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "המאה ה־12, פגיעה ב־DNA.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-maqaf-vs-dash",
+      "claim": "Academy: maqaf and dash are similar marks with opposite jobs; the maqaf joins, the dash separates.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/על-מקף-וקו-מפריד/",
+      "raw_snippet": "המקף תפקידו לחבר, ואילו הקו המפריד תפקידו להפריד.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-dash-spacing",
+      "claim": "Academy: the dash (kav mafrid) is long, has a space before and after it, and sits at mid height of the line.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/על-מקף-וקו-מפריד/",
+      "raw_snippet": "הקו המפריד ארוך, יש רווח לפניו ואחריו, ומקומו באמצע השורה",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-dash-legit",
+      "claim": "Academy punctuation rules: the dash is a recognised Hebrew punctuation mark, a long line with a space on each side, used when extra separation between parts of a sentence is needed. So the dash itself is not foreign to Hebrew; only its overuse and unspaced English-style placement are tells.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "קו מפריד, כלומר קו ארוך שלפניו ולאחריו יש רווח, משמש כשמורגש צורך להפריד הפרדה יתרה בין חלקי המשפט",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-punct-choice",
+      "claim": "Academy punctuation rules preamble: several marks serve the same role and the choice between them is the writer's, for example dash, parentheses, semicolon; and one should avoid a glut of commas.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "יש שכמה סימנים משמשים באותו התפקיד, והבחירה ביניהם נתונה לכותב, כגון קו מפריד, סוגריים והסימן נקודה ופסיק.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-gershayim",
+      "claim": "Academy punctuation rules: gershayim mark an acronym and come before its last letter (for example Tzahal).",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "גרשיים משמשים לסימון ראשי תיבות, והם באים לפני האות האחרונה של הקיצור",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-no-period-abbrev",
+      "claim": "Academy punctuation rules: no period after a shortened word; use geresh (or gershayim for an acronym).",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "אין לשים נקודה אחר המילה המקוצרת, אלא גרש (או גרשיים בראשי תיבות).",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-bidi-appendix",
+      "claim": "Academy punctuation rules, appendix on Latin-script text inside Hebrew: punctuation problems arise because of the opposite writing direction.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "בעת כתיבת טקסט שיש בו חלקים הכתובים לועזית מתעוררות בעיות בשימוש סימני הפיסוק, בגלל כיוון הכתיבה ההפוך.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-space-before-punct",
+      "claim": "Academy: write the question mark attached to the word, not after a space. Source page: https://hebrew-academy.org.il/הרווח-כולו-שלכם-רווחים-בסביבת-סימני/",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/הרווח-כולו-שלכם-רווחים-בסביבת-סימני/",
+      "raw_snippet": "נכתוב אפוא \"מה שלומך?\" ולא \"מה שלומך ?\"",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-plural-address",
+      "claim": "Academy grammar committee suggested using the plural when addressing both women and men. Source page: https://hebrew-academy.org.il/פנייה-המיועדת-לגבר-וגם-לאישה/",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/פנייה-המיועדת-לגבר-וגם-לאישה/",
+      "raw_snippet": "הציעה לנקוט לשון רבים בפנייה המכוונת הן אל נשים הן אל גברים",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-slash-not-recommended",
+      "claim": "Academy: slash gender notation (mehandes/et) is hard to recommend; it is cumbersome and can hinder reading.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/פנייה-המיועדת-לגבר-וגם-לאישה/",
+      "raw_snippet": "קשה להמליץ על דרך זו: נוסף על כך שהיא מסורבלת ועלולה להקשות על הקריאה",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "acad-masc-unmarked",
+      "claim": "Academy: in Hebrew the masculine form is the default, unmarked form.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/פנייה-המיועדת-לגבר-וגם-לאישה/",
+      "raw_snippet": "בעברית צורת הזכר היא הצורה הסתמית, הלא מסומנת.",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title confirmed, text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02"
+    },
+    {
+      "claim_id": "w3c-bidi-failure",
+      "claim": "W3C Internationalization: an inline opposite-direction phrase goes wrong without wrapping when it begins or ends with neutral characters, begins with a number, or is followed by a number. Source page: https://www.w3.org/International/articles/inline-bidi-markup/",
+      "claim_type": "feature",
+      "source_url": "https://www.w3.org/International/articles/inline-bidi-markup/",
+      "raw_snippet": "begins or ends with neutral characters, begins with a number, is followed by a number",
+      "fetched_at": "2026-11-02",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "w3c-rlm",
+      "claim": "W3C Internationalization: RLM, RIGHT-TO-LEFT MARK, is code point U+200F, a strongly typed RTL invisible character. Source page: https://www.w3.org/International/questions/qa-bidi-unicode-controls",
+      "claim_type": "feature",
+      "source_url": "https://www.w3.org/International/questions/qa-bidi-unicode-controls",
+      "raw_snippet": "RIGHT-TO-LEFT MARK U+200F",
+      "fetched_at": "2026-11-02",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "acad-common-errors-index",
+      "claim": "Aggregator used for the domain sweep: the Academy \"common errors\" index lists bemida ve- among common errors, stating it is not standard at all. Source page: https://hebrew-academy.org.il/topic/sheelot_teshuvot/mivharteshuvot/shgiot-nefotsot/",
+      "claim_type": "url",
+      "source_url": "https://hebrew-academy.org.il/topic/sheelot_teshuvot/mivharteshuvot/shgiot-nefotsot/",
+      "raw_snippet": "השימוש בביטוי במידה ו־ אינו תקני כלל. הצירוף הנכון הוא במידה ש־ והוא מתאים למשפטי מידה",
+      "fetched_at": "2026-11-02",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-02, page title \"שגיאות נפוצות - האקדמיה ללשון העברית\", text read from document.body.innerText; curl is bot-blocked (403)",
+      "verified_at": "2026-11-02",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "acad-range-dash-exception",
+      "claim": "Academy punctuation rules, note on maqaf versus dash: the dash takes spaces, except a dash marking a range (\"to\"). So an unspaced range dash (Jan to March, a to d) is correct and must not be flagged as a rule violation.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "raw_snippet": "להוציא קו לציון טווח (\"עד\").",
+      "fetched_at": "2026-11-03",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-03, snippet confirmed in fetched page text (HTTP 200 in browser); curl is bot-blocked (403)",
+      "verified_at": "2026-11-03"
+    },
+    {
+      "claim_id": "acad-range-dash-unspaced",
+      "claim": "Academy spacing guidance: a dash used as a range between numbers and the like usually comes without spaces.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/הרווח-כולו-שלכם-רווחים-בסביבת-סימני/",
+      "raw_snippet": "אבל קו מפריד המשמש קו טווח בין מספרים וכיו\"ב יבוא בדרך כלל בלי רווחים",
+      "fetched_at": "2026-11-03",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-03, snippet confirmed in fetched page text (HTTP 200 in browser); curl is bot-blocked (403)",
+      "verified_at": "2026-11-03"
+    },
+    {
+      "claim_id": "acad-space-before-punct-recommendation",
+      "claim": "Academy: no real space before the heavy punctuation marks is a strong recommendation (\"mumlatz meod\"), not a ruling; and certainly not before a comma or a period.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/הרווח-כולו-שלכם-רווחים-בסביבת-סימני/",
+      "raw_snippet": "לעומת זאת מומלץ מאוד שלא לתת רווח ממשי (באמצעות המקש \"רווח\") לפני הסימנים הכבדים הנ\"ל, ובוודאי שלא לפני פסיק או לפני נקודה.",
+      "fetched_at": "2026-11-03",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-03, snippet confirmed in fetched page text (HTTP 200 in browser); curl is bot-blocked (403)",
+      "verified_at": "2026-11-03"
+    },
+    {
+      "claim_id": "acad-light-space-tradition",
+      "claim": "Academy: in old typeset printing some placed a light space before the heavy punctuation marks (a typographic tradition, smaller than a word space).",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/הרווח-כולו-שלכם-רווחים-בסביבת-סימני/",
+      "raw_snippet": "בדפוסים הישנים, שעוצבו בלוחות הסְדָר, היו שנהגו לתת רווח קל לפני סימני הפיסוק ה\"כבדים\"",
+      "fetched_at": "2026-11-03",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-03, snippet confirmed in fetched page text (HTTP 200 in browser); curl is bot-blocked (403)",
+      "verified_at": "2026-11-03"
+    },
+    {
+      "claim_id": "acad-gershayim-keyboard",
+      "claim": "The Academy page itself writes gershayim with the keyboard double quote (U+0022), for example in Tanakh and achar hatzohorayim, so the keyboard character is an accepted stand-in in typed text.",
+      "claim_type": "law",
+      "source_url": "https://hebrew-academy.org.il/הרווח-כולו-שלכם-רווחים-בסביבת-סימני/",
+      "raw_snippet": "גרשיים [\"] שמקומם בתוך המילה (תנ\"ך, אחה\"צ).",
+      "fetched_at": "2026-11-03",
+      "confidence": "high",
+      "verified_via": "browser: Playwright render on 2026-11-03, snippet confirmed in fetched page text (HTTP 200 in browser); curl is bot-blocked (403)",
+      "verified_at": "2026-11-03"
+    }
+  ]
+}
