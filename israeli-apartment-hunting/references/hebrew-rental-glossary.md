@@ -33,8 +33,8 @@ This glossary covers 80+ Hebrew terms commonly encountered when searching for, v
 | חדר רחצה | chadar rachatzah | Bathroom | Full bathroom |
 | שירותים | sherutim | Toilet/WC | Separate toilet room |
 | מרפסת | mirpeset | Balcony | Standard balcony |
-| מרפסת שמש | mirpeset shemesh | Sun balcony/enclosed balcony | Enclosed balcony, counted as 0.5 room |
-| ממ"ד | mamad | Safe room | Reinforced room (required post-1992), stands for Merchav Mugan Dirti |
+| מרפסת שמש | mirpeset shemesh | Sun balcony | A balcony open to the sky; an enclosed balcony is a different thing (מרפסת סגורה) |
+| ממ"ד | mamad | Safe room | Reinforced in-apartment room, stands for Merchav Mugan Dirati. Since 1992 new construction needs a protected space, either a mamad or a floor-level mamak (ממ"ק) |
 | מחסן | machsan | Storage room | Usually in basement or shared area |
 | חניה | chanaya | Parking space | Designated parking spot |
 | חדר כביסה | chadar kvisa | Laundry room | Separate laundry area |
@@ -49,7 +49,7 @@ This glossary covers 80+ Hebrew terms commonly encountered when searching for, v
 | Hebrew | Transliteration | English | Notes |
 |--------|----------------|---------|-------|
 | מעלית | maalit | Elevator | Elevator/lift |
-| קומה | koma | Floor | Floor number (koma rishona = first floor = ground floor in Israeli counting) |
+| קומה | koma | Floor | Floor number. The ground floor is קומת קרקע; koma rishona (first floor) is the first floor above ground |
 | קומת קרקע | komat karka | Ground floor | Street level |
 | קומת מרתף | komat martef | Basement level | Below street level |
 | בניין חדש | binyan chadash | New building | Recently constructed |
@@ -71,7 +71,7 @@ This glossary covers 80+ Hebrew terms commonly encountered when searching for, v
 | ארנונה | arnona | Municipal property tax | Paid by tenant, varies by city and zone |
 | ועד בית | vaad bayit | Building committee fee | Monthly fee for building maintenance |
 | תיווך | tivuch | Brokerage | Broker's commission |
-| עמלת תיווך | amlat tivuch | Broker fee | Typically one month's rent + VAT |
+| עמלת תיווך | amlat tivuch | Broker fee | Negotiated and stated in the signed written order, including whether VAT is added; owed only under that order |
 | פיקדון | pikadon | Security deposit | Deposit held as security against damages |
 | ערבות בנקאית | arevut bankit | Bank guarantee | Bank-issued guarantee (alternative to personal guarantor) |
 | ערב | arev | Guarantor | Person who guarantees rent payment if tenant defaults |
@@ -90,7 +90,7 @@ This glossary covers 80+ Hebrew terms commonly encountered when searching for, v
 | בעל דירה | baal dira | Landlord | Property owner |
 | שוכר | socher | Tenant | The person renting |
 | מתווך | metavech | Broker/agent | Real estate broker |
-| הסכם תיווך | heskem tivuch | Brokerage agreement | Written agreement with broker (required for fee) |
+| הסכם תיווך | heskem tivuch | Brokerage agreement | Common name for the written order (הזמנה בכתב לביצוע פעולת תיווך) the broker must have the client sign to be entitled to a fee |
 | תקופת שכירות | tkufat sechirut | Lease period | Duration of the rental agreement |
 | אופציה | optzia | Option | Option to extend the lease (usually at agreed terms) |
 | מועד פינוי | moed pinui | Eviction/move-out date | Date tenant must vacate |
@@ -155,7 +155,7 @@ This glossary covers 80+ Hebrew terms commonly encountered when searching for, v
 | פינה | pina | Corner | Intersection |
 | תחנת אוטובוס | tachanat otobus | Bus stop | Public bus stop |
 | תחנת רכבת | tachanat rakevet | Train station | Railway station |
-| רכבת קלה | rakevet kala | Light rail | Light rail system (Jerusalem, under construction in TLV) |
+| רכבת קלה | rakevet kala | Light rail | Light rail system (Jerusalem and the Tel Aviv metropolitan area; check which lines are operating) |
 | מרכז מסחרי | merkaz mischari | Commercial center | Shopping center/mall area |
 | גן ציבורי | gan tzibburi | Public park | Public garden/park |
 | גן ילדים | gan yeladim | Kindergarten/playground | Children's playground |

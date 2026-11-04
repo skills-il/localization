@@ -6,7 +6,7 @@
 
 | Font | Weight Range | Google Fonts | Notes |
 |------|-------------|--------------|-------|
-| Heebo | 100-900 | [Link](https://fonts.google.com/specimen/Heebo) | Most popular Hebrew web font, excellent readability |
+| Heebo | 100-900 | [Link](https://fonts.google.com/specimen/Heebo) | Widely used Hebrew web font, excellent readability |
 | Rubik | 300-900 | [Link](https://fonts.google.com/specimen/Rubik) | Slightly rounded, friendly appearance |
 | Assistant | 200-800 | [Link](https://fonts.google.com/specimen/Assistant) | Clean, professional, good for business docs |
 | Open Sans Hebrew | 300-800 | Bundled with Open Sans | Widely available, neutral style |

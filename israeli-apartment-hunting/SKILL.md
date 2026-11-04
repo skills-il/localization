@@ -1,6 +1,6 @@
 ---
 name: israeli-apartment-hunting
-description: Comprehensive guide to finding rental apartments in Israel through Yad2, Madlan, Facebook groups, and real estate agents. Use when relocating to Israel, searching for a rental apartment, negotiating with landlords, or navigating broker fees and lease agreements. Covers 2026 market prices by city, Hebrew listing terminology, viewing checklists, required documents, and neighborhood evaluation criteria. Do NOT use for purchasing property or commercial real estate.
+description: Not legal advice. Comprehensive guide to finding rental apartments in Israel through Yad2, Madlan, Facebook groups, and real estate agents. Use when relocating to Israel, searching for a rental apartment, negotiating with landlords, or navigating broker fees and lease agreements. Covers 2026 market prices by city, Hebrew listing terminology, viewing checklists, required documents, Fair Rental Law tenant rights, and neighborhood evaluation criteria. Do NOT use for purchasing property or commercial real estate (use israeli-real-estate), or for drafting or reviewing a lease clause by clause (use israeli-rental-agreements).
 license: MIT
 compatibility: Requires Claude Code or compatible AI coding agent
 ---
@@ -8,31 +8,38 @@ compatibility: Requires Claude Code or compatible AI coding agent
 
 # Israeli Apartment Hunting
 
+## Legal notice
+
+This is a free information tool operated by an AI model. It explains how the Israeli rental market works, summarises tenant protections in the Rental and Loan Law (the Fair Rental amendment) and the broker rules as published by official and public-interest sources, and estimates housing costs, and all of its output is produced automatically, without the involvement, review or approval of a lawyer. The output is not legal advice and not a legal opinion on your lease: it is general explanatory information only. It does not read or interpret your specific contract, does not check whether the law applies to your lease, does not verify the landlord's ownership or the broker's license, and relies on figures that change over time. An AI model may err, omit data or present a wrong conclusion.
+
+Any message or letter the tool drafts is an automatic draft for personal organisation only. It is not a document prepared by a lawyer and should not be relied on as evidence. This tool is not a substitute for advice that takes into account the particular circumstances and needs of each person, and before signing a lease, withholding rent, cancelling a contract or filing a claim you should turn to a lawyer.
+
 ## Instructions
 
 ### Step 1: Israeli Rental Market Overview
 
 The Israeli rental market is competitive and fast-moving. Understanding current pricing helps set realistic expectations and budgets.
 
-**National averages (2026):**
-- National average rent: NIS 4,952/month (based on Q3 2025 data). Early-2026 data shows supply tightened and new-lease asking rents rose further, so treat these figures as a floor and budget above them.
-- National average gross rental yield: 3.1%
+**National average (CBS):** NIS 5,085.5/month in April-June 2026 (Q2), up from 4,952.2 in July-September 2025. The Central Bureau of Statistics (CBS, הלמ"ס) averages ALL active leases, including renewals, so new-lease asking rents in popular neighborhoods usually run above these figures. Treat them as a floor, not a quote.
 
-| City | 2-Room (NIS/month) | 3-Room (NIS/month) | 4-Room (NIS/month) |
-|------|---------------------|---------------------|---------------------|
-| Tel Aviv (central) | 6,500-12,000 | 8,000-15,000 | 11,000-20,000 |
-| Tel Aviv (south/older) | 4,500-6,500 | 5,500-8,000 | 7,000-10,000 |
-| Jerusalem | 3,500-5,500 | 4,500-7,500 | 6,000-10,000 |
-| Haifa | 2,500-4,000 | 3,500-5,500 | 4,500-7,000 |
-| Be'er Sheva | 2,000-3,500 | 3,000-4,500 | 3,500-5,500 |
-| Herzliya/Ra'anana | 5,000-8,000 | 7,000-11,000 | 9,000-15,000 |
-| Netanya | 3,000-5,000 | 4,500-7,000 | 5,500-8,500 |
-| Petah Tikva | 3,500-5,500 | 5,000-7,500 | 6,500-9,000 |
+**CBS average monthly rent by city, Q2 2026 (NIS):**
 
-**Key market characteristics:**
-- Rental contracts are typically 12 months, renewable annually
-- Most apartments are rented unfurnished (without furniture, appliances vary)
-- Demand peaks in summer months (June through September) when students and new olim (immigrants) search
+| City | 1-2 rooms | 2.5-3 rooms | 3.5-4 rooms | 4.5+ rooms |
+|------|-----------|-------------|-------------|------------|
+| Tel Aviv | 5,486.7 | 7,092.6 | 8,871.6 | 11,348 |
+| Jerusalem | 3,800 | 4,889.9 | 6,179.6 | 7,748.2 |
+| Haifa | 2,477.9 | 3,118.5 | 4,060.6 | 5,420.3 |
+| Be'er Sheva | 2,321.3 | 2,787.8 | 3,500.8 | 4,907.9 |
+| Herzliya | 4,443.9 | 5,605.7 | 7,040.8 | 9,460.5 |
+| Netanya | 3,083.6 | 4,116.1 | 5,272.9 | 6,695.1 |
+| Petah Tikva | 3,387.7 | 4,203 | 5,311.1 | 7,099 |
+
+City-wide averages hide large neighborhood spreads (central Tel Aviv vs. south Tel Aviv, for example). For neighborhood character and relative price tiers see `references/city-rental-guide.md`, and check live listings on Yad2 and Madlan before quoting a number to the user.
+
+**Key market characteristics (general market experience, not measured data):**
+- Rental contracts are typically 12 months, often with an option to extend
+- In practice, most apartments are rented unfurnished (without furniture, appliances vary)
+- Demand is often highest in the summer (roughly June through September), when students and new olim (immigrants) search
 - Listings can disappear within hours in hot markets like Tel Aviv
 
 ### Step 2: Search Platforms
@@ -44,57 +51,28 @@ Multiple platforms serve the Israeli rental market. Using several simultaneously
 | Yad2 | Website/App | Main Israeli classifieds site for rentals; filters, saved searches, alerts | יד2 |
 | Madlan | Website/App | Price history, neighborhood data, building info | מדלן |
 | Facebook Groups | Social | Direct from owners, negotiable, fast | קבוצות פייסבוק |
-| Homeless | Website | English-friendly, popular with olim | הומלס |
-| WinWin | Website | Alternative to Yad2, growing listings | וין וין |
+| Homeless | Website | Long-running rentals and roommates board (Hebrew interface) | הומלס |
+| Komo | Website | Older classifieds board with a rentals section | קומו |
 | Real estate agents | In-person | Access to unlisted properties, local knowledge | סוכני נדל"ן |
 
-**Yad2 tips:**
-- Set up email alerts (hatara, התראה) for new listings matching your criteria
-- Check listings at least twice daily (morning and evening)
-- Filter by "without broker" (ללא תיווך, lelo tivuch) to avoid fees
-- Respond to new listings within minutes for best chances
+WinWin, which older guides still list, shut down in 2020. Do not send users there.
 
-**Facebook group strategy:**
-- Join city-specific groups (e.g., "דירות להשכרה בתל אביב", "Apartments in Tel Aviv")
-- Post a "looking for" (מחפש/ת דירה) message with your budget, area, and move-in date
-- Direct owner listings (from owner, מבעלים) often appear here first
+**Tips:** on Yad2, save searches with alerts, filter "without broker" (ללא תיווך, lelo tivuch), check twice a day and answer new listings within minutes. In city Facebook groups ("דירות להשכרה בתל אביב"), post a "looking for" (מחפש/ת דירה) message with budget, area and move-in date; owners (מבעלים) often post there first.
 
 ### Step 3: Understanding Listings
 
 Israeli rental listings use specific Hebrew terminology. Understanding these terms prevents misunderstandings and helps evaluate properties quickly.
 
-| Hebrew Term | Transliteration | English Meaning |
-|-------------|-----------------|-----------------|
-| חדרים | chadarim | Rooms (includes living room in Israeli count) |
-| דירת 3 חדרים | dirat 3 chadarim | 3-room apartment (= 2 bedrooms + living room) |
-| דירת גן | dirat gan | Garden apartment (ground floor with garden) |
-| פנטהאוז | penthouse | Penthouse (top floor, often with roof terrace) |
-| דופלקס | duplex | Two-story apartment |
-| מרפסת שמש | mirpeset shemesh | Sun balcony (enclosed, counts as half room) |
-| ממ"ד | mamad | Reinforced safe room (required in buildings post-1992) |
-| מעלית | maalit | Elevator |
-| חניה | chanaya | Parking space |
-| מחסן | machsan | Storage room |
-| ועד בית | vaad bayit | Building committee (monthly maintenance fee) |
-| ארנונה | arnona | Municipal property tax (paid by tenant) |
-| תיווך | tivuch | Brokerage/broker fee |
-| מבעלים | mibaalim | From owner (no broker) |
-| מתווך | metavech | Broker/real estate agent |
-| חוזה שכירות | choze sechirut | Rental contract/lease |
-| שטח | shetach | Area (in square meters) |
-| קומה | koma | Floor number |
+Key terms: חדרים (rooms, living room included), ממ"ד (mamad, in-apartment safe room; since 1992 new construction needs a protected space, either a mamad or a floor-level mamak, ממ"ק), מרפסת שמש (sun balcony, open to the sky), ועד בית (vaad bayit, monthly building fee), ארנונה (arnona, municipal tax paid by the tenant), תיווך / מתווך (brokerage / broker), מבעלים (from owner, no broker), חוזה שכירות (lease). The full glossary is in `references/hebrew-rental-glossary.md`.
 
 **Israeli room counting:**
-In Israel, the room count includes the living room (salon, סלון). So a "3-room apartment" (dirat 3 chadarim) typically means 2 bedrooms plus a living room. A "2-room apartment" is a 1-bedroom with living room. Half-rooms (like a sun balcony) are counted as 0.5.
+In Israel, the room count includes the living room (salon, סלון). So a "3-room apartment" (dirat 3 chadarim) typically means 2 bedrooms plus a living room. A "2-room apartment" is a 1-bedroom with living room. Listings also use half rooms (3.5 rooms), in practice often a small extra room.
 
 ### Step 4: Viewing Apartments
 
 Apartment viewings (siur dira, סיור דירה) require careful attention. Prepare a checklist and act quickly in competitive markets.
 
-**Before the viewing:**
-- Prepare questions in advance (vaad bayit cost, arnona rate, included appliances)
-- Bring a measuring tape or use your phone's measure app
-- Have documents ready in case you want to make an immediate offer
+Prepare questions in advance (vaad bayit cost, arnona rate, included appliances) and have documents ready in case you want to make an immediate offer.
 
 **Viewing checklist:**
 
@@ -104,7 +82,7 @@ Apartment viewings (siur dira, סיור דירה) require careful attention. Pre
 | Plumbing | Water pressure, hot water timing, drain speed |
 | Electrical | Number of outlets, breaker panel condition, AC units |
 | Windows | Double-glazed, shutters (trisim, תריסים) condition, seals |
-| Mamad | Safe room condition, door seal, ventilation |
+| Protected space | Mamad condition, door seal, ventilation; if there is none, where the floor shelter or nearest public shelter is |
 | Kitchen | Appliances included (oven, cooktop, fridge), counter space |
 | Bathroom | Water heater type (dud shemesh/dud chashmal, solar/electric boiler) |
 | Building | Elevator condition, stairwell cleanliness, mailbox area |
@@ -117,11 +95,12 @@ Apartment viewings (siur dira, סיור דירה) require careful attention. Pre
 - No written lease offered
 - Pressure to sign immediately without reading the contract
 - Vaad bayit significantly higher than comparable buildings
-- No mamad in a building constructed after 1992
+- A post-1992 building with neither a mamad nor a floor-level protected space
+- A "landlord" who is abroad, cannot show the apartment, and asks for a deposit or key courier fee first (a common rental scam pattern; never transfer money before viewing and verifying ownership)
 
 ### Step 5: Negotiation and Offer Process
 
-Negotiation is common and expected in the Israeli rental market. Most landlords build a margin into their asking price.
+Negotiation is common in the Israeli rental market, and in practice many landlords build a margin into their asking price. The ranges below are rules of thumb, not data.
 
 | Negotiation Point | Typical Range |
 |-------------------|---------------|
@@ -129,21 +108,16 @@ Negotiation is common and expected in the Israeli rental market. Most landlords 
 | Lease length | 12 months standard, 24 months may get discount |
 | Included appliances | AC units, washing machine, fridge |
 | Repairs before move-in | Painting, plumbing fixes, appliance replacement |
-| Move-in date flexibility | 1-2 weeks negotiable |
-| Index-linked increases | Try to cap annual increase at 2-3% or CPI |
+| Move-in date flexibility | Often a week or two can be negotiated |
+| Index-linked increases | There is no statutory rent cap; rent rises only through an indexation clause or at renewal, so negotiate the clause itself |
+| Exit clause | Without a cancellation clause neither side can end the lease early, so negotiate an early-exit or replacement-tenant clause up front |
 
 **Negotiation tips:**
 - Research comparable listings on Yad2 and Madlan to justify your offer
-- If the apartment has been listed for over 3 weeks, the landlord may accept lower offers
-- Offer to pay several months upfront in exchange for a discount
+- A common rule of thumb: if the apartment has been listed for several weeks (say 3 or more), the landlord may accept a lower offer
+- Offer to pay several months upfront in exchange for a discount, but only after the lease is signed and ownership is verified (Step 7.6).
 - Request that the landlord handle specific repairs as a condition of signing
 - Always negotiate before signing, not after
-
-**Making an offer:**
-1. Express interest verbally or via message
-2. State your offered monthly rent and desired lease start date
-3. List any conditions (repairs, included items)
-4. If accepted, both parties sign a rental agreement (choze sechirut)
 
 ### Step 6: Broker Fees and When to Use a Metavech
 
@@ -151,29 +125,16 @@ Real estate brokers (metavech, מתווך) are common in the Israeli market. Und
 
 | Aspect | Details |
 |--------|---------|
-| Typical broker fee | One month's rent + VAT (18%) |
-| Who pays | The party that hired the broker. Under Section 25ט of the Fair Rental Law (a non-waivable rule), a residential tenant CANNOT be required to pay a fee to a broker who acted on the landlord's behalf, even if the lease says otherwise. A tenant who independently engaged the broker to find a specific apartment does pay (and by common practice, often only half when both sides used the same broker, this split is a negotiated norm, not a statutory entitlement). The pre-2017 "tenant always pays" habit is no longer the law. |
-| When fee is due | Upon signing the lease (only when the tenant is the one who legally owes it, see "Who pays") |
+| Broker fee | Negotiated before signing and stated in the written order, including whether VAT (18%) is added; one month's rent is a commonly quoted figure, not a rule |
+| Who pays | The landlord may not pass the fee THEY owe their broker to the tenant (Section 25ט(ב)(3), non-waivable). A broker is entitled to a fee only if licensed, holding the client's signed written order, and the "effective cause" (הגורם היעיל) of the lease. A tenant who signs the broker's written order owes the fee agreed in it, including after answering the broker's own ad and even when the same broker also acts for the landlord. Signing the order form is what creates your obligation, so read it and negotiate before you sign. Splitting a fee between both sides is a negotiated practice, not a statutory entitlement. |
+| Written order | Under the Real Estate Brokers Law, a broker who did not have the client sign a written order (הזמנה בכתב לביצוע פעולת תיווך) is not entitled to a fee, even if they showed you the apartment. |
 | Fee negotiability | Sometimes negotiable, especially for expensive apartments |
-| Legal requirement | Broker must have a valid license from the Ministry of Justice Registrar of Real Estate Brokers |
-| 2024 ethics regulations | Real Estate Brokers Regulations (Ethics and Professional Duties) 2024 took effect March 9, 2025. Mandatory disclosure, prohibition on extra fees beyond agreed brokerage, multi-representation disclosure required, written heskem tivuch signed by client BEFORE any fee is owed. A broker who didn't get you to sign a heskem tivuch is not entitled to a fee, even if they showed you the apartment. |
+| License | The broker must hold a valid real estate brokerage license and show it on request |
+| 2024 ethics regulations | The Real Estate Brokers (Ethics and Professional Duties) Regulations 2024 took effect 9.3.2025. For a tenant client the broker must show official ownership documents (such as an up-to-date nesach tabu), disclose the extra payments (arnona, vaad bayit and so on), disclose any personal interest, and hand over a questionnaire the landlord filled in on moisture, building violations, infrastructure defects and nuisances. Ask for that questionnaire. A broker may not draft or help draft the lease or negotiate its legal terms (penalties, compensation) for you; a broker who does is not entitled to a fee from you and commits a disciplinary offense. A broker with a personal interest in the deal needs your prior written consent. |
 
-**When a broker is worthwhile:**
-- You have limited Hebrew and need language assistance
-- You are searching in a specific building or street with few listings
-- Time is very limited and you need someone to screen options
-- You are relocating from abroad and cannot attend multiple viewings
+**When a broker is worthwhile:** limited Hebrew, a narrow target (one building or street), very little time, or relocating from abroad and unable to attend viewings.
 
-**When to avoid a broker:**
-- You can search Yad2/Facebook yourself and communicate in Hebrew
-- The same apartment is listed both with and without a broker (contact owner directly)
-- You are on a tight budget and the fee significantly impacts your finances
-
-**Broker fee avoidance strategies:**
-- Filter Yad2 listings for "without broker" (ללא תיווך)
-- Search Facebook groups where owners post directly
-- Contact building vaad bayit directly to ask about available apartments
-- Network through friends, colleagues, and community groups
+**When to skip one:** you can search and talk to owners yourself, or the same apartment also appears "without broker" (ללא תיווך) on Yad2 or in an owners' Facebook group. Asking the vaad bayit about vacancies and networking through colleagues also surfaces broker-free apartments.
 
 ### Step 7: Documents Needed
 
@@ -189,111 +150,103 @@ Landlords and brokers typically require specific documents. Having these ready a
 | Guarantor's pay slips | תלושי שכר של הערב | Guarantor's income proof |
 | Post-dated checks | צ'קים (chekim) | Common payment method |
 
-**Guarantor (arev, ערב) requirements:**
-- Most landlords require 1-2 guarantors
-- Guarantors are legally responsible if tenant defaults on rent
-- Guarantors must be Israeli residents with stable income
-- New olim without local guarantors can sometimes use a bank guarantee (arevut bankit, ערבות בנקאית) instead
-- A bank guarantee is a security that involves a real monetary outlay by the tenant, so it is subject to the statutory security cap below (Section 25י): for a standard 12-month lease that means a maximum of about 3 months' rent, NOT the "3-6 months" landlords sometimes ask for
+**New olim without Israeli pay slips or checks:** offer what the landlord can verify instead: an employment contract or foreign pay slips, a bank guarantee, or prepaid rent once the lease is signed. A new account may not come with a checkbook right away, so ask the landlord to accept a standing order (הוראת קבע).
 
-**Security deposits (Chok Schirut Hogenet caps):**
-- Statutory ceiling for securities that involve a tenant monetary outlay (a bank guarantee or cash): the LOWER of (3 months rent) or (1/3 of total lease period), per Section 25י. A demand above that is unenforceable.
-- This cap applies to monetary-outlay securities (bank guarantee, cash). It does NOT cap a regular security check (check bitachon) or a promissory note (shtar chov, שטר חוב), which are not cashed unless the tenant defaults and may lawfully be set higher.
-- Must be returned within 60 days of lease end if no damages; any deductions should be itemized for the tenant in writing
+**Guarantor (arev, ערב) requirements:**
+- In practice, landlords often ask for one or two guarantors
+- Guarantors are legally responsible if tenant defaults on rent
+- Landlords usually want guarantors with Israeli residency and stable income
+- New olim without local guarantors can sometimes use a bank guarantee (arevut bankit, ערבות בנקאית) instead
+- A bank guarantee is a security that involves a real monetary outlay by the tenant, so it is subject to the statutory security cap below (Section 25י): for a standard 12-month lease that means a maximum of 3 months' rent, NOT the "3-6 months" landlords sometimes ask for
+
+**Security deposits (Section 25י caps):**
+- Statutory ceiling for securities that cost the tenant money (bank guarantee, a guarantee from a credit company or insurer, or cash): the LOWER of the rent for 3 months or the rent for 1/3 of the lease period. For a 6-month lease that is 2 months' rent.
+- The landlord may not demand more. But if you hand over an over-cap bank guarantee anyway, it remains valid and the bank may pay it in full, so refuse BEFORE signing, not after.
+- The cap does NOT cover a regular security check (check bitachon) or a promissory note (shtar chov, שטר חוב), which are not cashed unless the tenant defaults and may lawfully be set higher.
+- The security, including any profit earned on it (such as bank interest), must be returned within 60 days from the day you handed the apartment back, or from the day your debts were paid, whichever is later.
 
 ### Step 7.5: Tenant Rights Under Chok Schirut Hogenet (Fair Rental Law)
 
-Chok Schirut Hogenet (2017, חוק שכירות הוגנת) is the baseline tenant-protection statute. Most landlord templates predate or ignore parts of it. Know what is non-waivable.
+Chok Schirut Hogenet (the 2017 Fair Rental amendment to the Rental and Loan Law, חוק שכירות הוגנת) is the baseline tenant-protection statute. Most landlord templates predate or ignore parts of it. Know what is non-waivable.
+
+**Scope first.** The protections apply to a residential lease longer than 3 months (or shorter with an option to extend), for up to 10 years (or longer if the landlord may cancel earlier), where the monthly rent is not above NIS 20,000. Between close relatives (spouse, sibling, parent, grandparent, descendant, a spouse's descendant, and the spouses of each) the non-waiver rule does not apply, so most of the protections below can be contracted out. Hotel and holiday apartments, student and worker dormitories, sheltered housing and protected-tenancy apartments are excluded. The statute CPI-indexes that threshold every 1 January, but public guides still print 20,000, so treat any rent near it as needing a check. At the top of the Tel Aviv and Herzliya ranges, confirm the law applies before relying on anything below.
 
 | Right | What It Means |
 |-------|---------------|
-| Landlord's repair duty | The landlord must fix, at their own expense, any defect that is not minor and was not caused by unreasonable use, even if the lease says otherwise. This covers the things that make an apartment liveable (water, electricity, drainage) |
-| Deposit cap | Lower of (3 months rent) or (1/3 of total lease period). Demands above this are void |
-| Repair-deduction right | If landlord fails to repair an essential defect after written notice, tenant may have the repair done and deduct the cost from rent. Statutory windows: roughly 30 days for non-urgent defects, ~3 days for urgent defects |
-| Itemized return | Deposit deductions at lease end should be itemized for the tenant; landlord may not withhold without justification |
-| Standard Lease (chozeh matzui) | Ministry of Justice has been working on a default-clause "standard lease" that would fill in gaps when parties have no written contract or omit terms. Treat as a default safety net, not as mandatory clauses that override what the parties agreed in writing |
+| Habitable at delivery | The apartment must have drainage and sewage, electricity and lighting, ventilation, natural light and a lockable main door, drinking water, a partition between the toilet and the apartment, and no unreasonable safety or health risk. If it is handed over unfit, the landlord is in breach and the tenant may be released from the lease, whatever the contract says |
+| Landlord's repair duty | The landlord must fix, at their own expense, any defect that is not minor and was not caused by unreasonable use, within a reasonable time and no later than 30 days from the tenant's demand, or 3 days for an urgent defect that prevents reasonable living in the apartment. These are maximums, not approximations |
+| If the landlord does not repair | After giving reasonable advance notice, the tenant may make the repair and demand reimbursement of reasonable costs; a defect too urgent to wait for the landlord may be fixed without prior demand or notice. While the defect remains, the tenant may also reduce the rent in proportion to the loss of value. Debts arising from the lease may be set off against each other (s.25, non-waivable), so the reimbursement can be offset against rent once the landlord owes it, with receipts and a written notice of the set-off, since a disputed offset can still lead to a non-payment claim |
+| What the tenant cannot be charged | Building insurance, buying or upgrading fixed systems serving the apartment, renovations the vaad bayit carries out in the building, and the landlord's own broker fee. The tenant may be charged rent, arnona, utilities and routine vaad bayit maintenance |
+| Written lease | In writing, signed by both sides, a signed copy to each. It must state, among other things, the term, option and cancellation terms, rent and payment method, extra payments, and significant defects or nuisances known to the landlord |
+| Renewal, option and cancellation | Even without an option, the landlord must tell the tenant a reasonable time before the term ends whether they want to extend and on what terms. A landlord's option is valid only on terms fixed in the lease in advance, with at least 90 days' notice; a tenant exercising an option gives at least 60. A clause letting only the landlord cancel without cause is void unless the tenant has a parallel right; landlord cancellation needs at least 90 days' notice, tenant cancellation 60 (or less if the lease says so). With no cancellation clause, neither side can end the lease early unless the other side breached it |
+| Security | Capped as in Step 7. The landlord may draw on it only for unpaid rent, tenant-caused defects the tenant did not fix, unpaid current charges (arnona, utilities, vaad) or failure to vacate, and must first give reasonable notice and a chance to fix |
+| Sublet (סאבלט) | Needs the landlord's prior written consent. An unreasonable refusal or unreasonable conditions do not block it, but whether a refusal was unreasonable is ultimately for a court to decide, so ask in writing first |
+| Standard lease (chozeh matzui) | A draft standard lease was published for public comment in February 2026. As of this review it is not in force, so do not quote its terms as law |
 
-If a landlord's template contradicts Chok Schirut Hogenet, the statute wins, non-compliant clauses are unenforceable, not the entire lease.
+If a landlord's template contradicts Chok Schirut Hogenet, the statute wins: the non-compliant clauses have no effect even if the tenant agreed to them, and the rest of the lease stays valid.
+
+### Step 7.6: Before Signing and on Move-In
+
+- **Verify ownership.** Order a nesach tabu (land registry extract) online from the gov.il service before paying anything. It shows the registered owners, mortgages, liens and restrictions. Many newer apartments are not yet registered in the Tabu; for those ask for the Israel Land Authority or housing-company (חברה משכנת) confirmation instead. If the person renting to you is not the registered owner, ask why (a sublet, a company, an heir) and see the consent.
+- **Handover protocol.** At key handover, record the condition of every room, the appliances, and the water, electricity and gas meter readings in a document both sides sign, with dated photos. Repeat it at move-out. This is your evidence in any deposit dispute.
+- **Transfer the accounts.** Register as the arnona holder (מחזיק) with the municipality and move the electricity and water accounts into your name. The oleh arnona discount is claimed from the municipality's arnona department, and an objection to a wrong bill (wrong zone, area, use, or holder) goes to the municipality's arnona manager (מנהל הארנונה) within 90 days of receiving it.
+- **Scam checks.** Never pay a deposit, "reservation fee" or key courier before viewing in person and checking the nesach tabu. Pay rent by transfer or check, never untraceable methods, and get a receipt for every payment.
+
+`references/tenant-rights-and-move-in.md` has the full checklists, the oleh-specific points and the source for each rule.
 
 ### Step 8: Neighborhood Guide Considerations
 
 Choosing the right neighborhood (shchuna, שכונה) involves evaluating multiple factors beyond rent price.
 
-| Factor | What to Research | How to Check |
-|--------|------------------|--------------|
-| Arnona rate | Municipal tax varies by city and zone | City website or call municipal center |
-| Public transit | Bus/train access, frequency | Moovit app, Google Maps |
-| Supermarkets | Walking distance, price level | Google Maps, Shufersal/Rami Levy locations |
-| Schools/daycare | Quality ratings, waiting lists | Municipal education department |
-| Safety | Crime statistics, street lighting | Police statistics, evening walk |
-| Parking | Street availability, cost of lot parking | Visit at different times of day |
-| Noise | Traffic, nightlife, construction | Visit at different times, ask neighbors |
-| Community | Religious/secular mix, age demographics | Walk around, local Facebook groups |
-| Green spaces | Parks, playgrounds | Google Maps, municipal parks list |
-| Medical | Clinics (kupat cholim), hospitals, pharmacies | Clalit/Maccabi/Meuhedet/Leumit websites |
+The full factor checklist (arnona zone, transit, schools, safety, parking, noise, community, clinics) is in `references/city-rental-guide.md`.
 
-**Arnona (municipal tax) comparison:**
-Arnona rates vary significantly between cities and even between neighborhoods. This is a recurring cost paid by the tenant.
-
-| City | Approximate Annual Arnona (70 sqm, residential) |
-|------|--------------------------------------------------|
-| Tel Aviv | NIS 5,500-7,500 |
-| Jerusalem | NIS 3,500-5,500 |
-| Haifa | NIS 2,500-4,000 |
-| Be'er Sheva | NIS 2,000-3,000 |
-| Herzliya | NIS 4,500-6,500 |
-| Netanya | NIS 3,000-4,500 |
+**Arnona (municipal tax):**
+Arnona is set per square meter per year by each municipality's annual arnona order (צו ארנונה), by zone and building type, and is paid by the tenant. Example: Tel Aviv's 2026 order charges apartments up to 140 sqm between NIS 46.64 and 112.99 per sqm per year, so a 70 sqm apartment pays roughly NIS 3,300-7,900 a year depending on zone and building. For other cities, look up that city's current order rather than extrapolating from Tel Aviv. The bundled script's per-city rates are rough budgeting assumptions, not sourced figures.
 
 **New olim arnona discount:**
-New immigrants (olim chadashim, עולים חדשים) may be eligible for an arnona discount of up to 90%, but only for the first 100 sqm of the apartment, and only for 12 chosen months out of the first 24 months from population-registry registration. Continuation rates after the discounted period are set by each municipality individually (no universal "year-2 rate"). Apply through the local municipality with your oleh certificate (teudat oleh, תעודת עולה).
+New immigrants (olim chadashim, עולים חדשים) may be eligible for an arnona discount of up to 90%, but only for the first 100 sqm of the apartment, and only for 12 months chosen out of the first 24 months from registration as an oleh in the population registry (or from receiving a citizen-oleh certificate). The actual rate is set by each municipality. Apply to the local municipality's arnona department with your teudat zehut and oleh certificate (teudat oleh, תעודת עולה); if you lived in another municipality first, bring its confirmation that you did not get the discount there.
+
+**Rent assistance for olim:** olim without an apartment get rent support in the absorption basket (sal klita) in the first months, and then an automatic rent allowance from the Ministry of Construction and Housing. For olim who arrived from 1.3.2024 it starts in the seventh month after aliyah and runs until the 30th month (different periods apply to earlier arrivals and to lone soldiers). Questions: the olim rent-assistance hotline *2310.
 
 ## Examples
 
 ### Example 1: New Oleh Searching for First Apartment in Tel Aviv
-User says: "I just made aliyah and need a 2-room apartment in Tel Aviv for under NIS 6,000."
+User says: "I just made aliyah and need a 2-room apartment in Tel Aviv for under 6,000 shekels a month."
 Actions:
-1. Set expectations: central Tel Aviv 2-room starts at NIS 6,500+, suggest south Tel Aviv or Jaffa for sub-6,000
-2. Recommend Yad2 with "without broker" filter and Homeless (English-friendly)
-3. Advise on document preparation: teudat oleh for arnona discount, bank guarantee instead of local guarantor
-4. Suggest joining Facebook groups: "דירות להשכרה בתל אביב" and English-language olim housing groups
-Result: Oleh has a focused search strategy, realistic budget expectations, and document checklist.
+1. Set expectations: the CBS Tel Aviv average for 1-2 rooms is about NIS 5,487 across all leases, so 6,000 a month is workable in south Tel Aviv, Jaffa or nearby Bat Yam and Holon, but tight in central neighborhoods where asking rents run higher
+2. Recommend Yad2 with the "without broker" filter, Madlan, and city Facebook groups
+3. Advise on documents: teudat oleh for the arnona discount, a bank guarantee or prepaid rent in place of Israeli pay slips and a local guarantor
+4. Flag the olim rent allowance (from the seventh month for recent arrivals) and warn about deposit-before-viewing scams
+Result: Oleh has a focused search strategy, realistic budget expectations, and a document checklist.
 
 ### Example 2: Family Relocating from Haifa to Herzliya
-User says: "We need a 4-room apartment in Herzliya near good schools. Budget is NIS 12,000."
+User says: "We need a 4-room apartment in Herzliya near good schools. Budget is 12,000 a month."
 Actions:
-1. Confirm NIS 12,000 is within range for 4-room in Herzliya (NIS 9,000-15,000)
+1. Compare with CBS: Herzliya averages about NIS 7,041 for 3.5-4 rooms and 9,461 for 4.5+, so 12,000 a month leaves room even in pricier neighborhoods
 2. Research school districts and recommend neighborhoods (Herzliya Pituach for higher budget, central Herzliya for value)
 3. Set up Yad2 and Madlan alerts for 4-room Herzliya apartments
-4. Advise checking arnona rates (NIS 4,500-6,500/year for 70 sqm equivalent)
+4. Add arnona from Herzliya's current arnona order and vaad bayit to the monthly budget
 5. Recommend visiting neighborhoods during school hours to observe community
 Result: Family identifies target neighborhoods, sets alerts, and understands total monthly costs including arnona.
 
 ### Example 3: Student Looking for Shared Apartment
-User says: "I am a student looking for a room in a shared apartment near Tel Aviv University. Budget NIS 3,000."
+User says: "I am a student looking for a room in a shared apartment near Tel Aviv University. Budget 3,000 a month."
 Actions:
 1. Recommend Facebook groups for roommate searches ("שותפים בתל אביב", "Roommates Tel Aviv")
 2. Suggest areas near campus: Ramat Aviv, Givat Shmuel (cheaper via transit)
-3. Advise on typical shared apartment arrangements: individual room contracts vs. joint lease
+3. Advise on typical shared apartment arrangements: individual room contracts vs. joint lease, and that a room rented from another tenant is a sublet needing the landlord's consent
 4. Warn about common scams: never pay deposit before viewing, verify owner identity
 Result: Student knows where to search, what to expect for pricing, and how to avoid scams.
-
-### Example 4: Remote Worker Choosing Between Cities
-User says: "I work remotely and want the best value for a 3-room apartment. Where should I look?"
-Actions:
-1. Compare 3-room prices: Be'er Sheva (NIS 3,000-4,500), Haifa (NIS 3,500-5,500), Netanya (NIS 4,500-7,000)
-2. Factor in arnona: Be'er Sheva lowest, Haifa mid-range
-3. Evaluate internet infrastructure and coworking spaces in each city
-4. Consider lifestyle factors: Haifa for tech scene and nature, Be'er Sheva for lowest cost, Netanya for beach access
-Result: Remote worker makes an informed city choice based on total cost and lifestyle fit.
 
 ## Bundled Resources
 
 ### References
-- `references/city-rental-guide.md` -- Rental price guide by city and neighborhood: Tel Aviv (by neighborhood tier), Jerusalem, Haifa, Be'er Sheva, Herzliya, Ra'anana, Netanya, Rishon LeZion. Includes average rents for 2/3/4 room apartments, arnona rates, total monthly cost comparisons, and pros/cons of each area. Consult when a user needs specific neighborhood recommendations or wants to compare housing costs across cities.
-- `references/hebrew-rental-glossary.md` -- Complete Hebrew-English glossary of 80+ rental terms organized by category: property types, rooms and spaces, building features, financial terms, lease and legal terms, listing terms, utilities, condition descriptors, and neighborhood vocabulary. Consult when a user encounters unfamiliar Hebrew terms in listings or needs to understand rental terminology.
+- `references/city-rental-guide.md` -- Neighborhood character and relative price tiers by city: Tel Aviv, Jerusalem, Haifa, Be'er Sheva, Herzliya, Ra'anana, Netanya, Rishon LeZion, with pros/cons of each area and the neighborhood evaluation checklist. Consult when a user needs specific neighborhood recommendations.
+- `references/hebrew-rental-glossary.md` -- Complete Hebrew-English glossary of 80+ rental terms organized by category. Consult when a user encounters unfamiliar Hebrew terms in listings.
+- `references/tenant-rights-and-move-in.md` -- Sourced detail for Steps 7-7.6: the Fair Rental Law scope, repair remedies, payments a tenant cannot be charged, the security rules, broker disclosure duties, the move-in and move-out checklist, scam patterns, and oleh-specific points. Consult when a user asks about their rights or is about to sign.
 
 ### Scripts
-- `scripts/rental-budget-calculator.py` -- Calculates total monthly housing costs including rent, arnona, vaad bayit, utilities, and insurance. Supports oleh arnona discount. Run: `python scripts/rental-budget-calculator.py --rent 6000 --city tel-aviv --rooms 3`
+- `scripts/rental-budget-calculator.py` -- Calculates total monthly housing costs including rent, arnona, vaad bayit, utilities, and insurance, plus a move-in estimate with the deposit capped by lease length. Supports the oleh arnona discount, `--lease-months`, and `--broker` (only when the tenant owes a fee). Arnona per city, vaad bayit, utilities, parking and insurance are rough budgeting assumptions, not sourced figures; replace them with the real numbers for a specific apartment. Run: `python scripts/rental-budget-calculator.py --rent 6000 --city tel-aviv --rooms 3 --lease-months 12`
 
 ## Recommended MCP Servers
 
@@ -301,34 +254,46 @@ Result: Remote worker makes an informed city choice based on total cost and life
 |-----|-------------|
 | [Nadlan MCP](https://agentskills.co.il/he/mcp/nadlan) | Real estate transaction data from the Israeli government (Govmap API): recent deal prices by address or neighborhood, market trend analysis, and multi-address price comparison to validate asking rents against actual sale prices in the area. |
 
+## Reference Links
+
+| Source | URL | What to Check |
+|--------|-----|---------------|
+| Kol Zchut, renters hub | https://www.kolzchut.org.il/he/שוכרי_דירות | Current Fair Rental Law rights and their scope |
+| Kol Zchut, security cap | https://www.kolzchut.org.il/he/הגבלת_סכום_הערובה_שמותר_לדרוש_משוכר_דירה | Deposit cap, 60-day return |
+| Kol Zchut, broker clients' rights | https://www.kolzchut.org.il/he/זכותון_ללקוחות_של_מתווכי_דירות_ומקרקעין | Written order, disclosure duties, license |
+| CBS rent table 4.9 | https://www.cbs.gov.il/he/publications/Madad/DocLib/2026/price08a/a4_9_e.pdf | Latest average rents by city and rooms |
+| gov.il nesach tabu | https://www.gov.il/he/service/land_registration_extract | Ordering a land registry extract |
+| Kol Zchut, olim rent assistance | https://www.kolzchut.org.il/he/סיוע_בשכר_דירה_לעולים | Olim rent allowance periods |
+
 ## Gotchas
 - Israeli apartment sizes are quoted in gross square meters (bruto), which includes shared spaces like stairwells and walls. Net area (neto) is meaningfully smaller, so ask the agent for the net figure before comparing. Agents may compare Israeli and US listings without accounting for this difference.
 - The "rooms" count in Israeli listings (e.g., "3 rooms") counts the salon (living room) as one room. A "3-room apartment" is typically a 2-bedroom. Agents may interpret "3 rooms" as 3 bedrooms.
-- Israeli lease contracts (chozeh sechirut) are typically for 12 months with an option to extend. Agents may suggest US-style month-to-month arrangements, which are uncommon in Israel.
-- Va'ad bayit (building committee fees) and arnona (property tax) are paid separately from rent and can add 500-2,000 NIS/month. Agents may calculate total housing cost based on rent alone.
+- Israeli lease contracts (chozeh sechirut) are typically for 12 months with an option to extend. Agents may suggest US-style month-to-month arrangements, which are uncommon in Israel, or assume a tenant can leave early, which requires a cancellation clause.
+- Va'ad bayit (building committee fees) and arnona (property tax) are paid separately from rent and can add several hundred to over a thousand NIS a month. Agents may calculate total housing cost based on rent alone.
+- CBS averages include renewals of older leases, so they understate what a newcomer will be asked to pay. Agents may quote the CBS number as the price of a new lease.
+- Agents may state the Fair Rental Law protections as universal. They do not apply above the rent threshold, to leases of 3 months or less with no option to extend, or to hotel, dormitory, sheltered-housing and protected-tenancy apartments, and between close relatives most of them can be contracted out.
 
 ## Troubleshooting
 
 ### Error: "Landlord demands cash payment only"
-Cause: Some landlords prefer cash to avoid tax reporting, which is illegal.
+Cause: Some landlords prefer cash to keep payments off the record. Cash rent is not itself illegal, but it leaves the tenant with no proof of payment.
 Solution:
-1. Insist on bank transfer or checks for legal protection
-2. Cash-only demands may indicate tax evasion; proceed with caution
-3. Always get a signed receipt (kabala, קבלה) for any payment
-4. Report suspected tax evasion to Rashut HaMisim if concerned
+1. Ask for bank transfer, standing order or checks, which create a record
+2. If you do pay in cash, get a signed receipt (kabala, קבלה) for every payment
+3. Keep the receipts with the lease for the whole tenancy
 
 ### Error: "Broker claims fee for apartment found independently"
 Cause: Broker may claim they showed you the listing first, even if you found it elsewhere.
 Solution:
 1. Document your own search history (screenshots with timestamps)
-2. Brokers can only charge if they have a signed brokerage agreement (heskem tivuch, הסכם תיווך)
-3. If no agreement was signed, you are not obligated to pay
-4. Contact the Registrar of Real Estate Brokers (rasham hametavchim) at the Ministry of Justice if disputed
+2. A broker is owed a fee only if licensed, holding your signed written order (הזמנה בכתב), and the effective cause of the lease
+3. If no order was signed, there is no fee; if one was signed but you reached the deal independently, the broker may not be the effective cause
+4. Complaints about a broker go to the Registrar of Real Estate Brokers (rasham hametavchim) at the Ministry of Justice
 
 ### Error: "Deposit not returned after lease ends"
 Cause: Landlord may withhold deposit claiming damages or unpaid bills.
 Solution:
-1. Document apartment condition with photos/video at move-in and move-out
-2. Landlord must provide itemized list of deductions within 60 days
-3. If unjustified, send a formal demand letter (michtav derishah, מכתב דרישה)
+1. Use the signed move-in and move-out protocols and dated photos as evidence
+2. The deposit, with any profit earned on it, is due within 60 days of returning the apartment (or of paying your debts, if later), and may be drawn only for the four purposes in Step 7.5 after prior notice
+3. Ask in writing for a breakdown of any deduction, then send a formal demand letter (michtav derishah, מכתב דרישה)
 4. File a claim in Small Claims Court (beit mishpat letvi'ot ktanot, בית משפט לתביעות קטנות) for amounts up to NIS 39,900 (current ceiling effective January 1, 2026)

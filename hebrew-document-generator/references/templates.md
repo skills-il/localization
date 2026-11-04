@@ -2,31 +2,41 @@
 
 ## Tax Invoice (Heshbonit Mas / חשבונית מס)
 
-### Legal Requirements (Israeli Tax Authority)
-A tax invoice must include the following fields to be legally valid:
+### Required Fields (per Kol Zchut's summary of the VAT rules)
 
-| Field | Hebrew | Required | Notes |
-|-------|--------|----------|-------|
-| Business name | שם העסק | Yes | As registered with Tax Authority |
-| Business address | כתובת העסק | Yes | Full address |
-| Osek Murshe number | מספר עוסק מורשה | Yes | 9-digit authorized dealer number |
-| Invoice number | מספר חשבונית | Yes | Sequential, unique |
-| Date of issue | תאריך הנפקה | Yes | DD/MM/YYYY format |
-| Customer name | שם הלקוח | Yes | Individual or company |
-| Customer ID | ת.ז. / ח.פ. | Yes | Customer name and TZ/company number, per current ITA invoicing rules |
-| Allocation number | מספר הקצאה | Yes, at/above threshold | Israel Invoices model: required on a tax invoice at/above the threshold (20,000 NIS in 2025, 10,000 NIS from Jan 2026, 5,000 NIS from 1 June 2026, pre-VAT). Without it the buyer cannot deduct input VAT. Verify the current threshold. |
-| Item description | תיאור הפריט | Yes | Clear description of goods/services |
-| Quantity | כמות | Yes | Numeric |
-| Unit price | מחיר ליחידה | Yes | Before VAT |
-| Subtotal | סכום ביניים | Yes | Sum of all items |
-| VAT amount | סכום מע"מ | Yes | Currently 18% |
-| Total | סה"כ לתשלום | Yes | Subtotal + VAT |
+A tax invoice may be issued only by an עוסק מורשה. It must show:
+
+| Field | Hebrew | Notes |
+|-------|--------|-------|
+| Business name and address | שם העוסק וכתובת העסק | As registered |
+| The words "עוסק מורשה" and the osek number | המילים "עוסק מורשה" ומספר עוסק מורשה | The business's registration number with VAT |
+| The words "חשבונית מס" | המילים "חשבונית מס" | As the document title |
+| "מקור" | המילה "מקור" | On the original only; the copy the business keeps is marked "העתק" |
+| Invoice number | מספר החשבונית | Serial |
+| Date of issue | תאריך הוצאת החשבונית | DD/MM/YYYY |
+| Transaction details | פירוט העסקה | Description, quantity, unit price |
+| Delivery note number and date | מספר ותאריך תעודת משלוח | Only when a delivery note is required |
+| Price without VAT, VAT, total | המחיר ללא המס, סכום המס בנפרד והמחיר הכולל | VAT currently 18% |
+| Signature | חתימת העוסק או עורך החשבונית | |
+| Allocation number | מספר הקצאה | Israel Invoices model: required from 1 June 2026 when the transaction exceeds 5,000 NIS before VAT (20,000 NIS in 2025, 10,000 NIS from 1 January 2026) and the customer, an עוסק מורשה, asks for one. Without it the customer cannot deduct input VAT. Time-sensitive. |
+
+Kol Zchut's list for a tax invoice does not include the customer's details; a חשבונית עסקה lists "שם הלקוח וכתובתו". Business customers expect their name and osek number on a tax invoice in practice, so include them.
+
+### Which document to issue
+
+| Business | Payment status | Document |
+|----------|----------------|----------|
+| עוסק פטור | Paid | קבלה (never a חשבונית מס, never VAT) |
+| עוסק מורשה | Not yet paid | חשבונית עסקה or חשבונית מס; a חשבון עסקה (free-form payment request) if only asking for payment |
+| עוסק מורשה | Paid at the time of the transaction | חשבונית מס/קבלה |
+| עוסק מורשה | Paid later | קבלה on payment (plus the invoice already issued) |
+
+Tax invoices are printed from a pre-printed book or from authorized invoicing software, in an original and a copy. The bundled `scripts/generate_doc.py` output is a layout sample, not an issued invoice.
 
 ### VAT Rules
-- Standard rate: 18% (since January 2025)
-- VAT-exempt transactions: exports, certain financial services, fruits and vegetables
-- Eilat zone: VAT-exempt for most goods and services
-- Invoice must clearly separate the pre-VAT amount from the VAT amount
+- Standard rate: 18% (since 1 January 2025)
+- Some transactions are zero-rated (שיעור אפס) and some are exempt (עסקה פטורה); the two are treated differently on the invoice and for input VAT. Confirm the treatment with the Tax Authority or an accountant before issuing.
+- The invoice must show the price without VAT and the VAT amount separately
 
 ## Contract (Hozeh / חוזה)
 
@@ -54,7 +64,7 @@ A tax invoice must include the following fields to be legally valid:
 
 ## Price Proposal (Hatza'at Mechir / הצעת מחיר)
 
-### Required Fields
+### Customary Fields
 
 | Field | Hebrew | Notes |
 |-------|--------|-------|
@@ -88,11 +98,12 @@ A tax invoice must include the following fields to be legally valid:
 
 ## Receipt (Kabala / קבלה)
 
-### Required Fields
+### Customary Fields
 
 | Field | Hebrew | Notes |
 |-------|--------|-------|
 | Business name | שם העסק | As registered |
+| Osek number | מספר עוסק | עוסק מורשה or עוסק פטור number |
 | Receipt number | מספר קבלה | Sequential |
 | Date | תאריך | DD/MM/YYYY |
 | Amount received | סכום שהתקבל | In NIS |

@@ -8,6 +8,7 @@ Part of [Skills IL](https://github.com/skills-il) — curated AI agent skills fo
 
 | Skill | Description | Scripts | References |
 |-------|-------------|---------|------------|
+| [hebrew-ai-text-humanizer](./hebrew-ai-text-humanizer/) | Edit Hebrew that reads as AI-written or translated into natural Israeli Hebrew. Named catalogue of AI-Hebrew tells, register and gender addressing, Academy punctuation rules, change log. | `hebrew-ai-tells.py` | `ai-hebrew-patterns.md`, `channel-grammar-gender.md` |
 | [hebrew-content-writer](./hebrew-content-writer/) | Write professional Hebrew content. Grammar rules, formal/informal register, gendered language, Hebrew SEO. | -- | `hebrew-grammar-quick-ref.md` |
 | [hebrew-document-generator](./hebrew-document-generator/) | Generate Hebrew PDF, DOCX, and PPTX with RTL support. reportlab, WeasyPrint, python-docx, pptxgenjs. Israeli business templates. | `generate_doc.py` | `hebrew-fonts.md`, `templates.md` |
 | [hebrew-i18n](./hebrew-i18n/) | Hebrew internationalization patterns. Plural forms, date/number formatting, RTL CSS, bidi text, React/Vue/Angular integration. | `generate_i18n.py` | `pluralization.md`, `bidi.md` |

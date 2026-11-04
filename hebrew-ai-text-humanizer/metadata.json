@@ -1,0 +1,77 @@
+{
+  "author": "skills-il",
+  "version": "1.0.0",
+  "category": "localization",
+  "tags": {
+    "he": [
+      "עברית",
+      "עריכה",
+      "כתיבה-עם-AI",
+      "סגנון",
+      "פיסוק",
+      "לוקליזציה"
+    ],
+    "en": [
+      "hebrew",
+      "editing",
+      "ai-writing",
+      "style",
+      "punctuation",
+      "localization"
+    ]
+  },
+  "display_name": {
+    "he": "עריכת עברית שנשמעת כמו AI",
+    "en": "Hebrew AI Text Humanizer"
+  },
+  "display_description": {
+    "he": "לוקח טקסט בעברית שנשמע כאילו מכונה כתבה אותו או שתורגם מאנגלית, והופך אותו לעברית ישראלית טבעית. מתאים למיילים, פוסטים בלינקדאין, דפי מוצר, הודעות וואטסאפ ללקוחות ודוחות. הסקיל מסמן בכל שורה את הדפוסים המוכרים: \"במידה ו\", \"על מנת\", \"חשוב לציין\", פנייה מבולבלת בין אתה, את ואתם, רשימות ואימוג'ים במקום משפטים, ו\"ב2025\" בלי מקף. אחר כך הוא משכתב ברמה שבחרתם (דוגרי, מקצועית או רשמית), שואל מה המגדר שלכם במקום להניח זכר, שומר על כל עובדה, מספר ושם, ומצרף טבלת שינויים כדי שתלמדו לזהות את הדפוסים בעצמכם. זו עריכה לבהירות ולקול שלכם, לא דרך לעקוף גלאי AI. לא מתאים לכתיבת תוכן חדש מאפס (יש hebrew-content-writer), לעיבוד שפה בקוד (יש hebrew-nlp-toolkit), להפקת קובצי DOCX או PDF (יש hebrew-document-generator) או לתרגום משפה אחרת.",
+    "en": "Edits Hebrew that reads as machine-written or translated from English into natural Israeli Hebrew. Works on emails, LinkedIn posts, product pages, WhatsApp messages to customers and reports. The skill flags, line by line, the familiar patterns: bemida ve, al menat, \"it is important to note\", addressing that jumps between singular and plural, lists and emoji where sentences belong, and a prefix glued to a number with no maqaf. It then rewrites at the register you pick (dugri, professional or formal), asks your gender instead of assuming masculine, keeps every fact, number and name, and attaches a change log so you learn to spot the patterns yourself. This is editing for clarity and your own voice, not a way to beat AI detectors. Not for writing new content from scratch (use hebrew-content-writer), Hebrew NLP code (use hebrew-nlp-toolkit), DOCX or PDF output (use hebrew-document-generator), or translating from another language."
+  },
+  "supported_agents": [
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "windsurf",
+    "opencode",
+    "codex",
+    "antigravity",
+    "gemini-cli",
+    "grok-build",
+    "chatgpt",
+    "claude-ai",
+    "claude-desktop",
+    "manus",
+    "gemini-spark",
+    "grok"
+  ],
+  "volatility": "stable",
+  "authoritative_sources": [
+    {
+      "url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "type": "regulator",
+      "language": "he"
+    },
+    {
+      "url": "https://hebrew-academy.org.il/topic/hahlatot/grammardecisions/terminology-ordinance/4-1-שימושי-לשון/",
+      "type": "regulator",
+      "language": "he"
+    },
+    {
+      "url": "https://hebrew-academy.org.il/במידה-ש־/",
+      "type": "regulator",
+      "language": "he"
+    },
+    {
+      "url": "https://hebrew-academy.org.il/פנייה-המיועדת-לגבר-וגם-לאישה/",
+      "type": "regulator",
+      "language": "he"
+    },
+    {
+      "url": "https://www.w3.org/International/articles/inline-bidi-markup/",
+      "type": "standard",
+      "language": "en"
+    }
+  ],
+  "domain_checklist_version": 1
+}

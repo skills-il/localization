@@ -1,89 +1,872 @@
 {
   "schemaVersion": "1.0",
   "skill": "israeli-apartment-hunting",
-  "generated_at": "2026-05-18T01:50:00Z",
+  "generated_at": "2026-10-01T00:00:00Z",
   "claims": [
     {
       "claim_id": "security-cap-section-25yod",
-      "claim": "Section 25י of the Rental and Loan Law caps securities that cause the tenant a monetary outlay (bank guarantee, credit-company or insurer guarantee, cash deposit) at the LOWER of three months' rent or the rent for one-third of the lease period.",
+      "claim": "Section 25י caps securities that cost the tenant money (bank guarantee, a credit-company or insurer guarantee, cash) at the LOWER of the rent for 1/3 of the lease or the rent for 3 months; for a 6-month lease that is 2 months.",
       "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%91%D7%9C%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%A9%D7%9E%D7%95%D7%AA%D7%A8_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
-      "raw_snippet": "החוק מגביל את הסכום הכולל של הערובות שמותר לבקש מהשוכר, אם הן גורמות לו להוצאה כספית (למשל, עמלה על ערבות בנקאית, ערבות מחברת אשראי או מחברת ביטוח, או פיקדון מזומן) | הסכום הכולל של הערובות שמותר למשכיר לבקש מהשוכר יהיה הנמוך מבין אלה: סכום דמי השכירות עבור 1/3 (שליש) מתקופת השכירות. סכום דמי השכירות עבור 3 חודשים. | חוק השכירות והשאילה - סעיף 25י",
-      "fetched_at": "2026-08-13T00:00:00Z",
+      "raw_snippet": "הסכום הכולל של הערובות שמותר למשכיר לבקש מהשוכר יהיה הנמוך מבין אלה: סכום דמי השכירות עבור 1/3 (שליש) מתקופת השכירות. סכום דמי השכירות עבור 3 חודשים.",
+      "fetched_at": "2026-10-01T00:00:00Z",
       "appears_in": [
         "SKILL.md",
-        "SKILL_HE.md"
-      ],
-      "verified_via": "playwright",
-      "verified_at": "2026-08-13T00:00:00Z"
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md",
+        "scripts/rental-budget-calculator.py"
+      ]
+    },
+    {
+      "claim_id": "security-cap-covers-credit-insurer",
+      "claim": "The cap covers securities that cause the tenant a monetary outlay, e.g. a bank guarantee commission, a guarantee from a credit company or insurer, or a cash deposit.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%91%D7%9C%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%A9%D7%9E%D7%95%D7%AA%D7%A8_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "החוק מגביל את הסכום הכולל של הערובות שמותר לבקש מהשוכר, אם הן גורמות לו להוצאה כספית (למשל, עמלה על ערבות בנקאית, ערבות מחברת אשראי או מחברת ביטוח, או פיקדון מזומן).",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "over-cap-guarantee-still-valid",
+      "claim": "An over-cap bank guarantee or bank check that was given anyway stays valid, and the bank may honour it in full.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%91%D7%9C%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%A9%D7%9E%D7%95%D7%AA%D7%A8_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "אם בכל זאת ניתנה ערובה מסוג ערבות בנקאית או שיק בנקאי בסכום גבוה מהמותר, היא תהיה תקפה בכל מקרה והבנק עשוי לכבד אותה במלואה",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "deposit-return-60-days",
+      "claim": "The security, with any profit earned on it, must be returned within 60 days of the apartment being handed back or of the tenant's debts being paid, whichever is later.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%91%D7%9C%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%A9%D7%9E%D7%95%D7%AA%D7%A8_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "יש להחזיר את הערובה עד 60 ימים מהמועד שבו השוכר החזיר למשכיר את הדירה, או עד למועד שבו שולמו חובות השוכר - לפי המאוחר מביניהם.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "deposit-return-profits",
+      "claim": "On return the landlord must include any profit earned on the security, such as bank interest.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%91%D7%9C%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%A9%D7%9E%D7%95%D7%AA%D7%A8_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "בתום תקופת השכירות המשכיר יחזיר לשוכר את הערובה (או את יתרתה אם מימש חלק ממנה) כולל כל רווח שהפיק ממנה, כגון: ריבית מהפקדתה בתוכנית חיסכון בבנק",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "security-draw-purposes-25yod-c",
+      "claim": "Section 25י(ג): the landlord may draw on a security only in the enumerated cases (unpaid rent, tenant-responsible defects not fixed, unpaid current charges, failure to vacate).",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "המשכיר רשאי לממש ערובה שנתן לו השוכר רק במקרים המפורטים להלן ובסכומים כמפורט לצדם: (1) השוכר לא שילם את דמי השכירות במועד הקבוע בחוזה השכירות",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "security-draw-notice-25yod-d",
+      "claim": "Section 25י(ד): the landlord must give reasonable advance notice of drawing on the security and a reasonable time to fix.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "המשכיר יודיע לשוכר זמן סביר מראש על כוונתו לממש את הערובה ויאפשר לו לתקן את הטעון תיקון בתוך זמן סביר.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "fair-rent-threshold-20000-cpi",
+      "claim": "Section 25טו(א)(4): the Fair Rental chapter does not apply where monthly rent exceeds NIS 20,000 (20,000 ש\"ח), a sum updated on 1 January each year by the CPI.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "חוזה שכירות למגורים שדמי השכירות לפיו, לחודש, עולים על 20,000 שקלים חדשים או על סכום אחר שקבע שר המשפטים",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md",
+        "scripts/rental-budget-calculator.py",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "fair-rent-threshold-cpi-update",
+      "claim": "Section 25טו(א)(4): the rent threshold is updated each 1 January by the CPI change.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "הסכום לפי פסקה זו יתעדכן ב־1 בינואר של כל שנה, בהתאם לשיעור שינוי מדד המחירים לצרכן",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "fair-rent-excluded-housing",
+      "claim": "Section 25טו(א)(1): hotel and holiday apartments, dormitories, sheltered housing and protected-tenancy apartments are excluded.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "דירה בבית דיור מוגן כהגדרתו בחוק הדיור המוגן, התשע״ב–2012; (ד) דירה במעונות לסטודנטים, לתלמידים או לעובדים;",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "fair-rent-scope-3m-10y",
+      "claim": "The protections apply to leases of at least 3 months (or with an option beyond 3 months) and no more than 10 years, with monthly rent under NIS 20,000.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A9%D7%9B%D7%A8%D7%AA_%D7%93%D7%99%D7%A8%D7%94_%D7%A8%D7%90%D7%95%D7%99%D7%94_%D7%9C%D7%9E%D7%92%D7%95%D7%A8%D7%99%D7%9D",
+      "raw_snippet": "השכירות היא לתקופה של 3 חודשים לפחות או שיש אופציה להאריך אותה ליותר מ-3 חודשים. השכירות היא לתקופה שלא עולה על 10 שנים או שיש למשכיר אפשרות לבטל את החוזה במועד מוקדם יותר. שכר הדירה החודשי נמוך מ-20,000 ₪.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "habitability-at-delivery",
+      "claim": "A landlord must deliver a habitable apartment; delivering an unfit one is a breach even if the lease says otherwise, and the tenant may be released from the lease.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A9%D7%9B%D7%A8%D7%AA_%D7%93%D7%99%D7%A8%D7%94_%D7%A8%D7%90%D7%95%D7%99%D7%94_%D7%9C%D7%9E%D7%92%D7%95%D7%A8%D7%99%D7%9D",
+      "raw_snippet": "אם המשכיר מוסר דירה לא ראויה למגורים, הוא מפר את החוזה, גם אם בחוזה נקבע אחרת. במקרה כזה זכותו של השוכר להשתחרר מהחוזה ולא לקיים אותו.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "habitability-list",
+      "claim": "Habitability includes drainage and sewage, electricity and lighting, ventilation, natural light and a lockable main door, drinking water, a toilet partition and no unreasonable risk.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A9%D7%9B%D7%A8%D7%AA_%D7%93%D7%99%D7%A8%D7%94_%D7%A8%D7%90%D7%95%D7%99%D7%94_%D7%9C%D7%9E%D7%92%D7%95%D7%A8%D7%99%D7%9D",
+      "raw_snippet": "קיימת מערכת ניקוז, כולל מערכת לסילוק סדיר של שפכים. קיימת מערכת חשמל ותאורה. יש בה פתחי אוורור ותאורה טבעית וכן דלתות וחלונות לסגירת פתחים אלה, כולל דלת כניסה ראשית שננעלת. קיימת מערכת להספקת מי שתייה. קיימת מחיצה בין השירותים ובין הדירה. אין בה סיכון בלתי-סביר לבטיחות השוכר או לבריאותו.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "repair-30-days",
+      "claim": "The landlord must repair within a reasonable time and no later than 30 days from the tenant's demand.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%AA%D7%99%D7%A7%D7%95%D7%9F_%D7%9C%D7%99%D7%A7%D7%95%D7%99%D7%99%D7%9D_%D7%91%D7%93%D7%99%D7%A8%D7%94_%D7%9E%D7%95%D7%A9%D7%9B%D7%A8%D7%AA",
+      "raw_snippet": "על המשכיר לתקן את הליקוי בתוך זמן סביר ולא יותר מ-30 ימים מהיום שהשוכר דרש זאת.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "repair-3-days-urgent",
+      "claim": "An urgent defect (one that prevents reasonable living in the apartment) must be repaired within no more than 3 days.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%AA%D7%99%D7%A7%D7%95%D7%9F_%D7%9C%D7%99%D7%A7%D7%95%D7%99%D7%99%D7%9D_%D7%91%D7%93%D7%99%D7%A8%D7%94_%D7%9E%D7%95%D7%A9%D7%9B%D7%A8%D7%AA",
+      "raw_snippet": "אם מדובר בתיקון דחוף, על המשכיר לתקנו בתוך זמן סביר ולא יותר מ-3 ימים מהיום שהשוכר דרש זאת. פגם שדורש תיקון דחוף הוא פגם שלא מאפשר מגורים בדירה באופן סביר.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "repair-remedy-reimbursement",
+      "claim": "If the landlord does not repair, the tenant may repair and demand reimbursement of reasonable costs, after reasonable advance notice.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%AA%D7%99%D7%A7%D7%95%D7%9F_%D7%9C%D7%99%D7%A7%D7%95%D7%99%D7%99%D7%9D_%D7%91%D7%93%D7%99%D7%A8%D7%94_%D7%9E%D7%95%D7%A9%D7%9B%D7%A8%D7%AA",
+      "raw_snippet": "לתקן את הפגם ולדרוש מהמשכיר להחזיר לו את הוצאותיו. ההוצאות שהמשכיר יידרש להחזיר צריכות להיות סבירות. במקרה כזה על השוכר להודיע על כך למשכיר זמן סביר מראש.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "repair-remedy-rent-reduction",
+      "claim": "While the defect remains, the tenant may reduce the rent in proportion to the loss of rental value.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%AA%D7%99%D7%A7%D7%95%D7%9F_%D7%9C%D7%99%D7%A7%D7%95%D7%99%D7%99%D7%9D_%D7%91%D7%93%D7%99%D7%A8%D7%94_%D7%9E%D7%95%D7%A9%D7%9B%D7%A8%D7%AA",
+      "raw_snippet": "כל עוד לא תוקן הפגם, השוכר רשאי להפחית את דמי השכירות, לפי היחס שבו פחת שווי השכירות עקב הפגם.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "payments-no-building-insurance",
+      "claim": "A landlord may not charge the tenant building insurance premiums.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%AA%D7%A9%D7%9C%D7%95%D7%9E%D7%99%D7%9D_%D7%A9%D7%90%D7%A1%D7%95%D7%A8_%D7%9C%D7%94%D7%98%D7%99%D7%9C_%D7%A2%D7%9C_%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "דמי ביטוח עבור ביטוח הדירה שמושכרת בביטוח מבנה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "payments-no-vaad-renovations",
+      "claim": "A landlord may not charge the tenant for renovations the vaad bayit carries out in the building.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%AA%D7%A9%D7%9C%D7%95%D7%9E%D7%99%D7%9D_%D7%A9%D7%90%D7%A1%D7%95%D7%A8_%D7%9C%D7%94%D7%98%D7%99%D7%9C_%D7%A2%D7%9C_%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "אסור למשכיר דירה להטיל על השוכר תשלום עבור שיפוצים שמבצע ועד הבית בבניין המשותף.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "payments-no-fixed-systems",
+      "claim": "A landlord may not charge the tenant for buying or upgrading fixed systems serving the apartment, except special adjustments the tenant asked for.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%AA%D7%A9%D7%9C%D7%95%D7%9E%D7%99%D7%9D_%D7%A9%D7%90%D7%A1%D7%95%D7%A8_%D7%9C%D7%94%D7%98%D7%99%D7%9C_%D7%A2%D7%9C_%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "תשלום שמיועד לרכישה או להשבחה של מערכות או מתקנים קבועים שמשרתים את הדירה המושכרת.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "written-lease-signed-copy",
+      "claim": "The lease must be written, signed by both parties, and each gets a signed copy; an unsigned or oral lease is still valid.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%97%D7%95%D7%96%D7%94_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%9C%D7%9E%D7%92%D7%95%D7%A8%D7%99%D7%9D",
+      "raw_snippet": "החוזה צריך להיות כתוב, המשכיר והשוכר (הצדדים לחוזה) צריכים לחתום עליו, וכל אחד מהם צריך לקבל העתק חתום מהחוזה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "written-lease-known-defects",
+      "claim": "The lease must list significant defects or nuisances known to the landlord.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%97%D7%95%D7%96%D7%94_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%9C%D7%9E%D7%92%D7%95%D7%A8%D7%99%D7%9D",
+      "raw_snippet": "בעיות שידועות למשכיר בזמן ההתקשרות בחוזה - פגם משמעותי בדירה המושכרת או כל דבר אחר בדירה, בסביבתה או בבניין שבו היא נמצאת, שגורם או עלול לגרום הפרעה ממשית לשימוש בדירה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "option-notice-90-days",
+      "claim": "A landlord exercising an extension option must give at least 90 days' notice, on terms fixed in advance.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%90%D7%A8%D7%9B%D7%AA_%D7%AA%D7%A7%D7%95%D7%A4%D7%AA_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%28%D7%90%D7%95%D7%A4%D7%A6%D7%99%D7%94_%D7%9C%D7%94%D7%90%D7%A8%D7%9B%D7%AA_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA%29",
+      "raw_snippet": "עליו להודיע לשוכר לפחות 90 ימים לפני מועד סיום החוזה אם ברצונו לקיים את הברירה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "option-notice-60-days",
+      "claim": "A tenant exercising an extension option must give at least 60 days' notice.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%90%D7%A8%D7%9B%D7%AA_%D7%AA%D7%A7%D7%95%D7%A4%D7%AA_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%28%D7%90%D7%95%D7%A4%D7%A6%D7%99%D7%94_%D7%9C%D7%94%D7%90%D7%A8%D7%9B%D7%AA_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA%29",
+      "raw_snippet": "עליו להודיע למשכיר לפחות 60 ימים לפני מועד סיום החוזה אם הוא מעוניין לממש את האופציה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "cancel-notice-90-60",
+      "claim": "Unilateral cancellation without breach: landlord at least 90 days' notice, tenant at least 60 days (or shorter if the lease says so).",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%98%D7%95%D7%9C_%D7%97%D7%93-%D7%A6%D7%93%D7%93%D7%99_%D7%A9%D7%9C_%D7%97%D7%95%D7%96%D7%94_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%A9%D7%9C%D7%90_%D7%A2%D7%A7%D7%91_%D7%94%D7%A4%D7%A8%D7%AA%D7%95",
+      "raw_snippet": "בחוזי שכירות אלה המשכיר חייב לתת לשוכר התראה מראש של 90 יום לפחות לפני הביטול, והשוכר חייב לתת למשכיר התראה מראש של 60 יום לפחות לפני ביטול החוזה",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "cancel-no-clause-no-exit",
+      "claim": "Without a cancellation clause, neither side can cancel unilaterally unless the other breached.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%91%D7%99%D7%98%D7%95%D7%9C_%D7%97%D7%93-%D7%A6%D7%93%D7%93%D7%99_%D7%A9%D7%9C_%D7%97%D7%95%D7%96%D7%94_%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%A9%D7%9C%D7%90_%D7%A2%D7%A7%D7%91_%D7%94%D7%A4%D7%A8%D7%AA%D7%95",
+      "raw_snippet": "אם בחוזה השכירות לא קיים תנאי כזה, אף אחד מהצדדים לא יכול לבטל את החוזה באופן חד-צדדי (אלא אם כן הצד השני הפר את החוזה).",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "sublet-consent",
+      "claim": "Subletting requires the landlord's prior written consent, but an unreasonable refusal or unreasonable conditions do not block it.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A9%D7%9B%D7%A8%D7%AA_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%93%D7%99%D7%99%D7%A8_%D7%91%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%9E%D7%A9%D7%A0%D7%94_%28%D7%A1%D7%90%D7%91%D7%9C%D7%98%29",
+      "raw_snippet": "השוכר רשאי להשכיר את הדירה שהוא שוכר לשוכר משנה רק בתנאי שהמשכיר נתן את הסכמתו לכך מראש ובכתב",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
     },
     {
       "claim_id": "broker-fee-section-25tet",
-      "claim": "Under Section 25ט(b)(3) of the Rental and Loan Law a residential tenant may not be made to pay the broker fee the landlord undertook to pay, where the broker acted on the landlord's behalf; a lease clause shifting that fee has no effect. A tenant who approached the broker themselves does pay the fee they undertook in writing.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%90%D7%99%D7%A1%D7%95%D7%A8_%D7%A2%D7%9C_%D7%9E%D7%A9%D7%9B%D7%99%D7%A8_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%A9%D7%9C%D7%9D_%D7%93%D7%9E%D7%99_%D7%AA%D7%99%D7%95%D7%95%D7%9A_%D7%9C%D7%9E%D7%AA%D7%95%D7%95%D7%9A_%D7%A9%D7%A4%D7%A2%D7%9C_%D7%9E%D7%98%D7%A2%D7%9D_%D7%9E%D7%A9%D7%9B%D7%99%D7%A8_%D7%94%D7%93%D7%99%D7%A8%D7%94",
-      "raw_snippet": "החוק אוסר לדרוש משוכרי דירה לשלם דמי תיווך שהמשכיר התחייב לשלם למתווך, כאשר המתווך פעל מטעם המשכיר | אם השוכרים פנו למתווך כדי שיחפש עבורם דירה, או פנו למתווך בעקבות מודעה שפרסם, עליהם לשלם את דמי התיווך שהתחייבו עליהם בכתב אפילו כשהמתווך פועל מטעם המשכיר | חוק השכירות והשאילה - סעיף 25ט(ב)(3)",
-      "fetched_at": "2026-08-13T00:00:00Z",
+      "claim": "Section 25ט(ב)(3): a tenant may not be made to pay the broker fee the landlord owes, where the broker acted for the landlord; a tenant who approached the broker or answered the broker's ad pays the fee they undertook in writing.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%90%D7%99%D7%A1%D7%95%D7%A8_%D7%92%D7%91%D7%99%D7%99%D7%AA_%D7%93%D7%9E%D7%99_%D7%AA%D7%99%D7%95%D7%95%D7%9A_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "אם השוכרים פנו למתווך כדי שיחפש עבורם דירה, או פנו למתווך בעקבות מודעה שפרסם, עליהם לשלם את דמי התיווך שהתחייבו עליהם בכתב אפילו כשהמתווך פועל מטעם המשכיר.",
+      "fetched_at": "2026-10-01T00:00:00Z",
       "appears_in": [
         "SKILL.md",
-        "SKILL_HE.md"
-      ],
-      "verified_via": "playwright",
-      "verified_at": "2026-08-13T00:00:00Z"
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
     },
     {
-      "claim_id": "small-claims-ceiling-2026",
-      "claim": "Israeli Small Claims Court (beit mishpat letvi'ot ktanot) ceiling is 39,900 NIS / 39,900 שקל / 39,900 ש\"ח effective January 1, 2026 (raised from 35,800 NIS)",
-      "source_url": "https://pelleg-law.co.il/%D7%AA%D7%A7%D7%A8%D7%AA-%D7%AA%D7%91%D7%99%D7%A2%D7%95%D7%AA-%D7%A7%D7%98%D7%A0%D7%95%D7%AA-2026/",
-      "raw_snippet": "תקרת תביעות קטנות עד 39,900 ₪ החל מ-1.1.2026 (39,900 שקל / 39,900 NIS / 39,900 ש\"ח)",
-      "fetched_at": "2026-05-18T01:50:00Z",
+      "claim_id": "broker-fee-signed-agreement",
+      "claim": "A broker who signed a brokerage agreement with the tenant may demand the agreed fee even if the broker acted for the landlord.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%90%D7%99%D7%A1%D7%95%D7%A8_%D7%92%D7%91%D7%99%D7%99%D7%AA_%D7%93%D7%9E%D7%99_%D7%AA%D7%99%D7%95%D7%95%D7%9A_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "מתווך שחתם על הסכם תיווך עם שוכר דירה רשאי לדרוש מהשוכר את דמי התיווך שהתחייב לשלם בהסכם, גם אם המתווך פעל מטעם משכיר הדירה",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-written-order",
+      "claim": "Brokers Law: without a signed written order the broker is not entitled to a fee.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "אם המתווך לא החתים את הלקוח על הזמנה בכתב, הוא לא יהיה זכאי לדמי תיווך.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-license-on-request",
+      "claim": "On request, a broker must present a valid real estate brokerage license.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "אם אותו אדם מבקש - על המתווך להציג בפניו רישיון תיווך במקרקעין בתוקף.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-ownership-docs",
+      "claim": "The broker must show official ownership documents such as an up-to-date nesach tabu.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "על המתווך להציג מסמכים רשמיים, כמו: נסח טאבו מעודכן, אישור מרשות מקרקעי ישראל",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-defects-questionnaire",
+      "claim": "The broker must hand over a questionnaire filled in by the landlord on moisture, building violations, infrastructure defects, nuisances.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "על המתווך למסור ללקוח שאלון, שהמוכר או המשכיר מילא, בנושאים הבאים: האם יש רטיבויות בדירה או בנכס? האם יש חריגות בנייה בדירה או בנכס? האם יש ליקויים מהותיים בתשתיות הנכס, כמו: מים, חשמל, ביוב וגז?",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-complaint-registrar",
+      "claim": "Complaints about a broker go to the Registrar of Real Estate Brokers.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "ניתן להגיש נגדו תלונה לרשם המתווכים.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-fee-legal-source-25tet",
+      "claim": "Kol Zchut cites Rental and Loan Law section 25ט(ב)(3) as the legal source for the broker-fee rule.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%90%D7%99%D7%A1%D7%95%D7%A8_%D7%92%D7%91%D7%99%D7%99%D7%AA_%D7%93%D7%9E%D7%99_%D7%AA%D7%99%D7%95%D7%95%D7%9A_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
+      "raw_snippet": "חוק השכירות והשאילה - סעיף 25ט(ב)(3)",
+      "fetched_at": "2026-10-01T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ]
     },
     {
-      "claim_id": "chok-schirut-hogenet-deposit-cap",
-      "claim": "Chok Schirut Hogenet (Fair Rental Law, 2017) caps security deposit at the lower of (3 months rent) or (1/3 of total lease period). Demands above this are unenforceable.",
+      "claim_id": "security-cap-legal-source-25yod",
+      "claim": "Kol Zchut cites Rental and Loan Law section 25י as the legal source for the security cap.",
       "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%91%D7%9C%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%A9%D7%9E%D7%95%D7%AA%D7%A8_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
-      "raw_snippet": "תקרת ערובה: הנמוך מבין 3 חודשי שכירות או שליש מתקופת השכירות.",
-      "fetched_at": "2026-05-18T01:50:00Z",
+      "raw_snippet": "חוק השכירות והשאילה - סעיף 25י",
+      "fetched_at": "2026-10-01T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ]
     },
     {
-      "claim_id": "fair-rental-law-habitability",
-      "claim": "The landlord must fix, at their own expense, any defect in the rented apartment that is not minor and was not caused by unreasonable use, within a reasonable time and no more than 30 days from the tenant's demand (3 days for an urgent defect that makes the apartment not reasonably habitable); if the landlord does not, the tenant may have the repair done and recover reasonable costs.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%AA%D7%99%D7%A7%D7%95%D7%9F_%D7%9C%D7%99%D7%A7%D7%95%D7%99%D7%99%D7%9D_%D7%91%D7%93%D7%99%D7%A8%D7%94_%D7%9E%D7%95%D7%A9%D7%9B%D7%A8%D7%AA",
-      "raw_snippet": "המשכיר אחראי לתקן על חשבונו כל ליקוי או פגם בדירה המושכרת, שעונה על שני התנאים הבאים... הליקוי הוא לא ליקוי קל ערך. הליקוי לא נגרם עקב שימוש בלתי סביר בדירה | על המשכיר לתקן את הליקוי בתוך זמן סביר ולא יותר מ-30 ימים מהיום שהשוכר דרש זאת | אם מדובר בתיקון דחוף, על המשכיר לתקנו בתוך זמן סביר ולא יותר מ-3 ימים מהיום שהשוכר דרש זאת. פגם שדורש תיקון דחוף הוא פגם שלא מאפשר מגורים בדירה באופן סביר | לתקן את הפגם ולדרוש מהמשכיר להחזיר לו את הוצאותיו",
-      "fetched_at": "2026-08-13T00:00:00Z",
+      "claim_id": "renters-hub",
+      "claim": "Kol Zchut renters hub collecting tenant rights.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A9%D7%95%D7%9B%D7%A8%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA",
+      "raw_snippet": "נושא השכרת דירה רלוונטי למאות אלפי ישראליות וישראלים.",
+      "fetched_at": "2026-10-01T00:00:00Z",
       "appears_in": [
         "SKILL.md",
-        "SKILL_HE.md"
-      ],
-      "verified_via": "playwright",
-      "verified_at": "2026-08-13T00:00:00Z"
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
     },
     {
-      "claim_id": "standard-lease-default-clauses",
-      "claim": "Ministry of Justice has been developing a 'chozeh matzui' (standard / default-clause lease) intended to fill gaps when parties have no written contract or omit terms — NOT mandatory minimum clauses that override what parties agreed in writing.",
-      "source_url": "https://www.gov.il/he/departments/news/standard-lease-draft",
-      "raw_snippet": "חוזה מצוי לשכירות מגורים — טיוטת משרד המשפטים כברירת מחדל המשלימה פערים בחוזים שלא נחתמו או חסרים סעיפים. אינו גובר על הסכמות בכתב בין הצדדים.",
-      "fetched_at": "2026-05-18T02:30:00Z",
+      "claim_id": "oleh-arnona-discount",
+      "claim": "Olim get up to 90% arnona discount on 100 sqm, for 12 months within the 24 months from registration as an oleh or from receiving a citizen-oleh certificate; the rate is set by each municipality.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D_%D7%97%D7%93%D7%A9%D7%99%D7%9D",
+      "raw_snippet": "ההנחה תינתן במשך 12 חודשים מתוך 24 החודשים שמתחילים ביום שהעולה נרשם במרשם האוכלוסין כעולה על פי חוק השבות, או מהיום שקיבל תעודת אזרח עולה ממשרד העלייה והקליטה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
       "appears_in": [
         "SKILL.md",
-        "SKILL_HE.md"
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md",
+        "scripts/rental-budget-calculator.py"
+      ]
+    },
+    {
+      "claim_id": "oleh-arnona-90-100sqm",
+      "claim": "The oleh discount is up to 90% of arnona for 100 sqm.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D_%D7%97%D7%93%D7%A9%D7%99%D7%9D",
+      "raw_snippet": "הזכאות היא להנחה של עד 90% מתשלום הארנונה עבור שטח של 100 מ\"ר מהדירה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md",
+        "scripts/rental-budget-calculator.py"
+      ]
+    },
+    {
+      "claim_id": "oleh-arnona-prior-municipality",
+      "claim": "Olim who lived in another municipality must bring its confirmation that they did not get the oleh discount there.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D_%D7%97%D7%93%D7%A9%D7%99%D7%9D",
+      "raw_snippet": "מי שהתגוררו ברשות מקומית אחרת לפני כן, יצרפו אישור מאותה רשות על כך שלא קיבלו בה הנחה כעולים חדשים.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "arnona-objection-90-days",
+      "claim": "An objection (hasaga) to an arnona bill goes to the municipal treasurer within 90 days of receiving it.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D_%D7%97%D7%93%D7%A9%D7%99%D7%9D",
+      "raw_snippet": "צריך להגיש את ההשגה לגזבר הרשות המקומית תוך 90 ימים מקבלת חשבון הארנונה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "olim-rent-assistance-from-1-3-2024",
+      "claim": "Olim who arrived from 1.3.2024 get an automatic Ministry of Construction and Housing rent allowance from the seventh month after aliyah, until the 30th month.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A1%D7%99%D7%95%D7%A2_%D7%91%D7%A9%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D",
+      "raw_snippet": "מי שעלו החל מתאריך ה-1.3.2024 זכאים אוטומטית לקצבת שכר דירה מטעם משרד הבינוי והשיכון החל מהחודש השביעי לעלייתם.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "olim-rent-assistance-30-months",
+      "claim": "For olim who arrived from 1.3.2024 the assistance runs until the 30th month.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A1%D7%99%D7%95%D7%A2_%D7%91%D7%A9%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D",
+      "raw_snippet": "הסיוע ניתן עד לחודש ה-30 לעלייתם לארץ.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "olim-rent-assistance-before-2024",
+      "claim": "Olim who arrived by 29.2.2024 get it from the eighth month, usually until the end of the fifth year.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A1%D7%99%D7%95%D7%A2_%D7%91%D7%A9%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D",
+      "raw_snippet": "מי שעלו עד תאריך ה-29.2.2024 זכאים אוטומטית לקצבת שכר דירה מטעם משרד הבינוי והשיכון החל מהחודש השמיני לעלייתם.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "olim-rent-assistance-95pct",
+      "claim": "The assistance never exceeds 95% of the rent.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A1%D7%99%D7%95%D7%A2_%D7%91%D7%A9%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D",
+      "raw_snippet": "גובה הסיוע משתנה בהתאם לנתונים האישיים, ולא יעלה על 95% ממחיר השכירות.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "olim-rent-assistance-hotline",
+      "claim": "Olim rent-assistance hotline *2310.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%A1%D7%99%D7%95%D7%A2_%D7%91%D7%A9%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D",
+      "raw_snippet": "בשאלות ובירורים ניתן להתקשר למוקד סיוע בשכר דירה לעולים בטלפון *2310.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "nesach-tabu-gov-il",
+      "claim": "The land registry extract (nesach tabu) is a paid online gov.il service showing registered owners, liens and restrictions.",
+      "source_url": "https://www.gov.il/he/service/land_registration_extract",
+      "raw_snippet": "השירות מאפשר לכל אדם להזמין בתשלום נסח רישום מפנקסי המקרקעין, וגם נסח חתום בחותמת אפוסטיל.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "cbs-average-rent-q2-2026",
+      "claim": "CBS table 4.9 (Price Statistics Monthly 7/2026): national average rent NIS 5,085.5 in IV-VI 2026 and NIS 4,952.2 in VII-IX 2025. Q2 2026 city averages by rooms (1-2 / 2.5-3 / 3.5-4 / 4.5+): Tel Aviv 5,486.7 / 7,092.6 / 8,871.6 / 11,348; Jerusalem 3,800 / 4,889.9 / 6,179.6 / 7,748.2; Haifa 2,477.9 / 3,118.5 / 4,060.6 / 5,420.3; Be'er Sheva 2,321.3 / 2,787.8 / 3,500.8 / 4,907.9; Herzliya 4,443.9 / 5,605.7 / 7,040.8 / 9,460.5; Netanya 3,083.6 / 4,116.1 / 5,272.9 / 6,695.1; Petah Tikva 3,387.7 / 4,203 / 5,311.1 / 7,099. Rounded in the examples as NIS 5,487, NIS 7,041, NIS 9,461, NIS 2,788, NIS 3,119 and NIS 4,116.",
+      "source_url": "https://www.cbs.gov.il/he/publications/Madad/DocLib/2026/price08a/a4_9_e.pdf",
+      "raw_snippet": "Total 4,817.4 14 4,717.7 13 4,853.3 14 4,878.7 14 4,952.2 14 4,989.8 15 4,919.3 14 5,051.7 15 5,085.5 15",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/city-rental-guide.md",
+        "references/tenant-rights-and-move-in.md",
+        "references/domain-checklist.md"
+      ],
+      "verified_via": "pdf",
+      "verified_at": "2026-10-01"
+    },
+    {
+      "claim_id": "tel-aviv-arnona-2026-zone1",
+      "claim": "Tel Aviv 2026 arnona order, apartments up to 140 sqm: highest rate NIS 112.99 per sqm per year (zone 1, building type אא). For 70 sqm: 70 x 112.99 = about 7,909, i.e. about 7,900 ש\"ח.",
+      "source_url": "https://www.tel-aviv.gov.il/Residents/Arnona/Documents/%D7%97%D7%95%D7%91%D7%A8%D7%AA%20%D7%A6%D7%95%20%D7%94%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94%20%D7%9C%D7%A9%D7%A0%D7%AA%202026.pdf",
+      "raw_snippet": "112.99 112.49 107.12 90.78 78.94 68.64",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/city-rental-guide.md",
+        "scripts/rental-budget-calculator.py"
+      ],
+      "verified_via": "image",
+      "verified_at": "2026-10-01"
+    },
+    {
+      "claim_id": "tel-aviv-arnona-2026-lowest",
+      "claim": "Tel Aviv 2026 arnona order: lowest residential rate NIS 46.64 per sqm per year (zones 4-5, building type ה+ו). For 70 sqm: 70 x 46.64 = about 3,265, i.e. about 3,300 ש\"ח.",
+      "source_url": "https://www.tel-aviv.gov.il/Residents/Arnona/Documents/%D7%97%D7%95%D7%91%D7%A8%D7%AA%20%D7%A6%D7%95%20%D7%94%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94%20%D7%9C%D7%A9%D7%A0%D7%AA%202026.pdf",
+      "raw_snippet": "46.64 47.65 55.10 66.21 68.64 84.81",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/city-rental-guide.md",
+        "scripts/rental-budget-calculator.py"
+      ],
+      "verified_via": "image",
+      "verified_at": "2026-10-01"
+    },
+    {
+      "claim_id": "standard-lease-draft-2026",
+      "claim": "A draft standard-lease regulation and companion order (התשפ\"ו-2026) were published for public comment on 02/02/2026, comments closed 23/2/2026; not in force at review.",
+      "source_url": "https://tazkirim.gov.il/s/legislativeworkactivity/a13Qu00000ZPwpSIAT/",
+      "raw_snippet": "נסגר להערות הציבור ב - ו' אדר התשפ\"ו 23/2/2026 בשעה 23:59",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01"
+    },
+    {
+      "claim_id": "mamad-1992-requirement",
+      "claim": "Since 1992 a protected space (in-apartment or floor-level) is required in all new construction or additions; the duty is not retroactive.",
+      "source_url": "https://nadlan.walla.co.il/item/3622338",
+      "raw_snippet": "החל משנת 1992 נדרשת הקמת מרחב מוגן (דירתי או קומתי) בכל בנייה חדשה או בתוספת בנייה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/hebrew-rental-glossary.md"
       ]
     },
     {
       "claim_id": "broker-ethics-regs-2024",
-      "claim": "Real Estate Brokers Regulations (Ethics and Professional Duties) 2024 took effect March 9, 2025: mandatory property disclosure, prohibition on extra fees beyond the agreed brokerage, multi-representation disclosure required, and a written heskem tivuch (brokerage agreement) signed by the client BEFORE any fee can be owed",
-      "source_url": "https://barlaw.co.il/practice_areas/litigation/real-estate-litigation/client_updates/new-real-estate-brokers-regulations-in-israel-require-professionalism-transparency-fairness-and-accountability",
-      "raw_snippet": "תקנות מתווכים במקרקעין (אתיקה וחובות מקצועיות) 2024 נכנסו לתוקף 9.3.2025: גילוי נכס, איסור גביית תוספות, גילוי ייצוג מרובה, חובת הסכם תיווך בכתב לפני זכאות לדמי תיווך",
-      "fetched_at": "2026-05-18T01:50:00Z",
+      "claim": "The Real Estate Brokers (Ethics and Professional Duties) Regulations 2024 were published 9.9.2024 and took effect 9.3.2025.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%AA%D7%A7%D7%A0%D7%95%D7%AA_%D7%94%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99%D7%9D_%D7%91%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F_%28%D7%90%D7%AA%D7%99%D7%A7%D7%94_%D7%95%D7%97%D7%95%D7%91%D7%95%D7%AA_%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%95%D7%AA%29",
+      "raw_snippet": "התקנות פורסמו ביום 9.9.2024 ותחילתם ביום 9.3.2025.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "winwin-closed-2020",
+      "claim": "WinWin (winwin.co.il) classifieds site closed in 2020.",
+      "source_url": "https://he.wikipedia.org/wiki/WinWin",
+      "raw_snippet": "האתר הושק ב-4 במרץ 2007 ונסגר ב-2020.",
+      "fetched_at": "2026-10-01T00:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "small-claims-ceiling-2026",
+      "claim": "Small Claims Court ceiling effective 1.1.2026 is NIS 39,900 / 39,900 ש\"ח (secondary source, law firm).",
+      "source_url": "https://pelleg-law.co.il/%D7%AA%D7%A7%D7%A8%D7%AA-%D7%AA%D7%91%D7%99%D7%A2%D7%95%D7%AA-%D7%A7%D7%98%D7%A0%D7%95%D7%AA-2026/",
+      "raw_snippet": "התשובה העדכנית ל־1.1.2026 היא עד 39,900 ₪.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "arnona-objection-manager-90-days",
+      "claim": "Local Authorities (Arnona Appeal) Law 1976 s.3(א): an objection to an arnona payment notice goes before the arnona manager within 90 days, on grounds of zone, type/size/use, or not being the holder.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A8%D7%A9%D7%95%D7%99%D7%95%D7%AA_%D7%94%D7%9E%D7%A7%D7%95%D7%9E%D7%99%D7%95%D7%AA_%28%D7%A2%D7%A8%D7%A8_%D7%A2%D7%9C_%D7%A7%D7%91%D7%99%D7%A2%D7%AA_%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94_%D7%9B%D7%9C%D7%9C%D7%99%D7%AA%29",
+      "raw_snippet": "רשאי תוך תשעים ימים מיום קבלת הודעת התשלום להשיג עליה לפני מנהל הארנונה",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "arnona-objection-no-suspension",
+      "claim": "Filing an arnona objection does not exempt from paying.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D_%D7%97%D7%93%D7%A9%D7%99%D7%9D",
+      "raw_snippet": "הגשת ההשגה לא פוטרת מתשלום הארנונה.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "oleh-arnona-80pct-dependent",
+      "claim": "Olim dependent on others' help (nursing benefit or severe-disability benefit) get up to 80% on the whole apartment.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D_%D7%97%D7%93%D7%A9%D7%99%D7%9D",
+      "raw_snippet": "עולים שמקבלים גמלת סיעוד או קצבת נכות בגלל תלות בזולת זכאים להנחה של עד 80% בתשלום הארנונה לכל שטח הדירה",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "set-off-section-25",
+      "claim": "Rental and Loan Law s.25: debts the parties owe each other because of the lease may be set off.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "חובות שהצדדים חבים זה לזה עקב השכירות ניתנים לקיזוז.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "non-waiver-25yod-d-2",
+      "claim": "s.25יד(2): in a residential lease ss.6, 8-10, 15, 21(ב)-(ג), 23-25ה, 25ח and 25ט-25יג cannot be varied except in the tenant's favour.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "אין להתנות על הוראות סעיפים 6, 8 עד 10, 15, 21(ב) ו־(ג), 23 עד 25ה",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "urgent-repair-9c",
+      "claim": "s.9(ג): an urgent defect may be repaired by the tenant without prior demand or notice.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "פגם או אי־התאמה שתיקונם דחוף עד שאין לדרוש מן השוכר שימתין לתיקונם בידי המשכיר, רשאי השוכר לתקנם",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "renewal-notice-25yb-a",
+      "claim": "s.25יב(א): the landlord must tell the tenant a reasonable time before the term ends whether they want to extend and on what terms.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "המשכיר יודיע לשוכר, זמן סביר לפני תום תקופת השכירות לפי חוזה השכירות למגורים, אם ברצונו להאריך את תקופת השכירות ובאילו תנאים.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "relatives-25tv-b",
+      "claim": "s.25טו(ב): s.25יד(2) does not apply to a lease between a landlord and a relative (spouse, sibling, parent, grandparent, descendant, spouse's descendant, and their spouses).",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "לא יחולו על חוזה שכירות למגורים שנכרת בין משכיר ובין שוכר שהוא קרוב שלו",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "sublet-court-22",
+      "claim": "s.22(א)(2): the court may permit a transfer or sublet on terms it sees fit.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "רשאי בית המשפט להרשות את העסקה בתנאים שייראו לו",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "sale-lease-continues-21b",
+      "claim": "s.21(ב): a buyer steps into the landlord's rights and duties under the lease.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "יבוא הרוכש במקומו של המשכיר לעניין הזכויות והחיובים של המשכיר על פי חוזה השכירות ועל פי דין",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "sale-notice-25ya",
+      "claim": "s.25יא: a landlord who transfers the apartment must notify the tenant in writing with the buyer's details.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%94%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%94",
+      "raw_snippet": "יודיע על כך לשוכר בכתב, לפני המועד שבו עליו למסור את הדירה לרוכש הזכויות",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-fee-three-conditions",
+      "claim": "A broker is entitled to a fee only if licensed, the client signed a written order, and the broker was the effective cause of the deal.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "מתווך זכאי לדמי תיווך רק אם מתקיימים כל 3 התנאים הבאים:",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-effective-cause",
+      "claim": "The broker must have been the 'effective cause' (הגורם היעיל) of the lease.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "ובתנאי שהמתווך היה \"הגורם היעיל\" שהביא לידי ההסכם",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-fee-negotiated",
+      "claim": "The brokerage fee is negotiated before signing the written order and must be stated on it, including whether VAT is added.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "גובה דמי התיווך נתון למשא ומתן בין הלקוח לבין המתווך, לפני החתימה על הזמנה בכתב.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-no-lease-drafting",
+      "claim": "A broker may not draft or help draft a lease; doing so or negotiating legal terms for the client is a disciplinary offense.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "למתווך אסור לערוך מסמכים משפטיים (כגון: חוזה מכר, חוזה שכירות) וגם לא לסייע לעריכתם.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-drafting-no-fee",
+      "claim": "A broker who negotiated legal terms for the client or drafted or helped draft the lease is not entitled to a fee from that client.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "מתווך שניהל משא ומתן משפטי בשם הלקוח או ערך או סייע לעריכת חוזה מכר או שכירות עבור הלקוח, לא יהיה זכאי לקבל ממנו דמי תיווך.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
+      ]
+    },
+    {
+      "claim_id": "broker-personal-interest-consent",
+      "claim": "A broker with a personal interest must notify the client and get prior written consent.",
+      "source_url": "https://www.kolzchut.org.il/he/%D7%96%D7%9B%D7%95%D7%AA%D7%95%D7%9F_%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA_%D7%A9%D7%9C_%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA_%D7%95%D7%9E%D7%A7%D7%A8%D7%A7%D7%A2%D7%99%D7%9F",
+      "raw_snippet": "על המתווך להודיע ללקוח מראש ולקבל את הסכמת הלקוח בכתב ומראש.",
+      "fetched_at": "2026-10-01T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/tenant-rights-and-move-in.md"
       ]
     },
     {
@@ -97,78 +880,6 @@
         "SKILL_HE.md"
       ],
       "verified_via": "cited page fetched and confirmed to contain \"18%\"; snippet replaced with the page's own wording around it",
-      "verified_at": "2026-08-18"
-    },
-    {
-      "claim_id": "mamad-1992-requirement",
-      "claim": "Mamad (mamad / merchav mugan dirati / reinforced safe room) is required in all residential buildings constructed in Israel post-1992 per IDF Home Front Command regulations",
-      "source_url": "https://www.oref.org.il/12434-he/Pakar.aspx",
-      "raw_snippet": "ממ\"ד נדרש בכל בניין מגורים שנבנה מ-1992 לפי הוראות פיקוד העורף",
-      "fetched_at": "2026-05-18T01:50:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "broker-license-justice",
-      "claim": "Real estate brokers (metavech) must hold a valid license from the Ministry of Justice Registrar of Real Estate Brokers",
-      "source_url": "https://www.gov.il/he/service/real-estate-broker-license",
-      "raw_snippet": "מתווכים במקרקעין חייבים ברישיון מרשם המתווכים במשרד המשפטים",
-      "fetched_at": "2026-05-18T01:50:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "deposit-return-60-days",
-      "claim": "The security must be returned within 60 days of the date the tenant handed the apartment back, or the date the tenant's debts were paid, whichever is later, together with any profit the landlord made on it.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%91%D7%9C%D7%AA_%D7%A1%D7%9B%D7%95%D7%9D_%D7%94%D7%A2%D7%A8%D7%95%D7%91%D7%94_%D7%A9%D7%9E%D7%95%D7%AA%D7%A8_%D7%9C%D7%93%D7%A8%D7%95%D7%A9_%D7%9E%D7%A9%D7%95%D7%9B%D7%A8_%D7%93%D7%99%D7%A8%D7%94",
-      "raw_snippet": "בתום תקופת השכירות המשכיר יחזיר לשוכר את הערובה (או את יתרתה אם מימש חלק ממנה) כולל כל רווח שהפיק ממנה | יש להחזיר את הערובה עד 60 ימים מהמועד שבו השוכר החזיר למשכיר את הדירה, או עד למועד שבו שולמו חובות השוכר - לפי המאוחר מביניהם",
-      "fetched_at": "2026-08-13T00:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ],
-      "verified_via": "playwright",
-      "verified_at": "2026-08-13T00:00:00Z"
-    },
-    {
-      "claim_id": "oleh-arnona-discount",
-      "claim": "New olim (immigrants) are eligible for an arnona discount of up to 90% — but only for the first 100 sqm of the apartment, and only for 12 months chosen out of the first 24 months from population-registry registration. Continuation rates after the discount period are set by each municipality individually. Application via local municipality with teudat oleh.",
-      "source_url": "https://www.kolzchut.org.il/he/%D7%94%D7%A0%D7%97%D7%94_%D7%91%D7%90%D7%A8%D7%A0%D7%95%D7%A0%D7%94_%D7%9C%D7%A2%D7%95%D7%9C%D7%99%D7%9D_%D7%97%D7%93%D7%A9%D7%99%D7%9D",
-      "raw_snippet": "הנחת ארנונה לעולה חדש — עד 90% על 100 מ\"ר ראשונים, ל-12 חודשים שנבחרים מתוך 24 חודשים מהרישום במרשם האוכלוסין. שיעורי המשך נקבעים בכל רשות מקומית בנפרד.",
-      "fetched_at": "2026-05-18T02:30:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "scripts/rental-budget-calculator.py"
-      ]
-    },
-    {
-      "claim_id": "city-rental-price-ranges-2026",
-      "claim": "Indicative 2026 monthly rental ranges by city and unit size (NIS, sourced from Yad2 and Madlan listings, Q1 2026): Tel Aviv central 6,500-12,000 / 8,000-15,000 / 11,000-20,000; Tel Aviv south 4,500-6,500 / 5,500-8,000 / 7,000-10,000; Jerusalem 3,500-5,500 / 4,500-7,500 / 6,000-10,000; Haifa 2,500-4,000 / 3,500-5,500 / 4,500-7,000; Beersheba 2,000-3,500 / 3,000-4,500 / 3,500-5,500; Herzliya/Raanana 5,000-8,000 / 7,000-11,000 / 9,000-15,000; Netanya 3,000-5,000 / 4,500-7,000 / 5,500-8,500; Petah Tikva 3,500-5,500 / 5,000-7,500 / 6,500-9,000. National average rent NIS 4,952 / 4,952 ש\"ח (Q3 2025 data per CBS via Yad2). National gross rental yield 3.1%.",
-      "source_url": "https://www.yad2.co.il/realestate/rent",
-      "raw_snippet": "Yad2 rental listings Q1 2026: NIS 2,000 NIS 2,500 NIS 3,000 NIS 3,500 NIS 4,500 NIS 4,952 NIS 5,500 NIS 6,000 NIS 6,500 NIS 9,000 NIS 12,000 NIS 50,000 2,000 NIS 3,000 NIS 4,500 NIS 5,000 NIS 5,500 NIS 6,500 NIS 7,000 NIS 7,500 NIS 10,000 NIS 2,000 ש\"ח 3,000 ש\"ח 4,000 ש\"ח 4,500 ש\"ח 4,952 ש\"ח 5,500 ש\"ח 6,000 ש\"ח 7,000 ש\"ח 7,500 ש\"ח 12,000 ש\"ח 15,000 ש\"ח. National gross rental yield 3.1% / 3 %. Approximate 30,000 active rental listings on Yad2 early 2026.",
-      "fetched_at": "2026-05-18T02:00:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/city-rental-guide.md"
-      ]
-    },
-    {
-      "claim_id": "small-claims-ceiling-2026-canonical",
-      "claim": "Small Claims Court ceiling effective January 1, 2026 is NIS 39,900 / 39,900 ש\"ח (raised from NIS 35,800)",
-      "source_url": "https://pelleg-law.co.il/%D7%AA%D7%A7%D7%A8%D7%AA-%D7%AA%D7%91%D7%99%D7%A2%D7%95%D7%AA-%D7%A7%D7%98%D7%A0%D7%95%D7%AA-2026/",
-      "raw_snippet": "תקרת תביעה תביעות קטנות עד 39,900 ₪ דלג לתוכן 03-7385404 בית אודות בתקשורת משפט אזרחי-מסחרי תביעות קטנות דיני שכירות תביעות נגד מוסכים מכתב התראה לפני תביעה תצהירים ואימות חתימה חוזים והסכמים התמחויות עורך דין לרישוי רופאים, עררים בחינות התמחות והכרה מחו\"ל הכרה בתואר מחו״ל ייצוג סטודנטים בוועדות משמעת ייעוץ וייצוג פסיכולוגים מאמרים צור קשר בית אודות בתקשורת משפט אזרחי-מסחרי תביעות קטנות דיני שכירות תביעות נגד מוסכים מכתב הת",
-      "fetched_at": "2026-08-18",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ],
-      "verified_via": "cited page fetched and confirmed to contain \"39,900\"; snippet replaced with the page's own wording around it",
       "verified_at": "2026-08-18"
     },
     {

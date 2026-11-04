@@ -12,6 +12,35 @@
         "MINOR fix: 'only half if both sides used the same broker' was presented as a rule; reframed as a negotiated practice, not a statutory entitlement.",
         "Stripped pre-existing em-dashes from SKILL.md + SKILL_HE.md (em-dash ban applies to touched files)."
       ]
+    },
+    {
+      "version": "1.3.0",
+      "date": "2026-10-01",
+      "holdout_before": 1.0,
+      "holdout_after": 1.0,
+      "buckets": {
+        "improved": [],
+        "regressed": [],
+        "persistent_fail": [],
+        "stable_success": [
+          "P3",
+          "P5",
+          "N2",
+          "E1"
+        ]
+      },
+      "lessons": [
+        "CARRY resolved: no enacted ban on tenant broker fees as of 2026-10 (only private bills); keep watching.",
+        "WRONG in the 2026-06 cycle: WinWin was logged as live; it closed in 2020. Verify each platform by fetching it, not from memory.",
+        "Round-1 author error caught by Expert: the skill first said the law gives no right to set off repair costs against rent. s.25 of the Rental and Loan Law allows set-off of lease debts and s.25יד(2) makes it non-waivable. Read the whole statute, not only the Kol Zchut summary page.",
+        "Kol Zchut's oleh-arnona page says objections go to the treasurer (גזבר); the Arnona Appeal Law s.3 says the arnona manager. Statute wins.",
+        "Neighborhood rent ranges and per-city arnona figures had no traceable source (the evidence was a keyword blob on a Yad2 URL). Replaced with CBS table 4.9 and the Tel Aviv 2026 arnona order; removed the rest. Refresh CBS each cycle (Q3 2026 due).",
+        "Deferred MINOR: habitability cancellation mechanics (notice within a reasonable time, enforcement or damages as alternatives, s.25ו(ב)).",
+        "Deferred MINOR: s.25י(א) 'other guarantor' list widened by the 2026 Economic Plan law (credit/deposit licensees, stable-payment licensees); the skill says 'credit company or insurer'.",
+        "Deferred MINOR: calculator has no --option flag for leases of 3 months or less with an extension option, and no --broker-fee amount; both are hedged in output.",
+        "Low-risk unsourced market heuristics remain (summer demand peak, 3-week listing, 1-2 guarantors, half rooms); source or soften next cycle.",
+        "Fair Rental threshold 20,000 is CPI-indexed each January but no published updated figure was found; re-check Reshumot next cycle."
+      ]
     }
   ]
 }

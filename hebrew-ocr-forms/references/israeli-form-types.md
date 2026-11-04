@@ -19,42 +19,55 @@
 ```
 Gush:    גוש[:\s]*(\d+)
 Chelka:  חלקה[:\s]*(\d+)
-Owner:   (?:בעלים|שם הבעלים)[:\s]*([\u0590-\u05FF\s]+)
-TZ:      (?:ת\.?ז\.?|מספר זהות)[:\s]*(\d{5,9})
-Rights:  (?:סוג הזכות|זכות)[:\s]*([\u0590-\u05FF\s]+)
+TZ:      (?:ת[.'"׳״]?ז[.'"׳״]?|מספר זהות)[:\s]*(\d{8}-\d|\d{8,9})(?![\d-])
+Share:   (?<![\d/])\d{1,7}\s*/\s*\d{1,7}(?![\d/])|בשלמות
+Deed:    (?<![\d/])\d{1,7}/\d{4}/\d{1,4}(?![\d/])
 ```
+
+Owners are a table (section header "בעלויות", then one row per owner), not a
+"label: value" pair, so a single-line owner regex returns only the first owner and
+can run across line breaks. Use `scripts/tabu_to_spreadsheet.py` for owners,
+mortgages and cautions. Keep the share regex's look-arounds: without them a deed
+number such as 12345/2015/1 is read as the share 12345/2015.
 
 ## Tax Authority (Rashut Ha-Misim)
 
-### Tofes 106 -- Annual Employer Statement
-- **Purpose:** Summary of employee earnings and tax deductions for the tax year
-- **Key fields:** Tax year, employer number, employee TZ, gross salary, tax deducted, pension contributions, social security
+### Form 106 -- "אישור על משכורת וניכוי מס"
+- **Purpose:** The employer's annual certificate to the employee of salary paid and tax withheld in the tax year
+- **Printed labels:** "שם מלא של המעסיק", "מספר תיק ניכויים" (the employer's withholding file), "שם מלא של העובד", "מספר זהות העובד", "שנת מס"
+- **Amount rows carry annual-return field codes:** salary row "משכורת" = field 158/172; "ניכיתי ושילמתי מס הכנסה" = field 042; other rows include 218/219 (keren hishtalmut salary), 244/245 (pension salary), 248/249 (pension deposits)
+- **OCR tip:** the code and the amount sit side by side and OCR often glues them ("04221,340"); split the code off before parsing, and never return the code as the amount
 - **Layout:** Dense tabular format with multiple sections
 
 ### Ishur Nikui Mas Ba-Makor -- Withholding Tax Certificate
-- **Purpose:** Authorizes a specific withholding tax rate for a business
-- **Key fields:** Business number (osek), tax rate percentage, validity period, business name and address
+- **Purpose:** States the withholding-at-source rate the assessing officer (פקיד שומה) set for a business. Payers ask for it together with the bookkeeping certificate, as "אישור ניהול ספרים וניכוי מס במקור"
+- **Key fields:** File number (income-tax file / osek murshe / partnership), withholding rate, validity period, business name and address
+- **Before relying on it:** an OCR'd rate or validity date can be misread or out of date; confirm both in the Tax Authority's online lookup by file number (the service also prints the current certificate)
 
-### Tofes 857 -- Capital Gains Tax Form
-- **Purpose:** Report capital gains from property or securities transactions
-- **Key fields:** Transaction date, purchase price, sale price, calculated gain, tax owed
+### Form 806/857 -- Annual Withholding Certificate on Payments
+- **Title:** "אישור שנתי על ניכוי מס הכנסה מתשלומים המחייבים ניכוי מס במקור" (the form header prints "0806/0857")
+- **Purpose:** Given by a payer to a supplier or service provider, listing the year's payments and the tax withheld. It is NOT a capital-gains form; capital-gains sales are reported on Form 1399
+- **Key fields:** Payer's withholding file number, payee ID / file, type of payment, gross payment, tax withheld, tax year
 
 ## Bituach Leumi (National Insurance Institute)
 
-### Ishur Zkauyot -- Entitlement Certificate
-- **Purpose:** Confirms benefit eligibility and payment amounts
-- **Key fields:** TZ, benefit type (old-age, disability, unemployment, etc.), monthly amount, validity dates
+### Benefit certificates (אישורים)
+- **Names on BTL's certificates page:** "אישור זכאות לגמלאות שנתי", "אישור תשלומים שנתי", "אישור על תשלומים", "אישור שנתי למס הכנסה", "אישור על תקופות ביטוח". Detect by the header "המוסד לביטוח לאומי": titles like "אישור זכאות" alone also appear on housing and utility documents
+- **Key fields:** TZ, benefit type (old-age, disability, unemployment, etc.), period, amount
+- **Extraction:** the bundled extractor detects these and lists their ids, dates and amounts unlabelled; map them to fields from the raw text
 
-### Tofes 100 -- Employer Report
-- **Purpose:** Monthly/quarterly report of employee wages and contributions
-- **Key fields:** Employer number, employee list, wages, NII contributions, health tax
+### Form 102 -- "דין וחשבון על העסקת עובדים"
+- **Purpose:** The employer's monthly report and payment of insurance contributions to Bituach Leumi
+- **Key fields:** Employer, employees, wages, contributions
+
+Do not key on "טופס 100": the PDF BTL publishes under that number is a claimant's refusal form, and "קובץ 100" is an online per-employee file, never a scanned document.
 
 ## Common Field Formats
 
 ### Israeli ID Number (Teudat Zehut)
 - 9 digits, zero-padded on the left
 - Check digit algorithm: alternating multiply by 1 and 2, sum digits, modulo 10
-- Format in forms: XX-XXXXXXX-X or XXXXXXXXX
+- Format in forms: usually XXXXXXXXX; an id printed as 8 digits (leading zero dropped) is left-padded to 9 and flagged. Never pad a shorter read: a fragment can pass the check digit by chance
 
 ### Date Formats in Israeli Forms
 - DD/MM/YYYY (most common)

@@ -9,6 +9,7 @@ Usage:
     python scripts/rental-budget-calculator.py --rent 6000 --city tel-aviv --rooms 3
     python scripts/rental-budget-calculator.py --rent 4000 --city haifa --rooms 3 --oleh
     python scripts/rental-budget-calculator.py --rent 8000 --city herzliya --rooms 4 --parking
+    python scripts/rental-budget-calculator.py --rent 5000 --city jerusalem --rooms 3 --lease-months 6 --broker
     python scripts/rental-budget-calculator.py --help
 """
 
@@ -16,8 +17,10 @@ import argparse
 import sys
 
 
-# Arnona rates per square meter per year (approximate, residential)
-# These are rough averages; actual rates depend on zone within each city
+# Arnona rates per square meter per year (approximate, residential).
+# Rough budgeting assumptions, not sourced figures. Each municipality sets its own rates per zone
+# and building type in its annual arnona order (tzav arnona). Example: the Tel
+# Aviv 2026 order charges apartments up to 140 sqm 46.64-112.99 NIS/sqm/year.
 ARNONA_RATES = {
     "tel-aviv": {"rate_per_sqm": 90, "label": "Tel Aviv"},
     "jerusalem": {"rate_per_sqm": 65, "label": "Jerusalem"},
@@ -90,23 +93,33 @@ PARKING_COSTS = {
 
 # Oleh arnona discount: up to 90% on the first 100 sqm, for 12 months chosen
 # out of the first 24 months from population-registry registration.
-# Continuation rates after the discount period are set by each municipality
-# individually — there is no universal "year-2" rate, so we don't apply one.
+# The actual rate is set by each municipality; after the discount period there
+# is no universal rate, so we don't apply one.
 OLEH_DISCOUNT = {
-    "year_1": 0.90,  # 90% discount on the first 100 sqm portion only
-    "description": "Olim may receive up to 90% arnona discount on the first 100 sqm for 12 months of the first 24 months. Year-2 rate varies by municipality — check locally.",
+    "year_1": 0.90,  # up to 90% discount on the first 100 sqm portion only
+    "description": "Olim may receive up to 90% arnona discount on the first 100 sqm for 12 months chosen within the first 24 months. The rate is set by each municipality; check locally.",
 }
+
+VAT_RATE = 0.18  # Israeli VAT, 18% since 1 January 2025
+
+# Fair Rental Law (Rental and Loan Law s.25yod): securities that cost the
+# tenant money are capped at the LOWER of 3 months' rent or the rent for 1/3 of
+# the lease period. The chapter does not apply when monthly rent exceeds
+# NIS 20,000 (a threshold the statute CPI-indexes every 1 January).
+FAIR_RENT_THRESHOLD = 20000
+SECURITY_CAP_MONTHS = 3
 
 VALID_CITIES = list(ARNONA_RATES.keys())
 
 
-def calculate_budget(rent, city, rooms, oleh=False, oleh_year=1, parking=False, insurance_opt=False):
+def calculate_budget(rent, city, rooms, oleh=False, oleh_year=1, parking=False, insurance_opt=False,
+                     lease_months=12, broker=False):
     """Calculate total monthly housing budget."""
     city_data = ARNONA_RATES.get(city)
     if not city_data:
         return None, f"Unknown city: {city}"
 
-    sqm = ROOM_TO_SQM.get(rooms, 70 + (rooms - 3) * 20)
+    sqm = ROOM_TO_SQM.get(rooms, round(70 + (rooms - 3) * 20))
 
     # Arnona calculation
     annual_arnona = city_data["rate_per_sqm"] * sqm
@@ -193,6 +206,8 @@ def calculate_budget(rent, city, rooms, oleh=False, oleh_year=1, parking=False, 
         "parking_included": parking,
         "total_low": total_low,
         "total_high": total_high,
+        "lease_months": lease_months,
+        "broker": broker,
     }, None
 
 
@@ -205,11 +220,18 @@ def format_result(result):
     lines.append("=" * 60)
     lines.append("")
     lines.append(f"  City:              {result['city']}")
-    lines.append(f"  Rooms:             {result['rooms']}")
+    lines.append(f"  Rooms:             {result['rooms']:g}")
     lines.append(f"  Est. size:         {result['sqm_estimate']} sqm")
     lines.append(f"  Monthly rent:      {result['rent']:,} NIS")
     if result["oleh"]:
         lines.append(f"  Oleh status:       Year {result['oleh_year']}")
+        if result["oleh_year"] == 1:
+            lines.append("    (Discount applies for 12 chosen months within the first 24;")
+            lines.append("     shown here as a full-year estimate.)")
+        else:
+            lines.append("    (No discount applied. If you are still within 24 months of aliyah")
+            lines.append("     and have not used all 12 discounted months, run with --oleh-year 1;")
+            lines.append("     after that, the rate is set by each municipality.)")
     lines.append("")
 
     lines.append("-" * 60)
@@ -222,7 +244,8 @@ def format_result(result):
     # Arnona
     arnona_str = f"{result['monthly_arnona']:,.0f}"
     if result["oleh"] and result["arnona_discount"] > 0:
-        lines.append(f"  {'Arnona (with oleh discount)':<30} {arnona_str:>8} NIS")
+        lines.append(f"  {'Arnona (max oleh discount)':<30} {arnona_str:>8} NIS")
+        lines.append("    (Assumes the maximum 90%; each municipality sets the actual rate.)")
         lines.append(f"    (Before discount: {result['arnona_before_discount']:,.0f} NIS/year)")
         lines.append(f"    (Discount: {result['arnona_discount']:,.0f} NIS/year)")
     else:
@@ -255,26 +278,52 @@ def format_result(result):
     # One-time costs section
     lines.append("")
     lines.append("  ONE-TIME MOVE-IN COSTS (estimated):")
-    broker_fee = result["rent"] * 1.18  # rent + 18% VAT (Israeli VAT rate as of Jan 2025)
-    lines.append(f"    Broker fee (if applicable):   {broker_fee:>8,.0f} NIS (1 month + 18% VAT, current VAT rate as of Jan 2025)")
-    lines.append(f"    Security deposit (1-3 months): {result['rent']:>7,}-{result['rent'] * 3:,} NIS")
-    lines.append(f"    First month rent:             {result['rent']:>8,} NIS")
-    move_in_low = result["rent"] * 2  # first month + 1 month deposit (no broker)
-    move_in_high = result["rent"] * 3 + broker_fee  # first month + 3 month deposit + broker
-    lines.append(f"    Total move-in range:          {move_in_low:>7,}-{move_in_high:,.0f} NIS")
-
-    # Income recommendation
+    rent = result["rent"]
+    lease_months = result["lease_months"]
+    lines.append(f"    First month rent:             {rent:>8,} NIS")
+    if rent > FAIR_RENT_THRESHOLD or lease_months <= 3:
+        # Outside the Fair Rental chapter the statutory cap does not apply.
+        deposit_low, deposit_high = rent, rent * SECURITY_CAP_MONTHS
+        lines.append(f"    Security (typical 1-3 months): {deposit_low:>7,}-{deposit_high:,} NIS")
+        if rent > FAIR_RENT_THRESHOLD:
+            lines.append(f"      Rent above NIS {FAIR_RENT_THRESHOLD:,}/month: the Fair Rental Law security cap")
+            lines.append("      may not apply to this lease (threshold is CPI-indexed each January).")
+        else:
+            lines.append("      Leases of 3 months or less are outside the Fair Rental Law unless")
+            lines.append("      they carry an option to extend; with an option, the cap is 1/3 of the")
+            lines.append("      lease (1 month for a 3-month lease).")
+    else:
+        cap_months = min(SECURITY_CAP_MONTHS, lease_months / 3)
+        deposit_high = rent * cap_months
+        deposit_low = min(rent, deposit_high)
+        lines.append(f"    Security (1 month to cap):    {deposit_low:>8,.0f}-{deposit_high:,.0f} NIS")
+        lines.append(f"      Statutory cap for a {lease_months}-month lease: lower of 3 months or 1/3")
+        lines.append(f"      of the lease = {cap_months:.1f} months. Applies to bank guarantees and cash;")
+        lines.append("      a security check or promissory note may be set higher.")
+    move_in_low = rent + deposit_low
+    move_in_high = rent + deposit_high
+    if result["broker"]:
+        broker_fee = rent * (1 + VAT_RATE)
+        lines.append(f"    Broker fee (assumed):         {broker_fee:>8,.0f} NIS (1 month + {VAT_RATE:.0%} VAT;")
+        lines.append("      use the amount in the written order you signed)")
+        move_in_low += broker_fee
+        move_in_high += broker_fee
+    else:
+        lines.append("    Broker fee:                          0 NIS (use --broker only if YOU signed")
+        lines.append("      the broker's written order; a landlord's broker fee cannot be passed on)")
+    lines.append(f"    Total move-in range:          {move_in_low:>7,.0f}-{move_in_high:,.0f} NIS")
+    lines.append("    Not included: prepaid rent a landlord may ask for, bank-guarantee")
+    lines.append("    commission, appliances or furniture, and moving costs.")
     lines.append("")
-    lines.append("  INCOME RECOMMENDATION:")
-    recommended_income_low = result["total_low"] * 3
-    recommended_income_high = result["total_high"] * 3
-    lines.append(f"    Suggested gross salary:       {recommended_income_low:>7,.0f}-{recommended_income_high:,.0f} NIS/month")
-    lines.append("    (Rule of thumb: check the total against your own monthly net income before committing)")
+    lines.append("    Summer months with AC: electricity often runs "
+                 f"{UTILITIES['electricity']['summer']['low']}-{UTILITIES['electricity']['summer']['high']} NIS.")
 
     lines.append("")
     lines.append("  Disclaimer: All figures are estimates. Actual costs vary")
     lines.append("  by specific apartment, building, and municipal zone.")
     lines.append("  Arnona rates are particularly variable within cities.")
+    lines.append("  Vaad bayit, utilities, parking and insurance are rough")
+    lines.append("  budgeting assumptions, not sourced figures.")
     lines.append("")
 
     return "\n".join(lines)
@@ -290,6 +339,7 @@ Examples:
   %(prog)s --rent 4000 --city haifa --rooms 3 --oleh
   %(prog)s --rent 8000 --city herzliya --rooms 4 --parking --insurance
   %(prog)s --rent 3000 --city beer-sheva --rooms 3 --oleh --oleh-year 2
+  %(prog)s --rent 5000 --city jerusalem --rooms 3.5 --lease-months 6 --broker
 
 Cities: tel-aviv, jerusalem, haifa, beer-sheva, herzliya, raanana,
         netanya, rishon, petah-tikva, rehovot, ashdod, other
@@ -310,9 +360,9 @@ Cities: tel-aviv, jerusalem, haifa, beer-sheva, herzliya, raanana,
     )
     parser.add_argument(
         "--rooms",
-        type=int,
+        type=float,
         required=True,
-        help="Number of rooms (Israeli count, includes living room)",
+        help="Number of rooms (Israeli count, includes living room; halves like 3.5 allowed)",
     )
     parser.add_argument(
         "--oleh",
@@ -336,6 +386,17 @@ Cities: tel-aviv, jerusalem, haifa, beer-sheva, herzliya, raanana,
         action="store_true",
         help="Include apartment insurance (contents + third-party)",
     )
+    parser.add_argument(
+        "--lease-months",
+        type=int,
+        default=12,
+        help="Lease length in months, used for the statutory security cap (default: 12)",
+    )
+    parser.add_argument(
+        "--broker",
+        action="store_true",
+        help="Include a broker fee (only if YOU signed the broker's written order)",
+    )
 
     args = parser.parse_args()
 
@@ -349,6 +410,10 @@ Cities: tel-aviv, jerusalem, haifa, beer-sheva, herzliya, raanana,
         print("Error: Rooms must be between 1 and 8.")
         sys.exit(1)
 
+    if args.lease_months < 1 or args.lease_months > 120:
+        print("Error: Lease length must be between 1 and 120 months.")
+        sys.exit(1)
+
     result, error = calculate_budget(
         rent=args.rent,
         city=args.city,
@@ -357,6 +422,8 @@ Cities: tel-aviv, jerusalem, haifa, beer-sheva, herzliya, raanana,
         oleh_year=args.oleh_year,
         parking=args.parking,
         insurance_opt=args.insurance,
+        lease_months=args.lease_months,
+        broker=args.broker,
     )
 
     if error:

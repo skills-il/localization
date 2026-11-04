@@ -1,69 +1,276 @@
 {
   "schemaVersion": "1.0",
   "skill": "hebrew-document-generator",
-  "generated_at": "2026-06-17T00:40:00Z",
+  "generated_at": "2026-10-01T00:30:00Z",
   "claims": [
     {
-      "claim_id": "python-libraries",
-      "claim": "Document generation uses reportlab, WeasyPrint, python-docx, python-bidi (0.6.x; canonical import `from bidi import get_display`; dropped Python below 3.9), and pptxgenjs (Node). All are current published packages",
-      "source_url": "https://pypi.org/project/python-bidi/",
-      "raw_snippet": "python-bidi 0.6.x, from bidi import get_display, drops Python below 3.9; reportlab; weasyprint; python-docx; pptxgenjs",
+      "claim_id": "python-bidi-two-implementations",
+      "claim": "python-bidi 0.6.x ships a pure-Python implementation at bidi.algorithm (compatible with earlier versions) and a Rust-based top-level `from bidi import get_display` that is missing some rules (issue #25)",
+      "source_url": "https://raw.githubusercontent.com/MeirKriheli/python-bidi/master/README.rst",
+      "raw_snippet": "For the python implementation, and compatible with previous versions, use::",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/generate_doc.py"
+      ],
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "python-bidi-rust-no-mirroring",
+      "claim": "The Rust unicode-bidi backend behind the top-level python-bidi import implements only rules L1/L2, not the L3/L4 glyph mirroring, so brackets are not mirrored",
+      "source_url": "https://github.com/MeirKriheli/python-bidi/issues/25",
+      "raw_snippet": "only implements rules L1/L2",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/generate_doc.py"
+      ],
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "python-bidi-python-version",
+      "claim": "python-bidi 0.6.x requires Python 3.9+ (the skill says 3.9+)",
+      "source_url": "https://raw.githubusercontent.com/MeirKriheli/python-bidi/master/CHANGELOG.rst",
+      "raw_snippet": "Set ``requires-python = \">=3.9\"`` explicitly in ``pyproject.toml``",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/generate_doc.py"
+      ],
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "allocation-threshold-5000-june-2026",
+      "claim": "From 1.6.2026 an allocation number is required for transactions above 5,000 NIS before VAT; without it the input VAT cannot be deducted; before that the threshold was 10,000 NIS",
+      "source_url": "https://www.gov.il/he/pages/pa240525-1",
+      "raw_snippet": "החל מ-1.6.2026 תחול חובת הפקת מספרי הקצאה לגבי עסקאות שסכומן עולה על 5,000 ₪ לפני מע\"מ.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md",
+        "scripts/generate_doc.py"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "allocation-no-deduction-without",
+      "claim": "Without an allocation number the Tax Authority will not allow deducting the input VAT on the invoice",
+      "source_url": "https://www.gov.il/he/pages/pa240525-1",
+      "raw_snippet": "ללא מספר הקצאה לא תאפשר רשות המסים לנכות את מס התשומות הכלול בחשבונית.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "allocation-phase-down-schedule",
+      "claim": "Threshold phase-down: 20,000 NIS (2025) to 10,000 NIS before VAT from 1 January 2026 and 5,000 NIS before VAT from 1 June 2026",
+      "source_url": "https://www.gov.il/he/pages/sa170325-1",
+      "raw_snippet": "מ-20,000 ₪ כיום ל-10,000 ₪ לפני מע\"מ החל מ-1 בינואר 2026 ו-5,000 ₪ לפני מע\"מ החל מ-1 ביוני 2026",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "allocation-buyer-conditions",
+      "claim": "The allocation-number obligation applies when the invoice recipient is an osek murshe and requested an allocation number",
+      "source_url": "https://www.gov.il/BlobFolder/policy/inst-071225-1/he/vat_inst-071225-1.pdf",
+      "raw_snippet": "הלקוח/מקבל החשבונית דרש מספר הקצאה",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md"
+      ],
+      "verified_via": "pdf",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "vat-rate-18",
+      "claim": "Israeli VAT is 18% from 01.01.2025 (17% until 31.12.2024)",
+      "source_url": "https://www.kolzchut.org.il/he/הוצאת_חשבונית_מס,_חשבונית_עסקה_וקבלה",
+      "raw_snippet": "החל מה-01.01.2025 שיעור המע\"מ הינו 18%.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md",
+        "scripts/generate_doc.py"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "osek-patur-no-tax-invoice",
+      "claim": "An osek patur may not issue tax invoices, only receipts",
+      "source_url": "https://www.kolzchut.org.il/he/הוצאת_חשבונית_מס,_חשבונית_עסקה_וקבלה",
+      "raw_snippet": "עוסק פטור אינו רשאי להוציא חשבוניות מס אלא רק קבלות בגין עסקאותיו.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "osek-patur-no-vat",
+      "claim": "An osek patur does not charge VAT to its customers",
+      "source_url": "https://www.kolzchut.org.il/he/מס_ערך_מוסף_(מע\"מ)",
+      "raw_snippet": "עוסק פטור אינו גובה מע\"מ מלקוחותיו ולכן אינו רשאי לקזז מס תשומות",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T01:00:00Z",
+      "fetched_at": "2026-10-01T01:00:00Z"
+    },
+    {
+      "claim_id": "tax-invoice-receipt-osek-murshe-only",
+      "claim": "Only an osek murshe may issue a combined tax invoice/receipt, and only when payment is received at the time of the transaction",
+      "source_url": "https://www.kolzchut.org.il/he/הוצאת_חשבונית_מס,_חשבונית_עסקה_וקבלה",
+      "raw_snippet": "עוסק מורשה בלבד רשאי להפיק חשבונית מס/קבלה, וזאת רק כאשר מתקבל תשלום במעמד ביצוע העסקה.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "tax-invoice-required-fields",
+      "claim": "A tax invoice must show business name and address, the words osek murshe and the osek number, the words tax invoice, the word original on the original, serial number, date, transaction details, price without VAT with VAT separately, and signature",
+      "source_url": "https://www.kolzchut.org.il/he/הוצאת_חשבונית_מס,_חשבונית_עסקה_וקבלה",
+      "raw_snippet": "המילה ״מקור״ (על-גבי מקור החשבונית בלבד).",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md",
+        "scripts/generate_doc.py"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "tax-invoice-original-copy-authorized-software",
+      "claim": "Tax invoices are printed from a pre-printed book or authorized software, in at least two copies marked original and copy",
+      "source_url": "https://www.kolzchut.org.il/he/הוצאת_חשבונית_מס,_חשבונית_עסקה_וקבלה",
+      "raw_snippet": "חשבונית המס מודפסת מראש בבית דפוס או בהדפסת מחשב שהופקה מתוכנה מורשית, והיא מופקת לפחות בשני העתקים.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md",
+        "scripts/generate_doc.py"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "transaction-invoice-customer-name",
+      "claim": "A transaction invoice lists the customer name and address (the tax-invoice list does not)",
+      "source_url": "https://www.kolzchut.org.il/he/הוצאת_חשבונית_מס,_חשבונית_עסקה_וקבלה",
+      "raw_snippet": "שם הלקוח וכתובתו.",
+      "appears_in": [
+        "references/templates.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "heshbon-iska-free-form",
+      "claim": "A heshbon iska (payment request) is not defined in law and needs no reporting",
+      "source_url": "https://www.kolzchut.org.il/he/הוצאת_חשבונית_מס,_חשבונית_עסקה_וקבלה",
+      "raw_snippet": "חשבון עסקה הוא מסמך שאינו מופיע בחוק והוא מתעד את דרישת התשלום בגין העסקה שנעשתה מול הלקוח.",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/templates.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "weasyprint-missing-library",
+      "claim": "WeasyPrint needs Pango; a missing library fails with cannot load library, fixable on macOS with DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib; Debian packages libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0; brew install weasyprint on macOS",
+      "source_url": "https://doc.courtbouillon.org/weasyprint/stable/first_steps.html",
+      "raw_snippet": "export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_FALLBACK_LIBRARY_PATH",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "pptxgenjs-rtlmode-lang",
+      "claim": "pptxgenjs text options include rtlMode (default false) and lang (default en-US)",
+      "source_url": "https://gitbrent.github.io/PptxGenJS/docs/api-text/",
+      "raw_snippet": "rtlMode boolean false enable Right-to-Left mode",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "hebrew-unicode-range",
+      "claim": "Hebrew Unicode block is U+0590-U+05FF (Hebrew presentation forms U+FB1D-U+FB4F)",
+      "source_url": "https://www.unicode.org/charts/PDF/U0590.pdf",
+      "raw_snippet": "Range: 0590–05FF",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "scripts/docx_rtl.py"
+      ],
+      "verified_via": "pdf",
+      "verified_at": "2026-10-01T00:30:00Z",
+      "fetched_at": "2026-10-01T00:30:00Z"
+    },
+    {
+      "claim_id": "hebrew-fonts-and-bidi",
+      "claim": "Heebo (and the other listed Hebrew families) are published on Google Fonts with Hebrew glyph coverage; the Heebo specimen page previews Hebrew text",
+      "source_url": "https://fonts.google.com/specimen/Heebo",
+      "raw_snippet": "כל אדם זכאי לזכויות ולחרויות שנקבעו בהכרזה זו ללא הפליה כלשהיא",
       "fetched_at": "2026-06-17T00:35:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/hebrew-fonts.md"
-      ]
-    },
-    {
-      "claim_id": "israel-invoices-allocation-number",
-      "claim": "Under the Israel Invoices model, a tax invoice at/above the allocation-number threshold needs a Tax Authority allocation number (mispar haktzaa) printed on it or the buyer cannot deduct input VAT. The threshold phases down: 20,000 NIS in 2025, 10,000 NIS from January 2026, 5,000 NIS from 1 June 2026 (pre-VAT)",
-      "source_url": "https://www.gov.il/he/pages/israel-invoices",
-      "raw_snippet": "מודל חשבוניות ישראל: מספר הקצאה נדרש לחשבונית מס מעל הסף; 20,000 ש\"ח 2025, 10,000 ש\"ח מינואר 2026, 5,000 ש\"ח מ-1 ביוני 2026; בלי מספר הקצאה הקונה לא יכול לקזז מס תשומות",
-      "fetched_at": "2026-06-17T00:35:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/templates.md"
-      ]
-    },
-    {
-      "claim_id": "tax-invoice-fields-and-vat",
-      "claim": "A valid Israeli tax invoice (heshbonit mas) requires business name+address, 9-digit Osek Murshe number, sequential invoice number, date, customer name + TZ/company number, line items, subtotal, VAT at 18% (since Jan 2025), and total; allocation number at/above threshold",
-      "source_url": "https://he.wikipedia.org/wiki/חשבונית_מס",
-      "raw_snippet": "חשבונית מס: שם עסק, מספר עוסק מורשה, מספר חשבונית רץ, תאריך, שם הלקוח ות.ז./ח.פ., פריטים, מע\"מ 18%, סה\"כ; מע\"מ 18% מינואר 2025",
-      "fetched_at": "2026-06-17T00:35:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/templates.md"
-      ]
-    },
-    {
-      "claim_id": "hebrew-fonts-and-bidi",
-      "claim": "Hebrew document fonts (Heebo, Rubik, Assistant, Frank Ruhl Libre, David Libre, Noto Sans Hebrew) loaded via Google Fonts; Hebrew Unicode range U+0590-U+05FF; bidi reordering via get_display applied per line",
-      "source_url": "https://fonts.google.com/?subset=hebrew",
-      "raw_snippet": "Heebo Rubik Assistant Frank Ruhl Libre David Libre Noto Sans Hebrew; Hebrew Unicode U+0590-U+05FF; get_display per line",
-      "fetched_at": "2026-06-17T00:35:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md",
-        "references/hebrew-fonts.md",
-        "scripts/generate_doc.py"
-      ]
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:40:00Z"
     },
     {
       "claim_id": "reference-urls",
-      "claim": "Reference URLs cited by the skill. Covered references: URLs: https://he.wikipedia.org/wiki/חשבונית_מס https://pypi.org/project/python-bidi/ https://fonts.google.com/?subset=hebrew https://doc.courtbouillon.org/weasyprint/stable/ https://docs.reportlab.com/ https://python-docx.readthedocs.io/ https://fonts.google.com/noto/specimen/Noto+Sans+Hebrew https://fonts.google.com/noto/specimen/Noto+Serif+Hebrew https://fonts.google.com/specimen/Assistant https://fonts.google.com/specimen/David+Libre https://fonts.google.com/specimen/Frank+Ruhl+Libre https://fonts.google.com/specimen/Heebo https://fonts.google.com/specimen/Rubik",
-      "source_url": "https://he.wikipedia.org/wiki/חשבונית_מס",
-      "raw_snippet": "חשבונית – ויקיפדיה לדלג לתוכן תפריט ראשי תפריט ראשי העברה לסרגל הצד הסתרה ניווט עמוד ראשי ברוכים הבאים שינויים אחרונים ערכים מומלצים פורטלים ערך אקראי קהילה שער הקהילה עזרה ייעוץ מזנון כיכר העיר חדשות לוח מודעות יצירת קש",
+      "claim": "Reference URLs cited by the skill. Covered references: URLs: https://pypi.org/project/python-bidi/ https://fonts.google.com/?subset=hebrew https://doc.courtbouillon.org/weasyprint/stable/ https://docs.reportlab.com/ https://python-docx.readthedocs.io/ https://fonts.google.com/noto/specimen/Noto+Sans+Hebrew https://fonts.google.com/noto/specimen/Noto+Serif+Hebrew https://fonts.google.com/specimen/Assistant https://fonts.google.com/specimen/David+Libre https://fonts.google.com/specimen/Frank+Ruhl+Libre https://fonts.google.com/specimen/Heebo https://fonts.google.com/specimen/Rubik",
+      "source_url": "https://www.kolzchut.org.il/he/הוצאת_חשבונית_מס,_חשבונית_עסקה_וקבלה",
+      "raw_snippet": "עוסק פטור אינו רשאי להוציא חשבוניות מס אלא רק קבלות בגין עסקאותיו.",
       "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "navigational reference; snippet replaced with the cited page's own opening text so the entry can be falsified",
-      "verified_at": "2026-08-18"
+      "verified_via": "browser",
+      "verified_at": "2026-10-01T00:40:00Z"
     }
   ]
 }
