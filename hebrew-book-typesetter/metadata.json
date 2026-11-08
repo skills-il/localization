@@ -1,0 +1,29 @@
+{
+  "author": "skills-il",
+  "version": "1.0.0",
+  "category": "localization",
+  "tags": {
+    "he": ["עימוד", "ספרים", "הוצאה לאור עצמית", "דפוס", "ניקוד", "מסת\"ב", "ישראל"],
+    "en": ["typesetting", "books", "self-publishing", "print", "nikkud", "isbn", "israel"]
+  },
+  "display_name": {
+    "he": "עימוד ספר בעברית",
+    "en": "Hebrew Book Typesetter"
+  },
+  "display_description": {
+    "he": "הופכים קובץ וורד ארוך בעברית (ספר זיכרונות, שירה מנוקדת, חידושי תורה או ספר עיון) לקובץ PDF מוכן לבית הדפוס. הסקיל מעמד את הספר עם כריכה בצד ימין ושוליים מתחלפים, מספרי עמודים באותיות (ט\"ו ולא י\"ה), כותרות רצות, הערות שוליים ותוכן עניינים, ומחשב את מידות הכריכה והשדרה. הוא גם מסביר איך מוציאים מסת\"ב ומתי חייבים למסור עותקים לספרייה הלאומית. ככה לא משלמים על הדפסה חוזרת בגלל כריכה בצד הלא נכון, ניקוד שבור או פרטי הוצאה לאור שחסרים. אפשר לעבוד גם בלי להתקין כלום, דרך האתר typst.app. לא מיועד למסמכים קצרים, מכתבים או מצגות (בשביל זה יש את hebrew-document-generator), וגם לא לכתיבה או עריכה של הטקסט עצמו.",
+    "en": "Turn a long Hebrew Word manuscript (memoir, poetry with nikkud, chidushei torah, academic book) into a print-ready PDF. Lays out a right-bound book with mirrored margins, Hebrew-letter page numbers (tet-vav for 15, never yud-heh), running heads, footnotes and a table of contents, computes the cover and spine, and explains how to get an ISBN and when copies must be deposited at the National Library. Prevents paying for a reprint because of a wrong binding side, broken nikkud or missing imprint details. Works without installing anything through typst.app. Do NOT use for short documents, letters or slides (use hebrew-document-generator) or for writing and editing the text itself."
+  },
+  "supported_agents": [
+    "claude-code", "cursor", "github-copilot", "windsurf", "opencode", "codex",
+    "openclaw", "antigravity", "gemini-cli", "grok-build", "chatgpt", "claude-ai",
+    "claude-desktop", "manus", "gemini-spark", "grok"
+  ],
+  "volatility": "stable",
+  "authoritative_sources": [
+    { "url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)", "type": "statute", "language": "he" },
+    { "url": "https://icl.org.il/isbn", "type": "regulator", "language": "he" },
+    { "url": "https://typst.app/docs/reference/layout/page/", "type": "vendor-docs", "language": "en" }
+  ],
+  "domain_checklist_version": 1
+}

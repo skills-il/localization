@@ -1,0 +1,409 @@
+{
+  "skill_slug": "hebrew-book-typesetter",
+  "schemaVersion": "1.0",
+  "generated_at": "2026-11-08",
+  "claims": [
+    {
+      "id": "books-law-name",
+      "claim": "The legal deposit statute is the Books Law (Duty of Delivery and Specification of Particulars), 5761-2000",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "חוק הספרים (חובת מסירה וציון הפרטים), התשס״א–2000",
+      "confidence": "high"
+    },
+    {
+      "id": "deposit-2-copies",
+      "claim": "Two complete copies go free of charge to the National Library",
+      "claim_type": "threshold",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "מכל ספר ומכל עיתון היוצאים לאור בישראל, יימסרו בלא תמורה, שני עותקים, שלמים ותקינים, כפי שהוצעו לציבור, לספרייה הלאומית.",
+      "confidence": "high"
+    },
+    {
+      "id": "deposit-30-days",
+      "claim": "Copies are delivered within 30 days of publication, in person or by registered mail",
+      "claim_type": "threshold",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "הספרים יימסרו, בתוך שלושים ימים מיום הוצאתם לאור",
+      "confidence": "high"
+    },
+    {
+      "id": "deposit-50-copies",
+      "claim": "Published in Israel means offered to the public in 50 or more copies, paid or free",
+      "claim_type": "threshold",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "מופק בישראל ומוצע בישראל לציבור או לחלק מוגדר ממנו בין בתמורה ובין שלא בתמורה בחמישים עותקים או יותר",
+      "confidence": "high"
+    },
+    {
+      "id": "deposit-sections",
+      "claim": "Sections 2, 3, 4 and 5 of the Books Law set the deposit, particulars, duty-bearer and delivery rules",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "החובות לפי סעיפים 2, 3 ו־5 יחולו על הראשון מבין המפורטים להלן שיש לו מען בישראל – (1) המוציא לאור או המפיק; (2) המדפיס; (3) בעל זכות היוצרים.",
+      "confidence": "high"
+    },
+    {
+      "id": "particulars-s3",
+      "claim": "Every book published in Israel states the year of publication, year of printing, name and address of printer and publisher, and that it was published in Israel",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "בכל ספר היוצא לאור בישראל יצוינו, בתחילתו או בסופו, השנה שבה הוצא לאור, שנת ההדפסה, שמם ומענם של המדפיס והמוציא לאור או המפיק וכן כי הוצאו לאור בישראל",
+      "confidence": "high"
+    },
+    {
+      "id": "limited-audience-exemption",
+      "claim": "Regulation 1 of the Books Regulations exempts books for a limited audience such as family members or private-event guests from deposit and from the particulars duty",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/תקנות_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "לציבור מוגבל כגון: בני משפחה, משתתפי אירועים פרטיים, ועובדים או לומדים במוסד חינוכי כלשהו",
+      "confidence": "high"
+    },
+    {
+      "id": "nli-deposit-form",
+      "claim": "The National Library runs an online deposit form that issues a deposit number, after which copies are brought or mailed",
+      "claim_type": "feature",
+      "source_url": "https://www.nli.org.il/he/at-your-service/who-we-are/depositing",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "1. מילוי טופס ההפקדה 2. קבלת מספר הפקדה ומידע על אופן ההפקדה 3. הגעה לספרייה להפקיד או שליחת העותקים בדואר",
+      "confidence": "high",
+      "verified_via": "browser",
+      "verified_at": "2026-11-08"
+    },
+    {
+      "id": "isbn-agency",
+      "claim": "The Israel Center for Libraries is the Israeli ISBN agency",
+      "claim_type": "company",
+      "source_url": "https://icl.org.il/isbn",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "בחרה ב'המרכז לספריות וספרות בישראל', לשמש כנציג הישראלי בענייני ISBN",
+      "confidence": "high"
+    },
+    {
+      "id": "isbn-price-single",
+      "claim": "A single ISBN with a barcode costs 195 NIS",
+      "claim_type": "currency",
+      "source_url": "https://icl.org.il/isbn",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "1 ISBN כולל ברקוד – 195 ₪",
+      "confidence": "high"
+    },
+    {
+      "id": "isbn-delivery",
+      "claim": "Standard ISBN allocation takes 5 working days",
+      "claim_type": "threshold",
+      "source_url": "https://icl.org.il/isbn",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "ISBN יוקצה תוך 5 ימי עבודה ממועד קבלת ההזמנה והתשלום במשרדנו",
+      "confidence": "high"
+    },
+    {
+      "id": "isbn-4-singles",
+      "claim": "At most 4 single ISBNs can be bought, then blocks of 10, 100 or 1,000",
+      "claim_type": "threshold",
+      "source_url": "https://icl.org.il/isbn",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "ניתן לרכוש עד 4 מספרי ISBN בודדים בלבד",
+      "confidence": "high"
+    },
+    {
+      "id": "isbn-placement",
+      "claim": "The ISBN is printed on the back of the title page and on the back cover, with the barcode on the back cover",
+      "claim_type": "feature",
+      "source_url": "https://icl.org.il/isbn",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "ISBN יש להדפיס מעבר לשער (עמוד המוציא לאור) ועל גבי הכריכה האחורית.",
+      "confidence": "high"
+    },
+    {
+      "id": "isbn-not-copyright",
+      "claim": "An ISBN does not protect copyright",
+      "claim_type": "feature",
+      "source_url": "https://icl.org.il/isbn",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "ISBN אינו משמש להגנה על זכויות יוצרים על הפרסום.",
+      "confidence": "high"
+    },
+    {
+      "id": "isbn-per-format",
+      "claim": "Softcover and hardcover each need their own ISBN, and a new edition needs a new ISBN",
+      "claim_type": "feature",
+      "source_url": "https://icl.org.il/isbn",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "פורמט שונה – בכל שינוי בפורמט יש להקצות ISBN חדש",
+      "confidence": "high"
+    },
+    {
+      "id": "isbn-978-965",
+      "claim": "Israeli ISBNs start 978-965",
+      "claim_type": "threshold",
+      "source_url": "https://icl.org.il/isbn",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "978 – קידומת כללית 965 – ישראל",
+      "confidence": "high"
+    },
+    {
+      "id": "trim-a5",
+      "claim": "A5 (14.8 x 21 cm) is the most common book size in Israel",
+      "claim_type": "threshold",
+      "source_url": "https://printabook.co.il/size/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "גודל A5 (14.8 × 21 ס\"מ) הוא הגודל הנפוץ ביותר להדפסת ספרים בישראל ובעולם.",
+      "confidence": "high"
+    },
+    {
+      "id": "trim-17x24",
+      "claim": "Common Israeli trim sizes include A4, A5 and 17 x 24 cm",
+      "claim_type": "threshold",
+      "source_url": "https://dfus.co.il/page-size-and-layout/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "הגדלים המקובלים הינם A4 (דף סטנדרטי), A5 (חצי דף) חצי שמינית – 17 על 24 ס\"מ",
+      "confidence": "high"
+    },
+    {
+      "id": "margins-dfus",
+      "claim": "Dfus Eichut recommends 2 cm margins all round, or 2.8 cm top and 2.2 cm bottom with a running head",
+      "claim_type": "threshold",
+      "source_url": "https://dfus.co.il/page-size-and-layout/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "אנחנו מציעים לקבוע ערך של 2.8 ס\"מ בשוליים העליונים וערך של 2.2 ס\"מ בשוליים התחתוניים",
+      "confidence": "high"
+    },
+    {
+      "id": "margins-printabook",
+      "claim": "PrintaBook asks for margins of at least 1.5 cm",
+      "claim_type": "threshold",
+      "source_url": "https://printabook.co.il/blog/book-formatting-guide/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "לפחות 1.5 ס\"מ",
+      "confidence": "high"
+    },
+    {
+      "id": "bleed-3mm",
+      "claim": "Armon Rama requires 3 mm bleed on each side, 300 DPI and two separate PDFs for interior and cover",
+      "claim_type": "threshold",
+      "source_url": "https://www.armonrama.co.il/מוצרים/הדפסת-ספרים-בכמויות-קטנות/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "חובה להוסיף 3 מ\"מ גלישה מכל צד.",
+      "confidence": "high"
+    },
+    {
+      "id": "pdf-separate-files",
+      "claim": "Print shops want the interior and cover as separate PDF files",
+      "claim_type": "feature",
+      "source_url": "https://sdar.co.il/books-printing/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "בפורמט PDF עמודי פנים בקובץ נפרד, וכריכה בקובץ נפרד.",
+      "confidence": "high"
+    },
+    {
+      "id": "pdf-never-word",
+      "claim": "Print shops receive a PDF, never a Word file",
+      "claim_type": "feature",
+      "source_url": "https://dfus.co.il/products-pages/books-printing/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "לבית דפוס מגיעים תמיד עם קובץ PDF. לעולם לא קובץ Word",
+      "confidence": "high"
+    },
+    {
+      "id": "spine-leaves",
+      "claim": "Spine width is the number of leaves times sheet thickness, where a leaf is 2 pages; Meiri lists 80 g uncoated paper at 0.1 mm",
+      "claim_type": "threshold",
+      "source_url": "https://www.meiri-pr.com/blank-rbnaz",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "שימו לב לא להתבלבל בן דף לעמוד: דף=2 עמודים",
+      "confidence": "high"
+    },
+    {
+      "id": "page-numbers-no-gershayim",
+      "claim": "The Academy of the Hebrew Language says letters used for page numbers need no geresh or gershayim",
+      "claim_type": "feature",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "באותיות המשמשות לציון מספרים בעיקר של פרקים, פסוקים, עמודים, שורות וכדומה, אין צורך לשים גרש או גרשיים",
+      "confidence": "high",
+      "verified_via": "browser",
+      "verified_at": "2026-11-08"
+    },
+    {
+      "id": "numerals-15-16",
+      "claim": "By convention 15 and 16 are written as tet-vav and tet-zayin",
+      "claim_type": "feature",
+      "source_url": "https://en.wikipedia.org/wiki/Hebrew_numerals",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "By convention, the numbers 15 and 16 are represented as ט״ו (9 + 6) and ט״ז (9 + 7)",
+      "confidence": "high"
+    },
+    {
+      "id": "typst-binding",
+      "claim": "Typst binds on the right for right-to-left text and supports inside/outside margins and a bleed that writes a TrimBox",
+      "claim_type": "feature",
+      "source_url": "https://typst.app/docs/reference/layout/page/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "In PDF export, if the bleed is non-zero, a TrimBox is defined for the page.",
+      "confidence": "high"
+    },
+    {
+      "id": "typst-binding-auto",
+      "claim": "Typst binding auto equals right for right-to-left text",
+      "claim_type": "feature",
+      "source_url": "https://typst.app/docs/reference/layout/page/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "Equivalent to left if the text direction is left-to-right and right if it is right-to-left.",
+      "confidence": "high"
+    },
+    {
+      "id": "typst-pdf-standards",
+      "claim": "Typst exports PDF 1.4 to 2.0, PDF/A and PDF/UA-1, and PDF/X is not among the valid standards",
+      "claim_type": "feature",
+      "source_url": "https://typst.app/docs/reference/pdf/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "Valid standards are 1.4 , 1.5 , 1.6 , 1.7 , 2.0 , a-1b , a-1a , a-2b , a-2u , a-2a , a-3b , a-3u , a-3a , a-4 , a-4f , a-4e , and ua-1",
+      "confidence": "high"
+    },
+    {
+      "id": "pandoc-typst",
+      "claim": "pandoc can write Typst output and reads docx",
+      "claim_type": "feature",
+      "source_url": "https://pandoc.org/MANUAL.html",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "typst ( typst )",
+      "confidence": "high"
+    },
+    {
+      "id": "pandoc-extract-media",
+      "claim": "pandoc extracts images from a docx with --extract-media",
+      "claim_type": "cli-command",
+      "source_url": "https://pandoc.org/MANUAL.html",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "--extract-media=DIR|FILE.zip",
+      "confidence": "high"
+    },
+    {
+      "id": "font-david-libre-ofl",
+      "claim": "David Libre is licensed under the SIL Open Font License 1.1",
+      "claim_type": "feature",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/davidlibre/OFL.txt",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "This Font Software is licensed under the SIL Open Font License, Version 1.1.",
+      "confidence": "high"
+    },
+    {
+      "id": "font-frank-ruhl-ofl",
+      "claim": "Frank Ruhl Libre is licensed under the SIL Open Font License 1.1",
+      "claim_type": "feature",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/frankruhllibre/OFL.txt",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "This Font Software is licensed under the SIL Open Font License, Version 1.1.",
+      "confidence": "high"
+    },
+    {
+      "id": "font-noto-rashi-ofl",
+      "claim": "Noto Rashi Hebrew is licensed under the SIL Open Font License 1.1",
+      "claim_type": "feature",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notorashihebrew/OFL.txt",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "This Font Software is licensed under the SIL Open Font License, Version 1.1.",
+      "confidence": "high"
+    },
+    {
+      "id": "font-ezra-sil",
+      "claim": "Ezra SIL is a Biblical Hebrew font for cantillation under the OFL",
+      "claim_type": "feature",
+      "source_url": "https://software.sil.org/ezra/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "Ezra SIL is a typeface fashioned after the square letter forms of the typography of the Biblia Hebraica Stuttgartensia (BHS)",
+      "confidence": "high"
+    },
+    {
+      "id": "typst-app",
+      "claim": "typst.app is the web editor where a project can be exported as PDF",
+      "claim_type": "url",
+      "source_url": "https://typst.app/docs/reference/pdf/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "Click the quick download button at the top right to export a PDF with default settings.",
+      "confidence": "high"
+    },
+    {
+      "id": "books-law-section-3",
+      "claim": "Section 3 of the Books Law sets the particulars every book must state, and failing to state them is an offence",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "אינו מציין בספר את הפרטים הנקובים בסעיף 3",
+      "confidence": "high"
+    },
+    {
+      "id": "isbn-price-no-barcode",
+      "claim": "A single ISBN without a barcode costs 160 NIS",
+      "claim_type": "currency",
+      "source_url": "https://icl.org.il/isbn",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "1 ISBN ללא ברקוד – 160 ₪",
+      "confidence": "high"
+    },
+    {
+      "id": "knesset-copy",
+      "claim": "A book needed for the Knesset's work goes, one copy, to the Knesset Library for payment",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "הנחוץ לעבודתה של הכנסת",
+      "confidence": "high"
+    },
+    {
+      "id": "archives-copy",
+      "claim": "One copy of a paper book goes free to the State Archives on its request",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "על פי בקשתו",
+      "confidence": "high"
+    },
+    {
+      "id": "penalty-s8",
+      "claim": "Failing to deposit or to state the section 3 particulars is punishable by a fine under the Penal Law",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "דינו – קנס כאמור בסעיף 61(א)(3) לחוק העונשין",
+      "confidence": "high"
+    },
+    {
+      "id": "digital-deposit",
+      "claim": "Electronic editions are delivered in the format they are distributed in, with passwords removed, through a dedicated part of the National Library website",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/תקנות_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "יימסרו באמצעות תת־אתר ייעודי באתר האינטרנט של הספרייה הלאומית",
+      "confidence": "high"
+    },
+    {
+      "id": "reprint-deposit",
+      "claim": "A re-publication with any change in content or form must be deposited again",
+      "claim_type": "law",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הספרים_(חובת_מסירה_וציון_הפרטים)",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "אם חל שינוי כלשהו בתוכנו או בצורתו",
+      "confidence": "high"
+    },
+    {
+      "id": "academy-hebrew",
+      "claim": "Hebrew-letter numerals used for pages need no geresh or gershayim per the Academy",
+      "claim_type": "feature",
+      "source_url": "https://hebrew-academy.org.il/topic/hahlatot/punctuation/",
+      "source_fetched_at": "2026-11-08T00:00:00Z",
+      "raw_snippet": "אין צורך לשים גרש או גרשיים",
+      "confidence": "high",
+      "verified_via": "browser",
+      "verified_at": "2026-11-08"
+    }
+  ]
+}
