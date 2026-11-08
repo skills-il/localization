@@ -1,0 +1,41 @@
+{
+  "author": "skills-il",
+  "version": "1.0.0",
+  "category": "localization",
+  "tags": {
+    "he": [
+      "תרגום",
+      "עברית",
+      "RTL",
+      "מסמכי-Word",
+      "PDF",
+      "תבניות"
+    ],
+    "en": [
+      "translation",
+      "hebrew",
+      "rtl",
+      "word-documents",
+      "pdf",
+      "templates"
+    ]
+  },
+  "display_name": {
+    "he": "תרגום מסמכים לעברית",
+    "en": "Hebrew Document Translation"
+  },
+  "display_description": {
+    "he": "תרגום מסמכים (PDF, Word, טקסט חופשי) מאנגלית לעברית מקצועית וברמת פרסום - תוך שמירה על מבנה, עיצוב, טבלאות ומינוח, עם פריסת RTL תקינה. מתאים לכל סוג מסמך ולכל ארגון או תחום - דוחות, חוזים, מדריכים, חומרי שיווק, מסמכים משפטיים או פיננסיים, התכתבויות, מבחנים, ועוד. השתמשו בזה כשהמשתמש מבקש לתרגם מסמך כלשהו לעברית; כשהוא רוצה שהתרגום יימסר כקובץ Word/PDF מעוצב ולא כטקסט צ'אט רגיל; וכשהוא מבקש שתרגום חדש \"יתאים\", \"יתיישר לפי\" או \"ייראה כמו\" הסגנון/התבנית של מסמך עברי קודם או מסמך ייחוס (עמוד שער, כותרות עליונות/תחתונות, תוכן עניינים, עיצוב טבלאות, מינוח). השתמשו גם כשהמשתמש מבקש לבנות תבנית/סקיל לשימוש חוזר לעבודת תרגום מסוג זה.",
+    "en": "Translate documents (PDF, Word, plain text) from English into professional, publication-quality Hebrew - preserving structure, formatting, tables, and terminology, with correct RTL layout. Works for any document type or field - reports, contracts, manuals, marketing materials, legal or financial documents, correspondence, exams, or anything else - and any organization. Use this whenever the user asks to translate any document into Hebrew; whenever they want a Hebrew translation delivered as a proper Word/PDF file rather than plain chat text; and whenever they ask a new translation to \"match\", \"align to\", or \"look like\" the style/template of a previous or reference Hebrew document (cover page, headers/footers, table of contents, table styling, terminology). Also use when the user asks to build a reusable template/skill for this kind of translation work."
+  },
+  "supported_agents": [
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "windsurf",
+    "opencode",
+    "codex",
+    "antigravity",
+    "gemini-cli"
+  ]
+}
