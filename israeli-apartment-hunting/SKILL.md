@@ -53,6 +53,7 @@ Multiple platforms serve the Israeli rental market. Using several simultaneously
 | Facebook Groups | Social | Direct from owners, negotiable, fast | קבוצות פייסבוק |
 | Homeless | Website | Long-running rentals and roommates board (Hebrew interface) | הומלס |
 | Komo | Website | Older classifieds board with a rentals section | קומו |
+| doortodoor | Website | One search across many listing sources, including owner listings from groups; free natural-language search in Hebrew or English (no signup); optional paid WhatsApp alerts on new listings | דורטודור |
 | Real estate agents | In-person | Access to unlisted properties, local knowledge | סוכני נדל"ן |
 
 WinWin, which older guides still list, shut down in 2020. Do not send users there.
